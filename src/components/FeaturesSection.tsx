@@ -99,7 +99,7 @@ const FeaturesSection = () => {
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
                 Get Pre-Qualified
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white/10">
                 Schedule Consultation
               </Button>
             </div>
