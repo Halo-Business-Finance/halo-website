@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { 
   Facebook, 
   Twitter, 
-  Instagram, 
   Linkedin, 
-  Youtube,
   Mail,
   Phone,
   MapPin
@@ -175,13 +173,7 @@ const Footer = () => {
                   <Twitter className="h-4 w-4" />
                 </a>
                 <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-                  <Instagram className="h-4 w-4" />
-                </a>
-                <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
                   <Linkedin className="h-4 w-4" />
-                </a>
-                <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
-                  <Youtube className="h-4 w-4" />
                 </a>
               </div>
             </div>
