@@ -236,7 +236,7 @@ const ProductsSection = () => {
             alt="Professional loan consultation meeting"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-16 px-8">
+          <div className="relative bg-gradient-to-r from-financial-navy/70 to-primary/60 text-white py-16 px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Fuel Your Business Growth?
