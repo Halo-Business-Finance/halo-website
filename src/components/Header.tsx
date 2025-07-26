@@ -14,24 +14,29 @@ const Header = () => {
 
   const navItems = [
     {
-      title: "Personal",
-      href: "/personal",
-      items: ["Checking & Savings", "Credit Cards", "Loans & Mortgages", "Investing"]
+      title: "SBA Loans",
+      href: "/sba-loans",
+      items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "SBA Microloans"]
     },
     {
-      title: "Business", 
-      href: "/business",
-      items: ["Business Checking", "Business Credit Cards", "Business Loans", "Merchant Services"]
+      title: "Commercial Loans", 
+      href: "/commercial-loans",
+      items: ["Commercial Real Estate", "Purchase Loans", "Refinance Loans", "Construction Loans"]
     },
     {
-      title: "Commercial",
-      href: "/commercial", 
-      items: ["Treasury Management", "Commercial Lending", "International Banking", "Industry Solutions"]
+      title: "Equipment Financing",
+      href: "/equipment-financing", 
+      items: ["Equipment Loans", "Equipment Leasing", "Heavy Equipment", "Medical Equipment"]
     },
     {
-      title: "Wealth Management",
-      href: "/wealth",
-      items: ["Private Banking", "Investment Management", "Trust Services", "Estate Planning"]
+      title: "Business Capital",
+      href: "/business-capital",
+      items: ["Working Capital", "Business Line of Credit", "Term Loans", "Revenue Based Financing"]
+    },
+    {
+      title: "Resources",
+      href: "/resources",
+      items: ["Loan Calculator", "Pre-qualification", "Industry Solutions", "Contact Us"]
     }
   ];
 
