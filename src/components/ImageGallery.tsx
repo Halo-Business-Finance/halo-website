@@ -3,11 +3,15 @@ import businessMeeting from "@/assets/business-meeting.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
 import businessHandshake from "@/assets/business-handshake.jpg";
 import equipmentFinancing from "@/assets/equipment-financing.jpg";
+import financialConsultation from "@/assets/financial-consultation.jpg";
+import manufacturingFacility from "@/assets/manufacturing-facility.jpg";
+import retailStorefront from "@/assets/retail-storefront.jpg";
+import businessSigning from "@/assets/business-signing.jpg";
 
 const ImageGallery = () => {
   const galleryItems = [
     {
-      image: businessMeeting,
+      image: financialConsultation,
       title: "Expert Consultation",
       description: "Our experienced loan officers work closely with you to understand your business needs and find the right financing solution."
     },
@@ -17,9 +21,19 @@ const ImageGallery = () => {
       description: "Financing solutions for office buildings, retail spaces, warehouses, and other commercial properties."
     },
     {
-      image: businessHandshake,
-      title: "Successful Partnerships",
-      description: "Building lasting relationships with businesses across industries through reliable financing and exceptional service."
+      image: businessSigning,
+      title: "Quick Approvals",
+      description: "Streamlined application process with fast decision times to get your business the funding it needs when it needs it."
+    },
+    {
+      image: manufacturingFacility,
+      title: "Industry Expertise", 
+      description: "Specialized financing solutions for manufacturing, retail, healthcare, construction, and technology sectors."
+    },
+    {
+      image: retailStorefront,
+      title: "Small Business Support",
+      description: "Dedicated support for small and medium businesses with flexible terms and competitive rates."
     },
     {
       image: equipmentFinancing,
@@ -40,7 +54,7 @@ const ImageGallery = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryItems.map((item, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-64 overflow-hidden">
