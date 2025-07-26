@@ -5,12 +5,21 @@ import HeroSection from "@/components/HeroSection";
 import ProductsSection from "@/components/ProductsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer";
+import { CrawlForm } from "@/components/CrawlForm";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      
+      {/* Website Import Section */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <CrawlForm />
+        </div>
+      </section>
+      
       <ProductsSection />
       <FeaturesSection />
       <Footer />
