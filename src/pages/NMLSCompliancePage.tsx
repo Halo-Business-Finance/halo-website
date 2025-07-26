@@ -144,8 +144,8 @@ const NMLSCompliancePage = () => {
               <CardContent>
                 <div className="space-y-4 text-sm text-muted-foreground">
                   <p>
-                    <strong>Marketplace Role:</strong> Halo Business Finance operates as a commercial loan marketplace 
-                    connecting borrowers with qualified lenders. We are not a direct lender and do not make lending decisions.
+                    <strong>Direct Lender:</strong> Halo Business Finance is a direct CRE & equipment lender 
+                    providing commercial financing solutions to businesses nationwide.
                   </p>
                   <p>
                     <strong>Loan Approval:</strong> All loan programs are subject to credit approval and terms may vary by lender. 

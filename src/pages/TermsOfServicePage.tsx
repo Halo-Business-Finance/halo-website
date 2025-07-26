@@ -42,7 +42,7 @@ const TermsOfServicePage = () => {
               </CardHeader>
               <CardContent className="space-y-4 text-muted-foreground">
                 <p>
-                  Halo Business Finance operates as a commercial loan marketplace that connects business borrowers with qualified lenders. Our services include:
+                  Halo Business Finance is a direct CRE & equipment lender providing commercial financing solutions to businesses. Our services include:
                 </p>
                 <ul className="list-disc list-inside space-y-2">
                   <li>Loan application processing and submission to lenders</li>
@@ -51,7 +51,7 @@ const TermsOfServicePage = () => {
                   <li>Customer support throughout the lending process</li>
                 </ul>
                 <p className="font-semibold text-foreground">
-                  Important: We are not a direct lender and do not make lending decisions. All loan approvals and terms are determined by individual lenders in our network.
+                  Important: As a direct CRE & equipment lender, we make our own lending decisions and underwrite loans directly. All loan approvals and terms are determined by our underwriting team.
                 </p>
               </CardContent>
             </Card>

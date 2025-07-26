@@ -199,8 +199,8 @@ const Footer = () => {
                 Loan programs subject to credit approval and terms may vary by lender.
               </p>
               <p>
-                Halo Business Finance is a commercial loan marketplace connecting borrowers with lenders. 
-                We are not a direct lender.
+                Halo Business Finance is a direct CRE & equipment lender providing commercial financing solutions 
+                to businesses nationwide.
               </p>
             </div>
           </div>
