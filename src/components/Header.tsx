@@ -45,6 +45,51 @@ const Header = () => {
     }
   ];
 
+  const getItemLink = (parentTitle: string, itemTitle: string) => {
+    const linkMap: { [key: string]: { [key: string]: string } } = {
+      "Company": {
+        "Company Overview": "/company-overview",
+        "About Us": "/about-us",
+        "Contact Us": "/contact-us", 
+        "Careers": "/careers"
+      },
+      "SBA Loans": {
+        "SBA 7(a) Loans": "/sba-7a-loans",
+        "SBA 504 Loans": "/sba-504-loans",
+        "SBA Express Loans": "/sba-express-loans",
+        "SBA Microloans": "/sba-microloans",
+        "Bridge Loans": "/bridge-loans"
+      },
+      "Commercial Loans": {
+        "Conventional Loans": "/conventional-loans",
+        "Purchase Loans": "/purchase-loans",
+        "Refinance Loans": "/refinance-loans",
+        "Construction Loans": "/construction-loans",
+        "Bridge Financing": "/bridge-financing"
+      },
+      "Equipment Financing": {
+        "Equipment Loans": "/equipment-loans",
+        "Equipment Leasing": "/equipment-leasing",
+        "Heavy Equipment": "/heavy-equipment",
+        "Medical Equipment": "/medical-equipment"
+      },
+      "Business Capital": {
+        "Working Capital": "/working-capital",
+        "Business Line of Credit": "/business-line-of-credit",
+        "Term Loans": "/term-loans",
+        "Revenue Based Financing": "/revenue-based-financing"
+      },
+      "Resources": {
+        "Loan Calculator": "/loan-calculator",
+        "Pre-qualification": "/pre-qualification",
+        "Industry Solutions": "/industry-solutions",
+        "Contact Us": "/contact-us"
+      }
+    };
+    
+    return linkMap[parentTitle]?.[itemTitle] || "#";
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       {/* Top utility bar */}
@@ -85,8 +130,8 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-background border shadow-lg">
                   {item.items.map((subItem) => (
-                    <DropdownMenuItem key={subItem} className="hover:bg-muted">
-                      {subItem}
+                    <DropdownMenuItem key={subItem} className="hover:bg-muted" asChild>
+                      <a href={getItemLink(item.title, subItem)}>{subItem}</a>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -136,7 +181,7 @@ const Header = () => {
                           {item.items.map((subItem) => (
                             <a
                               key={subItem}
-                              href="#"
+                              href={getItemLink(item.title, subItem)}
                               className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                             >
                               {subItem}

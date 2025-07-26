@@ -1,0 +1,260 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, CreditCard, TrendingUp, DollarSign, ArrowRight } from "lucide-react";
+import businessLoanApproved from "@/assets/business-loan-approved.jpg";
+import loanConsultation from "@/assets/loan-consultation.jpg";
+
+const BusinessCapitalPage = () => {
+  const capitalProducts = [
+    {
+      title: "Working Capital Loans",
+      description: "Short-term financing to bridge cash flow gaps and fund day-to-day operations.",
+      rate: "Prime + 1%",
+      amount: "Up to $2 Million",
+      term: "3-24 Months",
+      features: ["Quick approval", "Flexible repayment", "No collateral required", "Use for any business purpose"],
+      link: "/working-capital",
+      badge: "Fast Funding"
+    },
+    {
+      title: "Business Line of Credit",
+      description: "Revolving credit facility that provides flexible access to capital when you need it.",
+      rate: "Prime + 2%",
+      amount: "Up to $500,000",
+      term: "Revolving",
+      features: ["Draw as needed", "Pay interest only on used funds", "Revolving credit", "Build business credit"],
+      link: "/business-line-of-credit",
+      badge: "Flexible Access"
+    },
+    {
+      title: "Term Loans",
+      description: "Fixed-rate business loans for major investments and long-term growth initiatives.",
+      rate: "5.75%",
+      amount: "Up to $10 Million",
+      term: "1-10 Years",
+      features: ["Fixed monthly payments", "Competitive rates", "Quick approval", "Multiple use cases"],
+      link: "/term-loans",
+      badge: "Popular"
+    },
+    {
+      title: "Revenue Based Financing",
+      description: "Alternative financing based on your business revenue with flexible repayment.",
+      rate: "Factor Rate 1.2-1.5",
+      amount: "Up to $500,000",
+      term: "3-18 Months",
+      features: ["No fixed payments", "Based on revenue", "Quick funding", "No personal guarantees"],
+      link: "/revenue-based-financing",
+      badge: "Alternative"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Business Capital Solutions for Every Need
+              </h1>
+              <p className="text-xl mb-8 opacity-90">
+                Access the working capital your business needs to grow, manage cash flow, and seize opportunities with our flexible financing solutions.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+                  Get Capital Quote
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  Schedule Consultation
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src={businessLoanApproved} 
+                alt="Business capital approval celebration"
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Capital Products */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Flexible Capital Solutions
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From working capital to lines of credit, we offer the right financing solution to support your business operations and growth.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {capitalProducts.map((product, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow relative">
+                {product.badge && (
+                  <Badge className="absolute top-4 right-4 bg-primary text-white">
+                    {product.badge}
+                  </Badge>
+                )}
+                <CardHeader>
+                  <CardTitle className="text-2xl mb-4">{product.title}</CardTitle>
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    <div>
+                      <div className="text-lg font-bold text-primary">{product.rate}</div>
+                      <div className="text-sm text-muted-foreground">Rate/Factor</div>
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-primary">{product.amount}</div>
+                      <div className="text-sm text-muted-foreground">Amount</div>
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-primary">{product.term}</div>
+                      <div className="text-sm text-muted-foreground">Terms</div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">{product.description}</p>
+                  
+                  <div className="space-y-3 mb-6">
+                    {product.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button className="w-full group" asChild>
+                    <a href={product.link}>
+                      Learn More
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Working Capital Uses */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Can You Use Business Capital For?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our business capital solutions can be used for a wide variety of business needs.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              "Inventory Purchase",
+              "Payroll & Benefits", 
+              "Marketing Campaigns",
+              "Equipment Repairs",
+              "Seasonal Cash Flow",
+              "Business Expansion",
+              "Technology Upgrades",
+              "Emergency Expenses"
+            ].map((use, index) => (
+              <Card key={index} className="text-center p-4">
+                <CardContent className="p-0">
+                  <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <h3 className="font-semibold">{use}</h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why Choose Our Business Capital Solutions?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center p-6">
+              <CardContent className="p-0">
+                <CreditCard className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">Fast Access</h3>
+                <p className="text-muted-foreground">
+                  Quick approval and funding to meet urgent business capital needs and opportunities.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6">
+              <CardContent className="p-0">
+                <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">Flexible Repayment</h3>
+                <p className="text-muted-foreground">
+                  Repayment options that work with your business cash flow and seasonal variations.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6">
+              <CardContent className="p-0">
+                <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">Build Credit</h3>
+                <p className="text-muted-foreground">
+                  Establish and improve your business credit profile with responsible capital management.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-16 overflow-hidden">
+        <img 
+          src={loanConsultation} 
+          alt="Business capital consultation"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Need Capital for Your Business?
+            </h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+              Our business capital specialists are ready to help you find the right financing solution for your needs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+                Get Capital Quote
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                Speak with Specialist
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default BusinessCapitalPage;
