@@ -14,8 +14,14 @@ const CompanyOverview = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-financial-navy to-primary py-16">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1556155092-490a1ba16284" 
+          alt="Professional office workspace representing company overview"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               About Halo Business Finance
