@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { CheckCircle, CreditCard, TrendingUp, DollarSign, ArrowRight } from "lucide-react";
 import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
@@ -136,10 +137,10 @@ const BusinessCapitalPage = () => {
                   </div>
 
                   <Button className="w-full group" asChild>
-                    <a href={product.link}>
+                    <Link to={product.link}>
                       Learn More
                       <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

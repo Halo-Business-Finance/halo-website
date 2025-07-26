@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
 import { Shield, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -110,9 +111,9 @@ const HeroSection = () => {
                         <input type="checkbox" className="mr-2" />
                         Remember me
                       </label>
-                      <a href="#" className="text-primary hover:underline">
+                      <Link to="/contact-us" className="text-primary hover:underline">
                         Forgot password?
-                      </a>
+                      </Link>
                     </div>
 
                     <Button type="submit" className="w-full h-11 font-medium">
@@ -122,9 +123,9 @@ const HeroSection = () => {
 
                   <div className="text-center text-sm text-gray-600">
                     New to Halo Business Finance?{" "}
-                     <a href="#" className="text-primary hover:underline font-medium">
+                     <Link to="/pre-qualification" className="text-primary hover:underline font-medium">
                        Apply for financing
-                     </a>
+                     </Link>
                   </div>
                 </div>
               </CardContent>

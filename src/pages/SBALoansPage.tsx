@@ -4,6 +4,7 @@ import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { CheckCircle, DollarSign, Clock, Users, ArrowRight } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -152,10 +153,10 @@ const SBALoansPage = () => {
                   </div>
 
                   <Button className="w-full group" asChild>
-                    <a href={product.link}>
+                    <Link to={product.link}>
                       Learn More About {product.title}
                       <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

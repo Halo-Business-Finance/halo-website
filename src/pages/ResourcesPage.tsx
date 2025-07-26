@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Calculator, FileText, Building2, Phone, Mail, MapPin } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 
@@ -102,7 +103,7 @@ const ResourcesPage = () => {
                   <h3 className="text-2xl font-semibold mb-4">{resource.title}</h3>
                   <p className="text-muted-foreground mb-6">{resource.description}</p>
                   <Button asChild>
-                    <a href={resource.link}>{resource.cta}</a>
+                    <Link to={resource.link}>{resource.cta}</Link>
                   </Button>
                 </CardContent>
               </Card>
