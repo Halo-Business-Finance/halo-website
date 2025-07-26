@@ -126,7 +126,7 @@ const ProductsSection = () => {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <product.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{product.title}</CardTitle>
+                   <h3 className="text-xl">{product.title}</h3>
                 </div>
                 <div className="text-center py-4">
                   <div className="text-3xl font-bold text-primary">{product.rate}</div>
@@ -173,7 +173,7 @@ const ProductsSection = () => {
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <product.icon className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle className="text-xl">{product.title}</CardTitle>
+                    <h3 className="text-xl">{product.title}</h3>
                   </div>
                   <div className="text-center py-4">
                     <div className="text-3xl font-bold text-primary">{product.rate}</div>
