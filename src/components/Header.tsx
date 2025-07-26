@@ -19,24 +19,24 @@ const Header = () => {
       items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "SBA Microloans"]
     },
     {
-      title: "Commercial Real Estate", 
-      href: "/commercial-real-estate",
-      items: ["Purchase Loans", "Refinance Loans", "Construction Loans", "Bridge Loans"]
+      title: "Commercial Loans", 
+      href: "/commercial-loans",
+      items: ["Commercial Real Estate", "Purchase Loans", "Refinance Loans", "Construction Loans"]
     },
     {
       title: "Equipment Financing",
       href: "/equipment-financing", 
-      items: ["Equipment Loans", "Equipment Leasing", "Commercial Vehicle Finance", "Heavy Equipment"]
+      items: ["Equipment Loans", "Equipment Leasing", "Heavy Equipment", "Medical Equipment"]
     },
     {
-      title: "Working Capital",
-      href: "/working-capital",
-      items: ["Working Capital Loans", "Business Line of Credit", "Invoice Factoring", "Revenue Based Financing"]
+      title: "Business Capital",
+      href: "/business-capital",
+      items: ["Working Capital", "Business Line of Credit", "Term Loans", "Revenue Based Financing"]
     },
     {
       title: "Resources",
       href: "/resources",
-      items: ["Loan Calculator", "Pre-qualification", "How It Works", "Get Started"]
+      items: ["Loan Calculator", "Pre-qualification", "Industry Solutions", "Contact Us"]
     }
   ];
 
