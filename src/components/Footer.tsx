@@ -43,9 +43,7 @@ const Footer = () => {
     { name: "About Us", link: "/about-us" },
     { name: "How It Works", link: "/how-it-works" },
     { name: "Marketplace Benefits", link: "/marketplace-benefits" },
-    { name: "NMLS Compliance", link: "/nmls-compliance" },
-    { name: "Privacy Policy", link: "/privacy-policy" },
-    { name: "Terms of Service", link: "/terms-of-service" }
+    { name: "NMLS Compliance", link: "/nmls-compliance" }
   ];
 
   return (
