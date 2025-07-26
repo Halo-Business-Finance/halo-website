@@ -48,29 +48,11 @@ const Footer = () => {
     "Terms of Service"
   ];
 
-  const brokerLinks = [
-    "Become a Broker Partner",
-    "Broker Portal",
-    "Commission Structure",
-    "Marketing Resources",
-    "Training & Support",
-    "Broker Application"
-  ];
-
-  const lenderLinks = [
-    "Become a Lender",
-    "Lender Portal",
-    "Loan Requirements",
-    "Underwriting Guidelines",
-    "Platform Benefits",
-    "Lender Application"
-  ];
-
   return (
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-8 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Company info and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-6">
@@ -166,34 +148,6 @@ const Footer = () => {
               {companyLinks.map((link) => (
                 <li key={link}>
                   <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Broker Links */}
-          <div>
-            <h4 className="font-semibold mb-4">For Brokers</h4>
-            <ul className="space-y-2">
-              {brokerLinks.map((link) => (
-                <li key={link}>
-                  <a href="/brokers" className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Lender Links */}
-          <div>
-            <h4 className="font-semibold mb-4">For Lenders</h4>
-            <ul className="space-y-2">
-              {lenderLinks.map((link) => (
-                <li key={link}>
-                  <a href="/lenders" className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link}
                   </a>
                 </li>
