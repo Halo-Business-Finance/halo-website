@@ -65,8 +65,14 @@ const CommercialLoansPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44" 
+          alt="Professional business handshake representing commercial loans"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
