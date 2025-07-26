@@ -4,13 +4,24 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Shield, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[600px] flex items-center">
-      <div className="container mx-auto px-4 py-16">
+    <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[600px] flex items-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBackground} 
+          alt="Commercial Real Estate Skyline"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-financial-navy/80" />
+      </div>
+      
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Hero content */}
           <div className="text-white space-y-8">
