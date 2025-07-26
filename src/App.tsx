@@ -32,6 +32,13 @@ import RevenueBasedFinancingPage from "./pages/RevenueBasedFinancingPage";
 import LoanCalculatorPage from "./pages/LoanCalculatorPage";
 import PreQualificationPage from "./pages/PreQualificationPage";
 import IndustrySolutionsPage from "./pages/IndustrySolutionsPage";
+import HowItWorksPage from "./pages/HowItWorksPage";
+import MarketplaceBenefitsPage from "./pages/MarketplaceBenefitsPage";
+import NMLSCompliancePage from "./pages/NMLSCompliancePage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
+import AccessibilityPage from "./pages/AccessibilityPage";
+import SiteMapPage from "./pages/SiteMapPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import WorkingCapitalPage from "./pages/WorkingCapitalPage";
@@ -88,6 +95,13 @@ const App = () => (
           <Route path="/loan-calculator" element={<LoanCalculatorPage />} />
           <Route path="/pre-qualification" element={<PreQualificationPage />} />
           <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
+          <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/accessibility" element={<AccessibilityPage />} />
+          <Route path="/sitemap" element={<SiteMapPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

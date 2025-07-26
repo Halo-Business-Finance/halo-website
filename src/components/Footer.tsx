@@ -40,13 +40,13 @@ const Footer = () => {
   ];
 
   const companyLinks = [
-    "Company Overview",
-    "About Us", 
-    "How It Works",
-    "Marketplace Benefits",
-    "NMLS Compliance",
-    "Privacy Policy",
-    "Terms of Service"
+    { name: "Company Overview", link: "/company-overview" },
+    { name: "About Us", link: "/about-us" },
+    { name: "How It Works", link: "/how-it-works" },
+    { name: "Marketplace Benefits", link: "/marketplace-benefits" },
+    { name: "NMLS Compliance", link: "/nmls-compliance" },
+    { name: "Privacy Policy", link: "/privacy-policy" },
+    { name: "Terms of Service", link: "/terms-of-service" }
   ];
 
   return (
@@ -105,9 +105,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               {companyLinks.map((link) => (
-                <li key={link}>
-                  <a href={link === "Company Overview" ? "/company-overview" : "#"} className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
+                <li key={link.name}>
+                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -185,10 +185,10 @@ const Footer = () => {
 
             {/* Legal links */}
             <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-              <a href="#" className="hover:text-white transition-colors">Accessibility</a>
-              <a href="#" className="hover:text-white transition-colors">Site Map</a>
+              <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Use</a>
+              <a href="/accessibility" className="hover:text-white transition-colors">Accessibility</a>
+              <a href="/sitemap" className="hover:text-white transition-colors">Site Map</a>
             </div>
           </div>
 
