@@ -98,10 +98,12 @@ const Header = () => {
           <div className="flex items-center justify-between text-sm">
             {/* Logo in top section */}
             <div className="flex items-center">
-              <h1 className="text-xl font-bold text-white">
-                HALO
-                <span className="text-primary"> BUSINESS FINANCE</span>
-              </h1>
+              <a href="/" className="hover:opacity-80 transition-opacity">
+                <h1 className="text-xl font-bold text-white">
+                  HALO
+                  <span className="text-primary"> BUSINESS FINANCE</span>
+                </h1>
+              </a>
             </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
