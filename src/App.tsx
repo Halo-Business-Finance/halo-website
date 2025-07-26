@@ -20,7 +20,7 @@ import CareersPage from "./pages/CareersPage";
 
 import ConventionalLoansPage from "./pages/ConventionalLoansPage";
 import CMBSLoansPage from "./pages/CMBSLoansPage";
-import RefinanceLoansPage from "./pages/RefinanceLoansPage";
+import PortfolioLoansPage from "./pages/PortfolioLoansPage";
 import ConstructionLoansPage from "./pages/ConstructionLoansPage";
 import BridgeFinancingPage from "./pages/BridgeFinancingPage";
 import EquipmentLoansPage from "./pages/EquipmentLoansPage";
@@ -93,7 +93,7 @@ const App = () => (
           
           <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
           <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
-          <Route path="/refinance-loans" element={<RefinanceLoansPage />} />
+          <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
           <Route path="/construction-loans" element={<ConstructionLoansPage />} />
           <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
           <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
