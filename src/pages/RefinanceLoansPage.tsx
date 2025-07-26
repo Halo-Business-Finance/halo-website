@@ -1,0 +1,122 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { RefreshCw, DollarSign, TrendingDown } from "lucide-react";
+
+const RefinanceLoansPage = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-white">
+            <Badge className="bg-white text-primary mb-4">Lower Your Payments</Badge>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Commercial Refinance Loans</h1>
+            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+              Lower your monthly payments, access equity, or improve loan terms with commercial refinancing. Take advantage of current market rates.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Start Refinancing</Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Check Rates</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center p-6">
+              <CardContent className="p-0">
+                <TrendingDown className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Lower Rates</h3>
+                <p className="text-muted-foreground">Reduce monthly payments</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6">
+              <CardContent className="p-0">
+                <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Cash Out</h3>
+                <p className="text-muted-foreground">Access property equity</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6">
+              <CardContent className="p-0">
+                <RefreshCw className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Better Terms</h3>
+                <p className="text-muted-foreground">Improve loan structure</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Why Refinance Now?</h2>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Lower interest rates may reduce monthly payments</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Access equity for business expansion</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Consolidate multiple loans</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Switch from variable to fixed rate</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Remove personal guarantees</span>
+                </li>
+              </ul>
+            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Refinance Benefits</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="bg-muted p-4 rounded-lg">
+                  <h4 className="font-semibold mb-2">Example Savings</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>Current Payment:</span>
+                      <span>$15,000/month</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>New Payment:</span>
+                      <span className="text-primary font-semibold">$12,500/month</span>
+                    </div>
+                    <div className="flex justify-between border-t pt-2">
+                      <span>Monthly Savings:</span>
+                      <span className="text-primary font-semibold">$2,500</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <span>Cash Out Available:</span>
+                  <span className="font-semibold">Up to 80% LTV</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Closing Time:</span>
+                  <span className="font-semibold">30-45 days</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default RefinanceLoansPage;

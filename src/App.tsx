@@ -16,6 +16,22 @@ import SBA7aLoansPage from "./pages/SBA7aLoansPage";
 import SBA504LoansPage from "./pages/SBA504LoansPage";
 import SBAExpressLoansPage from "./pages/SBAExpressLoansPage";
 import SBAMicroloansPage from "./pages/SBAMicroloansPage";
+import CareersPage from "./pages/CareersPage";
+import BridgeLoansPage from "./pages/BridgeLoansPage";
+import ConventionalLoansPage from "./pages/ConventionalLoansPage";
+import PurchaseLoansPage from "./pages/PurchaseLoansPage";
+import RefinanceLoansPage from "./pages/RefinanceLoansPage";
+import ConstructionLoansPage from "./pages/ConstructionLoansPage";
+import BridgeFinancingPage from "./pages/BridgeFinancingPage";
+import EquipmentLoansPage from "./pages/EquipmentLoansPage";
+import EquipmentLeasingPage from "./pages/EquipmentLeasingPage";
+import HeavyEquipmentPage from "./pages/HeavyEquipmentPage";
+import MedicalEquipmentPage from "./pages/MedicalEquipmentPage";
+import TermLoansPage from "./pages/TermLoansPage";
+import RevenueBasedFinancingPage from "./pages/RevenueBasedFinancingPage";
+import LoanCalculatorPage from "./pages/LoanCalculatorPage";
+import PreQualificationPage from "./pages/PreQualificationPage";
+import IndustrySolutionsPage from "./pages/IndustrySolutionsPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import WorkingCapitalPage from "./pages/WorkingCapitalPage";
@@ -56,6 +72,22 @@ const App = () => (
           <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
           <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
           <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/bridge-loans" element={<BridgeLoansPage />} />
+          <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
+          <Route path="/purchase-loans" element={<PurchaseLoansPage />} />
+          <Route path="/refinance-loans" element={<RefinanceLoansPage />} />
+          <Route path="/construction-loans" element={<ConstructionLoansPage />} />
+          <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
+          <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
+          <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
+          <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
+          <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
+          <Route path="/term-loans" element={<TermLoansPage />} />
+          <Route path="/revenue-based-financing" element={<RevenueBasedFinancingPage />} />
+          <Route path="/loan-calculator" element={<LoanCalculatorPage />} />
+          <Route path="/pre-qualification" element={<PreQualificationPage />} />
+          <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
