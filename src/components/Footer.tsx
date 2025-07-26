@@ -192,6 +192,9 @@ const Footer = () => {
             <div className="text-xs text-gray-400 space-y-2">
               <p>© 2024 Halo Business Finance. All rights reserved.</p>
               <p>
+                DFPI CFL License No. 60DBO-178064. California Commercial Financing Law disclosures available upon request.
+              </p>
+              <p>
                 NMLS ID: 2272778. Commercial Loan Marketplace. 
                 Loan programs subject to credit approval and terms may vary by lender.
               </p>
