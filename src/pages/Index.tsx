@@ -3,6 +3,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProductsSection from "@/components/ProductsSection";
+import StatsSection from "@/components/StatsSection";
+import ImageGallery from "@/components/ImageGallery";
 import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer";
 import { CrawlForm } from "@/components/CrawlForm";
@@ -21,6 +23,8 @@ const Index = () => {
       </section>
       
       <ProductsSection />
+      <StatsSection />
+      <ImageGallery />
       <FeaturesSection />
       <Footer />
     </div>
