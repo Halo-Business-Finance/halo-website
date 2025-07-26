@@ -13,30 +13,30 @@ import {
 
 const Footer = () => {
   const loanPrograms = [
-    "SBA Loans",
-    "Bridge Loans",
-    "Conventional Loans",
-    "Equipment Financing",
-    "Working Capital",
-    "Business Line of Credit"
+    { name: "SBA Loans", link: "/sba-loans" },
+    { name: "Bridge Loans", link: "/bridge-loans" },
+    { name: "Conventional Loans", link: "/conventional-loans" },
+    { name: "Equipment Financing", link: "/equipment-financing" },
+    { name: "Working Capital", link: "/working-capital" },
+    { name: "Business Line of Credit", link: "/business-line-of-credit" }
   ];
 
   const partnerLinks = [
-    "Become a Broker",
-    "Broker Application",
-    "Broker Resources",
-    "Become a Lender",
-    "Lender Application",
-    "Partnership Benefits"
+    { name: "Become a Broker", link: "/brokers" },
+    { name: "Broker Application", link: "/brokers" },
+    { name: "Broker Resources", link: "/brokers" },
+    { name: "Become a Lender", link: "/lenders" },
+    { name: "Lender Application", link: "/lenders" },
+    { name: "Partnership Benefits", link: "/lenders" }
   ];
 
   const supportLinks = [
-    "Loan Calculator",
-    "Pre-qualification",
-    "Contact Us",
-    "Get Started",
-    "Learn More",
-    "Industry Solutions"
+    { name: "Loan Calculator", link: "/loan-calculator" },
+    { name: "Pre-qualification", link: "/pre-qualification" },
+    { name: "Contact Us", link: "/contact-us" },
+    { name: "Get Started", link: "/" },
+    { name: "Learn More", link: "/resources" },
+    { name: "Industry Solutions", link: "/industry-solutions" }
   ];
 
   const companyLinks = [
@@ -119,9 +119,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Loan Programs</h4>
             <ul className="space-y-2">
               {loanPrograms.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
+                <li key={link.name}>
+                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -133,9 +133,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Partner With Us</h4>
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
-                <li key={link}>
-                  <a href={link.includes('Broker') ? '/brokers' : '/lenders'} className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
+                <li key={link.name}>
+                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -147,9 +147,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2">
               {supportLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
+                <li key={link.name}>
+                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
