@@ -51,13 +51,18 @@ const Header = () => {
       <div className="bg-financial-navy text-white">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between text-sm">
+            {/* Logo in top section */}
+            <div className="flex items-center">
+              <h1 className="text-xl font-bold text-white">
+                HALO
+                <span className="text-primary"> BUSINESS FINANCE</span>
+              </h1>
+            </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span>(800) 730-8461</span>
               </div>
-            </div>
-            <div className="flex items-center gap-4">
               <span>Customer Service</span>
             </div>
           </div>
@@ -67,13 +72,8 @@ const Header = () => {
       {/* Main header */}
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">
-              HALO
-              <span className="text-financial-navy"> BUSINESS FINANCE</span>
-            </h1>
-          </div>
+          {/* Empty space where logo was */}
+          <div></div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
