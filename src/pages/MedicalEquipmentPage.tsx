@@ -10,8 +10,14 @@ const MedicalEquipmentPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56" 
+          alt="Medical equipment and healthcare technology"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Healthcare Solutions</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Medical Equipment Financing</h1>
