@@ -61,6 +61,359 @@ const WorkingCapitalPage = () => {
             </Card>
           </div>
 
+          {/* Educational Content */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Understanding Working Capital Loans</h2>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+                Working capital loans provide short-term financing to cover day-to-day operational expenses. 
+                Unlike traditional term loans, these are designed to bridge temporary cash flow gaps and maintain business continuity.
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-12 mb-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>How Working Capital Loans Work</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Working capital loans are short-term financing solutions that help businesses manage cash flow fluctuations. 
+                    The loan amount is typically based on your monthly revenue and can be repaid through daily or weekly payments.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                      <div>
+                        <span className="font-semibold">Fast Approval:</span>
+                        <span className="text-muted-foreground ml-1">Most applications approved within 24 hours</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                      <div>
+                        <span className="font-semibold">Flexible Repayment:</span>
+                        <span className="text-muted-foreground ml-1">Daily, weekly, or monthly payment options</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                      <div>
+                        <span className="font-semibold">No Collateral:</span>
+                        <span className="text-muted-foreground ml-1">Unsecured financing based on business performance</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Key Benefits & Features</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-2">Immediate Access to Capital</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Get funding as quickly as 24 hours after approval, perfect for urgent business needs.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Revenue-Based Qualification</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Qualification based on monthly revenue rather than just credit score or collateral.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Seasonal Business Support</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Ideal for businesses with seasonal fluctuations or cyclical cash flow patterns.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Build Credit History</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Successful repayment helps establish and improve your business credit profile.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Use Case Examples */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-12">Real-World Use Case Examples</h2>
+            <div className="grid lg:grid-cols-3 gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Retail Inventory Boost</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Scenario:</strong> A clothing retailer needs $150,000 to stock up for the holiday season 
+                    but won't see sales revenue until December.
+                  </p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>Loan Amount:</span>
+                      <span className="font-semibold">$150,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Term:</span>
+                      <span className="font-semibold">6 months</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Use:</span>
+                      <span className="font-semibold">Holiday inventory</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>ROI:</span>
+                      <span className="font-semibold text-primary">300% sales increase</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Construction Payroll Gap</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Scenario:</strong> A construction company has a 60-day payment delay from a major client 
+                    but needs to pay workers and suppliers immediately.
+                  </p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>Loan Amount:</span>
+                      <span className="font-semibold">$300,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Term:</span>
+                      <span className="font-semibold">3 months</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Use:</span>
+                      <span className="font-semibold">Payroll & supplies</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Result:</span>
+                      <span className="font-semibold text-primary">Project completed on time</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Restaurant Equipment Repair</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    <strong>Scenario:</strong> A restaurant's main kitchen equipment breaks down during peak season, 
+                    requiring immediate replacement to avoid losing customers.
+                  </p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>Loan Amount:</span>
+                      <span className="font-semibold">$75,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Term:</span>
+                      <span className="font-semibold">12 months</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Use:</span>
+                      <span className="font-semibold">Equipment replacement</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Outcome:</span>
+                      <span className="font-semibold text-primary">Zero downtime</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Industry-Specific Information */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-12">Industry-Specific Applications</h2>
+            <div className="grid lg:grid-cols-2 gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>High-Volume Industries</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">Retail & E-commerce</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Perfect for seasonal inventory builds, Black Friday preparation, and managing supplier payment terms.
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Holiday season inventory financing</li>
+                      <li>• Supplier payment term gaps</li>
+                      <li>• Marketing campaign funding</li>
+                      <li>• Rapid expansion into new markets</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Manufacturing</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Bridge gaps between large orders and customer payments, fund raw material purchases.
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Large order raw material costs</li>
+                      <li>• Equipment maintenance and repairs</li>
+                      <li>• Seasonal production ramp-up</li>
+                      <li>• Export order fulfillment</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Service Industries</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">Professional Services</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Cover project costs upfront while waiting for client payments, especially for large consulting projects.
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Project startup costs</li>
+                      <li>• Contractor and freelancer payments</li>
+                      <li>• Technology and software investments</li>
+                      <li>• Office expansion and setup</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Healthcare</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Manage insurance reimbursement delays and fund practice expansion or equipment needs.
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Insurance reimbursement gaps</li>
+                      <li>• Medical equipment purchases</li>
+                      <li>• Staff hiring and training</li>
+                      <li>• Practice expansion projects</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Detailed Application Process */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-12">Complete Application Process</h2>
+            <div className="grid lg:grid-cols-2 gap-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Step-by-Step Application</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                      <h4 className="font-semibold">Initial Application (5 minutes)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-11">
+                      Complete our online application with basic business information and funding needs.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                      <h4 className="font-semibold">Document Submission (1 hour)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-11">
+                      Upload required documents through our secure portal.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                      <h4 className="font-semibold">Review & Approval (2-24 hours)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-11">
+                      Our underwriting team reviews your application and provides a decision.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                      <h4 className="font-semibold">Funding (Same day)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-11">
+                      Upon approval, funds are deposited directly into your business account.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Required Documentation</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-3">Essential Documents</h4>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Last 3 months bank statements</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Business tax returns (last 2 years)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Profit & loss statements</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Business license and registration</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-3">Additional Documents (if applicable)</h4>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm">Accounts receivable aging report</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm">Major contract agreements</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm">Equipment appraisals</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm">Lease agreements</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Common Uses and Requirements */}
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-bold mb-6">Common Uses for Working Capital</h2>
