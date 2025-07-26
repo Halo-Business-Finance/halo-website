@@ -51,55 +51,7 @@ const Footer = () => {
   return (
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
-        {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
-          {/* Company info and newsletter */}
-          <div className="lg:col-span-2">
-            <div className="mb-6">
-              <Link to="/" className="hover:opacity-80 transition-opacity">
-                <h3 className="text-2xl font-bold mb-4">
-                  HALO <span className="text-primary">BUSINESS FINANCE</span>
-                </h3>
-              </Link>
-              <p className="text-gray-300 mb-6">
-                Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
-              </p>
-            </div>
-
-            {/* Newsletter signup */}
-            <div className="mb-6">
-              <h4 className="font-semibold mb-3">Stay Informed</h4>
-              <p className="text-sm text-gray-300 mb-3">
-                Get the latest financial insights and bank updates.
-              </p>
-              <div className="flex gap-2">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                />
-                <Button size="sm" className="bg-primary hover:bg-primary/90">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-
-            {/* Contact info */}
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>(800) 730-8461</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>info@halobusinessfinance.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Irvine, California</span>
-              </div>
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
 
           {/* Company links - MOVED TO FIRST */}
           <div>
