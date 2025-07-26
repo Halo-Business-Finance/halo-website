@@ -12,40 +12,40 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
-  const bankingLinks = [
-    "Personal Banking",
-    "Business Banking", 
-    "Commercial Banking",
-    "Wealth Management",
-    "Investment Services",
-    "Insurance Services"
+  const loanPrograms = [
+    "SBA 7(a) Loans",
+    "SBA 504 Loans", 
+    "Commercial Real Estate",
+    "Equipment Financing",
+    "Working Capital",
+    "Business Line of Credit"
   ];
 
-  const productLinks = [
-    "Checking Accounts",
-    "Savings Accounts",
-    "Credit Cards",
-    "Home Loans",
-    "Auto Loans",
-    "Personal Loans"
+  const industries = [
+    "Retail Industry",
+    "Auto Repair",
+    "Medical Industry",
+    "Food & Beverage",
+    "Manufacturing",
+    "Professional Services"
   ];
 
   const supportLinks = [
-    "Customer Service",
+    "Loan Calculator",
+    "Pre-qualification",
     "Contact Us",
-    "Find a Branch",
-    "ATM Locator",
-    "Security Center",
-    "Help & FAQs"
+    "Get Started",
+    "Learn More",
+    "Industry Solutions"
   ];
 
   const companyLinks = [
     "About Us",
-    "Careers",
-    "Investor Relations",
-    "Press Room",
-    "Community",
-    "Sustainability"
+    "How It Works",
+    "Marketplace Benefits",
+    "NMLS Compliance",
+    "Privacy Policy",
+    "Terms of Service"
   ];
 
   return (
@@ -57,10 +57,10 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-4">
-                HALO <span className="text-primary">FINANCE</span>
+                HALO <span className="text-primary">BUSINESS FINANCE</span>
               </h3>
               <p className="text-gray-300 mb-6">
-                Your trusted financial partner for over 50 years. Experience modern banking with the personal touch you deserve.
+                Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
               </p>
             </div>
 
@@ -86,24 +86,24 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>1-800-HALO-BANK</span>
+                <span>Contact for Loan Info</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>support@halofinance.com</span>
+                <span>info@halobusinessfinance.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Find a Branch Near You</span>
+                <span>Irvine, California</span>
               </div>
             </div>
           </div>
 
-          {/* Banking links */}
+          {/* Loan Programs */}
           <div>
-            <h4 className="font-semibold mb-4">Banking</h4>
+            <h4 className="font-semibold mb-4">Loan Programs</h4>
             <ul className="space-y-2">
-              {bankingLinks.map((link) => (
+              {loanPrograms.map((link) => (
                 <li key={link}>
                   <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link}
@@ -113,11 +113,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Products links */}
+          {/* Industries */}
           <div>
-            <h4 className="font-semibold mb-4">Products</h4>
+            <h4 className="font-semibold mb-4">Industries We Serve</h4>
             <ul className="space-y-2">
-              {productLinks.map((link) => (
+              {industries.map((link) => (
                 <li key={link}>
                   <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link}
@@ -193,14 +193,14 @@ const Footer = () => {
           {/* Copyright and disclosures */}
           <div className="mt-8 pt-6 border-t border-white/20">
             <div className="text-xs text-gray-400 space-y-2">
-              <p>© 2024 Halo Finance. All rights reserved.</p>
+              <p>© 2024 Halo Business Finance. All rights reserved.</p>
               <p>
-                Member FDIC. Equal Housing Lender. NMLS ID #123456. 
-                Investment products are not FDIC insured, are not bank guaranteed, and may lose value.
+                NMLS ID: 2272778. Commercial Loan Marketplace. 
+                Loan programs subject to credit approval and terms may vary by lender.
               </p>
               <p>
-                Halo Finance is a trademark of Halo Financial Corporation. 
-                All other trademarks are the property of their respective owners.
+                Halo Business Finance is a commercial loan marketplace connecting borrowers with lenders. 
+                We are not a direct lender.
               </p>
             </div>
           </div>
