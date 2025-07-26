@@ -155,10 +155,10 @@ const ProductsSection = () => {
         <div className="border-t pt-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Business Banking Solutions
+              Business Capital Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Powerful banking tools to help your business grow and succeed.
+              Powerful capital tools to help your business grow and succeed.
             </p>
           </div>
 
