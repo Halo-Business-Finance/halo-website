@@ -248,7 +248,7 @@ const ProductsSection = () => {
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
                   <Link to="/pre-qualification">Get Pre-Qualified</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button asChild size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">
                   <Link to="/contact-us">Schedule Consultation</Link>
                 </Button>
               </div>
