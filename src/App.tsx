@@ -17,7 +17,7 @@ import SBA504LoansPage from "./pages/SBA504LoansPage";
 import SBAExpressLoansPage from "./pages/SBAExpressLoansPage";
 import SBAMicroloansPage from "./pages/SBAMicroloansPage";
 import CareersPage from "./pages/CareersPage";
-import BridgeLoansPage from "./pages/BridgeLoansPage";
+
 import ConventionalLoansPage from "./pages/ConventionalLoansPage";
 import PurchaseLoansPage from "./pages/PurchaseLoansPage";
 import RefinanceLoansPage from "./pages/RefinanceLoansPage";
@@ -90,7 +90,7 @@ const App = () => (
           <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
           <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
           <Route path="/careers" element={<CareersPage />} />
-          <Route path="/bridge-loans" element={<BridgeLoansPage />} />
+          
           <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
           <Route path="/purchase-loans" element={<PurchaseLoansPage />} />
           <Route path="/refinance-loans" element={<RefinanceLoansPage />} />
