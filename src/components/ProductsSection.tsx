@@ -25,7 +25,8 @@ const ProductsSection = () => {
       rate: "Prime + 2.75%",
       rateLabel: "Starting Rate",
       features: ["Up to $5 million", "Long-term financing", "SBA guarantee"],
-      cta: "Apply for SBA 7(a)",
+      learnLink: "/sba-7a-loans",
+      applyLink: "/sba-loan-application",
       badge: "Popular"
     },
     {
@@ -35,7 +36,8 @@ const ProductsSection = () => {
       rate: "Fixed Rate",
       rateLabel: "Long-term",
       features: ["Up to $5.5 million", "10% down payment", "Fixed rates"],
-      cta: "Learn About 504",
+      learnLink: "/sba-504-loans",
+      applyLink: "/sba-504-application",
       badge: null
     },
     {
@@ -45,7 +47,8 @@ const ProductsSection = () => {
       rate: "8.5%",
       rateLabel: "Starting APR",
       features: ["Fast 7-day closing", "Up to $10 million", "Flexible terms"],
-      cta: "Get Bridge Financing",
+      learnLink: "/bridge-loans",
+      applyLink: "/bridge-loan-application",
       badge: "Fast"
     },
     {
@@ -55,7 +58,8 @@ const ProductsSection = () => {
       rate: "5.25%",
       rateLabel: "Starting APR",
       features: ["No government guarantee", "Faster approval", "Flexible terms"],
-      cta: "Apply for Conventional",
+      learnLink: "/conventional-loans",
+      applyLink: "/conventional-loan-application",
       badge: null
     },
     {
@@ -65,7 +69,8 @@ const ProductsSection = () => {
       rate: "6.25%",
       rateLabel: "Starting APR",
       features: ["100% financing available", "Fast approval", "Flexible payments"],
-      cta: "Finance Equipment",
+      learnLink: "/equipment-financing",
+      applyLink: "/equipment-loan-application",
       badge: null
     },
     {
@@ -75,7 +80,8 @@ const ProductsSection = () => {
       rate: "Prime + 1%",
       rateLabel: "Starting Rate",
       features: ["Revolving credit line", "Quick access", "Flexible repayment"],
-      cta: "Get Working Capital",
+      learnLink: "/working-capital",
+      applyLink: "/working-capital-application",
       badge: null
     }
   ];
@@ -88,7 +94,8 @@ const ProductsSection = () => {
       rate: "Prime + 2%",
       rateLabel: "Starting Rate",
       features: ["Draw as needed", "Pay interest only on used funds", "Revolving credit"],
-      cta: "Apply for Line of Credit"
+      learnLink: "/business-line-of-credit",
+      applyLink: "/business-line-of-credit-application"
     },
     {
       icon: Building2,
@@ -97,7 +104,8 @@ const ProductsSection = () => {
       rate: "5.75%",
       rateLabel: "Starting APR",
       features: ["Fixed monthly payments", "Competitive rates", "Quick approval"],
-      cta: "Get Term Loan Quote"
+      learnLink: "/term-loans",
+      applyLink: "/term-loan-application"
     }
   ];
 
@@ -146,12 +154,19 @@ const ProductsSection = () => {
                   ))}
                 </ul>
 
-                <Button asChild className="w-full group">
-                  <Link to="/pre-qualification">
-                    {product.cta}
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
+                <div className="flex gap-3">
+                  <Button asChild variant="outline" className="flex-1">
+                    <Link to={product.learnLink}>
+                      Learn About
+                    </Link>
+                  </Button>
+                  <Button asChild className="flex-1 group">
+                    <Link to={product.applyLink}>
+                      Apply For
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -195,12 +210,19 @@ const ProductsSection = () => {
                     ))}
                   </ul>
 
-                  <Button asChild className="w-full group">
-                    <Link to="/business-capital">
-                      {product.cta}
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+                  <div className="flex gap-3">
+                    <Button asChild variant="outline" className="flex-1">
+                      <Link to={product.learnLink}>
+                        Learn About
+                      </Link>
+                    </Button>
+                    <Button asChild className="flex-1 group">
+                      <Link to={product.applyLink}>
+                        Apply For
+                        <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
