@@ -78,22 +78,22 @@ const ProductsSection = () => {
 
   const businessProducts = [
     {
-      icon: Building2,
-      title: "Business Checking",
-      description: "Streamlined business banking with advanced cash management tools.",
-      rate: "500",
-      rateLabel: "Free Transactions",
-      features: ["Online banking", "Mobile deposits", "ACH processing"],
-      cta: "Open Business Account"
+      icon: TrendingUp,
+      title: "Business Line of Credit",
+      description: "Flexible access to capital when you need it with revolving credit lines.",
+      rate: "Prime + 2%",
+      rateLabel: "Starting Rate",
+      features: ["Draw as needed", "Pay interest only on used funds", "Revolving credit"],
+      cta: "Apply for Line of Credit"
     },
     {
-      icon: CreditCard,
-      title: "Business Credit Cards",
-      description: "Build business credit while earning rewards on everyday purchases.",
-      rate: "1.5%",
-      rateLabel: "Cash Back",
-      features: ["Expense tracking", "Employee cards", "Detailed reporting"],
-      cta: "Apply for Business Card"
+      icon: Building2,
+      title: "Term Loans",
+      description: "Fixed-rate business loans for major investments and growth initiatives.",
+      rate: "5.75%",
+      rateLabel: "Starting APR",
+      features: ["Fixed monthly payments", "Competitive rates", "Quick approval"],
+      cta: "Get Term Loan Quote"
     }
   ];
 
