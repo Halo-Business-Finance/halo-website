@@ -15,6 +15,7 @@ const Footer = () => {
   const loanPrograms = [
     "SBA 7(a) Loans",
     "SBA 504 Loans", 
+    "Bridge Loans",
     "Commercial Real Estate",
     "Equipment Financing",
     "Working Capital",

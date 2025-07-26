@@ -16,12 +16,12 @@ const Header = () => {
     {
       title: "SBA Loans",
       href: "/sba-loans",
-      items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "SBA Microloans"]
+      items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "SBA Microloans", "Bridge Loans"]
     },
     {
       title: "Commercial Loans", 
       href: "/commercial-loans",
-      items: ["Commercial Real Estate", "Purchase Loans", "Refinance Loans", "Construction Loans"]
+      items: ["Commercial Real Estate", "Purchase Loans", "Refinance Loans", "Construction Loans", "Bridge Financing"]
     },
     {
       title: "Equipment Financing",

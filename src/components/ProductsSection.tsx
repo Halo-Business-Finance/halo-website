@@ -36,12 +36,12 @@ const ProductsSection = () => {
     },
     {
       icon: TrendingUp,
-      title: "SBA Express Loans",
-      description: "Fast approval for smaller loan amounts with quick turnaround times.",
-      rate: "Prime + 4.5%",
-      rateLabel: "Starting Rate",
-      features: ["Up to $500,000", "Fast 36-hour approval", "Streamlined process"],
-      cta: "Apply Express",
+      title: "Bridge Loans",
+      description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
+      rate: "8.5%",
+      rateLabel: "Starting APR",
+      features: ["Fast 7-day closing", "Up to $10 million", "Flexible terms"],
+      cta: "Get Bridge Financing",
       badge: "Fast"
     },
     {
