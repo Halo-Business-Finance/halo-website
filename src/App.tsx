@@ -44,6 +44,11 @@ import AboutUsPage from "./pages/AboutUsPage";
 import WorkingCapitalPage from "./pages/WorkingCapitalPage";
 import BusinessLineOfCreditPage from "./pages/BusinessLineOfCreditPage";
 import SBALoanApplication from "./pages/SBALoanApplication";
+import SBA504LoanApplication from "./pages/SBA504LoanApplication";
+import BridgeLoanApplication from "./pages/BridgeLoanApplication";
+import ConventionalLoanApplication from "./pages/ConventionalLoanApplication";
+import BusinessLineOfCreditApplication from "./pages/BusinessLineOfCreditApplication";
+import TermLoanApplication from "./pages/TermLoanApplication";
 import EquipmentLoanApplication from "./pages/EquipmentLoanApplication";
 import WorkingCapitalApplication from "./pages/WorkingCapitalApplication";
 import CommercialRealEstateApplication from "./pages/CommercialRealEstateApplication";
@@ -76,6 +81,11 @@ const App = () => (
           <Route path="/working-capital" element={<WorkingCapitalPage />} />
           <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
           <Route path="/sba-loan-application" element={<SBALoanApplication />} />
+          <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
+          <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
+          <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
+          <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
+          <Route path="/term-loan-application" element={<TermLoanApplication />} />
           <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
           <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
           <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
