@@ -16,9 +16,9 @@ const HeroSection = () => {
         <img 
           src={heroBackground} 
           alt="Commercial Real Estate Skyline"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-financial-navy/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-financial-navy/40" />
       </div>
       
       <div className="container mx-auto px-4 py-16 relative z-10">
