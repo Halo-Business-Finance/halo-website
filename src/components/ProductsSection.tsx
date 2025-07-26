@@ -46,12 +46,12 @@ const ProductsSection = () => {
     },
     {
       icon: Building2,
-      title: "Commercial Real Estate",
-      description: "Financing solutions for purchasing or refinancing commercial properties.",
-      rate: "5.5%",
+      title: "Conventional Loans",
+      description: "Traditional commercial financing for established businesses with strong credit profiles.",
+      rate: "5.25%",
       rateLabel: "Starting APR",
-      features: ["Competitive rates", "Flexible terms", "Local expertise"],
-      cta: "Get CRE Quote",
+      features: ["No government guarantee", "Faster approval", "Flexible terms"],
+      cta: "Apply for Conventional",
       badge: null
     },
     {

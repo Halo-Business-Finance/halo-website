@@ -21,7 +21,7 @@ const Header = () => {
     {
       title: "Commercial Loans", 
       href: "/commercial-loans",
-      items: ["Commercial Real Estate", "Purchase Loans", "Refinance Loans", "Construction Loans", "Bridge Financing"]
+      items: ["Conventional Loans", "Purchase Loans", "Refinance Loans", "Construction Loans", "Bridge Financing"]
     },
     {
       title: "Equipment Financing",
