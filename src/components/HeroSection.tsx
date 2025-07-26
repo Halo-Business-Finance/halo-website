@@ -12,7 +12,7 @@ const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[600px] flex items-center overflow-hidden" aria-label="Hero section">
+    <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden" aria-label="Hero section">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -23,26 +23,26 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-financial-navy/40" />
       </div>
       
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Hero content */}
-          <header className="text-white space-y-8">
+          <header className="text-white space-y-6 lg:space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Business financing
-                <span className="block text-4xl">that fuels your growth</span>
+                <span className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl">that fuels your growth</span>
               </h1>
-              <p className="text-xl text-blue-100 max-w-lg">
+              <p className="text-lg md:text-xl text-blue-100 max-w-lg">
                 Experience streamlined business lending with competitive SBA and commercial loan solutions designed to accelerate your success.
               </p>
             </div>
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold text-sm md:text-base">
                 Get Pre-Qualified
               </Button>
-              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base">
                 View Loan Options
               </Button>
             </div>

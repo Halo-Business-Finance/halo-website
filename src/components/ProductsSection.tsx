@@ -110,60 +110,60 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-12 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* SBA and Commercial Loans */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             SBA & Commercial Loan Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Discover our comprehensive range of SBA and commercial financing options designed to fuel your business growth.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {products.map((product, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300 relative">
               {product.badge && (
-                <Badge className="absolute top-4 right-4 bg-primary text-white">
+                <Badge className="absolute top-4 right-4 bg-primary text-white text-xs">
                   {product.badge}
                 </Badge>
               )}
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-primary/10 rounded-lg">
-                    <product.icon className="h-6 w-6 text-primary" />
+                    <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                   </div>
-                   <h3 className="text-xl">{product.title}</h3>
+                   <h3 className="text-lg md:text-xl">{product.title}</h3>
                 </div>
                 <div className="text-center py-4">
-                  <div className="text-3xl font-bold text-primary">{product.rate}</div>
-                  <div className="text-sm text-gray-600">{product.rateLabel}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
+                  <div className="text-xs md:text-sm text-gray-600">{product.rateLabel}</div>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-gray-600 mb-4">{product.description}</p>
+                <p className="text-sm md:text-base text-gray-600 mb-4">{product.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle className="h-4 w-4 text-success mr-2 flex-shrink-0" />
+                    <li key={i} className="flex items-center text-xs md:text-sm text-gray-600">
+                      <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-success mr-2 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex gap-3">
-                  <Button asChild variant="outline" className="flex-1">
+                <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
+                  <Button asChild variant="outline" className="flex-1 text-xs md:text-sm">
                     <Link to={product.learnLink}>
                       Learn About
                     </Link>
                   </Button>
-                  <Button asChild className="flex-1 group">
+                  <Button asChild className="flex-1 group text-xs md:text-sm">
                     <Link to={product.applyLink}>
                       Apply For
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
                 </div>
@@ -173,53 +173,53 @@ const ProductsSection = () => {
         </div>
 
         {/* Business Banking Section */}
-        <div className="border-t pt-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="border-t pt-12 md:pt-16">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Business Capital Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Powerful capital tools to help your business grow and succeed.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {businessProducts.map((product, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-primary/10 rounded-lg">
-                      <product.icon className="h-6 w-6 text-primary" />
+                      <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                     </div>
-                    <h3 className="text-xl">{product.title}</h3>
+                    <h3 className="text-lg md:text-xl">{product.title}</h3>
                   </div>
                   <div className="text-center py-4">
-                    <div className="text-3xl font-bold text-primary">{product.rate}</div>
-                    <div className="text-sm text-gray-600">{product.rateLabel}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
+                    <div className="text-xs md:text-sm text-gray-600">{product.rateLabel}</div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-gray-600 mb-4">{product.description}</p>
+                  <p className="text-sm md:text-base text-gray-600 mb-4">{product.description}</p>
                   
                   <ul className="space-y-2 mb-6">
                     {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="h-4 w-4 text-success mr-2 flex-shrink-0" />
+                      <li key={i} className="flex items-center text-xs md:text-sm text-gray-600">
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-success mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex gap-3">
-                    <Button asChild variant="outline" className="flex-1">
+                  <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
+                    <Button asChild variant="outline" className="flex-1 text-xs md:text-sm">
                       <Link to={product.learnLink}>
                         Learn About
                       </Link>
                     </Button>
-                    <Button asChild className="flex-1 group">
+                    <Button asChild className="flex-1 group text-xs md:text-sm">
                       <Link to={product.applyLink}>
                         Apply For
-                        <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
                   </div>
@@ -230,25 +230,25 @@ const ProductsSection = () => {
         </div>
 
         {/* CTA Section with Background Image */}
-        <div className="mt-16 relative overflow-hidden rounded-lg">
+        <div className="mt-12 md:mt-16 relative overflow-hidden rounded-lg">
           <img 
             src={loanConsultation} 
             alt="Professional loan consultation meeting"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="relative bg-gradient-to-r from-financial-navy/70 to-primary/60 text-white py-16 px-8">
+          <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-12 md:py-16 px-6 md:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
                 Ready to Fuel Your Business Growth?
               </h2>
-              <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold text-sm md:text-base">
                   <Link to="/pre-qualification">Get Pre-Qualified</Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">
+                <Button asChild size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base">
                   <Link to="/contact-us">Schedule Consultation</Link>
                 </Button>
               </div>

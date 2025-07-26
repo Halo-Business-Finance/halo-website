@@ -100,18 +100,19 @@ const Header = () => {
             {/* Logo in top section */}
             <div className="flex items-center">
               <Link to="/" className="hover:opacity-80 transition-opacity">
-                <h1 className="text-xl font-bold text-white">
+                <h1 className="text-lg md:text-xl font-bold text-white">
                   HALO
                   <span className="text-primary"> BUSINESS FINANCE</span>
                 </h1>
               </Link>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="hidden sm:flex items-center gap-4 md:gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>(800) 730-8461</span>
+                <span className="hidden md:inline">(800) 730-8461</span>
+                <span className="md:hidden text-xs">(800) 730-8461</span>
               </div>
-              <span>Customer Service</span>
+              <span className="hidden md:inline">Customer Service</span>
             </div>
           </div>
         </div>
@@ -119,12 +120,12 @@ const Header = () => {
 
       {/* Main header */}
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-12 md:h-16 items-center justify-between">
           {/* Empty space where logo was */}
           <div></div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8">
             {navItems.map((item) => (
               <DropdownMenu key={item.title}>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors">
@@ -143,27 +144,27 @@ const Header = () => {
           </nav>
 
           {/* Right side buttons */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-2 lg:gap-4">
             <Button variant="ghost" size="sm">
               <Search className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="sm">
-              <User className="h-4 w-4 mr-2" />
-              Sign In
+            <Button variant="outline" size="sm" className="text-xs lg:text-sm">
+              <User className="h-4 w-4 mr-1 lg:mr-2" />
+              <span className="hidden lg:inline">Sign In</span>
             </Button>
-            <Button size="sm">
+            <Button size="sm" className="text-xs lg:text-sm">
               Get Started
             </Button>
           </div>
 
           {/* Mobile menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
+            <SheetTrigger asChild className="xl:hidden">
               <Button variant="ghost" size="sm">
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5 md:h-6 md:w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent side="right" className="w-72 sm:w-80">
               <div className="flex flex-col gap-6 pt-6">
                 <div className="flex flex-col gap-4">
                   <Button variant="outline" className="justify-start">
