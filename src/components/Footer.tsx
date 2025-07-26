@@ -84,19 +84,19 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Contact info */}
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>(800) 730-8461</span>
+            {/* Better Business Bureau */}
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-white rounded-lg">
+                <div className="text-financial-navy font-bold text-lg leading-tight">
+                  <div className="text-xs">BETTER</div>
+                  <div className="text-xs">BUSINESS</div>
+                  <div className="text-xs">BUREAU</div>
+                  <div className="text-[10px] border-t border-financial-navy mt-1 pt-1">®</div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>info@halobusinessfinance.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Irvine, California</span>
+              <div className="text-sm">
+                <div className="font-semibold">BBB Accredited</div>
+                <div className="text-gray-300">Business Since 2019</div>
               </div>
             </div>
           </div>
