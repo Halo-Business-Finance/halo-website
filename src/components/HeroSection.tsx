@@ -53,7 +53,7 @@ const HeroSection = () => {
                 <Shield className="h-5 w-5" />
                 <span className="text-sm">SBA Preferred Bank Partner</span>
               </div>
-              <div className="text-sm">Nationwide Marketplace</div>
+              <div className="text-sm">Nationwide Licensed Marketplace</div>
               <div className="text-sm">Secure & Encrypted Marketplace</div>
             </div>
           </header>
