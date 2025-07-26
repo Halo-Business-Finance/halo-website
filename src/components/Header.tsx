@@ -34,6 +34,11 @@ const Header = () => {
       items: ["Working Capital", "Business Line of Credit", "Term Loans", "Revenue Based Financing"]
     },
     {
+      title: "Company",
+      href: "/company",
+      items: ["Company Overview", "About Us", "Contact Us", "Careers"]
+    },
+    {
       title: "Resources",
       href: "/resources",
       items: ["Loan Calculator", "Pre-qualification", "Industry Solutions", "Contact Us"]
