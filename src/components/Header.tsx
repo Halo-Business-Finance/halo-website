@@ -66,7 +66,7 @@ const Header = () => {
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-primary">
               HALO
-              <span className="text-financial-navy"> FINANCE</span>
+              <span className="text-financial-navy"> BUSINESS FINANCE</span>
             </h1>
           </div>
 

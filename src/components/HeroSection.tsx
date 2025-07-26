@@ -109,7 +109,7 @@ const HeroSection = () => {
                   </form>
 
                   <div className="text-center text-sm text-gray-600">
-                    New to Halo Finance?{" "}
+                    New to Halo Business Finance?{" "}
                     <a href="#" className="text-primary hover:underline font-medium">
                       Open an account
                     </a>
