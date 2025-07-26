@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,7 +9,14 @@ import loanConsultation from "@/assets/loan-consultation.jpg";
 
 const AboutUsPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="About Halo Business Finance | SBA Preferred Lender | Commercial Financing"
+        description="Learn about Halo Business Finance, an SBA Preferred Lender providing business financing solutions. Expert team, personalized service, competitive rates nationwide."
+        keywords="about halo business finance, SBA preferred lender, commercial lending company, business financing company, loan marketplace, commercial loan broker"
+        canonical="https://halobusinessfinance.com/about-us"
+      />
+      <div className="min-h-screen bg-background">
       <Header />
       
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
@@ -77,7 +85,8 @@ const AboutUsPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

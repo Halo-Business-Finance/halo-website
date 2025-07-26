@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +10,14 @@ import loanConsultation from "@/assets/loan-consultation.jpg";
 
 const ContactUsPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="Contact Halo Business Finance | Business Loan Experts | (800) 730-8461"
+        description="Contact Halo Business Finance for business financing solutions. Call (800) 730-8461 or visit our Irvine, CA office. Expert loan consultation available."
+        keywords="contact halo business finance, business loan consultation, commercial financing contact, SBA loan help, business financing experts, loan application assistance"
+        canonical="https://halobusinessfinance.com/contact-us"
+      />
+      <div className="min-h-screen bg-background">
       <Header />
       
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
@@ -110,7 +118,8 @@ const ContactUsPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

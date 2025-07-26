@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -52,7 +53,14 @@ const SBALoansPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="SBA Loans | 7(a), 504, Express & Microloans | Halo Business Finance"
+        description="SBA Preferred Lender offering SBA 7(a) loans up to $5M, SBA 504 loans, Express loans, and microloans. Fast approval, competitive rates, expert guidance."
+        keywords="SBA loans, SBA 7a loans, SBA 504 loans, SBA express loans, SBA microloans, SBA preferred lender, small business administration loans, government backed loans, business financing, commercial loans"
+        canonical="https://halobusinessfinance.com/sba-loans"
+      />
+      <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -223,7 +231,8 @@ const SBALoansPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

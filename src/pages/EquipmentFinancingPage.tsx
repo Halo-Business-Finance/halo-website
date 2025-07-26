@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -65,7 +66,14 @@ const EquipmentFinancingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="Equipment Financing & Leasing | Up to $15M | Halo Business Finance"
+        description="Equipment financing for new & used equipment. 100% financing available, competitive rates from 5.5%, terms up to 10 years. Construction, medical, manufacturing equipment."
+        keywords="equipment financing, equipment loans, equipment leasing, heavy equipment financing, medical equipment financing, construction equipment loans, manufacturing equipment financing, business equipment loans"
+        canonical="https://halobusinessfinance.com/equipment-financing"
+      />
+      <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -256,7 +264,8 @@ const EquipmentFinancingPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -52,7 +53,14 @@ const CommercialLoansPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="Commercial Real Estate Loans | CRE Financing | Halo Business Finance"
+        description="Commercial real estate loans for purchase, refinance, construction. Competitive rates, flexible terms up to 25 years. Owner-occupied and investment properties."
+        keywords="commercial real estate loans, CRE financing, commercial property loans, commercial mortgage loans, investment property loans, commercial refinance, construction loans, commercial purchase loans"
+        canonical="https://halobusinessfinance.com/commercial-loans"
+      />
+      <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -222,7 +230,8 @@ const CommercialLoansPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +10,14 @@ import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 
 const WorkingCapitalPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="Working Capital Loans & Lines of Credit | Up to $500K | Halo Business Finance"
+        description="Working capital loans and business lines of credit from $25K to $500K. Fast approval, flexible terms, competitive rates. Fund operations, inventory, payroll."
+        keywords="working capital loans, business line of credit, cash flow financing, short term business loans, inventory financing, payroll financing, operating capital, business credit line"
+        canonical="https://halobusinessfinance.com/working-capital"
+      />
+      <div className="min-h-screen bg-background">
       <Header />
       
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
@@ -493,7 +501,8 @@ const WorkingCapitalPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
