@@ -13,8 +13,7 @@ import {
 
 const Footer = () => {
   const loanPrograms = [
-    "SBA 7(a) Loans",
-    "SBA 504 Loans", 
+    "SBA Loans",
     "Bridge Loans",
     "Conventional Loans",
     "Equipment Financing",
