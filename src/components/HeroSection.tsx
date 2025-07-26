@@ -10,12 +10,12 @@ const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[600px] flex items-center overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[600px] flex items-center overflow-hidden" aria-label="Hero section">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroBackground} 
-          alt="Commercial Real Estate Skyline"
+          alt="Commercial real estate buildings representing business growth and financing opportunities"
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-financial-navy/40" />
@@ -24,7 +24,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Hero content */}
-          <div className="text-white space-y-8">
+          <header className="text-white space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl font-bold leading-tight">
                 Business financing
@@ -54,10 +54,10 @@ const HeroSection = () => {
               <div className="text-sm">NMLS Licensed</div>
               <div className="text-sm">Equal Opportunity Lender</div>
             </div>
-          </div>
+          </header>
 
           {/* Right side - Login card */}
-          <div className="lg:justify-self-end">
+          <aside className="lg:justify-self-end" aria-label="Account login form">
             <Card className="w-full max-w-md bg-white shadow-2xl">
               <CardContent className="p-8">
                 <div className="space-y-6">
@@ -128,7 +128,7 @@ const HeroSection = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
