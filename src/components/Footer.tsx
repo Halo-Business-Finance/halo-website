@@ -166,7 +166,7 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium">Follow Us:</span>
               <div className="flex gap-3">
-                <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                <a href="https://www.facebook.com/HaloBusinessFinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
                   <Facebook className="h-4 w-4" />
                 </a>
                 <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
