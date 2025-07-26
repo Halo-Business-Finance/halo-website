@@ -15,6 +15,8 @@ import ResourcesPage from "./pages/ResourcesPage";
 import SBA7aLoansPage from "./pages/SBA7aLoansPage";
 import SBALoanApplication from "./pages/SBALoanApplication";
 import EquipmentLoanApplication from "./pages/EquipmentLoanApplication";
+import WorkingCapitalApplication from "./pages/WorkingCapitalApplication";
+import CommercialRealEstateApplication from "./pages/CommercialRealEstateApplication";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
           <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
           <Route path="/sba-loan-application" element={<SBALoanApplication />} />
           <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
+          <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
+          <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
