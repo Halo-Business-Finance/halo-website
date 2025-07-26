@@ -21,13 +21,13 @@ const Footer = () => {
     "Business Line of Credit"
   ];
 
-  const industries = [
-    "Retail Industry",
-    "Auto Repair",
-    "Medical Industry",
-    "Food & Beverage",
-    "Manufacturing",
-    "Professional Services"
+  const partnerLinks = [
+    "Become a Broker",
+    "Broker Application",
+    "Broker Resources",
+    "Become a Lender",
+    "Lender Application",
+    "Partnership Benefits"
   ];
 
   const supportLinks = [
@@ -113,13 +113,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Partner Links */}
           <div>
-            <h4 className="font-semibold mb-4">Industries We Serve</h4>
+            <h4 className="font-semibold mb-4">Partner With Us</h4>
             <ul className="space-y-2">
-              {industries.map((link) => (
+              {partnerLinks.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <a href={link.includes('Broker') ? '/brokers' : '/lenders'} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link}
                   </a>
                 </li>
