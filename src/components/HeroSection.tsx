@@ -16,21 +16,21 @@ const HeroSection = () => {
           <div className="text-white space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl font-bold leading-tight">
-                Banking that works
-                <span className="block text-4xl">for your future</span>
+                Business financing
+                <span className="block text-4xl">that fuels your growth</span>
               </h1>
               <p className="text-xl text-blue-100 max-w-lg">
-                Experience modern banking with competitive rates, innovative tools, and personalized service that puts you first.
+                Experience streamlined business lending with competitive SBA and commercial loan solutions designed to accelerate your success.
               </p>
             </div>
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-                Open Account Today
+                Get Pre-Qualified
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                Learn More
+                View Loan Options
               </Button>
             </div>
 
@@ -38,10 +38,10 @@ const HeroSection = () => {
             <div className="flex items-center gap-6 pt-8">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5" />
-                <span className="text-sm">FDIC Insured</span>
+                <span className="text-sm">SBA Preferred Lender</span>
               </div>
-              <div className="text-sm">Member FDIC</div>
-              <div className="text-sm">Equal Housing Lender</div>
+              <div className="text-sm">NMLS Licensed</div>
+              <div className="text-sm">Equal Opportunity Lender</div>
             </div>
           </div>
 
@@ -110,9 +110,9 @@ const HeroSection = () => {
 
                   <div className="text-center text-sm text-gray-600">
                     New to Halo Business Finance?{" "}
-                    <a href="#" className="text-primary hover:underline font-medium">
-                      Open an account
-                    </a>
+                     <a href="#" className="text-primary hover:underline font-medium">
+                       Apply for financing
+                     </a>
                   </div>
                 </div>
               </CardContent>
