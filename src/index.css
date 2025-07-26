@@ -46,7 +46,7 @@ All colors MUST be HSL.
     --info-foreground: 0 0% 100%;
 
     --financial-blue: 214 84% 56%;
-    --financial-navy: 215 50% 45%;
+    --financial-navy: 215 35% 25%;
     --financial-light: 210 40% 98%;
 
     --radius: 0.375rem;
@@ -98,7 +98,7 @@ All colors MUST be HSL.
     --ring: 214 84% 56%;
 
     --financial-blue: 214 84% 56%;
-    --financial-navy: 215 50% 45%;
+    --financial-navy: 215 35% 25%;
     --financial-light: 217.2 32.6% 17.5%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
