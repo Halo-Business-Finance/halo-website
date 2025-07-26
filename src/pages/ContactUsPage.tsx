@@ -1,0 +1,117 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import loanConsultation from "@/assets/loan-consultation.jpg";
+
+const ContactUsPage = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+              Get in touch with our business financing experts. We're here to help you find the right loan solution for your business.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
+              <div className="space-y-6">
+                <Card className="p-6">
+                  <CardContent className="p-0 flex items-center gap-4">
+                    <Phone className="h-8 w-8 text-primary" />
+                    <div>
+                      <h3 className="font-semibold">Phone</h3>
+                      <p className="text-muted-foreground">(800) 730-8461</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="p-6">
+                  <CardContent className="p-0 flex items-center gap-4">
+                    <Mail className="h-8 w-8 text-primary" />
+                    <div>
+                      <h3 className="font-semibold">Email</h3>
+                      <p className="text-muted-foreground">info@halobusinessfinance.com</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="p-6">
+                  <CardContent className="p-0 flex items-center gap-4">
+                    <MapPin className="h-8 w-8 text-primary" />
+                    <div>
+                      <h3 className="font-semibold">Location</h3>
+                      <p className="text-muted-foreground">Irvine, California</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="p-6">
+                  <CardContent className="p-0 flex items-center gap-4">
+                    <Clock className="h-8 w-8 text-primary" />
+                    <div>
+                      <h3 className="font-semibold">Business Hours</h3>
+                      <p className="text-muted-foreground">Monday - Friday: 8:00 AM - 6:00 PM PST</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+            
+            <div>
+              <Card className="p-8">
+                <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium">First Name</label>
+                      <Input placeholder="Your first name" />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium">Last Name</label>
+                      <Input placeholder="Your last name" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Email</label>
+                    <Input type="email" placeholder="your.email@example.com" />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Phone</label>
+                    <Input type="tel" placeholder="(XXX) XXX-XXXX" />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Subject</label>
+                    <Input placeholder="How can we help you?" />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Message</label>
+                    <Textarea placeholder="Tell us about your financing needs..." rows={4} />
+                  </div>
+                  <Button type="submit" className="w-full">Send Message</Button>
+                </form>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default ContactUsPage;
