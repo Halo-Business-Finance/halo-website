@@ -5,6 +5,26 @@ interface ErrorResponse {
   error: string;
 }
 
+interface ScrapeResponse {
+  success: true;
+  data: {
+    markdown?: string;
+    content?: string;
+    metadata?: {
+      title?: string;
+      description?: string;
+      language?: string;
+      keywords?: string;
+      robots?: string;
+      ogTitle?: string;
+      ogDescription?: string;
+      ogImage?: string;
+      ogUrl?: string;
+      sourceURL?: string;
+    };
+  };
+}
+
 interface CrawlStatusResponse {
   success: true;
   status: string;
@@ -15,6 +35,7 @@ interface CrawlStatusResponse {
   data: any[];
 }
 
+type FirecrawlResponse = ScrapeResponse | ErrorResponse;
 type CrawlResponse = CrawlStatusResponse | ErrorResponse;
 
 export class FirecrawlService {
@@ -35,14 +56,62 @@ export class FirecrawlService {
     try {
       console.log('Testing API key with Firecrawl API');
       this.firecrawlApp = new FirecrawlApp({ apiKey });
-      // A simple test crawl to verify the API key
-      const testResponse = await this.firecrawlApp.crawlUrl('https://example.com', {
-        limit: 1
-      });
+      // A simple test scrape to verify the API key
+      const testResponse = await this.firecrawlApp.scrapeUrl('https://example.com');
       return testResponse.success;
     } catch (error) {
       console.error('Error testing API key:', error);
       return false;
+    }
+  }
+
+  static async scrapeWebsite(url: string): Promise<{ success: boolean; error?: string; data?: any }> {
+    const apiKey = this.getApiKey();
+    if (!apiKey) {
+      return { success: false, error: 'API key not found' };
+    }
+
+    try {
+      console.log('Making scrape request to Firecrawl API for URL:', url);
+      if (!this.firecrawlApp) {
+        this.firecrawlApp = new FirecrawlApp({ apiKey });
+      }
+
+      const scrapeResponse = await this.firecrawlApp.scrapeUrl(url, {
+        formats: ['markdown', 'html'],
+        includeTags: ['main', 'article', 'section', 'div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+        excludeTags: ['nav', 'footer', 'header', 'aside', 'script', 'style'],
+        onlyMainContent: true
+      }) as FirecrawlResponse;
+
+      if (!scrapeResponse.success) {
+        console.error('Scrape failed:', (scrapeResponse as ErrorResponse).error);
+        return { 
+          success: false, 
+          error: (scrapeResponse as ErrorResponse).error || 'Failed to scrape website' 
+        };
+      }
+
+      console.log('Scrape successful:', scrapeResponse);
+      
+      // Format the response data
+      const formattedData = {
+        title: scrapeResponse.data.metadata?.title || scrapeResponse.data.metadata?.ogTitle,
+        content: scrapeResponse.data.content,
+        markdown: scrapeResponse.data.markdown,
+        metadata: scrapeResponse.data.metadata
+      };
+
+      return { 
+        success: true,
+        data: formattedData 
+      };
+    } catch (error) {
+      console.error('Error during scrape:', error);
+      return { 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Failed to connect to Firecrawl API' 
+      };
     }
   }
 
@@ -59,9 +128,12 @@ export class FirecrawlService {
       }
 
       const crawlResponse = await this.firecrawlApp.crawlUrl(url, {
-        limit: 100,
+        limit: 50,
         scrapeOptions: {
           formats: ['markdown', 'html'],
+          includeTags: ['main', 'article', 'section', 'div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+          excludeTags: ['nav', 'footer', 'header', 'aside', 'script', 'style'],
+          onlyMainContent: true
         }
       }) as CrawlResponse;
 
