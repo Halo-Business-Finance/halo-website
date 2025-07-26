@@ -13,6 +13,7 @@ import EquipmentFinancingPage from "./pages/EquipmentFinancingPage";
 import BusinessCapitalPage from "./pages/BusinessCapitalPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import SBA7aLoansPage from "./pages/SBA7aLoansPage";
+import SBA504LoansPage from "./pages/SBA504LoansPage";
 import SBALoanApplication from "./pages/SBALoanApplication";
 import EquipmentLoanApplication from "./pages/EquipmentLoanApplication";
 import WorkingCapitalApplication from "./pages/WorkingCapitalApplication";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/business-capital" element={<BusinessCapitalPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
+          <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
           <Route path="/sba-loan-application" element={<SBALoanApplication />} />
           <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
           <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
