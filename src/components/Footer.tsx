@@ -22,10 +22,8 @@ const Footer = () => {
 
   const partnerLinks = [
     { name: "Become a Broker", link: "/brokers" },
-    { name: "Broker Application", link: "/brokers" },
     { name: "Broker Resources", link: "/brokers" },
     { name: "Become a Lender", link: "/lenders" },
-    { name: "Lender Application", link: "/lenders" },
     { name: "Partnership Benefits", link: "/lenders" }
   ];
 
