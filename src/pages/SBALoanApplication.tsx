@@ -87,7 +87,7 @@ const SBALoanApplication = () => {
   });
 
   const onSubmit = (data: SBALoanFormData) => {
-    console.log("SBA Loan Application Data:", data);
+    // Application submitted - sensitive data removed from logs for security
     toast({
       title: "Application Submitted Successfully!",
       description: "We'll review your application and contact you within 24 hours.",

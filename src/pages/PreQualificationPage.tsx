@@ -22,8 +22,7 @@ const PreQualificationPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    // Application submitted - sensitive data removed from logs for security
   };
 
   return (

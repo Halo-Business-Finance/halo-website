@@ -90,6 +90,12 @@ export const CrawlForm = () => {
           <label htmlFor="apiKey" className="text-sm font-medium text-foreground">
             Firecrawl API Key (get one at firecrawl.dev)
           </label>
+          <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-md mb-2">
+            <p className="text-sm text-yellow-800">
+              ⚠️ <strong>Security Notice:</strong> API keys entered here are stored in your browser's local storage and are visible in DevTools. 
+              For production use, consider implementing a backend proxy to keep API keys secure.
+            </p>
+          </div>
           <Input
             id="apiKey"
             type="password"

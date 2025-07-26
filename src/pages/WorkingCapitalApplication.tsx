@@ -88,7 +88,7 @@ const WorkingCapitalApplication = () => {
   });
 
   const onSubmit = (data: WorkingCapitalFormData) => {
-    console.log("Working Capital Application Data:", data);
+    // Application submitted - sensitive data removed from logs for security
     toast({
       title: "Working Capital Application Submitted!",
       description: "We'll review your application and contact you within 24 hours.",

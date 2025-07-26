@@ -77,7 +77,7 @@ const EquipmentLoanApplication = () => {
   });
 
   const onSubmit = (data: EquipmentLoanFormData) => {
-    console.log("Equipment Loan Application Data:", data);
+    // Application submitted - sensitive data removed from logs for security
     toast({
       title: "Equipment Loan Application Submitted!",
       description: "We'll review your application and contact you within 24 hours.",

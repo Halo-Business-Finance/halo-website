@@ -103,7 +103,7 @@ const CommercialRealEstateApplication = () => {
   });
 
   const onSubmit = (data: CommercialRealEstateFormData) => {
-    console.log("Commercial Real Estate Application Data:", data);
+    // Application submitted - sensitive data removed from logs for security
     toast({
       title: "Commercial Real Estate Application Submitted!",
       description: "We'll review your application and contact you within 24 hours.",

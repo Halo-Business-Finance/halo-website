@@ -43,9 +43,10 @@ export class FirecrawlService {
   private static firecrawlApp: FirecrawlApp | null = null;
 
   static saveApiKey(apiKey: string): void {
+    // Security Warning: API keys should be stored securely on the backend
+    console.warn('⚠️ Security Warning: API keys stored in localStorage are accessible via browser DevTools. Consider using a backend proxy for production.');
     localStorage.setItem(this.API_KEY_STORAGE_KEY, apiKey);
     this.firecrawlApp = new FirecrawlApp({ apiKey });
-    console.log('API key saved successfully');
   }
 
   static getApiKey(): string | null {
@@ -54,13 +55,11 @@ export class FirecrawlService {
 
   static async testApiKey(apiKey: string): Promise<boolean> {
     try {
-      console.log('Testing API key with Firecrawl API');
       this.firecrawlApp = new FirecrawlApp({ apiKey });
       // A simple test scrape to verify the API key
       const testResponse = await this.firecrawlApp.scrapeUrl('https://example.com');
       return testResponse.success;
     } catch (error) {
-      console.error('Error testing API key:', error);
       return false;
     }
   }
@@ -72,7 +71,6 @@ export class FirecrawlService {
     }
 
     try {
-      console.log('Making scrape request to Firecrawl API for URL:', url);
       if (!this.firecrawlApp) {
         this.firecrawlApp = new FirecrawlApp({ apiKey });
       }
@@ -85,14 +83,11 @@ export class FirecrawlService {
       }) as FirecrawlResponse;
 
       if (!scrapeResponse.success) {
-        console.error('Scrape failed:', (scrapeResponse as ErrorResponse).error);
         return { 
           success: false, 
           error: (scrapeResponse as ErrorResponse).error || 'Failed to scrape website' 
         };
       }
-
-      console.log('Scrape successful:', scrapeResponse);
       
       // Format the response data
       const formattedData = {
@@ -107,10 +102,9 @@ export class FirecrawlService {
         data: formattedData 
       };
     } catch (error) {
-      console.error('Error during scrape:', error);
       return { 
         success: false, 
-        error: error instanceof Error ? error.message : 'Failed to connect to Firecrawl API' 
+        error: 'Failed to connect to Firecrawl API' 
       };
     }
   }
@@ -122,7 +116,6 @@ export class FirecrawlService {
     }
 
     try {
-      console.log('Making crawl request to Firecrawl API');
       if (!this.firecrawlApp) {
         this.firecrawlApp = new FirecrawlApp({ apiKey });
       }
@@ -138,23 +131,19 @@ export class FirecrawlService {
       }) as CrawlResponse;
 
       if (!crawlResponse.success) {
-        console.error('Crawl failed:', (crawlResponse as ErrorResponse).error);
         return { 
           success: false, 
           error: (crawlResponse as ErrorResponse).error || 'Failed to crawl website' 
         };
       }
-
-      console.log('Crawl successful:', crawlResponse);
       return { 
         success: true,
         data: crawlResponse 
       };
     } catch (error) {
-      console.error('Error during crawl:', error);
       return { 
         success: false, 
-        error: error instanceof Error ? error.message : 'Failed to connect to Firecrawl API' 
+        error: 'Failed to connect to Firecrawl API' 
       };
     }
   }

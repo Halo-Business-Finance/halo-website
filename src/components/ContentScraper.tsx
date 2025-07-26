@@ -7,6 +7,7 @@ import { FirecrawlService } from '@/utils/FirecrawlService';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Copy, ExternalLink } from "lucide-react";
+import { SecurityNotice } from "@/components/SecurityNotice";
 
 interface ScrapedContent {
   title?: string;
@@ -120,25 +121,28 @@ export const ContentScraper = () => {
         </CardHeader>
         <CardContent className="space-y-4">
           {!isApiKeySet && (
-            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h3 className="font-semibold text-yellow-800 mb-2">API Key Required</h3>
-              <p className="text-sm text-yellow-700 mb-3">
-                You need a Firecrawl API key to scrape websites. Get one at{' '}
-                <a href="https://firecrawl.dev" target="_blank" rel="noopener noreferrer" className="underline">
-                  firecrawl.dev
-                </a>
-              </p>
-              <div className="flex gap-2">
-                <Input
-                  type="password"
-                  value={apiKey}
-                  onChange={(e) => setApiKey(e.target.value)}
-                  placeholder="Enter your Firecrawl API key"
-                  className="flex-1"
-                />
-                <Button onClick={handleSaveApiKey}>Save Key</Button>
+            <>
+              <SecurityNotice type="api-key" className="mb-4" />
+              <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <h3 className="font-semibold text-yellow-800 mb-2">API Key Required</h3>
+                <p className="text-sm text-yellow-700 mb-3">
+                  You need a Firecrawl API key to scrape websites. Get one at{' '}
+                  <a href="https://firecrawl.dev" target="_blank" rel="noopener noreferrer" className="underline">
+                    firecrawl.dev
+                  </a>
+                </p>
+                <div className="flex gap-2">
+                  <Input
+                    type="password"
+                    value={apiKey}
+                    onChange={(e) => setApiKey(e.target.value)}
+                    placeholder="Enter your Firecrawl API key"
+                    className="flex-1"
+                  />
+                  <Button onClick={handleSaveApiKey}>Save Key</Button>
+                </div>
               </div>
-            </div>
+            </>
           )}
 
           {isApiKeySet && (
