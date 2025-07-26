@@ -125,21 +125,15 @@ const Header = () => {
           <div></div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <DropdownMenu key={item.title}>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors">
-                  {item.title}
-                  <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-background border shadow-lg">
-                  {item.items.map((subItem) => (
-                    <DropdownMenuItem key={subItem} className="hover:bg-muted" asChild>
-                      <Link to={getItemLink(item.title, subItem)}>{subItem}</Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <Link
+                key={item.title}
+                to={item.href}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                {item.title}
+              </Link>
             ))}
           </nav>
 
