@@ -5,9 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CheckCircle, Truck, Building2, Stethoscope, ArrowRight } from "lucide-react";
+import { CheckCircle, Truck, Building2, Stethoscope, ArrowRight, Wrench, Factory, Zap } from "lucide-react";
 import businessGrowth from "@/assets/business-growth.jpg";
 import equipmentFinancing from "@/assets/equipment-financing.jpg";
+import constructionEquipment from "@/assets/construction-equipment.jpg";
+import medicalEquipment from "@/assets/medical-equipment.jpg";
+import { EquipmentTypesChart } from "@/components/charts/EquipmentTypesChart";
+import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 
 const EquipmentFinancingPage = () => {
   const equipmentProducts = [
@@ -237,6 +241,113 @@ const EquipmentFinancingPage = () => {
                 <p className="text-muted-foreground">
                   Equipment financing often provides tax benefits through depreciation and interest deductions.
                 </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Equipment Financing Analytics */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Equipment Financing Insights
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See how we're supporting businesses across industries with specialized equipment financing solutions.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <EquipmentTypesChart />
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <img 
+                  src={constructionEquipment} 
+                  alt="Construction equipment"
+                  className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Industry Specialization</h3>
+                  <p className="text-muted-foreground">Deep expertise in equipment values and financing needs across construction, medical, manufacturing, and transportation sectors.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <img 
+                  src={medicalEquipment} 
+                  alt="Medical equipment"
+                  className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Flexible Financing Options</h3>
+                  <p className="text-muted-foreground">From traditional loans to leasing programs, we offer financing structures that match your equipment's useful life and business cash flow.</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                <Card className="text-center p-4">
+                  <CardContent className="p-0">
+                    <div className="text-2xl font-bold text-primary mb-1">94%</div>
+                    <div className="text-sm text-muted-foreground">Equipment Approval Rate</div>
+                  </CardContent>
+                </Card>
+                <Card className="text-center p-4">
+                  <CardContent className="p-0">
+                    <div className="text-2xl font-bold text-primary mb-1">48hrs</div>
+                    <div className="text-sm text-muted-foreground">Decision Time</div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+          
+          <ProcessDiagram />
+        </div>
+      </section>
+
+      {/* Equipment Financing Features */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Equipment Financing Advantages
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Truck className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">100% Financing</h3>
+                <p className="text-sm text-muted-foreground">No down payment options available for qualified borrowers</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Tax Benefits</h3>
+                <p className="text-sm text-muted-foreground">Potential tax advantages through depreciation and Section 179</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Equipment Secured</h3>
+                <p className="text-sm text-muted-foreground">Equipment serves as collateral, often enabling better rates</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Factory className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">New & Used</h3>
+                <p className="text-sm text-muted-foreground">Finance both new and pre-owned equipment purchases</p>
               </CardContent>
             </Card>
           </div>

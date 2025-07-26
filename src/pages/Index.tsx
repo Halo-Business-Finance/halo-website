@@ -7,6 +7,10 @@ import StatsSection from "@/components/StatsSection";
 import ImageGallery from "@/components/ImageGallery";
 import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer";
+import { LendingStatsSection } from "@/components/charts/LendingStatsSection";
+import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
+import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
+import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 
 import SEO from "@/components/SEO";
 
@@ -22,13 +26,36 @@ const Index = () => {
       <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      
-      
       <ProductsSection />
+      <LendingStatsSection />
+      
+      {/* Charts Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Data-Driven Success
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See how we're helping businesses across industries with proven results and streamlined processes.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <LoanApprovalChart />
+            <IndustryStatsChart />
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <ProcessDiagram />
+          </div>
+        </div>
+      </section>
+      
       <StatsSection />
       <ImageGallery />
       <FeaturesSection />
-        <Footer />
+      <Footer />
       </div>
     </>
   );

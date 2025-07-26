@@ -4,9 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CheckCircle, CreditCard, TrendingUp, DollarSign, ArrowRight } from "lucide-react";
+import { CheckCircle, CreditCard, TrendingUp, DollarSign, ArrowRight, PieChart, BarChart3, Target } from "lucide-react";
 import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
+import officeWorkspace from "@/assets/office-workspace.jpg";
+import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 
 const BusinessCapitalPage = () => {
   const capitalProducts = [
@@ -226,6 +228,111 @@ const BusinessCapitalPage = () => {
                 <p className="text-muted-foreground">
                   Establish and improve your business credit profile with responsible capital management.
                 </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Capital Usage Analytics */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Smart Capital Management
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See how businesses successfully utilize our capital solutions and streamlined processes.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <ProcessDiagram />
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <img 
+                  src={officeWorkspace} 
+                  alt="Modern business workspace"
+                  className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Flexible Capital Access</h3>
+                  <p className="text-muted-foreground">Multiple funding options including revolving credit lines, term loans, and revenue-based financing to match your cash flow needs.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <img 
+                  src={businessLoanApproved} 
+                  alt="Business loan approval celebration"
+                  className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Fast Decision Making</h3>
+                  <p className="text-muted-foreground">Quick approvals and funding to help you seize time-sensitive opportunities and manage unexpected expenses.</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                <Card className="text-center p-4">
+                  <CardContent className="p-0">
+                    <div className="text-2xl font-bold text-primary mb-1">86%</div>
+                    <div className="text-sm text-muted-foreground">Working Capital Approval</div>
+                  </CardContent>
+                </Card>
+                <Card className="text-center p-4">
+                  <CardContent className="p-0">
+                    <div className="text-2xl font-bold text-primary mb-1">24hrs</div>
+                    <div className="text-sm text-muted-foreground">Average Response</div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Capital Solutions with Enhanced Icons */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Strategic Capital Solutions
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <CreditCard className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Fast Access</h3>
+                <p className="text-sm text-muted-foreground">Quick approval and funding for urgent business needs</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Flexible Terms</h3>
+                <p className="text-sm text-muted-foreground">Repayment options that work with your cash flow</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Target className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Build Credit</h3>
+                <p className="text-sm text-muted-foreground">Establish and improve business credit profile</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <BarChart3 className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Growth Support</h3>
+                <p className="text-sm text-muted-foreground">Capital to scale operations and seize opportunities</p>
               </CardContent>
             </Card>
           </div>

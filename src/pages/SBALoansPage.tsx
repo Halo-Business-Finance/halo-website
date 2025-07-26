@@ -5,9 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CheckCircle, DollarSign, Clock, Users, ArrowRight } from "lucide-react";
+import { CheckCircle, DollarSign, Clock, Users, ArrowRight, Shield, TrendingUp, FileCheck } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
+import businessMeeting from "@/assets/business-meeting.jpg";
+import businessGrowth from "@/assets/business-growth.jpg";
+import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
+import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 
 const SBALoansPage = () => {
   const sbaProducts = [
@@ -211,6 +215,113 @@ const SBALoansPage = () => {
                 <p className="text-muted-foreground">
                   SBA guarantee reduces lender risk, making approval more likely even for businesses with limited collateral.
                 </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* SBA Lending Process & Stats */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our SBA Lending Success
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See our proven track record and streamlined process for SBA loan approvals.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <LoanApprovalChart />
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <img 
+                  src={businessMeeting} 
+                  alt="SBA loan meeting"
+                  className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Expert SBA Guidance</h3>
+                  <p className="text-muted-foreground">Our SBA specialists guide you through every step of the process, ensuring optimal loan structure and terms.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <img 
+                  src={businessGrowth} 
+                  alt="Business growth success"
+                  className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Proven Results</h3>
+                  <p className="text-muted-foreground">Over 15,000 businesses funded with $2.5B+ in SBA loans, helping companies achieve their growth goals.</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                <Card className="text-center p-4">
+                  <CardContent className="p-0">
+                    <div className="text-2xl font-bold text-primary mb-1">92%</div>
+                    <div className="text-sm text-muted-foreground">SBA Approval Rate</div>
+                  </CardContent>
+                </Card>
+                <Card className="text-center p-4">
+                  <CardContent className="p-0">
+                    <div className="text-2xl font-bold text-primary mb-1">5 Days</div>
+                    <div className="text-sm text-muted-foreground">Avg. SBA Processing</div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+          
+          <ProcessDiagram />
+        </div>
+      </section>
+
+      {/* SBA Benefits with Icons */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              SBA Loan Benefits & Requirements
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Government Backing</h3>
+                <p className="text-sm text-muted-foreground">85% SBA guarantee reduces lender risk</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Lower Down Payment</h3>
+                <p className="text-sm text-muted-foreground">As low as 10% down payment required</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Extended Terms</h3>
+                <p className="text-sm text-muted-foreground">Up to 25 years for real estate loans</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover-scale">
+              <CardContent className="p-0">
+                <FileCheck className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Flexible Use</h3>
+                <p className="text-sm text-muted-foreground">Working capital, equipment, real estate</p>
               </CardContent>
             </Card>
           </div>
