@@ -54,7 +54,7 @@ const HeroSection = () => {
                 <span className="text-sm">SBA Preferred Lender</span>
               </div>
               <div className="text-sm">NMLS Licensed</div>
-              <div className="text-sm">Equal Opportunity Lender</div>
+              <div className="text-sm">Secure & Encrypted Marketplace</div>
             </div>
           </header>
 
