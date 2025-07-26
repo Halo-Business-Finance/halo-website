@@ -14,6 +14,11 @@ const Header = () => {
 
   const navItems = [
     {
+      title: "Company",
+      href: "/company",
+      items: ["Company Overview", "About Us", "Contact Us", "Careers"]
+    },
+    {
       title: "SBA Loans",
       href: "/sba-loans",
       items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "SBA Microloans", "Bridge Loans"]
@@ -32,11 +37,6 @@ const Header = () => {
       title: "Business Capital",
       href: "/business-capital",
       items: ["Working Capital", "Business Line of Credit", "Term Loans", "Revenue Based Financing"]
-    },
-    {
-      title: "Company",
-      href: "/company",
-      items: ["Company Overview", "About Us", "Contact Us", "Careers"]
     },
     {
       title: "Resources",

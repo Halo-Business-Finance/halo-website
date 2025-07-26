@@ -40,7 +40,8 @@ const Footer = () => {
   ];
 
   const companyLinks = [
-    "About Us",
+    "Company Overview",
+    "About Us", 
     "How It Works",
     "Marketplace Benefits",
     "NMLS Compliance",
@@ -99,6 +100,20 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Company links - MOVED TO FIRST */}
+          <div>
+            <h4 className="font-semibold mb-4">Company</h4>
+            <ul className="space-y-2">
+              {companyLinks.map((link) => (
+                <li key={link}>
+                  <a href={link === "Company Overview" ? "/company-overview" : "#"} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Loan Programs */}
           <div>
             <h4 className="font-semibold mb-4">Loan Programs</h4>
@@ -141,19 +156,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Company links */}
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              {companyLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Social media and bottom info */}
