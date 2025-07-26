@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Shield, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
+import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);

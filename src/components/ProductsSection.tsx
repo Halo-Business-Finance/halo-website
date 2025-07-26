@@ -11,6 +11,9 @@ import {
   ArrowRight,
   CheckCircle
 } from "lucide-react";
+import loanConsultation from "@/assets/loan-consultation.jpg";
+import businessGrowth from "@/assets/business-growth.jpg";
+import sbaLogo from "@/assets/sba-logo.jpg";
 
 const ProductsSection = () => {
   const products = [
@@ -196,6 +199,33 @@ const ProductsSection = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+
+        {/* CTA Section with Background Image */}
+        <div className="mt-16 relative overflow-hidden rounded-lg">
+          <img 
+            src={loanConsultation} 
+            alt="Professional loan consultation meeting"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-16 px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Ready to Fuel Your Business Growth?
+              </h2>
+              <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
+                Join hundreds of successful businesses who trust Halo Business Finance for their growth capital.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+                  Get Pre-Qualified
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  Schedule Consultation
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

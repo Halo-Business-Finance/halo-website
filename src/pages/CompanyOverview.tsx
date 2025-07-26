@@ -3,6 +3,9 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Users, Target, Award, TrendingUp, Building2 } from "lucide-react";
+import loanConsultation from "@/assets/loan-consultation.jpg";
+import businessGrowth from "@/assets/business-growth.jpg";
+import sbaLogo from "@/assets/sba-logo.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -145,40 +148,54 @@ const CompanyOverview = () => {
       {/* Commercial Real Estate Focus */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Building2 className="h-16 w-16 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Nationwide Commercial Real Estate Loans
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Our commercial loan marketplace can help you find the best interest rate 
-              without wasting time looking for a bank or lender.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <Card className="p-4">
-                <CardContent className="p-0 text-center">
-                  <h3 className="font-semibold mb-2">Purchase Loans</h3>
-                  <p className="text-sm text-muted-foreground">Finance your commercial property acquisition</p>
-                </CardContent>
-              </Card>
-              <Card className="p-4">
-                <CardContent className="p-0 text-center">
-                  <h3 className="font-semibold mb-2">Refinance Loans</h3>
-                  <p className="text-sm text-muted-foreground">Optimize your existing commercial property financing</p>
-                </CardContent>
-              </Card>
-              <Card className="p-4">
-                <CardContent className="p-0 text-center">
-                  <h3 className="font-semibold mb-2">Construction Loans</h3>
-                  <p className="text-sm text-muted-foreground">Fund your commercial development projects</p>
-                </CardContent>
-              </Card>
-            </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <Building2 className="h-12 w-12 text-primary" />
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                    Nationwide Commercial Real Estate Loans
+                  </h2>
+                  <p className="text-xl text-muted-foreground">
+                    Our commercial loan marketplace can help you find the best interest rate 
+                    without wasting time looking for a bank or lender.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-1 gap-4 mb-8">
+                <Card className="p-4">
+                  <CardContent className="p-0">
+                    <h3 className="font-semibold mb-2">Purchase Loans</h3>
+                    <p className="text-sm text-muted-foreground">Finance your commercial property acquisition</p>
+                  </CardContent>
+                </Card>
+                <Card className="p-4">
+                  <CardContent className="p-0">
+                    <h3 className="font-semibold mb-2">Refinance Loans</h3>
+                    <p className="text-sm text-muted-foreground">Optimize your existing commercial property financing</p>
+                  </CardContent>
+                </Card>
+                <Card className="p-4">
+                  <CardContent className="p-0">
+                    <h3 className="font-semibold mb-2">Construction Loans</h3>
+                    <p className="text-sm text-muted-foreground">Fund your commercial development projects</p>
+                  </CardContent>
+                </Card>
+              </div>
 
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Get Started Today
-            </Button>
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                Get Started Today
+              </Button>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src={loanConsultation} 
+                alt="Commercial real estate loan consultation"
+                className="rounded-lg shadow-lg w-full"
+              />
+            </div>
           </div>
         </div>
       </section>

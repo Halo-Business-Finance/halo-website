@@ -9,6 +9,8 @@ import {
   Building2,
   ArrowRight
 } from "lucide-react";
+import businessGrowth from "@/assets/business-growth.jpg";
+import sbaLogo from "@/assets/sba-logo.jpg";
 
 const FeaturesSection = () => {
   const features = [
@@ -86,22 +88,38 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Call to action */}
+        {/* Enhanced Call to action with business image */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-primary to-financial-navy rounded-2xl p-8 text-white max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Fuel Your Business Growth?
-            </h3>
-            <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Get pre-qualified today and discover the difference.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-                Get Pre-Qualified
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white/10">
-                Schedule Consultation
-              </Button>
+          <div className="relative overflow-hidden rounded-2xl max-w-4xl mx-auto">
+            <img 
+              src={businessGrowth} 
+              alt="Business success and growth"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+            />
+            <div className="relative bg-gradient-to-r from-financial-navy/95 to-primary/90 text-white p-8">
+              <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+                <img 
+                  src={sbaLogo} 
+                  alt="SBA Preferred Lender"
+                  className="h-12 w-auto"
+                />
+                <div className="text-center md:text-left">
+                  <h3 className="text-3xl font-bold mb-2">
+                    Ready to Fuel Your Business Growth?
+                  </h3>
+                  <p className="text-xl text-blue-100 max-w-2xl">
+                    Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Get pre-qualified today and discover the difference.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+                  Get Pre-Qualified
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white/10">
+                  Schedule Consultation
+                </Button>
+              </div>
             </div>
           </div>
         </div>
