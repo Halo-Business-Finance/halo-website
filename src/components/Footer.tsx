@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import { 
   Facebook, 
   Twitter, 
@@ -57,11 +58,11 @@ const Footer = () => {
           {/* Company info and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <a href="/" className="hover:opacity-80 transition-opacity">
+              <Link to="/" className="hover:opacity-80 transition-opacity">
                 <h3 className="text-2xl font-bold mb-4">
                   HALO <span className="text-primary">BUSINESS FINANCE</span>
                 </h3>
-              </a>
+              </Link>
               <p className="text-gray-300 mb-6">
                 Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
               </p>
@@ -108,9 +109,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -122,9 +123,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {loanPrograms.map((link) => (
                 <li key={link.name}>
-                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -136,9 +137,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -150,9 +151,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -187,10 +188,10 @@ const Footer = () => {
 
             {/* Legal links */}
             <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-              <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Use</a>
-              <a href="/accessibility" className="hover:text-white transition-colors">Accessibility</a>
-              <a href="/sitemap" className="hover:text-white transition-colors">Site Map</a>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Use</Link>
+              <Link to="/accessibility" className="hover:text-white transition-colors">Accessibility</Link>
+              <Link to="/sitemap" className="hover:text-white transition-colors">Site Map</Link>
             </div>
           </div>
 

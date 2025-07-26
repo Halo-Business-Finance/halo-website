@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, User, Search, Phone, MapPin, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -98,12 +99,12 @@ const Header = () => {
           <div className="flex items-center justify-between text-sm">
             {/* Logo in top section */}
             <div className="flex items-center">
-              <a href="/" className="hover:opacity-80 transition-opacity">
+              <Link to="/" className="hover:opacity-80 transition-opacity">
                 <h1 className="text-xl font-bold text-white">
                   HALO
                   <span className="text-primary"> BUSINESS FINANCE</span>
                 </h1>
-              </a>
+              </Link>
             </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
@@ -133,7 +134,7 @@ const Header = () => {
                 <DropdownMenuContent className="bg-background border shadow-lg">
                   {item.items.map((subItem) => (
                     <DropdownMenuItem key={subItem} className="hover:bg-muted" asChild>
-                      <a href={getItemLink(item.title, subItem)}>{subItem}</a>
+                      <Link to={getItemLink(item.title, subItem)}>{subItem}</Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -181,13 +182,13 @@ const Header = () => {
                         <h3 className="font-semibold text-lg">{item.title}</h3>
                         <div className="pl-4 space-y-2">
                           {item.items.map((subItem) => (
-                            <a
+                            <Link
                               key={subItem}
-                              href={getItemLink(item.title, subItem)}
+                              to={getItemLink(item.title, subItem)}
                               className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                             >
                               {subItem}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>

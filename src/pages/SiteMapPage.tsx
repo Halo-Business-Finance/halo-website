@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { MapPin, ExternalLink } from "lucide-react";
 
 const SiteMapPage = () => {
@@ -127,14 +128,14 @@ const SiteMapPage = () => {
                   <CardContent>
                     <nav className="space-y-3">
                       {section.links.map((link, linkIndex) => (
-                        <a
+                        <Link
                           key={linkIndex}
-                          href={link.url}
+                          to={link.url}
                           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
                         >
                           <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                           <span>{link.name}</span>
-                        </a>
+                        </Link>
                       ))}
                     </nav>
                   </CardContent>
@@ -150,13 +151,13 @@ const SiteMapPage = () => {
                 <CardContent>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button asChild>
-                      <a href="/pre-qualification">Get Pre-Qualified</a>
+                      <Link to="/pre-qualification">Get Pre-Qualified</Link>
                     </Button>
                     <Button variant="outline" asChild>
-                      <a href="/loan-calculator">Calculate Payment</a>
+                      <Link to="/loan-calculator">Calculate Payment</Link>
                     </Button>
                     <Button variant="outline" asChild>
-                      <a href="/contact-us">Contact Us</a>
+                      <Link to="/contact-us">Contact Us</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -170,7 +171,7 @@ const SiteMapPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild>
-                  <a href="/contact-us">Contact Support</a>
+                  <Link to="/contact-us">Contact Support</Link>
                 </Button>
                 <Button variant="outline" asChild>
                   <a href="tel:(800) 730-8461">Call (800) 730-8461</a>
