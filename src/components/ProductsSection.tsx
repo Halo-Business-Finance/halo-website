@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { 
   CreditCard, 
   PiggyBank, 
@@ -145,9 +146,11 @@ const ProductsSection = () => {
                   ))}
                 </ul>
 
-                <Button className="w-full group">
-                  {product.cta}
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <Button asChild className="w-full group">
+                  <Link to="/pre-qualification">
+                    {product.cta}
+                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -192,9 +195,11 @@ const ProductsSection = () => {
                     ))}
                   </ul>
 
-                  <Button className="w-full group">
-                    {product.cta}
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <Button asChild className="w-full group">
+                    <Link to="/business-capital">
+                      {product.cta}
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -218,11 +223,11 @@ const ProductsSection = () => {
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
-                  Get Pre-Qualified
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+                  <Link to="/pre-qualification">Get Pre-Qualified</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Schedule Consultation
+                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  <Link to="/contact-us">Schedule Consultation</Link>
                 </Button>
               </div>
             </div>

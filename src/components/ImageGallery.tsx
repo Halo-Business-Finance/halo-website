@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import businessMeeting from "@/assets/business-meeting.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
 import businessHandshake from "@/assets/business-handshake.jpg";
@@ -85,12 +86,12 @@ const ImageGallery = () => {
               Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold">
+              <Link to="/pre-qualification" className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold text-center">
                 Start Your Application
-              </button>
-              <button className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors font-semibold">
+              </Link>
+              <Link to="/contact-us" className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors font-semibold text-center">
                 Schedule Consultation
-              </button>
+              </Link>
             </div>
           </div>
         </div>
