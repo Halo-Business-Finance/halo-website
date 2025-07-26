@@ -111,7 +111,7 @@ const Header = () => {
                 <span className="hidden md:inline">(800) 730-8461</span>
                 <span className="md:hidden text-xs">(800) 730-8461</span>
               </div>
-              <span className="hidden md:inline">Customer Service</span>
+              <Link to="/customer-service" className="hidden md:inline hover:text-primary transition-colors">Customer Service</Link>
             </div>
           </div>
         </div>

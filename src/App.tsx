@@ -48,6 +48,7 @@ const ContactUsPage = lazy(() => import("./pages/ContactUsPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
 const WorkingCapitalPage = lazy(() => import("./pages/WorkingCapitalPage"));
 const BusinessLineOfCreditPage = lazy(() => import("./pages/BusinessLineOfCreditPage"));
+const CustomerServicePage = lazy(() => import("./pages/CustomerServicePage"));
 
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
@@ -137,6 +138,7 @@ const App = () => (
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />
             <Route path="/accessibility" element={<AccessibilityPage />} />
             <Route path="/sitemap" element={<SiteMapPage />} />
+            <Route path="/customer-service" element={<CustomerServicePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
