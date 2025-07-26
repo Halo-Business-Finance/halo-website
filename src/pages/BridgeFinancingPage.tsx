@@ -54,54 +54,75 @@ const BridgeFinancingPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Bridge Financing Uses</h2>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Acquisition financing while permanent loan is processed</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Property improvements before refinancing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Quick cash for auction purchases</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Lease-up period for new construction</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Distressed property stabilization</span>
-                </li>
-              </ul>
+              <h2 className="text-3xl font-bold mb-6">Common Uses for Bridge Financing</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Quick acquisitions</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Auction purchases</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Property improvements</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Construction takeout</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Lease-up periods</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Distressed properties</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Time-sensitive deals</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Working capital needs</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <Card>
               <CardHeader>
-                <CardTitle>Bridge Financing Terms</CardTitle>
+                <CardTitle>Bridge Financing Requirements</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
-                  <span>Interest Rate:</span>
-                  <span className="font-semibold">9% - 15%</span>
+                  <span>Credit Score:</span>
+                  <span className="font-semibold">600+</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Loan-to-Value:</span>
+                  <span>Experience:</span>
+                  <span className="font-semibold">Real estate experience</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>LTV Ratio:</span>
                   <span className="font-semibold">Up to 80%</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Closing Time:</span>
-                  <span className="font-semibold">5-10 days</span>
+                  <span>Interest Rates:</span>
+                  <span className="font-semibold">9% - 15%</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Interest Only:</span>
-                  <span className="font-semibold">Available</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Extension Options:</span>
-                  <span className="font-semibold">Yes</span>
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-2">Financing Benefits</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• Fast 5-10 day closings</li>
+                    <li>• Interest-only payments</li>
+                    <li>• Flexible exit strategies</li>
+                    <li>• No prepayment penalties</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>

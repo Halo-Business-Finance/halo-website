@@ -102,34 +102,75 @@ const EquipmentLoansPage = () => {
                 </div>
               </div>
             </div>
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Common Uses for Equipment Loans</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Expand production capacity</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Replace aging equipment</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Improve efficiency</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Technology upgrades</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Fleet expansion</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>New business locations</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Competitive advantage</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Cost reduction</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <Card>
               <CardHeader>
-                <CardTitle>Equipment Loan Benefits</CardTitle>
+                <CardTitle>Equipment Loan Requirements</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="flex justify-between">
+                  <span>Credit Score:</span>
+                  <span className="font-semibold">600+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Time in Business:</span>
+                  <span className="font-semibold">1+ years</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Annual Revenue:</span>
+                  <span className="font-semibold">$75K+</span>
+                </div>
                 <div className="flex justify-between">
                   <span>Interest Rates:</span>
                   <span className="font-semibold">Starting at 5.9%</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Terms:</span>
-                  <span className="font-semibold">1-7 years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Approval Time:</span>
-                  <span className="font-semibold">24-48 hours</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Tax Benefits:</span>
-                  <span className="font-semibold">Section 179 eligible</span>
-                </div>
                 <div className="border-t pt-4">
-                  <h4 className="font-semibold mb-2">Additional Benefits:</h4>
+                  <h4 className="font-semibold mb-2">Loan Benefits</h4>
                   <ul className="text-sm space-y-1">
                     <li>• Equipment serves as collateral</li>
+                    <li>• 100% financing available</li>
+                    <li>• Section 179 tax benefits</li>
                     <li>• Preserve working capital</li>
-                    <li>• Fixed monthly payments</li>
-                    <li>• Build business credit</li>
                   </ul>
                 </div>
               </CardContent>

@@ -54,66 +54,97 @@ const PurchaseLoansPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Property Types We Finance</h2>
+              <h2 className="text-3xl font-bold mb-6">Common Uses for Purchase Loans</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Office Buildings</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Owner-occupied properties</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Retail Centers</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Investment properties</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Industrial Properties</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Business expansion</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Warehouses</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Portfolio diversification</span>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Multi-Family</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Development projects</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Mixed-Use</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Value-add acquisitions</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Medical Buildings</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>1031 exchanges</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Special Purpose</span>
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Strategic acquisitions</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold mb-4">Property Types We Finance</h3>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span className="text-sm">Office Buildings</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span className="text-sm">Retail Centers</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span className="text-sm">Industrial Properties</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span className="text-sm">Multi-Family</span>
                   </div>
                 </div>
               </div>
             </div>
             <Card>
               <CardHeader>
-                <CardTitle>Purchase Loan Features</CardTitle>
+                <CardTitle>Purchase Loan Requirements</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="flex justify-between">
+                  <span>Credit Score:</span>
+                  <span className="font-semibold">680+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Down Payment:</span>
+                  <span className="font-semibold">15-25%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>DSCR:</span>
+                  <span className="font-semibold">1.25x or higher</span>
+                </div>
                 <div className="flex justify-between">
                   <span>Interest Rates:</span>
                   <span className="font-semibold">Starting at 6.5%</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Loan Terms:</span>
-                  <span className="font-semibold">5-30 years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Amortization:</span>
-                  <span className="font-semibold">Up to 30 years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Prepayment:</span>
-                  <span className="font-semibold">Options available</span>
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-2">Loan Features</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• 5-30 year terms</li>
+                    <li>• Up to 30 year amortization</li>
+                    <li>• Competitive rates</li>
+                    <li>• 30-day closing possible</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>

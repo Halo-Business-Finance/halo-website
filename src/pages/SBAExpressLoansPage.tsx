@@ -61,6 +61,82 @@ const SBAExpressLoansPage = () => {
               </CardContent>
             </Card>
           </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Common Uses for SBA Express Loans</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Working capital</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Equipment purchases</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Business expansion</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Inventory financing</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Debt refinancing</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Marketing initiatives</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Real estate purchases</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Business acquisitions</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>SBA Express Requirements</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex justify-between">
+                  <span>Credit Score:</span>
+                  <span className="font-semibold">650+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Time in Business:</span>
+                  <span className="font-semibold">2+ years</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Annual Revenue:</span>
+                  <span className="font-semibold">$100K+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Interest Rates:</span>
+                  <span className="font-semibold">Starting at 5.5%</span>
+                </div>
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-2">SBA Express Benefits</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• 50% SBA guarantee</li>
+                    <li>• Expedited 36-hour approval</li>
+                    <li>• Lower down payments</li>
+                    <li>• Flexible use of funds</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 

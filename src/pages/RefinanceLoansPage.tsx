@@ -54,59 +54,79 @@ const RefinanceLoansPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Why Refinance Now?</h2>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Lower interest rates may reduce monthly payments</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Access equity for business expansion</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Consolidate multiple loans</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Switch from variable to fixed rate</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Remove personal guarantees</span>
-                </li>
-              </ul>
+              <h2 className="text-3xl font-bold mb-6">Common Uses for Refinancing</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Lower monthly payments</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Access equity for growth</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Debt consolidation</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Property improvements</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Switch to fixed rate</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Remove personal guarantees</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Better loan terms</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Portfolio optimization</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <Card>
               <CardHeader>
-                <CardTitle>Refinance Benefits</CardTitle>
+                <CardTitle>Refinance Requirements</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="bg-muted p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">Example Savings</h4>
-                  <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span>Credit Score:</span>
+                  <span className="font-semibold">680+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Property Occupied:</span>
+                  <span className="font-semibold">12+ months</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>DSCR:</span>
+                  <span className="font-semibold">1.20x minimum</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Interest Rates:</span>
+                  <span className="font-semibold">Starting at 6.0%</span>
+                </div>
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-2">Potential Savings</h4>
+                  <div className="bg-muted p-3 rounded text-sm">
                     <div className="flex justify-between">
                       <span>Current Payment:</span>
                       <span>$15,000/month</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between font-semibold text-primary">
                       <span>New Payment:</span>
-                      <span className="text-primary font-semibold">$12,500/month</span>
-                    </div>
-                    <div className="flex justify-between border-t pt-2">
-                      <span>Monthly Savings:</span>
-                      <span className="text-primary font-semibold">$2,500</span>
+                      <span>$12,500/month</span>
                     </div>
                   </div>
-                </div>
-                <div className="flex justify-between">
-                  <span>Cash Out Available:</span>
-                  <span className="font-semibold">Up to 80% LTV</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Closing Time:</span>
-                  <span className="font-semibold">30-45 days</span>
                 </div>
               </CardContent>
             </Card>

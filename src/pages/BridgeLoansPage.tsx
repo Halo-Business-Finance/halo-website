@@ -52,48 +52,77 @@ const BridgeLoansPage = () => {
             </Card>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">When You Need Bridge Financing</h2>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Purchasing new property before selling existing property</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Time-sensitive acquisition opportunities</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Short-term working capital needs</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Refinancing existing debt</span>
-                </li>
-              </ul>
+              <h2 className="text-3xl font-bold mb-6">Common Uses for Bridge Loans</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Property acquisitions</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Time-sensitive deals</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Construction projects</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Property improvements</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Working capital</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Debt refinancing</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Business expansion</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Cash flow gaps</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <Card>
               <CardHeader>
-                <CardTitle>Bridge Loan Features</CardTitle>
+                <CardTitle>Bridge Loan Requirements</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
-                  <span>Loan Amount:</span>
-                  <span className="font-semibold">$100K - $5M</span>
+                  <span>Credit Score:</span>
+                  <span className="font-semibold">620+</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Term:</span>
-                  <span className="font-semibold">6-24 months</span>
+                  <span>Time in Business:</span>
+                  <span className="font-semibold">6+ months</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Approval Time:</span>
-                  <span className="font-semibold">3-7 days</span>
+                  <span>LTV Ratio:</span>
+                  <span className="font-semibold">Up to 75%</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Interest Rate:</span>
+                  <span>Interest Rates:</span>
                   <span className="font-semibold">Starting at 8.5%</span>
+                </div>
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-2">Bridge Loan Benefits</h4>
+                  <ul className="text-sm space-y-1">
+                    <li>• Fast 3-7 day approval</li>
+                    <li>• Interest-only payments</li>
+                    <li>• No prepayment penalties</li>
+                    <li>• Flexible exit strategies</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
