@@ -15,63 +15,63 @@ import {
 const ProductsSection = () => {
   const products = [
     {
-      icon: PiggyBank,
-      title: "High-Yield Savings",
-      description: "Earn more with our competitive interest rates and no monthly fees.",
-      rate: "4.25%",
-      rateLabel: "APY",
-      features: ["No minimum balance", "Mobile banking", "24/7 customer support"],
-      cta: "Open Savings Account",
+      icon: Building2,
+      title: "SBA 7(a) Loans",
+      description: "Versatile financing for working capital, equipment, and real estate purchases.",
+      rate: "Prime + 2.75%",
+      rateLabel: "Starting Rate",
+      features: ["Up to $5 million", "Long-term financing", "SBA guarantee"],
+      cta: "Apply for SBA 7(a)",
       badge: "Popular"
     },
     {
-      icon: CheckCircle,
-      title: "Checking Account",
-      description: "Everyday banking made simple with digital tools and nationwide ATM access.",
-      rate: "$0",
-      rateLabel: "Monthly Fee",
-      features: ["Free online banking", "Mobile check deposit", "Overdraft protection"],
-      cta: "Open Checking Account",
-      badge: null
-    },
-    {
-      icon: CreditCard,
-      title: "Rewards Credit Card",
-      description: "Earn cash back on every purchase with our premium rewards program.",
-      rate: "2%",
-      rateLabel: "Cash Back",
-      features: ["No annual fee", "Travel insurance", "Purchase protection"],
-      cta: "Apply Now",
-      badge: "New"
-    },
-    {
       icon: Home,
-      title: "Home Loans",
-      description: "Competitive rates and personalized service for your home financing needs.",
-      rate: "6.75%",
-      rateLabel: "Starting APR",
-      features: ["Quick pre-approval", "Local lending experts", "Flexible terms"],
-      cta: "Get Pre-Qualified",
-      badge: null
-    },
-    {
-      icon: Car,
-      title: "Auto Loans",
-      description: "Finance your next vehicle with competitive rates and flexible terms.",
-      rate: "5.99%",
-      rateLabel: "Starting APR",
-      features: ["Fast approval", "New & used cars", "Refinancing available"],
-      cta: "Apply for Auto Loan",
+      title: "SBA 504 Loans",
+      description: "Fixed-rate financing for real estate and major equipment purchases.",
+      rate: "Fixed Rate",
+      rateLabel: "Long-term",
+      features: ["Up to $5.5 million", "10% down payment", "Fixed rates"],
+      cta: "Learn About 504",
       badge: null
     },
     {
       icon: TrendingUp,
-      title: "Investment Services",
-      description: "Grow your wealth with professional investment management and planning.",
-      rate: "Free",
-      rateLabel: "Consultation",
-      features: ["Portfolio management", "Retirement planning", "Financial advice"],
-      cta: "Schedule Consultation",
+      title: "SBA Express Loans",
+      description: "Fast approval for smaller loan amounts with quick turnaround times.",
+      rate: "Prime + 4.5%",
+      rateLabel: "Starting Rate",
+      features: ["Up to $500,000", "Fast 36-hour approval", "Streamlined process"],
+      cta: "Apply Express",
+      badge: "Fast"
+    },
+    {
+      icon: Building2,
+      title: "Commercial Real Estate",
+      description: "Financing solutions for purchasing or refinancing commercial properties.",
+      rate: "5.5%",
+      rateLabel: "Starting APR",
+      features: ["Competitive rates", "Flexible terms", "Local expertise"],
+      cta: "Get CRE Quote",
+      badge: null
+    },
+    {
+      icon: Car,
+      title: "Equipment Financing",
+      description: "Fund new or used equipment purchases with competitive terms.",
+      rate: "6.25%",
+      rateLabel: "Starting APR",
+      features: ["100% financing available", "Fast approval", "Flexible payments"],
+      cta: "Finance Equipment",
+      badge: null
+    },
+    {
+      icon: CreditCard,
+      title: "Working Capital",
+      description: "Bridge cash flow gaps and fund day-to-day business operations.",
+      rate: "Prime + 1%",
+      rateLabel: "Starting Rate",
+      features: ["Revolving credit line", "Quick access", "Flexible repayment"],
+      cta: "Get Working Capital",
       badge: null
     }
   ];
@@ -100,13 +100,13 @@ const ProductsSection = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Personal Banking Products */}
+        {/* SBA and Commercial Loans */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Choose what's right for you
+            SBA & Commercial Loan Solutions
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover our full range of personal banking products designed to help you achieve your financial goals.
+            Discover our comprehensive range of SBA and commercial financing options designed to fuel your business growth.
           </p>
         </div>
 
