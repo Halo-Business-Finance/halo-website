@@ -32,8 +32,6 @@ const Footer = () => {
     { name: "Pre-qualification", link: "/pre-qualification" },
     { name: "Contact Us", link: "/contact-us" },
     { name: "Customer Service", link: "/customer-service" },
-    { name: "Get Started", link: "/" },
-    { name: "Learn More", link: "/resources" },
     { name: "Industry Solutions", link: "/industry-solutions" }
   ];
 
