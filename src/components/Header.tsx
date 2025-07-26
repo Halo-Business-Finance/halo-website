@@ -104,7 +104,7 @@ const Header = () => {
               Sign In
             </Button>
             <Button size="sm">
-              Open Account
+              Get Started
             </Button>
           </div>
 
@@ -123,7 +123,7 @@ const Header = () => {
                     Sign In
                   </Button>
                   <Button className="justify-start">
-                    Open Account
+                    Get Started
                   </Button>
                 </div>
                 
