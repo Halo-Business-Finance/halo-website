@@ -45,9 +45,6 @@ const HeroSection = () => {
               <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base" asChild>
                 <a href="https://portal.halobusinessfinance.com">View Loan Options</a>
               </Button>
-              <Button size="lg" variant="secondary" className="text-sm md:text-base" asChild>
-                <a href="https://portal.halobusinessfinance.com">🔐 Access Document Portal</a>
-              </Button>
             </div>
 
             {/* Trust indicators */}

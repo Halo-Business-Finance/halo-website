@@ -157,9 +157,6 @@ const Header = () => {
             <Button size="sm" className="text-xs lg:text-sm" asChild>
               <a href="https://portal.halobusinessfinance.com">Get Started</a>
             </Button>
-            <Button variant="secondary" size="sm" className="text-xs lg:text-sm" asChild>
-              <a href="https://portal.halobusinessfinance.com">🔐 Access Portal</a>
-            </Button>
           </div>
 
           {/* Mobile menu */}
@@ -180,9 +177,6 @@ const Header = () => {
                   </Button>
                   <Button className="justify-start" asChild>
                     <a href="https://portal.halobusinessfinance.com">Get Started</a>
-                  </Button>
-                  <Button variant="secondary" className="justify-start" asChild>
-                    <a href="https://portal.halobusinessfinance.com">🔐 Access Document Portal</a>
                   </Button>
                 </div>
                 
