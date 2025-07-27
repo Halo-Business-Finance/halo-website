@@ -132,7 +132,7 @@ const Header = () => {
                   {item.title}
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-background border shadow-lg">
+                <DropdownMenuContent className="bg-popover border shadow-lg text-popover-foreground z-50">
                   {item.items.map((subItem) => (
                     <DropdownMenuItem key={subItem} className="" asChild>
                       <Link to={getItemLink(item.title, subItem)}>{subItem}</Link>
