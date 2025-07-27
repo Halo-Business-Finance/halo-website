@@ -207,8 +207,191 @@ const CompanyOverview = () => {
         </div>
       </section>
 
-      {/* Content Scraper Section */}
+      {/* Leadership Team Section */}
       <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Leadership & Executive Team
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Meet the experienced professionals leading Halo Business Finance with decades 
+              of combined expertise in commercial lending and financial services.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {/* CEO */}
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary/70 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Michael Rodriguez</h3>
+                <p className="text-primary font-semibold mb-3">Chief Executive Officer & Founder</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  With over 20 years in commercial lending, Michael founded Halo Business Finance 
+                  to revolutionize how businesses access capital. Previously led lending operations 
+                  at top-tier financial institutions.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  MBA Finance, CPA | Former VP at Wells Fargo Commercial
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* COO */}
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-secondary to-secondary/70 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Target className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Sarah Chen</h3>
+                <p className="text-primary font-semibold mb-3">Chief Operating Officer</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Sarah oversees daily operations and marketplace technology. Her fintech background 
+                  and operational excellence have streamlined our lending processes, reducing 
+                  approval times by 60%.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  MS Information Systems | Former Director at LendingClub
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* CRO */}
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-accent to-accent/70 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <TrendingUp className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">David Thompson</h3>
+                <p className="text-primary font-semibold mb-3">Chief Risk Officer</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  David brings 18 years of risk management expertise from major banks. 
+                  He developed our proprietary risk assessment models that maintain 
+                  industry-leading approval rates while minimizing defaults.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  MS Risk Management | Former SVP at JPMorgan Chase
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Head of SBA */}
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Award className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Jennifer Martinez</h3>
+                <p className="text-primary font-semibold mb-3">Head of SBA Lending</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Jennifer leads our SBA division with 15+ years specializing in government-backed 
+                  loans. Her expertise helped us achieve SBA Preferred Lender status and maintain 
+                  95% approval rates.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  BS Business Administration | SBA Lending Specialist
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Head of Equipment */}
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Building2 className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Robert Kim</h3>
+                <p className="text-primary font-semibold mb-3">Head of Equipment Financing</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Robert oversees our equipment financing division, specializing in heavy machinery, 
+                  medical equipment, and technology financing. Expert in asset valuation and 
+                  lease structuring.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  MBA Finance | Equipment Finance Association Member
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Head of Technology */}
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <CheckCircle className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Alex Johnson</h3>
+                <p className="text-primary font-semibold mb-3">Head of Technology</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Alex leads our technology initiatives, developing the marketplace platform that 
+                  connects borrowers with lenders. His fintech innovations have automated 80% 
+                  of our underwriting processes.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  MS Computer Science | Former Lead Engineer at Kabbage
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Company Values */}
+          <div className="bg-muted/30 rounded-lg p-8">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4">Our Leadership Principles</h3>
+              <p className="text-muted-foreground">
+                The values that guide our executive team and drive our company culture
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Excellence</h4>
+                <p className="text-sm text-muted-foreground">
+                  Committed to delivering exceptional service and results
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Collaboration</h4>
+                <p className="text-sm text-muted-foreground">
+                  Working together to achieve shared goals and success
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <Target className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Innovation</h4>
+                <p className="text-sm text-muted-foreground">
+                  Pioneering new solutions in commercial lending
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <CheckCircle className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Integrity</h4>
+                <p className="text-sm text-muted-foreground">
+                  Maintaining the highest ethical standards in all we do
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Scraper Section */}
+      <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
