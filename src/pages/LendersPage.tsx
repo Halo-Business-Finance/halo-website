@@ -259,7 +259,7 @@ const LendersPage = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Why Join Our Network?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-foreground max-w-2xl mx-auto">
               Access a steady flow of qualified commercial loan opportunities.
             </p>
           </div>
@@ -274,7 +274,7 @@ const LendersPage = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-foreground">
                     {benefit.description}
                   </p>
                 </CardContent>
@@ -291,7 +291,7 @@ const LendersPage = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Loan Opportunities
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-foreground">
               Diverse commercial lending opportunities across multiple sectors.
             </p>
           </div>
@@ -310,7 +310,7 @@ const LendersPage = () => {
                     {loan.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="text-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -328,7 +328,7 @@ const LendersPage = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Platform Features
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-foreground">
               Advanced technology to streamline your lending operations.
             </p>
           </div>
@@ -340,7 +340,7 @@ const LendersPage = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-foreground">
                     {feature.description}
                   </p>
                 </CardContent>
@@ -358,7 +358,7 @@ const LendersPage = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Lender Requirements
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-foreground">
                 Qualification criteria for joining our lender network.
               </p>
             </div>
@@ -367,7 +367,7 @@ const LendersPage = () => {
               {requirements.map((requirement, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{requirement}</span>
+                  <span className="text-foreground">{requirement}</span>
                 </div>
               ))}
             </div>
@@ -377,17 +377,17 @@ const LendersPage = () => {
                 <div>
                   <DollarSign className="h-8 w-8 text-primary mx-auto mb-2" />
                   <h3 className="text-2xl font-bold text-gray-900">$500M+</h3>
-                  <p className="text-gray-600">Total Loan Volume</p>
+                  <p className="text-foreground">Total Loan Volume</p>
                 </div>
                 <div>
                   <Clock className="h-8 w-8 text-primary mx-auto mb-2" />
                   <h3 className="text-2xl font-bold text-gray-900">30 Days</h3>
-                  <p className="text-gray-600">Average Close Time</p>
+                  <p className="text-foreground">Average Close Time</p>
                 </div>
                 <div>
                   <TrendingUp className="h-8 w-8 text-primary mx-auto mb-2" />
                   <h3 className="text-2xl font-bold text-gray-900">95%</h3>
-                  <p className="text-gray-600">Lender Satisfaction</p>
+                  <p className="text-foreground">Lender Satisfaction</p>
                 </div>
               </div>
             </div>

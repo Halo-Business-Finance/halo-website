@@ -61,7 +61,7 @@ const StatsSection = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Our Impact in Numbers
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground max-w-2xl mx-auto">
             See how we're helping businesses across the nation achieve their growth goals with reliable financing solutions.
           </p>
         </div>
@@ -76,7 +76,7 @@ const StatsSection = () => {
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-1">{stat.title}</h3>
                 <p className="text-lg font-semibold text-primary mb-2">{stat.subtitle}</p>
-                <p className="text-sm text-gray-600">{stat.description}</p>
+                <p className="text-sm text-foreground">{stat.description}</p>
               </CardContent>
             </Card>
           ))}

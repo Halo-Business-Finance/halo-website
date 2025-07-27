@@ -50,7 +50,7 @@ const ImageGallery = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Your Success is Our Mission
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground max-w-2xl mx-auto">
             From initial consultation to loan closing, we're committed to providing the support and financing your business needs to thrive.
           </p>
         </div>
@@ -70,7 +70,7 @@ const ImageGallery = () => {
                 </div>
               </div>
               <CardContent className="p-6">
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                <p className="text-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -82,7 +82,7 @@ const ImageGallery = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Ready to Take Your Business to the Next Level?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-foreground mb-6">
               Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

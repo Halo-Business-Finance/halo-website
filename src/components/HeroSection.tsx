@@ -65,7 +65,7 @@ const HeroSection = () => {
                 <div className="space-y-6">
                   <div className="text-center">
                     <h2 className="text-2xl font-semibold text-gray-900">Welcome Back</h2>
-                    <p className="text-gray-600 mt-2">Access your account securely</p>
+                    <p className="text-foreground mt-2">Access your account securely</p>
                   </div>
 
                   <form className="space-y-4">
@@ -95,7 +95,7 @@ const HeroSection = () => {
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground"
                         >
                           {showPassword ? (
                             <EyeOff className="h-4 w-4" />
@@ -121,7 +121,7 @@ const HeroSection = () => {
                     </Button>
                   </form>
 
-                  <div className="text-center text-sm text-gray-600">
+                  <div className="text-center text-sm text-foreground">
                     New to Halo Business Finance?{" "}
                      <Link to="/pre-qualification" className="text-primary font-medium">
                        Apply for financing

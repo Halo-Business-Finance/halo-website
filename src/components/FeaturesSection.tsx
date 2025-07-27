@@ -60,7 +60,7 @@ const FeaturesSection = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Why Choose Halo Business Finance?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground max-w-2xl mx-auto">
             We're committed to providing your business with the capital, expertise, and personalized service you need to achieve your growth goals.
           </p>
         </div>
@@ -76,7 +76,7 @@ const FeaturesSection = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-foreground mb-4">
                     {feature.description}
                   </p>
                 </div>

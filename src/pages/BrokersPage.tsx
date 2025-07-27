@@ -95,7 +95,7 @@ const BrokersPage = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Why Partner With Us?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-foreground max-w-2xl mx-auto">
               We provide everything you need to succeed as a commercial loan broker.
             </p>
           </div>
@@ -110,7 +110,7 @@ const BrokersPage = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-foreground">
                     {benefit.description}
                   </p>
                 </CardContent>
@@ -128,7 +128,7 @@ const BrokersPage = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Commission Structure
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-foreground">
                 Transparent and competitive commission rates based on loan volume.
               </p>
             </div>
@@ -141,7 +141,7 @@ const BrokersPage = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-3xl font-bold text-primary mb-2">{tier.rate}</div>
-                    <p className="text-sm text-gray-600">Commission Rate</p>
+                    <p className="text-sm text-foreground">Commission Rate</p>
                   </CardContent>
                 </Card>
               ))}
@@ -149,7 +149,7 @@ const BrokersPage = () => {
 
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Additional Bonuses</h3>
-              <ul className="space-y-1 text-gray-600">
+              <ul className="space-y-1 text-foreground">
                 <li>• Volume bonuses for top performers</li>
                 <li>• Quarterly incentive programs</li>
                 <li>• Referral bonuses for new broker partners</li>
@@ -167,7 +167,7 @@ const BrokersPage = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 What You Get as a Partner
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-foreground">
                 Comprehensive support and resources to maximize your success.
               </p>
             </div>
@@ -176,7 +176,7 @@ const BrokersPage = () => {
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-foreground">{feature}</span>
                 </div>
               ))}
             </div>

@@ -117,7 +117,7 @@ const ProductsSection = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             SBA & Commercial Loan Solutions
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
             Discover our comprehensive range of SBA and commercial financing options designed to fuel your business growth.
           </p>
         </div>
@@ -139,7 +139,7 @@ const ProductsSection = () => {
                 </div>
                 <div className="text-center py-4">
                   <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
-                  <div className="text-xs md:text-sm text-gray-600">{product.rateLabel}</div>
+                  <div className="text-xs md:text-sm text-foreground">{product.rateLabel}</div>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
@@ -147,7 +147,7 @@ const ProductsSection = () => {
                 
                 <ul className="space-y-2 mb-6">
                   {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-xs md:text-sm text-gray-600">
+                    <li key={i} className="flex items-center text-xs md:text-sm text-foreground">
                       <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-success mr-2 flex-shrink-0" />
                       {feature}
                     </li>
@@ -178,7 +178,7 @@ const ProductsSection = () => {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Business Capital Solutions
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
               Powerful capital tools to help your business grow and succeed.
             </p>
           </div>
@@ -195,15 +195,15 @@ const ProductsSection = () => {
                   </div>
                   <div className="text-center py-4">
                     <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
-                    <div className="text-xs md:text-sm text-gray-600">{product.rateLabel}</div>
+                    <div className="text-xs md:text-sm text-foreground">{product.rateLabel}</div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-sm md:text-base text-gray-600 mb-4">{product.description}</p>
+                  <p className="text-sm md:text-base text-foreground mb-4">{product.description}</p>
                   
                   <ul className="space-y-2 mb-6">
                     {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-xs md:text-sm text-gray-600">
+                      <li key={i} className="flex items-center text-xs md:text-sm text-foreground">
                         <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-success mr-2 flex-shrink-0" />
                         {feature}
                       </li>

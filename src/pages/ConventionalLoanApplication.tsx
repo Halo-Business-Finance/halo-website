@@ -107,10 +107,10 @@ const ConventionalLoanApplication = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Conventional Loan Application</h1>
-            <p className="text-gray-600">Complete your application for conventional business financing</p>
+            <p className="text-foreground">Complete your application for conventional business financing</p>
             <div className="mt-4">
               <Progress value={progress} className="w-full" />
-              <p className="text-sm text-gray-500 mt-2">Step {currentStep} of {totalSteps}</p>
+              <p className="text-sm text-foreground mt-2">Step {currentStep} of {totalSteps}</p>
             </div>
           </div>
 
