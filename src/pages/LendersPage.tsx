@@ -73,6 +73,76 @@ const LendersPage = () => {
     "Technology integration capabilities"
   ];
 
+  const marketplaceAdvantages = [
+    {
+      icon: TrendingUp,
+      title: "Nationwide Reach",
+      description: "Access borrowers from all 50 states through our comprehensive marketplace platform",
+      metrics: "2,500+ Cities"
+    },
+    {
+      icon: Users,
+      title: "Quality Borrowers",
+      description: "Pre-screened applications with verified business information and creditworthiness",
+      metrics: "95% Quality Score"
+    },
+    {
+      icon: Shield,
+      title: "Risk Management",
+      description: "Advanced underwriting tools and compliance support to minimize default risk",
+      metrics: "3.2% Default Rate"
+    },
+    {
+      icon: Clock,
+      title: "Fast Origination",
+      description: "Streamlined digital process reduces origination time and operational costs",
+      metrics: "30-Day Average"
+    }
+  ];
+
+  const partnershipBenefits = [
+    {
+      category: "Technology Platform",
+      benefits: [
+        "Advanced loan matching algorithms",
+        "Real-time pipeline management",
+        "Digital document processing",
+        "Automated compliance checks",
+        "Performance analytics dashboard"
+      ]
+    },
+    {
+      category: "Marketing Support",
+      benefits: [
+        "Co-branded marketing materials",
+        "Lead generation campaigns",
+        "Industry event participation",
+        "Digital marketing exposure",
+        "PR and media opportunities"
+      ]
+    },
+    {
+      category: "Operational Support", 
+      benefits: [
+        "Dedicated account management",
+        "Technical integration assistance",
+        "Training and onboarding",
+        "Ongoing support and maintenance",
+        "Best practices consultation"
+      ]
+    },
+    {
+      category: "Business Growth",
+      benefits: [
+        "Access to new markets",
+        "Portfolio diversification",
+        "Competitive deal flow",
+        "Reduced acquisition costs",
+        "Scalable loan origination"
+      ]
+    }
+  ];
+
   const platformFeatures = [
     {
       title: "Advanced Loan Matching",
@@ -119,6 +189,64 @@ const LendersPage = () => {
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 Download Lender Guide
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Overview */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              Marketplace Advantages
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Join America's most comprehensive commercial loan marketplace and connect with pre-qualified borrowers nationwide.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {marketplaceAdvantages.map((advantage, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <advantage.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{advantage.title}</h3>
+                  <p className="text-muted-foreground mb-3">{advantage.description}</p>
+                  <div className="text-2xl font-bold text-primary">{advantage.metrics}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold mb-4">Partnership Benefits</h3>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Comprehensive support and resources to help you succeed in our marketplace
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {partnershipBenefits.map((benefit, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{benefit.category}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {benefit.benefits.map((item, i) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                          <span className="text-sm">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>

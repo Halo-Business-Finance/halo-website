@@ -11,6 +11,7 @@ import { LendingStatsSection } from "@/components/charts/LendingStatsSection";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
+import MarketplaceOverview from "@/components/MarketplaceOverview";
 
 import SEO from "@/components/SEO";
 
@@ -27,6 +28,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <ProductsSection />
+      <MarketplaceOverview />
       <LendingStatsSection />
       
       {/* Charts Section */}
