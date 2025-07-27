@@ -69,7 +69,7 @@ export const ProcessDiagram = () => {
     <Card className="animate-fade-in">
       <CardHeader>
         <CardTitle className="text-xl font-semibold">Our Lending Process</CardTitle>
-        <p className="text-sm text-muted-foreground">From application to funding in as little as 7 days</p>
+        <p className="text-sm text-foreground">From application to funding in as little as 7 days</p>
       </CardHeader>
       <CardContent>
         <div className="relative">
