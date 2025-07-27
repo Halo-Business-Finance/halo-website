@@ -256,7 +256,7 @@ const LendersPage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Why Join Our Network?
             </h2>
             <p className="text-xl text-foreground max-w-2xl mx-auto">
@@ -271,7 +271,7 @@ const LendersPage = () => {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
                     {benefit.title}
                   </h3>
                   <p className="text-foreground">
@@ -288,7 +288,7 @@ const LendersPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Loan Opportunities
             </h2>
             <p className="text-xl text-foreground">
@@ -325,7 +325,7 @@ const LendersPage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Platform Features
             </h2>
             <p className="text-xl text-foreground">
@@ -337,7 +337,7 @@ const LendersPage = () => {
             {platformFeatures.map((feature, index) => (
               <Card key={index} className="">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
                     {feature.title}
                   </h3>
                   <p className="text-foreground">
@@ -355,7 +355,7 @@ const LendersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
                 Lender Requirements
               </h2>
               <p className="text-xl text-foreground">
@@ -376,17 +376,17 @@ const LendersPage = () => {
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
                   <DollarSign className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <h3 className="text-2xl font-bold text-gray-900">$500M+</h3>
+                  <h3 className="text-2xl font-bold text-foreground">$500M+</h3>
                   <p className="text-foreground">Total Loan Volume</p>
                 </div>
                 <div>
                   <Clock className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <h3 className="text-2xl font-bold text-gray-900">30 Days</h3>
+                  <h3 className="text-2xl font-bold text-foreground">30 Days</h3>
                   <p className="text-foreground">Average Close Time</p>
                 </div>
                 <div>
                   <TrendingUp className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <h3 className="text-2xl font-bold text-gray-900">95%</h3>
+                  <h3 className="text-2xl font-bold text-foreground">95%</h3>
                   <p className="text-foreground">Lender Satisfaction</p>
                 </div>
               </div>

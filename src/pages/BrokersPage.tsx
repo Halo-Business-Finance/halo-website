@@ -92,7 +92,7 @@ const BrokersPage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Why Partner With Us?
             </h2>
             <p className="text-xl text-foreground max-w-2xl mx-auto">
@@ -107,7 +107,7 @@ const BrokersPage = () => {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
                     {benefit.title}
                   </h3>
                   <p className="text-foreground">
@@ -125,7 +125,7 @@ const BrokersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
                 Commission Structure
               </h2>
               <p className="text-xl text-foreground">
@@ -148,7 +148,7 @@ const BrokersPage = () => {
             </div>
 
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Additional Bonuses</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Additional Bonuses</h3>
               <ul className="space-y-1 text-foreground">
                 <li>• Volume bonuses for top performers</li>
                 <li>• Quarterly incentive programs</li>
@@ -164,7 +164,7 @@ const BrokersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
                 What You Get as a Partner
               </h2>
               <p className="text-xl text-foreground">

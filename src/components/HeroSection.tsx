@@ -64,7 +64,7 @@ const HeroSection = () => {
               <CardContent className="p-8">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <h2 className="text-2xl font-semibold text-gray-900">Welcome Back</h2>
+                    <h2 className="text-2xl font-semibold text-foreground">Welcome Back</h2>
                     <p className="text-foreground mt-2">Access your account securely</p>
                   </div>
 

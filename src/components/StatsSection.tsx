@@ -58,7 +58,7 @@ const StatsSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Our Impact in Numbers
           </h2>
           <p className="text-xl text-foreground max-w-2xl mx-auto">
@@ -74,7 +74,7 @@ const StatsSection = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-1">{stat.title}</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-1">{stat.title}</h3>
                 <p className="text-lg font-semibold text-primary mb-2">{stat.subtitle}</p>
                 <p className="text-sm text-foreground">{stat.description}</p>
               </CardContent>

@@ -106,7 +106,7 @@ const ConventionalLoanApplication = () => {
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Conventional Loan Application</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Conventional Loan Application</h1>
             <p className="text-foreground">Complete your application for conventional business financing</p>
             <div className="mt-4">
               <Progress value={progress} className="w-full" />
@@ -647,7 +647,7 @@ const ConventionalLoanApplication = () => {
                   {currentStep === 5 && (
                     <div className="space-y-4">
                       <h3 className="text-lg font-semibold">Review Your Application</h3>
-                      <p className="text-gray-600">
+                      <p className="text-foreground">
                         Please review all information before submitting your conventional loan application.
                       </p>
                       

@@ -47,7 +47,7 @@ const ImageGallery = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Your Success is Our Mission
           </h2>
           <p className="text-xl text-foreground max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ const ImageGallery = () => {
         {/* Call to action */}
         <div className="text-center mt-12">
           <div className="bg-gray-50 rounded-lg p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
               Ready to Take Your Business to the Next Level?
             </h3>
             <p className="text-foreground mb-6">
