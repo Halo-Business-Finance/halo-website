@@ -109,7 +109,7 @@ const FeaturesSection = () => {
                     Ready to Fuel Your Business Growth?
                   </h3>
                   <p className="text-xl text-blue-100 max-w-2xl">
-                    Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Get pre-qualified today and discover the difference.
+                    Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Our expertise in <Link to="/sba-loans" className="text-white underline hover:text-blue-100">SBA lending</Link> and partnership with <a href="https://www.sba.gov/partners/lenders" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100">SBA preferred lenders</a> ensures you get the best rates and terms available.
                   </p>
                 </div>
               </div>

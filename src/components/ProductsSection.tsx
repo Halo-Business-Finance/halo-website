@@ -118,7 +118,7 @@ const ProductsSection = () => {
             SBA & Commercial Loan Solutions
           </h2>
           <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
-            Discover our comprehensive range of SBA and commercial financing options designed to fuel your business growth.
+            Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SBA-backed</a> and conventional financing options designed to fuel your business growth. Learn more about <Link to="/how-it-works" className="text-primary hover:underline">how our lending process works</Link>.
           </p>
         </div>
 
@@ -242,7 +242,7 @@ const ProductsSection = () => {
                 Ready to Fuel Your Business Growth?
               </h3>
               <p className="text-lg md:text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join hundreds of successful businesses who trust Halo Business Finance for their growth capital.
+                Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100">SCORE's business loan guide</a> for additional insights.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base">

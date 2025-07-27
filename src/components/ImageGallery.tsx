@@ -83,7 +83,7 @@ const ImageGallery = () => {
               Ready to Take Your Business to the Next Level?
             </h3>
             <p className="text-foreground mb-6">
-              Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals.
+              Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals. Learn more about <Link to="/how-it-works" className="text-primary hover:underline">our streamlined application process</Link> or explore financing options recommended by the <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Small Business Administration</a>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/pre-qualification" className="bg-primary text-white px-6 py-3 rounded-lg font-semibold text-center">

@@ -33,7 +33,7 @@ const HeroSection = () => {
                 <span className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl">that fuel your growth</span>
               </h1>
               <p className="text-lg md:text-xl text-blue-100 max-w-lg">
-                Experience streamlined business lending with competitive SBA and commercial loan solutions designed to accelerate your success.
+                Experience streamlined business lending with competitive <Link to="/sba-loans" className="text-white underline hover:text-blue-100">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100">commercial loan</Link> solutions designed to accelerate your success.
               </p>
             </div>
 
@@ -53,7 +53,11 @@ const HeroSection = () => {
                 <Shield className="h-5 w-5" />
                 <span className="text-sm">SBA Preferred Bank Partner</span>
               </div>
-              <div className="text-sm">Nationwide Licensed Marketplace</div>
+              <div className="text-sm">
+                <a href="https://www.sba.gov" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-100 underline">
+                  SBA.gov Certified Lender
+                </a>
+              </div>
               <div className="text-sm">Secure & Encrypted Marketplace</div>
             </div>
           </header>

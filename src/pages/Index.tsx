@@ -12,6 +12,8 @@ import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 import MarketplaceOverview from "@/components/MarketplaceOverview";
+import ResourcesHub from "@/components/ResourcesHub";
+import PartnershipsSection from "@/components/PartnershipsSection";
 
 import SEO from "@/components/SEO";
 
@@ -55,6 +57,8 @@ const Index = () => {
       </section>
       
       <StatsSection />
+      <ResourcesHub />
+      <PartnershipsSection />
       <ImageGallery />
       <FeaturesSection />
       <Footer />
