@@ -16,11 +16,14 @@
     <meta name="geo.region" content="US" />
     <meta name="geo.placename" content="Irvine, California" />
     <link rel="canonical" href="https://halobusinessfinance.com/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="icon" href="/src/assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/src/assets/favicon.png" />
+    <meta name="theme-color" content="#2563eb" />
     
     <!-- Preload critical resources -->
     <link rel="preload" href="/src/assets/hero-background.jpg" as="image" type="image/jpeg">
@@ -121,6 +124,40 @@
         "https://www.linkedin.com/company/halo-business-finance",
         "https://twitter.com/halobusinessfin",
         "https://www.facebook.com/halobusinessfinance"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are SBA loans and how do they work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SBA loans are business loans partially guaranteed by the Small Business Administration. They offer competitive rates, longer repayment terms, and lower down payments than conventional loans. Popular types include SBA 7(a) loans for working capital and SBA 504 loans for real estate."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "How quickly can I get approved for a business loan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Approval times vary by loan type. Bridge loans can close in 7 days, conventional loans typically take 2-4 weeks, while SBA loans may take 30-90 days due to government processing requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What credit score do I need for business financing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Credit score requirements vary by loan type and lender. Generally, SBA loans require 680+, conventional loans need 700+, while alternative financing options may accept scores as low as 550-600."
+          }
+        }
       ]
     }
     </script>

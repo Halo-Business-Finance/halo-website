@@ -28,10 +28,10 @@ const HeroSection = () => {
           {/* Left side - Hero content */}
           <header className="text-white space-y-6 lg:space-y-8">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Business financing
-                <span className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl">that fuels your growth</span>
-              </h2>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                SBA Loans & Business Financing
+                <span className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl">that fuel your growth</span>
+              </h1>
               <p className="text-lg md:text-xl text-blue-100 max-w-lg">
                 Experience streamlined business lending with competitive SBA and commercial loan solutions designed to accelerate your success.
               </p>
@@ -65,7 +65,7 @@ const HeroSection = () => {
                 <div className="space-y-6">
                   <div className="text-center">
                     <h2 className="text-2xl font-semibold text-foreground">Welcome Back</h2>
-                    <p className="text-foreground mt-2">Access your account securely</p>
+                    <p className="text-foreground mt-2">Access your business financing account securely</p>
                   </div>
 
                   <form className="space-y-4">
