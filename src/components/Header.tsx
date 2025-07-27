@@ -148,12 +148,17 @@ const Header = () => {
             <Button variant="ghost" size="sm">
               <Search className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="sm" className="text-xs lg:text-sm">
-              <User className="h-4 w-4 mr-1 lg:mr-2" />
-              <span className="hidden lg:inline">Sign In</span>
+            <Button variant="outline" size="sm" className="text-xs lg:text-sm" asChild>
+              <a href="https://portal.halobusinessfinance.com">
+                <User className="h-4 w-4 mr-1 lg:mr-2" />
+                <span className="hidden lg:inline">Sign In</span>
+              </a>
             </Button>
-            <Button size="sm" className="text-xs lg:text-sm">
-              Get Started
+            <Button size="sm" className="text-xs lg:text-sm" asChild>
+              <a href="https://portal.halobusinessfinance.com">Get Started</a>
+            </Button>
+            <Button variant="secondary" size="sm" className="text-xs lg:text-sm" asChild>
+              <a href="https://portal.halobusinessfinance.com">🔐 Access Portal</a>
             </Button>
           </div>
 
@@ -167,12 +172,17 @@ const Header = () => {
             <SheetContent side="right" className="w-72 sm:w-80">
               <div className="flex flex-col gap-6 pt-6">
                 <div className="flex flex-col gap-4">
-                  <Button variant="outline" className="justify-start">
-                    <User className="h-4 w-4 mr-2" />
-                    Sign In
+                  <Button variant="outline" className="justify-start" asChild>
+                    <a href="https://portal.halobusinessfinance.com">
+                      <User className="h-4 w-4 mr-2" />
+                      Sign In
+                    </a>
                   </Button>
-                  <Button className="justify-start">
-                    Get Started
+                  <Button className="justify-start" asChild>
+                    <a href="https://portal.halobusinessfinance.com">Get Started</a>
+                  </Button>
+                  <Button variant="secondary" className="justify-start" asChild>
+                    <a href="https://portal.halobusinessfinance.com">🔐 Access Document Portal</a>
                   </Button>
                 </div>
                 

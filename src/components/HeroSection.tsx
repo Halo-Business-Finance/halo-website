@@ -39,11 +39,14 @@ const HeroSection = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold text-sm md:text-base">
-                Get Pre-Qualified
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold text-sm md:text-base" asChild>
+                <a href="https://portal.halobusinessfinance.com">Get Pre-Qualified</a>
               </Button>
-              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base">
-                View Loan Options
+              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base" asChild>
+                <a href="https://portal.halobusinessfinance.com">View Loan Options</a>
+              </Button>
+              <Button size="lg" variant="secondary" className="text-sm md:text-base" asChild>
+                <a href="https://portal.halobusinessfinance.com">🔐 Access Document Portal</a>
               </Button>
             </div>
 
@@ -116,8 +119,8 @@ const HeroSection = () => {
                       </Link>
                     </div>
 
-                    <Button type="submit" className="w-full h-11 font-medium">
-                      Sign In
+                    <Button type="submit" className="w-full h-11 font-medium" asChild>
+                      <a href="https://portal.halobusinessfinance.com">Sign In</a>
                     </Button>
                   </form>
 
