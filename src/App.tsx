@@ -21,7 +21,7 @@ const ResourcesPage = lazy(() => import("./pages/ResourcesPage"));
 const SBA7aLoansPage = lazy(() => import("./pages/SBA7aLoansPage"));
 const SBA504LoansPage = lazy(() => import("./pages/SBA504LoansPage"));
 const SBAExpressLoansPage = lazy(() => import("./pages/SBAExpressLoansPage"));
-const SBAMicroloansPage = lazy(() => import("./pages/SBAMicroloansPage"));
+const USDABILoansPage = lazy(() => import("./pages/USDABILoansPage"));
 const CareersPage = lazy(() => import("./pages/CareersPage"));
 const ConventionalLoansPage = lazy(() => import("./pages/ConventionalLoansPage"));
 const CMBSLoansPage = lazy(() => import("./pages/CMBSLoansPage"));
@@ -103,7 +103,7 @@ const App = () => (
             <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
             <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
             <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
-            <Route path="/sba-microloans" element={<SBAMicroloansPage />} />
+            <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/working-capital" element={<WorkingCapitalPage />} />
