@@ -43,7 +43,7 @@ export const IndustryStatsChart = () => {
     <Card className="animate-fade-in">
       <CardHeader>
         <CardTitle className="text-xl font-semibold">Loans by Industry</CardTitle>
-        <p className="text-sm text-muted-foreground">Distribution of our loan portfolio (2024)</p>
+        <p className="text-sm text-foreground">Distribution of our loan portfolio (2024)</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={400}>
@@ -77,7 +77,7 @@ export const IndustryStatsChart = () => {
           </PieChart>
         </ResponsiveContainer>
         <div className="mt-4 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-foreground">
             *Percentage of total loan volume by industry sector
           </p>
         </div>

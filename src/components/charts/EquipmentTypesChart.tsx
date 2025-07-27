@@ -15,7 +15,7 @@ export const EquipmentTypesChart = () => {
     <Card className="animate-fade-in">
       <CardHeader>
         <CardTitle className="text-xl font-semibold">Equipment Financing by Type</CardTitle>
-        <p className="text-sm text-muted-foreground">Distribution of equipment loans by industry (2024)</p>
+        <p className="text-sm text-foreground">Distribution of equipment loans by industry (2024)</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>
@@ -49,7 +49,7 @@ export const EquipmentTypesChart = () => {
           </BarChart>
         </ResponsiveContainer>
         <div className="mt-4 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-foreground">
             *Percentage of total equipment financing volume by equipment type
           </p>
         </div>

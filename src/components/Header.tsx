@@ -190,7 +190,7 @@ const Header = () => {
                             <Link
                               key={subItem}
                               to={getItemLink(item.title, subItem)}
-                              className="block text-sm text-muted-foreground"
+                              className="block text-sm text-foreground"
                             >
                               {subItem}
                             </Link>

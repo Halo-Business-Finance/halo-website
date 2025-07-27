@@ -48,7 +48,7 @@ export const LendingStatsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Trusted by Thousands of Businesses
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-foreground max-w-3xl mx-auto">
             Our track record speaks for itself. See why businesses choose us for their financing needs.
           </p>
         </div>
@@ -61,14 +61,14 @@ export const LendingStatsSection = () => {
                   {stat.icon}
                 </div>
                 <div className="text-2xl md:text-3xl font-bold mb-2">{stat.title}</div>
-                <div className="text-sm text-muted-foreground">{stat.description}</div>
+                <div className="text-sm text-foreground">{stat.description}</div>
               </CardContent>
             </Card>
           ))}
         </div>
         
         <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-foreground">
             *Statistics based on data from 2019-2024. Individual results may vary.
           </p>
         </div>

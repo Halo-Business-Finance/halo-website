@@ -82,7 +82,7 @@ export const CrawlForm = () => {
     <div className="w-full max-w-2xl mx-auto p-6 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-border">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-financial-navy mb-2">Import Your Website Pages</h2>
-        <p className="text-muted-foreground">Enter your current website URL to extract and import your existing pages.</p>
+        <p className="text-foreground">Enter your current website URL to extract and import your existing pages.</p>
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -149,7 +149,7 @@ export const CrawlForm = () => {
                   {crawlResult.data.map((page: any, index: number) => (
                     <div key={index} className="mb-2 p-2 bg-background rounded border">
                       <p className="font-medium text-primary">{page.metadata?.title || 'Untitled Page'}</p>
-                      <p className="text-xs text-muted-foreground">{page.metadata?.sourceURL}</p>
+                      <p className="text-xs text-foreground">{page.metadata?.sourceURL}</p>
                     </div>
                   ))}
                 </div>

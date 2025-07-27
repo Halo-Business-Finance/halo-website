@@ -103,7 +103,7 @@ const MarketplaceOverview = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             The Nation's Leading Commercial Loan Marketplace
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
+          <p className="text-xl text-foreground max-w-4xl mx-auto mb-8">
             Connect with 150+ verified lenders across all 50 states through our comprehensive marketplace platform. 
             From community banks to national institutions, find the perfect financing partner for your business needs.
           </p>
@@ -119,7 +119,7 @@ const MarketplaceOverview = () => {
                 </div>
                 <h3 className="text-3xl font-bold mb-2">{stat.value}</h3>
                 <h4 className="text-lg font-semibold mb-2">{stat.label}</h4>
-                <p className="text-sm text-muted-foreground">{stat.description}</p>
+                <p className="text-sm text-foreground">{stat.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -129,7 +129,7 @@ const MarketplaceOverview = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">Our Diverse Lender Network</h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-foreground max-w-3xl mx-auto">
               We partner with a carefully curated selection of financial institutions, each bringing unique strengths and capabilities to serve your business financing needs.
             </p>
           </div>
@@ -146,7 +146,7 @@ const MarketplaceOverview = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{partner.description}</p>
+                  <p className="text-foreground mb-4">{partner.description}</p>
                   <div className="space-y-2">
                     {partner.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2">
@@ -165,7 +165,7 @@ const MarketplaceOverview = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">Why Our Marketplace Works</h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-foreground max-w-3xl mx-auto">
               Our platform creates a win-win environment where borrowers get better access to capital and lenders connect with qualified opportunities.
             </p>
           </div>
@@ -179,7 +179,7 @@ const MarketplaceOverview = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold mb-3">{advantage.title}</h4>
-                    <p className="text-muted-foreground">{advantage.description}</p>
+                    <p className="text-foreground">{advantage.description}</p>
                   </div>
                 </div>
               </Card>
@@ -192,7 +192,7 @@ const MarketplaceOverview = () => {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-4">Nationwide Coverage</h3>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-foreground mb-6">
                 Our marketplace spans all 50 states with regional expertise and local market knowledge. 
                 Whether you're in a major metropolitan area or a small town, we have lenders who understand your market.
               </p>
@@ -200,12 +200,12 @@ const MarketplaceOverview = () => {
                 <div className="text-center p-4 bg-muted/50 rounded-lg">
                   <Building2 className="h-8 w-8 text-primary mx-auto mb-2" />
                   <div className="text-2xl font-bold">50</div>
-                  <div className="text-sm text-muted-foreground">States Covered</div>
+                  <div className="text-sm text-foreground">States Covered</div>
                 </div>
                 <div className="text-center p-4 bg-muted/50 rounded-lg">
                   <Handshake className="h-8 w-8 text-primary mx-auto mb-2" />
                   <div className="text-2xl font-bold">2,500+</div>
-                  <div className="text-sm text-muted-foreground">Cities Served</div>
+                  <div className="text-sm text-foreground">Cities Served</div>
                 </div>
               </div>
             </div>

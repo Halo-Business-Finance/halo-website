@@ -15,7 +15,7 @@ export const LoanApprovalChart = () => {
     <Card className="animate-fade-in">
       <CardHeader>
         <CardTitle className="text-xl font-semibold">Loan Approval Rates</CardTitle>
-        <p className="text-sm text-muted-foreground">Our approval rates by loan type (2024)</p>
+        <p className="text-sm text-foreground">Our approval rates by loan type (2024)</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>
@@ -50,7 +50,7 @@ export const LoanApprovalChart = () => {
           </BarChart>
         </ResponsiveContainer>
         <div className="mt-4 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-foreground">
             *Based on qualified applications processed in 2024
           </p>
         </div>

@@ -86,11 +86,11 @@ export const ProcessDiagram = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="font-semibold text-lg">{step.title}</h3>
-                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-foreground">
                       {step.timeframe}
                     </span>
                   </div>
-                  <p className="text-muted-foreground">{step.description}</p>
+                  <p className="text-foreground">{step.description}</p>
                 </div>
               </div>
               
@@ -98,7 +98,7 @@ export const ProcessDiagram = () => {
               {index < processSteps.length - 1 && (
                 <div className="absolute left-6 top-12 w-0.5 h-8 flex items-center">
                   <div className={`w-full h-full ${getConnectorColor(step.status, processSteps[index + 1].status)} transition-colors duration-300`}>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground absolute -right-2 top-2" />
+                    <ArrowRight className="h-4 w-4 text-foreground absolute -right-2 top-2" />
                   </div>
                 </div>
               )}
@@ -111,15 +111,15 @@ export const ProcessDiagram = () => {
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-primary">92%</div>
-              <div className="text-sm text-muted-foreground">Approval Rate</div>
+              <div className="text-sm text-foreground">Approval Rate</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-primary">7 Days</div>
-              <div className="text-sm text-muted-foreground">Avg. Processing</div>
+              <div className="text-sm text-foreground">Avg. Processing</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground">Online Access</div>
+              <div className="text-sm text-foreground">Online Access</div>
             </div>
           </div>
         </div>
