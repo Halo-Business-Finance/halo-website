@@ -244,7 +244,7 @@ const MarketplaceOverview = () => {
               Start Your Application
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white">
+            <Button size="lg" variant="outline" className="border-white text-white bg-transparent">
               Learn About Our Lenders
             </Button>
           </div>
