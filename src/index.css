@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 27%;
 
-    --primary: 214 50% 20%;
+    --primary: 214 50% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 98%;
@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 210 40% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 214 50% 20%;
+    --accent: 214 50% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,7 +34,7 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 214 50% 20%;
+    --ring: 214 50% 35%;
 
     --success: 142 71% 45%;
     --success-foreground: 0 0% 100%;
@@ -45,7 +45,7 @@ All colors MUST be HSL.
     --info: 199 89% 48%;
     --info-foreground: 0 0% 100%;
 
-    --financial-blue: 214 50% 20%;
+    --financial-blue: 214 50% 35%;
     --financial-navy: 215 35% 25%;
     --financial-light: 210 40% 98%;
 
@@ -78,7 +78,7 @@ All colors MUST be HSL.
     --popover: 215 28% 17%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 214 50% 20%;
+    --primary: 214 50% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -87,7 +87,7 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 214 50% 20%;
+    --accent: 214 50% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -95,9 +95,9 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 214 50% 20%;
+    --ring: 214 50% 35%;
 
-    --financial-blue: 214 50% 20%;
+    --financial-blue: 214 50% 35%;
     --financial-navy: 215 35% 25%;
     --financial-light: 217.2 32.6% 17.5%;
     --sidebar-background: 240 5.9% 10%;
@@ -107,7 +107,7 @@ All colors MUST be HSL.
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 214 50% 20%;
+    --sidebar-ring: 214 50% 35%;
   }
 }
 
