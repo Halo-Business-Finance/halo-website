@@ -53,9 +53,9 @@ export const ProcessDiagram = () => {
       case 'current':
         return 'bg-primary text-white';
       case 'upcoming':
-        return 'bg-muted text-muted-foreground';
+        return 'bg-muted text-foreground';
       default:
-        return 'bg-muted text-muted-foreground';
+        return 'bg-muted text-foreground';
     }
   };
 

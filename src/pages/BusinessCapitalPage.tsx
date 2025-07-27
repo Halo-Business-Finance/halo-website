@@ -102,7 +102,7 @@ const BusinessCapitalPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Flexible Capital Solutions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               From working capital to lines of credit, we offer the right financing solution to support your business operations and growth.
             </p>
           </div>
@@ -133,7 +133,7 @@ const BusinessCapitalPage = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-6">{product.description}</p>
+                  <p className="text-foreground mb-6">{product.description}</p>
                   
                   <div className="space-y-3 mb-6">
                     {product.features.map((feature, i) => (
@@ -164,7 +164,7 @@ const BusinessCapitalPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               What Can You Use Business Capital For?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               Our business capital solutions can be used for a wide variety of business needs.
             </p>
           </div>
@@ -241,7 +241,7 @@ const BusinessCapitalPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Smart Capital Management
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               See how businesses successfully utilize our capital solutions and streamlined processes.
             </p>
           </div>

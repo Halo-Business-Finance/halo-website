@@ -33,21 +33,21 @@ const BridgeFinancingPage = () => {
               <CardContent className="p-0">
                 <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Fast Approval</h3>
-                <p className="text-muted-foreground">Funding in 5-10 days</p>
+                <p className="text-foreground">Funding in 5-10 days</p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent className="p-0">
                 <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2">$100K - $10M</h3>
-                <p className="text-muted-foreground">Flexible loan amounts</p>
+                <p className="text-foreground">Flexible loan amounts</p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2">6-24 Months</h3>
-                <p className="text-muted-foreground">Short-term solutions</p>
+                <p className="text-foreground">Short-term solutions</p>
               </CardContent>
             </Card>
           </div>

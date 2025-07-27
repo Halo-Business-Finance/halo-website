@@ -42,7 +42,7 @@ const AboutUsPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Mission</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               To simplify business financing by connecting entrepreneurs with the right lending solutions 
               through our innovative marketplace platform and expert guidance.
             </p>
@@ -53,7 +53,7 @@ const AboutUsPage = () => {
               <CardContent className="p-0">
                 <Users className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
-                <p className="text-muted-foreground">Experienced professionals dedicated to your success</p>
+                <p className="text-foreground">Experienced professionals dedicated to your success</p>
               </CardContent>
             </Card>
             
@@ -61,7 +61,7 @@ const AboutUsPage = () => {
               <CardContent className="p-0">
                 <Award className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">SBA Preferred</h3>
-                <p className="text-muted-foreground">SBA Preferred Lender with proven track record</p>
+                <p className="text-foreground">SBA Preferred Lender with proven track record</p>
               </CardContent>
             </Card>
             
@@ -69,7 +69,7 @@ const AboutUsPage = () => {
               <CardContent className="p-0">
                 <Target className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Tailored Solutions</h3>
-                <p className="text-muted-foreground">Customized financing solutions for your business</p>
+                <p className="text-foreground">Customized financing solutions for your business</p>
               </CardContent>
             </Card>
             
@@ -77,7 +77,7 @@ const AboutUsPage = () => {
               <CardContent className="p-0">
                 <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Growth Focus</h3>
-                <p className="text-muted-foreground">Committed to fueling your business growth</p>
+                <p className="text-foreground">Committed to fueling your business growth</p>
               </CardContent>
             </Card>
           </div>
@@ -89,7 +89,7 @@ const AboutUsPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               Meet the experienced professionals leading Halo Business Finance with decades of combined expertise in commercial lending and business finance.
             </p>
           </div>
@@ -102,10 +102,10 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">Michael Rodriguez</h3>
                 <p className="text-primary font-medium text-center mb-3">CEO & Founder</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-foreground mb-3">
                   With over 20 years in commercial lending, Michael founded Halo Business Finance to revolutionize how businesses access capital. Former VP at Wells Fargo Commercial Banking.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-foreground">
                   <p>• MBA Finance, Wharton School</p>
                   <p>• CPA, Licensed Commercial Lender</p>
                   <p>• SBA Preferred Lender Certification</p>
@@ -120,10 +120,10 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">Sarah Chen</h3>
                 <p className="text-primary font-medium text-center mb-3">Chief Operating Officer</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-foreground mb-3">
                   Sarah leads operations with 15+ years in fintech and lending operations. Previously managed lending operations for a $2B portfolio at JPMorgan Chase.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-foreground">
                   <p>• MS Operations Management, MIT</p>
                   <p>• Six Sigma Black Belt</p>
                   <p>• Certified Lending Compliance Officer</p>
@@ -138,10 +138,10 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">David Thompson</h3>
                 <p className="text-primary font-medium text-center mb-3">Chief Revenue Officer</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-foreground mb-3">
                   David drives business development and lender relationships. 18 years in commercial finance with expertise in SBA lending and equipment financing.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-foreground">
                   <p>• BA Economics, Stanford University</p>
                   <p>• Certified Commercial Loan Officer</p>
                   <p>• SBA Lending Specialist</p>
@@ -156,10 +156,10 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">Lisa Park</h3>
                 <p className="text-primary font-medium text-center mb-3">Head of Underwriting</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-foreground mb-3">
                   Lisa oversees credit analysis and risk management with 12+ years in commercial underwriting. Former Senior Underwriter at Bank of America.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-foreground">
                   <p>• MS Finance, UC Berkeley</p>
                   <p>• CFA Charterholder</p>
                   <p>• Commercial Credit Analyst Certification</p>
@@ -174,10 +174,10 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">James Wilson</h3>
                 <p className="text-primary font-medium text-center mb-3">Head of Technology</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-foreground mb-3">
                   James leads our technology initiatives and platform development. 10+ years in fintech with previous roles at LendingClub and Kabbage.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-foreground">
                   <p>• MS Computer Science, Carnegie Mellon</p>
                   <p>• AWS Certified Solutions Architect</p>
                   <p>• Fintech Security Specialist</p>
@@ -192,10 +192,10 @@ const AboutUsPage = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">Maria Gonzalez</h3>
                 <p className="text-primary font-medium text-center mb-3">Head of Customer Success</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-foreground mb-3">
                   Maria ensures exceptional client experience throughout the lending process. 8+ years in customer success and relationship management.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-foreground">
                   <p>• BA Business Administration, UCLA</p>
                   <p>• Certified Customer Success Manager</p>
                   <p>• Financial Services Excellence Award</p>
@@ -209,15 +209,15 @@ const AboutUsPage = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <h4 className="font-semibold mb-2">Integrity First</h4>
-                <p className="text-sm text-muted-foreground">Every decision is guided by honesty, transparency, and ethical business practices.</p>
+                <p className="text-sm text-foreground">Every decision is guided by honesty, transparency, and ethical business practices.</p>
               </div>
               <div className="text-center">
                 <h4 className="font-semibold mb-2">Client-Centric</h4>
-                <p className="text-sm text-muted-foreground">Our clients' success is our success. We prioritize their needs in everything we do.</p>
+                <p className="text-sm text-foreground">Our clients' success is our success. We prioritize their needs in everything we do.</p>
               </div>
               <div className="text-center">
                 <h4 className="font-semibold mb-2">Innovation Drive</h4>
-                <p className="text-sm text-muted-foreground">Continuously improving our platform and processes to better serve our clients.</p>
+                <p className="text-sm text-foreground">Continuously improving our platform and processes to better serve our clients.</p>
               </div>
             </div>
           </div>
