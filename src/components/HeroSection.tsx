@@ -42,7 +42,7 @@ const HeroSection = () => {
               <Button size="lg" className="bg-white text-primary font-semibold text-sm md:text-base" asChild>
                 <a href="https://portal.halobusinessfinance.com">Get Pre-Qualified</a>
               </Button>
-              <Button size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base" asChild>
+              <Button size="lg" variant="outline" className="border-white text-white bg-transparent text-sm md:text-base" asChild>
                 <a href="https://portal.halobusinessfinance.com">View Loan Options</a>
               </Button>
             </div>
