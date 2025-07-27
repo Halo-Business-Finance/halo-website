@@ -84,6 +84,146 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* Leadership Team Section */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Meet the experienced professionals leading Halo Business Finance with decades of combined expertise in commercial lending and business finance.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="relative mb-4">
+                  <img src={loanConsultation} alt="Michael Rodriguez, CEO & Founder" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">Michael Rodriguez</h3>
+                <p className="text-primary font-medium text-center mb-3">CEO & Founder</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  With over 20 years in commercial lending, Michael founded Halo Business Finance to revolutionize how businesses access capital. Former VP at Wells Fargo Commercial Banking.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <p>• MBA Finance, Wharton School</p>
+                  <p>• CPA, Licensed Commercial Lender</p>
+                  <p>• SBA Preferred Lender Certification</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="relative mb-4">
+                  <img src={businessGrowth} alt="Sarah Chen, COO" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">Sarah Chen</h3>
+                <p className="text-primary font-medium text-center mb-3">Chief Operating Officer</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Sarah leads operations with 15+ years in fintech and lending operations. Previously managed lending operations for a $2B portfolio at JPMorgan Chase.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <p>• MS Operations Management, MIT</p>
+                  <p>• Six Sigma Black Belt</p>
+                  <p>• Certified Lending Compliance Officer</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="relative mb-4">
+                  <img src={loanConsultation} alt="David Thompson, CRO" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">David Thompson</h3>
+                <p className="text-primary font-medium text-center mb-3">Chief Revenue Officer</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  David drives business development and lender relationships. 18 years in commercial finance with expertise in SBA lending and equipment financing.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <p>• BA Economics, Stanford University</p>
+                  <p>• Certified Commercial Loan Officer</p>
+                  <p>• SBA Lending Specialist</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="relative mb-4">
+                  <img src={businessGrowth} alt="Lisa Park, Head of Underwriting" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">Lisa Park</h3>
+                <p className="text-primary font-medium text-center mb-3">Head of Underwriting</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Lisa oversees credit analysis and risk management with 12+ years in commercial underwriting. Former Senior Underwriter at Bank of America.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <p>• MS Finance, UC Berkeley</p>
+                  <p>• CFA Charterholder</p>
+                  <p>• Commercial Credit Analyst Certification</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="relative mb-4">
+                  <img src={loanConsultation} alt="James Wilson, Head of Technology" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">James Wilson</h3>
+                <p className="text-primary font-medium text-center mb-3">Head of Technology</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  James leads our technology initiatives and platform development. 10+ years in fintech with previous roles at LendingClub and Kabbage.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <p>• MS Computer Science, Carnegie Mellon</p>
+                  <p>• AWS Certified Solutions Architect</p>
+                  <p>• Fintech Security Specialist</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="relative mb-4">
+                  <img src={businessGrowth} alt="Maria Gonzalez, Head of Customer Success" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">Maria Gonzalez</h3>
+                <p className="text-primary font-medium text-center mb-3">Head of Customer Success</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Maria ensures exceptional client experience throughout the lending process. 8+ years in customer success and relationship management.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <p>• BA Business Administration, UCLA</p>
+                  <p>• Certified Customer Success Manager</p>
+                  <p>• Financial Services Excellence Award</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="bg-card p-8 rounded-lg">
+            <h3 className="text-2xl font-bold text-center mb-6">Our Leadership Principles</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <h4 className="font-semibold mb-2">Integrity First</h4>
+                <p className="text-sm text-muted-foreground">Every decision is guided by honesty, transparency, and ethical business practices.</p>
+              </div>
+              <div className="text-center">
+                <h4 className="font-semibold mb-2">Client-Centric</h4>
+                <p className="text-sm text-muted-foreground">Our clients' success is our success. We prioritize their needs in everything we do.</p>
+              </div>
+              <div className="text-center">
+                <h4 className="font-semibold mb-2">Innovation Drive</h4>
+                <p className="text-sm text-muted-foreground">Continuously improving our platform and processes to better serve our clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       </div>
     </>
