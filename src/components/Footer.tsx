@@ -186,7 +186,7 @@ const Footer = () => {
           {/* Copyright and disclosures */}
           <div className="mt-8 pt-6 border-t border-white/20">
             <div className="text-xs text-gray-400 space-y-2">
-              <p>© 2024 Halo Business Finance. All rights reserved.</p>
+              <p>© 2025 Halo Business Finance. All rights reserved.</p>
               <p>
                 DFPI CFL License No. 60DBO-178064. California Commercial Financing Law disclosures available upon request.
               </p>
