@@ -143,7 +143,7 @@ const ProductsSection = () => {
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-gray-600 mb-4">{product.description}</p>
+                <p className="text-sm md:text-base text-foreground mb-4">{product.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {product.features.map((feature, i) => (

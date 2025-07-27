@@ -151,7 +151,7 @@ const SBALoansPage = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-6">{product.description}</p>
+                  <p className="text-foreground mb-6">{product.description}</p>
                   
                   <div className="space-y-3 mb-6">
                     {product.features.map((feature, i) => (
