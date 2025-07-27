@@ -20,7 +20,7 @@ const Header = () => {
       items: ["Company Overview", "About Us", "Contact Us", "Careers"]
     },
     {
-      title: "SBA Loans",
+      title: "SBA & USDA Loans",
       href: "/sba-loans",
       items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "SBA Microloans"]
     },
@@ -54,7 +54,7 @@ const Header = () => {
         "Contact Us": "/contact-us", 
         "Careers": "/careers"
       },
-      "SBA Loans": {
+      "SBA & USDA Loans": {
         "SBA 7(a) Loans": "/sba-7a-loans",
         "SBA 504 Loans": "/sba-504-loans",
         "SBA Express Loans": "/sba-express-loans",
