@@ -28,10 +28,10 @@ const HeroSection = () => {
           {/* Left side - Hero content */}
           <header className="text-white space-y-6 lg:space-y-8">
             <div className="space-y-4">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Business financing
                 <span className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl">that fuels your growth</span>
-              </h1>
+              </h2>
               <p className="text-lg md:text-xl text-blue-100 max-w-lg">
                 Experience streamlined business lending with competitive SBA and commercial loan solutions designed to accelerate your success.
               </p>

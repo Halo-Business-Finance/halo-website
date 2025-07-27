@@ -107,9 +107,9 @@ const BrokersPage = () => {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                  <h4 className="text-xl font-semibold text-foreground mb-3">
                     {benefit.title}
-                  </h3>
+                  </h4>
                   <p className="text-foreground">
                     {benefit.description}
                   </p>
@@ -125,9 +125,9 @@ const BrokersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-foreground mb-4">
+              <h3 className="text-4xl font-bold text-foreground mb-4">
                 Commission Structure
-              </h2>
+              </h3>
               <p className="text-xl text-foreground">
                 Transparent and competitive commission rates based on loan volume.
               </p>
@@ -148,7 +148,7 @@ const BrokersPage = () => {
             </div>
 
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-              <h3 className="text-lg font-semibold text-foreground mb-2">Additional Bonuses</h3>
+              <h4 className="text-lg font-semibold text-foreground mb-2">Additional Bonuses</h4>
               <ul className="space-y-1 text-foreground">
                 <li>• Volume bonuses for top performers</li>
                 <li>• Quarterly incentive programs</li>
@@ -164,9 +164,9 @@ const BrokersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-foreground mb-4">
+              <h3 className="text-4xl font-bold text-foreground mb-4">
                 What You Get as a Partner
-              </h2>
+              </h3>
               <p className="text-xl text-foreground">
                 Comprehensive support and resources to maximize your success.
               </p>
@@ -188,9 +188,9 @@ const BrokersPage = () => {
       <section className="py-16 bg-gradient-to-br from-primary to-financial-navy text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">
+            <h3 className="text-4xl font-bold mb-6">
               Ready to Get Started?
-            </h2>
+            </h3>
             <p className="text-xl text-blue-100 mb-8">
               Contact our broker partnership team to learn more about joining our network.
             </p>
@@ -199,7 +199,7 @@ const BrokersPage = () => {
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
                   <Phone className="h-8 w-8 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Call Us</h3>
+                  <h4 className="text-lg font-semibold mb-2">Call Us</h4>
                   <p className="text-blue-100">(800) 730-8461</p>
                   <p className="text-sm text-blue-200">Broker Partnership Line</p>
                 </CardContent>
@@ -208,7 +208,7 @@ const BrokersPage = () => {
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
                   <Mail className="h-8 w-8 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Email Us</h3>
+                  <h4 className="text-lg font-semibold mb-2">Email Us</h4>
                   <p className="text-blue-100">brokers@halobusinessfinance.com</p>
                   <p className="text-sm text-blue-200">Partnership Inquiries</p>
                 </CardContent>

@@ -135,7 +135,7 @@ const ProductsSection = () => {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                   </div>
-                   <h3 className="text-lg md:text-xl">{product.title}</h3>
+                   <h4 className="text-lg md:text-xl">{product.title}</h4>
                 </div>
                 <div className="text-center py-4">
                   <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
@@ -175,9 +175,9 @@ const ProductsSection = () => {
         {/* Business Banking Section */}
         <div className="border-t pt-12 md:pt-16">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
               Business Capital Solutions
-            </h2>
+            </h3>
             <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
               Powerful capital tools to help your business grow and succeed.
             </p>
@@ -191,7 +191,7 @@ const ProductsSection = () => {
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                     </div>
-                    <h3 className="text-lg md:text-xl">{product.title}</h3>
+                    <h5 className="text-lg md:text-xl">{product.title}</h5>
                   </div>
                   <div className="text-center py-4">
                     <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
@@ -238,9 +238,9 @@ const ProductsSection = () => {
           />
           <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-12 md:py-16 px-6 md:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
                 Ready to Fuel Your Business Growth?
-              </h2>
+              </h3>
               <p className="text-lg md:text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital.
               </p>

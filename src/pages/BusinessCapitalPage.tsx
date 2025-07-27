@@ -120,15 +120,15 @@ const BusinessCapitalPage = () => {
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
                       <div className="text-lg font-bold text-primary">{product.rate}</div>
-                      <div className="text-sm text-muted-foreground">Rate/Factor</div>
+                      <div className="text-sm text-foreground">Rate/Factor</div>
                     </div>
                     <div>
                       <div className="text-lg font-bold text-primary">{product.amount}</div>
-                      <div className="text-sm text-muted-foreground">Amount</div>
+                      <div className="text-sm text-foreground">Amount</div>
                     </div>
                     <div>
                       <div className="text-lg font-bold text-primary">{product.term}</div>
-                      <div className="text-sm text-muted-foreground">Terms</div>
+                      <div className="text-sm text-foreground">Terms</div>
                     </div>
                   </div>
                 </CardHeader>
@@ -161,9 +161,9 @@ const BusinessCapitalPage = () => {
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
               What Can You Use Business Capital For?
-            </h2>
+            </h3>
             <p className="text-xl text-foreground max-w-3xl mx-auto">
               Our business capital solutions can be used for a wide variety of business needs.
             </p>
@@ -195,9 +195,9 @@ const BusinessCapitalPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
               Why Choose Our Business Capital Solutions?
-            </h2>
+            </h3>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -238,9 +238,9 @@ const BusinessCapitalPage = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
               Smart Capital Management
-            </h2>
+            </h3>
             <p className="text-xl text-foreground max-w-3xl mx-auto">
               See how businesses successfully utilize our capital solutions and streamlined processes.
             </p>
@@ -298,9 +298,9 @@ const BusinessCapitalPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
               Strategic Capital Solutions
-            </h2>
+            </h3>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -348,9 +348,9 @@ const BusinessCapitalPage = () => {
         />
         <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-16">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
               Need Capital for Your Business?
-            </h2>
+            </h3>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
               Our business capital specialists are ready to help you find the right financing solution for your needs.
             </p>
