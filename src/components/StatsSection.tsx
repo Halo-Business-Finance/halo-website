@@ -69,7 +69,7 @@ const StatsSection = () => {
         {/* Key Stats */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+            <Card key={index} className="text-center">
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="h-6 w-6 text-primary" />

@@ -52,7 +52,7 @@ const Footer = () => {
           {/* Company info and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <Link to="/" className="hover:opacity-80 transition-opacity">
+              <Link to="/" className="">
                 <h3 className="text-2xl font-bold mb-4">
                   HALO <span className="text-primary">BUSINESS FINANCE</span>
                 </h3>
@@ -74,7 +74,7 @@ const Footer = () => {
                   placeholder="Enter your email"
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                 />
-                <Button size="sm" className="bg-primary hover:bg-primary/90">
+                <Button size="sm" className="bg-primary">
                   Subscribe
                 </Button>
               </div>
@@ -87,7 +87,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300">
                     {link.name}
                   </Link>
                 </li>
@@ -101,7 +101,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {loanPrograms.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300">
                     {link.name}
                   </Link>
                 </li>
@@ -115,7 +115,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300">
                     {link.name}
                   </Link>
                 </li>
@@ -129,7 +129,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.link} className="text-sm text-gray-300">
                     {link.name}
                   </Link>
                 </li>
@@ -162,13 +162,13 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium">Follow Us:</span>
               <div className="flex gap-3">
-                <a href="https://www.facebook.com/HaloBusinessFinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                <a href="https://www.facebook.com/HaloBusinessFinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full">
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="https://x.com/halobizfinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                <a href="https://x.com/halobizfinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full">
                   <Twitter className="h-4 w-4" />
                 </a>
-                <a href="https://www.linkedin.com/company/halobusinessfinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+                <a href="https://www.linkedin.com/company/halobusinessfinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full">
                   <Linkedin className="h-4 w-4" />
                 </a>
               </div>
@@ -176,10 +176,10 @@ const Footer = () => {
 
             {/* Legal links */}
             <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Use</Link>
-              <Link to="/accessibility" className="hover:text-white transition-colors">Accessibility</Link>
-              <Link to="/sitemap" className="hover:text-white transition-colors">Site Map</Link>
+              <Link to="/privacy-policy" className="">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="">Terms of Use</Link>
+              <Link to="/accessibility" className="">Accessibility</Link>
+              <Link to="/sitemap" className="">Site Map</Link>
             </div>
           </div>
 

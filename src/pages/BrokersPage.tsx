@@ -77,10 +77,10 @@ const BrokersPage = () => {
               Join our network of successful brokers and grow your business with access to competitive loan products, superior support, and industry-leading commissions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+              <Button size="lg" className="bg-white text-primary font-semibold">
                 Apply to Become a Broker
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white text-white">
                 Download Broker Kit
               </Button>
             </div>
@@ -102,7 +102,7 @@ const BrokersPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center">
                 <CardContent className="p-6">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
@@ -215,7 +215,7 @@ const BrokersPage = () => {
               </Card>
             </div>
 
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+            <Button size="lg" className="bg-white text-primary font-semibold">
               Apply Now
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>

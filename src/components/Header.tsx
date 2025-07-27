@@ -99,7 +99,7 @@ const Header = () => {
           <div className="flex items-center justify-between text-sm">
             {/* Logo in top section */}
             <div className="flex items-center">
-              <Link to="/" className="hover:opacity-80 transition-opacity">
+              <Link to="/" className="">
                 <h1 className="text-lg md:text-xl font-bold text-white">
                   HALO
                   <span className="text-primary"> BUSINESS FINANCE</span>
@@ -112,7 +112,7 @@ const Header = () => {
                 <span className="hidden md:inline">(800) 730-8461</span>
                 <span className="md:hidden text-xs">(800) 730-8461</span>
               </div>
-              <Link to="/customer-service" className="hidden md:inline hover:text-primary transition-colors">Customer Service</Link>
+              <Link to="/customer-service" className="hidden md:inline">Customer Service</Link>
             </div>
           </div>
         </div>
@@ -128,13 +128,13 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <DropdownMenu key={item.title}>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground">
                   {item.title}
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-background border shadow-lg">
                   {item.items.map((subItem) => (
-                    <DropdownMenuItem key={subItem} className="hover:bg-muted" asChild>
+                    <DropdownMenuItem key={subItem} className="" asChild>
                       <Link to={getItemLink(item.title, subItem)}>{subItem}</Link>
                     </DropdownMenuItem>
                   ))}
@@ -190,7 +190,7 @@ const Header = () => {
                             <Link
                               key={subItem}
                               to={getItemLink(item.title, subItem)}
-                              className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                              className="block text-sm text-muted-foreground"
                             >
                               {subItem}
                             </Link>

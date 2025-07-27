@@ -304,7 +304,7 @@ const BusinessCapitalPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <CreditCard className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Fast Access</h3>
@@ -312,7 +312,7 @@ const BusinessCapitalPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Flexible Terms</h3>
@@ -320,7 +320,7 @@ const BusinessCapitalPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Target className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Build Credit</h3>
@@ -328,7 +328,7 @@ const BusinessCapitalPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <BarChart3 className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Growth Support</h3>

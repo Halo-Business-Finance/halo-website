@@ -124,7 +124,7 @@ const ProductsSection = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {products.map((product, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300 relative">
+            <Card key={index} className="relative">
               {product.badge && (
                 <Badge className="absolute top-4 right-4 bg-primary text-white text-xs">
                   {product.badge}
@@ -163,7 +163,7 @@ const ProductsSection = () => {
                   <Button asChild className="flex-1 group text-xs md:text-sm">
                     <Link to={product.applyLink}>
                       Apply For
-                      <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
                     </Link>
                   </Button>
                 </div>
@@ -185,7 +185,7 @@ const ProductsSection = () => {
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {businessProducts.map((product, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-primary/10 rounded-lg">
@@ -219,7 +219,7 @@ const ProductsSection = () => {
                     <Button asChild className="flex-1 group text-xs md:text-sm">
                       <Link to={product.applyLink}>
                         Apply For
-                        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
                       </Link>
                     </Button>
                   </div>
@@ -245,10 +245,10 @@ const ProductsSection = () => {
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold text-sm md:text-base">
+                <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base">
                   <Link to="/pre-qualification">Get Pre-Qualified</Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base">
+                <Button asChild size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base">
                   <Link to="/contact-us">Schedule Consultation</Link>
                 </Button>
               </div>

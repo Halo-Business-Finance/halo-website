@@ -112,9 +112,9 @@ const MarketplaceOverview = () => {
         {/* Marketplace Stats */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {marketplaceStats.map((stat, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 group">
+            <Card key={index} className="text-center group">
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-3xl font-bold mb-2">{stat.value}</h3>
@@ -136,7 +136,7 @@ const MarketplaceOverview = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {lenderPartners.map((partner, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-xl">{partner.category}</CardTitle>
@@ -172,7 +172,7 @@ const MarketplaceOverview = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {marketplaceAdvantages.map((advantage, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+              <Card key={index} className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <advantage.icon className="h-6 w-6 text-primary" />
@@ -240,11 +240,11 @@ const MarketplaceOverview = () => {
             Join thousands of businesses that have found their perfect lending partner through our marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+            <Button size="lg" className="bg-white text-primary font-semibold">
               Start Your Application
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button size="lg" variant="outline" className="border-white text-white">
               Learn About Our Lenders
             </Button>
           </div>

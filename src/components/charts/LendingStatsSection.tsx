@@ -55,7 +55,7 @@ export const LendingStatsSection = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center p-6 hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card key={index} className="text-center p-6 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardContent className="p-0">
                 <div className={`${stat.color} mb-3 flex justify-center`}>
                   {stat.icon}

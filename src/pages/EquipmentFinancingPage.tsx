@@ -319,7 +319,7 @@ const EquipmentFinancingPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Truck className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">100% Financing</h3>
@@ -327,7 +327,7 @@ const EquipmentFinancingPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Tax Benefits</h3>
@@ -335,7 +335,7 @@ const EquipmentFinancingPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Equipment Secured</h3>
@@ -343,7 +343,7 @@ const EquipmentFinancingPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Factory className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">New & Used</h3>

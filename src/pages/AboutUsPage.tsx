@@ -27,7 +27,7 @@ const AboutUsPage = () => {
               <p className="text-xl mb-8 opacity-90">
                 Dedicated to providing exceptional business financing solutions with personalized service and competitive rates.
               </p>
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+              <Button size="lg" className="bg-white text-primary">
                 Learn More About Our Services
               </Button>
             </div>

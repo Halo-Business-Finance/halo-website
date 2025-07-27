@@ -183,10 +183,10 @@ const LendersPage = () => {
               Connect with pre-qualified borrowers and grow your commercial lending portfolio through our comprehensive marketplace platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+              <Button size="lg" className="bg-white text-primary font-semibold">
                 Apply to Become a Lender
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white text-white">
                 Download Lender Guide
               </Button>
             </div>
@@ -208,7 +208,7 @@ const LendersPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {marketplaceAdvantages.map((advantage, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
+              <Card key={index} className="text-center">
                 <CardContent className="p-6">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <advantage.icon className="h-8 w-8 text-primary" />
@@ -231,7 +231,7 @@ const LendersPage = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {partnershipBenefits.map((benefit, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <Card key={index} className="">
                   <CardHeader>
                     <CardTitle className="text-xl">{benefit.category}</CardTitle>
                   </CardHeader>
@@ -266,7 +266,7 @@ const LendersPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center">
                 <CardContent className="p-6">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
@@ -298,7 +298,7 @@ const LendersPage = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {loanTypes.map((loan, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-between">
                     <span>{loan.type}</span>
@@ -335,7 +335,7 @@ const LendersPage = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {platformFeatures.map((feature, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {feature.title}
@@ -426,7 +426,7 @@ const LendersPage = () => {
               </Card>
             </div>
 
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+            <Button size="lg" className="bg-white text-primary font-semibold">
               Apply to Join Network
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>

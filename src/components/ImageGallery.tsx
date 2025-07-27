@@ -57,12 +57,12 @@ const ImageGallery = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryItems.map((item, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <Card key={index} className="overflow-hidden">
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -86,10 +86,10 @@ const ImageGallery = () => {
               Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/pre-qualification" className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold text-center">
+              <Link to="/pre-qualification" className="bg-primary text-white px-6 py-3 rounded-lg font-semibold text-center">
                 Start Your Application
               </Link>
-              <Link to="/contact-us" className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors font-semibold text-center">
+              <Link to="/contact-us" className="border border-primary text-primary px-6 py-3 rounded-lg font-semibold text-center">
                 Schedule Consultation
               </Link>
             </div>

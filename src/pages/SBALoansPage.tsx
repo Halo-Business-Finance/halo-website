@@ -293,7 +293,7 @@ const SBALoansPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Government Backing</h3>
@@ -301,7 +301,7 @@ const SBALoansPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Lower Down Payment</h3>
@@ -309,7 +309,7 @@ const SBALoansPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Extended Terms</h3>
@@ -317,7 +317,7 @@ const SBALoansPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover-scale">
+            <Card className="text-center p-6">
               <CardContent className="p-0">
                 <FileCheck className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">Flexible Use</h3>

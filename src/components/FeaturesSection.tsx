@@ -67,10 +67,10 @@ const FeaturesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="border-0 shadow-none hover:shadow-lg transition-shadow duration-300 group">
+            <Card key={index} className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -80,9 +80,9 @@ const FeaturesSection = () => {
                     {feature.description}
                   </p>
                 </div>
-                <Button variant="ghost" className="group/btn text-primary hover:text-primary">
+                <Button variant="ghost" className="group/btn text-primary">
                   {feature.link}
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </CardContent>
             </Card>
@@ -114,10 +114,10 @@ const FeaturesSection = () => {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold">
+                <Button asChild size="lg" className="bg-white text-primary font-semibold">
                   <Link to="/pre-qualification">Get Pre-Qualified</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-primary hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="border-white text-primary">
                   <Link to="/contact-us">Schedule Consultation</Link>
                 </Button>
               </div>

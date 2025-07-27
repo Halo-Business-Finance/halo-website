@@ -39,10 +39,10 @@ const HeroSection = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold text-sm md:text-base" asChild>
+              <Button size="lg" className="bg-white text-primary font-semibold text-sm md:text-base" asChild>
                 <a href="https://portal.halobusinessfinance.com">Get Pre-Qualified</a>
               </Button>
-              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10 text-sm md:text-base" asChild>
+              <Button size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base" asChild>
                 <a href="https://portal.halobusinessfinance.com">View Loan Options</a>
               </Button>
             </div>
@@ -95,7 +95,7 @@ const HeroSection = () => {
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
                         >
                           {showPassword ? (
                             <EyeOff className="h-4 w-4" />
@@ -111,7 +111,7 @@ const HeroSection = () => {
                         <input type="checkbox" className="mr-2" />
                         Remember me
                       </label>
-                      <Link to="/contact-us" className="text-primary hover:underline">
+                      <Link to="/contact-us" className="text-primary">
                         Forgot password?
                       </Link>
                     </div>
@@ -123,7 +123,7 @@ const HeroSection = () => {
 
                   <div className="text-center text-sm text-gray-600">
                     New to Halo Business Finance?{" "}
-                     <Link to="/pre-qualification" className="text-primary hover:underline font-medium">
+                     <Link to="/pre-qualification" className="text-primary font-medium">
                        Apply for financing
                      </Link>
                   </div>

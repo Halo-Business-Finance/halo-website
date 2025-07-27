@@ -19,8 +19,8 @@ const BridgeFinancingPage = () => {
               Fast, flexible financing to bridge the gap between immediate capital needs and long-term financing solutions. Perfect for time-sensitive opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Get Bridge Financing</Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Quick Quote</Button>
+              <Button size="lg" className="bg-white text-primary">Get Bridge Financing</Button>
+              <Button size="lg" variant="outline" className="border-white text-white">Quick Quote</Button>
             </div>
           </div>
         </div>
