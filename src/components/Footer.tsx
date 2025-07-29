@@ -40,6 +40,7 @@ const Footer = () => {
     { name: "Company Overview", link: "/company-overview" },
     { name: "About Us", link: "/about-us" },
     { name: "How It Works", link: "/how-it-works" },
+    { name: "Careers", link: "/careers" },
     { name: "Marketplace Benefits", link: "/marketplace-benefits" },
     { name: "NMLS Compliance", link: "/nmls-compliance" }
   ];
