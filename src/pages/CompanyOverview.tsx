@@ -2,8 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Download } from "lucide-react";
-import { ContentScraper } from "@/components/ContentScraper";
+import { CheckCircle, Users, Target, Award, TrendingUp, Building2 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -387,26 +386,6 @@ const CompanyOverview = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Content Scraper Section */}
-      <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Download className="h-8 w-8 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Import Company Information
-              </h2>
-            </div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Use the content scraper below to import information from HaloBusinessfinance.com 
-              and enhance your company overview with additional details.
-            </p>
-          </div>
-          
-          <ContentScraper />
         </div>
       </section>
 
