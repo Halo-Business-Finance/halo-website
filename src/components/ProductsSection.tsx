@@ -133,7 +133,7 @@ const ProductsSection = () => {
                 </Badge>
               )}
               <CardHeader className="pb-4">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center justify-center mb-3">
                   {product.logo ? (
                     <div className="p-2 bg-white rounded-lg border">
                       <img src={product.logo} alt={`${product.title} logo`} className="h-8 w-auto" />
@@ -143,9 +143,9 @@ const ProductsSection = () => {
                       <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                     </div>
                   )}
-                   <h4 className="text-lg md:text-xl font-bold text-center">{product.title}</h4>
                 </div>
                 <div className="text-center py-4">
+                  <h4 className="text-lg md:text-xl font-bold mb-4">{product.title}</h4>
                   <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
                   <div className="text-xs md:text-sm text-foreground">{product.rateLabel}</div>
                 </div>
