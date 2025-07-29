@@ -30,7 +30,6 @@ const Footer = () => {
   const supportLinks = [
     { name: "Loan Calculator", link: "/loan-calculator" },
     { name: "Pre-qualification", link: "/pre-qualification" },
-    { name: "Contact Us", link: "/contact-us" },
     { name: "Customer Service", link: "/customer-service" },
     { name: "Technical Support", link: "/technical-support" },
     { name: "Industry Solutions", link: "/industry-solutions" }
@@ -40,6 +39,7 @@ const Footer = () => {
     { name: "Company Overview", link: "/company-overview" },
     { name: "About Us", link: "/about-us" },
     { name: "How It Works", link: "/how-it-works" },
+    { name: "Contact Us", link: "/contact-us" },
     { name: "Careers", link: "/careers" },
     { name: "Marketplace Benefits", link: "/marketplace-benefits" }
   ];
