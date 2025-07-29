@@ -8,38 +8,60 @@ import financialConsultation from "@/assets/financial-consultation.jpg";
 import manufacturingFacility from "@/assets/manufacturing-facility.jpg";
 import retailStorefront from "@/assets/retail-storefront.jpg";
 import businessSigning from "@/assets/business-signing.jpg";
+import smallBusinessOwnerLaptop from "@/assets/small-business-owner-laptop.jpg";
+import loanApprovalCelebration from "@/assets/loan-approval-celebration.jpg";
+import successfulRetailBusiness from "@/assets/successful-retail-business.jpg";
+import financialAdvisorConsultation from "@/assets/financial-advisor-consultation.jpg";
+import manufacturingSuccess from "@/assets/manufacturing-success.jpg";
+import modernCommercialProperty from "@/assets/modern-commercial-property.jpg";
+import techStartupWorkspace from "@/assets/tech-startup-workspace.jpg";
 
 const ImageGallery = () => {
   const galleryItems = [
     {
-      image: financialConsultation,
+      image: financialAdvisorConsultation,
       title: "Expert Consultation",
       description: "Our experienced loan officers work closely with you to understand your business needs and find the right financing solution."
     },
     {
-      image: commercialBuilding,
+      image: modernCommercialProperty,
       title: "Commercial Real Estate",
       description: "Financing solutions for office buildings, retail spaces, warehouses, and other commercial properties."
     },
     {
-      image: businessSigning,
+      image: loanApprovalCelebration,
       title: "Quick Approvals",
       description: "Streamlined application process with fast decision times to get your business the funding it needs when it needs it."
     },
     {
-      image: manufacturingFacility,
-      title: "Industry Expertise", 
-      description: "Specialized financing solutions for manufacturing, retail, healthcare, construction, and technology sectors."
+      image: manufacturingSuccess,
+      title: "Manufacturing Success", 
+      description: "Specialized financing solutions for manufacturing businesses looking to expand operations and upgrade equipment."
     },
     {
-      image: retailStorefront,
+      image: successfulRetailBusiness,
       title: "Small Business Support",
       description: "Dedicated support for small and medium businesses with flexible terms and competitive rates."
+    },
+    {
+      image: techStartupWorkspace,
+      title: "Technology Innovation",
+      description: "Supporting tech startups and innovative businesses with growth capital and equipment financing."
+    },
+    {
+      image: smallBusinessOwnerLaptop,
+      title: "Digital-First Experience",
+      description: "Modern online application process with dedicated support throughout your financing journey."
     },
     {
       image: equipmentFinancing,
       title: "Equipment Financing",
       description: "Fund the machinery and equipment your business needs to grow and stay competitive in your industry."
+    },
+    {
+      image: commercialBuilding,
+      title: "Property Investment",
+      description: "Commercial real estate loans for property acquisition, refinancing, and development projects."
     }
   ];
 

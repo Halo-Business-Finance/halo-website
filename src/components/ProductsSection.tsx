@@ -15,6 +15,7 @@ import {
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
+import financialAdvisorConsultation from "@/assets/financial-advisor-consultation.jpg";
 
 const ProductsSection = () => {
   const products = [
@@ -232,8 +233,8 @@ const ProductsSection = () => {
         {/* CTA Section with Background Image */}
         <div className="mt-12 md:mt-16 relative overflow-hidden rounded-lg">
           <img 
-            src={loanConsultation} 
-            alt="Professional loan consultation meeting"
+            src={financialAdvisorConsultation} 
+            alt="Professional financial advisor consultation with business owner"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-12 md:py-16 px-6 md:px-8">
