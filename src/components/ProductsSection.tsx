@@ -21,7 +21,7 @@ import financialAdvisorConsultation from "@/assets/financial-advisor-consultatio
 const ProductsSection = () => {
   const products = [
     {
-      logo: "/lovable-uploads/16fc85f5-bfa7-4605-ad8b-fc2cc3082870.png",
+      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
       title: "SBA 7(a) Loans",
       description: "Versatile financing for working capital, equipment, and real estate purchases.",
       rate: "Prime + 2.75%",
@@ -32,7 +32,7 @@ const ProductsSection = () => {
       badge: "Popular"
     },
     {
-      logo: "/lovable-uploads/16fc85f5-bfa7-4605-ad8b-fc2cc3082870.png",
+      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
       title: "SBA 504 Loans",
       description: "Fixed-rate financing for real estate and major equipment purchases.",
       rate: "Fixed Rate",

@@ -49,7 +49,7 @@ const SBA7aLoansPage = () => {
             <div className="text-white">
               <div className="flex items-center gap-4 mb-6">
                 <img 
-                  src="/lovable-uploads/16fc85f5-bfa7-4605-ad8b-fc2cc3082870.png" 
+                  src="/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png" 
                   alt="Official SBA Logo"
                   className="h-16 w-auto bg-white p-2 rounded-lg"
                 />
