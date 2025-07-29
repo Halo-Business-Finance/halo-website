@@ -41,8 +41,7 @@ const Footer = () => {
     { name: "About Us", link: "/about-us" },
     { name: "How It Works", link: "/how-it-works" },
     { name: "Careers", link: "/careers" },
-    { name: "Marketplace Benefits", link: "/marketplace-benefits" },
-    { name: "NMLS Compliance", link: "/nmls-compliance" }
+    { name: "Marketplace Benefits", link: "/marketplace-benefits" }
   ];
 
   return (
@@ -177,6 +176,7 @@ const Footer = () => {
 
             {/* Legal links */}
             <div className="flex flex-wrap gap-4 text-sm text-gray-300">
+              <Link to="/nmls-compliance" className="">NMLS Compliance</Link>
               <Link to="/privacy-policy" className="">Privacy Policy</Link>
               <Link to="/terms-of-service" className="">Terms of Use</Link>
               <Link to="/accessibility" className="">Accessibility</Link>
