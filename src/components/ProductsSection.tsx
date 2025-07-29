@@ -143,7 +143,7 @@ const ProductsSection = () => {
                       <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                     </div>
                   )}
-                   <h4 className="text-lg md:text-xl">{product.title}</h4>
+                   <h4 className="text-lg md:text-xl font-bold text-center">{product.title}</h4>
                 </div>
                 <div className="text-center py-4">
                   <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
