@@ -14,6 +14,7 @@ import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 import MarketplaceOverview from "@/components/MarketplaceOverview";
 import ResourcesHub from "@/components/ResourcesHub";
 import PartnershipsSection from "@/components/PartnershipsSection";
+import IndustryShowcase from "@/components/IndustryShowcase";
 
 import SEO from "@/components/SEO";
 
@@ -30,6 +31,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <ProductsSection />
+      <IndustryShowcase />
       <MarketplaceOverview />
       <LendingStatsSection />
       

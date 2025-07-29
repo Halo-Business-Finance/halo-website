@@ -7,6 +7,8 @@ import { Shield, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
 import businessLoanApproved from "@/assets/business-loan-approved.jpg";
+import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
+import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -135,6 +137,54 @@ const HeroSection = () => {
               </CardContent>
             </Card>
           </aside>
+        </div>
+        
+        {/* Success Showcase - Small images at bottom of hero */}
+        <div className="mt-12 lg:mt-16">
+          <div className="text-center mb-6">
+            <p className="text-white/80 text-sm font-medium">Trusted by thousands of successful businesses</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+            <div className="relative h-24 rounded-lg overflow-hidden">
+              <img 
+                src={sbaLoanHandshake} 
+                alt="Successful SBA loan approval"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium">
+                SBA Loans
+              </div>
+            </div>
+            <div className="relative h-24 rounded-lg overflow-hidden">
+              <img 
+                src={businessFinancingMeeting} 
+                alt="Business financing consultation"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium">
+                Expert Guidance
+              </div>
+            </div>
+            <div className="relative h-24 rounded-lg overflow-hidden">
+              <img 
+                src={businessLoanApproved} 
+                alt="Business loan approved document"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium">
+                Quick Approval
+              </div>
+            </div>
+            <div className="relative h-24 rounded-lg overflow-hidden bg-white/10 flex items-center justify-center">
+              <div className="text-white text-center">
+                <div className="text-lg font-bold">2500+</div>
+                <div className="text-xs">Happy Clients</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
