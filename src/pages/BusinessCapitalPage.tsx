@@ -43,13 +43,13 @@ const BusinessCapitalPage = () => {
       badge: "Popular"
     },
     {
-      title: "Revenue Based Financing",
+      title: "Factoring-Based Financing",
       description: "Alternative financing based on your business revenue with flexible repayment.",
       rate: "Factor Rate 1.2-1.5",
       amount: "Up to $500,000",
       term: "3-18 Months",
       features: ["No fixed payments", "Based on revenue", "Quick funding", "No personal guarantees"],
-      link: "/revenue-based-financing",
+      link: "/factoring-based-financing",
       badge: "Alternative"
     }
   ];

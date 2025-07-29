@@ -37,7 +37,7 @@ const Header = () => {
     {
       title: "Business Capital",
       href: "/business-capital",
-      items: ["Working Capital", "Business Line of Credit", "Term Loans", "Revenue Based Financing"]
+      items: ["Working Capital", "Business Line of Credit", "Term Loans", "Factoring-Based Financing"]
     },
     {
       title: "Resources",
@@ -79,7 +79,7 @@ const Header = () => {
         "Working Capital": "/working-capital",
         "Business Line of Credit": "/business-line-of-credit",
         "Term Loans": "/term-loans",
-        "Revenue Based Financing": "/revenue-based-financing"
+        "Factoring-Based Financing": "/factoring-based-financing"
       },
       "Resources": {
         "Loan Calculator": "/loan-calculator",

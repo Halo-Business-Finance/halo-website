@@ -59,7 +59,7 @@ const SiteMapPage = () => {
         { name: "Working Capital", url: "/working-capital" },
         { name: "Business Line of Credit", url: "/business-line-of-credit" },
         { name: "Term Loans", url: "/term-loans" },
-        { name: "Revenue Based Financing", url: "/revenue-based-financing" }
+        { name: "Factoring-Based Financing", url: "/factoring-based-financing" }
       ]
     },
     {
