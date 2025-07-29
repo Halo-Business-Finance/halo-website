@@ -21,6 +21,7 @@ const Footer = () => {
   ];
 
   const partnerLinks = [
+    { name: "Marketplace Benefits", link: "/marketplace-benefits" },
     { name: "Become a Broker", link: "/brokers" },
     { name: "Broker Resources", link: "/brokers" },
     { name: "Become a Lender", link: "/lenders" },
@@ -40,8 +41,7 @@ const Footer = () => {
     { name: "About Us", link: "/about-us" },
     { name: "How It Works", link: "/how-it-works" },
     { name: "Contact Us", link: "/contact-us" },
-    { name: "Careers", link: "/careers" },
-    { name: "Marketplace Benefits", link: "/marketplace-benefits" }
+    { name: "Careers", link: "/careers" }
   ];
 
   return (
