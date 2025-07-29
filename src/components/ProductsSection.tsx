@@ -21,7 +21,7 @@ import financialAdvisorConsultation from "@/assets/financial-advisor-consultatio
 const ProductsSection = () => {
   const products = [
     {
-      icon: Shield,
+      logo: "/lovable-uploads/16fc85f5-bfa7-4605-ad8b-fc2cc3082870.png",
       title: "SBA 7(a) Loans",
       description: "Versatile financing for working capital, equipment, and real estate purchases.",
       rate: "Prime + 2.75%",
@@ -32,7 +32,7 @@ const ProductsSection = () => {
       badge: "Popular"
     },
     {
-      icon: Shield,
+      logo: "/lovable-uploads/16fc85f5-bfa7-4605-ad8b-fc2cc3082870.png",
       title: "SBA 504 Loans",
       description: "Fixed-rate financing for real estate and major equipment purchases.",
       rate: "Fixed Rate",
@@ -134,9 +134,15 @@ const ProductsSection = () => {
               )}
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
-                  </div>
+                  {product.logo ? (
+                    <div className="p-2 bg-white rounded-lg border">
+                      <img src={product.logo} alt={`${product.title} logo`} className="h-8 w-auto" />
+                    </div>
+                  ) : (
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                    </div>
+                  )}
                    <h4 className="text-lg md:text-xl">{product.title}</h4>
                 </div>
                 <div className="text-center py-4">
