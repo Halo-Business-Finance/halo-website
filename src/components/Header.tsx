@@ -17,7 +17,7 @@ const Header = () => {
     {
       title: "Company",
       href: "/company",
-      items: ["Company Overview", "About Us", "Contact Us", "Careers"]
+      items: ["Company Overview", "How it Works", "About Us", "Contact Us", "Careers"]
     },
     {
       title: "SBA & USDA Loans",
@@ -50,6 +50,7 @@ const Header = () => {
     const linkMap: { [key: string]: { [key: string]: string } } = {
       "Company": {
         "Company Overview": "/company-overview",
+        "How it Works": "/how-it-works",
         "About Us": "/about-us",
         "Contact Us": "/contact-us", 
         "Careers": "/careers"
