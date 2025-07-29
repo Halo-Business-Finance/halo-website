@@ -12,11 +12,11 @@ import {
 
 const Footer = () => {
   const loanPrograms = [
-    { name: "USDA Loans", link: "/sba-loans" },
     { name: "SBA 7a Loans", link: "/sba-7a-loans" },
     { name: "SBA 504 Loans", link: "/sba-504-loans" },
     { name: "Bridge Loans", link: "/bridge-financing" },
     { name: "Conventional Loans", link: "/conventional-loans" },
+    { name: "USDA Loans", link: "/sba-loans" },
     { name: "Equipment Financing", link: "/equipment-financing" },
     { name: "Working Capital", link: "/working-capital" },
     { name: "Business Line of Credit", link: "/business-line-of-credit" }
