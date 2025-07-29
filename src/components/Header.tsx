@@ -107,11 +107,11 @@ const Header = () => {
               </Link>
             </div>
             <div className="hidden sm:flex items-center gap-4 md:gap-6">
-              <div className="flex items-center gap-2">
+              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" />
                 <span className="hidden md:inline">(800) 730-8461</span>
                 <span className="md:hidden text-xs">(800) 730-8461</span>
-              </div>
+              </a>
               <Link to="/customer-service" className="hidden md:inline">Customer Service</Link>
             </div>
           </div>
