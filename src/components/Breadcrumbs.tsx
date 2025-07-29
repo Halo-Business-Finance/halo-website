@@ -86,7 +86,8 @@ function formatBreadcrumbLabel(path: string): string {
     'contact-us': 'Contact Us',
     'industry-solutions': 'Industry Solutions',
     'resources': 'Resources',
-    'multifamily-loans': 'Multifamily Loans'
+    'multifamily-loans': 'Multifamily Loans',
+    'asset-based-loans': 'Asset-Based Loans'
   };
   
   return labels[path] || path.split('-').map(word => 
