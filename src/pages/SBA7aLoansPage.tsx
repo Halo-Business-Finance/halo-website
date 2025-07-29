@@ -51,7 +51,7 @@ const SBA7aLoansPage = () => {
                 <img 
                   src="/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png" 
                   alt="Official SBA Logo"
-                  className="h-16 w-auto bg-white p-2 rounded-lg"
+                  className="h-12 w-auto bg-white p-2 rounded-lg"
                 />
                 <Badge className="bg-white text-primary">Most Popular</Badge>
               </div>
