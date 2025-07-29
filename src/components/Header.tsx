@@ -27,7 +27,7 @@ const Header = () => {
     {
       title: "Commercial Loans", 
       href: "/commercial-loans",
-      items: ["Conventional Loans", "CMBS Loans", "Portfolio Loans", "Construction Loans", "Bridge Financing"]
+      items: ["Conventional Loans", "CMBS Loans", "Portfolio Loans", "Construction Loans", "Bridge Financing", "Multifamily Loans"]
     },
     {
       title: "Equipment Financing",
@@ -65,7 +65,8 @@ const Header = () => {
         "CMBS Loans": "/cmbs-loans",
         "Portfolio Loans": "/portfolio-loans",
         "Construction Loans": "/construction-loans",
-        "Bridge Financing": "/bridge-financing"
+        "Bridge Financing": "/bridge-financing",
+        "Multifamily Loans": "/multifamily-loans"
       },
       "Equipment Financing": {
         "Equipment Loans": "/equipment-loans",

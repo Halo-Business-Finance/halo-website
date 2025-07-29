@@ -85,7 +85,8 @@ function formatBreadcrumbLabel(path: string): string {
     'about-us': 'About Us',
     'contact-us': 'Contact Us',
     'industry-solutions': 'Industry Solutions',
-    'resources': 'Resources'
+    'resources': 'Resources',
+    'multifamily-loans': 'Multifamily Loans'
   };
   
   return labels[path] || path.split('-').map(word => 
