@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, DollarSign, Users, Building2 } from "lucide-react";
+import { CheckCircle, DollarSign, Users, Shield } from "lucide-react";
 import sbaLogo from "@/assets/sba-logo.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 
@@ -55,7 +55,7 @@ const SBAMicroloansPage = () => {
             </Card>
             <Card className="text-center p-6">
               <CardContent className="p-0">
-                <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2">8-13%</h3>
                 <p className="text-muted-foreground">Interest rate range</p>
               </CardContent>

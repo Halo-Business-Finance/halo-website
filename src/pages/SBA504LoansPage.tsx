@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, DollarSign, Clock, Shield, Building2, TrendingUp } from "lucide-react";
+import { CheckCircle, DollarSign, Clock, Shield, TrendingUp } from "lucide-react";
 import sbaLogo from "@/assets/sba-logo.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 
@@ -209,7 +209,7 @@ const SBA504LoansPage = () => {
             {propertyTypes.map((type, index) => (
               <Card key={index} className="text-center p-4 hover:shadow-md transition-shadow">
                 <CardContent className="p-0">
-                  <Building2 className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <Shield className="h-8 w-8 text-primary mx-auto mb-3" />
                   <h3 className="font-semibold text-sm">{type}</h3>
                 </CardContent>
               </Card>
@@ -241,7 +241,7 @@ const SBA504LoansPage = () => {
 
             <Card className="p-6">
               <CardContent className="p-0">
-                <Building2 className="h-8 w-8 text-primary mb-4" />
+                <Shield className="h-8 w-8 text-primary mb-4" />
                 <h3 className="font-semibold mb-2">Owner Occupancy</h3>
                 <p className="text-sm text-muted-foreground">Must occupy at least 51% of the property for existing buildings</p>
               </CardContent>

@@ -10,7 +10,8 @@ import {
   TrendingUp, 
   Building2,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Shield
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
@@ -20,7 +21,7 @@ import financialAdvisorConsultation from "@/assets/financial-advisor-consultatio
 const ProductsSection = () => {
   const products = [
     {
-      icon: Building2,
+      icon: Shield,
       title: "SBA 7(a) Loans",
       description: "Versatile financing for working capital, equipment, and real estate purchases.",
       rate: "Prime + 2.75%",
@@ -31,7 +32,7 @@ const ProductsSection = () => {
       badge: "Popular"
     },
     {
-      icon: Home,
+      icon: Shield,
       title: "SBA 504 Loans",
       description: "Fixed-rate financing for real estate and major equipment purchases.",
       rate: "Fixed Rate",

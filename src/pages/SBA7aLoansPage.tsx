@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, DollarSign, Clock, Shield, TrendingUp, Building2 } from "lucide-react";
+import { CheckCircle, DollarSign, Clock, Shield, TrendingUp } from "lucide-react";
 import sbaLogo from "@/assets/sba-logo.jpg";
 import smallBusinessOwnerLaptop from "@/assets/small-business-owner-laptop.jpg";
 import loanApprovalCelebration from "@/assets/loan-approval-celebration.jpg";
@@ -161,7 +161,7 @@ const SBA7aLoansPage = () => {
 
             <Card className="p-6">
               <CardContent className="p-0">
-                <Building2 className="h-8 w-8 text-primary mb-4" />
+                <Shield className="h-8 w-8 text-primary mb-4" />
                 <h3 className="font-semibold mb-2">Credit Score</h3>
                 <p className="text-sm text-muted-foreground">Personal credit score of 680+ preferred</p>
               </CardContent>
