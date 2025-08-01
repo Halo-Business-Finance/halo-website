@@ -74,7 +74,10 @@ const ProductsSection = () => {
       learnLink: "/equipment-financing",
       applyLink: "/equipment-loan-application",
       badge: null
-    },
+    }
+  ];
+
+  const businessProducts = [
     {
       icon: CreditCard,
       title: "Working Capital",
@@ -83,12 +86,8 @@ const ProductsSection = () => {
       rateLabel: "Starting Rate",
       features: ["Revolving credit line", "Quick access", "Flexible repayment"],
       learnLink: "/working-capital",
-      applyLink: "/working-capital-application",
-      badge: null
-    }
-  ];
-
-  const businessProducts = [
+      applyLink: "/working-capital-application"
+    },
     {
       icon: TrendingUp,
       title: "Business Line of Credit",
