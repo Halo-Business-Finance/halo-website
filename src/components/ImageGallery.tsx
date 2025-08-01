@@ -160,7 +160,7 @@ const ImageGallery = () => {
                 {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
               </Button>
             </div>
-            <div className="text-sm text-slate-500">
+            <div className="text-sm text-foreground/70">
               {isPlaying ? 'Auto-playing' : 'Paused'} • {galleryItems.length} success stories
             </div>
           </div>

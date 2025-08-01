@@ -297,7 +297,7 @@ const ProductsSection = () => {
                 <ChevronRight className="h-5 w-5" />
               </Button>
             </div>
-            <div className="text-sm text-slate-500">
+            <div className="text-sm text-foreground/70">
               Swipe or use arrows to explore all {products.length} loan programs
             </div>
           </div>
