@@ -71,28 +71,6 @@ const MarketplaceOverview = () => {
     }
   ];
 
-  const marketplaceAdvantages = [
-    {
-      icon: Network,
-      title: "Comprehensive Network",
-      description: "Access to the most extensive network of commercial lenders in the industry, from community banks to major financial institutions."
-    },
-    {
-      icon: TrendingUp,
-      title: "Competitive Marketplace",
-      description: "Lenders compete for your business, resulting in better rates, terms, and loan structures tailored to your needs."
-    },
-    {
-      icon: Shield,
-      title: "Vetted Partners Only",
-      description: "All lenders undergo rigorous qualification processes including licensing verification, financial stability, and track record review."
-    },
-    {
-      icon: Star,
-      title: "Performance Monitoring",
-      description: "Continuous monitoring of lender performance, customer satisfaction, and loan quality to maintain high standards."
-    }
-  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-muted/30 to-background">
@@ -161,31 +139,6 @@ const MarketplaceOverview = () => {
           </div>
         </div>
 
-        {/* Marketplace Advantages */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Why Our Marketplace Works</h3>
-            <p className="text-lg text-foreground max-w-3xl mx-auto">
-              Our platform creates a win-win environment where borrowers get better access to capital and lenders connect with qualified opportunities.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {marketplaceAdvantages.map((advantage, index) => (
-              <Card key={index} className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <advantage.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-3">{advantage.title}</h4>
-                    <p className="text-foreground">{advantage.description}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         {/* Geographic Coverage */}
         <div className="bg-white rounded-2xl p-8 mb-16 shadow-lg">

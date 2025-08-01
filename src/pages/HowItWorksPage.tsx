@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Clock, Shield } from "lucide-react";
+import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star } from "lucide-react";
 
 const HowItWorksPage = () => {
   return (
@@ -51,6 +51,63 @@ const HowItWorksPage = () => {
                 <p className="text-muted-foreground">Close on your loan and receive funds</p>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Why Our Marketplace Works Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Why Our Marketplace Works</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Our platform creates a win-win environment where borrowers get better access to capital and lenders connect with qualified opportunities.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Network className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-3">Comprehensive Network</h4>
+                    <p className="text-muted-foreground">Access to the most extensive network of commercial lenders in the industry, from community banks to major financial institutions.</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-3">Competitive Marketplace</h4>
+                    <p className="text-muted-foreground">Lenders compete for your business, resulting in better rates, terms, and loan structures tailored to your needs.</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-3">Vetted Partners Only</h4>
+                    <p className="text-muted-foreground">All lenders undergo rigorous qualification processes including licensing verification, financial stability, and track record review.</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Star className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-3">Performance Monitoring</h4>
+                    <p className="text-muted-foreground">Continuous monitoring of lender performance, customer satisfaction, and loan quality to maintain high standards.</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
