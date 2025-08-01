@@ -34,8 +34,7 @@ const Footer = () => {
     { name: "Customer Service", link: "/customer-service" },
     { name: "Technical Support", link: "/technical-support" },
     { name: "Industry Solutions", link: "/industry-solutions" },
-    { name: "Loan Calculator", link: "/loan-calculator" },
-    { name: "Pre-qualification", link: "/pre-qualification" }
+    { name: "Loan Calculator", link: "/loan-calculator" }
   ];
 
   const companyLinks = [
