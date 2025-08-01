@@ -207,46 +207,158 @@ const CompanyOverview = () => {
         </div>
       </section>
 
-      {/* Leadership & Executive Team Section */}
-      <section className="py-16">
+      {/* Mission, Ethics & Transparency Section */}
+      <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Leadership & Executive Team
+              Our Values & Commitment
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Meet the experienced professional leading Halo Business Finance with expertise 
-              in commercial lending and financial technology innovation.
+              At Halo Business Finance, we're committed to ethical lending practices, 
+              transparency, and empowering businesses through innovative financial solutions.
             </p>
           </div>
 
-          <div className="flex justify-center mb-16">
-            {/* CEO */}
-            <Card className="p-6 text-center max-w-md">
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {/* Mission Statement */}
+            <Card className="p-8">
               <CardContent className="p-0">
-                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
-                  <img src="/lovable-uploads/2a9e367f-246a-4c3f-a2a2-13e7f71d47f4.png" alt="Varda Dinkha, Founder & CEO" className="w-full h-full object-cover" />
+                <div className="flex items-center mb-6">
+                  <Target className="h-10 w-10 text-primary mr-4" />
+                  <h3 className="text-2xl font-bold">Our Mission</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Varda Dinkha</h3>
-                <p className="text-primary font-semibold mb-3">Founder & Chief Executive Officer</p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Varda founded Halo Business Finance in 2015 with a vision to transform business lending through 
-                  innovative technology. As a full stack engineer with expertise in fintech, AI, and blockchain, 
-                  he brings a unique combination of technical innovation and financial industry expertise to the marketplace.
+                <p className="text-muted-foreground mb-6">
+                  To revolutionize commercial lending by creating a transparent, efficient 
+                  marketplace that connects businesses with the right lenders, ensuring 
+                  competitive rates and exceptional service for every client.
                 </p>
-                <div className="text-xs text-muted-foreground mb-4">
-                  NMLS Broker (ID: 2272778) | Full Stack Engineer | Fintech, AI & Blockchain Graduate
-                </div>
-                <div className="text-center">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="https://www.linkedin.com/in/vardad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                      <Linkedin className="h-4 w-4" />
-                      LinkedIn
-                    </a>
-                  </Button>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Simplify the commercial lending process</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Provide access to competitive financing options</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Support business growth and success</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
+
+            {/* Ethics */}
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <Shield className="h-10 w-10 text-primary mr-4" />
+                  <h3 className="text-2xl font-bold">Ethical Standards</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  We uphold the highest ethical standards in all our business practices, 
+                  ensuring fair treatment, honest communication, and responsible lending 
+                  that puts our clients' best interests first.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">NMLS compliant lending practices</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Fair and honest fee structures</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Responsible lending guidelines</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Transparency */}
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <Award className="h-10 w-10 text-primary mr-4" />
+                  <h3 className="text-2xl font-bold">Transparency</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  We believe in complete transparency throughout the lending process. 
+                  Our clients always know exactly what to expect, with clear terms, 
+                  upfront fees, and honest communication at every step.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Clear, upfront fee disclosure</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Transparent lending process</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Open communication and updates</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Company Commitments */}
+          <div className="bg-background rounded-lg p-8">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4">Our Commitments to You</h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                These principles guide everything we do at Halo Business Finance
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Client-First Approach</h4>
+                <p className="text-sm text-muted-foreground">
+                  Your success is our priority in every decision we make
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <TrendingUp className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Continuous Innovation</h4>
+                <p className="text-sm text-muted-foreground">
+                  Always improving our technology and processes for better service
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Building2 className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Industry Expertise</h4>
+                <p className="text-sm text-muted-foreground">
+                  Deep knowledge of commercial lending and market trends
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <CheckCircle className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Proven Results</h4>
+                <p className="text-sm text-muted-foreground">
+                  Track record of successful funding for 2,500+ businesses
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
