@@ -4,14 +4,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Users, MapPin, Clock, Star } from "lucide-react";
+import careersHeader from "@/assets/careers-header.jpg";
+import teamCollaboration from "@/assets/team-collaboration.jpg";
+import businessDevelopmentTeam from "@/assets/business-development-team.jpg";
+import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
 
 const CareersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <img 
+          src={careersHeader} 
+          alt="Professional diverse business team working together in modern fintech office environment"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
@@ -50,6 +60,17 @@ const CareersPage = () => {
             </Card>
           </div>
 
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={teamCollaboration} 
+                alt="Professional business team collaboration meeting in modern fintech office"
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+            </div>
+          </div>
+
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-center mb-8">Open Positions</h2>
             
@@ -74,6 +95,25 @@ const CareersPage = () => {
               </CardContent>
             </Card>
 
+            <div className="grid lg:grid-cols-2 gap-8 items-center my-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={loanOfficersWorking} 
+                  alt="Professional loan officers working at desk with financial documents"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Senior Loan Officer Position</h3>
+                <p className="text-muted-foreground mb-4">
+                  Join our lending team and help businesses secure the financing they need to grow. 
+                  Work with a diverse portfolio of clients and gain expertise in commercial lending.
+                </p>
+                <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Learn More</a></Button>
+              </div>
+            </div>
+
             <Card>
               <CardHeader>
                 <div className="flex justify-between items-start">
@@ -94,6 +134,25 @@ const CareersPage = () => {
                 </p>
               </CardContent>
             </Card>
+
+            <div className="grid lg:grid-cols-2 gap-8 items-center my-12">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Business Development Opportunities</h3>
+                <p className="text-muted-foreground mb-4">
+                  Drive growth through strategic partnerships and client relationships. 
+                  Build lasting connections in the business finance industry.
+                </p>
+                <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Explore Roles</a></Button>
+              </div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={businessDevelopmentTeam} 
+                  alt="Professional business development meeting with diverse team"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
