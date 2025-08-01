@@ -131,14 +131,14 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <DropdownMenu key={item.title}>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   {item.title}
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-popover border shadow-lg text-popover-foreground z-50">
                   {item.items.map((subItem) => (
-                    <DropdownMenuItem key={subItem} className="" asChild>
-                      <Link to={getItemLink(item.title, subItem)}>{subItem}</Link>
+                    <DropdownMenuItem key={subItem} className="hover:bg-primary/10 transition-colors duration-200" asChild>
+                      <Link to={getItemLink(item.title, subItem)} className="hover:text-primary transition-colors duration-200">{subItem}</Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>

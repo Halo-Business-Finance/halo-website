@@ -89,7 +89,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -103,7 +103,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {loanPrograms.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -117,7 +117,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -131,7 +131,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300">
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -178,11 +178,11 @@ const Footer = () => {
 
             {/* Legal links */}
             <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-              <Link to="/nmls-compliance" className="">NMLS Compliance</Link>
-              <Link to="/privacy-policy" className="">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="">Terms of Use</Link>
-              <Link to="/accessibility" className="">Accessibility</Link>
-              <Link to="/sitemap" className="">Site Map</Link>
+              <Link to="/nmls-compliance" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">NMLS Compliance</Link>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Terms of Use</Link>
+              <Link to="/accessibility" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Accessibility</Link>
+              <Link to="/sitemap" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Site Map</Link>
             </div>
           </div>
 
