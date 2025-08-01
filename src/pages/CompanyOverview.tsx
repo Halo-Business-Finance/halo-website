@@ -105,7 +105,7 @@ const CompanyOverview = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">SBA preferred lenders for government-backed loans</span>
+                    <span className="text-sm">SBA Nationwide Marketplace for government-backed loans</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -514,7 +514,7 @@ const CompanyOverview = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">SBA Preferred Lender Program participant</span>
+                    <span className="text-sm">SBA Nationwide Marketplace participant</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -583,9 +583,9 @@ const CompanyOverview = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Award className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-semibold mb-2">SBA Preferred</h4>
+                <h4 className="font-semibold mb-2">SBA Nationwide Marketplace</h4>
                 <p className="text-sm text-muted-foreground">
-                  Small Business Administration Preferred Lender Program
+                  SBA Preferred Broker
                 </p>
               </div>
               
