@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import ConsultationPopup from "@/components/ConsultationPopup";
 import { 
   CreditCard, 
   PiggyBank, 
@@ -349,9 +350,13 @@ const ProductsSection = () => {
                 <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base border-2 border-primary shadow-lg hover:bg-gray-50">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base">
-                  <Link to="/contact-us">Schedule Consultation</Link>
-                </Button>
+                <ConsultationPopup 
+                  trigger={
+                    <Button size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base">
+                      Schedule Consultation
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </div>
