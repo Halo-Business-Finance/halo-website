@@ -9,6 +9,7 @@ import sbaLogo from "@/assets/sba-logo.jpg";
 import howItWorksHeader from "@/assets/how-it-works-header.jpg";
 import loanProcessingTeam from "@/assets/loan-processing-team.jpg";
 import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
+import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
@@ -66,7 +67,7 @@ const HowItWorksPage = () => {
                 <p className="text-muted-foreground">Close on your loan and receive funds</p>
               </CardContent>
             </Card>
-            </div>
+          </div>
 
             <div className="max-w-4xl mx-auto mb-12">
               <div className="relative rounded-lg overflow-hidden shadow-lg">
@@ -170,7 +171,16 @@ const HowItWorksPage = () => {
                 </li>
               </ul>
             </div>
-            <Card>
+            <div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg mb-6">
+                <img 
+                  src={loanProcessExplanation} 
+                  alt="Professional business consultant explaining loan application process step-by-step"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
+              <Card>
               <CardHeader>
                 <CardTitle>Ready to Get Started?</CardTitle>
               </CardHeader>
@@ -184,6 +194,7 @@ const HowItWorksPage = () => {
                 </div>
               </CardContent>
             </Card>
+            </div>
           </div>
         </div>
       </section>

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import contactUsHeader from "@/assets/contact-us-header.jpg";
 import contactConsultationMeeting from "@/assets/contact-consultation-meeting.jpg";
+import customerServiceTeam from "@/assets/customer-service-team.jpg";
 
 const ContactUsPage = () => {
   return (
@@ -42,6 +43,14 @@ const ContactUsPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg mb-8">
+                <img 
+                  src={customerServiceTeam} 
+                  alt="Professional customer service team helping clients with financial solutions"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
               <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
               <div className="space-y-6">
                 <Card className="p-6">

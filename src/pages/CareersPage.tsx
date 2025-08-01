@@ -8,6 +8,7 @@ import careersHeader from "@/assets/careers-header.jpg";
 import teamCollaboration from "@/assets/team-collaboration.jpg";
 import businessDevelopmentTeam from "@/assets/business-development-team.jpg";
 import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
+import careerSuccessCelebration from "@/assets/career-success-celebration.jpg";
 
 const CareersPage = () => {
   return (
@@ -152,6 +153,24 @@ const CareersPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
               </div>
+            </div>
+
+            <div className="text-center bg-gradient-to-r from-primary to-financial-navy rounded-2xl p-8 text-white mt-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg mb-6 max-w-2xl mx-auto">
+                <img 
+                  src={careerSuccessCelebration} 
+                  alt="Professional diverse team celebrating career success and professional growth"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Ready to Build Your Career With Us?</h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Join our growing team and be part of a company that values professional development, innovation, and making a difference in the business finance industry.
+              </p>
+              <Button size="lg" className="bg-white text-primary font-semibold">
+                View All Opportunities
+              </Button>
             </div>
           </div>
         </div>

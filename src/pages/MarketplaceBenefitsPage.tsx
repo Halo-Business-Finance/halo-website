@@ -27,6 +27,7 @@ import marketplaceBenefitsHeader from "@/assets/marketplace-benefits-header.jpg"
 import fintechAnalysisTeam from "@/assets/fintech-analysis-team.jpg";
 import marketplaceDashboard from "@/assets/marketplace-dashboard.jpg";
 import marketplaceTeamSuccess from "@/assets/marketplace-team-success.jpg";
+import networkingEvent from "@/assets/networking-event.jpg";
 
 const MarketplaceBenefitsPage = () => {
   const lenderStats = [
@@ -326,6 +327,14 @@ const MarketplaceBenefitsPage = () => {
 
           <div className="space-y-16">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={networkingEvent} 
+                  alt="Professional fintech networking event with business professionals connecting"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
               <div>
                 <h2 className="text-3xl font-bold mb-6">For Borrowers</h2>
                 <div className="space-y-6">
