@@ -11,7 +11,13 @@ import {
   Building2,
   ArrowRight,
   CheckCircle,
-  Shield
+  Shield,
+  Factory,
+  Landmark,
+  Hammer,
+  Users,
+  Banknote,
+  DollarSign
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
@@ -43,15 +49,26 @@ const ProductsSection = () => {
       badge: null
     },
     {
-      icon: TrendingUp,
-      title: "Bridge Loans",
-      description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
-      rate: "8.5%",
-      rateLabel: "Starting APR",
-      features: ["Fast 7-day closing", "Up to $10 million", "Flexible terms"],
-      learnLink: "/bridge-loans",
-      applyLink: "/bridge-loan-application",
+      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+      title: "SBA Express Loans",
+      description: "Fast-track SBA financing with expedited approval process.",
+      rate: "Prime + 4.5%",
+      rateLabel: "Starting Rate",
+      features: ["Up to $500,000", "36-hour approval", "Revolving credit option"],
+      learnLink: "/sba-express-loans",
+      applyLink: "/sba-loan-application",
       badge: "Fast"
+    },
+    {
+      icon: Factory,
+      title: "USDA B&I Loans",
+      description: "Rural business development financing backed by USDA guarantee.",
+      rate: "Prime + 2%",
+      rateLabel: "Starting Rate",
+      features: ["Up to $25 million", "Rural area focus", "USDA guarantee"],
+      learnLink: "/usda-bi-loans",
+      applyLink: "/sba-loan-application",
+      badge: null
     },
     {
       icon: Building2,
@@ -61,6 +78,72 @@ const ProductsSection = () => {
       rateLabel: "Starting APR",
       features: ["No government guarantee", "Faster approval", "Flexible terms"],
       learnLink: "/conventional-loans",
+      applyLink: "/conventional-loan-application",
+      badge: null
+    },
+    {
+      icon: Landmark,
+      title: "CMBS Loans",
+      description: "Commercial mortgage-backed securities for large commercial real estate transactions.",
+      rate: "4.75%",
+      rateLabel: "Starting Rate",
+      features: ["$2M+ loan amounts", "Non-recourse options", "Fixed rates"],
+      learnLink: "/cmbs-loans",
+      applyLink: "/conventional-loan-application",
+      badge: null
+    },
+    {
+      icon: PiggyBank,
+      title: "Portfolio Loans",
+      description: "Held-in-portfolio lending solutions with flexible underwriting standards.",
+      rate: "5.5%",
+      rateLabel: "Starting APR",
+      features: ["Flexible underwriting", "Quick decisions", "Relationship banking"],
+      learnLink: "/portfolio-loans",
+      applyLink: "/conventional-loan-application",
+      badge: null
+    },
+    {
+      icon: Hammer,
+      title: "Construction Loans",
+      description: "Financing for new construction and major renovation projects.",
+      rate: "Prime + 1.5%",
+      rateLabel: "Starting Rate",
+      features: ["Interest-only payments", "Progress-based funding", "Convert to permanent"],
+      learnLink: "/construction-loans",
+      applyLink: "/conventional-loan-application",
+      badge: null
+    },
+    {
+      icon: TrendingUp,
+      title: "Bridge Loans",
+      description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
+      rate: "8.5%",
+      rateLabel: "Starting APR",
+      features: ["Fast 7-day closing", "Up to $10 million", "Flexible terms"],
+      learnLink: "/bridge-financing",
+      applyLink: "/bridge-loan-application",
+      badge: "Fast"
+    },
+    {
+      icon: Users,
+      title: "Multifamily Loans",
+      description: "Financing for apartment buildings and multi-unit residential properties.",
+      rate: "4.5%",
+      rateLabel: "Starting Rate",
+      features: ["5+ unit properties", "Non-recourse options", "Long-term fixed rates"],
+      learnLink: "/multifamily-loans",
+      applyLink: "/conventional-loan-application",
+      badge: null
+    },
+    {
+      icon: DollarSign,
+      title: "Asset-Based Loans",
+      description: "Collateral-based financing using business assets as security.",
+      rate: "6.75%",
+      rateLabel: "Starting APR",
+      features: ["Asset-backed security", "Flexible terms", "Fast approval"],
+      learnLink: "/asset-based-loans",
       applyLink: "/conventional-loan-application",
       badge: null
     },
@@ -123,7 +206,7 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
           {products.map((product, index) => (
             <Card key={index} className="relative">
               {product.badge && (
