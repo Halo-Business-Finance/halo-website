@@ -27,7 +27,7 @@ const stats = [
     color: 'text-orange-600'
   },
   {
-    title: '500+',
+    title: '150+',
     description: 'Lending Partners',
     icon: <Users className="h-8 w-8" />,
     color: 'text-purple-600'
