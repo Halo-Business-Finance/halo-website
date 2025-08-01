@@ -66,8 +66,7 @@ export const SecurityHeaders = () => {
 
     // Enhanced developer tools protection
     if (process.env.NODE_ENV === 'production') {
-      // Disable right-click context menu
-      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      // Right-click context menu is now enabled
       
       // Disable common developer shortcuts
       document.addEventListener('keydown', (e) => {
