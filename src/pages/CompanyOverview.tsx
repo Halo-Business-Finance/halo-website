@@ -230,11 +230,11 @@ const CompanyOverview = () => {
                 <p className="text-primary font-semibold mb-3">Founder & Chief Executive Officer</p>
                 <p className="text-sm text-muted-foreground mb-4">
                   Varda founded Halo Business Finance in 2015 with a vision to transform business lending through 
-                  innovative technology and customer-focused solutions. Under his leadership, the company has grown into 
-                  a leading commercial loan marketplace serving businesses across multiple industries.
+                  innovative technology. As a full stack engineer with expertise in fintech, AI, and blockchain, 
+                  he brings a unique combination of technical innovation and financial industry expertise to the marketplace.
                 </p>
                 <div className="text-xs text-muted-foreground">
-                  NMLS Broker (ID: 2272778) | California Finance Lender Law (ID: 60DBO-183282) | IBM Design Thinking Certified
+                  NMLS Broker (ID: 2272778) | Full Stack Engineer | Fintech, AI & Blockchain Graduate
                 </div>
               </CardContent>
             </Card>

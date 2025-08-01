@@ -103,12 +103,14 @@ const AboutUsPage = () => {
                 <h3 className="text-xl font-semibold text-center mb-2">Varda Dinkha</h3>
                 <p className="text-primary font-medium text-center mb-3">Founder & CEO</p>
                 <p className="text-sm text-foreground mb-3">
-                  Varda founded Halo Business Finance in 2015 to revolutionize how businesses access capital through innovative commercial lending solutions. Under his leadership, the company has become a trusted commercial loan marketplace serving businesses nationwide.
+                  Varda founded Halo Business Finance in 2015 to revolutionize how businesses access capital through innovative technology. As a full stack engineer with expertise in fintech, AI, and blockchain, he combines technical innovation with deep financial industry knowledge.
                 </p>
                 <div className="text-xs text-foreground">
                   <p>• NMLS Broker License (ID: 2272778)</p>
                   <p>• California Finance Lender Law (ID: 60DBO-183282)</p>
                   <p>• IBM Enterprise Design Thinking Certified</p>
+                  <p>• Full Stack Engineer</p>
+                  <p>• Fintech, AI & Blockchain Graduate</p>
                 </div>
               </CardContent>
             </Card>
