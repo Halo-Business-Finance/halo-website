@@ -57,6 +57,54 @@ const CompanyOverview = () => {
         </div>
       </section>
 
+      {/* How We Work */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Streamlined Loan Process
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              We make commercial lending simple
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="grid md:grid-cols-5 gap-8">
+              {[
+                { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
+                { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
+                { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
+                { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
+                { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
+              ].map((item, index) => (
+                <div key={index} className="relative flex items-center">
+                  <Card className="text-center p-6 animate-fade-in hover-scale">
+                    <CardContent className="p-0">
+                      <div className="w-full h-32 rounded-lg overflow-hidden mb-4">
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
+                      </div>
+                      <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
+                      <h3 className="font-semibold mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Arrow - only show between steps, not after the last one */}
+                  {index < 4 && (
+                    <div className="hidden md:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                      <div className="bg-primary/10 rounded-full p-2 animate-pulse">
+                        <ArrowRight className="h-6 w-6 text-primary" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Marketplace & Lending Partners */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -148,53 +196,6 @@ const CompanyOverview = () => {
         </div>
       </section>
 
-      {/* How We Work */}
-      <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Streamlined Loan Process
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              We make commercial lending simple
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="grid md:grid-cols-5 gap-8">
-              {[
-                { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
-                { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
-                { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
-                { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
-                { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
-              ].map((item, index) => (
-                <div key={index} className="relative flex items-center">
-                  <Card className="text-center p-6 animate-fade-in hover-scale">
-                    <CardContent className="p-0">
-                      <div className="w-full h-32 rounded-lg overflow-hidden mb-4">
-                        <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
-                      </div>
-                      <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
-                      <h3 className="font-semibold mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                  
-                  {/* Arrow - only show between steps, not after the last one */}
-                  {index < 4 && (
-                    <div className="hidden md:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
-                      <div className="bg-primary/10 rounded-full p-2 animate-pulse">
-                        <ArrowRight className="h-6 w-6 text-primary" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Marketplace Benefits */}
       <section className="py-16">
