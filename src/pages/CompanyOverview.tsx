@@ -66,15 +66,9 @@ const CompanyOverview = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Streamlined Loan Process
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-muted-foreground">
               We make commercial lending simple
             </p>
-            
-            {/* Text content from previous image overlay */}
-            <div className="max-w-2xl mx-auto mb-8">
-              <h3 className="text-2xl font-semibold mb-3 text-primary">Fast, Simple, Secure</h3>
-              <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
-            </div>
           </div>
 
           <div className="relative">
@@ -109,6 +103,12 @@ const CompanyOverview = () => {
                 </div>
               ))}
             </div>
+          </div>
+          
+          {/* Text content below process steps */}
+          <div className="text-center mt-12">
+            <h3 className="text-2xl font-semibold mb-3 text-primary">Fast, Simple, Secure</h3>
+            <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
           </div>
         </div>
       </section>
