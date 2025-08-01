@@ -31,7 +31,7 @@ const FeaturesSection = () => {
       icon: Clock,
       title: "Fast Approval Process",
       description: "Streamlined application process with dedicated loan officers providing quick decisions and personalized service.",
-      link: "Apply Now"
+      link: "https://preview--hbf-application.lovable.app/auth"
     },
     {
       icon: Building2,
@@ -80,9 +80,11 @@ const FeaturesSection = () => {
                     {feature.description}
                   </p>
                 </div>
-                <Button variant="ghost" className="group/btn text-primary">
-                  {feature.link}
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                <Button variant="ghost" className="group/btn text-primary" asChild>
+                  <a href={feature.link.startsWith('https') ? feature.link : '#'}>
+                    {feature.link.startsWith('https') ? 'Apply Now' : feature.link}
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>

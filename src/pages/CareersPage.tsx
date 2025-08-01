@@ -64,7 +64,7 @@ const CareersPage = () => {
                       <Badge>Full-time</Badge>
                     </div>
                   </div>
-                  <Button>Apply Now</Button>
+                   <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Apply Now</a></Button>
                 </div>
               </CardHeader>
               <CardContent>
@@ -85,7 +85,7 @@ const CareersPage = () => {
                       <Badge>Full-time</Badge>
                     </div>
                   </div>
-                  <Button>Apply Now</Button>
+                  <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Apply Now</a></Button>
                 </div>
               </CardHeader>
               <CardContent>

@@ -25,7 +25,7 @@ const SBAMicroloansPage = () => {
                 Small business loans perfect for startups and businesses needing smaller amounts with flexible requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Apply for Microloan</Button>
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=sba-microloan">Apply for Microloan</a></Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Learn More</Button>
               </div>
             </div>

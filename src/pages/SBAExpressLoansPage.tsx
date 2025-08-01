@@ -25,7 +25,7 @@ const SBAExpressLoansPage = () => {
                 Fast-track SBA financing with expedited approval for urgent business needs. Get approved in as little as 36 hours.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Apply for SBA Express</Button>
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=sba-express">Apply for SBA Express</a></Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Learn More</Button>
               </div>
             </div>

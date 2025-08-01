@@ -123,7 +123,7 @@ const HeroSection = () => {
                     </div>
 
                     <Button type="submit" className="w-full h-11 font-medium" asChild>
-                      <a href="https://portal.halobusinessfinance.com">Sign In</a>
+                      <a href="https://preview--hbf-application.lovable.app/auth">Sign In</a>
                     </Button>
                   </form>
 

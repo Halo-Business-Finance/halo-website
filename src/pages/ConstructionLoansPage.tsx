@@ -19,7 +19,7 @@ const ConstructionLoansPage = () => {
               Fund your commercial construction project from ground up. We provide flexible financing for new construction, renovations, and development projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Apply for Construction Loan</Button>
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=construction">Apply for Construction Loan</a></Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Project Consultation</Button>
             </div>
           </div>

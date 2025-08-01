@@ -169,11 +169,11 @@ const ProductsSection = () => {
                     </Link>
                   </Button>
                   <Button asChild className="flex-1 group text-xs md:text-sm">
-                    <Link to={product.applyLink}>
-                      Apply For
-                      <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
-                    </Link>
-                  </Button>
+                     <a href="https://preview--hbf-application.lovable.app/auth">
+                       Apply For
+                       <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
+                     </a>
+                   </Button>
                 </div>
               </CardContent>
             </Card>
@@ -225,10 +225,10 @@ const ProductsSection = () => {
                       </Link>
                     </Button>
                     <Button asChild className="flex-1 group text-xs md:text-sm">
-                      <Link to={product.applyLink}>
+                      <a href="https://preview--hbf-application.lovable.app/auth">
                         Apply For
                         <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </CardContent>

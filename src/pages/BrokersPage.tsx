@@ -215,9 +215,11 @@ const BrokersPage = () => {
               </Card>
             </div>
 
-            <Button size="lg" className="bg-white text-primary font-semibold">
-              Apply Now
-              <ArrowRight className="h-5 w-5 ml-2" />
+            <Button size="lg" className="bg-white text-primary font-semibold" asChild>
+              <a href="https://preview--hbf-application.lovable.app/auth">
+                Apply Now
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </a>
             </Button>
           </div>
         </div>

@@ -63,7 +63,7 @@ const SBA7aLoansPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-                  Apply for SBA 7(a)
+                  <a href="https://preview--hbf-application.lovable.app/auth?loan=sba-7a">Apply for SBA 7(a)</a>
                 </Button>
                 <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">
                   Calculate Payments

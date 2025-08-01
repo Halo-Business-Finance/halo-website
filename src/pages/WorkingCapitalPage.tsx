@@ -32,7 +32,7 @@ const WorkingCapitalPage = () => {
                 Bridge cash flow gaps and fund day-to-day operations with flexible working capital solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Apply for Working Capital</Button>
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=working-capital">Apply for Working Capital</a></Button>
                 <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">Calculate Payments</Button>
               </div>
             </div>
