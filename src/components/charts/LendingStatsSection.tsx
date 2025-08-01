@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const stats = [
   {
-    title: '$2.5B+',
+    title: '$1.5B+',
     description: 'Total Loans Funded',
     icon: <DollarSign className="h-8 w-8" />,
     color: 'text-green-600'

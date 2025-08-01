@@ -29,7 +29,7 @@ const StatsSection = () => {
   const stats = [
     {
       icon: DollarSign,
-      title: "$500M+",
+      title: "$1.5B+",
       subtitle: "Loans Funded",
       description: "Total capital deployed to growing businesses"
     },

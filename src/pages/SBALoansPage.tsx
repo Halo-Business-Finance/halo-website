@@ -258,7 +258,7 @@ const SBALoansPage = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Proven Results</h3>
-                  <p className="text-muted-foreground">Over 15,000 businesses funded with $2.5B+ in SBA loans, helping companies achieve their growth goals.</p>
+                  <p className="text-muted-foreground">Over 15,000 businesses funded with $1.5B+ in SBA loans, helping companies achieve their growth goals.</p>
                 </div>
               </div>
               
