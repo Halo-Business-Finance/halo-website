@@ -1,17 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-import { Shield, Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
+import { Shield } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
 import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
 
 const HeroSection = () => {
-  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <section className="relative bg-gradient-to-br from-primary to-financial-navy min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden" aria-label="Hero section">
@@ -64,73 +60,34 @@ const HeroSection = () => {
             </div>
           </header>
 
-          {/* Right side - Login card */}
-          <aside className="lg:justify-self-end" aria-label="Account login form">
+          {/* Right side - Quick action card */}
+          <aside className="lg:justify-self-end" aria-label="Quick financing actions">
             <Card className="w-full max-w-md bg-white shadow-2xl">
               <CardContent className="p-8">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <h2 className="text-2xl font-semibold text-foreground">Welcome Back</h2>
-                    <p className="text-foreground mt-2">Access your business financing account securely</p>
+                    <h2 className="text-2xl font-semibold text-foreground">Get Started Today</h2>
+                    <p className="text-foreground mt-2">Access business financing solutions quickly and securely</p>
                   </div>
 
-                  <form className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="username" className="text-sm font-medium">
-                        Username or Email
-                      </Label>
-                      <Input
-                        id="username"
-                        type="text"
-                        placeholder="Enter your username"
-                        className="h-11"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="password" className="text-sm font-medium">
-                        Password
-                      </Label>
-                      <div className="relative">
-                        <Input
-                          id="password"
-                          type={showPassword ? "text" : "password"}
-                          placeholder="Enter your password"
-                          className="h-11 pr-10"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground"
-                        >
-                          {showPassword ? (
-                            <EyeOff className="h-4 w-4" />
-                          ) : (
-                            <Eye className="h-4 w-4" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between text-sm">
-                      <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" />
-                        Remember me
-                      </label>
-                      <Link to="/contact-us" className="text-primary">
-                        Forgot password?
-                      </Link>
-                    </div>
-
-                    <Button type="submit" className="w-full h-11 font-medium" asChild>
-                      <a href="https://preview--hbf-application.lovable.app/auth">Sign In</a>
+                  <div className="space-y-4">
+                    <Button className="w-full h-11 font-medium" asChild>
+                      <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">
+                        Apply for Financing
+                      </a>
                     </Button>
-                  </form>
+                    
+                    <Button variant="outline" className="w-full h-11 font-medium" asChild>
+                      <a href="https://preview--hbf-application.lovable.app/auth">
+                        Access Your Account
+                      </a>
+                    </Button>
+                  </div>
 
                   <div className="text-center text-sm text-foreground">
-                    New to Halo Business Finance?{" "}
+                    Need help choosing?{" "}
                      <Link to="/pre-qualification" className="text-primary font-medium">
-                       Apply for financing
+                       Take our quiz
                      </Link>
                   </div>
                 </div>
