@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import ConsultationPopup from "@/components/ConsultationPopup";
+import useEmblaCarousel from 'embla-carousel-react';
+import { useCallback, useEffect, useState } from 'react';
 import { 
   CreditCard, 
   PiggyBank, 
@@ -19,7 +21,8 @@ import {
   Receipt,
   Sparkles,
   Star,
-  ChevronRight
+  ChevronRight,
+  ChevronLeft
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
@@ -221,6 +224,38 @@ const ProductsSection = () => {
     }
   ];
 
+  // Carousel hooks
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'start',
+    skipSnaps: false,
+    dragFree: true,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 2 },
+      '(min-width: 1024px)': { slidesToScroll: 3 },
+      '(min-width: 1280px)': { slidesToScroll: 4 }
+    }
+  });
+
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPrevBtnDisabled(!emblaApi.canScrollPrev());
+    setNextBtnDisabled(!emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
       <div className="container mx-auto px-4">
@@ -238,80 +273,127 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        {/* Compact Modern Grid Layout */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-20">
-          {products.map((product, index) => (
-            <Card 
-              key={index} 
-              className="group relative overflow-hidden border border-slate-200/60 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm"
-            >
-              {product.badge && (
-                <Badge className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-medium shadow-sm z-10">
-                  {product.badge}
-                </Badge>
-              )}
-              
-              <CardHeader className="pb-3 pt-4">
-                {/* Compact Icon/Logo Section */}
-                <div className="flex items-center gap-3 mb-3">
-                  {product.logo ? (
-                    <div className="p-2 bg-white rounded-lg border shadow-sm">
-                      <img src={product.logo} alt={`${product.title} logo`} className="h-6 w-auto" />
-                    </div>
-                  ) : (
-                    <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
-                      <product.icon className="h-5 w-5 text-white" />
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
-                      {product.title}
-                    </h4>
-                  </div>
-                </div>
-                
-                {/* Inline Rate Display */}
-                <div className="flex items-center justify-between bg-slate-50 rounded-lg px-3 py-2">
-                  <div>
-                    <div className="text-xl font-bold text-primary">{product.rate}</div>
-                    <div className="text-xs text-slate-600">{product.rateLabel}</div>
-                  </div>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="pt-0 pb-4">
-                <p className="text-sm text-slate-600 mb-4 line-clamp-2">{product.description}</p>
-                
-                {/* Compact Features */}
-                <div className="space-y-2 mb-4">
-                  {product.features.slice(0, 2).map((feature, i) => (
-                    <div key={i} className="flex items-center text-xs text-slate-700">
-                      <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
-                      <span className="truncate">{feature}</span>
-                    </div>
-                  ))}
-                  {product.features.length > 2 && (
-                    <div className="text-xs text-slate-500 ml-5">+{product.features.length - 2} more benefits</div>
-                  )}
-                </div>
+        {/* Elegant Carousel Section */}
+        <div className="relative mb-20">
+          {/* Navigation Controls */}
+          <div className="flex justify-between items-center mb-8">
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollPrev}
+                disabled={prevBtnDisabled}
+                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary disabled:opacity-30"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollNext}
+                disabled={nextBtnDisabled}
+                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary disabled:opacity-30"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            </div>
+            <div className="text-sm text-slate-500">
+              Swipe or use arrows to explore all {products.length} loan programs
+            </div>
+          </div>
 
-                {/* Compact Action Buttons */}
-                <div className="flex gap-2">
-                  <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
-                    <Link to={product.learnLink}>
-                      Learn
-                    </Link>
-                  </Button>
-                  <Button asChild size="sm" className="flex-1 text-xs">
-                     <a href="https://preview--hbf-application.lovable.app/auth">
-                        Apply
-                        <ArrowRight className="h-3 w-3 ml-1" />
-                      </a>
-                  </Button>
+          {/* Embla Carousel Container */}
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {products.map((product, index) => (
+                <div 
+                  key={index} 
+                  className="flex-none w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 min-w-0"
+                >
+                  <Card className="group relative overflow-hidden border border-slate-200/60 hover:border-primary/30 transition-all duration-300 hover:shadow-xl bg-white/90 backdrop-blur-sm h-full">
+                    {product.badge && (
+                      <Badge className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-medium shadow-sm z-10">
+                        {product.badge}
+                      </Badge>
+                    )}
+                    
+                    <CardHeader className="pb-3 pt-4">
+                      {/* Compact Icon/Logo Section */}
+                      <div className="flex items-center gap-3 mb-3">
+                        {product.logo ? (
+                          <div className="p-2 bg-white rounded-lg border shadow-sm">
+                            <img src={product.logo} alt={`${product.title} logo`} className="h-6 w-auto" />
+                          </div>
+                        ) : (
+                          <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
+                            <product.icon className="h-5 w-5 text-white" />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
+                            {product.title}
+                          </h4>
+                        </div>
+                      </div>
+                      
+                      {/* Inline Rate Display */}
+                      <div className="bg-gradient-to-r from-slate-50 to-blue-50/50 rounded-lg px-3 py-2">
+                        <div className="text-xl font-bold text-primary">{product.rate}</div>
+                        <div className="text-xs text-slate-600">{product.rateLabel}</div>
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent className="pt-0 pb-4 flex flex-col flex-1">
+                      <p className="text-sm text-slate-600 mb-4 line-clamp-2 flex-grow">
+                        {product.description}
+                      </p>
+                      
+                      {/* Compact Features */}
+                      <div className="space-y-2 mb-4">
+                        {product.features.slice(0, 2).map((feature, i) => (
+                          <div key={i} className="flex items-center text-xs text-slate-700">
+                            <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                            <span className="truncate">{feature}</span>
+                          </div>
+                        ))}
+                        {product.features.length > 2 && (
+                          <div className="text-xs text-slate-500 ml-5">
+                            +{product.features.length - 2} more benefits
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Compact Action Buttons */}
+                      <div className="flex gap-2 mt-auto">
+                        <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                          <Link to={product.learnLink}>
+                            Learn
+                          </Link>
+                        </Button>
+                        <Button asChild size="sm" className="flex-1 text-xs">
+                           <a href="https://preview--hbf-application.lovable.app/auth">
+                              Apply
+                              <ArrowRight className="h-3 w-3 ml-1" />
+                            </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center mt-6 gap-2">
+            {Array.from({ length: Math.ceil(products.length / 4) }).map((_, index) => (
+              <button
+                key={index}
+                className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200"
+                onClick={() => emblaApi?.scrollTo(index * 4)}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Business Capital Section */}
@@ -329,7 +411,7 @@ const ProductsSection = () => {
             </p>
           </div>
 
-          {/* Horizontal Layout for Business Products */}
+          {/* Grid Layout for Business Products */}
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {businessProducts.map((product, index) => (
               <Card 
