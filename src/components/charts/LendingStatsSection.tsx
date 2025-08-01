@@ -33,7 +33,7 @@ const stats = [
     color: 'text-purple-600'
   },
   {
-    title: '25+',
+    title: '15+',
     description: 'Years Experience',
     icon: <TrendingUp className="h-8 w-8" />,
     color: 'text-red-600'
