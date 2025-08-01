@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { HardHat, Building2, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ConstructionLoansPage = () => {
   return (
@@ -20,7 +21,7 @@ const ConstructionLoansPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=construction">Apply for Construction Loan</a></Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Project Consultation</Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/contact-us">Project Consultation</Link></Button>
             </div>
           </div>
         </div>

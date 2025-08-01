@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Truck, DollarSign, Shield, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const EquipmentLoansPage = () => {
   return (
@@ -26,7 +27,7 @@ const EquipmentLoansPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=equipment">Apply for Equipment Loan</a></Button>
-              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">Calculate Payment</Button>
+              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10" asChild><Link to="/loan-calculator">Calculate Payment</Link></Button>
             </div>
           </div>
         </div>

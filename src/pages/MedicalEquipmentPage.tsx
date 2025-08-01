@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Stethoscope, DollarSign } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const MedicalEquipmentPage = () => {
   return (
@@ -25,8 +26,8 @@ const MedicalEquipmentPage = () => {
               Finance the latest medical equipment and technology to enhance patient care. Competitive rates and flexible terms for healthcare providers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Finance Medical Equipment</Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Healthcare Solutions</Button>
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=medical-equipment">Finance Medical Equipment</a></Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/industry-solutions">Healthcare Solutions</Link></Button>
             </div>
           </div>
         </div>

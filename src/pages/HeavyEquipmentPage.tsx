@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Truck, Wrench, DollarSign } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeavyEquipmentPage = () => {
   return (
@@ -25,8 +26,8 @@ const HeavyEquipmentPage = () => {
               Finance heavy machinery and construction equipment with competitive rates and flexible terms. From excavators to cranes, we fund the equipment that builds America.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">Finance Heavy Equipment</Button>
-              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10">Get Rates</Button>
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=heavy-equipment">Finance Heavy Equipment</a></Button>
+              <Button size="lg" variant="ghost" className="border border-white text-white hover:bg-white/10" asChild><Link to="/contact-us">Get Rates</Link></Button>
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ const ConventionalLoansPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=conventional">Apply Now</a></Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Get Quote</Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=conventional">Get Quote</a></Button>
             </div>
           </div>
         </div>
