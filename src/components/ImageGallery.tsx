@@ -173,7 +173,7 @@ const ImageGallery = () => {
                   key={index} 
                   className="flex-none w-full md:w-1/2 lg:w-1/3 min-w-0"
                 >
-                  <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
+                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
                     <div className="relative h-56 overflow-hidden">
                       <img 
                         src={item.image} 

@@ -310,7 +310,7 @@ const ProductsSection = () => {
                   key={index} 
                   className="flex-none w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 min-w-0"
                 >
-                  <Card className="group relative overflow-hidden border border-slate-200/60 hover:border-primary/30 transition-all duration-300 hover:shadow-xl bg-white/90 backdrop-blur-sm h-full">
+                  <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-white/90 backdrop-blur-sm h-full">
                     {product.badge && (
                       <Badge className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-medium shadow-sm z-10">
                         {product.badge}
@@ -416,7 +416,7 @@ const ProductsSection = () => {
             {businessProducts.map((product, index) => (
               <Card 
                 key={index} 
-                className="group relative border border-slate-200/60 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm"
+                className="group relative border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm"
               >
                 <CardHeader className="pb-3 pt-4">
                   <div className="flex items-center gap-3 mb-3">
