@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, Award, Target, TrendingUp } from "lucide-react";
+import { Users, Award, Target, TrendingUp, Linkedin } from "lucide-react";
 import businessGrowth from "@/assets/business-growth.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 
@@ -105,12 +105,20 @@ const AboutUsPage = () => {
                 <p className="text-sm text-foreground mb-3">
                   Varda founded Halo Business Finance in 2015 to revolutionize how businesses access capital through innovative technology. As a full stack engineer with expertise in fintech, AI, and blockchain, he combines technical innovation with deep financial industry knowledge.
                 </p>
-                <div className="text-xs text-foreground">
+                <div className="text-xs text-foreground mb-4">
                   <p>• NMLS Broker License (ID: 2272778)</p>
                   <p>• California Finance Lender Law (ID: 60DBO-183282)</p>
                   <p>• IBM Enterprise Design Thinking Certified</p>
                   <p>• Full Stack Engineer</p>
                   <p>• Fintech, AI & Blockchain Graduate</p>
+                </div>
+                <div className="text-center">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://www.linkedin.com/in/vardad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn Profile
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -125,10 +133,18 @@ const AboutUsPage = () => {
                 <p className="text-sm text-foreground mb-3">
                   Nuri has served as COO at Halo Business Finance for nearly 7 years, bringing entrepreneurial expertise and operational leadership. Having founded and operated his own successful business, his experience in navigating business challenges provides innovative perspectives for operational excellence and growth strategies.
                 </p>
-                <div className="text-xs text-foreground">
+                <div className="text-xs text-foreground mb-4">
                   <p>• Bachelor's Liberal Arts & Sciences, University of Illinois Chicago</p>
                   <p>• 6+ Years COO at Halo Business Finance</p>
                   <p>• Public Speaking & Leadership Expertise</p>
+                </div>
+                <div className="text-center">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://www.linkedin.com/in/nuri-khoshaba-51b4689a" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn Profile
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

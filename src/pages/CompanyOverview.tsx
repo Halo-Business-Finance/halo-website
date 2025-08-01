@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Target, Award, TrendingUp, Building2 } from "lucide-react";
+import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linkedin } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -233,8 +233,16 @@ const CompanyOverview = () => {
                   innovative technology. As a full stack engineer with expertise in fintech, AI, and blockchain, 
                   he brings a unique combination of technical innovation and financial industry expertise to the marketplace.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-muted-foreground mb-4">
                   NMLS Broker (ID: 2272778) | Full Stack Engineer | Fintech, AI & Blockchain Graduate
+                </div>
+                <div className="text-center">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://www.linkedin.com/in/vardad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -252,8 +260,16 @@ const CompanyOverview = () => {
                   entrepreneurial experience with operational excellence. His background as a business owner 
                   and public speaking expertise brings unique insights to strategic initiatives and team leadership.
                 </p>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-muted-foreground mb-4">
                   BS Liberal Arts & Sciences, UIC (1994) | 6+ Years COO | Public Speaking Expert
+                </div>
+                <div className="text-center">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://www.linkedin.com/in/nuri-khoshaba-51b4689a" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
