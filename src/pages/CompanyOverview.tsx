@@ -290,11 +290,11 @@ const CompanyOverview = () => {
             {/* Mission Statement */}
             <Card className="p-8">
               <CardContent className="p-0">
-                <div className="flex items-center mb-6">
-                  <div className="w-24 h-24 mr-6 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="mb-6">
+                  <div className="w-full h-24 mb-4 rounded-lg overflow-hidden">
                     <img src={missionProfessionals} alt="Mission" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-2xl font-bold">Our Mission</h3>
+                  <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
                   To revolutionize commercial lending by creating a transparent, efficient 
@@ -321,11 +321,11 @@ const CompanyOverview = () => {
             {/* Ethics */}
             <Card className="p-8">
               <CardContent className="p-0">
-                <div className="flex items-center mb-6">
-                  <div className="w-24 h-24 mr-6 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="mb-6">
+                  <div className="w-full h-24 mb-4 rounded-lg overflow-hidden">
                     <img src={ethicsProfessionals} alt="Ethics" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-2xl font-bold">Ethical Standards</h3>
+                  <h3 className="text-2xl font-bold mb-4">Ethical Standards</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
                   We uphold the highest ethical standards in all our business practices, 
@@ -352,11 +352,11 @@ const CompanyOverview = () => {
             {/* Transparency */}
             <Card className="p-8">
               <CardContent className="p-0">
-                <div className="flex items-center mb-6">
-                  <div className="w-24 h-24 mr-6 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="mb-6">
+                  <div className="w-full h-24 mb-4 rounded-lg overflow-hidden">
                     <img src={transparencyProfessionals} alt="Transparency" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-2xl font-bold">Transparency</h3>
+                  <h3 className="text-2xl font-bold mb-4">Transparency</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
                   We believe in complete transparency throughout the lending process. 
@@ -392,7 +392,7 @@ const CompanyOverview = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="w-32 h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={clientFirstProfessionals} alt="Client-First Approach" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Client-First Approach</h4>
@@ -402,7 +402,7 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-32 h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={innovationProfessionals} alt="Continuous Innovation" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Continuous Innovation</h4>
@@ -412,7 +412,7 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-32 h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={expertiseProfessionals} alt="Industry Expertise" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Industry Expertise</h4>
@@ -422,7 +422,7 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-32 h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={resultsProfessionals} alt="Proven Results" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Proven Results</h4>
