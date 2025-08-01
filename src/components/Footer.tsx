@@ -74,7 +74,7 @@ const Footer = () => {
             <div className="mb-6">
               <h4 className="font-semibold mb-3">Stay Informed</h4>
               <p className="text-sm text-white mb-3">
-                Get the latest financial insights and bank updates.
+                Get the latest financial insights and market updates.
               </p>
               <div className="flex gap-2">
                 <Input 
