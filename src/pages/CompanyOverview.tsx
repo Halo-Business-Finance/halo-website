@@ -14,6 +14,13 @@ import clientFirstProfessionals from "@/assets/client-first-professionals.jpg";
 import innovationProfessionals from "@/assets/innovation-professionals.jpg";
 import expertiseProfessionals from "@/assets/expertise-professionals.jpg";
 import resultsProfessionals from "@/assets/results-professionals.jpg";
+import securityProfessionals from "@/assets/security-professionals.jpg";
+import licensesProfessionals from "@/assets/licenses-professionals.jpg";
+import complianceProfessionals from "@/assets/compliance-professionals.jpg";
+import nmlsProfessionals from "@/assets/nmls-professionals.jpg";
+import sbaProfessionals from "@/assets/sba-professionals.jpg";
+import bbbProfessionals from "@/assets/bbb-professionals.jpg";
+import associationsProfessionals from "@/assets/associations-professionals.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -452,9 +459,11 @@ const CompanyOverview = () => {
             {/* Security */}
             <Card className="p-8">
               <CardContent className="p-0">
-                <div className="flex items-center mb-6">
-                  <Shield className="h-10 w-10 text-primary mr-4" />
-                  <h3 className="text-2xl font-bold">Data Security</h3>
+                <div className="mb-6">
+                  <div className="w-full h-44 mb-4 rounded-lg overflow-hidden">
+                    <img src={securityProfessionals} alt="Data Security" className="w-full h-full object-cover object-center" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Data Security</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
                   We employ enterprise-grade security measures to protect your sensitive 
@@ -484,9 +493,11 @@ const CompanyOverview = () => {
             {/* Licenses */}
             <Card className="p-8">
               <CardContent className="p-0">
-                <div className="flex items-center mb-6">
-                  <Award className="h-10 w-10 text-primary mr-4" />
-                  <h3 className="text-2xl font-bold">Professional Licenses</h3>
+                <div className="mb-6">
+                  <div className="w-full h-44 mb-4 rounded-lg overflow-hidden">
+                    <img src={licensesProfessionals} alt="Professional Licenses" className="w-full h-full object-cover object-center" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Professional Licenses</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
                   Our team holds all required professional licenses and certifications 
@@ -516,9 +527,11 @@ const CompanyOverview = () => {
             {/* Compliance */}
             <Card className="p-8">
               <CardContent className="p-0">
-                <div className="flex items-center mb-6">
-                  <CheckCircle className="h-10 w-10 text-primary mr-4" />
-                  <h3 className="text-2xl font-bold">Regulatory Compliance</h3>
+                <div className="mb-6">
+                  <div className="w-full h-44 mb-4 rounded-lg overflow-hidden">
+                    <img src={complianceProfessionals} alt="Regulatory Compliance" className="w-full h-full object-cover object-center" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Regulatory Compliance</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
                   We adhere to all federal and state regulations governing commercial 
@@ -557,8 +570,8 @@ const CompanyOverview = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-primary" />
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                  <img src={nmlsProfessionals} alt="NMLS Licensed" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">NMLS Licensed</h4>
                 <p className="text-sm text-muted-foreground">
@@ -567,8 +580,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Award className="h-8 w-8 text-primary" />
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                  <img src={sbaProfessionals} alt="SBA Preferred" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">SBA Preferred</h4>
                 <p className="text-sm text-muted-foreground">
@@ -577,8 +590,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Building2 className="h-8 w-8 text-primary" />
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                  <img src={bbbProfessionals} alt="BBB Accredited" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">BBB Accredited</h4>
                 <p className="text-sm text-muted-foreground">
@@ -587,8 +600,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users className="h-8 w-8 text-primary" />
+                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
+                  <img src={associationsProfessionals} alt="Industry Associations" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">Industry Associations</h4>
                 <p className="text-sm text-muted-foreground">
