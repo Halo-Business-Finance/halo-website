@@ -31,26 +31,32 @@ const Footer = () => {
   ];
 
   const supportLinks = [
-    { name: "Business Resources", link: "/business-finance-resources" },
     { name: "Customer Service", link: "/customer-service" },
     { name: "Technical Support", link: "/technical-support" },
+    { name: "Contact Us", link: "/contact-us" },
+    { name: "Careers", link: "/careers" }
+  ];
+
+  const resourceLinks = [
+    { name: "Business Resources", link: "/business-finance-resources" },
+    { name: "Loan Calculator", link: "/loan-calculator" },
     { name: "Industry Solutions", link: "/industry-solutions" },
-    { name: "Loan Calculator", link: "/loan-calculator" }
+    { name: "SBA Resources", link: "/sba-loans" },
+    { name: "Financial Guides", link: "/how-it-works" },
+    { name: "Market Insights", link: "/resources" }
   ];
 
   const companyLinks = [
     { name: "Company Overview", link: "/company-overview" },
     { name: "About Us", link: "/about-us" },
-    { name: "How It Works", link: "/how-it-works" },
-    { name: "Contact Us", link: "/contact-us" },
-    { name: "Careers", link: "/careers" }
+    { name: "How It Works", link: "/how-it-works" }
   ];
 
   return (
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8">
           {/* Company info and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-6">
@@ -116,6 +122,20 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Partner With Us</h4>
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              {resourceLinks.map((link) => (
                 <li key={link.name}>
                   <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
