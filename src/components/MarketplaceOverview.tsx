@@ -158,7 +158,7 @@ const MarketplaceOverview = () => {
             Join thousands of businesses that have found their perfect lending partner through our marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary font-semibold">
+            <Button size="lg" className="bg-white text-primary font-semibold border-2 border-financial-navy shadow-lg">
               Start Your Application
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>

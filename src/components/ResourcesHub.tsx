@@ -159,7 +159,7 @@ const ResourcesHub = () => {
                 Use our resources to prepare, then get pre-qualified for business financing in minutes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 border-2 border-financial-navy shadow-lg">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
