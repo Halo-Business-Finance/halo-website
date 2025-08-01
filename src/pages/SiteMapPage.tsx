@@ -12,7 +12,7 @@ const SiteMapPage = () => {
       category: "Main Pages",
       links: [
         { name: "Home", url: "/" },
-        { name: "About Us", url: "/about-us" },
+        
         { name: "Contact Us", url: "/contact-us" },
         { name: "Company Overview", url: "/company-overview" },
         { name: "How It Works", url: "/how-it-works" },

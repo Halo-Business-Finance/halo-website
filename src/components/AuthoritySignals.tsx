@@ -213,7 +213,7 @@ const AuthoritySignals = () => {
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link to="/about-us">Learn About Us</Link>
+                  <Link to="/company-overview">Learn About Us</Link>
                 </Button>
               </div>
             </CardContent>

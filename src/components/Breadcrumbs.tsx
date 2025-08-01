@@ -82,7 +82,7 @@ function formatBreadcrumbLabel(path: string): string {
     'pre-qualification': 'Pre-Qualification',
     'loan-calculator': 'Loan Calculator',
     'how-it-works': 'How It Works',
-    'about-us': 'About Us',
+    
     'contact-us': 'Contact Us',
     'industry-solutions': 'Industry Solutions',
     'resources': 'Resources',

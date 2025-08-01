@@ -48,7 +48,6 @@ const Footer = () => {
 
   const companyLinks = [
     { name: "Company Overview", link: "/company-overview" },
-    { name: "About Us", link: "/about-us" },
     { name: "How It Works", link: "/how-it-works" }
   ];
 

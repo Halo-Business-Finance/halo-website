@@ -47,7 +47,7 @@ const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
 const AccessibilityPage = lazy(() => import("./pages/AccessibilityPage"));
 const SiteMapPage = lazy(() => import("./pages/SiteMapPage"));
 const ContactUsPage = lazy(() => import("./pages/ContactUsPage"));
-const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
+
 const WorkingCapitalPage = lazy(() => import("./pages/WorkingCapitalPage"));
 const BusinessLineOfCreditPage = lazy(() => import("./pages/BusinessLineOfCreditPage"));
 const CustomerServicePage = lazy(() => import("./pages/CustomerServicePage"));
@@ -113,7 +113,7 @@ const App = () => (
             <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
             <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
+            
             <Route path="/working-capital" element={<WorkingCapitalPage />} />
             <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
             <Route path="/sba-loan-application" element={<SBALoanApplication />} />
