@@ -7,13 +7,13 @@ import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
 import VardaChatBot from "@/components/VardaChatBot";
-import missionIcon from "@/assets/mission-icon.jpg";
-import ethicsIcon from "@/assets/ethics-icon.jpg";
-import transparencyIcon from "@/assets/transparency-icon.jpg";
-import clientFirstIcon from "@/assets/client-first-icon.jpg";
-import innovationIcon from "@/assets/innovation-icon.jpg";
-import expertiseIcon from "@/assets/expertise-icon.jpg";
-import resultsIcon from "@/assets/results-icon.jpg";
+import missionProfessionals from "@/assets/mission-professionals.jpg";
+import ethicsProfessionals from "@/assets/ethics-professionals.jpg";
+import transparencyProfessionals from "@/assets/transparency-professionals.jpg";
+import clientFirstProfessionals from "@/assets/client-first-professionals.jpg";
+import innovationProfessionals from "@/assets/innovation-professionals.jpg";
+import expertiseProfessionals from "@/assets/expertise-professionals.jpg";
+import resultsProfessionals from "@/assets/results-professionals.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -292,7 +292,7 @@ const CompanyOverview = () => {
               <CardContent className="p-0">
                 <div className="flex items-center mb-6">
                   <div className="w-10 h-10 mr-4 rounded-lg overflow-hidden flex-shrink-0">
-                    <img src={missionIcon} alt="Mission" className="w-full h-full object-cover" />
+                    <img src={missionProfessionals} alt="Mission" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-2xl font-bold">Our Mission</h3>
                 </div>
@@ -323,7 +323,7 @@ const CompanyOverview = () => {
               <CardContent className="p-0">
                 <div className="flex items-center mb-6">
                   <div className="w-10 h-10 mr-4 rounded-lg overflow-hidden flex-shrink-0">
-                    <img src={ethicsIcon} alt="Ethics" className="w-full h-full object-cover" />
+                    <img src={ethicsProfessionals} alt="Ethics" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-2xl font-bold">Ethical Standards</h3>
                 </div>
@@ -354,7 +354,7 @@ const CompanyOverview = () => {
               <CardContent className="p-0">
                 <div className="flex items-center mb-6">
                   <div className="w-10 h-10 mr-4 rounded-lg overflow-hidden flex-shrink-0">
-                    <img src={transparencyIcon} alt="Transparency" className="w-full h-full object-cover" />
+                    <img src={transparencyProfessionals} alt="Transparency" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-2xl font-bold">Transparency</h3>
                 </div>
@@ -393,7 +393,7 @@ const CompanyOverview = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 rounded-lg mx-auto mb-4 overflow-hidden">
-                  <img src={clientFirstIcon} alt="Client-First Approach" className="w-full h-full object-cover" />
+                  <img src={clientFirstProfessionals} alt="Client-First Approach" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Client-First Approach</h4>
                 <p className="text-sm text-muted-foreground">
@@ -403,7 +403,7 @@ const CompanyOverview = () => {
               
               <div className="text-center">
                 <div className="w-16 h-16 rounded-lg mx-auto mb-4 overflow-hidden">
-                  <img src={innovationIcon} alt="Continuous Innovation" className="w-full h-full object-cover" />
+                  <img src={innovationProfessionals} alt="Continuous Innovation" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Continuous Innovation</h4>
                 <p className="text-sm text-muted-foreground">
@@ -413,7 +413,7 @@ const CompanyOverview = () => {
               
               <div className="text-center">
                 <div className="w-16 h-16 rounded-lg mx-auto mb-4 overflow-hidden">
-                  <img src={expertiseIcon} alt="Industry Expertise" className="w-full h-full object-cover" />
+                  <img src={expertiseProfessionals} alt="Industry Expertise" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Industry Expertise</h4>
                 <p className="text-sm text-muted-foreground">
@@ -423,7 +423,7 @@ const CompanyOverview = () => {
               
               <div className="text-center">
                 <div className="w-16 h-16 rounded-lg mx-auto mb-4 overflow-hidden">
-                  <img src={resultsIcon} alt="Proven Results" className="w-full h-full object-cover" />
+                  <img src={resultsProfessionals} alt="Proven Results" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold mb-2">Proven Results</h4>
                 <p className="text-sm text-muted-foreground">
