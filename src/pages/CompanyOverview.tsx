@@ -211,8 +211,27 @@ const CompanyOverview = () => {
             <div className="bg-muted/50 rounded-lg p-6">
               <div className="text-3xl font-bold text-primary mb-2">48hrs</div>
               <p className="text-sm text-muted-foreground">Average Response Time</p>
-            </div>
           </div>
+          
+          {/* Action Buttons after Marketplace & Lending Partners */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3"
+              onClick={() => window.open('/loan-calculator', '_blank')}
+            >
+              Calculate Loan Options
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-3"
+              onClick={() => window.open('/contact-us', '_blank')}
+            >
+              Contact Our Team
+            </Button>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -261,6 +280,25 @@ const CompanyOverview = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Second set of Action Buttons after Marketplace Benefits */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3"
+              onClick={() => window.open('/sba-loans', '_blank')}
+            >
+              Explore SBA Loans
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-3"
+              onClick={() => window.open('/marketplace-benefits', '_blank')}
+            >
+              Learn More Benefits
+            </Button>
           </div>
         </div>
       </section>
