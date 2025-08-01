@@ -570,8 +570,8 @@ const CompanyOverview = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={nmlsProfessionals} alt="NMLS Licensed" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">NMLS Licensed</h4>
                 <p className="text-sm text-muted-foreground">
@@ -580,8 +580,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={sbaProfessionals} alt="SBA Preferred" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">SBA Preferred</h4>
                 <p className="text-sm text-muted-foreground">
@@ -590,8 +590,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={bbbProfessionals} alt="BBB Accredited" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Building2 className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">BBB Accredited</h4>
                 <p className="text-sm text-muted-foreground">
@@ -600,8 +600,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-32 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={associationsProfessionals} alt="Industry Associations" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">Industry Associations</h4>
                 <p className="text-sm text-muted-foreground">
