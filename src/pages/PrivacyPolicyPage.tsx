@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import privacyPolicyHeader from "@/assets/privacy-policy-header.jpg";
+import dataProtectionTeam from "@/assets/data-protection-team.jpg";
 
 const PrivacyPolicyPage = () => {
   return (
@@ -28,6 +29,28 @@ const PrivacyPolicyPage = () => {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Our Commitment to Your Privacy</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                At Halo Business Finance, we understand that your personal and financial information is sensitive. 
+                Our dedicated privacy and security team works around the clock to ensure your data is protected 
+                with industry-leading security measures and compliance standards.
+              </p>
+              <p className="text-muted-foreground">
+                We follow strict data protection protocols and are committed to transparency in how we collect, 
+                use, and safeguard your information throughout the loan application process.
+              </p>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={dataProtectionTeam} 
+                alt="Professional team reviewing data security and privacy compliance"
+                className="w-full h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+            </div>
+          </div>
           <div className="max-w-4xl mx-auto space-y-8">
             <Card>
               <CardHeader>

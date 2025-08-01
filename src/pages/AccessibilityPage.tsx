@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Eye, Ear, MousePointer, Keyboard } from "lucide-react";
 import accessibilityHeader from "@/assets/accessibility-header.jpg";
+import inclusiveWorkplace from "@/assets/inclusive-workplace.jpg";
 
 const AccessibilityPage = () => {
   return (
@@ -59,6 +60,28 @@ const AccessibilityPage = () => {
                 <p className="text-muted-foreground">Clear navigation and content</p>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Inclusive by Design</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Our commitment to accessibility extends beyond compliance. We design with inclusion at the forefront, 
+                ensuring that every user can access our financial services with dignity and independence.
+              </p>
+              <p className="text-muted-foreground">
+                We work with accessibility experts and users with disabilities to continuously improve our platform 
+                and ensure it meets the diverse needs of our business community.
+              </p>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={inclusiveWorkplace} 
+                alt="Diverse team using assistive technology in an inclusive workplace environment"
+                className="w-full h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+            </div>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-8">

@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import termsOfServiceHeader from "@/assets/terms-of-service-header.jpg";
+import legalConsultation from "@/assets/legal-consultation.jpg";
 
 const TermsOfServicePage = () => {
   return (
@@ -28,6 +29,27 @@ const TermsOfServicePage = () => {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={legalConsultation} 
+                alt="Professional legal consultation meeting discussing business terms and agreements"
+                className="w-full h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Clear and Fair Terms</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Our terms of service are designed to be transparent and protect both our clients and our business. 
+                We believe in clear communication and fair practices throughout your financing experience.
+              </p>
+              <p className="text-muted-foreground">
+                These terms have been carefully crafted with input from legal experts to ensure compliance 
+                with all applicable laws while maintaining simplicity and clarity for our clients.
+              </p>
+            </div>
+          </div>
           <div className="max-w-4xl mx-auto space-y-8">
             <Card>
               <CardHeader>
