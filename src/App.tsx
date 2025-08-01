@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { SecurityHeaders } from "@/components/security/SecurityHeaders";
 import { SecurityMonitor } from "@/components/security/SecurityMonitor";
+import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
+import { SessionManager } from "@/components/security/SessionManager";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -57,6 +59,7 @@ const MultifamilyLoansPage = lazy(() => import("./pages/MultifamilyLoansPage"));
 const AssetBasedLoansPage = lazy(() => import("./pages/AssetBasedLoansPage"));
 const BusinessFinanceResourcesPage = lazy(() => import("./pages/BusinessFinanceResourcesPage"));
 const SecurityPage = lazy(() => import("./pages/SecurityPage"));
+const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
 
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
@@ -93,11 +96,13 @@ const queryClient = new QueryClient({
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <SecurityHeaders />
-      <SecurityMonitor />
+    <FormSecurityProvider>
+      <SessionManager>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <SecurityHeaders />
+          <SecurityMonitor />
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
@@ -156,13 +161,16 @@ const App = () => (
             <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
             <Route path="/business-finance-resources" element={<BusinessFinanceResourcesPage />} />
             <Route path="/security" element={<SecurityPage />} />
+            <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+  </SessionManager>
+</FormSecurityProvider>
+</QueryClientProvider>
 );
 
 export default App;

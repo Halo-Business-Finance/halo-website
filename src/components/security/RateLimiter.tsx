@@ -1,102 +1,188 @@
-import { useState, useCallback } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
+import { useState, useCallback, useEffect } from 'react';
 
 interface RateLimitConfig {
-  maxAttempts: number;
+  maxRequests: number;
   windowMs: number;
   blockDurationMs: number;
+  endpoint?: string;
 }
 
-const DEFAULT_CONFIG: RateLimitConfig = {
-  maxAttempts: 5,
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  blockDurationMs: 30 * 60 * 1000 // 30 minutes
-};
+interface RequestLog {
+  timestamp: number;
+  ip: string;
+  endpoint: string;
+  blocked: boolean;
+}
 
-export const useRateLimit = (action: string, config: RateLimitConfig = DEFAULT_CONFIG) => {
+interface RateLimitData {
+  requests: RequestLog[];
+  blockUntil: number;
+  violations: number;
+}
+
+export const useAdvancedRateLimit = (config: RateLimitConfig) => {
   const [isBlocked, setIsBlocked] = useState(false);
+  const [requestCount, setRequestCount] = useState(0);
+  const [blockTimeRemaining, setBlockTimeRemaining] = useState(0);
+  const [showCaptcha, setShowCaptcha] = useState(false);
+
+  const getClientIdentifier = () => {
+    // In a real app, you'd get the actual IP from the server
+    return `${navigator.userAgent}_${window.location.hostname}`;
+  };
+
+  const getStorageKey = (endpoint?: string) => {
+    const clientId = getClientIdentifier();
+    return `rate_limit_${clientId}_${endpoint || 'default'}`;
+  };
+
+  const getRateLimitData = (): RateLimitData => {
+    const key = getStorageKey(config.endpoint);
+    const stored = localStorage.getItem(key);
+    
+    if (!stored) {
+      return { requests: [], blockUntil: 0, violations: 0 };
+    }
+    
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return { requests: [], blockUntil: 0, violations: 0 };
+    }
+  };
+
+  const saveRateLimitData = (data: RateLimitData) => {
+    const key = getStorageKey(config.endpoint);
+    localStorage.setItem(key, JSON.stringify(data));
+  };
 
   const checkRateLimit = useCallback(async (): Promise<boolean> => {
     try {
-      // TODO: Implement database-based rate limiting once tables are created
-      // For now, use simple client-side rate limiting
-      const identifier = getClientIdentifier();
-      const storageKey = `rate_limit_${action}_${identifier}`;
-      const stored = localStorage.getItem(storageKey);
+      const now = Date.now();
+      const data = getRateLimitData();
       
-      if (stored) {
-        const data = JSON.parse(stored);
-        const now = Date.now();
+      // Check if currently blocked
+      if (data.blockUntil > now) {
+        setIsBlocked(true);
+        setBlockTimeRemaining(Math.ceil((data.blockUntil - now) / 1000));
         
-        // Check if still blocked
-        if (data.blockedUntil && now < data.blockedUntil) {
-          setIsBlocked(true);
-          toast.error('Too many attempts. Please try again later.');
-          return false;
+        // Show captcha for multiple violations
+        if (data.violations >= 3) {
+          setShowCaptcha(true);
         }
         
-        // Check attempts in current window
-        const windowStart = now - config.windowMs;
-        const recentAttempts = data.attempts.filter((time: number) => time > windowStart);
-        
-        if (recentAttempts.length >= config.maxAttempts) {
-          const blockedUntil = now + config.blockDurationMs;
-          localStorage.setItem(storageKey, JSON.stringify({
-            attempts: recentAttempts,
-            blockedUntil
-          }));
-          setIsBlocked(true);
-          toast.error(`Too many attempts. Blocked for ${config.blockDurationMs / 60000} minutes.`);
-          return false;
-        }
-        
-        // Add current attempt
-        recentAttempts.push(now);
-        localStorage.setItem(storageKey, JSON.stringify({
-          attempts: recentAttempts,
-          blockedUntil: null
-        }));
-      } else {
-        // First attempt
-        localStorage.setItem(storageKey, JSON.stringify({
-          attempts: [Date.now()],
-          blockedUntil: null
-        }));
+        return false;
       }
 
+      // Clean old requests outside the window
+      const windowStart = now - config.windowMs;
+      const recentRequests = data.requests.filter(req => req.timestamp > windowStart);
+      
+      setRequestCount(recentRequests.length);
+
+      // Check if limit exceeded
+      if (recentRequests.length >= config.maxRequests) {
+        const violations = data.violations + 1;
+        const progressiveDelay = Math.min(
+          config.blockDurationMs * Math.pow(2, violations - 1),
+          config.blockDurationMs * 8 // Max 8x the base duration
+        );
+        
+        const blockUntil = now + progressiveDelay;
+        
+        const newData: RateLimitData = {
+          requests: recentRequests,
+          blockUntil,
+          violations
+        };
+        
+        saveRateLimitData(newData);
+        setIsBlocked(true);
+        setBlockTimeRemaining(Math.ceil(progressiveDelay / 1000));
+        
+        // Show captcha after 2 violations
+        if (violations >= 2) {
+          setShowCaptcha(true);
+        }
+        
+        return false;
+      }
+
+      // Add current request
+      const newRequest: RequestLog = {
+        timestamp: now,
+        ip: getClientIdentifier(),
+        endpoint: config.endpoint || 'default',
+        blocked: false
+      };
+
+      const updatedData: RateLimitData = {
+        requests: [...recentRequests, newRequest],
+        blockUntil: 0,
+        violations: data.violations
+      };
+      
+      saveRateLimitData(updatedData);
+      setIsBlocked(false);
+      setBlockTimeRemaining(0);
+      
       return true;
     } catch (error) {
       console.error('Rate limiting error:', error);
-      return true; // Allow on error
+      return true; // Allow on error to prevent complete blocking
     }
-  }, [action, config]);
+  }, [config]);
 
-  return { checkRateLimit, isBlocked };
-};
+  const solveCaptcha = useCallback(() => {
+    setShowCaptcha(false);
+    setIsBlocked(false);
+    
+    // Reset violations on successful captcha
+    const data = getRateLimitData();
+    const resetData: RateLimitData = {
+      ...data,
+      violations: 0,
+      blockUntil: 0
+    };
+    saveRateLimitData(resetData);
+  }, []);
 
-const getClientIdentifier = (): string => {
-  // Create a fingerprint based on available browser information
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  ctx?.fillText('fingerprint', 10, 10);
-  const canvasFingerprint = canvas.toDataURL();
+  const resetLimits = useCallback(() => {
+    const key = getStorageKey(config.endpoint);
+    localStorage.removeItem(key);
+    setIsBlocked(false);
+    setRequestCount(0);
+    setBlockTimeRemaining(0);
+    setShowCaptcha(false);
+  }, [config.endpoint]);
 
-  const fingerprint = [
-    navigator.userAgent,
-    navigator.language,
-    screen.width + 'x' + screen.height,
-    new Date().getTimezoneOffset(),
-    canvasFingerprint.slice(-50) // Last 50 chars of canvas fingerprint
-  ].join('|');
+  // Update block time remaining
+  useEffect(() => {
+    if (blockTimeRemaining > 0) {
+      const timer = setInterval(() => {
+        setBlockTimeRemaining(prev => {
+          const newTime = prev - 1;
+          if (newTime <= 0) {
+            setIsBlocked(false);
+            return 0;
+          }
+          return newTime;
+        });
+      }, 1000);
 
-  // Create a hash of the fingerprint
-  let hash = 0;
-  for (let i = 0; i < fingerprint.length; i++) {
-    const char = fingerprint.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32-bit integer
-  }
+      return () => clearInterval(timer);
+    }
+  }, [blockTimeRemaining]);
 
-  return Math.abs(hash).toString(36);
+  return {
+    checkRateLimit,
+    isBlocked,
+    requestCount,
+    blockTimeRemaining,
+    showCaptcha,
+    solveCaptcha,
+    resetLimits,
+    maxRequests: config.maxRequests,
+    currentWindow: config.windowMs / 1000
+  };
 };
