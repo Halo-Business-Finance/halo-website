@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import ProductsSection from "@/components/ProductsSection";
 import StatsSection from "@/components/StatsSection";
 import ImageGallery from "@/components/ImageGallery";
-import FeaturesSection from "@/components/FeaturesSection";
+
 import Footer from "@/components/Footer";
 import { LendingStatsSection } from "@/components/charts/LendingStatsSection";
 import MarketplaceOverview from "@/components/MarketplaceOverview";
@@ -36,7 +36,6 @@ const Index = () => {
       <ResourcesHub />
       <PartnershipsSection />
       <ImageGallery />
-      <FeaturesSection />
       <Footer />
       </div>
     </>

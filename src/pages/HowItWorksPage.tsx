@@ -2,7 +2,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star } from "lucide-react";
+import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star, Award, Building2, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import businessGrowth from "@/assets/business-growth.jpg";
+import sbaLogo from "@/assets/sba-logo.jpg";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
@@ -161,6 +164,175 @@ const HowItWorksPage = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Halo Business Finance Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Why Choose Halo Business Finance?
+            </h2>
+            <p className="text-xl text-foreground max-w-2xl mx-auto">
+              We're committed to providing your business with the capital, expertise, and personalized service you need to achieve your growth goals.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-none group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    SBA Loan Expertise
+                  </h3>
+                  <p className="text-foreground mb-4">
+                    Specialized knowledge in SBA 7(a), 504, and Express loans with a proven track record of successful approvals.
+                  </p>
+                </div>
+                <Button variant="ghost" className="group/btn text-primary">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-none group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Secure & Compliant
+                  </h3>
+                  <p className="text-foreground mb-4">
+                    Bank-level security and full regulatory compliance ensure your business information and transactions are protected.
+                  </p>
+                </div>
+                <Button variant="ghost" className="group/btn text-primary">
+                  Security Details
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-none group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Clock className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Fast Approval Process
+                  </h3>
+                  <p className="text-foreground mb-4">
+                    Streamlined application process with dedicated loan officers providing quick decisions and personalized service.
+                  </p>
+                </div>
+                <Button variant="ghost" className="group/btn text-primary" asChild>
+                  <a href="https://preview--hbf-application.lovable.app/auth">
+                    Apply Now
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-none group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Building2 className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Commercial Lending Focus
+                  </h3>
+                  <p className="text-foreground mb-4">
+                    Exclusive focus on business financing with deep understanding of commercial real estate and equipment needs.
+                  </p>
+                </div>
+                <Button variant="ghost" className="group/btn text-primary">
+                  Our Services
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-none group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Dedicated Loan Officers
+                  </h3>
+                  <p className="text-foreground mb-4">
+                    Work directly with experienced commercial lending professionals who understand your industry and business needs.
+                  </p>
+                </div>
+                <Button variant="ghost" className="group/btn text-primary">
+                  Meet Our Team
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-none group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    Proven Track Record
+                  </h3>
+                  <p className="text-foreground mb-4">
+                    Years of successful business financing with competitive rates and flexible terms tailored to your business.
+                  </p>
+                </div>
+                <Button variant="ghost" className="group/btn text-primary">
+                  Success Stories
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Enhanced Call to action with business image */}
+          <div className="text-center mt-16">
+            <div className="relative overflow-hidden rounded-2xl max-w-4xl mx-auto">
+              <img 
+                src={businessGrowth} 
+                alt="Business success and growth"
+                className="absolute inset-0 w-full h-full object-cover opacity-30"
+              />
+              <div className="relative bg-gradient-to-r from-financial-navy/95 to-primary/90 text-white p-8">
+                <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+                  <img 
+                    src={sbaLogo} 
+                    alt="SBA Preferred Lender"
+                    className="h-12 w-auto"
+                  />
+                  <div className="text-center md:text-left">
+                    <h3 className="text-3xl font-bold mb-2">
+                      Ready to Fuel Your Business Growth?
+                    </h3>
+                    <p className="text-xl text-blue-100 max-w-2xl">
+                      Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Our expertise in <Link to="/sba-loans" className="text-white underline hover:text-blue-100">SBA lending</Link> and partnership with <a href="https://www.sba.gov/partners/lenders" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100">SBA preferred lenders</a> ensures you get the best rates and terms available.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-white text-primary font-semibold" asChild>
+                    <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-white text-primary" asChild>
+                    <Link to="/contact-us">Schedule Consultation</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
