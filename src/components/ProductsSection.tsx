@@ -238,78 +238,74 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        {/* Modern Grid Layout */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-20">
+        {/* Compact Modern Grid Layout */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-20">
           {products.map((product, index) => (
             <Card 
               key={index} 
-              className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white"
+              className="group relative overflow-hidden border border-slate-200/60 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm"
             >
-              {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-              
               {product.badge && (
-                <Badge className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-semibold shadow-lg z-10">
-                  <Star className="h-3 w-3 mr-1" />
+                <Badge className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-medium shadow-sm z-10">
                   {product.badge}
                 </Badge>
               )}
               
-              <CardHeader className="pb-6 relative">
-                {/* Icon/Logo Section */}
-                <div className="flex items-center justify-center mb-6">
+              <CardHeader className="pb-3 pt-4">
+                {/* Compact Icon/Logo Section */}
+                <div className="flex items-center gap-3 mb-3">
                   {product.logo ? (
-                    <div className="p-4 bg-gradient-to-br from-white to-slate-50 rounded-2xl border shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                      <img src={product.logo} alt={`${product.title} logo`} className="h-10 w-auto" />
+                    <div className="p-2 bg-white rounded-lg border shadow-sm">
+                      <img src={product.logo} alt={`${product.title} logo`} className="h-6 w-auto" />
                     </div>
                   ) : (
-                    <div className={`p-4 bg-gradient-to-br ${product.color} rounded-2xl shadow-lg`}>
-                      <product.icon className="h-8 w-8 text-white" />
+                    <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
+                      <product.icon className="h-5 w-5 text-white" />
                     </div>
                   )}
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
+                      {product.title}
+                    </h4>
+                  </div>
                 </div>
                 
-                {/* Title and Rate */}
-                <div className="text-center">
-                  <h4 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-200">
-                    {product.title}
-                  </h4>
-                  <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4 mb-4">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                      {product.rate}
-                    </div>
-                    <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
+                {/* Inline Rate Display */}
+                <div className="flex items-center justify-between bg-slate-50 rounded-lg px-3 py-2">
+                  <div>
+                    <div className="text-xl font-bold text-primary">{product.rate}</div>
+                    <div className="text-xs text-slate-600">{product.rateLabel}</div>
                   </div>
                 </div>
               </CardHeader>
               
-              <CardContent className="pt-0 relative">
-                <p className="text-slate-600 mb-6 leading-relaxed">{product.description}</p>
+              <CardContent className="pt-0 pb-4">
+                <p className="text-sm text-slate-600 mb-4 line-clamp-2">{product.description}</p>
                 
-                {/* Features List */}
-                <ul className="space-y-3 mb-8">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-sm text-slate-700">
-                      <div className="p-1 bg-green-100 rounded-full mr-3">
-                        <CheckCircle className="h-3 w-3 text-green-600" />
-                      </div>
-                      {feature}
-                    </li>
+                {/* Compact Features */}
+                <div className="space-y-2 mb-4">
+                  {product.features.slice(0, 2).map((feature, i) => (
+                    <div key={i} className="flex items-center text-xs text-slate-700">
+                      <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                      <span className="truncate">{feature}</span>
+                    </div>
                   ))}
-                </ul>
+                  {product.features.length > 2 && (
+                    <div className="text-xs text-slate-500 ml-5">+{product.features.length - 2} more benefits</div>
+                  )}
+                </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col gap-3">
-                  <Button asChild variant="outline" className="group/btn border-slate-200 hover:border-primary hover:bg-primary/5">
+                {/* Compact Action Buttons */}
+                <div className="flex gap-2">
+                  <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
                     <Link to={product.learnLink}>
-                      Learn More
-                      <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                      Learn
                     </Link>
                   </Button>
-                  <Button asChild className="group/btn bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl">
+                  <Button asChild size="sm" className="flex-1 text-xs">
                      <a href="https://preview--hbf-application.lovable.app/auth">
-                        Apply Now
-                        <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                        Apply
+                        <ArrowRight className="h-3 w-3 ml-1" />
                       </a>
                   </Button>
                 </div>
@@ -319,71 +315,68 @@ const ProductsSection = () => {
         </div>
 
         {/* Business Capital Section */}
-        <div className="border-t border-slate-200 pt-20">
-          <div className="text-center mb-16">
+        <div className="border-t border-slate-200 pt-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-50 to-blue-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <TrendingUp className="h-4 w-4" />
               Business Growth Capital
             </div>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent mb-6">
+            <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent mb-4">
               Business Capital Solutions
             </h3>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Powerful capital tools designed to help your business grow, scale, and succeed in today's competitive market.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Powerful capital tools designed to help your business grow and succeed.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+          {/* Horizontal Layout for Business Products */}
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {businessProducts.map((product, index) => (
               <Card 
                 key={index} 
-                className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white"
+                className="group relative border border-slate-200/60 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                
-                <CardHeader className="pb-6 relative">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`p-3 bg-gradient-to-br ${product.color} rounded-xl shadow-lg`}>
-                      <product.icon className="h-6 w-6 text-white" />
+                <CardHeader className="pb-3 pt-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
+                      <product.icon className="h-5 w-5 text-white" />
                     </div>
-                    <h5 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-200">
+                    <h5 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 flex-1 min-w-0 truncate">
                       {product.title}
                     </h5>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                      {product.rate}
-                    </div>
-                    <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
+                  <div className="bg-slate-50 rounded-lg px-3 py-2">
+                    <div className="text-xl font-bold text-primary">{product.rate}</div>
+                    <div className="text-xs text-slate-600">{product.rateLabel}</div>
                   </div>
                 </CardHeader>
                 
-                <CardContent className="pt-0 relative">
-                  <p className="text-slate-600 mb-6 leading-relaxed">{product.description}</p>
+                <CardContent className="pt-0 pb-4">
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">{product.description}</p>
                   
-                  <ul className="space-y-3 mb-8">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-sm text-slate-700">
-                        <div className="p-1 bg-green-100 rounded-full mr-3">
-                          <CheckCircle className="h-3 w-3 text-green-600" />
-                        </div>
-                        {feature}
-                      </li>
+                  <div className="space-y-2 mb-4">
+                    {product.features.slice(0, 2).map((feature, i) => (
+                      <div key={i} className="flex items-center text-xs text-slate-700">
+                        <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                        <span className="truncate">{feature}</span>
+                      </div>
                     ))}
-                  </ul>
+                    {product.features.length > 2 && (
+                      <div className="text-xs text-slate-500 ml-5">+{product.features.length - 2} more</div>
+                    )}
+                  </div>
 
-                  <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline" className="group/btn border-slate-200 hover:border-primary hover:bg-primary/5">
+                  <div className="flex gap-2">
+                    <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
                       <Link to={product.learnLink}>
-                        Learn More
-                        <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                        Learn
                       </Link>
                     </Button>
-                    <Button asChild className="group/btn bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl">
+                    <Button asChild size="sm" className="flex-1 text-xs">
                       <a href="https://preview--hbf-application.lovable.app/auth">
-                        Apply Now
-                        <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                        Apply
+                        <ArrowRight className="h-3 w-3 ml-1" />
                       </a>
                     </Button>
                   </div>
