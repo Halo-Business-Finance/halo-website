@@ -6,6 +6,7 @@ import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linke
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
+import VardaChatBot from "@/components/VardaChatBot";
 
 const CompanyOverview = () => {
   return (
@@ -250,7 +251,7 @@ const CompanyOverview = () => {
         </div>
       </section>
 
-
+      <VardaChatBot />
       <Footer />
     </div>
   );
