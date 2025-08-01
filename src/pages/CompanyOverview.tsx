@@ -70,20 +70,10 @@ const CompanyOverview = () => {
               We make commercial lending simple
             </p>
             
-            {/* Professional Overview Image */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={fintechLoanMarketplace} 
-                  alt="Professional fintech loan marketplace platform showing digital lending interface"
-                  className="w-full h-64 md:h-80 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-xl font-semibold mb-2">Fast, Simple, Secure</h3>
-                  <p className="text-sm opacity-90">Professional lending process with modern technology</p>
-                </div>
-              </div>
+            {/* Text content from previous image overlay */}
+            <div className="max-w-2xl mx-auto mb-8">
+              <h3 className="text-2xl font-semibold mb-3 text-primary">Fast, Simple, Secure</h3>
+              <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
             </div>
           </div>
 
