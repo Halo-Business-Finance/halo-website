@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import contactUsHeader from "@/assets/contact-us-header.jpg";
+import contactConsultationMeeting from "@/assets/contact-consultation-meeting.jpg";
 
 const ContactUsPage = () => {
   return (
@@ -86,6 +87,14 @@ const ContactUsPage = () => {
             </div>
             
             <div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg mb-8">
+                <img 
+                  src={contactConsultationMeeting} 
+                  alt="Professional business consultant meeting with clients in modern fintech office"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
               <Card className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
                 <form className="space-y-6">

@@ -24,6 +24,9 @@ import {
   Landmark
 } from "lucide-react";
 import marketplaceBenefitsHeader from "@/assets/marketplace-benefits-header.jpg";
+import fintechAnalysisTeam from "@/assets/fintech-analysis-team.jpg";
+import marketplaceDashboard from "@/assets/marketplace-dashboard.jpg";
+import marketplaceTeamSuccess from "@/assets/marketplace-team-success.jpg";
 
 const MarketplaceBenefitsPage = () => {
   const lenderStats = [
@@ -181,6 +184,17 @@ const MarketplaceBenefitsPage = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               The numbers behind America's most comprehensive commercial loan marketplace
             </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={fintechAnalysisTeam} 
+                alt="Business professionals analyzing financial data and loan applications on digital screens"
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -465,6 +479,17 @@ const MarketplaceBenefitsPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={marketplaceTeamSuccess} 
+                alt="Professional diverse business team celebrating successful loan marketplace connections"
+                className="w-full h-48 md:h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
             </div>
           </div>
 

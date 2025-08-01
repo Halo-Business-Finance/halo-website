@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
 import howItWorksHeader from "@/assets/how-it-works-header.jpg";
+import loanProcessingTeam from "@/assets/loan-processing-team.jpg";
+import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
@@ -64,7 +66,18 @@ const HowItWorksPage = () => {
                 <p className="text-muted-foreground">Close on your loan and receive funds</p>
               </CardContent>
             </Card>
-          </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto mb-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={loanProcessingTeam} 
+                  alt="Professional fintech team working on digital loan processing dashboard"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+              </div>
+            </div>
 
           {/* Why Our Marketplace Works Section */}
           <div className="mb-16">
@@ -308,14 +321,14 @@ const HowItWorksPage = () => {
 
           {/* Enhanced Call to action with business image */}
           <div className="text-center mt-16">
-            <div className="relative overflow-hidden rounded-2xl max-w-4xl mx-auto">
-              <img 
-                src={businessGrowth} 
-                alt="Business success and growth"
-                className="absolute inset-0 w-full h-full object-cover opacity-30"
-              />
-              <div className="relative bg-gradient-to-r from-financial-navy/95 to-primary/90 text-white p-8">
-                <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+                <div className="relative overflow-hidden rounded-2xl max-w-4xl mx-auto">
+                  <img 
+                    src={successfulLoanHandshake} 
+                    alt="Professional business handshake after successful loan approval"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30"
+                  />
+                  <div className="relative bg-gradient-to-r from-financial-navy/95 to-primary/90 text-white p-8">
+                    <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
                   <img 
                     src={sbaLogo} 
                     alt="SBA Preferred Lender"
