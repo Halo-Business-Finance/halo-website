@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
@@ -6,20 +6,20 @@ import ConsultationPopup from "@/components/ConsultationPopup";
 import { 
   CreditCard, 
   PiggyBank, 
-  Home, 
   Car, 
   TrendingUp, 
   Building2,
   ArrowRight,
   CheckCircle,
-  Shield,
   Factory,
   Landmark,
   Hammer,
   Users,
-  Banknote,
   DollarSign,
-  Receipt
+  Receipt,
+  Sparkles,
+  Star,
+  ChevronRight
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
@@ -37,7 +37,8 @@ const ProductsSection = () => {
       features: ["Up to $5 million", "Long-term financing", "SBA guarantee"],
       learnLink: "/sba-7a-loans",
       applyLink: "/sba-loan-application",
-      badge: "Popular"
+      badge: "Popular",
+      color: "from-blue-600 to-blue-700"
     },
     {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
@@ -48,7 +49,8 @@ const ProductsSection = () => {
       features: ["Up to $5.5 million", "10% down payment", "Fixed rates"],
       learnLink: "/sba-504-loans",
       applyLink: "/sba-504-application",
-      badge: null
+      badge: null,
+      color: "from-green-600 to-green-700"
     },
     {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
@@ -59,7 +61,8 @@ const ProductsSection = () => {
       features: ["Up to $500,000", "36-hour approval", "Revolving credit option"],
       learnLink: "/sba-express-loans",
       applyLink: "/sba-loan-application",
-      badge: "Fast"
+      badge: "Fast",
+      color: "from-orange-600 to-orange-700"
     },
     {
       icon: Factory,
@@ -70,7 +73,8 @@ const ProductsSection = () => {
       features: ["Up to $25 million", "Rural area focus", "USDA guarantee"],
       learnLink: "/usda-bi-loans",
       applyLink: "/sba-loan-application",
-      badge: null
+      badge: null,
+      color: "from-emerald-600 to-emerald-700"
     },
     {
       icon: Building2,
@@ -81,7 +85,8 @@ const ProductsSection = () => {
       features: ["No government guarantee", "Faster approval", "Flexible terms"],
       learnLink: "/conventional-loans",
       applyLink: "/conventional-loan-application",
-      badge: null
+      badge: null,
+      color: "from-purple-600 to-purple-700"
     },
     {
       icon: Landmark,
@@ -92,7 +97,8 @@ const ProductsSection = () => {
       features: ["$2M+ loan amounts", "Non-recourse options", "Fixed rates"],
       learnLink: "/cmbs-loans",
       applyLink: "/conventional-loan-application",
-      badge: null
+      badge: null,
+      color: "from-indigo-600 to-indigo-700"
     },
     {
       icon: PiggyBank,
@@ -103,7 +109,8 @@ const ProductsSection = () => {
       features: ["Flexible underwriting", "Quick decisions", "Relationship banking"],
       learnLink: "/portfolio-loans",
       applyLink: "/conventional-loan-application",
-      badge: null
+      badge: null,
+      color: "from-teal-600 to-teal-700"
     },
     {
       icon: Hammer,
@@ -114,7 +121,8 @@ const ProductsSection = () => {
       features: ["Interest-only payments", "Progress-based funding", "Convert to permanent"],
       learnLink: "/construction-loans",
       applyLink: "/conventional-loan-application",
-      badge: null
+      badge: null,
+      color: "from-amber-600 to-amber-700"
     },
     {
       icon: TrendingUp,
@@ -125,7 +133,8 @@ const ProductsSection = () => {
       features: ["Fast 7-day closing", "Up to $10 million", "Flexible terms"],
       learnLink: "/bridge-financing",
       applyLink: "/bridge-loan-application",
-      badge: "Fast"
+      badge: "Fast",
+      color: "from-red-600 to-red-700"
     },
     {
       icon: Users,
@@ -136,7 +145,8 @@ const ProductsSection = () => {
       features: ["5+ unit properties", "Non-recourse options", "Long-term fixed rates"],
       learnLink: "/multifamily-loans",
       applyLink: "/conventional-loan-application",
-      badge: null
+      badge: null,
+      color: "from-cyan-600 to-cyan-700"
     },
     {
       icon: DollarSign,
@@ -147,7 +157,8 @@ const ProductsSection = () => {
       features: ["Asset-backed security", "Flexible terms", "Fast approval"],
       learnLink: "/asset-based-loans",
       applyLink: "/conventional-loan-application",
-      badge: null
+      badge: null,
+      color: "from-violet-600 to-violet-700"
     },
     {
       icon: Car,
@@ -158,7 +169,8 @@ const ProductsSection = () => {
       features: ["100% financing available", "Fast approval", "Flexible payments"],
       learnLink: "/equipment-financing",
       applyLink: "/equipment-loan-application",
-      badge: null
+      badge: null,
+      color: "from-pink-600 to-pink-700"
     }
   ];
 
@@ -171,7 +183,8 @@ const ProductsSection = () => {
       rateLabel: "Starting Rate",
       features: ["Revolving credit line", "Quick access", "Flexible repayment"],
       learnLink: "/working-capital",
-      applyLink: "/working-capital-application"
+      applyLink: "/working-capital-application",
+      color: "from-blue-500 to-blue-600"
     },
     {
       icon: TrendingUp,
@@ -181,7 +194,8 @@ const ProductsSection = () => {
       rateLabel: "Starting Rate",
       features: ["Draw as needed", "Pay interest only on used funds", "Revolving credit"],
       learnLink: "/business-line-of-credit",
-      applyLink: "/business-line-of-credit-application"
+      applyLink: "/business-line-of-credit-application",
+      color: "from-emerald-500 to-emerald-600"
     },
     {
       icon: Building2,
@@ -191,7 +205,8 @@ const ProductsSection = () => {
       rateLabel: "Starting APR",
       features: ["Fixed monthly payments", "Competitive rates", "Quick approval"],
       learnLink: "/term-loans",
-      applyLink: "/term-loan-application"
+      applyLink: "/term-loan-application",
+      color: "from-purple-500 to-purple-600"
     },
     {
       icon: Receipt,
@@ -201,127 +216,174 @@ const ProductsSection = () => {
       rateLabel: "Factor Rate",
       features: ["Immediate cash flow", "No debt on balance sheet", "Credit protection"],
       learnLink: "/factoring-based-financing",
-      applyLink: "/working-capital-application"
+      applyLink: "/working-capital-application",
+      color: "from-orange-500 to-orange-600"
     }
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-gray-50">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
       <div className="container mx-auto px-4">
-        {/* SBA and Commercial Loans */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        {/* Enhanced Header Section */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="h-4 w-4" />
+            SBA Preferred Lender
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent mb-6">
             SBA & Commercial Loan Solutions
           </h2>
-          <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
-            Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SBA-backed</a> and conventional financing options designed to fuel your business growth. Learn more about <Link to="/how-it-works" className="text-primary hover:underline">how our lending process works</Link>.
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">SBA-backed</a> and conventional financing options designed to fuel your business growth. Learn more about <Link to="/how-it-works" className="text-primary hover:underline font-medium">how our lending process works</Link>.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
+        {/* Modern Grid Layout */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-20">
           {products.map((product, index) => (
-            <Card key={index} className="relative">
+            <Card 
+              key={index} 
+              className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white"
+            >
+              {/* Gradient Background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              
               {product.badge && (
-                <Badge className="absolute top-4 right-4 bg-primary text-white text-xs">
+                <Badge className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-semibold shadow-lg z-10">
+                  <Star className="h-3 w-3 mr-1" />
                   {product.badge}
                 </Badge>
               )}
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-center mb-3">
+              
+              <CardHeader className="pb-6 relative">
+                {/* Icon/Logo Section */}
+                <div className="flex items-center justify-center mb-6">
                   {product.logo ? (
-                    <div className="p-2 bg-white rounded-lg border">
-                      <img src={product.logo} alt={`${product.title} logo`} className="h-8 w-auto" />
+                    <div className="p-4 bg-gradient-to-br from-white to-slate-50 rounded-2xl border shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                      <img src={product.logo} alt={`${product.title} logo`} className="h-10 w-auto" />
                     </div>
                   ) : (
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                    <div className={`p-4 bg-gradient-to-br ${product.color} rounded-2xl shadow-lg`}>
+                      <product.icon className="h-8 w-8 text-white" />
                     </div>
                   )}
                 </div>
-                <div className="text-center py-4">
-                  <h4 className="text-lg md:text-xl font-bold mb-4">{product.title}</h4>
-                  <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
-                  <div className="text-xs md:text-sm text-foreground">{product.rateLabel}</div>
+                
+                {/* Title and Rate */}
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-200">
+                    {product.title}
+                  </h4>
+                  <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4 mb-4">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                      {product.rate}
+                    </div>
+                    <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
+                  </div>
                 </div>
               </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-foreground mb-4">{product.description}</p>
+              
+              <CardContent className="pt-0 relative">
+                <p className="text-slate-600 mb-6 leading-relaxed">{product.description}</p>
                 
-                <ul className="space-y-2 mb-6">
+                {/* Features List */}
+                <ul className="space-y-3 mb-8">
                   {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-xs md:text-sm text-foreground">
-                      <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-success mr-2 flex-shrink-0" />
+                    <li key={i} className="flex items-center text-sm text-slate-700">
+                      <div className="p-1 bg-green-100 rounded-full mr-3">
+                        <CheckCircle className="h-3 w-3 text-green-600" />
+                      </div>
                       {feature}
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
-                  <Button asChild variant="outline" className="flex-1 text-xs md:text-sm">
+                {/* Action Buttons */}
+                <div className="flex flex-col gap-3">
+                  <Button asChild variant="outline" className="group/btn border-slate-200 hover:border-primary hover:bg-primary/5">
                     <Link to={product.learnLink}>
-                      Learn About
+                      Learn More
+                      <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
                     </Link>
                   </Button>
-                  <Button asChild className="flex-1 group text-xs md:text-sm">
+                  <Button asChild className="group/btn bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl">
                      <a href="https://preview--hbf-application.lovable.app/auth">
-                       Apply For
-                       <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
-                     </a>
-                   </Button>
+                        Apply Now
+                        <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                      </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Business Banking Section */}
-        <div className="border-t pt-12 md:pt-16">
-          <div className="text-center mb-8 md:mb-12">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        {/* Business Capital Section */}
+        <div className="border-t border-slate-200 pt-20">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-50 to-blue-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <TrendingUp className="h-4 w-4" />
+              Business Growth Capital
+            </div>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent mb-6">
               Business Capital Solutions
             </h3>
-            <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
-              Powerful capital tools to help your business grow and succeed.
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Powerful capital tools designed to help your business grow, scale, and succeed in today's competitive market.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
             {businessProducts.map((product, index) => (
-              <Card key={index} className="">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <product.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+              <Card 
+                key={index} 
+                className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                
+                <CardHeader className="pb-6 relative">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`p-3 bg-gradient-to-br ${product.color} rounded-xl shadow-lg`}>
+                      <product.icon className="h-6 w-6 text-white" />
                     </div>
-                    <h5 className="text-lg md:text-xl">{product.title}</h5>
+                    <h5 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-200">
+                      {product.title}
+                    </h5>
                   </div>
-                  <div className="text-center py-4">
-                    <div className="text-2xl md:text-3xl font-bold text-primary">{product.rate}</div>
-                    <div className="text-xs md:text-sm text-foreground">{product.rateLabel}</div>
+                  
+                  <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                      {product.rate}
+                    </div>
+                    <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
                   </div>
                 </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-sm md:text-base text-foreground mb-4">{product.description}</p>
+                
+                <CardContent className="pt-0 relative">
+                  <p className="text-slate-600 mb-6 leading-relaxed">{product.description}</p>
                   
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-3 mb-8">
                     {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-xs md:text-sm text-foreground">
-                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-success mr-2 flex-shrink-0" />
+                      <li key={i} className="flex items-center text-sm text-slate-700">
+                        <div className="p-1 bg-green-100 rounded-full mr-3">
+                          <CheckCircle className="h-3 w-3 text-green-600" />
+                        </div>
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
-                    <Button asChild variant="outline" className="flex-1 text-xs md:text-sm">
+                  <div className="flex flex-col gap-3">
+                    <Button asChild variant="outline" className="group/btn border-slate-200 hover:border-primary hover:bg-primary/5">
                       <Link to={product.learnLink}>
-                        Learn About
+                        Learn More
+                        <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
                       </Link>
                     </Button>
-                    <Button asChild className="flex-1 group text-xs md:text-sm">
+                    <Button asChild className="group/btn bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg hover:shadow-xl">
                       <a href="https://preview--hbf-application.lovable.app/auth">
-                        Apply For
-                        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
+                        Apply Now
+                        <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
                       </a>
                     </Button>
                   </div>
@@ -331,29 +393,37 @@ const ProductsSection = () => {
           </div>
         </div>
 
-        {/* CTA Section with Background Image */}
-        <div className="mt-12 md:mt-16 relative overflow-hidden rounded-lg">
+        {/* Enhanced CTA Section */}
+        <div className="mt-20 relative overflow-hidden rounded-3xl shadow-2xl">
           <img 
             src={financialAdvisorConsultation} 
             alt="Professional financial advisor consultation with business owner"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="relative bg-gradient-to-r from-financial-navy/90 to-primary/80 text-white py-12 md:py-16 px-6 md:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+          <div className="relative bg-gradient-to-r from-slate-900/95 via-blue-900/90 to-slate-900/95 text-white py-20 px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+                <Sparkles className="h-4 w-4" />
+                Join 2,500+ Successful Businesses
+              </div>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
-              <p className="text-lg md:text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100">SCORE's business loan guide</a> for additional insights.
+              <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100 font-medium">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100 font-medium">SCORE's business loan guide</a> for additional insights.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base border-2 border-primary shadow-lg hover:bg-gray-50">
-                  <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button asChild size="lg" className="bg-white text-slate-900 font-semibold text-lg px-8 py-4 shadow-xl hover:bg-slate-50 hover:shadow-2xl transition-all duration-300">
+                  <a href="https://preview--hbf-application.lovable.app/auth">
+                    Get Pre-Qualified
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </a>
                 </Button>
                 <ConsultationPopup 
                   trigger={
-                    <Button size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base">
+                    <Button size="lg" variant="ghost" className="border-2 border-white text-white text-lg px-8 py-4 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
                       Schedule Consultation
+                      <ChevronRight className="h-5 w-5 ml-2" />
                     </Button>
                   }
                 />
