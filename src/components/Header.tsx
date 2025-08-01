@@ -170,8 +170,8 @@ const Header = () => {
                 <Menu className="h-5 w-5 md:h-6 md:w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 sm:w-80">
-              <div className="flex flex-col gap-6 pt-6">
+            <SheetContent side="right" className="w-72 sm:w-80 overflow-y-auto max-h-screen">
+              <div className="flex flex-col gap-6 pt-6 pb-6 min-h-full">
                 <div className="flex flex-col gap-4">
                   <Button variant="outline" className="justify-start" asChild>
                     <a href="https://preview--hbf-application.lovable.app/auth">
@@ -184,8 +184,8 @@ const Header = () => {
                   </Button>
                 </div>
                 
-                <div className="border-t pt-6">
-                  <nav className="flex flex-col gap-4">
+                <div className="border-t pt-6 flex-1">
+                  <nav className="flex flex-col gap-4 pb-4">
                     {navItems.map((item) => (
                       <div key={item.title} className="space-y-2">
                         <h3 className="font-semibold text-lg">{item.title}</h3>
