@@ -510,6 +510,17 @@ const CompanyOverview = () => {
               </div>
             </div>
           </div>
+          
+          {/* Apply Here Button for Values & Commitment */}
+          <div className="flex justify-center mt-8">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3"
+              onClick={() => window.open('/halo-application', '_blank')}
+            >
+              Apply Here
+            </Button>
+          </div>
         </div>
       </section>
 
