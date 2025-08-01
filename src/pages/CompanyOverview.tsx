@@ -21,6 +21,7 @@ import nmlsProfessionals from "@/assets/nmls-professionals.jpg";
 import sbaProfessionals from "@/assets/sba-professionals.jpg";
 import bbbProfessionals from "@/assets/bbb-professionals.jpg";
 import associationsProfessionals from "@/assets/associations-professionals.jpg";
+import marketplaceUser from "@/assets/marketplace-user.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -164,8 +165,8 @@ const CompanyOverview = () => {
             ].map((item, index) => (
               <Card key={index} className="text-center p-6">
                 <CardContent className="p-0">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <item.icon className="h-8 w-8 text-primary" />
+                  <div className="w-full h-32 rounded-lg overflow-hidden mb-4">
+                    <img src={marketplaceUser} alt="Business owner using marketplace" className="w-full h-full object-cover object-center" />
                   </div>
                   <div className="text-3xl font-bold text-primary mb-4">{item.step}</div>
                   <h3 className="font-semibold mb-2">{item.title}</h3>
