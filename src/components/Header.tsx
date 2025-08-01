@@ -18,7 +18,7 @@ const Header = () => {
     {
       title: "Company",
       href: "/company",
-      items: ["Company Overview", "How it Works", "Contact Us"]
+      items: ["Company Overview", "How it Works", "Marketplace Benefits", "Contact Us"]
     },
     {
       title: "SBA & USDA Loans",
@@ -52,6 +52,7 @@ const Header = () => {
       "Company": {
         "Company Overview": "/company-overview",
         "How it Works": "/how-it-works",
+        "Marketplace Benefits": "/marketplace-benefits",
         "Contact Us": "/contact-us"
       },
       "SBA & USDA Loans": {
