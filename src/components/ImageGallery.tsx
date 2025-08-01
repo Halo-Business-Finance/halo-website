@@ -129,7 +129,7 @@ const ImageGallery = () => {
         </div>
 
         {/* Elegant Carousel Section */}
-        <div className="relative mb-12">
+        <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/30 shadow-lg">
           {/* Navigation Controls */}
           <div className="flex justify-between items-center mb-6">
             <div className="flex gap-2">

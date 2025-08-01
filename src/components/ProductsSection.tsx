@@ -274,7 +274,7 @@ const ProductsSection = () => {
         </div>
 
         {/* Elegant Carousel Section */}
-        <div className="relative mb-20">
+        <div className="relative mb-20 bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg">
           {/* Navigation Controls */}
           <div className="flex justify-between items-center mb-8">
             <div className="flex gap-2">
