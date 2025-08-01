@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Award, Target, TrendingUp, Linkedin } from "lucide-react";
 import businessGrowth from "@/assets/business-growth.jpg";
+import jamesWilsonHeadshot from "@/assets/james-wilson-headshot.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 
 const AboutUsPage = () => {
@@ -188,12 +189,12 @@ const AboutUsPage = () => {
             <Card className="p-6">
               <CardContent className="p-0">
                 <div className="relative mb-4">
-                  <img src={loanConsultation} alt="James Wilson, Head of Technology" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                  <img src={jamesWilsonHeadshot} alt="James Wilson, Head of Technology" className="w-24 h-24 rounded-full mx-auto object-cover" />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">James Wilson</h3>
                 <p className="text-primary font-medium text-center mb-3">Head of Technology</p>
                 <p className="text-sm text-foreground mb-3">
-                  James leads our technology initiatives and platform development. 10+ years in fintech with previous roles at LendingClub and Kabbage.
+                  James leads our technology initiatives and platform development with over 10 years of experience in fintech and software engineering.
                 </p>
                 <div className="text-xs text-foreground">
                   <p>• MS Computer Science, Carnegie Mellon</p>
