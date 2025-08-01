@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 const BrokersPage = lazy(() => import("./pages/BrokersPage"));
 const LendersPage = lazy(() => import("./pages/LendersPage"));
 const CompanyOverview = lazy(() => import("./pages/CompanyOverview"));
+const CompanyLicensesPage = lazy(() => import("./pages/CompanyLicensesPage"));
 const SBALoansPage = lazy(() => import("./pages/SBALoansPage"));
 const CommercialLoansPage = lazy(() => import("./pages/CommercialLoansPage"));
 const EquipmentFinancingPage = lazy(() => import("./pages/EquipmentFinancingPage"));
@@ -104,6 +105,7 @@ const App = () => (
               <Route path="/brokers" element={<BrokersPage />} />
             <Route path="/lenders" element={<LendersPage />} />
             <Route path="/company-overview" element={<CompanyOverview />} />
+            <Route path="/company-licenses" element={<CompanyLicensesPage />} />
             <Route path="/sba-loans" element={<SBALoansPage />} />
             <Route path="/commercial-loans" element={<CommercialLoansPage />} />
             <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
