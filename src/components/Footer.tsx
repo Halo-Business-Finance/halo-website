@@ -65,7 +65,7 @@ const Footer = () => {
                   HALO <span className="text-primary">BUSINESS FINANCE</span>
                 </h3>
               </Link>
-              <p className="text-gray-300 mb-6">
+              <p className="text-white mb-6">
                 Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
               </p>
             </div>
@@ -73,14 +73,14 @@ const Footer = () => {
             {/* Newsletter signup */}
             <div className="mb-6">
               <h4 className="font-semibold mb-3">Stay Informed</h4>
-              <p className="text-sm text-gray-300 mb-3">
+              <p className="text-sm text-white mb-3">
                 Get the latest financial insights and bank updates.
               </p>
               <div className="flex gap-2">
                 <Input 
                   type="email" 
                   placeholder="Enter your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
                 />
                 <Button size="sm" className="bg-primary">
                   Subscribe
@@ -95,7 +95,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -109,7 +109,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {loanPrograms.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -123,7 +123,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -137,7 +137,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {resourceLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -151,7 +151,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.link} className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
                 </li>
@@ -159,7 +159,7 @@ const Footer = () => {
               <li>
                 <ConsultationPopup 
                   trigger={
-                    <button className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left bg-transparent border-none p-0 text-left cursor-pointer">
+                    <button className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left bg-transparent border-none p-0 text-left cursor-pointer">
                       Schedule Consultation
                     </button>
                   }
@@ -185,7 +185,7 @@ const Footer = () => {
               </div>
               <div className="text-sm">
                 <div className="font-semibold">BBB Accredited</div>
-                <div className="text-gray-300">Business Since 2019</div>
+                <div className="text-white">Business Since 2019</div>
               </div>
             </div>
 
@@ -206,18 +206,18 @@ const Footer = () => {
             </div>
 
             {/* Legal links */}
-            <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-              <Link to="/nmls-compliance" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">NMLS Compliance</Link>
-              <Link to="/privacy-policy" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Terms of Use</Link>
-              <Link to="/accessibility" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Accessibility</Link>
-              <Link to="/sitemap" className="hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Site Map</Link>
+            <div className="flex flex-wrap gap-4 text-sm text-white">
+              <Link to="/nmls-compliance" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">NMLS Compliance</Link>
+              <Link to="/privacy-policy" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Terms of Use</Link>
+              <Link to="/accessibility" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Accessibility</Link>
+              <Link to="/sitemap" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Site Map</Link>
             </div>
           </div>
 
           {/* Copyright and disclosures */}
           <div className="mt-8 pt-6 border-t border-white/20">
-            <div className="text-xs text-gray-400 space-y-2">
+            <div className="text-xs text-white space-y-2">
               <p>© 2025 Halo Business Finance. All rights reserved.</p>
               <p>
                 DFPI CFL License No. 60DBO-178064. California Commercial Financing Law disclosures available upon request.
