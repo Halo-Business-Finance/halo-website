@@ -123,12 +123,12 @@ const AboutUsPage = () => {
                 <h3 className="text-xl font-semibold text-center mb-2">Nuri Khoshaba</h3>
                 <p className="text-primary font-medium text-center mb-3">Chief Operating Officer</p>
                 <p className="text-sm text-foreground mb-3">
-                  Nuri brings entrepreneurial expertise to operations management, having founded and operated his own successful business. His experience in navigating business challenges provides innovative perspectives for operational excellence and growth strategies.
+                  Nuri has served as COO at Halo Business Finance for nearly 7 years, bringing entrepreneurial expertise and operational leadership. Having founded and operated his own successful business, his experience in navigating business challenges provides innovative perspectives for operational excellence and growth strategies.
                 </p>
                 <div className="text-xs text-foreground">
-                  <p>• VP at Halo Business Finance</p>
-                  <p>• Entrepreneur & Business Owner</p>
-                  <p>• Operations & Growth Specialist</p>
+                  <p>• Bachelor's Liberal Arts & Sciences, University of Illinois Chicago</p>
+                  <p>• 6+ Years COO at Halo Business Finance</p>
+                  <p>• Public Speaking & Leadership Expertise</p>
                 </div>
               </CardContent>
             </Card>

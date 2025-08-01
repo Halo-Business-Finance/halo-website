@@ -248,12 +248,12 @@ const CompanyOverview = () => {
                 <h3 className="text-xl font-bold mb-2">Nuri Khoshaba</h3>
                 <p className="text-primary font-semibold mb-3">Chief Operating Officer</p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Nuri oversees daily operations and strategic initiatives with extensive entrepreneurial experience. 
-                  Having founded and operated his own company, he brings unique insights to operational efficiency 
-                  and innovative problem-solving approaches that drive continuous improvement.
+                  Nuri has led operations at Halo Business Finance for nearly 7 years, combining extensive 
+                  entrepreneurial experience with operational excellence. His background as a business owner 
+                  and public speaking expertise brings unique insights to strategic initiatives and team leadership.
                 </p>
                 <div className="text-xs text-muted-foreground">
-                  VP Operations | Entrepreneur & Former Business Owner | Orange County, CA
+                  BS Liberal Arts & Sciences, UIC (1994) | 6+ Years COO | Public Speaking Expert
                 </div>
               </CardContent>
             </Card>
