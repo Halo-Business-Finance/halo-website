@@ -22,6 +22,11 @@ import sbaProfessionals from "@/assets/sba-professionals.jpg";
 import bbbProfessionals from "@/assets/bbb-professionals.jpg";
 import associationsProfessionals from "@/assets/associations-professionals.jpg";
 import marketplaceUser from "@/assets/marketplace-user.jpg";
+import step1SelectLoan from "@/assets/step1-select-loan.jpg";
+import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
+import step3PreApproved from "@/assets/step3-pre-approved.jpg";
+import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
+import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -157,16 +162,16 @@ const CompanyOverview = () => {
 
           <div className="grid md:grid-cols-5 gap-8">
             {[
-              { step: "01", title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", icon: FileText },
-              { step: "02", title: "Answer Questions", description: "Complete our simple application about your loan request", icon: MessageSquare },
-              { step: "03", title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", icon: ShieldCheck },
-              { step: "04", title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", icon: Upload },
-              { step: "05", title: "Get Funded", description: "Sign your loan documents and receive your funding", icon: DollarSign }
+              { step: "01", title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
+              { step: "02", title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
+              { step: "03", title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
+              { step: "04", title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
+              { step: "05", title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
             ].map((item, index) => (
               <Card key={index} className="text-center p-6">
                 <CardContent className="p-0">
                   <div className="w-full h-32 rounded-lg overflow-hidden mb-4">
-                    <img src={marketplaceUser} alt="Business owner using marketplace" className="w-full h-full object-cover object-center" />
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
                   </div>
                   <div className="text-3xl font-bold text-primary mb-4">{item.step}</div>
                   <h3 className="font-semibold mb-2">{item.title}</h3>
