@@ -8,7 +8,6 @@ import ImageGallery from "@/components/ImageGallery";
 
 import Footer from "@/components/Footer";
 import { LendingStatsSection } from "@/components/charts/LendingStatsSection";
-import MarketplaceOverview from "@/components/MarketplaceOverview";
 import ResourcesHub from "@/components/ResourcesHub";
 import PartnershipsSection from "@/components/PartnershipsSection";
 import IndustryShowcase from "@/components/IndustryShowcase";
@@ -29,7 +28,6 @@ const Index = () => {
       <HeroSection />
       <ProductsSection />
       <IndustryShowcase />
-      <MarketplaceOverview />
       <LendingStatsSection />
       
       <ResourcesHub />

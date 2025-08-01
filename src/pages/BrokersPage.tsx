@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import MarketplaceOverview from "@/components/MarketplaceOverview";
 import { 
   Users, 
   DollarSign, 
@@ -183,6 +184,9 @@ const BrokersPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Marketplace Overview Section */}
+      <MarketplaceOverview />
 
       {/* Contact Section */}
       <section className="py-16 bg-gradient-to-br from-primary to-financial-navy text-white">

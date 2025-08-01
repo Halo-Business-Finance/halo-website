@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import StatsSection from "@/components/StatsSection";
+import MarketplaceOverview from "@/components/MarketplaceOverview";
 
 const LendersPage = () => {
   const benefits = [
@@ -459,6 +460,9 @@ const LendersPage = () => {
 
       {/* Our Impact in Numbers Section */}
       <StatsSection />
+
+      {/* Marketplace Overview Section */}
+      <MarketplaceOverview />
 
       {/* Contact Section */}
       <section className="py-16 bg-gradient-to-br from-primary to-financial-navy text-white">
