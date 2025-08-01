@@ -17,7 +17,8 @@ import {
   Hammer,
   Users,
   Banknote,
-  DollarSign
+  DollarSign,
+  Receipt
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
@@ -190,6 +191,16 @@ const ProductsSection = () => {
       features: ["Fixed monthly payments", "Competitive rates", "Quick approval"],
       learnLink: "/term-loans",
       applyLink: "/term-loan-application"
+    },
+    {
+      icon: Receipt,
+      title: "Factoring-Based Financing",
+      description: "Convert outstanding invoices into immediate working capital through factoring.",
+      rate: "1-3%",
+      rateLabel: "Factor Rate",
+      features: ["Immediate cash flow", "No debt on balance sheet", "Credit protection"],
+      learnLink: "/factoring-based-financing",
+      applyLink: "/working-capital-application"
     }
   ];
 
@@ -273,7 +284,7 @@ const ProductsSection = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {businessProducts.map((product, index) => (
               <Card key={index} className="">
                 <CardHeader className="pb-4">
