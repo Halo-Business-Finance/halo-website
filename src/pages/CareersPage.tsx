@@ -13,6 +13,11 @@ import teamCelebrationSuccess from "@/assets/team-celebration-success.jpg";
 import teamAchievementCelebration from "@/assets/team-achievement-celebration.jpg";
 import teamMilestoneCelebration from "@/assets/team-milestone-celebration.jpg";
 import newEmployeeCelebration from "@/assets/new-employee-celebration.jpg";
+import quarterlyCelebrationToast from "@/assets/quarterly-celebration-toast.jpg";
+import workAnniversaryCelebration from "@/assets/work-anniversary-celebration.jpg";
+import promotionCelebration from "@/assets/promotion-celebration.jpg";
+import teamBuildingCelebration from "@/assets/team-building-celebration.jpg";
+import companyMilestoneCelebration from "@/assets/company-milestone-celebration.jpg";
 
 const CareersPage = () => {
   return (
@@ -35,6 +40,48 @@ const CareersPage = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
               View Open Positions
             </Button>
+          </div>
+
+          <div className="bg-gradient-to-r from-primary/5 to-financial-navy/5 rounded-2xl p-8 mb-12">
+            <h3 className="text-2xl font-bold text-center mb-8">Celebrating Our Team Every Day</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={quarterlyCelebrationToast} 
+                  alt="Professional business team celebrating quarterly success with champagne toast"
+                  className="w-full h-40 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white">
+                  <h5 className="font-semibold text-sm">Quarterly Success</h5>
+                  <p className="text-xs opacity-90">Celebrating achievements</p>
+                </div>
+              </div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={workAnniversaryCelebration} 
+                  alt="Happy diverse fintech team celebrating work anniversary with balloons"
+                  className="w-full h-40 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white">
+                  <h5 className="font-semibold text-sm">Work Anniversaries</h5>
+                  <p className="text-xs opacity-90">Honoring loyalty</p>
+                </div>
+              </div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={promotionCelebration} 
+                  alt="Professional team celebrating promotion announcement with confetti"
+                  className="w-full h-40 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white">
+                  <h5 className="font-semibold text-sm">Career Growth</h5>
+                  <p className="text-xs opacity-90">Promoting from within</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -213,6 +260,33 @@ const CareersPage = () => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 my-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={teamBuildingCelebration} 
+                  alt="Diverse business professionals celebrating team building success with group hug"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-semibold">Team Building</h4>
+                  <p className="text-sm opacity-90">Building stronger connections</p>
+                </div>
+              </div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={companyMilestoneCelebration} 
+                  alt="Professional fintech team celebrating company milestone with banner and group photo"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-semibold">Company Milestones</h4>
+                  <p className="text-sm opacity-90">Growing together</p>
+                </div>
               </div>
             </div>
 
