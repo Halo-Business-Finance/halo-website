@@ -19,6 +19,10 @@ import {
   Eye,
   HelpCircle
 } from "lucide-react";
+import professionalSecurityTeamHeader from "@/assets/professional-security-team-header.jpg";
+import securityTeamMonitoring from "@/assets/security-team-monitoring.jpg";
+import securityMonitoringCenter from "@/assets/security-monitoring-center.jpg";
+import dataProtectionTeam from "@/assets/data-protection-team.jpg";
 
 const TechnicalSupportPage = () => {
   return (
@@ -32,8 +36,12 @@ const TechnicalSupportPage = () => {
       <div className="min-h-screen bg-background">
         <Header />
         
-        <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-          <div className="container mx-auto px-4">
+        <section 
+          className="relative py-16 md:py-24 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${professionalSecurityTeamHeader})` }}
+        >
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Technical Support</h1>
               <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
@@ -179,6 +187,47 @@ const TechnicalSupportPage = () => {
                       <li>• Contains at least one special character</li>
                     </ul>
                   </Card>
+                </div>
+              </div>
+            </div>
+
+            {/* Technical Team Images Section */}
+            <div className="mb-16">
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <img 
+                    src={securityTeamMonitoring} 
+                    alt="Professional cybersecurity team monitoring systems"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">Security Monitoring</h3>
+                  <p className="text-muted-foreground">
+                    Our cybersecurity experts continuously monitor systems to ensure your account safety.
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <img 
+                    src={securityMonitoringCenter} 
+                    alt="Modern security monitoring center"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">24/7 Operations</h3>
+                  <p className="text-muted-foreground">
+                    Our technical support center operates around the clock to assist with urgent issues.
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <img 
+                    src={dataProtectionTeam} 
+                    alt="Data protection specialists working on security"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">Data Protection</h3>
+                  <p className="text-muted-foreground">
+                    Specialized teams ensure your personal and financial data remains secure and protected.
+                  </p>
                 </div>
               </div>
             </div>

@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, MessageSquare, FileText, Users, Headphones } from "lucide-react";
+import contactUsHeader from "@/assets/contact-us-header.jpg";
+import contactConsultationMeeting from "@/assets/contact-consultation-meeting.jpg";
+import customerServiceTeam from "@/assets/customer-service-team.jpg";
+import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
 
 const CustomerServicePage = () => {
   return (
@@ -19,8 +23,12 @@ const CustomerServicePage = () => {
       <div className="min-h-screen bg-background">
         <Header />
         
-        <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-          <div className="container mx-auto px-4">
+        <section 
+          className="relative py-16 md:py-24 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${contactUsHeader})` }}
+        >
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Customer Service</h1>
               <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
@@ -122,6 +130,47 @@ const CustomerServicePage = () => {
                     </p>
                   </CardContent>
                 </Card>
+              </div>
+            </div>
+
+            {/* Professional Team Images Section */}
+            <div className="mb-16">
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <img 
+                    src={contactConsultationMeeting} 
+                    alt="Customer consultation meeting with business advisors"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">Expert Consultation</h3>
+                  <p className="text-muted-foreground">
+                    Our experienced advisors provide personalized guidance for your business financing needs.
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <img 
+                    src={customerServiceTeam} 
+                    alt="Dedicated customer service team at help desk"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">Dedicated Support</h3>
+                  <p className="text-muted-foreground">
+                    Our customer service team is available 24/7 to assist with any questions or concerns.
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <img 
+                    src={loanOfficersWorking} 
+                    alt="Professional loan officers collaborating"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">Loan Specialists</h3>
+                  <p className="text-muted-foreground">
+                    Work directly with our loan officers to find the perfect financing solution for your business.
+                  </p>
+                </div>
               </div>
             </div>
 
