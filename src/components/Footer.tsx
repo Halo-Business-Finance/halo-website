@@ -159,7 +159,7 @@ const Footer = () => {
               <li>
                 <ConsultationPopup 
                   trigger={
-                    <button className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                    <button className="text-sm text-gray-300 hover:text-white transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left bg-transparent border-none p-0 text-left cursor-pointer">
                       Schedule Consultation
                     </button>
                   }
