@@ -98,7 +98,7 @@ const AboutUsPage = () => {
             <Card className="p-6">
               <CardContent className="p-0">
                 <div className="relative mb-4">
-                  <img src={loanConsultation} alt="Varda Dinkha, CEO of Halo Business Finance" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                  <img src="/lovable-uploads/2a9e367f-246a-4c3f-a2a2-13e7f71d47f4.png" alt="Varda Dinkha, Founder & CEO of Halo Business Finance" className="w-24 h-24 rounded-full mx-auto object-cover" />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">Varda Dinkha</h3>
                 <p className="text-primary font-medium text-center mb-3">Founder & CEO</p>

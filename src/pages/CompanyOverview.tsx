@@ -223,8 +223,8 @@ const CompanyOverview = () => {
             {/* CEO */}
             <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary/70 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users className="h-12 w-12 text-white" />
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
+                  <img src="/lovable-uploads/2a9e367f-246a-4c3f-a2a2-13e7f71d47f4.png" alt="Varda Dinkha, Founder & CEO" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Varda Dinkha</h3>
                 <p className="text-primary font-semibold mb-3">Founder & Chief Executive Officer</p>
