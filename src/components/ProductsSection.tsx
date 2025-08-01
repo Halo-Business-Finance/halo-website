@@ -346,7 +346,7 @@ const ProductsSection = () => {
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100">SCORE's business loan guide</a> for additional insights.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base border-2 border-financial-navy shadow-lg">
+                <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base border-2 border-primary shadow-lg hover:bg-gray-50">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
                 <Button asChild size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base">

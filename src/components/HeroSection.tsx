@@ -37,7 +37,7 @@ const HeroSection = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-primary font-semibold text-sm md:text-base border-2 border-financial-navy shadow-lg" asChild>
+              <Button size="lg" className="bg-white text-primary font-semibold text-sm md:text-base border-2 border-primary shadow-lg hover:bg-gray-50" asChild>
                 <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white bg-transparent text-sm md:text-base" asChild>

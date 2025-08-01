@@ -116,7 +116,7 @@ const FeaturesSection = () => {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary font-semibold border-2 border-financial-navy shadow-lg">
+                <Button asChild size="lg" className="bg-white text-primary font-semibold border-2 border-primary shadow-lg hover:bg-gray-50">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-primary">
