@@ -23,7 +23,6 @@ const Footer = () => {
   ];
 
   const partnerLinks = [
-    { name: "Marketplace Benefits", link: "/marketplace-benefits" },
     { name: "Become a Broker", link: "/brokers" },
     { name: "Broker Resources", link: "/brokers" },
     { name: "Become a Lender", link: "/lenders" },
@@ -33,7 +32,6 @@ const Footer = () => {
   const supportLinks = [
     { name: "Customer Service", link: "/customer-service" },
     { name: "Technical Support", link: "/technical-support" },
-    { name: "Contact Us", link: "/contact-us" },
     { name: "Careers", link: "/careers" }
   ];
 
@@ -48,7 +46,9 @@ const Footer = () => {
 
   const companyLinks = [
     { name: "Company Overview", link: "/company-overview" },
-    { name: "How It Works", link: "/how-it-works" }
+    { name: "How It Works", link: "/how-it-works" },
+    { name: "Marketplace Benefits", link: "/marketplace-benefits" },
+    { name: "Contact Us", link: "/contact-us" }
   ];
 
   return (
