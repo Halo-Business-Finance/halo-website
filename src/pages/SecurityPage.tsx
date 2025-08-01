@@ -18,6 +18,11 @@ import {
   Zap
 } from "lucide-react";
 import SEO from "@/components/SEO";
+import fintechBlockchainHeader from "@/assets/fintech-blockchain-header.jpg";
+import dataEncryptionSecurity from "@/assets/data-encryption-security.jpg";
+import complianceDashboard from "@/assets/compliance-dashboard.jpg";
+import accessControlMfa from "@/assets/access-control-mfa.jpg";
+import securityMonitoringCenter from "@/assets/security-monitoring-center.jpg";
 
 const SecurityPage = () => {
   const securityFeatures = [
@@ -99,8 +104,8 @@ const SecurityPage = () => {
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1563013544-824ae1b704d3" 
-          alt="Cybersecurity and data protection concept"
+          src={fintechBlockchainHeader} 
+          alt="Digital fintech blockchain security with advanced cybersecurity measures"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
@@ -133,10 +138,26 @@ const SecurityPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Enterprise-Grade Security
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Our HBF-Application platform employs military-grade encryption and industry-leading 
               security protocols to ensure your sensitive business and financial data remains protected at all times.
             </p>
+            
+            {/* Security Overview Image */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={securityMonitoringCenter} 
+                  alt="Professional cybersecurity monitoring center with threat detection systems"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-xl font-semibold mb-2">24/7 Security Monitoring</h3>
+                  <p className="text-sm opacity-90">Advanced threat detection and real-time security analytics</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -167,10 +188,22 @@ const SecurityPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Compliance & Certifications
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               We maintain the highest standards of regulatory compliance and industry certifications 
               to ensure your data is handled according to federal and international requirements.
             </p>
+            
+            {/* Compliance Dashboard Image */}
+            <div className="max-w-3xl mx-auto mb-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={complianceDashboard} 
+                  alt="Fintech compliance and certification dashboard with security badges"
+                  className="w-full h-48 md:h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -212,6 +245,14 @@ const SecurityPage = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="p-8">
                 <CardContent className="p-0">
+                  {/* Data Encryption Image */}
+                  <div className="w-full h-40 rounded-lg overflow-hidden mb-6">
+                    <img 
+                      src={dataEncryptionSecurity} 
+                      alt="Professional data encryption and security visualization"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Lock className="h-6 w-6 text-primary" />
@@ -246,6 +287,14 @@ const SecurityPage = () => {
 
               <Card className="p-8">
                 <CardContent className="p-0">
+                  {/* Access Control Image */}
+                  <div className="w-full h-40 rounded-lg overflow-hidden mb-6">
+                    <img 
+                      src={accessControlMfa} 
+                      alt="Multi-factor authentication and access control systems"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Shield className="h-6 w-6 text-primary" />
