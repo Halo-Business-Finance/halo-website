@@ -268,7 +268,7 @@ const ContentHub = () => {
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 hover:text-white">
                   <Link to="/contact-us">Speak with Expert</Link>
                 </Button>
               </div>
