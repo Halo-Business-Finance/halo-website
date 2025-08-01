@@ -1,14 +1,21 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import privacyPolicyHeader from "@/assets/privacy-policy-header.jpg";
 
 const PrivacyPolicyPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <img 
+          src={privacyPolicyHeader} 
+          alt="Privacy policy and data protection in modern business environment"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Privacy Policy</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
