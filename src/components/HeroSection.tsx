@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Shield } from "lucide-react";
+import { Shield, Lock } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
@@ -51,7 +51,10 @@ const HeroSection = () => {
                 <Shield className="h-5 w-5" />
                 <span className="text-sm">SBA Preferred Bank Partner</span>
               </div>
-              <div className="text-sm">Secure & Encrypted Marketplace</div>
+              <div className="flex items-center gap-2 text-sm">
+                <Lock className="h-4 w-4" />
+                <span>Secure & Encrypted Marketplace</span>
+              </div>
             </div>
           </header>
 
