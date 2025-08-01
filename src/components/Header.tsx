@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, User, Search, Phone, MapPin, ChevronDown, Shield, LogOut } from "lucide-react";
+import { Menu, Search, Phone, ChevronDown, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   DropdownMenu,
@@ -10,11 +10,9 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { useAuth } from "@/components/auth/AuthProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, signOut } = useAuth();
 
   const navItems = [
     {
@@ -154,39 +152,15 @@ const Header = () => {
               <Search className="h-4 w-4" />
             </Button>
             
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center space-x-2">
-                    <Shield className="h-4 w-4" />
-                    <span className="hidden lg:inline">{user.email}</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem>
-                    <User className="h-4 w-4 mr-2" />
-                    Profile
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={signOut}>
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Sign Out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <>
-                <Button variant="outline" size="sm" className="text-xs lg:text-sm" asChild>
-                  <a href="https://preview--hbf-application.lovable.app/auth">
-                    <Shield className="h-4 w-4 mr-1 lg:mr-2" />
-                    <span className="hidden lg:inline">Secure Login</span>
-                  </a>
-                </Button>
-                <Button size="sm" className="text-xs lg:text-sm" asChild>
-                  <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">Get Started</a>
-                </Button>
-              </>
-            )}
+            <Button variant="outline" size="sm" className="text-xs lg:text-sm" asChild>
+              <a href="https://preview--hbf-application.lovable.app/auth">
+                <Shield className="h-4 w-4 mr-1 lg:mr-2" />
+                <span className="hidden lg:inline">Secure Login</span>
+              </a>
+            </Button>
+            <Button size="sm" className="text-xs lg:text-sm" asChild>
+              <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">Get Started</a>
+            </Button>
           </div>
 
           {/* Mobile menu */}
@@ -199,30 +173,15 @@ const Header = () => {
             <SheetContent side="right" className="w-72 sm:w-80">
               <div className="flex flex-col gap-6 pt-6">
                 <div className="flex flex-col gap-4">
-                  {user ? (
-                    <>
-                      <div className="flex items-center gap-2 p-2 border rounded">
-                        <Shield className="h-4 w-4" />
-                        <span className="text-sm">{user.email}</span>
-                      </div>
-                      <Button variant="outline" className="justify-start" onClick={signOut}>
-                        <LogOut className="h-4 w-4 mr-2" />
-                        Sign Out
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button variant="outline" className="justify-start" asChild>
-                        <a href="https://preview--hbf-application.lovable.app/auth">
-                          <Shield className="h-4 w-4 mr-2" />
-                          Secure Login
-                        </a>
-                      </Button>
-                      <Button className="justify-start" asChild>
-                        <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">Get Started</a>
-                      </Button>
-                    </>
-                  )}
+                  <Button variant="outline" className="justify-start" asChild>
+                    <a href="https://preview--hbf-application.lovable.app/auth">
+                      <Shield className="h-4 w-4 mr-2" />
+                      Secure Login
+                    </a>
+                  </Button>
+                  <Button className="justify-start" asChild>
+                    <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">Get Started</a>
+                  </Button>
                 </div>
                 
                 <div className="border-t pt-6">

@@ -4,10 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SecurityHeaders } from "@/components/security/SecurityHeaders";
 import { SecurityMonitor } from "@/components/security/SecurityMonitor";
-import { ProtectedRoute } from "@/components/security/ProtectedRoute";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -68,8 +66,6 @@ const EquipmentLoanApplication = lazy(() => import("./pages/EquipmentLoanApplica
 const WorkingCapitalApplication = lazy(() => import("./pages/WorkingCapitalApplication"));
 const CommercialRealEstateApplication = lazy(() => import("./pages/CommercialRealEstateApplication"));
 
-// Import Auth page
-const AuthPage = lazy(() => import("./components/auth/AuthPage").then(module => ({ default: module.AuthPage })));
 
 // Loading component for better UX
 const LoadingFallback = () => (
@@ -97,18 +93,12 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <AuthProvider>
-        <SecurityHeaders />
-        <SecurityMonitor />
-        <BrowserRouter>
+      <SecurityHeaders />
+      <SecurityMonitor />
+      <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/auth" element={
-                <ProtectedRoute requireAuth={false}>
-                  <AuthPage />
-                </ProtectedRoute>
-              } />
               <Route path="/brokers" element={<BrokersPage />} />
             <Route path="/lenders" element={<LendersPage />} />
             <Route path="/company-overview" element={<CompanyOverview />} />
@@ -165,7 +155,6 @@ const App = () => (
           </Routes>
         </Suspense>
       </BrowserRouter>
-      </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
