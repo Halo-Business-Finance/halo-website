@@ -43,7 +43,7 @@ const Header = () => {
     {
       title: "Resources",
       href: "/resources",
-      items: ["Business Resources", "Loan Calculator", "Industry Solutions", "Technical Support", "Contact Us"]
+      items: ["Business Resources", "Loan Calculator", "Industry Solutions", "Technical Support"]
     }
   ];
 
@@ -85,8 +85,7 @@ const Header = () => {
         "Business Resources": "/business-finance-resources",
         "Loan Calculator": "/loan-calculator",
         "Industry Solutions": "/industry-solutions",
-        "Technical Support": "/technical-support",
-        "Contact Us": "/contact-us"
+        "Technical Support": "/technical-support"
       }
     };
     
