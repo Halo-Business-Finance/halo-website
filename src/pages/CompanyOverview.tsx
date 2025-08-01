@@ -28,6 +28,7 @@ import step3PreApproved from "@/assets/step3-pre-approved.jpg";
 import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
 import loanProcessOverview from "@/assets/loan-process-overview.jpg";
+import fintechLoanMarketplace from "@/assets/fintech-loan-marketplace.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -73,8 +74,8 @@ const CompanyOverview = () => {
             <div className="max-w-4xl mx-auto mb-12">
               <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src={loanProcessOverview} 
-                  alt="Professional business loan process overview showing streamlined workflow"
+                  src={fintechLoanMarketplace} 
+                  alt="Professional fintech loan marketplace platform showing digital lending interface"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
