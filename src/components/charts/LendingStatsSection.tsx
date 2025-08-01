@@ -9,7 +9,7 @@ const stats = [
     color: 'text-green-600'
   },
   {
-    title: '15,000+',
+    title: '2,000+',
     description: 'Businesses Helped',
     icon: <Building className="h-8 w-8" />,
     color: 'text-blue-600'

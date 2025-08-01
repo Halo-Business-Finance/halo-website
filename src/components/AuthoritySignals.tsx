@@ -193,7 +193,7 @@ const AuthoritySignals = () => {
                 </div>
                 <div className="text-center">
                   <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-foreground">15,000+</p>
+                  <p className="text-2xl font-bold text-foreground">2,000+</p>
                   <p className="text-sm text-muted-foreground">Businesses Funded</p>
                 </div>
                 <div className="text-center">

@@ -35,7 +35,7 @@ const StatsSection = () => {
     },
     {
       icon: Users,
-      title: "15,000+",
+      title: "2,000+",
       subtitle: "Businesses Served",
       description: "Successful partnerships across all industries"
     },
