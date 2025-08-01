@@ -242,8 +242,8 @@ const CompanyOverview = () => {
             {/* COO */}
             <Card className="p-6 text-center">
               <CardContent className="p-0">
-                <div className="w-24 h-24 bg-gradient-to-br from-secondary to-secondary/70 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Target className="h-12 w-12 text-white" />
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
+                  <img src="/lovable-uploads/5f6c063c-d95d-4d6f-bcd4-3c3ff463d84b.png" alt="Nuri Khoshaba, Chief Operating Officer" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Nuri Khoshaba</h3>
                 <p className="text-primary font-semibold mb-3">Chief Operating Officer</p>

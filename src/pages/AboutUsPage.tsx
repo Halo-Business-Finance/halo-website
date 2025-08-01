@@ -118,7 +118,7 @@ const AboutUsPage = () => {
             <Card className="p-6">
               <CardContent className="p-0">
                 <div className="relative mb-4">
-                  <img src={businessGrowth} alt="Nuri Khoshaba, Chief Operating Officer" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                  <img src="/lovable-uploads/5f6c063c-d95d-4d6f-bcd4-3c3ff463d84b.png" alt="Nuri Khoshaba, Chief Operating Officer" className="w-24 h-24 rounded-full mx-auto object-cover" />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">Nuri Khoshaba</h3>
                 <p className="text-primary font-medium text-center mb-3">Chief Operating Officer</p>
