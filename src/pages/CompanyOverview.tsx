@@ -234,7 +234,7 @@ const CompanyOverview = () => {
                   a leading commercial loan marketplace serving businesses across multiple industries.
                 </p>
                 <div className="text-xs text-muted-foreground">
-                  Founded Halo Business Finance in 2015 | NMLS ID: 2272778 | Irvine, California
+                  NMLS Broker (ID: 2272778) | California Finance Lender Law (ID: 60DBO-183282) | IBM Design Thinking Certified
                 </div>
               </CardContent>
             </Card>

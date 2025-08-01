@@ -106,9 +106,9 @@ const AboutUsPage = () => {
                   Varda founded Halo Business Finance in 2015 to revolutionize how businesses access capital through innovative commercial lending solutions. Under his leadership, the company has become a trusted commercial loan marketplace serving businesses nationwide.
                 </p>
                 <div className="text-xs text-foreground">
-                  <p>• MBA Finance, Wharton School</p>
-                  <p>• CPA, Licensed Commercial Lender</p>
-                  <p>• SBA Preferred Lender Certification</p>
+                  <p>• NMLS Broker License (ID: 2272778)</p>
+                  <p>• California Finance Lender Law (ID: 60DBO-183282)</p>
+                  <p>• IBM Enterprise Design Thinking Certified</p>
                 </div>
               </CardContent>
             </Card>
