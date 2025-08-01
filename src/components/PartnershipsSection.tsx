@@ -152,12 +152,12 @@ const PartnershipsSection = () => {
               <div className="flex items-center justify-center gap-8 mb-6">
                 <div className="text-center">
                   <TrendingUp className="h-8 w-8 mx-auto mb-2" />
-                  <p className="text-2xl font-bold">$2.5B+</p>
+                  <p className="text-2xl font-bold">$1.5B+</p>
                   <p className="text-sm opacity-90">Loans Facilitated</p>
                 </div>
                 <div className="text-center">
                   <Users className="h-8 w-8 mx-auto mb-2" />
-                  <p className="text-2xl font-bold">5,000+</p>
+                  <p className="text-2xl font-bold">15,000+</p>
                   <p className="text-sm opacity-90">Businesses Funded</p>
                 </div>
                 <div className="text-center">
