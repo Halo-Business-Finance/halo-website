@@ -27,6 +27,7 @@ import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
 import step3PreApproved from "@/assets/step3-pre-approved.jpg";
 import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
+import loanProcessOverview from "@/assets/loan-process-overview.jpg";
 
 const CompanyOverview = () => {
   return (
@@ -64,9 +65,25 @@ const CompanyOverview = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Streamlined Loan Process
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground mb-8">
               We make commercial lending simple
             </p>
+            
+            {/* Professional Overview Image */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={loanProcessOverview} 
+                  alt="Professional business loan process overview showing streamlined workflow"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-xl font-semibold mb-2">Fast, Simple, Secure</h3>
+                  <p className="text-sm opacity-90">Professional lending process with modern technology</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="relative">
