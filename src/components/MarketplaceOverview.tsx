@@ -103,41 +103,6 @@ const MarketplaceOverview = () => {
           ))}
         </div>
 
-        {/* Lender Categories */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Our Diverse Lender Network</h3>
-            <p className="text-lg text-foreground max-w-3xl mx-auto">
-              We partner with a carefully curated selection of financial institutions, each bringing unique strengths and capabilities to serve your business financing needs.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {lenderPartners.map((partner, index) => (
-              <Card key={index} className="">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl">{partner.category}</CardTitle>
-                    <Badge variant="outline" className="text-primary border-primary">
-                      {partner.count}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-foreground mb-4">{partner.description}</p>
-                  <div className="space-y-2">
-                    {partner.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
 
         {/* Geographic Coverage */}
