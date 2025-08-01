@@ -105,8 +105,19 @@ const CompanyOverview = () => {
             </div>
           </div>
           
+          {/* Get Started Button */}
+          <div className="text-center mt-12 mb-8">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
+              onClick={() => window.open('/halo-application', '_blank')}
+            >
+              Get Started
+            </Button>
+          </div>
+          
           {/* Text content below process steps */}
-          <div className="text-center mt-12">
+          <div className="text-center">
             <h3 className="text-2xl font-semibold mb-3 text-primary">Fast, Simple, Secure</h3>
             <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
           </div>
