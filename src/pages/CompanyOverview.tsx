@@ -55,7 +55,7 @@ const CompanyOverview = () => {
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Access to 50+ vetted commercial lenders nationwide</span>
+                    <span className="text-sm">Access to 150+ vetted commercial lenders nationwide</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -109,7 +109,7 @@ const CompanyOverview = () => {
           {/* Marketplace Benefits Stats */}
           <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
             <div className="bg-muted/50 rounded-lg p-6">
-              <div className="text-3xl font-bold text-primary mb-2">50+</div>
+              <div className="text-3xl font-bold text-primary mb-2">150+</div>
               <p className="text-sm text-muted-foreground">Lending Partners</p>
             </div>
             <div className="bg-muted/50 rounded-lg p-6">
