@@ -291,7 +291,7 @@ const CompanyOverview = () => {
             <Card className="p-8">
               <CardContent className="p-0">
                 <div className="mb-6">
-                  <div className="w-full h-64 mb-4 rounded-lg overflow-hidden">
+                  <div className="w-full h-44 mb-4 rounded-lg overflow-hidden">
                     <img src={missionProfessionals} alt="Mission" className="w-full h-full object-cover object-center" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
@@ -322,7 +322,7 @@ const CompanyOverview = () => {
             <Card className="p-8">
               <CardContent className="p-0">
                 <div className="mb-6">
-                  <div className="w-full h-64 mb-4 rounded-lg overflow-hidden">
+                  <div className="w-full h-44 mb-4 rounded-lg overflow-hidden">
                     <img src={ethicsProfessionals} alt="Ethics" className="w-full h-full object-cover object-center" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Ethical Standards</h3>
@@ -353,7 +353,7 @@ const CompanyOverview = () => {
             <Card className="p-8">
               <CardContent className="p-0">
                 <div className="mb-6">
-                  <div className="w-full h-64 mb-4 rounded-lg overflow-hidden">
+                  <div className="w-full h-44 mb-4 rounded-lg overflow-hidden">
                     <img src={transparencyProfessionals} alt="Transparency" className="w-full h-full object-cover object-center" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Transparency</h3>
@@ -392,7 +392,7 @@ const CompanyOverview = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="w-full h-96 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={clientFirstProfessionals} alt="Client-First Approach" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">Client-First Approach</h4>
@@ -402,7 +402,7 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-96 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={innovationProfessionals} alt="Continuous Innovation" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">Continuous Innovation</h4>
@@ -412,7 +412,7 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-96 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={expertiseProfessionals} alt="Industry Expertise" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">Industry Expertise</h4>
@@ -422,7 +422,7 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-96 rounded-lg mx-auto mb-6 overflow-hidden">
+                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
                   <img src={resultsProfessionals} alt="Proven Results" className="w-full h-full object-cover object-center" />
                 </div>
                 <h4 className="font-semibold mb-2">Proven Results</h4>
