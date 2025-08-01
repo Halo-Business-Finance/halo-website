@@ -31,8 +31,7 @@ const Footer = () => {
 
   const supportLinks = [
     { name: "Customer Service", link: "/customer-service" },
-    { name: "Technical Support", link: "/technical-support" },
-    { name: "Careers", link: "/careers" }
+    { name: "Technical Support", link: "/technical-support" }
   ];
 
   const resourceLinks = [
@@ -48,7 +47,8 @@ const Footer = () => {
     { name: "Company Overview", link: "/company-overview" },
     { name: "How It Works", link: "/how-it-works" },
     { name: "Marketplace Benefits", link: "/marketplace-benefits" },
-    { name: "Contact Us", link: "/contact-us" }
+    { name: "Contact Us", link: "/contact-us" },
+    { name: "Careers", link: "/careers" }
   ];
 
   return (
