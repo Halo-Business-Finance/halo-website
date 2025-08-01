@@ -118,17 +118,17 @@ const AboutUsPage = () => {
             <Card className="p-6">
               <CardContent className="p-0">
                 <div className="relative mb-4">
-                  <img src={businessGrowth} alt="Sarah Chen, COO" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                  <img src={businessGrowth} alt="Nuri Khoshaba, Chief Operating Officer" className="w-24 h-24 rounded-full mx-auto object-cover" />
                 </div>
-                <h3 className="text-xl font-semibold text-center mb-2">Sarah Chen</h3>
+                <h3 className="text-xl font-semibold text-center mb-2">Nuri Khoshaba</h3>
                 <p className="text-primary font-medium text-center mb-3">Chief Operating Officer</p>
                 <p className="text-sm text-foreground mb-3">
-                  Sarah leads operations with 15+ years in fintech and lending operations. Previously managed lending operations for a $2B portfolio at JPMorgan Chase.
+                  Nuri brings entrepreneurial expertise to operations management, having founded and operated his own successful business. His experience in navigating business challenges provides innovative perspectives for operational excellence and growth strategies.
                 </p>
                 <div className="text-xs text-foreground">
-                  <p>• MS Operations Management, MIT</p>
-                  <p>• Six Sigma Black Belt</p>
-                  <p>• Certified Lending Compliance Officer</p>
+                  <p>• VP at Halo Business Finance</p>
+                  <p>• Entrepreneur & Business Owner</p>
+                  <p>• Operations & Growth Specialist</p>
                 </div>
               </CardContent>
             </Card>

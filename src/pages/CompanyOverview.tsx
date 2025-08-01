@@ -245,15 +245,15 @@ const CompanyOverview = () => {
                 <div className="w-24 h-24 bg-gradient-to-br from-secondary to-secondary/70 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Target className="h-12 w-12 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Sarah Chen</h3>
+                <h3 className="text-xl font-bold mb-2">Nuri Khoshaba</h3>
                 <p className="text-primary font-semibold mb-3">Chief Operating Officer</p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Sarah oversees daily operations and marketplace technology. Her fintech background 
-                  and operational excellence have streamlined our lending processes, reducing 
-                  approval times by 60%.
+                  Nuri oversees daily operations and strategic initiatives with extensive entrepreneurial experience. 
+                  Having founded and operated his own company, he brings unique insights to operational efficiency 
+                  and innovative problem-solving approaches that drive continuous improvement.
                 </p>
                 <div className="text-xs text-muted-foreground">
-                  MS Information Systems | Former Director at LendingClub
+                  VP Operations | Entrepreneur & Former Business Owner | Orange County, CA
                 </div>
               </CardContent>
             </Card>
