@@ -363,6 +363,171 @@ const CompanyOverview = () => {
         </div>
       </section>
 
+      {/* Security, Licenses & Compliance Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Security, Licenses & Compliance
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Your trust is paramount. We maintain the highest standards of security, 
+              regulatory compliance, and professional licensing to protect your business and data.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {/* Security */}
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <Shield className="h-10 w-10 text-primary mr-4" />
+                  <h3 className="text-2xl font-bold">Data Security</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  We employ enterprise-grade security measures to protect your sensitive 
+                  business and financial information throughout the entire lending process.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">256-bit SSL encryption for all data transmission</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">SOC 2 Type II compliant data handling</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Regular security audits and penetration testing</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Multi-factor authentication for secure access</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Licenses */}
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <Award className="h-10 w-10 text-primary mr-4" />
+                  <h3 className="text-2xl font-bold">Professional Licenses</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  Our team holds all required professional licenses and certifications 
+                  to operate as a trusted commercial lending marketplace nationwide.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">NMLS Registered Mortgage Loan Originator</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">State-licensed commercial lending operations</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">SBA Preferred Lender Program participant</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Better Business Bureau A+ Rating</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Compliance */}
+            <Card className="p-8">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <CheckCircle className="h-10 w-10 text-primary mr-4" />
+                  <h3 className="text-2xl font-bold">Regulatory Compliance</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  We adhere to all federal and state regulations governing commercial 
+                  lending, ensuring full compliance with industry standards and requirements.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Fair Credit Reporting Act (FCRA) compliance</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Equal Credit Opportunity Act (ECOA) adherence</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Truth in Lending Act (TILA) compliance</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Bank Secrecy Act (BSA) reporting requirements</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Certifications & Memberships */}
+          <div className="bg-muted/50 rounded-lg p-8">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4">Industry Certifications & Memberships</h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Our commitment to excellence is recognized through various industry certifications and professional memberships
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">NMLS Licensed</h4>
+                <p className="text-sm text-muted-foreground">
+                  Nationwide Multistate Licensing System registered and compliant
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">SBA Preferred</h4>
+                <p className="text-sm text-muted-foreground">
+                  Small Business Administration Preferred Lender Program
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Building2 className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">BBB Accredited</h4>
+                <p className="text-sm text-muted-foreground">
+                  Better Business Bureau A+ Rating and accreditation
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold mb-2">Industry Associations</h4>
+                <p className="text-sm text-muted-foreground">
+                  Active member of commercial lending professional organizations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <VardaChatBot />
       <Footer />
     </div>
