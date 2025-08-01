@@ -16,6 +16,9 @@ import {
 } from "lucide-react";
 import companyLicensesHeader from "@/assets/company-licenses-header.jpg";
 import licensesProfessionals from "@/assets/licenses-professionals.jpg";
+import complianceDocumentation from "@/assets/compliance-documentation.jpg";
+import certificationProcess from "@/assets/certification-process.jpg";
+import regulatoryOversight from "@/assets/regulatory-oversight.jpg";
 
 const CompanyLicensesPage = () => {
   const licenses = [
@@ -181,12 +184,86 @@ const CompanyLicensesPage = () => {
                 </Card>
               ))}
             </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={complianceDocumentation} 
+                  alt="Professional team reviewing compliance documentation and regulatory requirements"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Comprehensive Documentation</h3>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Our compliance team maintains detailed documentation of all licenses, certifications, 
+                  and regulatory requirements. We ensure every aspect of our licensing is properly 
+                  documented and readily available for review.
+                </p>
+                <p className="text-muted-foreground">
+                  Regular audits and reviews ensure our documentation remains current and compliant 
+                  with all applicable regulations and industry standards.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Certification Process Section */}
+        <section className="py-16 bg-muted/50">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Rigorous Certification Process</h3>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Each of our licenses undergoes a rigorous application and review process by 
+                  regulatory authorities. We work closely with regulatory bodies to ensure 
+                  full compliance with all requirements.
+                </p>
+                <p className="text-muted-foreground">
+                  Our experienced compliance team manages the entire certification process, 
+                  from initial applications to ongoing renewals and regulatory updates.
+                </p>
+              </div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={certificationProcess} 
+                  alt="Professional certification and regulatory approval process in government office"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Compliance Standards */}
-        <section className="py-16 bg-muted/50">
+        <section className="py-16">
           <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={regulatoryOversight} 
+                  alt="Regulatory oversight and monitoring systems for business compliance"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Continuous Regulatory Oversight</h3>
+                <p className="text-lg text-muted-foreground mb-4">
+                  We maintain ongoing monitoring systems to ensure continuous compliance with 
+                  all regulatory requirements. Our oversight systems track regulatory changes 
+                  and ensure timely updates to our processes.
+                </p>
+                <p className="text-muted-foreground">
+                  Real-time compliance monitoring helps us stay ahead of regulatory changes 
+                  and maintain the highest standards of professional conduct.
+                </p>
+              </div>
+            </div>
+
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Regulatory Compliance</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
