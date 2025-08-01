@@ -37,37 +37,93 @@ const CompanyOverview = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Marketplace & Lending Partners */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             <Card className="p-8">
               <CardContent className="p-0">
                 <div className="flex items-center mb-4">
-                  <Target className="h-8 w-8 text-primary mr-3" />
-                  <h2 className="text-2xl font-bold">Our Mission</h2>
+                  <Building2 className="h-8 w-8 text-primary mr-3" />
+                  <h2 className="text-2xl font-bold">Our Marketplace Platform</h2>
                 </div>
-                <p className="text-lg text-muted-foreground">
-                  To simplify commercial lending by connecting businesses with the right 
-                  lenders through our innovative marketplace platform, ensuring competitive 
-                  rates and exceptional service.
+                <p className="text-lg text-muted-foreground mb-6">
+                  Halo Business Finance operates a sophisticated marketplace platform that connects 
+                  businesses with a network of trusted lenders, ensuring you get the best rates 
+                  and terms for your commercial financing needs.
                 </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Access to 50+ vetted commercial lenders nationwide</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">AI-powered matching technology for optimal loan terms</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Real-time rate comparison and pre-approval process</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Streamlined application with single point of contact</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="p-8">
               <CardContent className="p-0">
                 <div className="flex items-center mb-4">
-                  <Award className="h-8 w-8 text-primary mr-3" />
-                  <h2 className="text-2xl font-bold">Our Vision</h2>
+                  <Users className="h-8 w-8 text-primary mr-3" />
+                  <h2 className="text-2xl font-bold">Our Lending Partners</h2>
                 </div>
-                <p className="text-lg text-muted-foreground">
-                  To be the leading nationwide marketplace for commercial lending, 
-                  empowering businesses to achieve their growth goals through accessible 
-                  and efficient financing solutions.
+                <p className="text-lg text-muted-foreground mb-6">
+                  We've carefully selected and partnered with top-tier financial institutions, 
+                  credit unions, and alternative lenders to provide diverse financing options 
+                  that meet the unique needs of businesses across all industries.
                 </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Regional and national banks with competitive rates</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">SBA preferred lenders for government-backed loans</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Alternative lenders for flexible financing solutions</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Specialized equipment and real estate financing partners</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Marketplace Benefits Stats */}
+          <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
+            <div className="bg-muted/50 rounded-lg p-6">
+              <div className="text-3xl font-bold text-primary mb-2">50+</div>
+              <p className="text-sm text-muted-foreground">Lending Partners</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-6">
+              <div className="text-3xl font-bold text-primary mb-2">2,500+</div>
+              <p className="text-sm text-muted-foreground">Businesses Funded</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-6">
+              <div className="text-3xl font-bold text-primary mb-2">95%</div>
+              <p className="text-sm text-muted-foreground">Approval Rate</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-6">
+              <div className="text-3xl font-bold text-primary mb-2">48hrs</div>
+              <p className="text-sm text-muted-foreground">Average Response Time</p>
+            </div>
           </div>
         </div>
       </section>
