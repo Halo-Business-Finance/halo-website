@@ -9,7 +9,6 @@ import ImageGallery from "@/components/ImageGallery";
 import Footer from "@/components/Footer";
 import { LendingStatsSection } from "@/components/charts/LendingStatsSection";
 import ResourcesHub from "@/components/ResourcesHub";
-import PartnershipsSection from "@/components/PartnershipsSection";
 import IndustryShowcase from "@/components/IndustryShowcase";
 
 import SEO from "@/components/SEO";
@@ -31,7 +30,6 @@ const Index = () => {
       <LendingStatsSection />
       
       <ResourcesHub />
-      <PartnershipsSection />
       <ImageGallery />
       <Footer />
       </div>

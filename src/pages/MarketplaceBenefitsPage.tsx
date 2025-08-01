@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PartnershipsSection from "@/components/PartnershipsSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -476,6 +477,9 @@ const MarketplaceBenefitsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Trusted Partnerships & Credentials Section */}
+      <PartnershipsSection />
 
       <Footer />
     </div>
