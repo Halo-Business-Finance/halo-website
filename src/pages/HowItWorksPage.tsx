@@ -97,7 +97,7 @@ const HowItWorksPage = () => {
                 </p>
                 <div className="space-y-4">
                   <Button className="w-full" size="lg">Start Your Application</Button>
-                  <Button variant="outline" className="w-full" size="lg">Get Pre-Qualified</Button>
+                  <Button variant="outline" className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a></Button>
                 </div>
               </CardContent>
             </Card>

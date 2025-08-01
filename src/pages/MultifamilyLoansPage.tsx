@@ -120,7 +120,7 @@ const MultifamilyLoansPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
-                    <Link to="/pre-qualification">Get Pre-Qualified</Link>
+                    <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white/10">
                     <Link to="/contact-us">Speak with Specialist</Link>

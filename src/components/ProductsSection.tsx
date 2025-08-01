@@ -254,7 +254,7 @@ const ProductsSection = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary font-semibold text-sm md:text-base">
-                  <Link to="/pre-qualification">Get Pre-Qualified</Link>
+                  <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
                 <Button asChild size="lg" variant="ghost" className="border border-white text-white text-sm md:text-base">
                   <Link to="/contact-us">Schedule Consultation</Link>

@@ -151,7 +151,7 @@ const SiteMapPage = () => {
                 <CardContent>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button asChild>
-                      <Link to="/pre-qualification">Get Pre-Qualified</Link>
+                      <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                     </Button>
                     <Button variant="outline" asChild>
                       <Link to="/loan-calculator">Calculate Payment</Link>

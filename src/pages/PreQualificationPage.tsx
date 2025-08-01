@@ -206,7 +206,7 @@ const PreQualificationPage = () => {
                   </div>
 
                   <Button type="submit" className="w-full" size="lg">
-                    Get Pre-Qualified
+                    <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                   </Button>
                 </form>
               </CardContent>

@@ -19,7 +19,7 @@ const ResourcesPage = () => {
       icon: FileText,
       title: "Pre-qualification",
       description: "Get pre-qualified for financing in minutes with our streamlined application process.",
-      link: "/pre-qualification",
+      link: "https://preview--hbf-application.lovable.app/auth",
       cta: "Get Pre-Qualified"
     },
     {
@@ -108,9 +108,9 @@ const ResourcesPage = () => {
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">{resource.title}</h3>
                   <p className="text-muted-foreground mb-6">{resource.description}</p>
-                  <Button asChild>
-                    <Link to={resource.link}>{resource.cta}</Link>
-                  </Button>
+                   <Button asChild>
+                     <a href={resource.link}>{resource.cta}</a>
+                   </Button>
                 </CardContent>
               </Card>
             ))}

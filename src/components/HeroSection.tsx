@@ -42,10 +42,10 @@ const HeroSection = () => {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-white text-primary font-semibold text-sm md:text-base" asChild>
-                <a href="https://portal.halobusinessfinance.com">Get Pre-Qualified</a>
+                <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white bg-transparent text-sm md:text-base" asChild>
-                <a href="https://portal.halobusinessfinance.com">View Loan Options</a>
+                <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">View Loan Options</a>
               </Button>
             </div>
 
