@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linkedin, FileText, MessageSquare, ShieldCheck, Upload, DollarSign, ArrowRight } from "lucide-react";
+import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linkedin, FileText, MessageSquare, ShieldCheck, Upload, DollarSign, ArrowRight, Landmark } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -164,7 +164,7 @@ const CompanyOverview = () => {
             <Card className="p-8">
               <CardContent className="p-0">
                 <div className="flex items-center mb-4">
-                  <Users className="h-8 w-8 text-primary mr-3" />
+                  <Landmark className="h-8 w-8 text-primary mr-3" />
                   <h2 className="text-2xl font-bold">Our Lending Partners</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
