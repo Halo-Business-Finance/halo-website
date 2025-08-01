@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import loanConsultation from "@/assets/loan-consultation.jpg";
+import contactUsHeader from "@/assets/contact-us-header.jpg";
 
 const ContactUsPage = () => {
   return (
@@ -20,8 +20,14 @@ const ContactUsPage = () => {
       <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <img 
+          src={contactUsHeader} 
+          alt="Professional business team working in modern fintech office with financial data displays"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">

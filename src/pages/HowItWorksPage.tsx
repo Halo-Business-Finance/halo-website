@@ -6,6 +6,7 @@ import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star, Award, Bu
 import { Link } from "react-router-dom";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
+import howItWorksHeader from "@/assets/how-it-works-header.jpg";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
@@ -15,8 +16,14 @@ const HowItWorksPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <img 
+          src={howItWorksHeader} 
+          alt="Professional business consultant explaining fintech loan process to clients in modern office meeting room"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
