@@ -466,9 +466,11 @@ const MarketplaceBenefitsPage = () => {
               Join thousands of businesses that have found their perfect lending partner through our comprehensive marketplace platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary font-semibold">
-                Start Your Application
-                <ArrowRight className="h-5 w-5 ml-2" />
+              <Button size="lg" className="bg-white text-primary font-semibold" asChild>
+                <a href="https://preview--hbf-application.lovable.app/auth">
+                  Start Your Application
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white">
                 Become a Lender Partner

@@ -159,7 +159,7 @@ const HowItWorksPage = () => {
                   Join thousands of business owners who have successfully secured financing through our marketplace.
                 </p>
                 <div className="space-y-4">
-                  <Button className="w-full" size="lg">Start Your Application</Button>
+                  <Button className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Start Your Application</a></Button>
                   <Button variant="outline" className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a></Button>
                 </div>
               </CardContent>

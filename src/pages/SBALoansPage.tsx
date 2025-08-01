@@ -338,8 +338,8 @@ const SBALoansPage = () => {
             Our SBA lending experts are ready to help you find the perfect loan program for your business needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-              Start Your Application
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild>
+              <a href="https://preview--hbf-application.lovable.app/auth">Start Your Application</a>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               Speak with an Expert
