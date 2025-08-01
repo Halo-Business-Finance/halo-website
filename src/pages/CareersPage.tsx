@@ -9,6 +9,10 @@ import teamCollaboration from "@/assets/team-collaboration.jpg";
 import businessDevelopmentTeam from "@/assets/business-development-team.jpg";
 import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
 import careerSuccessCelebration from "@/assets/career-success-celebration.jpg";
+import teamCelebrationSuccess from "@/assets/team-celebration-success.jpg";
+import teamAchievementCelebration from "@/assets/team-achievement-celebration.jpg";
+import teamMilestoneCelebration from "@/assets/team-milestone-celebration.jpg";
+import newEmployeeCelebration from "@/assets/new-employee-celebration.jpg";
 
 const CareersPage = () => {
   return (
@@ -59,6 +63,33 @@ const CareersPage = () => {
                 <p className="text-muted-foreground">Flexible schedules</p>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={teamCelebrationSuccess} 
+                alt="Professional diverse business team celebrating successful project completion with high-fives"
+                className="w-full h-48 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h4 className="font-semibold">Team Success</h4>
+                <p className="text-sm opacity-90">Celebrating achievements together</p>
+              </div>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src={teamAchievementCelebration} 
+                alt="Professional fintech team celebrating achievement with trophy and awards"
+                className="w-full h-48 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h4 className="font-semibold">Recognition & Awards</h4>
+                <p className="text-sm opacity-90">Excellence rewarded</p>
+              </div>
+            </div>
           </div>
 
           <div className="max-w-4xl mx-auto mb-12">
@@ -135,6 +166,36 @@ const CareersPage = () => {
                 </p>
               </CardContent>
             </Card>
+
+            <div className="grid md:grid-cols-3 gap-6 my-12">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={teamMilestoneCelebration} 
+                  alt="Happy diverse business professionals celebrating team milestone with cake and balloons"
+                  className="w-full h-40 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white">
+                  <h5 className="font-semibold text-sm">Team Milestones</h5>
+                </div>
+              </div>
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={newEmployeeCelebration} 
+                  alt="Professional team applauding and celebrating new employee welcome"
+                  className="w-full h-40 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white">
+                  <h5 className="font-semibold text-sm">Welcome New Team Members</h5>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-primary/10 to-financial-navy/10 rounded-lg p-6 flex flex-col justify-center items-center text-center">
+                <Star className="h-12 w-12 text-primary mb-3" />
+                <h5 className="font-semibold mb-2">Join Our Success</h5>
+                <p className="text-sm text-muted-foreground">Be part of a winning team</p>
+              </div>
+            </div>
 
             <div className="grid lg:grid-cols-2 gap-8 items-center my-12">
               <div>
