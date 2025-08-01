@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ConsultationPopup from "@/components/ConsultationPopup";
 import businessMeeting from "@/assets/business-meeting.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
 import businessHandshake from "@/assets/business-handshake.jpg";
@@ -111,9 +112,13 @@ const ImageGallery = () => {
               <a href="https://preview--hbf-application.lovable.app/auth" className="bg-primary text-white px-6 py-3 rounded-lg font-semibold text-center">
                 Start Your Application
               </a>
-              <Link to="/contact-us" className="border border-primary text-primary px-6 py-3 rounded-lg font-semibold text-center">
-                Schedule Consultation
-              </Link>
+              <ConsultationPopup 
+                trigger={
+                  <button className="border border-primary text-primary px-6 py-3 rounded-lg font-semibold text-center hover:bg-primary hover:text-white transition-colors">
+                    Schedule Consultation
+                  </button>
+                }
+              />
             </div>
           </div>
         </div>
