@@ -667,7 +667,7 @@ const CompanyOverview = () => {
                 </div>
                 <h4 className="font-semibold mb-2">SBA Nationwide Marketplace</h4>
                 <p className="text-sm text-muted-foreground">
-                  SBA Preferred Broker
+                  SBA Nationwide Marketplace
                 </p>
               </div>
               

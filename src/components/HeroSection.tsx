@@ -49,7 +49,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-6 pt-8">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5" />
-                <span className="text-sm">SBA Preferred Bank Partner</span>
+                <span className="text-sm">SBA Nationwide Marketplace</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Lock className="h-4 w-4" />
