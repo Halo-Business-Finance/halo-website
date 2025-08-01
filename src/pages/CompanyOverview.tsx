@@ -227,14 +227,14 @@ const CompanyOverview = () => {
                   <Users className="h-12 w-12 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Varda Dinkha</h3>
-                <p className="text-primary font-semibold mb-3">CEO of Halo Business Finance</p>
+                <p className="text-primary font-semibold mb-3">Founder & Chief Executive Officer</p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  With over 20 years in commercial lending, Varda leads Halo Business Finance 
-                  to revolutionize how businesses access capital. Previously led lending operations 
-                  at top-tier financial institutions.
+                  Varda founded Halo Business Finance in 2015 with a vision to transform business lending through 
+                  innovative technology and customer-focused solutions. Under his leadership, the company has grown into 
+                  a leading commercial loan marketplace serving businesses across multiple industries.
                 </p>
                 <div className="text-xs text-muted-foreground">
-                  MBA Finance, CPA | Former VP at Wells Fargo Commercial
+                  Founded Halo Business Finance in 2015 | NMLS ID: 2272778 | Irvine, California
                 </div>
               </CardContent>
             </Card>
