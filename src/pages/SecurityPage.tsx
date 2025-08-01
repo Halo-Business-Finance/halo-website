@@ -18,11 +18,11 @@ import {
   Zap
 } from "lucide-react";
 import SEO from "@/components/SEO";
-import fintechBlockchainHeader from "@/assets/fintech-blockchain-header.jpg";
-import dataEncryptionSecurity from "@/assets/data-encryption-security.jpg";
-import complianceDashboard from "@/assets/compliance-dashboard.jpg";
-import accessControlMfa from "@/assets/access-control-mfa.jpg";
-import securityMonitoringCenter from "@/assets/security-monitoring-center.jpg";
+import professionalSecurityTeamHeader from "@/assets/professional-security-team-header.jpg";
+import securityTeamMonitoring from "@/assets/security-team-monitoring.jpg";
+import complianceTeamProfessional from "@/assets/compliance-team-professional.jpg";
+import dataSecurityProfessional from "@/assets/data-security-professional.jpg";
+import accessControlProfessional from "@/assets/access-control-professional.jpg";
 
 const SecurityPage = () => {
   const securityFeatures = [
@@ -104,8 +104,8 @@ const SecurityPage = () => {
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
         <img 
-          src={fintechBlockchainHeader} 
-          alt="Digital fintech blockchain security with advanced cybersecurity measures"
+          src={professionalSecurityTeamHeader} 
+          alt="Professional business team working in modern fintech security operations center"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
@@ -147,8 +147,8 @@ const SecurityPage = () => {
             <div className="max-w-4xl mx-auto mb-12">
               <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src={securityMonitoringCenter} 
-                  alt="Professional cybersecurity monitoring center with threat detection systems"
+                  src={securityTeamMonitoring} 
+                  alt="Professional cybersecurity analysts monitoring threat detection systems"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
@@ -197,8 +197,8 @@ const SecurityPage = () => {
             <div className="max-w-3xl mx-auto mb-12">
               <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src={complianceDashboard} 
-                  alt="Fintech compliance and certification dashboard with security badges"
+                  src={complianceTeamProfessional} 
+                  alt="Business professionals reviewing compliance documents and certifications"
                   className="w-full h-48 md:h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
@@ -248,8 +248,8 @@ const SecurityPage = () => {
                   {/* Data Encryption Image */}
                   <div className="w-full h-40 rounded-lg overflow-hidden mb-6">
                     <img 
-                      src={dataEncryptionSecurity} 
-                      alt="Professional data encryption and security visualization"
+                      src={dataSecurityProfessional} 
+                      alt="Professional IT security specialist working on data encryption systems"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -290,8 +290,8 @@ const SecurityPage = () => {
                   {/* Access Control Image */}
                   <div className="w-full h-40 rounded-lg overflow-hidden mb-6">
                     <img 
-                      src={accessControlMfa} 
-                      alt="Multi-factor authentication and access control systems"
+                      src={accessControlProfessional} 
+                      alt="Business professional using multi-factor authentication and secure access systems"
                       className="w-full h-full object-cover"
                     />
                   </div>
