@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ExternalLink, Star, Users, TrendingUp, Award } from "lucide-react";
+import { ExternalLink, Star, Users, TrendingUp, Award, Landmark } from "lucide-react";
 
 const PartnershipsSection = () => {
   const partnerships = [
@@ -156,7 +156,7 @@ const PartnershipsSection = () => {
                   <p className="text-sm opacity-90">Loans Facilitated</p>
                 </div>
                 <div className="text-center">
-                  <Users className="h-8 w-8 mx-auto mb-2" />
+                  <Landmark className="h-8 w-8 mx-auto mb-2" />
                   <p className="text-2xl font-bold">2,000+</p>
                   <p className="text-sm opacity-90">Businesses Funded</p>
                 </div>

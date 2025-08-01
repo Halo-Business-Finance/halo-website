@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ExternalLink, Star, Users, Building2, Award, TrendingUp } from "lucide-react";
+import { ExternalLink, Star, Users, Building2, Award, TrendingUp, Landmark } from "lucide-react";
 
 const AuthoritySignals = () => {
   const certifications = [
@@ -192,7 +192,7 @@ const AuthoritySignals = () => {
                   <p className="text-sm text-muted-foreground">Loans Facilitated</p>
                 </div>
                 <div className="text-center">
-                  <Users className="h-8 w-8 text-primary mx-auto mb-2" />
+                  <Landmark className="h-8 w-8 text-primary mx-auto mb-2" />
                   <p className="text-2xl font-bold text-foreground">2,000+</p>
                   <p className="text-sm text-muted-foreground">Businesses Funded</p>
                 </div>

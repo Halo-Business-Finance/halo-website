@@ -20,7 +20,8 @@ import {
   Award,
   Globe,
   ArrowRight,
-  Handshake
+  Handshake,
+  Landmark
 } from "lucide-react";
 
 const MarketplaceBenefitsPage = () => {
@@ -274,7 +275,7 @@ const MarketplaceBenefitsPage = () => {
           <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
             <Card className="text-center p-6">
               <CardContent className="p-0">
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Landmark className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Multiple Lenders</h3>
                 <p className="text-muted-foreground">Access our network of qualified lenders</p>
               </CardContent>

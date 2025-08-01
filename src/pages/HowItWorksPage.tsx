@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star, Award, Building2, ArrowRight } from "lucide-react";
+import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star, Award, Building2, ArrowRight, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -263,7 +263,7 @@ const HowItWorksPage = () => {
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-primary" />
+                    <Landmark className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Dedicated Loan Officers

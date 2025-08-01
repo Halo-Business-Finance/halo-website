@@ -1,4 +1,4 @@
-import { TrendingUp, Users, DollarSign, CheckCircle, Building, Clock } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, CheckCircle, Building, Clock, Landmark } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const stats = [
@@ -29,7 +29,7 @@ const stats = [
   {
     title: '150+',
     description: 'Lending Partners',
-    icon: <Users className="h-8 w-8" />,
+    icon: <Landmark className="h-8 w-8" />,
     color: 'text-purple-600'
   },
   {
