@@ -177,13 +177,13 @@ const Header = () => {
             ) : (
               <>
                 <Button variant="outline" size="sm" className="text-xs lg:text-sm" asChild>
-                  <Link to="/auth">
+                  <a href="https://preview--hbf-application.lovable.app/auth">
                     <Shield className="h-4 w-4 mr-1 lg:mr-2" />
                     <span className="hidden lg:inline">Secure Login</span>
-                  </Link>
+                  </a>
                 </Button>
                 <Button size="sm" className="text-xs lg:text-sm" asChild>
-                  <Link to="/auth">Get Started</Link>
+                  <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">Get Started</a>
                 </Button>
               </>
             )}
@@ -213,13 +213,13 @@ const Header = () => {
                   ) : (
                     <>
                       <Button variant="outline" className="justify-start" asChild>
-                        <Link to="/auth">
+                        <a href="https://preview--hbf-application.lovable.app/auth">
                           <Shield className="h-4 w-4 mr-2" />
                           Secure Login
-                        </Link>
+                        </a>
                       </Button>
                       <Button className="justify-start" asChild>
-                        <Link to="/auth">Get Started</Link>
+                        <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">Get Started</a>
                       </Button>
                     </>
                   )}
