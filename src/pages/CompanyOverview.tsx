@@ -206,6 +206,50 @@ const CompanyOverview = () => {
         </div>
       </section>
 
+      {/* Leadership & Executive Team Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Leadership & Executive Team
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Meet the experienced professional leading Halo Business Finance with expertise 
+              in commercial lending and financial technology innovation.
+            </p>
+          </div>
+
+          <div className="flex justify-center mb-16">
+            {/* CEO */}
+            <Card className="p-6 text-center max-w-md">
+              <CardContent className="p-0">
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
+                  <img src="/lovable-uploads/2a9e367f-246a-4c3f-a2a2-13e7f71d47f4.png" alt="Varda Dinkha, Founder & CEO" className="w-full h-full object-cover" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Varda Dinkha</h3>
+                <p className="text-primary font-semibold mb-3">Founder & Chief Executive Officer</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Varda founded Halo Business Finance in 2015 with a vision to transform business lending through 
+                  innovative technology. As a full stack engineer with expertise in fintech, AI, and blockchain, 
+                  he brings a unique combination of technical innovation and financial industry expertise to the marketplace.
+                </p>
+                <div className="text-xs text-muted-foreground mb-4">
+                  NMLS Broker (ID: 2272778) | Full Stack Engineer | Fintech, AI & Blockchain Graduate
+                </div>
+                <div className="text-center">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://www.linkedin.com/in/vardad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
 
       <Footer />
     </div>
