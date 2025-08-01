@@ -13,23 +13,24 @@ const SiteMapPage = () => {
       category: "Main Pages",
       links: [
         { name: "Home", url: "/" },
-        
-        { name: "Contact Us", url: "/contact-us" },
         { name: "Company Overview", url: "/company-overview" },
         { name: "How It Works", url: "/how-it-works" },
         { name: "Marketplace Benefits", url: "/marketplace-benefits" },
-        { name: "Resources", url: "/resources" }
+        { name: "Contact Us", url: "/contact-us" },
+        { name: "Business Finance Resources", url: "/business-finance-resources" },
+        { name: "Customer Service", url: "/customer-service" },
+        { name: "Technical Support", url: "/technical-support" }
       ]
     },
     {
-      category: "SBA Loans",
+      category: "SBA & USDA Loans",
       links: [
         { name: "SBA Loans Overview", url: "/sba-loans" },
         { name: "SBA 7(a) Loans", url: "/sba-7a-loans" },
         { name: "SBA 504 Loans", url: "/sba-504-loans" },
         { name: "SBA Express Loans", url: "/sba-express-loans" },
         { name: "SBA Microloans", url: "/sba-microloans" },
-        { name: "Bridge Loans", url: "/bridge-loans" }
+        { name: "USDA B&I Loans", url: "/usda-bi-loans" }
       ]
     },
     {
@@ -37,10 +38,12 @@ const SiteMapPage = () => {
       links: [
         { name: "Commercial Loans Overview", url: "/commercial-loans" },
         { name: "Conventional Loans", url: "/conventional-loans" },
-        { name: "Purchase Loans", url: "/purchase-loans" },
-        { name: "Refinance Loans", url: "/refinance-loans" },
+        { name: "CMBS Loans", url: "/cmbs-loans" },
+        { name: "Portfolio Loans", url: "/portfolio-loans" },
         { name: "Construction Loans", url: "/construction-loans" },
-        { name: "Bridge Financing", url: "/bridge-financing" }
+        { name: "Bridge Financing", url: "/bridge-financing" },
+        { name: "Multifamily Loans", url: "/multifamily-loans" },
+        { name: "Asset-Based Loans", url: "/asset-based-loans" }
       ]
     },
     {
@@ -67,21 +70,25 @@ const SiteMapPage = () => {
       category: "Tools & Resources",
       links: [
         { name: "Loan Calculator", url: "/loan-calculator" },
-        { name: "Pre-qualification", url: "/pre-qualification" },
         { name: "Industry Solutions", url: "/industry-solutions" }
       ]
     },
     {
-      category: "Applications",
+      category: "Loan Applications",
       links: [
         { name: "SBA Loan Application", url: "/sba-loan-application" },
+        { name: "SBA 504 Loan Application", url: "/sba-504-application" },
         { name: "Equipment Loan Application", url: "/equipment-loan-application" },
         { name: "Working Capital Application", url: "/working-capital-application" },
-        { name: "Commercial Real Estate Application", url: "/commercial-real-estate-application" }
+        { name: "Commercial Real Estate Application", url: "/commercial-real-estate-application" },
+        { name: "Conventional Loan Application", url: "/conventional-loan-application" },
+        { name: "Bridge Loan Application", url: "/bridge-loan-application" },
+        { name: "Business Line of Credit Application", url: "/business-line-of-credit-application" },
+        { name: "Term Loan Application", url: "/term-loan-application" }
       ]
     },
     {
-      category: "Partners",
+      category: "Partners & Professionals",
       links: [
         { name: "Brokers", url: "/brokers" },
         { name: "Lenders", url: "/lenders" },
@@ -89,12 +96,21 @@ const SiteMapPage = () => {
       ]
     },
     {
-      category: "Legal & Compliance",
+      category: "Security & Compliance",
+      links: [
+        { name: "Security", url: "/security" },
+        { name: "Security Dashboard", url: "/security-dashboard" },
+        { name: "NMLS Compliance", url: "/nmls-compliance" },
+        { name: "Company Licenses", url: "/company-licenses" }
+      ]
+    },
+    {
+      category: "Legal & Information",
       links: [
         { name: "Privacy Policy", url: "/privacy-policy" },
         { name: "Terms of Service", url: "/terms-of-service" },
-        { name: "NMLS Compliance", url: "/nmls-compliance" },
-        { name: "Accessibility", url: "/accessibility" }
+        { name: "Accessibility", url: "/accessibility" },
+        { name: "Site Map", url: "/sitemap" }
       ]
     }
   ];
