@@ -213,15 +213,8 @@ const CompanyOverview = () => {
               <p className="text-sm text-muted-foreground">Average Response Time</p>
           </div>
           
-          {/* Action Buttons after Marketplace & Lending Partners */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-3"
-              onClick={() => window.open('/loan-calculator', '_blank')}
-            >
-              Calculate Loan Options
-            </Button>
+          {/* Action Button after Marketplace & Lending Partners */}
+          <div className="flex justify-center mt-8">
             <Button 
               variant="outline" 
               size="lg" 
