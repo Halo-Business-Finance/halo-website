@@ -98,12 +98,12 @@ const AboutUsPage = () => {
             <Card className="p-6">
               <CardContent className="p-0">
                 <div className="relative mb-4">
-                  <img src={loanConsultation} alt="Michael Rodriguez, CEO & Founder" className="w-24 h-24 rounded-full mx-auto object-cover" />
+                  <img src={loanConsultation} alt="Varda Dinkha, CEO of Halo Business Finance" className="w-24 h-24 rounded-full mx-auto object-cover" />
                 </div>
-                <h3 className="text-xl font-semibold text-center mb-2">Michael Rodriguez</h3>
-                <p className="text-primary font-medium text-center mb-3">CEO & Founder</p>
+                <h3 className="text-xl font-semibold text-center mb-2">Varda Dinkha</h3>
+                <p className="text-primary font-medium text-center mb-3">CEO of Halo Business Finance</p>
                 <p className="text-sm text-foreground mb-3">
-                  With over 20 years in commercial lending, Michael founded Halo Business Finance to revolutionize how businesses access capital. Former VP at Wells Fargo Commercial Banking.
+                  With over 20 years in commercial lending, Varda leads Halo Business Finance to revolutionize how businesses access capital. Former VP at Wells Fargo Commercial Banking.
                 </p>
                 <div className="text-xs text-foreground">
                   <p>• MBA Finance, Wharton School</p>

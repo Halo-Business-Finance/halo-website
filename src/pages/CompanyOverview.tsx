@@ -226,10 +226,10 @@ const CompanyOverview = () => {
                 <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary/70 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Users className="h-12 w-12 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Michael Rodriguez</h3>
-                <p className="text-primary font-semibold mb-3">Chief Executive Officer & Founder</p>
+                <h3 className="text-xl font-bold mb-2">Varda Dinkha</h3>
+                <p className="text-primary font-semibold mb-3">CEO of Halo Business Finance</p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  With over 20 years in commercial lending, Michael founded Halo Business Finance 
+                  With over 20 years in commercial lending, Varda leads Halo Business Finance 
                   to revolutionize how businesses access capital. Previously led lending operations 
                   at top-tier financial institutions.
                 </p>
