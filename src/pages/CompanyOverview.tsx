@@ -399,8 +399,8 @@ const CompanyOverview = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={clientFirstProfessionals} alt="Client-First Approach" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">Client-First Approach</h4>
                 <p className="text-sm text-muted-foreground">
@@ -409,8 +409,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={innovationProfessionals} alt="Continuous Innovation" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <TrendingUp className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">Continuous Innovation</h4>
                 <p className="text-sm text-muted-foreground">
@@ -419,8 +419,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={expertiseProfessionals} alt="Industry Expertise" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Building2 className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">Industry Expertise</h4>
                 <p className="text-sm text-muted-foreground">
@@ -429,8 +429,8 @@ const CompanyOverview = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-full h-64 rounded-lg mx-auto mb-6 overflow-hidden">
-                  <img src={resultsProfessionals} alt="Proven Results" className="w-full h-full object-cover object-center" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <CheckCircle className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-2">Proven Results</h4>
                 <p className="text-sm text-muted-foreground">
