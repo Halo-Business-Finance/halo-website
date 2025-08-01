@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linkedin } from "lucide-react";
+import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linkedin, FileText, MessageSquare, ShieldCheck, Upload, DollarSign } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -142,14 +142,17 @@ const CompanyOverview = () => {
 
           <div className="grid md:grid-cols-5 gap-8">
             {[
-              { step: "01", title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products" },
-              { step: "02", title: "Answer Questions", description: "Complete our simple application about your loan request" },
-              { step: "03", title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval" },
-              { step: "04", title: "Upload Financials", description: "Submit your documents to receive competitive term sheets" },
-              { step: "05", title: "Get Funded", description: "Sign your loan documents and receive your funding" }
+              { step: "01", title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", icon: FileText },
+              { step: "02", title: "Answer Questions", description: "Complete our simple application about your loan request", icon: MessageSquare },
+              { step: "03", title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", icon: ShieldCheck },
+              { step: "04", title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", icon: Upload },
+              { step: "05", title: "Get Funded", description: "Sign your loan documents and receive your funding", icon: DollarSign }
             ].map((item, index) => (
               <Card key={index} className="text-center p-6">
                 <CardContent className="p-0">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <item.icon className="h-8 w-8 text-primary" />
+                  </div>
                   <div className="text-3xl font-bold text-primary mb-4">{item.step}</div>
                   <h3 className="font-semibold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
