@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProductsSection from "@/components/ProductsSection";
-import StatsSection from "@/components/StatsSection";
+
 import ImageGallery from "@/components/ImageGallery";
 
 import Footer from "@/components/Footer";
@@ -32,7 +32,6 @@ const Index = () => {
       <MarketplaceOverview />
       <LendingStatsSection />
       
-      <StatsSection />
       <ResourcesHub />
       <PartnershipsSection />
       <ImageGallery />

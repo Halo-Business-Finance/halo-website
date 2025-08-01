@@ -15,6 +15,7 @@ import {
   Clock
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import StatsSection from "@/components/StatsSection";
 
 const LendersPage = () => {
   const benefits = [
@@ -455,6 +456,9 @@ const LendersPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Our Impact in Numbers Section */}
+      <StatsSection />
 
       {/* Contact Section */}
       <section className="py-16 bg-gradient-to-br from-primary to-financial-navy text-white">
