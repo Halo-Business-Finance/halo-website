@@ -36,7 +36,7 @@ const CompanyLicensesPage = () => {
       number: "60DBO-178064",
       issuer: "Department of Financial Protection and Innovation",
       status: "Active",
-      description: "California Commercial Financing Law license for commercial lending",
+      description: "Lender & Broker License - California Commercial Financing Law license for commercial lending",
       verificationLink: "https://dfpi.ca.gov/",
       icon: <Scale className="h-6 w-6 text-primary" />
     },
