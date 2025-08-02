@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { Calculator, DollarSign, Percent } from "lucide-react";
-import sbaLoanImg from "@/assets/sba-loan-calculator.jpg";
-import conventionalLoanImg from "@/assets/conventional-loan-calculator.jpg";
-import loanTermsImg from "@/assets/loan-terms-calculator.jpg";
+import sbaLoanImg from "@/assets/sba-loan-calculator-new.jpg";
+import conventionalLoanImg from "@/assets/conventional-loan-calculator-new.jpg";
+import commercialLoanImg from "@/assets/commercial-loan-calculator.jpg";
 
 const LoanCalculatorPage = () => {
   const [loanType, setLoanType] = useState("conventional");
@@ -75,8 +75,8 @@ const LoanCalculatorPage = () => {
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20 overflow-hidden">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src={sbaLoanImg} 
-          alt="SBA loan calculator and financing options" 
+          src={commercialLoanImg} 
+          alt="Business loan calculator and financing options" 
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="container mx-auto px-4 relative z-10">
@@ -312,16 +312,16 @@ const LoanCalculatorPage = () => {
               <Card className="overflow-hidden">
                 <div className="relative h-48">
                   <img 
-                    src={loanTermsImg} 
-                    alt="Loan terms and payment calculations" 
+                    src={conventionalLoanImg} 
+                    alt="Conventional loan calculator and payment options" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Loan Terms</CardTitle>
+                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Conventional Calculator</CardTitle>
                 </div>
                 <CardContent className="pt-4">
                   <p className="text-muted-foreground">
-                    Flexible repayment periods from 1-30 years depending on loan type, with terms tailored to your business cash flow and needs.
+                    Use our conventional loan calculator to estimate payments for traditional bank financing with competitive rates and flexible terms.
                   </p>
                 </CardContent>
               </Card>
