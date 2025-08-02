@@ -66,6 +66,13 @@ const USDABILoansPage = () => {
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png" 
+                  alt="USDA Logo" 
+                  className="h-20 w-auto"
+                />
+              </div>
               <Badge className="mb-6 bg-white/20 text-white border-white/30">
                 USDA Rural Development Program
               </Badge>
@@ -118,10 +125,14 @@ const USDABILoansPage = () => {
               <Card className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
                 <CardContent className="p-0">
                   <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Star className="w-8 h-8 text-primary" />
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2">
+                      <img 
+                        src="/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png" 
+                        alt="USDA Logo" 
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">Loan Features</h3>
+                    <h3 className="text-2xl font-bold mb-2">USDA Loan Features</h3>
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
