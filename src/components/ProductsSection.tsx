@@ -290,52 +290,65 @@ const ProductsSection = () => {
   }, [businessEmblaApi, businessOnSelect]);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-white via-financial-light to-blue-50/30">
       <div className="container mx-auto px-4">
-        {/* Enhanced Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Sparkles className="h-4 w-4" />
-            SBA Preferred Lender
+        {/* Enhanced Header Section - JPMorgan Style */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-[var(--shadow-card)]">
+            <Sparkles className="h-5 w-5" />
+            SBA Preferred Lender - Nationwide Marketplace
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent mb-6">
-            SBA & Commercial Loan Solutions
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <span className="bg-gradient-to-r from-financial-navy via-financial-blue to-financial-accent bg-clip-text text-transparent">
+              Comprehensive Business
+            </span>
+            <br />
+            <span className="text-financial-navy">
+              Financing Solutions
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">SBA-backed</a> and conventional financing options designed to fuel your business growth. Learn more about <Link to="/how-it-works" className="text-primary hover:underline font-medium">how our lending process works</Link>.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            We provide credit, financing, treasury and payment solutions to help your business succeed. 
+            Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
           </p>
         </div>
 
-        {/* Elegant Carousel Section */}
-        <div className="relative mb-20 bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg">
-          {/* Navigation Controls */}
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={scrollPrev}
-                disabled={prevBtnDisabled}
-                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary disabled:opacity-30"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={scrollNext}
-                disabled={nextBtnDisabled}
-                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary disabled:opacity-30"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
+        {/* Professional Carousel Section - JPMorgan Inspired */}
+        <div className="relative mb-24 bg-white rounded-3xl shadow-[var(--shadow-professional)] border border-slate-100 overflow-hidden">
+          <div className="p-8 md:p-12">
+            {/* Navigation Controls */}
+            <div className="flex justify-between items-center mb-10">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">
+                  SBA & Commercial Loan Solutions
+                </h3>
+                <p className="text-slate-600">
+                  Explore our {products.length} comprehensive financing programs
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={scrollPrev}
+                  disabled={prevBtnDisabled}
+                  className="h-12 w-12 rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-white disabled:opacity-30 transition-all duration-300"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={scrollNext}
+                  disabled={nextBtnDisabled}
+                  className="h-12 w-12 rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-white disabled:opacity-30 transition-all duration-300"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </Button>
+              </div>
             </div>
-            <div className="text-sm text-foreground/70">
-              Swipe or use arrows to explore all {products.length} loan programs
-            </div>
-          </div>
 
-          {/* Embla Carousel Container */}
+            {/* Embla Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {products.map((product, index) => (
@@ -426,6 +439,7 @@ const ProductsSection = () => {
                 onClick={() => emblaApi?.scrollTo(index * 4)}
               />
             ))}
+          </div>
           </div>
         </div>
 
