@@ -40,7 +40,6 @@ const Footer = () => {
     { name: "Loan Calculator", link: "/loan-calculator" },
     { name: "Industry Solutions", link: "/industry-solutions" },
     { name: "SBA Resources", link: "/sba-loans" },
-    { name: "Financial Guides", link: "/how-it-works" },
     { name: "Market Insights", link: "/resources" }
   ];
 
