@@ -55,7 +55,7 @@ const CompanyLicensesPage = () => {
       issuer: "Better Business Bureau",
       status: "A+ Rating",
       description: "BBB accredited business since 2019 with highest rating",
-      verificationLink: "https://www.bbb.org/",
+      verificationLink: "https://www.bbb.org/us/ca/irvine/profile/small-business-loans/halo-business-finance-corp-1126-1000144399/#sealclick",
       icon: <Award className="h-6 w-6 text-primary" />
     }
   ];
@@ -171,6 +171,26 @@ const CompanyLicensesPage = () => {
                     <p className="text-sm text-muted-foreground mb-4">
                       {license.description}
                     </p>
+                    
+                    {/* Add BBB Seal for Better Business Bureau card */}
+                    {license.name === "Better Business Bureau" && (
+                      <div className="mb-4 text-center">
+                        <a 
+                          href={license.verificationLink}
+                          target="_blank" 
+                          rel="nofollow"
+                          className="inline-block"
+                        >
+                          <img 
+                            src="https://seal-central-northern-western-arizona.bbb.org/seals/blue-seal-96-50-bbb-1000144399.png" 
+                            style={{border: 0}} 
+                            alt="Halo Business Finance Corp BBB Business Review" 
+                            className="h-12 w-auto mx-auto"
+                          />
+                        </a>
+                      </div>
+                    )}
+                    
                     <a 
                       href={license.verificationLink}
                       target="_blank"
