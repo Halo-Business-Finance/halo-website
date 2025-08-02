@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { Calculator, DollarSign, Percent } from "lucide-react";
-import sbaLoanImg from "@/assets/sba-loan-calculator-new.jpg";
-import conventionalLoanImg from "@/assets/conventional-loan-calculator-new.jpg";
-import commercialLoanImg from "@/assets/commercial-loan-calculator.jpg";
+import sbaLoanImg from "@/assets/sba-loan-professional.jpg";
+import conventionalLoanImg from "@/assets/conventional-loan-professional.jpg";
+import loanCalculatorImg from "@/assets/loan-calculator-professional.jpg";
 
 const LoanCalculatorPage = () => {
   const [loanType, setLoanType] = useState("conventional");
@@ -75,8 +75,8 @@ const LoanCalculatorPage = () => {
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20 overflow-hidden">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src={commercialLoanImg} 
-          alt="Business loan calculator and financing options" 
+          src={loanCalculatorImg} 
+          alt="Professional loan calculator and business financing" 
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="container mx-auto px-4 relative z-10">
@@ -312,16 +312,16 @@ const LoanCalculatorPage = () => {
               <Card className="overflow-hidden">
                 <div className="relative h-48">
                   <img 
-                    src={conventionalLoanImg} 
-                    alt="Conventional loan calculator and payment options" 
+                    src={loanCalculatorImg} 
+                    alt="Loan calculator tools and payment estimation" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Conventional Calculator</CardTitle>
+                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Loan Calculator</CardTitle>
                 </div>
                 <CardContent className="pt-4">
                   <p className="text-muted-foreground">
-                    Use our conventional loan calculator to estimate payments for traditional bank financing with competitive rates and flexible terms.
+                    Calculate monthly payments, total costs, and compare different loan options with our comprehensive loan calculator tools.
                   </p>
                 </CardContent>
               </Card>
