@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CheckCircle, CreditCard, TrendingUp, DollarSign, ArrowRight, PieChart, BarChart3, Target } from "lucide-react";
+import { CheckCircle, CreditCard, TrendingUp, DollarSign, ArrowRight, PieChart, BarChart3, Target, ChevronLeft, ChevronRight } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import businessLoanApproved from "@/assets/business-loan-approved.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import officeWorkspace from "@/assets/office-workspace.jpg";
@@ -107,53 +108,59 @@ const BusinessCapitalPage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {capitalProducts.map((product, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow relative">
-                {product.badge && (
-                  <Badge className="absolute top-4 right-4 bg-primary text-white">
-                    {product.badge}
-                  </Badge>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-2xl mb-4">{product.title}</CardTitle>
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-lg font-bold text-primary">{product.rate}</div>
-                      <div className="text-sm text-foreground">Rate/Factor</div>
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-primary">{product.amount}</div>
-                      <div className="text-sm text-foreground">Amount</div>
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-primary">{product.term}</div>
-                      <div className="text-sm text-foreground">Terms</div>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-foreground mb-6">{product.description}</p>
-                  
-                  <div className="space-y-3 mb-6">
-                    {product.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
-                        <span>{feature}</span>
+          <Carousel className="w-full max-w-6xl mx-auto">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {capitalProducts.map((product, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
+                  <Card className="hover:shadow-lg transition-shadow relative h-full">
+                    {product.badge && (
+                      <Badge className="absolute top-4 right-4 bg-primary text-white">
+                        {product.badge}
+                      </Badge>
+                    )}
+                    <CardHeader>
+                      <CardTitle className="text-2xl mb-4">{product.title}</CardTitle>
+                      <div className="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                          <div className="text-lg font-bold text-primary">{product.rate}</div>
+                          <div className="text-sm text-foreground">Rate/Factor</div>
+                        </div>
+                        <div>
+                          <div className="text-lg font-bold text-primary">{product.amount}</div>
+                          <div className="text-sm text-foreground">Amount</div>
+                        </div>
+                        <div>
+                          <div className="text-lg font-bold text-primary">{product.term}</div>
+                          <div className="text-sm text-foreground">Terms</div>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-foreground mb-6">{product.description}</p>
+                      
+                      <div className="space-y-3 mb-6">
+                        {product.features.map((feature, i) => (
+                          <div key={i} className="flex items-center gap-3">
+                            <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
 
-                  <Button className="w-full group" asChild>
-                    <Link to={product.link}>
-                      Learn More
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                      <Button className="w-full group" asChild>
+                        <Link to={product.link}>
+                          Learn More
+                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </section>
 
