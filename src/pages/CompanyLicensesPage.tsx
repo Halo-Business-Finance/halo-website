@@ -37,7 +37,7 @@ const CompanyLicensesPage = () => {
       issuer: "Department of Financial Protection and Innovation",
       status: "Active",
       description: "Lender & Broker License - California Commercial Financing Law license for commercial lending",
-      verificationLink: "https://dfpi.ca.gov/",
+      verificationLink: "https://dfpi.ca.gov/search-result-detail/?id=9C8FC0F1-6FF5-ED11-815A-0050569B0F40",
       icon: <Scale className="h-6 w-6 text-primary" />
     },
     {
