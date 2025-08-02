@@ -72,18 +72,9 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     onError?.();
   };
 
-  // Generate responsive srcSet
+  // For now, use original images directly since responsive variants may not exist
   const generateSrcSet = (baseSrc: string) => {
-    const ext = baseSrc.split('.').pop();
-    const baseName = baseSrc.replace(`.${ext}`, '');
-    
-    return [
-      `${baseName}-320w.${ext} 320w`,
-      `${baseName}-640w.${ext} 640w`,
-      `${baseName}-1024w.${ext} 1024w`,
-      `${baseName}-1366w.${ext} 1366w`,
-      `${baseName}-1920w.${ext} 1920w`
-    ].join(', ');
+    return baseSrc; // Use original image only
   };
 
   return (
@@ -111,27 +102,12 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       {/* Actual image */}
       {isInView && (
         <picture>
-          {/* Modern formats */}
-          {avifSrc && (
-            <source 
-              srcSet={generateSrcSet(avifSrc)} 
-              type="image/avif" 
-              sizes={sizes}
-            />
-          )}
-          {webpSrc && (
-            <source 
-              srcSet={generateSrcSet(webpSrc)} 
-              type="image/webp" 
-              sizes={sizes}
-            />
-          )}
+          {/* Use original images directly */}
           
           {/* Fallback */}
           <img
             ref={imgRef}
             src={src}
-            srcSet={generateSrcSet(src)}
             alt={alt}
             width={width}
             height={height}
