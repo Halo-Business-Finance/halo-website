@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { LazyImage } from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
@@ -470,10 +471,11 @@ const ProductsSection = () => {
 
         {/* Enhanced CTA Section */}
         <div className="mt-20 relative overflow-hidden rounded-3xl shadow-2xl">
-          <img 
+          <LazyImage 
             src={financialAdvisorConsultation} 
             alt="Professional financial advisor consultation with business owner"
             className="absolute inset-0 w-full h-full object-cover"
+            priority={false}
           />
           <div className="relative bg-gradient-to-r from-slate-900/95 via-blue-900/90 to-slate-900/95 text-white py-20 px-8">
             <div className="max-w-4xl mx-auto text-center">
