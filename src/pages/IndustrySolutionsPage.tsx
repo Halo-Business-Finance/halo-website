@@ -51,7 +51,7 @@ const IndustrySolutionsPage = () => {
       title: "Transportation",
       description: "Fleet financing, equipment loans, and working capital for trucking and logistics companies.",
       solutions: ["Fleet Financing", "Trailer Loans", "Fuel Cards", "Working Capital"],
-      image: transportationImg,
+      image: manufacturingImg,
       alt: "Professional trucking and logistics operations"
     },
     {
@@ -59,7 +59,7 @@ const IndustrySolutionsPage = () => {
       title: "Manufacturing",
       description: "Machinery financing, facility expansion, and working capital for manufacturing businesses.",
       solutions: ["Machinery Loans", "Facility Expansion", "Inventory Financing", "Export Financing"],
-      image: manufacturingImg,
+      image: transportationImg,
       alt: "Advanced manufacturing facility with modern equipment"
     }
   ];
