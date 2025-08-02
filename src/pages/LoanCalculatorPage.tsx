@@ -7,6 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { Calculator, DollarSign, Percent } from "lucide-react";
+import laptopCalculatorImg from "@/assets/laptop-calculator.jpg";
+import financialGrowthImg from "@/assets/financial-growth.jpg";
+import businessTechnologyImg from "@/assets/business-technology.jpg";
 
 const LoanCalculatorPage = () => {
   const [loanAmount, setLoanAmount] = useState("100000");
@@ -36,8 +39,14 @@ const LoanCalculatorPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40"></div>
+        <img 
+          src={laptopCalculatorImg} 
+          alt="Professional laptop calculator" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <Calculator className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Loan Calculator</h1>
@@ -168,33 +177,51 @@ const LoanCalculatorPage = () => {
           <div className="mt-16 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">Understanding Your Loan</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Principal</CardTitle>
-                </CardHeader>
-                <CardContent>
+              <Card className="overflow-hidden">
+                <div className="relative h-48">
+                  <img 
+                    src={financialGrowthImg} 
+                    alt="Financial growth and stability" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Principal</CardTitle>
+                </div>
+                <CardContent className="pt-4">
                   <p className="text-muted-foreground">
                     The original loan amount you borrow. This is the base amount that will accrue interest over time.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Interest Rate</CardTitle>
-                </CardHeader>
-                <CardContent>
+              <Card className="overflow-hidden">
+                <div className="relative h-48">
+                  <img 
+                    src={businessTechnologyImg} 
+                    alt="Business technology and analytics" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Interest Rate</CardTitle>
+                </div>
+                <CardContent className="pt-4">
                   <p className="text-muted-foreground">
                     The annual percentage rate (APR) charged on the loan. Lower rates mean lower total costs.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Loan Term</CardTitle>
-                </CardHeader>
-                <CardContent>
+              <Card className="overflow-hidden">
+                <div className="relative h-48">
+                  <img 
+                    src={laptopCalculatorImg} 
+                    alt="Loan calculation and planning" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <CardTitle className="absolute bottom-4 left-4 text-lg text-white">Loan Term</CardTitle>
+                </div>
+                <CardContent className="pt-4">
                   <p className="text-muted-foreground">
                     The length of time you have to repay the loan. Longer terms mean lower payments but more total interest.
                   </p>
