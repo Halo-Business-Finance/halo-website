@@ -83,7 +83,7 @@ const CompanyOverview = () => {
                 <div key={index} className="relative flex items-center">
                   <Card className="text-center p-6 animate-fade-in hover-scale">
                     <CardContent className="p-0">
-                      <div className="w-full h-32 rounded-lg overflow-hidden mb-4">
+                      <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
                       </div>
                       <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
