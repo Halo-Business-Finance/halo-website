@@ -48,6 +48,7 @@ const MarketplaceBenefitsPage = lazy(() => import("./pages/MarketplaceBenefitsPa
 const NMLSCompliancePage = lazy(() => import("./pages/NMLSCompliancePage"));
 const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfServicePage = lazy(() => import("./pages/TermsOfServicePage"));
+const CFIPAPage = lazy(() => import("./pages/CFIPAPage"));
 const AccessibilityPage = lazy(() => import("./pages/AccessibilityPage"));
 const SiteMapPage = lazy(() => import("./pages/SiteMapPage"));
 const ContactUsPage = lazy(() => import("./pages/ContactUsPage"));
@@ -162,6 +163,7 @@ const App = () => {
             <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+            <Route path="/cfipa" element={<CFIPAPage />} />
             <Route path="/accessibility" element={<AccessibilityPage />} />
             <Route path="/sitemap" element={<SiteMapPage />} />
             <Route path="/customer-service" element={<CustomerServicePage />} />
