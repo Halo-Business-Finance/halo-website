@@ -225,7 +225,7 @@ const ProductsSection = () => {
     }
   ];
 
-  // Carousel hooks
+  // Carousel hooks for SBA & Commercial Loans
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'start',
@@ -256,6 +256,37 @@ const ProductsSection = () => {
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
+
+  // Carousel hooks for Business Capital
+  const [businessEmblaRef, businessEmblaApi] = useEmblaCarousel({
+    loop: false,
+    align: 'start',
+    skipSnaps: false,
+    dragFree: true,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 2 },
+      '(min-width: 1280px)': { slidesToScroll: 4 }
+    }
+  });
+
+  const [businessPrevBtnDisabled, setBusinessPrevBtnDisabled] = useState(true);
+  const [businessNextBtnDisabled, setBusinessNextBtnDisabled] = useState(true);
+
+  const businessScrollPrev = useCallback(() => businessEmblaApi && businessEmblaApi.scrollPrev(), [businessEmblaApi]);
+  const businessScrollNext = useCallback(() => businessEmblaApi && businessEmblaApi.scrollNext(), [businessEmblaApi]);
+
+  const businessOnSelect = useCallback(() => {
+    if (!businessEmblaApi) return;
+    setBusinessPrevBtnDisabled(!businessEmblaApi.canScrollPrev());
+    setBusinessNextBtnDisabled(!businessEmblaApi.canScrollNext());
+  }, [businessEmblaApi]);
+
+  useEffect(() => {
+    if (!businessEmblaApi) return;
+    businessOnSelect();
+    businessEmblaApi.on('select', businessOnSelect);
+    businessEmblaApi.on('reInit', businessOnSelect);
+  }, [businessEmblaApi, businessOnSelect]);
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
@@ -412,60 +443,92 @@ const ProductsSection = () => {
             </p>
           </div>
 
-          {/* Grid Layout for Business Products */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {businessProducts.map((product, index) => (
-              <Card 
-                key={index} 
-                className="group relative border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm"
-              >
-                <CardHeader className="pb-3 pt-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
-                      <product.icon className="h-5 w-5 text-white" />
-                    </div>
-                    <h5 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 flex-1 min-w-0 truncate">
-                      {product.title}
-                    </h5>
+          {/* Carousel Layout for Business Products */}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="overflow-hidden" ref={businessEmblaRef}>
+              <div className="flex gap-4">
+                {businessProducts.map((product, index) => (
+                  <div key={index} className="flex-[0_0_100%] md:flex-[0_0_calc(50%-8px)] xl:flex-[0_0_calc(25%-12px)] min-w-0">
+                    <Card 
+                      className="group relative border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-lg bg-white/80 backdrop-blur-sm h-full"
+                    >
+                      <CardHeader className="pb-3 pt-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
+                            <product.icon className="h-5 w-5 text-white" />
+                          </div>
+                          <h5 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 flex-1 min-w-0 truncate">
+                            {product.title}
+                          </h5>
+                        </div>
+                        
+                        <div className="bg-slate-50 rounded-lg px-3 py-2">
+                          <div className="text-xl font-bold text-primary">{product.rate}</div>
+                          <div className="text-xs text-slate-600">{product.rateLabel}</div>
+                        </div>
+                      </CardHeader>
+                      
+                      <CardContent className="pt-0 pb-4">
+                        <p className="text-sm text-slate-600 mb-4 line-clamp-2">{product.description}</p>
+                        
+                        <div className="space-y-2 mb-4">
+                          {product.features.slice(0, 2).map((feature, i) => (
+                            <div key={i} className="flex items-center text-xs text-slate-700">
+                              <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                              <span className="truncate">{feature}</span>
+                            </div>
+                          ))}
+                          {product.features.length > 2 && (
+                            <div className="text-xs text-slate-500 ml-5">+{product.features.length - 2} more</div>
+                          )}
+                        </div>
+                        
+                        <div className="flex gap-2">
+                          <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                            <Link to={product.learnLink}>
+                              Learn
+                            </Link>
+                          </Button>
+                          <Button asChild size="sm" className="flex-1 text-xs">
+                            <a href="https://preview--hbf-application.lovable.app/auth">
+                              Apply
+                              <ArrowRight className="h-3 w-3 ml-1" />
+                            </a>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                  
-                  <div className="bg-slate-50 rounded-lg px-3 py-2">
-                    <div className="text-xl font-bold text-primary">{product.rate}</div>
-                    <div className="text-xs text-slate-600">{product.rateLabel}</div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="pt-0 pb-4">
-                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">{product.description}</p>
-                  
-                  <div className="space-y-2 mb-4">
-                    {product.features.slice(0, 2).map((feature, i) => (
-                      <div key={i} className="flex items-center text-xs text-slate-700">
-                        <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
-                        <span className="truncate">{feature}</span>
-                      </div>
-                    ))}
-                    {product.features.length > 2 && (
-                      <div className="text-xs text-slate-500 ml-5">+{product.features.length - 2} more</div>
-                    )}
-                  </div>
+                ))}
+              </div>
+            </div>
 
-                  <div className="flex gap-2">
-                    <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
-                      <Link to={product.learnLink}>
-                        Learn
-                      </Link>
-                    </Button>
-                    <Button asChild size="sm" className="flex-1 text-xs">
-                      <a href="https://preview--hbf-application.lovable.app/auth">
-                        Apply
-                        <ArrowRight className="h-3 w-3 ml-1" />
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {/* Navigation Buttons */}
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg border border-slate-200 rounded-full p-2 text-slate-600 hover:text-primary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-10"
+              onClick={businessScrollPrev}
+              disabled={businessPrevBtnDisabled}
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg border border-slate-200 rounded-full p-2 text-slate-600 hover:text-primary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed z-10"
+              onClick={businessScrollNext}
+              disabled={businessNextBtnDisabled}
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Carousel Indicators */}
+            <div className="flex justify-center mt-6 gap-2">
+              {businessProducts.map((_, index) => (
+                <button
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200"
+                  onClick={() => businessEmblaApi?.scrollTo(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
