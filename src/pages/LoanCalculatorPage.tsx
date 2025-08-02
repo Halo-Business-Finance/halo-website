@@ -12,18 +12,31 @@ import conventionalLoanImg from "@/assets/conventional-loan-calculator.jpg";
 import loanTermsImg from "@/assets/loan-terms-calculator.jpg";
 
 const LoanCalculatorPage = () => {
+  const [loanType, setLoanType] = useState("conventional");
   const [loanAmount, setLoanAmount] = useState("100000");
   const [interestRate, setInterestRate] = useState("7.5");
   const [termYears, setTermYears] = useState("5");
   const [monthlyPayment, setMonthlyPayment] = useState(0);
   const [totalInterest, setTotalInterest] = useState(0);
+  const [downPayment, setDownPayment] = useState("0");
+
+  // Update interest rate and terms based on loan type
+  const updateLoanDefaults = (type: string) => {
+    if (type === "sba") {
+      setInterestRate("6.5"); // SBA loans typically have lower rates
+      setTermYears("10"); // SBA loans can have longer terms
+    } else {
+      setInterestRate("7.5"); // Conventional loan rates
+      setTermYears("5"); // Standard conventional terms
+    }
+  };
 
   const calculatePayment = () => {
-    const principal = parseFloat(loanAmount);
+    const principal = parseFloat(loanAmount) - parseFloat(downPayment);
     const monthlyRate = parseFloat(interestRate) / 100 / 12;
     const numberOfPayments = parseFloat(termYears) * 12;
 
-    if (principal && monthlyRate && numberOfPayments) {
+    if (principal && monthlyRate && numberOfPayments && principal > 0) {
       const payment = (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
                      (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
       
@@ -32,6 +45,26 @@ const LoanCalculatorPage = () => {
       
       setMonthlyPayment(payment);
       setTotalInterest(interest);
+    }
+  };
+
+  const getLoanTypeInfo = () => {
+    if (loanType === "sba") {
+      return {
+        title: "SBA Loan Calculator",
+        description: "Government-backed loans with favorable terms and lower down payments",
+        benefits: ["Lower interest rates", "Longer repayment terms", "Lower down payment requirements", "Government guarantee"],
+        maxTerm: "25",
+        downPaymentRange: "10-15%"
+      };
+    } else {
+      return {
+        title: "Conventional Loan Calculator", 
+        description: "Traditional bank financing with competitive rates",
+        benefits: ["Faster approval process", "Flexible terms", "No government restrictions", "Higher loan amounts"],
+        maxTerm: "20",
+        downPaymentRange: "15-25%"
+      };
     }
   };
 
@@ -69,6 +102,35 @@ const LoanCalculatorPage = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-2">
+                  <Label htmlFor="loanType">Loan Type</Label>
+                  <Select value={loanType} onValueChange={(value) => {
+                    setLoanType(value);
+                    updateLoanDefaults(value);
+                  }}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select loan type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="conventional">Conventional Loan</SelectItem>
+                      <SelectItem value="sba">SBA Loan</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="p-4 bg-muted rounded-lg">
+                  <h4 className="font-semibold mb-2">{getLoanTypeInfo().title}</h4>
+                  <p className="text-sm text-muted-foreground mb-3">{getLoanTypeInfo().description}</p>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    {getLoanTypeInfo().benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-center gap-1">
+                        <div className="w-1 h-1 bg-primary rounded-full"></div>
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
                   <Label htmlFor="loanAmount">Loan Amount ($)</Label>
                   <Input
                     id="loanAmount"
@@ -77,6 +139,20 @@ const LoanCalculatorPage = () => {
                     onChange={(e) => setLoanAmount(e.target.value)}
                     placeholder="100000"
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="downPayment">Down Payment ($)</Label>
+                  <Input
+                    id="downPayment"
+                    type="number"
+                    value={downPayment}
+                    onChange={(e) => setDownPayment(e.target.value)}
+                    placeholder="0"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Typical range: {getLoanTypeInfo().downPaymentRange}
+                  </p>
                 </div>
 
                 <div className="space-y-2">
@@ -89,6 +165,9 @@ const LoanCalculatorPage = () => {
                     onChange={(e) => setInterestRate(e.target.value)}
                     placeholder="7.5"
                   />
+                  <p className="text-xs text-muted-foreground">
+                    {loanType === "sba" ? "SBA rates typically 6-8%" : "Conventional rates typically 7-12%"}
+                  </p>
                 </div>
 
                 <div className="space-y-2">
@@ -106,14 +185,21 @@ const LoanCalculatorPage = () => {
                       <SelectItem value="10">10 years</SelectItem>
                       <SelectItem value="15">15 years</SelectItem>
                       <SelectItem value="20">20 years</SelectItem>
-                      <SelectItem value="25">25 years</SelectItem>
-                      <SelectItem value="30">30 years</SelectItem>
+                      {loanType === "sba" && (
+                        <>
+                          <SelectItem value="25">25 years</SelectItem>
+                          <SelectItem value="30">30 years</SelectItem>
+                        </>
+                      )}
                     </SelectContent>
                   </Select>
+                  <p className="text-xs text-muted-foreground">
+                    Max term: {getLoanTypeInfo().maxTerm} years for {loanType === "sba" ? "SBA" : "conventional"} loans
+                  </p>
                 </div>
 
                 <Button onClick={calculatePayment} className="w-full" size="lg">
-                  Calculate Payment
+                  Calculate {loanType === "sba" ? "SBA" : "Conventional"} Loan Payment
                 </Button>
               </CardContent>
             </Card>
@@ -145,8 +231,20 @@ const LoanCalculatorPage = () => {
 
                     <div className="space-y-3">
                       <div className="flex justify-between">
+                        <span>Loan Type:</span>
+                        <span className="font-semibold">{loanType === "sba" ? "SBA Loan" : "Conventional Loan"}</span>
+                      </div>
+                      <div className="flex justify-between">
                         <span>Loan Amount:</span>
                         <span className="font-semibold">${parseFloat(loanAmount).toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Down Payment:</span>
+                        <span className="font-semibold">${parseFloat(downPayment).toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Financed Amount:</span>
+                        <span className="font-semibold">${(parseFloat(loanAmount) - parseFloat(downPayment)).toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Interest Rate:</span>
