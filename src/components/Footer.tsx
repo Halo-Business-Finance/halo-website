@@ -180,14 +180,14 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Better Business Bureau */}
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-white rounded-lg">
-                <div className="text-financial-navy font-bold text-lg leading-tight">
-                  <div className="text-xs">BETTER</div>
-                  <div className="text-xs">BUSINESS</div>
-                  <div className="text-xs">BUREAU</div>
-                  <div className="text-[10px] border-t border-financial-navy mt-1 pt-1">®</div>
-                </div>
-              </div>
+              <a href="https://www.bbb.org/us/ca/irvine/profile/small-business-loans/halo-business-finance-corp-1126-1000144399/#sealclick" target="_blank" rel="nofollow">
+                <img 
+                  src="https://seal-central-northern-western-arizona.bbb.org/seals/blue-seal-96-50-bbb-1000144399.png" 
+                  style={{border: 0}} 
+                  alt="Halo Business Finance Corp BBB Business Review" 
+                  className="h-12 w-auto"
+                />
+              </a>
               <div className="text-sm">
                 <div className="font-semibold">BBB Accredited</div>
                 <div className="text-white">Business Since 2019</div>
