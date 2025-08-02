@@ -4,6 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Building, Utensils, Wrench, ShoppingCart, Stethoscope, Truck } from "lucide-react";
+import restaurantImg from "@/assets/restaurant-industry.jpg";
+import retailImg from "@/assets/retail-industry.jpg";
+import constructionImg from "@/assets/construction-industry.jpg";
+import healthcareImg from "@/assets/healthcare-industry.jpg";
+import transportationImg from "@/assets/transportation-industry.jpg";
+import manufacturingImg from "@/assets/manufacturing-industry.jpg";
+import industryHeaderImg from "@/assets/industry-header.jpg";
 
 const IndustrySolutionsPage = () => {
   const industries = [
@@ -11,37 +18,49 @@ const IndustrySolutionsPage = () => {
       icon: Utensils,
       title: "Restaurant & Food Service",
       description: "Equipment financing, working capital, and expansion loans for restaurants, cafes, and food service businesses.",
-      solutions: ["Equipment Financing", "Working Capital", "Franchise Loans", "Renovation Financing"]
+      solutions: ["Equipment Financing", "Working Capital", "Franchise Loans", "Renovation Financing"],
+      image: restaurantImg,
+      alt: "Professional restaurant kitchen with modern equipment"
     },
     {
       icon: ShoppingCart,
       title: "Retail",
       description: "Inventory financing, store expansion, and seasonal capital for retail businesses of all sizes.",
-      solutions: ["Inventory Financing", "Store Expansion", "Seasonal Capital", "POS Systems"]
+      solutions: ["Inventory Financing", "Store Expansion", "Seasonal Capital", "POS Systems"],
+      image: retailImg,
+      alt: "Modern retail store interior with professional displays"
     },
     {
       icon: Wrench,
       title: "Construction",
       description: "Heavy equipment financing, project funding, and bonding for construction companies.",
-      solutions: ["Equipment Loans", "Project Financing", "Bonding", "Fleet Financing"]
+      solutions: ["Equipment Loans", "Project Financing", "Bonding", "Fleet Financing"],
+      image: constructionImg,
+      alt: "Construction workers and heavy machinery at work site"
     },
     {
       icon: Stethoscope,
       title: "Healthcare",
       description: "Medical equipment financing, practice expansion, and specialized healthcare lending solutions.",
-      solutions: ["Medical Equipment", "Practice Acquisition", "EMR Systems", "Facility Expansion"]
+      solutions: ["Medical Equipment", "Practice Acquisition", "EMR Systems", "Facility Expansion"],
+      image: healthcareImg,
+      alt: "Modern medical facility with healthcare professionals"
     },
     {
       icon: Truck,
       title: "Transportation",
       description: "Fleet financing, equipment loans, and working capital for trucking and logistics companies.",
-      solutions: ["Fleet Financing", "Trailer Loans", "Fuel Cards", "Working Capital"]
+      solutions: ["Fleet Financing", "Trailer Loans", "Fuel Cards", "Working Capital"],
+      image: transportationImg,
+      alt: "Professional trucking and logistics operations"
     },
     {
       icon: Building,
       title: "Manufacturing",
       description: "Machinery financing, facility expansion, and working capital for manufacturing businesses.",
-      solutions: ["Machinery Loans", "Facility Expansion", "Inventory Financing", "Export Financing"]
+      solutions: ["Machinery Loans", "Facility Expansion", "Inventory Financing", "Export Financing"],
+      image: manufacturingImg,
+      alt: "Advanced manufacturing facility with modern equipment"
     }
   ];
 
@@ -49,8 +68,14 @@ const IndustrySolutionsPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40"></div>
+        <img 
+          src={industryHeaderImg} 
+          alt="Professional industry solutions" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Specialized Solutions</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Industry Solutions</h1>
@@ -67,12 +92,20 @@ const IndustrySolutionsPage = () => {
             {industries.map((industry, index) => {
               const IconComponent = industry.icon;
               return (
-                <Card key={index} className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <IconComponent className="h-8 w-8 text-primary" />
-                      <CardTitle className="text-xl">{industry.title}</CardTitle>
+                <Card key={index} className="h-full overflow-hidden group hover:shadow-lg transition-all duration-300">
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={industry.image} 
+                      alt={industry.alt} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur-sm rounded-lg">
+                      <IconComponent className="h-6 w-6 text-white" />
                     </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-xl">{industry.title}</CardTitle>
                     <p className="text-muted-foreground">{industry.description}</p>
                   </CardHeader>
                   <CardContent>
