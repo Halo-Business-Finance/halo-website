@@ -9,6 +9,7 @@ import { SecurityMonitor } from "@/components/security/SecurityMonitor";
 import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
 import { SessionManager } from "@/components/security/SessionManager";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
+import DisclaimerPopup from "@/components/DisclaimerPopup";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -113,6 +114,7 @@ const App = () => {
           <Sonner />
           <SecurityHeaders />
           <SecurityMonitor />
+          <DisclaimerPopup />
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
