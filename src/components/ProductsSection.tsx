@@ -70,7 +70,7 @@ const ProductsSection = () => {
       color: "from-orange-600 to-orange-700"
     },
     {
-      icon: Factory,
+      logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
       title: "USDA B&I Loans",
       description: "Rural business development financing backed by USDA guarantee.",
       rate: "Prime + 2%",
