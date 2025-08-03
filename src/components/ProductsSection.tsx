@@ -313,21 +313,6 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        {/* Professional Business Owner Image */}
-        <div className="relative mb-16">
-          <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-professional)] max-w-md mx-auto">
-            <img 
-              src="/lovable-uploads/bedad2f1-2f8e-45ca-b1e7-2f49c9cf57aa.png" 
-              alt="Successful business owner representing financial growth and achievement"
-              className="w-full h-[300px] md:h-[400px] object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <h3 className="text-xl font-bold mb-2">Your Success Starts Here</h3>
-              <p className="text-sm text-white/90">Join thousands of businesses that have grown with our financing solutions</p>
-            </div>
-          </div>
-        </div>
 
         {/* Professional Carousel Section - JPMorgan Inspired */}
         <div className="relative mb-24 bg-transparent rounded-3xl shadow-[var(--shadow-professional)] border border-slate-100 overflow-hidden">
@@ -456,6 +441,28 @@ const ProductsSection = () => {
               />
             ))}
           </div>
+          </div>
+        </div>
+
+        {/* Professional Business Owner Image with 3D Effect */}
+        <div className="relative mb-16">
+          <div 
+            className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-professional)] max-w-md mx-auto transform perspective-1000 rotate-x-12 hover:rotate-x-0 transition-transform duration-500 hover:scale-105"
+            style={{
+              transform: 'perspective(1000px) rotateX(15deg) rotateY(-5deg)',
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            <img 
+              src="/lovable-uploads/bedad2f1-2f8e-45ca-b1e7-2f49c9cf57aa.png" 
+              alt="Successful business owner representing financial growth and achievement"
+              className="w-full h-[300px] md:h-[400px] object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <h3 className="text-xl font-bold mb-2">Your Success Starts Here</h3>
+              <p className="text-sm text-white/90">Join thousands of businesses that have grown with our financing solutions</p>
+            </div>
           </div>
         </div>
 
