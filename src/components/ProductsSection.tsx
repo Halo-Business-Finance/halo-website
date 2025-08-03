@@ -290,7 +290,7 @@ const ProductsSection = () => {
   }, [businessEmblaApi, businessOnSelect]);
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-white via-financial-light to-blue-50/30">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-transparent via-financial-light to-blue-50/30">
       <div className="container mx-auto px-4">
         {/* Enhanced Header Section - JPMorgan Style */}
         <div className="text-center mb-20">
