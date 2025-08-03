@@ -79,8 +79,8 @@ const ImageGallery = () => {
     containScroll: 'trimSnaps'
   });
 
-  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
-  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
