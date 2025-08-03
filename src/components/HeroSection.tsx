@@ -47,7 +47,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
                 <Shield className="h-4 w-4" />
-                SBA Preferred Lender - Nationwide Marketplace
+                Nationwide Marketplace
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">

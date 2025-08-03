@@ -296,7 +296,7 @@ const ProductsSection = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-[var(--shadow-card)]">
             <Sparkles className="h-5 w-5" />
-            SBA Preferred Lender - Nationwide Marketplace
+            Nationwide Marketplace
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
             <span className="bg-gradient-to-r from-financial-navy via-financial-blue to-financial-accent bg-clip-text text-transparent">
