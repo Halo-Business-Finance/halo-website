@@ -165,13 +165,13 @@ const ImageGallery = () => {
 
           {/* Embla Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+            <div className="flex">
               {galleryItems.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex-none w-full md:w-1/2 lg:w-1/3 min-w-0"
+                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4"
                 >
-                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
+                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full mr-4">
                     <div className="relative h-56 overflow-hidden">
                       <LazyImage 
                         src={item.image} 
