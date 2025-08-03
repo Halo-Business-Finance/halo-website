@@ -76,10 +76,7 @@ const ImageGallery = () => {
     loop: true,
     align: 'start',
     skipSnaps: false,
-    breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
-    }
+    containScroll: 'trimSnaps'
   });
 
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
