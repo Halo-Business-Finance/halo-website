@@ -99,7 +99,7 @@ const FeaturesSection = () => {
               alt="Business success and growth"
               className="absolute inset-0 w-full h-full object-cover opacity-30"
             />
-            <div className="relative bg-gradient-to-r from-financial-navy/95 to-primary/90 text-white p-8">
+            <div className="relative bg-financial-navy text-white p-8">
               <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
                 <img 
                   src={sbaLogo} 

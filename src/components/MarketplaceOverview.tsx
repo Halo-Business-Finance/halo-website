@@ -73,7 +73,7 @@ const MarketplaceOverview = () => {
 
 
   return (
-    <section className="py-20 bg-gradient-to-br from-muted/30 to-background">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -152,7 +152,7 @@ const MarketplaceOverview = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-primary to-financial-navy rounded-2xl p-8 text-white">
+        <div className="text-center bg-financial-navy rounded-2xl p-8 text-white">
           <h3 className="text-3xl font-bold mb-4">Experience the Marketplace Advantage</h3>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Join thousands of businesses that have found their perfect lending partner through our marketplace.

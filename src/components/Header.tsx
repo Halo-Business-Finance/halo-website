@@ -159,7 +159,7 @@ const Header = () => {
               </a>
             </Button>
             
-            <Button className="bg-gradient-to-r from-financial-navy to-financial-blue text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
+            <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">
                 Get Started
               </a>
@@ -183,7 +183,7 @@ const Header = () => {
                       Sign In
                     </a>
                   </Button>
-                  <Button className="justify-start bg-gradient-to-r from-financial-navy to-financial-blue" asChild>
+                  <Button className="justify-start bg-financial-navy" asChild>
                     <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">
                       Get Started
                     </a>

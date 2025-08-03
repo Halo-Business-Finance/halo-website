@@ -115,7 +115,7 @@ const ImageGallery = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 to-white">
+    <section className="py-16 bg-slate-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -194,7 +194,7 @@ const ImageGallery = () => {
                       <p className="text-slate-600 leading-relaxed flex-grow">{item.description}</p>
                       
                       {/* Subtle accent line */}
-                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-600 rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
+                      <div className="w-12 h-1 bg-primary rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
                     </CardContent>
                   </Card>
                 </div>
@@ -216,7 +216,7 @@ const ImageGallery = () => {
 
         {/* Enhanced Call to Action */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-slate-50 via-blue-50 to-slate-50 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200/50 shadow-lg">
+          <div className="bg-slate-50 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200/50 shadow-lg">
             <h3 className="text-3xl font-bold text-foreground mb-4">
               Ready to Take Your Business to the Next Level?
             </h3>
@@ -224,7 +224,7 @@ const ImageGallery = () => {
               Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals. Learn more about <Link to="/how-it-works" className="text-primary hover:underline font-medium">our streamlined application process</Link> or explore financing options recommended by the <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Small Business Administration</a>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button asChild size="lg" className="bg-primary text-white px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
                 <a href="https://preview--hbf-application.lovable.app/auth">
                   Start Your Application
                 </a>

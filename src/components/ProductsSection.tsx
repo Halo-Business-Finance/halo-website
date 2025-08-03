@@ -290,7 +290,7 @@ const ProductsSection = () => {
   }, [businessEmblaApi, businessOnSelect]);
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-transparent via-financial-light to-blue-50/30">
+    <section className="py-20 md:py-28 bg-transparent">
       <div className="container mx-auto px-4">
         {/* Enhanced Header Section - JPMorgan Style */}
         <div className="text-center mb-20">
@@ -299,7 +299,7 @@ const ProductsSection = () => {
             Nationwide SBA & Commercial Loan Marketplace
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
-            <span className="bg-gradient-to-r from-financial-navy via-financial-blue to-financial-accent bg-clip-text text-transparent">
+            <span className="text-financial-navy">
               Comprehensive Business
             </span>
             <br />
@@ -358,7 +358,7 @@ const ProductsSection = () => {
                 >
                   <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
                     {product.badge && (
-                      <Badge className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-medium shadow-sm z-10">
+                      <Badge className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-medium shadow-sm z-10">
                         {product.badge}
                       </Badge>
                     )}
@@ -446,11 +446,11 @@ const ProductsSection = () => {
         {/* Business Capital Section */}
         <div className="border-t border-slate-200 pt-16">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-50 to-blue-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <TrendingUp className="h-4 w-4" />
               Business Growth Capital
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Business Capital Solutions
             </h3>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -528,7 +528,7 @@ const ProductsSection = () => {
             className="absolute inset-0 w-full h-full object-cover"
             priority={false}
           />
-          <div className="relative bg-gradient-to-r from-slate-900/95 via-blue-900/90 to-slate-900/95 text-white py-20 px-8">
+          <div className="relative bg-financial-navy text-white py-20 px-8">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
                 <Sparkles className="h-4 w-4" />
