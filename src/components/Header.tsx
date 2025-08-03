@@ -118,13 +118,6 @@ const Header = () => {
 
       <nav className="container mx-auto px-4" aria-label="Main navigation">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Enhanced professional style */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-financial-navy to-financial-blue rounded-xl flex items-center justify-center shadow-[var(--shadow-button)] group-hover:shadow-lg transition-all duration-300">
-              <span className="text-white font-bold text-xl">H</span>
-            </div>
-          </Link>
-
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-0">
             {Object.entries(menuItems).map(([key, item]) => (
