@@ -123,12 +123,6 @@ const Header = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-financial-navy to-financial-blue rounded-xl flex items-center justify-center shadow-[var(--shadow-button)] group-hover:shadow-lg transition-all duration-300">
               <span className="text-white font-bold text-xl">H</span>
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-financial-navy to-financial-blue bg-clip-text text-transparent">
-                Halo Business Finance
-              </h1>
-              <p className="text-sm text-slate-600 -mt-1">Business Financing Solutions</p>
-            </div>
           </Link>
 
           {/* Desktop Navigation - Enhanced UI/UX */}
