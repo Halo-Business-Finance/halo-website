@@ -44,13 +44,34 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
   activityTimeout = 30 * 60 * 1000 // 30 minutes
 }) => {
   const [session, setSession] = useState<SessionData | null>(null);
-  
-  // Secure session key - in production, this should come from environment
-  const SESSION_KEY = 'secure-session-key-32-characters!!';
+  const [sessionKey, setSessionKey] = useState<string>('');
 
   useEffect(() => {
-    // Load existing session on mount
-    loadSession();
+    // Fetch session encryption key from secure endpoint
+    const fetchSessionKey = async () => {
+      try {
+        const response = await fetch('/functions/v1/get-encryption-keys', {
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+        });
+        
+        if (response.ok) {
+          const { sessionEncryptionKey } = await response.json();
+          setSessionKey(sessionEncryptionKey);
+          
+          // Load existing session after key is available
+          setTimeout(() => loadSession(), 100);
+        }
+      } catch (error) {
+        console.error('Failed to fetch session key:', error);
+        // Fallback for development
+        setSessionKey('dev-fallback-session-key-32chars!');
+        setTimeout(() => loadSession(), 100);
+      }
+    };
+
+    fetchSessionKey();
     
     // Set up activity monitoring
     const activityEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
@@ -107,9 +128,14 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
       isValid: true
     };
 
+    if (!sessionKey) {
+      console.warn('Session key not available, session not encrypted');
+      return sessionId;
+    }
+
     const encryptedSession = CryptoJS.AES.encrypt(
       JSON.stringify(newSession), 
-      SESSION_KEY
+      sessionKey
     ).toString();
 
     localStorage.setItem('secure_session', encryptedSession);
@@ -123,10 +149,15 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
 
   const loadSession = (): void => {
     try {
+      if (!sessionKey) {
+        console.warn('Session key not available, cannot load session');
+        return;
+      }
+
       const encryptedSession = localStorage.getItem('secure_session');
       if (!encryptedSession) return;
 
-      const decryptedBytes = CryptoJS.AES.decrypt(encryptedSession, SESSION_KEY);
+      const decryptedBytes = CryptoJS.AES.decrypt(encryptedSession, sessionKey);
       const decryptedSession = JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
 
       // Validate session
@@ -178,7 +209,7 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
   };
 
   const refreshSession = (): void => {
-    if (session) {
+    if (session && sessionKey) {
       const updatedSession = {
         ...session,
         lastActivity: Date.now()
@@ -186,7 +217,7 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
 
       const encryptedSession = CryptoJS.AES.encrypt(
         JSON.stringify(updatedSession), 
-        SESSION_KEY
+        sessionKey
       ).toString();
 
       localStorage.setItem('secure_session', encryptedSession);
@@ -232,9 +263,14 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
       sessionId
     };
 
+    if (!sessionKey) {
+      console.warn('Session key not available, cannot sign request');
+      return '';
+    }
+
     const signature = CryptoJS.HmacSHA256(
       JSON.stringify(payload),
-      SESSION_KEY
+      sessionKey
     ).toString();
 
     return `${signature}.${timestamp}.${nonce}`;
@@ -261,9 +297,14 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
         sessionId: session?.sessionId || ''
       };
 
+      if (!sessionKey) {
+        logSecurityEvent('api_validation_no_key', request.url);
+        return false;
+      }
+
       const expectedSignature = CryptoJS.HmacSHA256(
         JSON.stringify(payload),
-        SESSION_KEY
+        sessionKey
       ).toString();
 
       const isValid = signature === expectedSignature;

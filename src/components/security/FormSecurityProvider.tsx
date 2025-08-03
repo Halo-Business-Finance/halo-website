@@ -20,11 +20,31 @@ interface FormSecurityProviderProps {
 export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ children }) => {
   const [csrfToken, setCSRFToken] = useState<string>('');
   const [sessionTokens, setSessionTokens] = useState<Set<string>>(new Set());
-  
-  // Encryption key - in production, this should come from secure environment
-  const ENCRYPTION_KEY = 'your-secure-encryption-key-32-chars!!';
+  const [encryptionKey, setEncryptionKey] = useState<string>('');
 
   useEffect(() => {
+    // Fetch encryption key from secure endpoint
+    const fetchEncryptionKey = async () => {
+      try {
+        const response = await fetch('/functions/v1/get-encryption-keys', {
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+        });
+        
+        if (response.ok) {
+          const { formEncryptionKey } = await response.json();
+          setEncryptionKey(formEncryptionKey);
+        }
+      } catch (error) {
+        console.error('Failed to fetch encryption key:', error);
+        // Fallback for development
+        setEncryptionKey('dev-fallback-key-not-secure-32char');
+      }
+    };
+
+    fetchEncryptionKey();
+    
     // Generate initial CSRF token
     const token = generateCSRFToken();
     setCSRFToken(token);
@@ -52,7 +72,11 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
 
   const encryptSensitiveData = (data: string): string => {
     try {
-      return CryptoJS.AES.encrypt(data, ENCRYPTION_KEY).toString();
+      if (!encryptionKey) {
+        console.warn('Encryption key not available, data not encrypted');
+        return data;
+      }
+      return CryptoJS.AES.encrypt(data, encryptionKey).toString();
     } catch (error) {
       console.error('Encryption failed:', error);
       return data;
@@ -61,7 +85,11 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
 
   const decryptSensitiveData = (encryptedData: string): string => {
     try {
-      const bytes = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
+      if (!encryptionKey) {
+        console.warn('Encryption key not available, returning encrypted data');
+        return encryptedData;
+      }
+      const bytes = CryptoJS.AES.decrypt(encryptedData, encryptionKey);
       return bytes.toString(CryptoJS.enc.Utf8);
     } catch (error) {
       console.error('Decryption failed:', error);
