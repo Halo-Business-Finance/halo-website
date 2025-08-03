@@ -169,15 +169,15 @@ const ImageGallery = () => {
               {galleryItems.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-2"
                 >
-                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full mr-4">
+                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
                     <div className="relative h-56 overflow-hidden">
-                      <LazyImage 
+                      <img 
                         src={item.image} 
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        priority={index < 3} // Load first 3 images immediately
+                        loading={index < 3 ? "eager" : "lazy"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -194,7 +194,7 @@ const ImageGallery = () => {
                       <p className="text-slate-600 leading-relaxed flex-grow">{item.description}</p>
                       
                       {/* Subtle accent line */}
-                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
+                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-600 rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
                     </CardContent>
                   </Card>
                 </div>
