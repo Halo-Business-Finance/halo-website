@@ -100,15 +100,15 @@ const Header = () => {
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
               <span className="text-white font-bold">Halo Business Finance</span>
-              <span className="hidden sm:inline text-blue-200">|</span>
-              <span className="hidden sm:inline text-white">Nationwide Marketplace</span>
+              <span className="hidden sm:inline text-blue-200 font-bold">|</span>
+              <span className="hidden sm:inline text-white font-bold">Nationwide Marketplace</span>
             </div>
             <div className="flex items-center gap-4">
-              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors">
+              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors font-bold">
                 <Phone className="h-4 w-4" />
                 <span>(800) 730-8461</span>
               </a>
-              <Link to="/customer-service" className="hidden md:inline hover:text-blue-200 transition-colors">
+              <Link to="/customer-service" className="hidden md:inline hover:text-blue-200 transition-colors font-bold">
                 Customer Service
               </Link>
             </div>
