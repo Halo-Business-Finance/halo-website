@@ -11,7 +11,12 @@ import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
 const HeroSection = () => {
 
   return (
-    <section className="relative bg-financial-navy min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden" aria-label="Hero section">
+    <section 
+      className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat" 
+      style={{ backgroundImage: 'url(/lovable-uploads/bedad2f1-2f8e-45ca-b1e7-2f49c9cf57aa.png)' }}
+      aria-label="Hero section"
+    >
+      <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left side - Professional business owner image */}
