@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Search, Phone, ChevronDown, Shield, User } from "lucide-react";
+import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/components/auth/AuthProvider";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,7 @@ import {
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, signOut, userRole, isAdmin } = useAuth();
 
   const menuItems = {
     "Company": {
@@ -152,17 +154,49 @@ const Header = () => {
               <Search className="h-5 w-5 text-slate-600" />
             </Button>
             
-            <Button variant="outline" className="border-2 border-slate-300 hover:border-financial-blue hover:text-financial-blue font-medium" asChild>
-              <a href="https://preview--hbf-application.lovable.app/auth">
-                <User className="h-4 w-4 mr-2" />
-                Sign In
-              </a>
-            </Button>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="border-2 border-slate-300 hover:border-financial-blue hover:text-financial-blue font-medium">
+                    <User className="h-4 w-4 mr-2" />
+                    {user.user_metadata?.display_name || user.email}
+                    <ChevronDown className="h-4 w-4 ml-2" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  {userRole && (
+                    <DropdownMenuItem disabled>
+                      <Shield className="h-4 w-4 mr-2" />
+                      Role: {userRole}
+                    </DropdownMenuItem>
+                  )}
+                  {isAdmin && (
+                    <DropdownMenuItem asChild>
+                      <Link to="/security-dashboard">
+                        <Shield className="h-4 w-4 mr-2" />
+                        Security Dashboard
+                      </Link>
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem onClick={signOut}>
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button variant="outline" className="border-2 border-slate-300 hover:border-financial-blue hover:text-financial-blue font-medium" asChild>
+                <Link to="/auth">
+                  <User className="h-4 w-4 mr-2" />
+                  Sign In
+                </Link>
+              </Button>
+            )}
             
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
-              <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">
+              <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -177,16 +211,37 @@ const Header = () => {
               <div className="flex flex-col gap-6 pt-6">
                 {/* Mobile CTA buttons */}
                 <div className="flex flex-col gap-3">
-                  <Button variant="outline" className="justify-start border-2" asChild>
-                    <a href="https://preview--hbf-application.lovable.app/auth">
-                      <User className="h-4 w-4 mr-2" />
-                      Sign In
-                    </a>
-                  </Button>
+                  {user ? (
+                    <div className="space-y-2">
+                      <div className="text-sm text-muted-foreground">
+                        {user.user_metadata?.display_name || user.email}
+                        {userRole && <span className="ml-2 text-xs">({userRole})</span>}
+                      </div>
+                      {isAdmin && (
+                        <Button variant="outline" className="justify-start border-2" asChild>
+                          <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
+                            <Shield className="h-4 w-4 mr-2" />
+                            Security Dashboard
+                          </Link>
+                        </Button>
+                      )}
+                      <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Sign Out
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button variant="outline" className="justify-start border-2" asChild>
+                      <Link to="/auth" onClick={() => setIsOpen(false)}>
+                        <User className="h-4 w-4 mr-2" />
+                        Sign In
+                      </Link>
+                    </Button>
+                  )}
                   <Button className="justify-start bg-financial-navy" asChild>
-                    <a href="https://preview--hbf-application.lovable.app/auth?loan=refinance">
+                    <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
                       Get Started
-                    </a>
+                    </Link>
                   </Button>
                 </div>
                 

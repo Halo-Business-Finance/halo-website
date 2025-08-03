@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SecurityDashboard } from "@/components/security/SecurityDashboard";
 import DefaultPageHeader from "@/components/DefaultPageHeader";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+import { EnhancedSecurityDashboard } from "@/components/security/EnhancedSecurityDashboard";
 
 const SecurityDashboardPage = () => {
   return (
@@ -21,11 +23,13 @@ const SecurityDashboardPage = () => {
           subtitle="Real-time security monitoring and threat detection for your business financing platform"
         />
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <SecurityDashboard />
-          </div>
-        </section>
+        <ProtectedRoute requiredRole="moderator">
+          <section className="py-16">
+            <div className="container mx-auto px-4">
+              <EnhancedSecurityDashboard />
+            </div>
+          </section>
+        </ProtectedRoute>
 
         <Footer />
       </div>

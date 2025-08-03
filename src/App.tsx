@@ -8,6 +8,7 @@ import { SecurityHeaders } from "@/components/security/SecurityHeaders";
 import { SecurityMonitor } from "@/components/security/SecurityMonitor";
 import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
 import { SessionManager } from "@/components/security/SessionManager";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
 
@@ -16,6 +17,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 // Lazy load all other pages for better performance
+const AuthPage = lazy(() => import("./pages/AuthPage"));
 const BrokersPage = lazy(() => import("./pages/BrokersPage"));
 const LendersPage = lazy(() => import("./pages/LendersPage"));
 const CompanyOverview = lazy(() => import("./pages/CompanyOverview"));
@@ -109,7 +111,8 @@ const App = () => {
   <QueryClientProvider client={queryClient}>
     <FormSecurityProvider>
       <SessionManager>
-        <TooltipProvider>
+        <AuthProvider>
+          <TooltipProvider>
           <Toaster />
           <Sonner />
           <SecurityHeaders />
@@ -119,6 +122,7 @@ const App = () => {
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/auth" element={<AuthPage />} />
               <Route path="/brokers" element={<BrokersPage />} />
             <Route path="/lenders" element={<LendersPage />} />
             <Route path="/company-overview" element={<CompanyOverview />} />
@@ -180,10 +184,11 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </TooltipProvider>
-  </SessionManager>
-</FormSecurityProvider>
-</QueryClientProvider>
+          </TooltipProvider>
+        </AuthProvider>
+      </SessionManager>
+    </FormSecurityProvider>
+  </QueryClientProvider>
   );
 };
 
