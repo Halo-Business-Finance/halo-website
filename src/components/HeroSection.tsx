@@ -24,21 +24,6 @@ const HeroSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               
-              {/* Customer testimonial overlay */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-lg p-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">JW</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-sm">James Wilson</p>
-                    <p className="text-muted-foreground text-xs">CEO, Wilson Manufacturing</p>
-                  </div>
-                </div>
-                <p className="text-foreground text-sm italic">
-                  "Halo Business Finance helped us secure $2.5M in SBA financing. Their expertise made all the difference."
-                </p>
-              </div>
             </div>
           </div>
 
