@@ -103,7 +103,7 @@ const FeaturesSection = () => {
               <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
                 <img 
                   src={sbaLogo} 
-                  alt="SBA Nationwide Marketplace"
+                  alt="SBA Nationwide SBA & Commercial Loan Marketplace"
                   className="h-12 w-auto"
                 />
                 <div className="text-center md:text-left">
@@ -111,7 +111,7 @@ const FeaturesSection = () => {
                     Ready to Fuel Your Business Growth?
                   </h3>
                   <p className="text-xl text-blue-100 max-w-2xl">
-                    Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Our expertise in <Link to="/sba-loans" className="text-white underline hover:text-blue-100">SBA lending</Link> and SBA Nationwide Marketplace ensures you get the best rates and terms available.
+                    Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Our expertise in <Link to="/sba-loans" className="text-white underline hover:text-blue-100">SBA lending</Link> and SBA Nationwide SBA & Commercial Loan Marketplace ensures you get the best rates and terms available.
                   </p>
                 </div>
               </div>

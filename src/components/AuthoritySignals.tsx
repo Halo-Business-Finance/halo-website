@@ -7,7 +7,7 @@ import { ExternalLink, Star, Users, Building2, Award, TrendingUp, Landmark } fro
 const AuthoritySignals = () => {
   const certifications = [
     {
-      title: "SBA Nationwide Marketplace",
+      title: "SBA Nationwide SBA & Commercial Loan Marketplace",
       issuer: "U.S. Small Business Administration", 
       description: "Highest level of SBA lending authority with expedited loan processing capabilities.",
       verificationLink: "https://www.sba.gov/partners/lenders/preferred-lenders-program",

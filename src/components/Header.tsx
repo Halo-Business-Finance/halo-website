@@ -101,7 +101,7 @@ const Header = () => {
             <div className="flex items-center gap-6">
               <span className="text-white font-bold">Halo Business Finance</span>
               <span className="hidden sm:inline text-blue-200 font-bold">|</span>
-              <span className="hidden sm:inline text-white font-bold">Nationwide Marketplace</span>
+              <span className="hidden sm:inline text-white font-bold">Nationwide SBA & Commercial Loan Marketplace</span>
             </div>
             <div className="flex items-center gap-4">
               <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors font-bold">

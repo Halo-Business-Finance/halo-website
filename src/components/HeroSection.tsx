@@ -32,7 +32,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
                 <Shield className="h-4 w-4" />
-                Nationwide Marketplace
+                Nationwide SBA & Commercial Loan Marketplace
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -74,7 +74,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-primary-glow" />
-                <span className="text-sm text-blue-100">SBA Nationwide Marketplace</span>
+                <span className="text-sm text-blue-100">SBA Nationwide SBA & Commercial Loan Marketplace</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Lock className="h-4 w-4 text-primary-glow" />
