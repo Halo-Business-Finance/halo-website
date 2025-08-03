@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Shield, Lock } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+import newHeroBackground from "@/assets/new-hero-background.jpg";
 import businessOwnerProfessional from "@/assets/business-owner-professional.jpg";
 import businessConsultationProfessional from "@/assets/business-consultation-professional.jpg";
 import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
@@ -13,7 +14,7 @@ const HeroSection = () => {
   return (
     <section 
       className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat" 
-      style={{ backgroundImage: 'url(/lovable-uploads/bedad2f1-2f8e-45ca-b1e7-2f49c9cf57aa.png)' }}
+      style={{ backgroundImage: `url(${newHeroBackground})` }}
       aria-label="Hero section"
     >
       <div className="absolute inset-0 bg-black/60"></div>
