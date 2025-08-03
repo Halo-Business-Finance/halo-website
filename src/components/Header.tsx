@@ -99,9 +99,7 @@ const Header = () => {
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
-              <span className="text-blue-100">SBA Preferred Lender</span>
-              <span className="hidden sm:inline text-blue-200">|</span>
-              <span className="hidden sm:inline text-blue-100">Nationwide Marketplace</span>
+              <span className="text-blue-100">Nationwide Marketplace</span>
             </div>
             <div className="flex items-center gap-4">
               <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors">
