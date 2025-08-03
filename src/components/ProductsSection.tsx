@@ -30,6 +30,7 @@ import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
 import financialAdvisorConsultation from "@/assets/financial-advisor-consultation.jpg";
+import sectionDividerImage from "@/assets/section-divider-financing.jpg";
 
 const ProductsSection = () => {
   const products = [
@@ -442,6 +443,16 @@ const ProductsSection = () => {
             ))}
           </div>
           </div>
+        </div>
+
+        {/* Section Divider */}
+        <div className="relative h-24 md:h-32 overflow-hidden">
+          <LazyImage
+            src={sectionDividerImage}
+            alt="Section divider"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-emerald-500/10"></div>
         </div>
 
         {/* Business Capital Section */}
