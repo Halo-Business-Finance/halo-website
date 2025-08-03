@@ -74,7 +74,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-primary-glow" />
-                <span className="text-sm text-blue-100">SBA Nationwide SBA & Commercial Loan Marketplace</span>
+                <span className="text-sm text-blue-100">SBA & Commercial Loan Marketplace</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Lock className="h-4 w-4 text-primary-glow" />

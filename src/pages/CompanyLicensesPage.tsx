@@ -41,7 +41,7 @@ const CompanyLicensesPage = () => {
       icon: <Scale className="h-6 w-6 text-primary" />
     },
     {
-      name: "SBA Nationwide SBA & Commercial Loan Marketplace",
+      name: "SBA & Commercial Loan Marketplace",
       number: "Verified",
       issuer: "Small Business Administration",
       status: "Active", 

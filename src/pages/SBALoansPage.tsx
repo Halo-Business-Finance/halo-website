@@ -61,8 +61,8 @@ const SBALoansPage = () => {
     <>
       <SEO 
         title="SBA Loans | 7(a), 504, Express & Microloans | Halo Business Finance"
-        description="SBA Nationwide SBA & Commercial Loan Marketplace offering SBA 7(a) loans up to $5M, SBA 504 loans, Express loans, and microloans. Fast approval, competitive rates, expert guidance."
-        keywords="SBA loans, SBA 7a loans, SBA 504 loans, SBA express loans, SBA microloans, SBA nationwide SBA & commercial loan marketplace, small business administration loans, government backed loans, business financing, commercial loans"
+        description="SBA & Commercial Loan Marketplace offering SBA 7(a) loans up to $5M, SBA 504 loans, Express loans, and microloans. Fast approval, competitive rates, expert guidance."
+        keywords="SBA loans, SBA 7a loans, SBA 504 loans, SBA express loans, SBA microloans, SBA & commercial loan marketplace, small business administration loans, government backed loans, business financing, commercial loans"
         canonical="https://halobusinessfinance.com/sba-loans"
       />
       <div className="min-h-screen bg-background">
@@ -82,16 +82,16 @@ const SBALoansPage = () => {
               <div className="flex items-center gap-4 mb-6">
                 <img 
                   src={sbaLogo} 
-                  alt="SBA Nationwide SBA & Commercial Loan Marketplace"
+                  alt="SBA & Commercial Loan Marketplace"
                   className="h-16 w-auto"
                 />
-                <Badge className="bg-white text-primary">SBA Nationwide SBA & Commercial Loan Marketplace</Badge>
+                <Badge className="bg-white text-primary">SBA & Commercial Loan Marketplace</Badge>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 SBA Loan Solutions for Every Business Need
               </h1>
               <p className="text-xl mb-8 opacity-90">
-                As an SBA Nationwide SBA & Commercial Loan Marketplace, we offer the full range of SBA loan programs with faster processing, competitive rates, and expert guidance from application to funding.
+                As an SBA & Commercial Loan Marketplace, we offer the full range of SBA loan programs with faster processing, competitive rates, and expert guidance from application to funding.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-white text-primary hover:bg-gray-100">

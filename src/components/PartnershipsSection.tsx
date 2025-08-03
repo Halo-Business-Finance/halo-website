@@ -6,9 +6,9 @@ import { ExternalLink, Star, Users, TrendingUp, Award, Landmark } from "lucide-r
 const PartnershipsSection = () => {
   const partnerships = [
     {
-      name: "SBA Nationwide SBA & Commercial Loan Marketplace",
+      name: "SBA & Commercial Loan Marketplace",
       type: "Government Partnership",
-      description: "Official SBA Nationwide SBA & Commercial Loan Marketplace connecting businesses with multiple lenders for competitive rates and terms.",
+      description: "Official SBA & Commercial Loan Marketplace connecting businesses with multiple lenders for competitive rates and terms.",
       link: "https://www.sba.gov/partners/lenders/preferred-lenders-program",
       internal: false,
       badge: "Preferred Plus"
