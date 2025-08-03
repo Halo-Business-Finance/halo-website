@@ -18,22 +18,8 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Left side - Professional business owner image */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-professional)]">
-              <img 
-                src={businessOwnerProfessional} 
-                alt="Successful business owner representing financial growth and achievement"
-                className="w-full h-[400px] md:h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              
-            </div>
-          </div>
-
-          {/* Right side - Hero content */}
-          <header className="text-white space-y-6 lg:space-y-8 order-1 lg:order-2">
+        <div className="grid lg:grid-cols-1 gap-8 lg:gap-16 items-center">
+          <header className="text-white space-y-6 lg:space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
                 <Shield className="h-4 w-4" />
