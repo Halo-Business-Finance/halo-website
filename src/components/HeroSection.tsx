@@ -38,26 +38,15 @@ const HeroSection = () => {
             </div>
 
             {/* Enhanced CTA Cards - Chase Style */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="flex justify-center">
               {/* New Business Customers Card */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-md">
                 <div className="text-center mb-4">
                   <div className="text-3xl font-bold text-white mb-1">Get Pre-Qualified</div>
                   <div className="text-blue-100 text-sm">Fast 2-minute application</div>
                 </div>
                 <Button size="lg" className="w-full bg-white text-primary font-semibold shadow-[var(--shadow-button)] hover:bg-gray-50" asChild>
                   <a href="https://preview--hbf-application.lovable.app/auth">Start Application</a>
-                </Button>
-              </div>
-
-              {/* Payment Solutions Card */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="text-3xl font-bold text-white mb-1">Expert Guidance</div>
-                  <div className="text-blue-100 text-sm">Speak with a specialist</div>
-                </div>
-                <Button size="lg" variant="outline" className="w-full border-white text-white bg-transparent hover:bg-white/10" asChild>
-                  <Link to="/contact-us">Schedule Consultation</Link>
                 </Button>
               </div>
             </div>
