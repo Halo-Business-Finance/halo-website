@@ -151,7 +151,7 @@ const Header = () => {
       </div>
 
       <nav className="w-full px-4" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-16 w-full">
+        <div className="flex items-center h-16 w-full">
           {/* Mobile/Tablet Brand - Show on smaller screens */}
           <div className="lg:hidden">
             <Link to="/" className="text-financial-navy font-bold text-lg hover:text-financial-blue transition-colors">
@@ -159,8 +159,8 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation - Enhanced UI/UX */}
-          <div className="hidden lg:flex items-center space-x-1">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex items-center justify-center flex-1 space-x-1">
             <Link to="/" className="text-financial-navy font-bold text-xl mr-8 hover:text-financial-blue transition-colors whitespace-nowrap">
               Halo Business Finance
             </Link>
@@ -191,7 +191,7 @@ const Header = () => {
           </div>
 
           {/* Right side buttons - Enhanced professional style */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 ml-auto">
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
