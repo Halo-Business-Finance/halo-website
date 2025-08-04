@@ -102,8 +102,6 @@ const Header = () => {
         <div className="max-w-full mx-auto px-8 py-4">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
-              <span className="text-white font-bold">Halo Business Finance</span>
-              <span className="hidden sm:inline text-blue-200 font-bold">|</span>
               <span className="hidden sm:inline text-white font-bold">Nationwide SBA & Commercial Loan Marketplace</span>
             </div>
             <div className="flex items-center gap-6">
@@ -156,6 +154,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-0">
+            <Link to="/" className="text-financial-navy font-bold text-xl mr-8 hover:text-financial-blue transition-colors">
+              Halo Business Finance
+            </Link>
             {Object.entries(menuItems).map(([key, item]) => (
               <DropdownMenu key={key}>
                 <DropdownMenuTrigger className="flex items-center px-5 py-4 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-semibold transition-all duration-200 rounded-lg group relative">
