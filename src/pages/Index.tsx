@@ -7,7 +7,7 @@ import ProductsSection from "@/components/ProductsSection";
 import ImageGallery from "@/components/ImageGallery";
 
 import Footer from "@/components/Footer";
-import { LendingStatsSection } from "@/components/charts/LendingStatsSection";
+
 import IndustryShowcase from "@/components/IndustryShowcase";
 
 import SEO from "@/components/SEO";
@@ -27,7 +27,7 @@ const Index = () => {
       <ProductsSection />
       <ImageGallery />
       <IndustryShowcase />
-      <LendingStatsSection />
+      
       <Footer />
       </div>
     </>
