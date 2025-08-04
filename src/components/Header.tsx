@@ -153,7 +153,7 @@ const Header = () => {
       </div>
 
       <nav className="container mx-auto px-4" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-0">
             {Object.entries(menuItems).map(([key, item]) => (
