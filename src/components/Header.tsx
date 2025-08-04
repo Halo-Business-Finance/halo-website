@@ -105,19 +105,19 @@ const Header = () => {
               <span className="hidden sm:inline text-blue-200 font-bold">|</span>
               <span className="hidden sm:inline text-white font-bold">Nationwide SBA & Commercial Loan Marketplace</span>
             </div>
-            <div className="flex items-center gap-4">
-              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors font-bold">
+            <div className="flex items-center gap-6">
+              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors font-extrabold border-r border-white/30 pr-6">
                 <Phone className="h-4 w-4" />
                 <span>(800) 730-8461</span>
               </a>
-              <Link to="/customer-service" className="hidden md:inline hover:text-blue-200 transition-colors font-bold">
+              <Link to="/customer-service" className="hidden md:inline hover:text-blue-200 transition-colors font-extrabold border-r border-white/30 pr-6">
                 Customer Service
               </Link>
               
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-white hover:text-blue-200 font-bold text-sm">
+                    <Button variant="ghost" className="text-white hover:text-blue-200 font-extrabold text-sm">
                       <User className="h-4 w-4 mr-2" />
                       {user.user_metadata?.display_name || user.email}
                       <ChevronDown className="h-4 w-4 ml-2" />
@@ -145,7 +145,7 @@ const Header = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Link to="/auth" className="hover:text-blue-200 transition-colors font-bold text-sm">
+                <Link to="/auth" className="hover:text-blue-200 transition-colors font-extrabold text-sm">
                   Sign In
                 </Link>
               )}
