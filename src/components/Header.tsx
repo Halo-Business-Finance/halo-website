@@ -151,7 +151,7 @@ const Header = () => {
       </div>
 
       <nav className="container mx-auto px-4" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-center h-16 relative">
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-0">
             <Link to="/" className="text-financial-navy font-bold text-lg mr-6 hover:text-financial-blue transition-colors whitespace-nowrap">
@@ -184,7 +184,7 @@ const Header = () => {
           </div>
 
           {/* Right side buttons - Enhanced professional style */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 absolute right-0">
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
