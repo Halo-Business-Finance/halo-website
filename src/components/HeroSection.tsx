@@ -33,7 +33,8 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-blue-100 max-w-lg leading-relaxed">
-                From banking to payment solutions, we offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link> to help you go far.
+                We offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link><br />
+                to help your business go far.
               </p>
             </div>
 
