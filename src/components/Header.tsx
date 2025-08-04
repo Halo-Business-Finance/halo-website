@@ -184,7 +184,7 @@ const Header = () => {
           </div>
 
           {/* Right side buttons - Enhanced professional style */}
-          <div className="hidden lg:flex items-center gap-3 absolute right-0">
+          <div className="hidden lg:flex items-center gap-3 absolute right-4">
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
