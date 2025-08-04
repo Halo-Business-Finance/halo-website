@@ -154,7 +154,7 @@ const Header = () => {
         <div className="flex items-center justify-center h-16 relative">
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-0">
-            <Link to="/" className="text-financial-navy font-bold text-lg mr-6 hover:text-financial-blue transition-colors whitespace-nowrap">
+            <Link to="/" className="text-financial-navy font-bold text-xl mr-6 hover:text-financial-blue transition-colors whitespace-nowrap">
               Halo Business Finance
             </Link>
             {Object.entries(menuItems).map(([key, item]) => (
