@@ -154,12 +154,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-0">
-            <Link to="/" className="text-financial-navy font-bold text-xl mr-8 hover:text-financial-blue transition-colors whitespace-nowrap">
+            <Link to="/" className="text-financial-navy font-bold text-lg mr-6 hover:text-financial-blue transition-colors whitespace-nowrap">
               Halo Business Finance
             </Link>
             {Object.entries(menuItems).map(([key, item]) => (
               <DropdownMenu key={key}>
-                <DropdownMenuTrigger className="flex items-center px-5 py-4 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-semibold transition-all duration-200 rounded-lg group relative">
+                <DropdownMenuTrigger className="flex items-center px-3 py-3 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-medium text-sm transition-all duration-200 rounded-lg group relative">
                   {item.title}
                   <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-financial-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
