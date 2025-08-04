@@ -150,8 +150,8 @@ const Header = () => {
         </div>
       </div>
 
-      <nav className="container mx-auto px-4" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-16 max-w-7xl mx-auto">
+      <nav className="w-full px-4" aria-label="Main navigation">
+        <div className="flex items-center justify-between h-16 w-full">
           {/* Mobile/Tablet Brand - Show on smaller screens */}
           <div className="lg:hidden">
             <Link to="/" className="text-financial-navy font-bold text-lg hover:text-financial-blue transition-colors">
