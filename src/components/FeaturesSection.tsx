@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import ConsultationPopup from "@/components/ConsultationPopup";
 import { 
   TrendingUp, 
   Shield, 
@@ -119,9 +120,13 @@ const FeaturesSection = () => {
                 <Button asChild size="lg" className="bg-white text-primary font-semibold border-2 border-primary shadow-lg hover:bg-gray-50">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-primary">
-                  <Link to="/contact-us">Schedule Consultation</Link>
-                </Button>
+                <ConsultationPopup
+                  trigger={
+                    <Button size="lg" variant="outline" className="border-white text-primary">
+                      Schedule Consultation
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </div>

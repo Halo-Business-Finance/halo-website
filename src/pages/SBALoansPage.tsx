@@ -12,6 +12,7 @@ import businessMeeting from "@/assets/business-meeting.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const SBALoansPage = () => {
   const sbaProducts = [
@@ -97,9 +98,13 @@ const SBALoansPage = () => {
                 <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Schedule Consultation
-                </Button>
+                <ConsultationPopup
+                  trigger={
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                      Schedule Consultation
+                    </Button>
+                  }
+                />
               </div>
             </div>
             <div className="relative">

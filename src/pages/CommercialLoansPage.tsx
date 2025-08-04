@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle, Building2, TrendingUp, Clock, ArrowRight } from "lucide-react";
 import businessGrowth from "@/assets/business-growth.jpg";
 import loanConsultation from "@/assets/loan-consultation.jpg";
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const CommercialLoansPage = () => {
   const commercialProducts = [
@@ -85,9 +86,13 @@ const CommercialLoansPage = () => {
                 <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
                   <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Schedule Consultation
-                </Button>
+                <ConsultationPopup
+                  trigger={
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                      Schedule Consultation
+                    </Button>
+                  }
+                />
               </div>
             </div>
             <div className="relative">

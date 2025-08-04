@@ -12,6 +12,7 @@ import constructionEquipment from "@/assets/construction-equipment.jpg";
 import medicalEquipment from "@/assets/medical-equipment.jpg";
 import { EquipmentTypesChart } from "@/components/charts/EquipmentTypesChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const EquipmentFinancingPage = () => {
   const equipmentProducts = [
@@ -102,9 +103,13 @@ const EquipmentFinancingPage = () => {
                 <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
                   Get Equipment Quote
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Schedule Consultation
-                </Button>
+                <ConsultationPopup
+                  trigger={
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                      Schedule Consultation
+                    </Button>
+                  }
+                />
               </div>
             </div>
             <div className="relative">

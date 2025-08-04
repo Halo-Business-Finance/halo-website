@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Building2, DollarSign, TrendingUp, Users, Shield, Clock, CheckCircle, Star, BarChart3, Percent } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const CMBSLoansPage = () => {
   // Chart data for CMBS market statistics
@@ -411,7 +412,11 @@ const CMBSLoansPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg">Start CMBS Application</Button>
-            <Button size="lg" variant="outline">Schedule Consultation</Button>
+            <ConsultationPopup
+              trigger={
+                <Button size="lg" variant="outline">Schedule Consultation</Button>
+              }
+            />
           </div>
         </div>
       </section>

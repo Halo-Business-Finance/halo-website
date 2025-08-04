@@ -13,6 +13,7 @@ import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
 import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const HowItWorksPage = () => {
   return (
@@ -358,9 +359,13 @@ const HowItWorksPage = () => {
                   <Button size="lg" className="bg-white text-primary font-semibold" asChild>
                     <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white text-primary" asChild>
-                    <Link to="/contact-us">Schedule Consultation</Link>
-                  </Button>
+                  <ConsultationPopup
+                    trigger={
+                      <Button size="lg" variant="outline" className="border-white text-primary">
+                        Schedule Consultation
+                      </Button>
+                    }
+                  />
                 </div>
               </div>
             </div>
