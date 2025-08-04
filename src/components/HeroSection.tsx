@@ -72,19 +72,15 @@ const HeroSection = () => {
                 <Lock className="h-4 w-4 text-primary-glow" />
                 <span className="text-blue-100">Secure & Encrypted</span>
               </div>
-              <div className="text-sm text-blue-100">
-                Trusted by <span className="font-semibold text-white">2,500+</span> businesses
-              </div>
             </div>
           </header>
         </div>
         
         {/* Success Showcase - Enhanced */}
         <div className="mt-16 lg:mt-20">
-          <div className="text-center mb-8">
-            <p className="text-white/90 text-lg font-medium mb-2">Join successful businesses nationwide</p>
-            <p className="text-blue-100 text-sm">Trusted by companies across all industries</p>
-          </div>
+            <div className="text-center mb-8">
+              <p className="text-white/90 text-lg font-medium mb-2">Join successful businesses nationwide</p>
+            </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="relative h-28 rounded-xl overflow-hidden shadow-[var(--shadow-card)]">
               <img 
