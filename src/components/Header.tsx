@@ -113,6 +113,42 @@ const Header = () => {
               <Link to="/customer-service" className="hidden md:inline hover:text-blue-200 transition-colors font-bold">
                 Customer Service
               </Link>
+              
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="text-white hover:text-blue-200 font-bold text-sm">
+                      <User className="h-4 w-4 mr-2" />
+                      {user.user_metadata?.display_name || user.email}
+                      <ChevronDown className="h-4 w-4 ml-2" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56">
+                    {userRole && (
+                      <DropdownMenuItem disabled>
+                        <Shield className="h-4 w-4 mr-2" />
+                        Role: {userRole}
+                      </DropdownMenuItem>
+                    )}
+                    {isAdmin && (
+                      <DropdownMenuItem asChild>
+                        <Link to="/security-dashboard">
+                          <Shield className="h-4 w-4 mr-2" />
+                          Security Dashboard
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuItem onClick={signOut}>
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Sign Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link to="/auth" className="hover:text-blue-200 transition-colors font-bold text-sm">
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -150,46 +186,6 @@ const Header = () => {
 
           {/* Right side buttons - Enhanced professional style */}
           <div className="hidden lg:flex items-center gap-3">
-            
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="border-2 border-slate-300 hover:border-financial-blue hover:text-financial-blue font-medium">
-                    <User className="h-4 w-4 mr-2" />
-                    {user.user_metadata?.display_name || user.email}
-                    <ChevronDown className="h-4 w-4 ml-2" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  {userRole && (
-                    <DropdownMenuItem disabled>
-                      <Shield className="h-4 w-4 mr-2" />
-                      Role: {userRole}
-                    </DropdownMenuItem>
-                  )}
-                  {isAdmin && (
-                    <DropdownMenuItem asChild>
-                      <Link to="/security-dashboard">
-                        <Shield className="h-4 w-4 mr-2" />
-                        Security Dashboard
-                      </Link>
-                    </DropdownMenuItem>
-                  )}
-                  <DropdownMenuItem onClick={signOut}>
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Sign Out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Button variant="outline" className="border-2 border-slate-300 hover:border-financial-blue hover:text-financial-blue font-medium" asChild>
-                <Link to="/auth">
-                  <User className="h-4 w-4 mr-2" />
-                  Sign In
-                </Link>
-              </Button>
-            )}
-            
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
