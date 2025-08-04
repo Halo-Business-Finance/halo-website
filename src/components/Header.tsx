@@ -150,9 +150,6 @@ const Header = () => {
 
           {/* Right side buttons - Enhanced professional style */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="rounded-full hover:bg-slate-100">
-              <Search className="h-5 w-5 text-slate-600" />
-            </Button>
             
             {user ? (
               <DropdownMenu>
