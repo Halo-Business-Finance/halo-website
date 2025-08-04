@@ -151,7 +151,7 @@ const Header = () => {
       </div>
 
       <nav className="container mx-auto px-4" aria-label="Main navigation">
-        <div className="flex items-center justify-center h-16 relative">
+        <div className="flex items-center justify-between h-16 max-w-7xl mx-auto">
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-1">
             <Link to="/" className="text-financial-navy font-bold text-xl mr-8 hover:text-financial-blue transition-colors whitespace-nowrap">
@@ -164,7 +164,7 @@ const Header = () => {
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-financial-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2">
+                <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2 z-50">
                   <div className="py-2">
                     <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
                       {item.title}
@@ -184,7 +184,7 @@ const Header = () => {
           </div>
 
           {/* Right side buttons - Enhanced professional style */}
-          <div className="hidden lg:flex items-center gap-3 absolute right-4">
+          <div className="hidden lg:flex items-center gap-3">
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
