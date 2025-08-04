@@ -44,7 +44,7 @@ const Header = () => {
     "Resources": {
       title: "Resources",
       href: "/resources",
-      items: ["Business Resources", "Loan Calculator", "Industry Solutions", "Technical Support"]
+      items: ["Business Resources", "Loan Calculator", "Industry Solutions", "Customer Service", "Technical Support"]
     }
   };
 
@@ -86,6 +86,7 @@ const Header = () => {
       "Business Resources": "/business-finance-resources",
       "Loan Calculator": "/loan-calculator",
       "Industry Solutions": "/industry-solutions",
+      "Customer Service": "/customer-service",
       "Technical Support": "/technical-support"
     }
   };
@@ -110,9 +111,6 @@ const Header = () => {
                 <Phone className="h-4 w-4" />
                 <span>(800) 730-8461</span>
               </a>
-              <Link to="/customer-service" className="hidden md:inline hover:text-blue-200 transition-colors font-extrabold border-r border-white/30 pr-6">
-                Customer Service
-              </Link>
               
               {user ? (
                 <DropdownMenu>
