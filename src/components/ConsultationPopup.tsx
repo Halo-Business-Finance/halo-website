@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Phone, Mail, Building2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ConsultationPopupProps {
   trigger: React.ReactNode;
@@ -15,6 +16,7 @@ interface ConsultationPopupProps {
 
 const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
   const [open, setOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,7 +48,7 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
     { value: "factoring", label: "Factoring-Based Financing" }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -59,26 +61,48 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
       return;
     }
 
-    // Here you would typically send the data to your backend
-    console.log("Consultation request:", formData);
-    
-    toast({
-      title: "Consultation Requested",
-      description: "Thank you! Our team will contact you within 24 hours to schedule your consultation.",
-    });
-    
-    setOpen(false);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      loanProgram: "",
-      loanAmount: "",
-      timeframe: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-consultation-email', {
+        body: formData
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to submit consultation');
+      }
+      
+      toast({
+        title: "Consultation Requested",
+        description: "Thank you! Our team will contact you within 24 hours to schedule your consultation.",
+      });
+      
+      setOpen(false);
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        loanProgram: "",
+        loanAmount: "",
+        timeframe: "",
+        message: ""
+      });
+    } catch (error: any) {
+      console.error('Consultation submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -265,9 +289,9 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <Button type="submit" size="lg" className="flex-1">
+            <Button type="submit" size="lg" className="flex-1" disabled={isSubmitting}>
               <Calendar className="h-4 w-4 mr-2" />
-              Schedule Consultation
+              {isSubmitting ? "Submitting..." : "Schedule Consultation"}
             </Button>
             <Button type="button" variant="outline" size="lg" onClick={() => setOpen(false)}>
               Cancel

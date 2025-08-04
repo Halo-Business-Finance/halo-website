@@ -53,6 +53,51 @@ export type Database = {
         }
         Relationships: []
       }
+      consultations: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          loan_amount: string
+          loan_program: string
+          message: string | null
+          name: string
+          phone: string | null
+          status: string
+          timeframe: string
+          updated_at: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          loan_amount: string
+          loan_program: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          status?: string
+          timeframe: string
+          updated_at?: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          loan_amount?: string
+          loan_program?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          status?: string
+          timeframe?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
