@@ -102,7 +102,7 @@ const Header = () => {
         <div className="max-w-full mx-auto px-8 py-4">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
-              <span className="hidden sm:inline text-white font-bold">Nationwide SBA & Commercial Loan Marketplace</span>
+              <span className="text-white font-bold text-xs sm:text-sm">Nationwide SBA & Commercial Loan Marketplace</span>
             </div>
             <div className="flex items-center gap-6">
               <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors font-extrabold border-r border-white/30 pr-6">
@@ -152,6 +152,13 @@ const Header = () => {
 
       <nav className="container mx-auto px-4" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16 max-w-7xl mx-auto">
+          {/* Mobile/Tablet Brand - Show on smaller screens */}
+          <div className="lg:hidden">
+            <Link to="/" className="text-financial-navy font-bold text-lg hover:text-financial-blue transition-colors">
+              Halo Business Finance
+            </Link>
+          </div>
+
           {/* Desktop Navigation - Enhanced UI/UX */}
           <div className="hidden lg:flex items-center space-x-1">
             <Link to="/" className="text-financial-navy font-bold text-xl mr-8 hover:text-financial-blue transition-colors whitespace-nowrap">
