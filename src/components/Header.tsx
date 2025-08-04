@@ -159,7 +159,7 @@ const Header = () => {
             </Link>
             {Object.entries(menuItems).map(([key, item]) => (
               <DropdownMenu key={key}>
-                <DropdownMenuTrigger className="flex items-center px-3 py-3 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-medium text-sm transition-all duration-200 rounded-lg group relative">
+                <DropdownMenuTrigger className="flex items-center px-3 py-3 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-medium text-base transition-all duration-200 rounded-lg group relative">
                   {item.title}
                   <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-financial-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
