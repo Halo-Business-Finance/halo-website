@@ -99,7 +99,7 @@ const Header = () => {
     <header className="relative shadow-lg border-b border-slate-200/60 z-50">
       {/* Top utility bar - Professional banking style */}
       <div className="bg-financial-navy text-white">
-        <div className="max-w-full mx-auto px-8 py-2">
+        <div className="max-w-full mx-auto px-8 py-4">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
               <span className="text-white font-bold">Halo Business Finance</span>
