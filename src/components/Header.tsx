@@ -24,7 +24,7 @@ const Header = () => {
     "SBA & USDA Loans": {
       title: "SBA & USDA Loans",
       href: "/sba-loans",
-      items: ["SBA 7(a) Loans", "SBA 504 Loans", "SBA Express Loans", "USDA B&I Loans"]
+      items: ["SBA 7(a) Loans", "SBA 504 Loans", "USDA B&I Loans"]
     },
     "Commercial Loans": {
       title: "Commercial Loans", 
@@ -39,7 +39,7 @@ const Header = () => {
     "Business Capital": {
       title: "Business Capital",
       href: "/business-capital",
-      items: ["Working Capital", "Business Line of Credit", "Term Loans", "Factoring-Based Financing"]
+      items: ["Working Capital", "Business Line of Credit", "Term Loans", "SBA Express Loans", "Factoring-Based Financing"]
     },
     "Resources": {
       title: "Resources",
@@ -58,7 +58,6 @@ const Header = () => {
     "SBA & USDA Loans": {
       "SBA 7(a) Loans": "/sba-7a-loans",
       "SBA 504 Loans": "/sba-504-loans", 
-      "SBA Express Loans": "/sba-express-loans",
       "USDA B&I Loans": "/usda-bi-loans"
     },
     "Commercial Loans": {
@@ -80,6 +79,7 @@ const Header = () => {
       "Working Capital": "/working-capital",
       "Business Line of Credit": "/business-line-of-credit",
       "Term Loans": "/term-loans",
+      "SBA Express Loans": "/sba-express-loans",
       "Factoring-Based Financing": "/factoring-based-financing"
     },
     "Resources": {

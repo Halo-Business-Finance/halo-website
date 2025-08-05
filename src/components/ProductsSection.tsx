@@ -69,19 +69,6 @@ const ProductsSection = () => {
       color: "from-green-600 to-green-700"
     },
     {
-      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
-      title: "SBA Express Loans",
-      description: "Fast-track SBA financing with expedited approval process.",
-      rate: "Prime + 4.5%",
-      rateLabel: "Starting Rate",
-      features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
-      learnLink: "/sba-express-loans",
-      applyLink: "/sba-loan-application",
-      badge: "Fast",
-      color: "from-orange-600 to-orange-700"
-    },
-    {
       logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
       title: "USDA B&I Loans",
@@ -236,6 +223,19 @@ const ProductsSection = () => {
       learnLink: "/term-loans",
       applyLink: "/term-loan-application",
       color: "from-purple-500 to-purple-600"
+    },
+    {
+      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+      title: "SBA Express Loans",
+      description: "Fast-track SBA financing with expedited approval process.",
+      rate: "Prime + 4.5%",
+      rateLabel: "Starting Rate",
+      features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
+      learnLink: "/sba-express-loans",
+      applyLink: "/sba-loan-application",
+      badge: "Fast",
+      color: "from-orange-600 to-orange-700"
     },
     {
       icon: Receipt,
