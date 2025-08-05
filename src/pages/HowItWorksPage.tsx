@@ -63,8 +63,8 @@ const HowItWorksPage = () => {
                 { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
                 { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
               ].map((item, index) => (
-                <div key={index} className="relative flex items-center">
-                  <Card className="text-center p-6 animate-fade-in hover-scale">
+                <div key={index} className="relative flex items-stretch h-full">
+                  <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col">
                     <CardContent className="p-0">
                       <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
