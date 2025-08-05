@@ -14,6 +14,11 @@ import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
 import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
 import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 import ConsultationPopup from "@/components/ConsultationPopup";
+import step1SelectLoan from "@/assets/step1-select-loan.jpg";
+import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
+import step3PreApproved from "@/assets/step3-pre-approved.jpg";
+import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
+import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const HowItWorksPage = () => {
   return (
@@ -52,11 +57,11 @@ const HowItWorksPage = () => {
           <div className="relative">
             <div className="grid md:grid-cols-5 gap-8">
               {[
-                { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&h=200&q=80" },
-                { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: "https://images.unsplash.com/photo-1553062407-98185353d614?auto=format&fit=crop&w=400&h=200&q=80" },
-                { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: "https://images.unsplash.com/photo-1551288049-1de39c69fa56?auto=format&fit=crop&w=400&h=200&q=80" },
-                { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: "https://images.unsplash.com/photo-1521737604-5cc24a3cc78d?auto=format&fit=crop&w=400&h=200&q=80" },
-                { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: "https://images.unsplash.com/photo-1560520031-eaebe88ba5bd?auto=format&fit=crop&w=400&h=200&q=80" }
+                { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
+                { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
+                { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
+                { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
+                { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
               ].map((item, index) => (
                 <div key={index} className="relative flex items-center">
                   <Card className="text-center p-6 animate-fade-in hover-scale">
