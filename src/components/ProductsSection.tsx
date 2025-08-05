@@ -46,7 +46,7 @@ const ProductsSection = () => {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
       image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "SBA 7(a) Loans",
-      description: "The most versatile SBA loan program designed to meet the diverse financing needs of small businesses. Perfect for working capital, equipment purchases, real estate acquisitions, and business expansions. Get the funding you need with government-backed security and competitive terms.",
+      description: "Versatile financing for working capital, equipment, and real estate purchases.",
       rate: "Prime + 2.75%",
       rateLabel: "Starting Rate",
       features: ["Up to $5 million loan amount", "Long-term financing up to 25 years", "SBA government guarantee protection"],
@@ -59,7 +59,7 @@ const ProductsSection = () => {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
       image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
       title: "SBA 504 Loans",
-      description: "Fixed-rate financing specifically designed for real estate and major equipment purchases with attractive terms. This program combines bank financing with SBA debentures to provide long-term, fixed-rate funding. Ideal for owner-occupied commercial real estate and substantial equipment investments.",
+      description: "Fixed-rate financing for real estate and major equipment purchases.",
       rate: "Fixed Rate",
       rateLabel: "Long-term",
       features: ["Up to $5.5 million total project", "Only 10% down payment required", "Fixed interest rates available"],
@@ -72,7 +72,7 @@ const ProductsSection = () => {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       title: "SBA Express Loans",
-      description: "Fast-track SBA financing with expedited approval process for urgent business funding needs. Get the speed you need while maintaining SBA benefits and protections. Perfect for time-sensitive opportunities and quick business decisions requiring immediate capital access.",
+      description: "Fast-track SBA financing with expedited approval process.",
       rate: "Prime + 4.5%",
       rateLabel: "Starting Rate",
       features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
@@ -85,7 +85,7 @@ const ProductsSection = () => {
       logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
       title: "USDA B&I Loans",
-      description: "Rural business development financing backed by USDA guarantee for businesses in qualifying rural areas. Support rural economic development while securing competitive financing for your business expansion. Designed to promote job creation and economic growth in rural communities nationwide.",
+      description: "Rural business development financing backed by USDA guarantee.",
       rate: "Prime + 2%",
       rateLabel: "Starting Rate",
       features: ["Up to $25 million loan amount", "Rural area business focus only", "USDA government guarantee backing"],
@@ -98,7 +98,7 @@ const ProductsSection = () => {
       icon: Building2,
       image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "Conventional Loans",
-      description: "Traditional commercial financing for established businesses with strong credit profiles and financial history. No government guarantee required, offering faster approval processes and more flexible terms. Best suited for businesses with proven track records and solid financial statements.",
+      description: "Traditional commercial financing for established businesses with strong credit profiles.",
       rate: "5.25%",
       rateLabel: "Starting APR",
       features: ["No government guarantee required", "Faster approval process timeline", "Flexible repayment terms available"],
@@ -111,7 +111,7 @@ const ProductsSection = () => {
       icon: Landmark,
       image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
       title: "CMBS Loans",
-      description: "Commercial mortgage-backed securities for large commercial real estate transactions with institutional backing. Designed for substantial property acquisitions and refinancing with competitive rates and terms. Perfect for investors seeking non-recourse financing options for commercial properties.",
+      description: "Commercial mortgage-backed securities for large commercial real estate transactions.",
       rate: "4.75%",
       rateLabel: "Starting Rate",
       features: ["$2 million minimum loan amounts", "Non-recourse financing options available", "Fixed interest rates guaranteed"],
@@ -124,7 +124,7 @@ const ProductsSection = () => {
       icon: PiggyBank,
       image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
       title: "Portfolio Loans",
-      description: "Held-in-portfolio lending solutions with flexible underwriting standards and personalized service approach. Banks keep these loans on their books, allowing for more creative structuring and terms. Ideal for unique situations that don't fit traditional lending criteria.",
+      description: "Held-in-portfolio lending solutions with flexible underwriting standards.",
       rate: "5.5%",
       rateLabel: "Starting APR",
       features: ["Flexible underwriting standards applied", "Quick decision making process", "Relationship-based banking approach"],
@@ -137,7 +137,7 @@ const ProductsSection = () => {
       icon: Hammer,
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
       title: "Construction Loans",
-      description: "Financing for new construction and major renovation projects with progress-based funding disbursements. Pay only interest during construction phase with option to convert to permanent financing. Perfect for ground-up construction and substantial renovation projects requiring staged funding.",
+      description: "Financing for new construction and major renovation projects.",
       rate: "Prime + 1.5%",
       rateLabel: "Starting Rate",
       features: ["Interest-only payments during construction", "Progress-based funding disbursement schedule", "Convert to permanent financing option"],
@@ -150,7 +150,7 @@ const ProductsSection = () => {
       icon: TrendingUp,
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
       title: "Bridge Loans",
-      description: "Short-term financing to bridge cash flow gaps while securing permanent financing solutions for your business. Quick closing process to capture time-sensitive opportunities and maintain business momentum. Ideal for urgent funding needs and transitional financing requirements.",
+      description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
       rate: "8.5%",
       rateLabel: "Starting APR",
       features: ["Fast 7-day closing process", "Up to $10 million available", "Flexible short-term repayment options"],
@@ -163,7 +163,7 @@ const ProductsSection = () => {
       icon: Users,
       image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "Multifamily Loans",
-      description: "Financing for apartment buildings and multi-unit residential properties with competitive rates and terms. Designed for investors looking to acquire or refinance income-producing residential properties. Perfect for portfolio expansion and property investment strategies with proven cash flow.",
+      description: "Financing for apartment buildings and multi-unit residential properties.",
       rate: "4.5%",
       rateLabel: "Starting Rate",
       features: ["5+ unit properties qualified", "Non-recourse financing options available", "Long-term fixed rate stability"],
@@ -176,7 +176,7 @@ const ProductsSection = () => {
       icon: DollarSign,
       image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
       title: "Asset-Based Loans",
-      description: "Collateral-based financing using business assets as security for loan approval and terms. Leverage your existing assets including inventory, equipment, and receivables for working capital needs. Perfect for businesses with valuable assets but limited cash flow or credit history.",
+      description: "Collateral-based financing using business assets as security.",
       rate: "6.75%",
       rateLabel: "Starting APR",
       features: ["Asset-backed security collateral required", "Flexible repayment terms available", "Fast approval process timeline"],
@@ -189,7 +189,7 @@ const ProductsSection = () => {
       icon: Car,
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80",
       title: "Equipment Financing",
-      description: "Fund new or used equipment purchases with competitive terms and flexible payment structures. The equipment serves as collateral, making approval easier with competitive rates and terms. Perfect for businesses needing machinery, vehicles, technology, or specialized equipment for operations.",
+      description: "Fund new or used equipment purchases with competitive terms.",
       rate: "6.25%",
       rateLabel: "Starting APR",
       features: ["100% financing available option", "Fast approval process guaranteed", "Flexible payment schedules offered"],
@@ -205,7 +205,7 @@ const ProductsSection = () => {
       icon: CreditCard,
       image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
       title: "Working Capital",
-      description: "Bridge cash flow gaps and fund day-to-day business operations with flexible working capital solutions. Access funds quickly to cover payroll, inventory, and operational expenses when revenue fluctuates. Perfect for seasonal businesses and companies experiencing rapid growth requiring immediate capital access.",
+      description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
       rateLabel: "Starting Rate",
       features: ["Revolving credit line available", "Quick access to funds", "Flexible repayment terms"],
@@ -217,7 +217,7 @@ const ProductsSection = () => {
       icon: TrendingUp,
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       title: "Business Line of Credit",
-      description: "Flexible access to capital when you need it with revolving credit lines that work like business credit cards. Draw funds as needed and pay interest only on what you use, not the full credit limit. Ideal for managing cash flow fluctuations and unexpected business opportunities requiring immediate funding.",
+      description: "Flexible access to capital when you need it with revolving credit lines.",
       rate: "Prime + 2%",
       rateLabel: "Starting Rate",
       features: ["Draw funds as needed only", "Pay interest only on used funds", "Revolving credit facility"],
@@ -229,7 +229,7 @@ const ProductsSection = () => {
       icon: Building2,
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80",
       title: "Term Loans",
-      description: "Fixed-rate business loans for major investments and growth initiatives with predictable monthly payments. Get larger amounts for significant business investments like equipment purchases, expansion projects, or acquisition financing. Perfect for businesses with established revenue needing substantial capital for growth.",
+      description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
       rateLabel: "Starting APR",
       features: ["Fixed monthly payments guaranteed", "Competitive interest rates offered", "Quick approval process timeline"],
@@ -241,7 +241,7 @@ const ProductsSection = () => {
       icon: Receipt,
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
       title: "Factoring-Based Financing",
-      description: "Convert outstanding invoices into immediate working capital through factoring services that provide instant cash flow. Sell your accounts receivable to access funds without taking on additional debt or waiting for customer payments. Ideal for B2B companies with creditworthy customers and 30-90 day payment terms.",
+      description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
       features: ["Immediate cash flow solutions", "No debt on balance sheet", "Customer credit protection included"],
@@ -504,11 +504,6 @@ const ProductsSection = () => {
                                 <span className="text-slate-700">{feature}</span>
                               </div>
                             ))}
-                            {product.features.length > 2 && (
-                              <div className="text-xs text-slate-500 ml-5 font-medium">
-                                +{product.features.length - 2} additional benefits
-                              </div>
-                            )}
                           </div>
 
                           {/* Action Buttons */}
@@ -648,11 +643,6 @@ const ProductsSection = () => {
                                 <span className="text-slate-700">{feature}</span>
                               </div>
                             ))}
-                            {product.features.length > 2 && (
-                              <div className="text-xs text-slate-500 ml-5 font-medium">
-                                +{product.features.length - 2} additional benefits
-                              </div>
-                            )}
                           </div>
 
                           {/* Action Buttons */}
