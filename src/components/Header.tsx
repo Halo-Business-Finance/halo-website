@@ -192,11 +192,6 @@ const Header = () => {
 
           {/* Right side buttons - Enhanced professional style */}
           <div className="hidden lg:flex items-center gap-3 ml-auto">
-            <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
-              <Link to={user ? "/loan-calculator" : "/auth"}>
-                Get Started
-              </Link>
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -237,11 +232,6 @@ const Header = () => {
                       </Link>
                     </Button>
                   )}
-                  <Button className="justify-start bg-financial-navy" asChild>
-                    <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
-                      Get Started
-                    </Link>
-                  </Button>
                 </div>
                 
                 {/* Mobile navigation */}
