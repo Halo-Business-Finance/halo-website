@@ -29,7 +29,7 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
-                We offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link> to help your business go far.
+                Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">Commercial Financing</Link> to help your business go far.
               </p>
             </div>
 
