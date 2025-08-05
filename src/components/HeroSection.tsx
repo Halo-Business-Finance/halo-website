@@ -22,10 +22,6 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <header className="text-white space-y-6">
             <div className="space-y-5">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                <Shield className="h-4 w-4" />
-                Nationwide SBA & Commercial Loan Marketplace
-              </div>
               
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="block">Business Financing</span>
