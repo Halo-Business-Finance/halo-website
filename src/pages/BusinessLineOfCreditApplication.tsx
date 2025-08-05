@@ -82,7 +82,6 @@ const BusinessLineOfCreditApplication = () => {
   });
 
   const onSubmit = (data: LineOfCreditFormData) => {
-    console.log("Line of Credit Application submitted:", data);
     toast({
       title: "Application Submitted",
       description: "Your business line of credit application has been submitted successfully. We'll review it and contact you within 24 hours.",

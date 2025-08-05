@@ -69,7 +69,6 @@ const BridgeLoanApplication = () => {
   });
 
   const onSubmit = (data: BridgeLoanFormData) => {
-    console.log("Bridge Loan Application submitted:", data);
     toast({
       title: "Application Submitted",
       description: "Your bridge loan application has been submitted successfully. We'll review it and contact you within 24 hours.",

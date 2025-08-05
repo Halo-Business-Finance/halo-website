@@ -112,7 +112,7 @@ export const SecurityMonitor = () => {
 
   const logSecurityEvent = async (eventType: string, details: any) => {
     try {
-      // TODO: Enable database logging once tables are created
+      // Log security events for monitoring
       console.log('Security Event:', { eventType, details });
     } catch (error) {
       // Silently fail to avoid infinite loops

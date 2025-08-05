@@ -85,7 +85,6 @@ const TermLoanApplication = () => {
   });
 
   const onSubmit = (data: TermLoanFormData) => {
-    console.log("Term Loan Application submitted:", data);
     toast({
       title: "Application Submitted",
       description: "Your term loan application has been submitted successfully. We'll review it and contact you within 24 hours.",

@@ -77,7 +77,6 @@ const ConventionalLoanApplication = () => {
   });
 
   const onSubmit = (data: ConventionalLoanFormData) => {
-    console.log("Conventional Loan Application submitted:", data);
     toast({
       title: "Application Submitted",
       description: "Your conventional loan application has been submitted successfully. We'll review it and contact you within 24 hours.",
