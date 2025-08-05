@@ -303,6 +303,41 @@ const ProductsSection = () => {
             Nationwide SBA & Commercial Loan Marketplace
           </div>
           
+          {/* How It Works Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-8">How It Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white font-bold text-xl">1</span>
+                </div>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Apply Online</h4>
+                <p className="text-slate-600 text-sm">Complete our simple 2-minute application</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white font-bold text-xl">2</span>
+                </div>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Pre-Approved</h4>
+                <p className="text-slate-600 text-sm">Receive conditional approval within 24 hours</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white font-bold text-xl">3</span>
+                </div>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Submit Documents</h4>
+                <p className="text-slate-600 text-sm">Upload your financial documents securely</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white font-bold text-xl">4</span>
+                </div>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Funded</h4>
+                <p className="text-slate-600 text-sm">Receive funds as fast as 5 business days</p>
+              </div>
+            </div>
+          </div>
+          
           {/* Success Showcase - Enhanced */}
           <div className="mb-12">
             <div className="text-center mb-8">
