@@ -384,8 +384,8 @@ const ProductsSection = () => {
                 <p className="text-slate-600 text-sm">Sign your loan documents and receive your funding</p>
               </div>
             </div>
-            <div className="text-center mt-8">
-              <p className="text-lg font-semibold text-financial-navy mb-4">Fast, Simple, Secure</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <p className="text-lg font-semibold text-financial-navy">Fast, Simple, Secure</p>
               <Button className="bg-financial-navy text-white font-semibold px-6 py-3 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
                 <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
               </Button>
