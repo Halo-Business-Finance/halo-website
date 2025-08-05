@@ -309,38 +309,73 @@ const ProductsSection = () => {
             <p className="text-lg text-slate-600 mb-8">We make commercial lending simple</p>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">1</span>
+                <div className="relative mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=400&h=200&q=80" 
+                    alt="Select loan program interface"
+                    className="w-full h-32 object-cover rounded-lg shadow-md"
+                  />
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">1</span>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Select Your Loan Program</h4>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Select Your Loan Program</h4>
                 <p className="text-slate-600 text-sm">Choose from our comprehensive range of loan products</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">2</span>
+                <div className="relative mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&h=200&q=80" 
+                    alt="Answer questions form"
+                    className="w-full h-32 object-cover rounded-lg shadow-md"
+                  />
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">2</span>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Answer Questions</h4>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Answer Questions</h4>
                 <p className="text-slate-600 text-sm">Complete our simple application about your loan request</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">3</span>
+                <div className="relative mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&h=200&q=80" 
+                    alt="Pre-approval process"
+                    className="w-full h-32 object-cover rounded-lg shadow-md"
+                  />
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">3</span>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Pre-Approved</h4>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Get Pre-Approved</h4>
                 <p className="text-slate-600 text-sm">Authorize a soft credit check for instant pre-approval</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">4</span>
+                <div className="relative mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=400&h=200&q=80" 
+                    alt="Upload financial documents"
+                    className="w-full h-32 object-cover rounded-lg shadow-md"
+                  />
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">4</span>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Upload Financials</h4>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Upload Financials</h4>
                 <p className="text-slate-600 text-sm">Submit your documents to receive competitive term sheets</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">5</span>
+                <div className="relative mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&h=200&q=80" 
+                    alt="Get funded"
+                    className="w-full h-32 object-cover rounded-lg shadow-md"
+                  />
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">5</span>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Funded</h4>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Get Funded</h4>
                 <p className="text-slate-600 text-sm">Sign your loan documents and receive your funding</p>
               </div>
             </div>
