@@ -308,16 +308,6 @@ const ProductsSection = () => {
             Nationwide SBA & Commercial Loan Marketplace
           </div>
           
-          {/* Section Divider */}
-          <div className="flex items-center justify-center mb-16">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-            <div className="px-6">
-              <div className="w-3 h-3 bg-primary rounded-full"></div>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-          
-          
           {/* Our Streamlined Loan Process Section */}
           <div className="mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">Our Streamlined Loan Process</h3>
@@ -402,6 +392,14 @@ const ProductsSection = () => {
             </div>
           </div>
           
+          {/* Section Divider */}
+          <div className="flex items-center justify-center mb-16">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <div className="px-6">
+              <div className="w-3 h-3 bg-primary rounded-full"></div>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
             <span className="text-financial-navy">
