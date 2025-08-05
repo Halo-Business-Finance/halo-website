@@ -567,66 +567,112 @@ const ProductsSection = () => {
             </p>
           </div>
 
-          {/* Business Capital Carousel */}
-          <Carousel className="w-full max-w-6xl mx-auto">
-            <CarouselContent className="-ml-4">
-              {businessProducts.map((product, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 xl:basis-1/4">
-                  <Card 
-                    className="group relative border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-lg bg-transparent backdrop-blur-sm h-full"
+          {/* Professional Carousel Section - Business Capital */}
+          <div className="relative bg-transparent rounded-3xl shadow-[var(--shadow-professional)] border border-slate-100 overflow-hidden">
+            <div className="p-8 md:p-12">
+              {/* Navigation Controls */}
+              <div className="flex justify-between items-center mb-10">
+                <div>
+                  <h4 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">
+                    Business Capital Solutions
+                  </h4>
+                  <p className="text-slate-600">
+                    Explore our {businessProducts.length} powerful capital tools
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={businessScrollPrev}
+                    disabled={businessPrevBtnDisabled}
+                    className="h-12 w-12 rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-white disabled:opacity-30 transition-all duration-300"
                   >
-                    <CardHeader className="pb-3 pt-4">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
-                          <product.icon className="h-5 w-5 text-white" />
-                        </div>
-                        <h5 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 flex-1 min-w-0 truncate">
-                          {product.title}
-                        </h5>
-                      </div>
-                      
-                      <div className="bg-slate-50 rounded-lg px-3 py-2">
-                        <div className="text-xl font-bold text-primary">{product.rate}</div>
-                        <div className="text-xs text-slate-600">{product.rateLabel}</div>
-                      </div>
-                    </CardHeader>
-                    
-                    <CardContent className="pt-0 pb-4">
-                      <p className="text-sm text-slate-600 mb-4 line-clamp-2">{product.description}</p>
-                      
-                      <div className="space-y-2 mb-4">
-                        {product.features.slice(0, 2).map((feature, i) => (
-                          <div key={i} className="flex items-center text-xs text-slate-700">
-                            <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
-                            <span className="truncate">{feature}</span>
+                    <ChevronLeft className="h-6 w-6" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={businessScrollNext}
+                    disabled={businessNextBtnDisabled}
+                    className="h-12 w-12 rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-white disabled:opacity-30 transition-all duration-300"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Embla Carousel Container */}
+              <div className="overflow-hidden" ref={businessEmblaRef}>
+                <div className="flex gap-4">
+                  {businessProducts.map((product, index) => (
+                    <div 
+                      key={index} 
+                      className="flex-none w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 min-w-0"
+                    >
+                      <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
+                        <CardHeader className="pb-3 pt-4">
+                          {/* Compact Icon Section */}
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
+                              <product.icon className="h-5 w-5 text-white" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
+                                {product.title}
+                              </h4>
+                            </div>
                           </div>
-                        ))}
-                        {product.features.length > 2 && (
-                          <div className="text-xs text-slate-500 ml-5">+{product.features.length - 2} more</div>
-                        )}
-                      </div>
-                      
-                      <div className="flex gap-2">
-                        <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
-                          <Link to={product.learnLink}>
-                            Learn
-                          </Link>
-                        </Button>
-                        <Button asChild size="sm" className="flex-1 text-xs">
-                          <a href="https://preview--hbf-application.lovable.app/auth">
-                            Apply
-                            <ArrowRight className="h-3 w-3 ml-1" />
-                          </a>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-4" />
-            <CarouselNext className="right-4" />
-          </Carousel>
+                          
+                          {/* Inline Rate Display */}
+                          <div className="bg-gradient-to-r from-slate-50 to-blue-50/50 rounded-lg px-3 py-2">
+                            <div className="text-xl font-bold text-primary">{product.rate}</div>
+                            <div className="text-xs text-slate-600">{product.rateLabel}</div>
+                          </div>
+                        </CardHeader>
+                        
+                        <CardContent className="pt-0 pb-4 flex flex-col flex-1">
+                          <p className="text-sm text-slate-600 mb-4 line-clamp-2 flex-grow">
+                            {product.description}
+                          </p>
+                          
+                          {/* Compact Features */}
+                          <div className="space-y-2 mb-4">
+                            {product.features.slice(0, 2).map((feature, i) => (
+                              <div key={i} className="flex items-center text-xs text-slate-700">
+                                <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                                <span className="truncate">{feature}</span>
+                              </div>
+                            ))}
+                            {product.features.length > 2 && (
+                              <div className="text-xs text-slate-500 ml-5">
+                                +{product.features.length - 2} more benefits
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Compact Action Buttons */}
+                          <div className="flex gap-2 mt-auto">
+                            <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                              <Link to={product.learnLink}>
+                                Learn
+                              </Link>
+                            </Button>
+                            <Button asChild size="sm" className="flex-1 text-xs">
+                              <a href="https://preview--hbf-application.lovable.app/auth">
+                                Apply
+                                <ArrowRight className="h-3 w-3 ml-1" />
+                              </a>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Enhanced CTA Section */}
