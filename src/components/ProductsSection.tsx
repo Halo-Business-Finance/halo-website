@@ -237,14 +237,16 @@ const ProductsSection = () => {
 
   // Carousel hooks for SBA & Commercial Loans
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
+    loop: false,
     align: 'start',
     skipSnaps: false,
     dragFree: true,
+    containScroll: 'trimSnaps',
+    slidesToScroll: 1,
     breakpoints: {
+      '(max-width: 768px)': { slidesToScroll: 1 },
       '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 },
-      '(min-width: 1280px)': { slidesToScroll: 4 }
+      '(min-width: 1024px)': { slidesToScroll: 3 }
     }
   });
 
@@ -273,9 +275,12 @@ const ProductsSection = () => {
     align: 'start',
     skipSnaps: false,
     dragFree: true,
+    containScroll: 'trimSnaps',
+    slidesToScroll: 1,
     breakpoints: {
+      '(max-width: 768px)': { slidesToScroll: 1 },
       '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1280px)': { slidesToScroll: 4 }
+      '(min-width: 1024px)': { slidesToScroll: 3 }
     }
   });
 
@@ -453,12 +458,12 @@ const ProductsSection = () => {
             </div>
 
               {/* Embla Carousel Container */}
-              <div className="overflow-hidden -mx-4" ref={emblaRef}>
-                <div className="flex gap-4 px-4">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex gap-6 pl-4 pr-8">
                   {products.map((product, index) => (
                     <div 
                       key={index} 
-                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%] xl:flex-[0_0_25%] min-w-0 px-2"
+                      className="flex-shrink-0 w-80 md:w-72"
                     >
                       <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
                         {product.badge && (
@@ -603,12 +608,12 @@ const ProductsSection = () => {
               </div>
 
               {/* Embla Carousel Container */}
-              <div className="overflow-hidden -mx-4" ref={businessEmblaRef}>
-                <div className="flex gap-4 px-4">
+              <div className="overflow-hidden" ref={businessEmblaRef}>
+                <div className="flex gap-6 pl-4 pr-8">
                   {businessProducts.map((product, index) => (
                     <div 
                       key={index} 
-                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%] xl:flex-[0_0_25%] min-w-0 px-2"
+                      className="flex-shrink-0 w-80 md:w-72"
                     >
                       <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
                         <CardHeader className="pb-3 pt-4">
