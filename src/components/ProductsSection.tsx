@@ -331,85 +331,59 @@ const ProductsSection = () => {
           
           {/* Our Streamlined Loan Process Section */}
           <div className="mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">Our Streamlined Loan Process</h3>
-            <p className="text-lg text-slate-600 mb-8">We make commercial lending simple</p>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
-              <div className="text-center">
-                <div className="relative mb-4">
-                  <img 
-                    src={step1SelectLoan} 
-                    alt="Select loan program interface"
-                    className="w-full h-32 object-cover rounded-lg shadow-md"
-                  />
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-xl">1</span>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Our Streamlined Loan Process</h3>
+            <p className="text-xl text-slate-600 mb-8">We make commercial lending simple</p>
+            
+            <div className="relative">
+              <div className="grid md:grid-cols-5 gap-8">
+                {[
+                  { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
+                  { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
+                  { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
+                  { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
+                  { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
+                ].map((item, index) => (
+                  <div key={index} className="relative flex items-center">
+                    <Card className="text-center p-6 animate-fade-in hover-scale">
+                      <CardContent className="p-0">
+                        <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
+                          <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
+                        </div>
+                        <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
+                        <h4 className="font-semibold mb-2">{item.title}</h4>
+                        <p className="text-sm text-slate-600">{item.description}</p>
+                      </CardContent>
+                    </Card>
+                    
+                    {/* Arrow - only show between steps, not after the last one */}
+                    {index < 4 && (
+                      <div className="hidden md:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                        <div className="bg-primary/10 rounded-full p-2 animate-pulse">
+                          <ArrowRight className="h-6 w-6 text-primary" />
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Select Your Loan Program</h4>
-                <p className="text-slate-600 text-sm">Choose from our comprehensive range of loan products</p>
-              </div>
-              <div className="text-center">
-                <div className="relative mb-4">
-                  <img 
-                    src={step2AnswerQuestions} 
-                    alt="Answer questions form"
-                    className="w-full h-32 object-cover rounded-lg shadow-md"
-                  />
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-xl">2</span>
-                  </div>
-                </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Answer Questions</h4>
-                <p className="text-slate-600 text-sm">Complete our simple application about your loan request</p>
-              </div>
-              <div className="text-center">
-                <div className="relative mb-4">
-                  <img 
-                    src={step3PreApproved} 
-                    alt="Pre-approval process"
-                    className="w-full h-32 object-cover rounded-lg shadow-md"
-                  />
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-xl">3</span>
-                  </div>
-                </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Get Pre-Approved</h4>
-                <p className="text-slate-600 text-sm">Authorize a soft credit check for instant pre-approval</p>
-              </div>
-              <div className="text-center">
-                <div className="relative mb-4">
-                  <img 
-                    src={step4UploadFinancials} 
-                    alt="Upload financial documents"
-                    className="w-full h-32 object-cover rounded-lg shadow-md"
-                  />
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-xl">4</span>
-                  </div>
-                </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Upload Financials</h4>
-                <p className="text-slate-600 text-sm">Submit your documents to receive competitive term sheets</p>
-              </div>
-              <div className="text-center">
-                <div className="relative mb-4">
-                  <img 
-                    src={step5GetFunded} 
-                    alt="Get funded"
-                    className="w-full h-32 object-cover rounded-lg shadow-md"
-                  />
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-xl">5</span>
-                  </div>
-                </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2 mt-4">Get Funded</h4>
-                <p className="text-slate-600 text-sm">Sign your loan documents and receive your funding</p>
+                ))}
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <p className="text-lg font-semibold text-financial-navy">Fast, Simple, Secure</p>
-              <Button className="bg-financial-navy text-white font-semibold px-6 py-3 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
-                <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
-              </Button>
+            
+            {/* Text content below process steps */}
+            <div className="text-center mt-12">
+              <h4 className="text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h4>
+              
+              {/* Get Started Button */}
+              <div className="mb-6">
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
+                  asChild
+                >
+                  <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
+                </Button>
+              </div>
+              
+              <p className="text-lg text-slate-600">Professional lending process with modern technology</p>
             </div>
           </div>
           
