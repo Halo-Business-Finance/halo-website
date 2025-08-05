@@ -595,7 +595,7 @@ const ProductsSection = () => {
                   <h4 className="text-2xl md:text-3xl font-light mb-2">
                     Business Capital Solutions
                   </h4>
-                  <p className="text-white/80 text-lg font-light">
+                  <p className="text-white text-lg font-light">
                     Flexible capital tools for your business needs
                   </p>
                 </div>
