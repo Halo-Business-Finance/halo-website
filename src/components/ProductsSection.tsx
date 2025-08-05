@@ -219,7 +219,7 @@ const ProductsSection = () => {
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
       rateLabel: "Starting APR",
-      features: ["Fixed monthly payments guaranteed", "Competitive interest rates offered", "Quick approval process timeline"],
+      features: ["Fixed monthly payments", "Competitive rates", "Quick approval process"],
       learnLink: "/term-loans",
       applyLink: "/term-loan-application",
       color: "from-purple-500 to-purple-600"
