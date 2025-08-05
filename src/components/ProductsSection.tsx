@@ -307,35 +307,48 @@ const ProductsSection = () => {
           <div className="mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">Our Streamlined Loan Process</h3>
             <p className="text-lg text-slate-600 mb-8">We make commercial lending simple</p>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">1</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Submit Application</h4>
-                <p className="text-slate-600 text-sm">Complete our comprehensive loan application with your business details</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Select Your Loan Program</h4>
+                <p className="text-slate-600 text-sm">Choose from our comprehensive range of loan products</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Loan Review</h4>
-                <p className="text-slate-600 text-sm">Our expert team reviews your application and matches you with lenders</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Answer Questions</h4>
+                <p className="text-slate-600 text-sm">Complete our simple application about your loan request</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Documentation</h4>
-                <p className="text-slate-600 text-sm">Provide required financial documents and complete underwriting</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Pre-Approved</h4>
+                <p className="text-slate-600 text-sm">Authorize a soft credit check for instant pre-approval</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Loan Closing</h4>
-                <p className="text-slate-600 text-sm">Close your loan and receive funding for your business growth</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Upload Financials</h4>
+                <p className="text-slate-600 text-sm">Submit your documents to receive competitive term sheets</p>
               </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white font-bold text-xl">5</span>
+                </div>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Funded</h4>
+                <p className="text-slate-600 text-sm">Sign your loan documents and receive your funding</p>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <p className="text-lg font-semibold text-financial-navy mb-4">Fast, Simple, Secure</p>
+              <Button className="bg-financial-navy text-white font-semibold px-6 py-3 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
+                <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
+              </Button>
             </div>
           </div>
           
