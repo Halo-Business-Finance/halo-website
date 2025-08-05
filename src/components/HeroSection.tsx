@@ -20,30 +20,28 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
         <div className="grid lg:grid-cols-1 gap-6 lg:gap-8 items-center">
-          <header className="text-white space-y-4 lg:space-y-5">
-            <div className="space-y-4">
+          <header className="text-white space-y-6">
+            <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
                 <Shield className="h-4 w-4" />
                 Nationwide SBA & Commercial Loan Marketplace
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="block">Business Financing</span>
                 <span className="block text-primary-glow">that Grows with You</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-blue-100 max-w-lg leading-relaxed">
-                We offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link><br />
-                to help your business go far.
+              <p className="text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
+                We offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link> to help your business go far.
               </p>
             </div>
 
-            {/* Enhanced CTA Cards - Chase Style */}
-            <div className="flex justify-center">
-              {/* New Business Customers Card */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-md">
+            {/* Enhanced CTA Widget */}
+            <div className="flex justify-start">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-sm">
                 <div className="text-center mb-4">
-                  <div className="text-3xl font-bold text-white mb-1">Get Pre-Qualified</div>
+                  <div className="text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
                   <div className="text-blue-100 text-sm">Fast 2-minute application</div>
                 </div>
                 <Button size="lg" className="w-full bg-white text-primary font-semibold shadow-[var(--shadow-button)] hover:bg-gray-50" asChild>
