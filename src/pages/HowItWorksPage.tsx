@@ -54,8 +54,8 @@ const HowItWorksPage = () => {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="grid md:grid-cols-5 gap-8">
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-6 lg:gap-8">
               {[
                 { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
                 { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
@@ -64,20 +64,20 @@ const HowItWorksPage = () => {
                 { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
               ].map((item, index) => (
                 <div key={index} className="relative flex items-stretch h-full">
-                  <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col">
+                  <Card className="text-center p-8 animate-fade-in hover-scale w-full flex flex-col shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="p-0">
-                      <div className="w-full h-64 rounded-lg overflow-hidden mb-4">
+                      <div className="w-full h-80 lg:h-96 rounded-lg overflow-hidden mb-6">
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
                       </div>
                       <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
-                      <h3 className="font-semibold mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                      <h3 className="font-semibold mb-3 text-lg">{item.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                     </CardContent>
                   </Card>
                   
                   {/* Arrow - only show between steps, not after the last one */}
                   {index < 4 && (
-                    <div className="hidden md:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                    <div className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 transform -translate-y-1/2 z-10">
                       <div className="bg-primary/10 rounded-full p-2 animate-pulse">
                         <ArrowRight className="h-6 w-6 text-primary" />
                       </div>
