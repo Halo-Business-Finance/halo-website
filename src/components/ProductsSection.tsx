@@ -452,9 +452,9 @@ const ProductsSection = () => {
               </div>
             </div>
 
-            {/* Embla Carousel Container */}
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4">
+              {/* Embla Carousel Container */}
+              <div className="overflow-hidden mx-4" ref={emblaRef}>
+                <div className="flex gap-4 pr-4">
               {products.map((product, index) => (
                 <div 
                   key={index} 
@@ -603,8 +603,8 @@ const ProductsSection = () => {
               </div>
 
               {/* Embla Carousel Container */}
-              <div className="overflow-hidden" ref={businessEmblaRef}>
-                <div className="flex gap-4">
+              <div className="overflow-hidden mx-4" ref={businessEmblaRef}>
+                <div className="flex gap-4 pr-4">
                   {businessProducts.map((product, index) => (
                     <div 
                       key={index} 
