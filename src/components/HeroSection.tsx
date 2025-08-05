@@ -47,7 +47,7 @@ const HeroSection = () => {
           </header>
 
           {/* Enhanced CTA Widget */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-sm w-full">
               <div className="text-center mb-4">
                 <div className="text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
