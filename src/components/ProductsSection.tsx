@@ -562,7 +562,7 @@ const ProductsSection = () => {
           {/* Professional Financial Services Carousel - Business Capital */}
           <div className="relative bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
             {/* Elegant Header Section */}
-            <div className="bg-financial-navy p-8 md:p-12 text-white">
+            <div className="bg-gradient-to-r from-financial-navy to-primary p-8 md:p-12 text-white">
               <div className="flex justify-between items-center">
                 <div>
                   <h4 className="text-2xl md:text-3xl font-light mb-2">
@@ -624,8 +624,8 @@ const ProductsSection = () => {
                         
                         <CardHeader className="pb-3 pt-4">
                           {/* Rate Display */}
-                          <div className="bg-gradient-to-r from-emerald-50 to-emerald-600/5 rounded-lg px-3 py-2 border border-emerald-100">
-                            <div className="text-xl font-bold text-emerald-600 mb-1">{product.rate}</div>
+                          <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg px-3 py-2 border border-blue-100">
+                            <div className="text-xl font-bold text-primary mb-1">{product.rate}</div>
                             <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
                           </div>
                         </CardHeader>
@@ -639,7 +639,7 @@ const ProductsSection = () => {
                           <div className="space-y-2 mb-4">
                             {product.features.slice(0, 2).map((feature, i) => (
                               <div key={i} className="flex items-center text-xs">
-                                <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
+                                <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
                                 <span className="text-slate-700">{feature}</span>
                               </div>
                             ))}
@@ -647,12 +647,12 @@ const ProductsSection = () => {
 
                           {/* Action Buttons */}
                           <div className="flex gap-2 mt-auto">
-                            <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-emerald-600 hover:bg-emerald-600/5 text-xs">
+                            <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5 text-xs">
                               <Link to={product.learnLink}>
                                 Learn
                               </Link>
                             </Button>
-                            <Button asChild size="sm" className="flex-1 bg-emerald-600 hover:bg-emerald-600/90 shadow-md text-xs">
+                            <Button asChild size="sm" className="flex-1 bg-primary hover:bg-primary/90 shadow-md text-xs">
                               <a href="https://preview--hbf-application.lovable.app/auth">
                                 Apply
                               </a>
