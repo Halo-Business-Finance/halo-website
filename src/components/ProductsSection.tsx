@@ -589,7 +589,7 @@ const ProductsSection = () => {
           {/* Professional Financial Services Carousel - Business Capital */}
           <div className="relative bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
             {/* Elegant Header Section */}
-            <div className="bg-gradient-to-r from-financial-navy to-financial-accent p-8 md:p-12 text-white">
+            <div className="bg-financial-navy p-8 md:p-12 text-white">
               <div className="flex justify-between items-center">
                 <div>
                   <h4 className="text-2xl md:text-3xl font-light mb-2">
