@@ -37,50 +37,74 @@ const HowItWorksPage = () => {
         </div>
       </section>
 
-      <section className="py-16">
+      {/* Our Streamlined Loan Process Section */}
+      <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">1</div>
-                <h3 className="text-xl font-bold mb-2">Apply Online</h3>
-                <p className="text-muted-foreground">Complete our simple application in minutes</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">2</div>
-                <h3 className="text-xl font-bold mb-2">Get Matched</h3>
-                <p className="text-muted-foreground">We match you with qualified lenders</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">3</div>
-                <h3 className="text-xl font-bold mb-2">Compare Offers</h3>
-                <p className="text-muted-foreground">Review and compare loan terms</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">4</div>
-                <h3 className="text-xl font-bold mb-2">Get Funded</h3>
-                <p className="text-muted-foreground">Close on your loan and receive funds</p>
-              </CardContent>
-            </Card>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Streamlined Loan Process
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              We make commercial lending simple
+            </p>
           </div>
 
-            <div className="max-w-4xl mx-auto mb-12">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={loanProcessingTeam} 
-                  alt="Professional fintech team working on digital loan processing dashboard"
-                  className="w-full h-64 md:h-80 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
-              </div>
+          <div className="relative">
+            <div className="grid md:grid-cols-5 gap-8">
+              {[
+                { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&h=200&q=80" },
+                { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: "https://images.unsplash.com/photo-1553062407-98185353d614?auto=format&fit=crop&w=400&h=200&q=80" },
+                { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: "https://images.unsplash.com/photo-1551288049-1de39c69fa56?auto=format&fit=crop&w=400&h=200&q=80" },
+                { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: "https://images.unsplash.com/photo-1521737604-5cc24a3cc78d?auto=format&fit=crop&w=400&h=200&q=80" },
+                { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: "https://images.unsplash.com/photo-1560520031-eaebe88ba5bd?auto=format&fit=crop&w=400&h=200&q=80" }
+              ].map((item, index) => (
+                <div key={index} className="relative flex items-center">
+                  <Card className="text-center p-6 animate-fade-in hover-scale">
+                    <CardContent className="p-0">
+                      <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
+                      </div>
+                      <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
+                      <h3 className="font-semibold mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Arrow - only show between steps, not after the last one */}
+                  {index < 4 && (
+                    <div className="hidden md:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                      <div className="bg-primary/10 rounded-full p-2 animate-pulse">
+                        <ArrowRight className="h-6 w-6 text-primary" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
+          </div>
+          
+          {/* Text content below process steps */}
+          <div className="text-center mt-12">
+            <h3 className="text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
+            
+            {/* Get Started Button */}
+            <div className="mb-6">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
+                asChild
+              >
+                <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
+              </Button>
+            </div>
+            
+            <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
+          </div>
+        </div>
+      </section>
 
+      <section className="py-16">
+        <div className="container mx-auto px-4">
           {/* Why Our Marketplace Works Section */}
           <div className="mb-16">
             <div className="text-center mb-12">
@@ -182,19 +206,19 @@ const HowItWorksPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
               <Card>
-              <CardHeader>
-                <CardTitle>Ready to Get Started?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-6">
-                  Join thousands of business owners who have successfully secured financing through our marketplace.
-                </p>
-                <div className="space-y-4">
-                  <Button className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Start Your Application</a></Button>
-                  <Button variant="outline" className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a></Button>
-                </div>
-              </CardContent>
-            </Card>
+                <CardHeader>
+                  <CardTitle>Ready to Get Started?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
+                    Join thousands of business owners who have successfully secured financing through our marketplace.
+                  </p>
+                  <div className="space-y-4">
+                    <Button className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Start Your Application</a></Button>
+                    <Button variant="outline" className="w-full" size="lg" asChild><a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a></Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
