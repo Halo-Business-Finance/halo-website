@@ -3,13 +3,10 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProductsSection from "@/components/ProductsSection";
-
 import ImageGallery from "@/components/ImageGallery";
-
 import Footer from "@/components/Footer";
-
 import IndustryShowcase from "@/components/IndustryShowcase";
-
+import SuccessShowcase from "@/components/SuccessShowcase";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -27,6 +24,7 @@ const Index = () => {
       <ProductsSection />
       <ImageGallery />
       <IndustryShowcase />
+      <SuccessShowcase />
       
       <Footer />
       </div>
