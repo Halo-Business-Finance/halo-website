@@ -344,8 +344,8 @@ const ProductsSection = () => {
                   { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-stretch h-full">
-                    <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col">
-                      <CardContent className="p-0">
+                    <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col h-[480px]">
+                      <CardContent className="p-0 flex flex-col h-full">
                         <div className="w-full h-64 rounded-lg overflow-hidden mb-4">
                           <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
                         </div>
@@ -604,7 +604,7 @@ const ProductsSection = () => {
                       key={index} 
                       className="flex-shrink-0 w-64 md:w-60"
                     >
-                      <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
+                      <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-[420px] hover:-translate-y-1 flex flex-col">
                         
                         {/* Cover Image */}
                         <div className="relative h-32 overflow-hidden">
