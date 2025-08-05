@@ -13,15 +13,15 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat" 
+      className="relative min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat" 
       style={{ backgroundImage: `url(${newHeroBackground})` }}
       aria-label="Hero section"
     >
       <div className="absolute inset-0 bg-black/60"></div>
-      <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
-        <div className="grid lg:grid-cols-1 gap-8 lg:gap-16 items-center">
-          <header className="text-white space-y-6 lg:space-y-8">
-            <div className="space-y-6">
+      <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
+        <div className="grid lg:grid-cols-1 gap-6 lg:gap-8 items-center">
+          <header className="text-white space-y-4 lg:space-y-5">
+            <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
                 <Shield className="h-4 w-4" />
                 Nationwide SBA & Commercial Loan Marketplace
