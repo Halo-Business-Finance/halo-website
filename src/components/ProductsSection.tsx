@@ -461,7 +461,7 @@ const ProductsSection = () => {
                       <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
                         
                         {/* Cover Image */}
-                        <div className="relative h-32 overflow-hidden">
+                        <div className="relative h-64 overflow-hidden">
                           <img 
                             src={product.image}
                             alt={product.title}
@@ -607,7 +607,7 @@ const ProductsSection = () => {
                       <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-[420px] hover:-translate-y-1 flex flex-col">
                         
                         {/* Cover Image */}
-                        <div className="relative h-32 overflow-hidden">
+                         <div className="relative h-64 overflow-hidden">
                           <img 
                             src={product.image}
                             alt={product.title}
