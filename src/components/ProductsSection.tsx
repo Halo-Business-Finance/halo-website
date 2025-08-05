@@ -303,37 +303,38 @@ const ProductsSection = () => {
             Nationwide SBA & Commercial Loan Marketplace
           </div>
           
-          {/* How It Works Section */}
+          {/* Our Streamlined Loan Process Section */}
           <div className="mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-8">How It Works</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">Our Streamlined Loan Process</h3>
+            <p className="text-lg text-slate-600 mb-8">We make commercial lending simple</p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">1</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Apply Online</h4>
-                <p className="text-slate-600 text-sm">Complete our simple 2-minute application</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Submit Application</h4>
+                <p className="text-slate-600 text-sm">Complete our comprehensive loan application with your business details</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Pre-Approved</h4>
-                <p className="text-slate-600 text-sm">Receive conditional approval within 24 hours</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Loan Review</h4>
+                <p className="text-slate-600 text-sm">Our expert team reviews your application and matches you with lenders</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Submit Documents</h4>
-                <p className="text-slate-600 text-sm">Upload your financial documents securely</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Documentation</h4>
+                <p className="text-slate-600 text-sm">Provide required financial documents and complete underwriting</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
-                <h4 className="font-semibold text-lg text-financial-navy mb-2">Get Funded</h4>
-                <p className="text-slate-600 text-sm">Receive funds as fast as 5 business days</p>
+                <h4 className="font-semibold text-lg text-financial-navy mb-2">Loan Closing</h4>
+                <p className="text-slate-600 text-sm">Close your loan and receive funding for your business growth</p>
               </div>
             </div>
           </div>
