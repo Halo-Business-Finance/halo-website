@@ -33,6 +33,11 @@ import financialAdvisorConsultation from "@/assets/financial-advisor-consultatio
 import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
 import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
 import businessConsultationProfessional from "@/assets/business-consultation-professional.jpg";
+import step1SelectLoan from "@/assets/step1-select-loan.jpg";
+import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
+import step3PreApproved from "@/assets/step3-pre-approved.jpg";
+import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
+import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 
 const ProductsSection = () => {
@@ -311,7 +316,7 @@ const ProductsSection = () => {
               <div className="text-center">
                 <div className="relative mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=400&h=200&q=80" 
+                    src={step1SelectLoan} 
                     alt="Select loan program interface"
                     className="w-full h-32 object-cover rounded-lg shadow-md"
                   />
@@ -325,7 +330,7 @@ const ProductsSection = () => {
               <div className="text-center">
                 <div className="relative mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&h=200&q=80" 
+                    src={step2AnswerQuestions} 
                     alt="Answer questions form"
                     className="w-full h-32 object-cover rounded-lg shadow-md"
                   />
@@ -339,7 +344,7 @@ const ProductsSection = () => {
               <div className="text-center">
                 <div className="relative mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&h=200&q=80" 
+                    src={step3PreApproved} 
                     alt="Pre-approval process"
                     className="w-full h-32 object-cover rounded-lg shadow-md"
                   />
@@ -353,7 +358,7 @@ const ProductsSection = () => {
               <div className="text-center">
                 <div className="relative mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=400&h=200&q=80" 
+                    src={step4UploadFinancials} 
                     alt="Upload financial documents"
                     className="w-full h-32 object-cover rounded-lg shadow-md"
                   />
@@ -367,7 +372,7 @@ const ProductsSection = () => {
               <div className="text-center">
                 <div className="relative mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400&h=200&q=80" 
+                    src={step5GetFunded} 
                     alt="Get funded"
                     className="w-full h-32 object-cover rounded-lg shadow-md"
                   />
