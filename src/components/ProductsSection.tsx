@@ -393,9 +393,9 @@ const ProductsSection = () => {
           </div>
           
           {/* Section Divider */}
-          <div className="flex items-center justify-center mb-16">
+          <div className="flex items-center justify-center my-20">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-            <div className="px-6">
+            <div className="px-8">
               <div className="w-3 h-3 bg-primary rounded-full"></div>
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
