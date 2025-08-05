@@ -453,86 +453,86 @@ const ProductsSection = () => {
             </div>
 
               {/* Embla Carousel Container */}
-              <div className="overflow-hidden mx-4" ref={emblaRef}>
-                <div className="flex gap-4 pr-4">
-              {products.map((product, index) => (
-                <div 
-                  key={index} 
-                  className="flex-none w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 min-w-0"
-                >
-                  <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
-                    {product.badge && (
-                      <Badge className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-medium shadow-sm z-10">
-                        {product.badge}
-                      </Badge>
-                    )}
-                    
-                    <CardHeader className="pb-3 pt-4">
-                      {/* Compact Icon/Logo Section */}
-                      <div className="flex items-center gap-3 mb-3">
-                        {product.logo ? (
-                          <div className="p-2 bg-white rounded-lg border shadow-sm">
-                            <img src={product.logo} alt={`${product.title} logo`} className="h-6 w-auto" />
-                          </div>
-                        ) : (
-                          <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
-                            <product.icon className="h-5 w-5 text-white" />
-                          </div>
+              <div className="overflow-hidden -mx-4" ref={emblaRef}>
+                <div className="flex gap-4 px-4">
+                  {products.map((product, index) => (
+                    <div 
+                      key={index} 
+                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%] xl:flex-[0_0_25%] min-w-0 px-2"
+                    >
+                      <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
+                        {product.badge && (
+                          <Badge className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-medium shadow-sm z-10">
+                            {product.badge}
+                          </Badge>
                         )}
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
-                            {product.title}
-                          </h4>
-                        </div>
-                      </div>
-                      
-                      {/* Inline Rate Display */}
-                      <div className="bg-gradient-to-r from-slate-50 to-blue-50/50 rounded-lg px-3 py-2">
-                        <div className="text-xl font-bold text-primary">{product.rate}</div>
-                        <div className="text-xs text-slate-600">{product.rateLabel}</div>
-                      </div>
-                    </CardHeader>
-                    
-                    <CardContent className="pt-0 pb-4 flex flex-col flex-1">
-                      <p className="text-sm text-slate-600 mb-4 line-clamp-2 flex-grow">
-                        {product.description}
-                      </p>
-                      
-                      {/* Compact Features */}
-                      <div className="space-y-2 mb-4">
-                        {product.features.slice(0, 2).map((feature, i) => (
-                          <div key={i} className="flex items-center text-xs text-slate-700">
-                            <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
-                            <span className="truncate">{feature}</span>
+                        
+                        <CardHeader className="pb-3 pt-4">
+                          {/* Compact Icon/Logo Section */}
+                          <div className="flex items-center gap-3 mb-3">
+                            {product.logo ? (
+                              <div className="p-2 bg-white rounded-lg border shadow-sm">
+                                <img src={product.logo} alt={`${product.title} logo`} className="h-6 w-auto" />
+                              </div>
+                            ) : (
+                              <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
+                                <product.icon className="h-5 w-5 text-white" />
+                              </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
+                                {product.title}
+                              </h4>
+                            </div>
                           </div>
-                        ))}
-                        {product.features.length > 2 && (
-                          <div className="text-xs text-slate-500 ml-5">
-                            +{product.features.length - 2} more benefits
+                          
+                          {/* Inline Rate Display */}
+                          <div className="bg-gradient-to-r from-slate-50 to-blue-50/50 rounded-lg px-3 py-2">
+                            <div className="text-xl font-bold text-primary">{product.rate}</div>
+                            <div className="text-xs text-slate-600">{product.rateLabel}</div>
                           </div>
-                        )}
-                      </div>
+                        </CardHeader>
+                        
+                        <CardContent className="pt-0 pb-4 flex flex-col flex-1">
+                          <p className="text-sm text-slate-600 mb-4 line-clamp-2 flex-grow">
+                            {product.description}
+                          </p>
+                          
+                          {/* Compact Features */}
+                          <div className="space-y-2 mb-4">
+                            {product.features.slice(0, 2).map((feature, i) => (
+                              <div key={i} className="flex items-center text-xs text-slate-700">
+                                <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                                <span className="truncate">{feature}</span>
+                              </div>
+                            ))}
+                            {product.features.length > 2 && (
+                              <div className="text-xs text-slate-500 ml-5">
+                                +{product.features.length - 2} more benefits
+                              </div>
+                            )}
+                          </div>
 
-                      {/* Compact Action Buttons */}
-                      <div className="flex gap-2 mt-auto">
-                        <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
-                          <Link to={product.learnLink}>
-                            Learn
-                          </Link>
-                        </Button>
-                        <Button asChild size="sm" className="flex-1 text-xs">
-                           <a href="https://preview--hbf-application.lovable.app/auth">
-                              Apply
-                              <ArrowRight className="h-3 w-3 ml-1" />
-                            </a>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
+                          {/* Compact Action Buttons */}
+                          <div className="flex gap-2 mt-auto">
+                            <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                              <Link to={product.learnLink}>
+                                Learn
+                              </Link>
+                            </Button>
+                            <Button asChild size="sm" className="flex-1 text-xs">
+                               <a href="https://preview--hbf-application.lovable.app/auth">
+                                 Apply
+                                 <ArrowRight className="h-3 w-3 ml-1" />
+                               </a>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
           {/* Carousel Indicators */}
           <div className="flex justify-center mt-6 gap-2">
@@ -603,12 +603,12 @@ const ProductsSection = () => {
               </div>
 
               {/* Embla Carousel Container */}
-              <div className="overflow-hidden mx-4" ref={businessEmblaRef}>
-                <div className="flex gap-4 pr-4">
+              <div className="overflow-hidden -mx-4" ref={businessEmblaRef}>
+                <div className="flex gap-4 px-4">
                   {businessProducts.map((product, index) => (
                     <div 
                       key={index} 
-                      className="flex-none w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 min-w-0"
+                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%] xl:flex-[0_0_25%] min-w-0 px-2"
                     >
                       <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
                         <CardHeader className="pb-3 pt-4">
