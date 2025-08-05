@@ -6,27 +6,27 @@ export const SecurityHeaders = () => {
     // Generate nonce for inline scripts
     const nonce = btoa(Math.random().toString()).substring(0, 16);
     
-    // Enhanced Content Security Policy
+    // Enhanced Content Security Policy - Tightened for security
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://js.stripe.com",
+      "script-src 'self' https://zwqtewpycdbvjgkntejd.supabase.co https://js.stripe.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://*.supabase.co https://api.stripe.com",
+      "connect-src 'self' https://zwqtewpycdbvjgkntejd.supabase.co https://*.supabase.co https://api.stripe.com",
       "frame-src 'self' https://js.stripe.com https://hooks.stripe.com",
       "worker-src 'self' blob:",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
-      "frame-ancestors 'none'",
+      "frame-ancestors 'self' https://lovable.dev https://*.lovable.dev",
       "upgrade-insecure-requests"
     ].join('; ');
 
-    // Security Headers
+    // Security Headers - Updated for Lovable compatibility
     const securityHeaders = {
       'Content-Security-Policy': csp,
-      'X-Frame-Options': 'DENY',
+      'X-Frame-Options': 'SAMEORIGIN', // Changed from DENY to allow Lovable iframe
       'X-Content-Type-Options': 'nosniff',
       'X-XSS-Protection': '1; mode=block',
       'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -34,13 +34,12 @@ export const SecurityHeaders = () => {
         'camera=()',
         'microphone=()',
         'geolocation=()',
-        'interest-cohort=()'
+        'interest-cohort=()',
+        'payment=(self)',
+        'autoplay=()'
       ].join(', '),
       'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
-      'X-Permitted-Cross-Domain-Policies': 'none',
-      'Cross-Origin-Opener-Policy': 'same-origin',
-      'Cross-Origin-Embedder-Policy': 'require-corp',
-      'Cross-Origin-Resource-Policy': 'same-origin'
+      'X-Permitted-Cross-Domain-Policies': 'none'
     };
 
     // Apply headers via meta tags for client-side

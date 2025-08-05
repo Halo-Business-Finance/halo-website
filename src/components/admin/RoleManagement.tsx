@@ -101,25 +101,21 @@ export const RoleManagement: React.FC = () => {
     }
 
     try {
-      const roleData: any = {
-        user_id: selectedUserId,
-        role: selectedRole,
-        granted_by: (await supabase.auth.getUser()).data.user?.id,
-      };
-
-      if (expiresAt) {
-        roleData.expires_at = new Date(expiresAt).toISOString();
-      }
-
-      const { error } = await supabase
-        .from('user_roles')
-        .insert(roleData);
+      // Use the secure server-side function for role assignment
+      const expirationDate = expiresAt ? new Date(expiresAt).toISOString() : null;
+      
+      const { data, error } = await supabase
+        .rpc('assign_user_role', {
+          target_user_id: selectedUserId,
+          new_role: selectedRole,
+          expiration_date: expirationDate
+        });
 
       if (error) throw error;
 
       toast({
         title: 'Success',
-        description: `Role ${selectedRole} assigned successfully`,
+        description: `Role ${selectedRole} assigned securely with audit trail`,
       });
 
       setIsDialogOpen(false);

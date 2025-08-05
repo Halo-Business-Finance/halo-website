@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import CryptoJS from 'crypto-js';
+import { supabase } from '@/integrations/supabase/client';
 
 interface FormSecurityContextType {
   generateCSRFToken: () => string;
@@ -23,18 +24,31 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
   const [encryptionKey, setEncryptionKey] = useState<string>('');
 
   useEffect(() => {
-    // Fetch encryption key from secure endpoint
+    // Fetch session-specific encryption key from secure endpoint
     const fetchEncryptionKey = async () => {
       try {
-        const response = await fetch('/functions/v1/get-encryption-keys', {
+        // Get current user session
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!session?.access_token) {
+          console.warn('No active session - using fallback encryption');
+          setEncryptionKey('dev-fallback-key-not-secure-32char');
+          return;
+        }
+
+        const response = await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/get-encryption-keys', {
           headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Authorization': `Bearer ${session.access_token}`,
+            'Content-Type': 'application/json',
           },
         });
         
         if (response.ok) {
-          const { formEncryptionKey } = await response.json();
-          setEncryptionKey(formEncryptionKey);
+          const { sessionEncryptionKey } = await response.json();
+          setEncryptionKey(sessionEncryptionKey);
+        } else {
+          console.warn('Failed to fetch encryption key, using fallback');
+          setEncryptionKey('dev-fallback-key-not-secure-32char');
         }
       } catch (error) {
         console.error('Failed to fetch encryption key:', error);
