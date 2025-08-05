@@ -559,10 +559,6 @@ const ProductsSection = () => {
         {/* Business Capital Section */}
         <div className="pt-16">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <TrendingUp className="h-4 w-4" />
-              Business Growth Capital
-            </div>
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Business Capital Solutions
             </h3>
