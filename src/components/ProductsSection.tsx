@@ -44,6 +44,7 @@ const ProductsSection = () => {
   const products = [
     {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "SBA 7(a) Loans",
       description: "Versatile financing for working capital, equipment, and real estate purchases.",
       rate: "Prime + 2.75%",
@@ -56,6 +57,7 @@ const ProductsSection = () => {
     },
     {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
       title: "SBA 504 Loans",
       description: "Fixed-rate financing for real estate and major equipment purchases.",
       rate: "Fixed Rate",
@@ -68,6 +70,7 @@ const ProductsSection = () => {
     },
     {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       title: "SBA Express Loans",
       description: "Fast-track SBA financing with expedited approval process.",
       rate: "Prime + 4.5%",
@@ -80,6 +83,7 @@ const ProductsSection = () => {
     },
     {
       logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
       title: "USDA B&I Loans",
       description: "Rural business development financing backed by USDA guarantee.",
       rate: "Prime + 2%",
@@ -92,6 +96,7 @@ const ProductsSection = () => {
     },
     {
       icon: Building2,
+      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "Conventional Loans",
       description: "Traditional commercial financing for established businesses with strong credit profiles.",
       rate: "5.25%",
@@ -104,6 +109,7 @@ const ProductsSection = () => {
     },
     {
       icon: Landmark,
+      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
       title: "CMBS Loans",
       description: "Commercial mortgage-backed securities for large commercial real estate transactions.",
       rate: "4.75%",
@@ -116,6 +122,7 @@ const ProductsSection = () => {
     },
     {
       icon: PiggyBank,
+      image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
       title: "Portfolio Loans",
       description: "Held-in-portfolio lending solutions with flexible underwriting standards.",
       rate: "5.5%",
@@ -128,6 +135,7 @@ const ProductsSection = () => {
     },
     {
       icon: Hammer,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
       title: "Construction Loans",
       description: "Financing for new construction and major renovation projects.",
       rate: "Prime + 1.5%",
@@ -140,6 +148,7 @@ const ProductsSection = () => {
     },
     {
       icon: TrendingUp,
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
       title: "Bridge Loans",
       description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
       rate: "8.5%",
@@ -152,6 +161,7 @@ const ProductsSection = () => {
     },
     {
       icon: Users,
+      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "Multifamily Loans",
       description: "Financing for apartment buildings and multi-unit residential properties.",
       rate: "4.5%",
@@ -164,6 +174,7 @@ const ProductsSection = () => {
     },
     {
       icon: DollarSign,
+      image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
       title: "Asset-Based Loans",
       description: "Collateral-based financing using business assets as security.",
       rate: "6.75%",
@@ -176,6 +187,7 @@ const ProductsSection = () => {
     },
     {
       icon: Car,
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80",
       title: "Equipment Financing",
       description: "Fund new or used equipment purchases with competitive terms.",
       rate: "6.25%",
@@ -191,6 +203,7 @@ const ProductsSection = () => {
   const businessProducts = [
     {
       icon: CreditCard,
+      image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
       title: "Working Capital",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
@@ -202,6 +215,7 @@ const ProductsSection = () => {
     },
     {
       icon: TrendingUp,
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       title: "Business Line of Credit",
       description: "Flexible access to capital when you need it with revolving credit lines.",
       rate: "Prime + 2%",
@@ -213,6 +227,7 @@ const ProductsSection = () => {
     },
     {
       icon: Building2,
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80",
       title: "Term Loans",
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
@@ -224,6 +239,7 @@ const ProductsSection = () => {
     },
     {
       icon: Receipt,
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
       title: "Factoring-Based Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
@@ -473,19 +489,7 @@ const ProductsSection = () => {
                         {/* Cover Image */}
                         <div className="relative h-32 overflow-hidden">
                           <img 
-                            src={`https://images.unsplash.com/photo-${
-                              product.title.includes('SBA 7(a)') ? '1553062407-98185353d614' :
-                              product.title.includes('SBA 504') ? '1554224155-6726b3ff858f' :
-                              product.title.includes('SBA Express') ? '1551288049-1de39c69fa56' :
-                              product.title.includes('USDA') ? '1521737604-5cc24a3cc78d' :
-                              product.title.includes('Conventional') ? '1560520031-eaebe88ba5bd' :
-                              product.title.includes('CMBS') ? '1577462477-ac24ace78e29' :
-                              product.title.includes('Portfolio') ? '1639762681485-57b8629738cb' :
-                              product.title.includes('Construction') ? '1504307651254-35680f356dfd' :
-                              product.title.includes('Bridge') ? '1560520031-eaebe88ba5bd' :
-                              product.title.includes('Multifamily') ? '1486405251-61c3b6e61fa3' :
-                              '1560520031-eaebe88ba5bd'
-                            }?auto=format&fit=crop&w=400&h=200&q=80`}
+                            src={product.image}
                             alt={product.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
@@ -636,12 +640,7 @@ const ProductsSection = () => {
                         {/* Cover Image */}
                         <div className="relative h-32 overflow-hidden">
                           <img 
-                            src={`https://images.unsplash.com/photo-${
-                              product.title.includes('Working Capital') ? '1554224155-6726b3ff858f' :
-                              product.title.includes('Line of Credit') ? '1553062407-98185353d614' :
-                              product.title.includes('Term Loans') ? '1560520031-eaebe88ba5bd' :
-                              '1551288049-1de39c69fa56'
-                            }?auto=format&fit=crop&w=400&h=200&q=80`}
+                            src={product.image}
                             alt={product.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
