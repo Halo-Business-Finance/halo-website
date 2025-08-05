@@ -605,7 +605,7 @@ const ProductsSection = () => {
                     size="icon"
                     onClick={businessScrollPrev}
                     disabled={businessPrevBtnDisabled}
-                    className="h-12 w-12 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 disabled:opacity-30 text-white"
+                    className="h-12 w-12 rounded-full border border-white hover:bg-white hover:border-white disabled:opacity-50 text-white hover:text-financial-navy"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </Button>
@@ -614,7 +614,7 @@ const ProductsSection = () => {
                     size="icon"
                     onClick={businessScrollNext}
                     disabled={businessNextBtnDisabled}
-                    className="h-12 w-12 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 disabled:opacity-30 text-white"
+                    className="h-12 w-12 rounded-full border border-white hover:bg-white hover:border-white disabled:opacity-50 text-white hover:text-financial-navy"
                   >
                     <ChevronRight className="h-5 w-5" />
                   </Button>
