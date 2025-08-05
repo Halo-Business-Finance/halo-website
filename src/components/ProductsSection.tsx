@@ -422,114 +422,119 @@ const ProductsSection = () => {
         </div>
 
 
-        {/* Professional Carousel Section - JPMorgan Inspired */}
-        <div className="relative mb-24 bg-transparent rounded-3xl shadow-[var(--shadow-professional)] border border-slate-100 overflow-hidden">
-          <div className="p-8 md:p-12">
-            {/* Navigation Controls */}
-            <div className="flex justify-between items-center mb-10">
+        {/* Professional Financial Services Carousel - SBA & Commercial Loans */}
+        <div className="relative bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+          {/* Elegant Header Section */}
+          <div className="bg-gradient-to-r from-financial-navy to-primary p-8 md:p-12 text-white">
+            <div className="flex justify-between items-center">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-financial-navy mb-2">
-                  SBA & Commercial Loan Solutions
+                <h3 className="text-2xl md:text-3xl font-light mb-2">
+                  SBA & Commercial Financing
                 </h3>
-                <p className="text-slate-600">
-                  Explore our {products.length} comprehensive financing programs
+                <p className="text-blue-100 text-lg font-light">
+                  Comprehensive solutions for your business growth
                 </p>
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 <Button
-                  variant="outline"
+                  variant="ghost"
                   size="icon"
                   onClick={scrollPrev}
                   disabled={prevBtnDisabled}
-                  className="h-12 w-12 rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-white disabled:opacity-30 transition-all duration-300"
+                  className="h-12 w-12 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 disabled:opacity-30 transition-all duration-300 text-white"
                 >
-                  <ChevronLeft className="h-6 w-6" />
+                  <ChevronLeft className="h-5 w-5" />
                 </Button>
                 <Button
-                  variant="outline"
+                  variant="ghost"
                   size="icon"
                   onClick={scrollNext}
                   disabled={nextBtnDisabled}
-                  className="h-12 w-12 rounded-full border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-white disabled:opacity-30 transition-all duration-300"
+                  className="h-12 w-12 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 disabled:opacity-30 transition-all duration-300 text-white"
                 >
-                  <ChevronRight className="h-6 w-6" />
+                  <ChevronRight className="h-5 w-5" />
                 </Button>
               </div>
             </div>
+          </div>
 
-              {/* Embla Carousel Container */}
-              <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex gap-6 pl-4 pr-8">
+          {/* Carousel Content */}
+          <div className="p-8 md:p-12 bg-slate-50/30">
+
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex gap-6 pl-2 pr-8">
                   {products.map((product, index) => (
                     <div 
                       key={index} 
                       className="flex-shrink-0 w-80 md:w-72"
                     >
-                      <Card className="group relative overflow-hidden border-2 border-slate-300 hover:border-primary transition-all duration-300 hover:shadow-xl bg-transparent backdrop-blur-sm h-full">
+                      <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
                         {product.badge && (
-                          <Badge className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-medium shadow-sm z-10">
-                            {product.badge}
-                          </Badge>
+                          <div className="absolute top-4 right-4 z-10">
+                            <span className="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                              {product.badge}
+                            </span>
+                          </div>
                         )}
                         
-                        <CardHeader className="pb-3 pt-4">
-                          {/* Compact Icon/Logo Section */}
-                          <div className="flex items-center gap-3 mb-3">
+                        <CardHeader className="pb-4 pt-6 border-b border-slate-100">
+                          {/* Logo/Icon Section */}
+                          <div className="flex items-center gap-4 mb-4">
                             {product.logo ? (
-                              <div className="p-2 bg-white rounded-lg border shadow-sm">
-                                <img src={product.logo} alt={`${product.title} logo`} className="h-6 w-auto" />
+                              <div className="p-3 bg-slate-50 rounded-xl border">
+                                <img src={product.logo} alt={`${product.title} logo`} className="h-8 w-auto" />
                               </div>
                             ) : (
-                              <div className={`p-2 bg-gradient-to-br ${product.color} rounded-lg`}>
-                                <product.icon className="h-5 w-5 text-white" />
+                              <div className={`p-3 bg-gradient-to-br ${product.color} rounded-xl shadow-sm`}>
+                                <product.icon className="h-6 w-6 text-white" />
                               </div>
                             )}
-                            <div className="flex-1 min-w-0">
-                              <h4 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 truncate">
+                            <div className="flex-1">
+                              <h4 className="text-xl font-semibold text-slate-900 group-hover:text-primary transition-colors duration-300">
                                 {product.title}
                               </h4>
                             </div>
                           </div>
                           
-                          {/* Inline Rate Display */}
-                          <div className="bg-gradient-to-r from-slate-50 to-blue-50/50 rounded-lg px-3 py-2">
-                            <div className="text-xl font-bold text-primary">{product.rate}</div>
-                            <div className="text-xs text-slate-600">{product.rateLabel}</div>
+                          {/* Rate Display */}
+                          <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-xl px-4 py-3 border border-blue-100">
+                            <div className="text-2xl font-bold text-primary mb-1">{product.rate}</div>
+                            <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
                           </div>
                         </CardHeader>
                         
-                        <CardContent className="pt-0 pb-4 flex flex-col flex-1">
-                          <p className="text-sm text-slate-600 mb-4 line-clamp-2 flex-grow">
+                        <CardContent className="pt-6 pb-6 flex flex-col flex-1">
+                          <p className="text-slate-600 mb-6 leading-relaxed flex-grow">
                             {product.description}
                           </p>
                           
-                          {/* Compact Features */}
-                          <div className="space-y-2 mb-4">
-                            {product.features.slice(0, 2).map((feature, i) => (
-                              <div key={i} className="flex items-center text-xs text-slate-700">
-                                <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
-                                <span className="truncate">{feature}</span>
+                          {/* Features */}
+                          <div className="space-y-3 mb-6">
+                            {product.features.slice(0, 3).map((feature, i) => (
+                              <div key={i} className="flex items-center text-sm">
+                                <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
+                                <span className="text-slate-700">{feature}</span>
                               </div>
                             ))}
-                            {product.features.length > 2 && (
-                              <div className="text-xs text-slate-500 ml-5">
-                                +{product.features.length - 2} more benefits
+                            {product.features.length > 3 && (
+                              <div className="text-sm text-slate-500 ml-5 font-medium">
+                                +{product.features.length - 3} additional benefits
                               </div>
                             )}
                           </div>
 
-                          {/* Compact Action Buttons */}
-                          <div className="flex gap-2 mt-auto">
-                            <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                          {/* Action Buttons */}
+                          <div className="flex gap-3 mt-auto">
+                            <Button asChild variant="outline" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5">
                               <Link to={product.learnLink}>
-                                Learn
+                                Learn More
                               </Link>
                             </Button>
-                            <Button asChild size="sm" className="flex-1 text-xs">
-                               <a href="https://preview--hbf-application.lovable.app/auth">
-                                 Apply
-                                 <ArrowRight className="h-3 w-3 ml-1" />
-                               </a>
+                            <Button asChild className="flex-1 bg-primary hover:bg-primary/90 shadow-md">
+                              <a href="https://preview--hbf-application.lovable.app/auth">
+                                Apply Now
+                                <ArrowRight className="h-4 w-4 ml-2" />
+                              </a>
                             </Button>
                           </div>
                         </CardContent>
