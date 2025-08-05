@@ -19,7 +19,7 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
-        <div className="grid lg:grid-cols-1 gap-6 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <header className="text-white space-y-6">
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
@@ -37,19 +37,6 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Enhanced CTA Widget */}
-            <div className="flex justify-start">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-sm">
-                <div className="text-center mb-4">
-                  <div className="text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
-                  <div className="text-blue-100 text-sm">Fast 2-minute application</div>
-                </div>
-                <Button size="lg" className="w-full bg-white text-primary font-semibold shadow-[var(--shadow-button)] hover:bg-gray-50" asChild>
-                  <a href="https://preview--hbf-application.lovable.app/auth">Start Application</a>
-                </Button>
-              </div>
-            </div>
-
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <div className="flex items-center gap-2">
@@ -62,8 +49,20 @@ const HeroSection = () => {
               </div>
             </div>
           </header>
+
+          {/* Enhanced CTA Widget */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-sm w-full">
+              <div className="text-center mb-4">
+                <div className="text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
+                <div className="text-blue-100 text-sm">Fast 2-minute application</div>
+              </div>
+              <Button size="lg" className="w-full bg-white text-primary font-semibold shadow-[var(--shadow-button)] hover:bg-gray-50" asChild>
+                <a href="https://preview--hbf-application.lovable.app/auth">Start Application</a>
+              </Button>
+            </div>
+          </div>
         </div>
-        
       </div>
     </section>
   );
