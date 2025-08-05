@@ -548,11 +548,12 @@ const ProductsSection = () => {
         </div>
 
         {/* Section Divider */}
-        <div className="relative h-24 md:h-32 overflow-hidden bg-gradient-to-r from-blue-50 to-emerald-50">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent"></div>
+        <div className="flex items-center justify-center my-20">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          <div className="px-8">
+            <div className="w-3 h-3 bg-primary rounded-full"></div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-emerald-500/5"></div>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
         </div>
 
         {/* Business Capital Section */}
