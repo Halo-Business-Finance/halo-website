@@ -13,31 +13,33 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat" 
+      className="relative min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden bg-cover bg-center bg-no-repeat" 
       style={{ backgroundImage: `url(${newHeroBackground})` }}
       aria-label="Hero section"
     >
       <div className="absolute inset-0 bg-black/60"></div>
-      <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
-        <div className="text-center text-white max-w-4xl mx-auto">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-              <Shield className="h-4 w-4" />
-              Nationwide SBA & Commercial Loan Marketplace
+      <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
+        <div className="grid lg:grid-cols-1 gap-6 lg:gap-8 items-center">
+          <header className="text-white space-y-6">
+            <div className="space-y-5">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+                <Shield className="h-4 w-4" />
+                Nationwide SBA & Commercial Loan Marketplace
+              </div>
+              
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                <span className="block">Business Financing</span>
+                <span className="block text-primary-glow">that Grows with You</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
+                We offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link> to help your business go far.
+              </p>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="block">Business Financing</span>
-              <span className="block text-primary-glow">that Grows with You</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              We offer flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">commercial financing</Link> to help your business go far.
-            </p>
 
             {/* Enhanced CTA Widget */}
-            <div className="flex justify-center pt-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-md">
+            <div className="flex justify-start">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-sm">
                 <div className="text-center mb-4">
                   <div className="text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
                   <div className="text-blue-100 text-sm">Fast 2-minute application</div>
@@ -49,7 +51,7 @@ const HeroSection = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
+            <div className="flex flex-wrap items-center gap-6 pt-4">
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-primary-glow" />
                 <span className="text-sm text-blue-100">SBA & Commercial Loan Marketplace</span>
@@ -59,8 +61,9 @@ const HeroSection = () => {
                 <span className="text-blue-100">Secure & Encrypted</span>
               </div>
             </div>
-          </div>
+          </header>
         </div>
+        
       </div>
     </section>
   );
