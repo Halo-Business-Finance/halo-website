@@ -462,78 +462,87 @@ const ProductsSection = () => {
           <div className="p-8 md:p-12 bg-slate-50/30">
 
             <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-6 pl-2 pr-8">
-                  {products.map((product, index) => (
-                    <div 
-                      key={index} 
-                      className="flex-shrink-0 w-80 md:w-72"
-                    >
+              <div className="flex gap-4 pl-2 pr-8">
+                {products.map((product, index) => (
+                  <div 
+                    key={index} 
+                    className="flex-shrink-0 w-64 md:w-60"
+                  >
                       <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
-                        {product.badge && (
-                          <div className="absolute top-4 right-4 z-10">
-                            <span className="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
-                              {product.badge}
-                            </span>
-                          </div>
-                        )}
                         
-                        <CardHeader className="pb-4 pt-6 border-b border-slate-100">
-                          {/* Logo/Icon Section */}
-                          <div className="flex items-center gap-4 mb-4">
-                            {product.logo ? (
-                              <div className="p-3 bg-slate-50 rounded-xl border">
-                                <img src={product.logo} alt={`${product.title} logo`} className="h-8 w-auto" />
-                              </div>
-                            ) : (
-                              <div className={`p-3 bg-gradient-to-br ${product.color} rounded-xl shadow-sm`}>
-                                <product.icon className="h-6 w-6 text-white" />
-                              </div>
-                            )}
-                            <div className="flex-1">
-                              <h4 className="text-xl font-semibold text-slate-900 group-hover:text-primary transition-colors duration-300">
-                                {product.title}
-                              </h4>
+                        {/* Cover Image */}
+                        <div className="relative h-32 overflow-hidden">
+                          <img 
+                            src={`https://images.unsplash.com/photo-${
+                              product.title.includes('SBA 7(a)') ? '1553062407-98185353d614' :
+                              product.title.includes('SBA 504') ? '1554224155-6726b3ff858f' :
+                              product.title.includes('SBA Express') ? '1551288049-1de39c69fa56' :
+                              product.title.includes('USDA') ? '1521737604-5cc24a3cc78d' :
+                              product.title.includes('Conventional') ? '1560520031-eaebe88ba5bd' :
+                              product.title.includes('CMBS') ? '1577462477-ac24ace78e29' :
+                              product.title.includes('Portfolio') ? '1639762681485-57b8629738cb' :
+                              product.title.includes('Construction') ? '1504307651254-35680f356dfd' :
+                              product.title.includes('Bridge') ? '1560520031-eaebe88ba5bd' :
+                              product.title.includes('Multifamily') ? '1486405251-61c3b6e61fa3' :
+                              '1560520031-eaebe88ba5bd'
+                            }?auto=format&fit=crop&w=400&h=200&q=80`}
+                            alt={product.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                          {product.badge && (
+                            <div className="absolute top-3 right-3 z-10">
+                              <span className="bg-amber-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
+                                {product.badge}
+                              </span>
                             </div>
+                          )}
+                          {/* Title Overlay */}
+                          <div className="absolute bottom-3 left-3 right-3">
+                            <h4 className="text-white text-lg font-semibold leading-tight">
+                              {product.title}
+                            </h4>
                           </div>
-                          
+                        </div>
+                        
+                        <CardHeader className="pb-3 pt-4">
                           {/* Rate Display */}
-                          <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-xl px-4 py-3 border border-blue-100">
-                            <div className="text-2xl font-bold text-primary mb-1">{product.rate}</div>
-                            <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
+                          <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg px-3 py-2 border border-blue-100">
+                            <div className="text-xl font-bold text-primary mb-1">{product.rate}</div>
+                            <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
                           </div>
                         </CardHeader>
                         
-                        <CardContent className="pt-6 pb-6 flex flex-col flex-1">
-                          <p className="text-slate-600 mb-6 leading-relaxed flex-grow">
+                        <CardContent className="pt-0 pb-4 flex flex-col flex-1">
+                          <p className="text-slate-600 mb-4 leading-relaxed flex-grow text-sm">
                             {product.description}
                           </p>
                           
                           {/* Features */}
-                          <div className="space-y-3 mb-6">
-                            {product.features.slice(0, 3).map((feature, i) => (
-                              <div key={i} className="flex items-center text-sm">
+                          <div className="space-y-2 mb-4">
+                            {product.features.slice(0, 2).map((feature, i) => (
+                              <div key={i} className="flex items-center text-xs">
                                 <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
                                 <span className="text-slate-700">{feature}</span>
                               </div>
                             ))}
-                            {product.features.length > 3 && (
-                              <div className="text-sm text-slate-500 ml-5 font-medium">
-                                +{product.features.length - 3} additional benefits
+                            {product.features.length > 2 && (
+                              <div className="text-xs text-slate-500 ml-5 font-medium">
+                                +{product.features.length - 2} additional benefits
                               </div>
                             )}
                           </div>
 
                           {/* Action Buttons */}
-                          <div className="flex gap-3 mt-auto">
-                            <Button asChild variant="outline" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5">
+                          <div className="flex gap-2 mt-auto">
+                            <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5 text-xs">
                               <Link to={product.learnLink}>
-                                Learn More
+                                Learn
                               </Link>
                             </Button>
-                            <Button asChild className="flex-1 bg-primary hover:bg-primary/90 shadow-md">
+                            <Button asChild size="sm" className="flex-1 bg-primary hover:bg-primary/90 shadow-md text-xs">
                               <a href="https://preview--hbf-application.lovable.app/auth">
-                                Apply Now
-                                <ArrowRight className="h-4 w-4 ml-2" />
+                                Apply
                               </a>
                             </Button>
                           </div>
@@ -616,64 +625,73 @@ const ProductsSection = () => {
             {/* Carousel Content */}
             <div className="p-8 md:p-12 bg-slate-50/30">
               <div className="overflow-hidden" ref={businessEmblaRef}>
-                <div className="flex gap-6 pl-2 pr-8">
+                <div className="flex gap-4 pl-2 pr-8">
                   {businessProducts.map((product, index) => (
                     <div 
                       key={index} 
-                      className="flex-shrink-0 w-80 md:w-72"
+                      className="flex-shrink-0 w-64 md:w-60"
                     >
                       <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
-                        <CardHeader className="pb-4 pt-6 border-b border-slate-100">
-                          {/* Icon Section */}
-                          <div className="flex items-center gap-4 mb-4">
-                            <div className={`p-3 bg-gradient-to-br ${product.color} rounded-xl shadow-sm`}>
-                              <product.icon className="h-6 w-6 text-white" />
-                            </div>
-                            <div className="flex-1">
-                              <h4 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600 transition-colors duration-300">
-                                {product.title}
-                              </h4>
-                            </div>
+                        
+                        {/* Cover Image */}
+                        <div className="relative h-32 overflow-hidden">
+                          <img 
+                            src={`https://images.unsplash.com/photo-${
+                              product.title.includes('Working Capital') ? '1554224155-6726b3ff858f' :
+                              product.title.includes('Line of Credit') ? '1553062407-98185353d614' :
+                              product.title.includes('Term Loans') ? '1560520031-eaebe88ba5bd' :
+                              '1551288049-1de39c69fa56'
+                            }?auto=format&fit=crop&w=400&h=200&q=80`}
+                            alt={product.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                          {/* Title Overlay */}
+                          <div className="absolute bottom-3 left-3 right-3">
+                            <h4 className="text-white text-lg font-semibold leading-tight">
+                              {product.title}
+                            </h4>
                           </div>
-                          
+                        </div>
+                        
+                        <CardHeader className="pb-3 pt-4">
                           {/* Rate Display */}
-                          <div className="bg-gradient-to-r from-emerald-50 to-emerald-600/5 rounded-xl px-4 py-3 border border-emerald-100">
-                            <div className="text-2xl font-bold text-emerald-600 mb-1">{product.rate}</div>
-                            <div className="text-sm text-slate-600 font-medium">{product.rateLabel}</div>
+                          <div className="bg-gradient-to-r from-emerald-50 to-emerald-600/5 rounded-lg px-3 py-2 border border-emerald-100">
+                            <div className="text-xl font-bold text-emerald-600 mb-1">{product.rate}</div>
+                            <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
                           </div>
                         </CardHeader>
                         
-                        <CardContent className="pt-6 pb-6 flex flex-col flex-1">
-                          <p className="text-slate-600 mb-6 leading-relaxed flex-grow">
+                        <CardContent className="pt-0 pb-4 flex flex-col flex-1">
+                          <p className="text-slate-600 mb-4 leading-relaxed flex-grow text-sm">
                             {product.description}
                           </p>
                           
                           {/* Features */}
-                          <div className="space-y-3 mb-6">
-                            {product.features.slice(0, 3).map((feature, i) => (
-                              <div key={i} className="flex items-center text-sm">
+                          <div className="space-y-2 mb-4">
+                            {product.features.slice(0, 2).map((feature, i) => (
+                              <div key={i} className="flex items-center text-xs">
                                 <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
                                 <span className="text-slate-700">{feature}</span>
                               </div>
                             ))}
-                            {product.features.length > 3 && (
-                              <div className="text-sm text-slate-500 ml-5 font-medium">
-                                +{product.features.length - 3} additional benefits
+                            {product.features.length > 2 && (
+                              <div className="text-xs text-slate-500 ml-5 font-medium">
+                                +{product.features.length - 2} additional benefits
                               </div>
                             )}
                           </div>
 
                           {/* Action Buttons */}
-                          <div className="flex gap-3 mt-auto">
-                            <Button asChild variant="outline" className="flex-1 border-slate-300 hover:border-emerald-600 hover:bg-emerald-600/5">
+                          <div className="flex gap-2 mt-auto">
+                            <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-emerald-600 hover:bg-emerald-600/5 text-xs">
                               <Link to={product.learnLink}>
-                                Learn More
+                                Learn
                               </Link>
                             </Button>
-                            <Button asChild className="flex-1 bg-emerald-600 hover:bg-emerald-600/90 shadow-md">
+                            <Button asChild size="sm" className="flex-1 bg-emerald-600 hover:bg-emerald-600/90 shadow-md text-xs">
                               <a href="https://preview--hbf-application.lovable.app/auth">
-                                Apply Now
-                                <ArrowRight className="h-4 w-4 ml-2" />
+                                Apply
                               </a>
                             </Button>
                           </div>
