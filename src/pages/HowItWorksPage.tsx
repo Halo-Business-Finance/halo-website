@@ -19,6 +19,7 @@ import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
 import step3PreApproved from "@/assets/step3-pre-approved.jpg";
 import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
+import SuccessShowcase from "@/components/SuccessShowcase";
 
 const HowItWorksPage = () => {
   return (
@@ -429,6 +430,8 @@ const HowItWorksPage = () => {
           </div>
         </div>
       </section>
+
+      <SuccessShowcase />
 
       <Footer />
     </div>
