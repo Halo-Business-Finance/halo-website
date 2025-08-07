@@ -50,24 +50,32 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
     // Fetch session encryption key from secure endpoint
     const fetchSessionKey = async () => {
       try {
-        const response = await fetch('/functions/v1/get-encryption-keys', {
+        // Import supabase client to get proper authentication
+        const { supabase } = await import('@/integrations/supabase/client');
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!session) {
+          console.warn('No authenticated session found for encryption key fetch');
+          return;
+        }
+
+        const response = await supabase.functions.invoke('get-encryption-keys', {
           headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Authorization': `Bearer ${session.access_token}`,
           },
         });
         
-        if (response.ok) {
-          const { sessionEncryptionKey } = await response.json();
-          setSessionKey(sessionEncryptionKey);
+        if (response.data && response.data.sessionEncryptionKey) {
+          setSessionKey(response.data.sessionEncryptionKey);
           
           // Load existing session after key is available
           setTimeout(() => loadSession(), 100);
+        } else {
+          console.error('Failed to fetch encryption key:', response.error);
         }
       } catch (error) {
         console.error('Failed to fetch session key:', error);
-        // Fallback for development
-        setSessionKey('dev-fallback-session-key-32chars!');
-        setTimeout(() => loadSession(), 100);
+        // No fallback key - fail securely
       }
     };
 

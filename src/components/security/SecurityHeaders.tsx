@@ -58,42 +58,22 @@ export const SecurityHeaders = () => {
     // Store nonce for script validation
     (window as any).__security_nonce = nonce;
 
-    // Enforce HTTPS in production
-    if (process.env.NODE_ENV === 'production' && location.protocol !== 'https:' && location.hostname !== 'localhost') {
-      location.replace(`https:${location.href.substring(location.protocol.length)}`);
-    }
+    // Enforce HTTPS in production - server-side only
+    // REMOVED: Client-side environment detection is insecure
 
-    // Enhanced developer tools protection
-    if (process.env.NODE_ENV === 'production') {
-      // Right-click context menu is now enabled
+    // Development tools protection - only apply when explicitly in production build
+    if (isProductionBuild) {
+      // Production-only security measures
       
-      // Disable common developer shortcuts
+      // Disable common developer shortcuts (less aggressive)
       document.addEventListener('keydown', (e) => {
         if (
           e.key === 'F12' || 
-          (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-          (e.ctrlKey && e.shiftKey && e.key === 'C') ||
-          (e.ctrlKey && e.shiftKey && e.key === 'K') ||
-          (e.ctrlKey && e.key === 'u')
+          (e.ctrlKey && e.shiftKey && e.key === 'I')
         ) {
           e.preventDefault();
-          console.clear();
         }
       });
-
-      // Detect dev tools opening
-      let devtools = {open: false, orientation: null};
-      setInterval(() => {
-        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
-          if (!devtools.open) {
-            devtools.open = true;
-            console.clear();
-            console.warn('Developer tools detected. Some features may be disabled for security.');
-          }
-        } else {
-          devtools.open = false;
-        }
-      }, 500);
     }
 
     return () => {
