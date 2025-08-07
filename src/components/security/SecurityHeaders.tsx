@@ -61,7 +61,9 @@ export const SecurityHeaders = () => {
     // Enforce HTTPS in production - server-side only
     // REMOVED: Client-side environment detection is insecure
 
-    // Development tools protection - only apply when explicitly in production build
+    // Development tools protection - using build-time detection
+    const isProductionBuild = import.meta.env.PROD;
+    
     if (isProductionBuild) {
       // Production-only security measures
       
