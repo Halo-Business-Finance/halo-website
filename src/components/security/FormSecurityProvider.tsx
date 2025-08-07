@@ -31,28 +31,33 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
         const { data: { session } } = await supabase.auth.getSession();
         
         if (!session?.access_token) {
-          console.warn('No active session - using fallback encryption');
+          // Only warn in development, fail silently in production
+          if (import.meta.env.DEV) {
+            console.warn('No active session - using fallback encryption');
+          }
           setEncryptionKey('dev-fallback-key-not-secure-32char');
           return;
         }
 
-        const response = await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/get-encryption-keys', {
+        const response = await supabase.functions.invoke('get-encryption-keys', {
           headers: {
             'Authorization': `Bearer ${session.access_token}`,
-            'Content-Type': 'application/json',
           },
         });
         
-        if (response.ok) {
-          const { sessionEncryptionKey } = await response.json();
-          setEncryptionKey(sessionEncryptionKey);
+        if (response.data?.sessionEncryptionKey) {
+          setEncryptionKey(response.data.sessionEncryptionKey);
         } else {
-          console.warn('Failed to fetch encryption key, using fallback');
+          if (import.meta.env.DEV) {
+            console.warn('Failed to fetch encryption key, using fallback');
+          }
           setEncryptionKey('dev-fallback-key-not-secure-32char');
         }
       } catch (error) {
-        console.error('Failed to fetch encryption key:', error);
-        // Fallback for development
+        if (import.meta.env.DEV) {
+          console.error('Failed to fetch encryption key:', error);
+        }
+        // Secure fallback for development
         setEncryptionKey('dev-fallback-key-not-secure-32char');
       }
     };

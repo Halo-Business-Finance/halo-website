@@ -131,6 +131,39 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limit_configs: {
+        Row: {
+          block_duration_seconds: number
+          created_at: string
+          endpoint: string
+          id: string
+          is_active: boolean
+          max_requests: number
+          updated_at: string
+          window_seconds: number
+        }
+        Insert: {
+          block_duration_seconds?: number
+          created_at?: string
+          endpoint: string
+          id?: string
+          is_active?: boolean
+          max_requests?: number
+          updated_at?: string
+          window_seconds?: number
+        }
+        Update: {
+          block_duration_seconds?: number
+          created_at?: string
+          endpoint?: string
+          id?: string
+          is_active?: boolean
+          max_requests?: number
+          updated_at?: string
+          window_seconds?: number
+        }
+        Relationships: []
+      }
       security_alerts: {
         Row: {
           alert_type: string
@@ -288,34 +321,40 @@ export type Database = {
       }
       user_sessions: {
         Row: {
+          client_fingerprint: string | null
           created_at: string
           expires_at: string
           id: string
           ip_address: unknown | null
           is_active: boolean
           last_activity: string
+          security_level: string | null
           session_token: string
           user_agent: string | null
           user_id: string
         }
         Insert: {
+          client_fingerprint?: string | null
           created_at?: string
           expires_at: string
           id?: string
           ip_address?: unknown | null
           is_active?: boolean
           last_activity?: string
+          security_level?: string | null
           session_token: string
           user_agent?: string | null
           user_id: string
         }
         Update: {
+          client_fingerprint?: string | null
           created_at?: string
           expires_at?: string
           id?: string
           ip_address?: unknown | null
           is_active?: boolean
           last_activity?: string
+          security_level?: string | null
           session_token?: string
           user_agent?: string | null
           user_id?: string
@@ -339,6 +378,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      cleanup_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: string
@@ -351,6 +394,18 @@ export type Database = {
         Args: {
           _user_id: string
           _role: Database["public"]["Enums"]["app_role"]
+        }
+        Returns: boolean
+      }
+      initialize_admin_user: {
+        Args: { target_email: string }
+        Returns: boolean
+      }
+      validate_session_security: {
+        Args: {
+          session_token: string
+          client_ip: unknown
+          client_fingerprint: string
         }
         Returns: boolean
       }

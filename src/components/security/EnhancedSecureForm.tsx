@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useFormSecurity } from './FormSecurityProvider';
 import { useAdvancedRateLimit } from './RateLimiter';
+import { useServerRateLimit } from './ServerRateLimit';
 import { CaptchaChallenge } from './CaptchaChallenge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Shield, AlertTriangle } from 'lucide-react';
+import { Shield, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 
 interface EnhancedSecureFormProps {
   children: React.ReactNode;
@@ -31,9 +32,10 @@ export const EnhancedSecureForm: React.FC<EnhancedSecureFormProps> = ({
     validateInput 
   } = useFormSecurity();
   
+  // Client-side rate limiting (fallback)
   const {
-    checkRateLimit,
-    isBlocked,
+    checkRateLimit: checkClientLimit,
+    isBlocked: isClientBlocked,
     blockTimeRemaining,
     showCaptcha,
     solveCaptcha
@@ -43,6 +45,16 @@ export const EnhancedSecureForm: React.FC<EnhancedSecureFormProps> = ({
     blockDurationMs: 30 * 60 * 1000, // 30 minutes
     endpoint
   });
+
+  // Server-side rate limiting (primary)
+  const { 
+    checkRateLimit: checkServerLimit, 
+    isBlocked: isServerBlocked, 
+    lastResponse, 
+    timeUntilReset 
+  } = useServerRateLimit();
+
+  const isBlocked = isServerBlocked || isClientBlocked;
 
   const [csrfToken, setCsrfToken] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -109,8 +121,16 @@ export const EnhancedSecureForm: React.FC<EnhancedSecureFormProps> = ({
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     
-    // Check rate limiting
-    const canProceed = await checkRateLimit();
+    // Check server-side rate limiting first
+    const serverAllowed = await checkServerLimit({ endpoint });
+    if (!serverAllowed) {
+      const message = lastResponse?.message || `Rate limit exceeded. Please wait ${Math.ceil(timeUntilReset / 60)} minutes.`;
+      setErrors([message]);
+      return;
+    }
+    
+    // Fallback to client-side rate limiting
+    const canProceed = await checkClientLimit();
     if (!canProceed) {
       return;
     }

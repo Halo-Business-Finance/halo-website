@@ -55,7 +55,9 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
         const { data: { session } } = await supabase.auth.getSession();
         
         if (!session) {
-          console.warn('No authenticated session found for encryption key fetch');
+          if (import.meta.env.DEV) {
+            console.warn('No authenticated session found for encryption key fetch');
+          }
           return;
         }
 
@@ -71,10 +73,14 @@ export const SessionManager: React.FC<SessionManagerProps> = ({
           // Load existing session after key is available
           setTimeout(() => loadSession(), 100);
         } else {
-          console.error('Failed to fetch encryption key:', response.error);
+          if (import.meta.env.DEV) {
+            console.error('Failed to fetch encryption key:', response.error);
+          }
         }
       } catch (error) {
-        console.error('Failed to fetch session key:', error);
+        if (import.meta.env.DEV) {
+          console.error('Failed to fetch session key:', error);
+        }
         // No fallback key - fail securely
       }
     };
