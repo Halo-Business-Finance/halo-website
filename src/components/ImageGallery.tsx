@@ -173,12 +173,12 @@ const ImageGallery = () => {
                 >
                   <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
                     <div className="relative h-56 overflow-hidden">
-                      <img 
+                      <LazyImage 
                         src={item.image} 
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading={index < 3 ? "eager" : "lazy"}
                       />
+
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 text-white">
                         <h3 className="text-xl font-bold mb-1 text-shadow">{item.title}</h3>

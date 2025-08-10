@@ -20,9 +20,13 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [isInView, setIsInView] = React.useState(priority);
   const imgRef = React.useRef<HTMLImageElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    if (!imgRef.current || priority) return;
+    if (priority) return;
+
+    const target = containerRef.current;
+    if (!target) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -37,7 +41,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       }
     );
 
-    observer.observe(imgRef.current);
+    observer.observe(target);
     return () => observer.disconnect();
   }, [priority]);
 
@@ -46,7 +50,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
       {/* Placeholder while loading */}
       {!isLoaded && (
         <div 
@@ -63,15 +67,13 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           width={width}
           height={height}
           loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
           onLoad={handleLoad}
           className={`
             transition-opacity duration-300 
             ${isLoaded ? 'opacity-100' : 'opacity-0'}
             ${className}
           `}
-          style={{
-            display: isLoaded ? 'block' : 'none'
-          }}
         />
       )}
     </div>

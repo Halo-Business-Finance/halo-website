@@ -347,7 +347,7 @@ const ProductsSection = () => {
                     <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col h-[480px]">
                       <CardContent className="p-0 flex flex-col h-full">
                         <div className="w-full h-64 rounded-lg overflow-hidden mb-4">
-                          <img src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
+                          <LazyImage src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
                         </div>
                         <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
                         <h4 className="font-semibold mb-2">{item.title}</h4>

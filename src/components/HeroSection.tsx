@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { Shield, Lock } from "lucide-react";
 import { LazyImage } from "@/components/ui/LazyImage";
 
-// Use string paths instead of imports for better performance
-const heroBackground = "/src/assets/new-hero-background.jpg";
+import heroBackground from "@/assets/new-hero-background.jpg";
 
 const HeroSection = () => {
 
