@@ -158,7 +158,7 @@ const Header = () => {
                 <img
                   src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png"
                   alt="Halo Business Finance logo"
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                   loading="eager"
                   decoding="async"
                 />
@@ -171,7 +171,7 @@ const Header = () => {
               <img
                 src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png"
                 alt="Halo Business Finance logo"
-                className="h-10 w-auto"
+                className="h-12 w-auto"
                 loading="eager"
                 decoding="async"
               />
