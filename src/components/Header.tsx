@@ -153,16 +153,28 @@ const Header = () => {
       <nav className="w-full px-4" aria-label="Main navigation">
         <div className="flex items-center h-16 w-full">
           {/* Mobile/Tablet Brand - Show on smaller screens */}
-          <div className="lg:hidden">
-            <Link to="/" className="text-financial-navy font-bold text-lg hover:text-financial-blue transition-colors">
-              Halo Business Finance
-            </Link>
-          </div>
+            <div className="lg:hidden">
+              <Link to="/" className="block">
+                <img
+                  src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png"
+                  alt="Halo Business Finance logo"
+                  className="h-8 w-auto"
+                  loading="eager"
+                  decoding="async"
+                />
+              </Link>
+            </div>
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center justify-center flex-1 space-x-1">
-            <Link to="/" className="text-financial-navy font-bold text-xl mr-8 hover:text-financial-blue transition-colors whitespace-nowrap">
-              Halo Business Finance
+            <Link to="/" className="mr-8 block">
+              <img
+                src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png"
+                alt="Halo Business Finance logo"
+                className="h-10 w-auto"
+                loading="eager"
+                decoding="async"
+              />
             </Link>
             {Object.entries(menuItems).map(([key, item]) => (
               <DropdownMenu key={key}>
