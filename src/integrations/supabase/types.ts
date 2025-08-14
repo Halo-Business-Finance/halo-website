@@ -67,7 +67,7 @@ export type Database = {
           status: string
           timeframe: string
           updated_at: string
-          user_id: string | null
+          user_id: string
         }
         Insert: {
           company?: string | null
@@ -82,7 +82,7 @@ export type Database = {
           status?: string
           timeframe: string
           updated_at?: string
-          user_id?: string | null
+          user_id: string
         }
         Update: {
           company?: string | null
@@ -97,7 +97,7 @@ export type Database = {
           status?: string
           timeframe?: string
           updated_at?: string
-          user_id?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -410,6 +410,24 @@ export type Database = {
       }
       initialize_admin_user: {
         Args: { target_email: string }
+        Returns: boolean
+      }
+      invalidate_suspicious_sessions: {
+        Args: { target_user_id: string; reason: string }
+        Returns: number
+      }
+      log_client_security_event: {
+        Args: {
+          event_type: string
+          severity: string
+          event_data?: Json
+          user_agent?: string
+          source?: string
+        }
+        Returns: string
+      }
+      secure_initialize_admin: {
+        Args: { admin_email: string; confirmation_token?: string }
         Returns: boolean
       }
       validate_session_security: {
