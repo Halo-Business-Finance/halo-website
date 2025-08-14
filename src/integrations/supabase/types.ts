@@ -101,6 +101,42 @@ export type Database = {
         }
         Relationships: []
       }
+      encryption_keys: {
+        Row: {
+          algorithm: string
+          created_at: string
+          expires_at: string | null
+          id: string
+          is_active: boolean
+          key_hash: string
+          key_identifier: string
+          last_used_at: string | null
+          rotation_scheduled_at: string | null
+        }
+        Insert: {
+          algorithm?: string
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          key_hash: string
+          key_identifier: string
+          last_used_at?: string | null
+          rotation_scheduled_at?: string | null
+        }
+        Update: {
+          algorithm?: string
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          key_hash?: string
+          key_identifier?: string
+          last_used_at?: string | null
+          rotation_scheduled_at?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -414,6 +450,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      analyze_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          pattern_type: string
+          severity: string
+          event_count: number
+          affected_users: number
+          time_window: string
+          recommended_action: string
+        }[]
+      }
       assign_user_role: {
         Args: {
           target_user_id: string
@@ -447,6 +494,16 @@ export type Database = {
           session_id: string
         }[]
       }
+      detect_advanced_session_anomaly: {
+        Args: {
+          session_id: string
+          new_ip: unknown
+          new_user_agent: string
+          new_fingerprint: string
+          behavioral_data?: Json
+        }
+        Returns: Json
+      }
       detect_session_anomaly: {
         Args: {
           session_id: string
@@ -463,6 +520,16 @@ export type Database = {
       enforce_consultation_retention: {
         Args: Record<PropertyKey, never>
         Returns: number
+      }
+      enhanced_rate_limit_check: {
+        Args: {
+          p_identifier: string
+          p_action: string
+          p_limit?: number
+          p_window_seconds?: number
+          p_behavioral_score?: number
+        }
+        Returns: Json
       }
       get_consultation_secure: {
         Args: { consultation_id: string }
@@ -584,6 +651,10 @@ export type Database = {
         Args: { data_text: string; mask_type?: string }
         Returns: string
       }
+      schedule_key_rotation: {
+        Args: { p_key_identifier: string; p_rotation_date?: string }
+        Returns: boolean
+      }
       secure_assign_user_role: {
         Args: {
           target_user_id: string
@@ -611,6 +682,14 @@ export type Database = {
           reason?: string
         }
         Returns: boolean
+      }
+      validate_function_security: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          function_name: string
+          security_level: string
+          recommendations: string[]
+        }[]
       }
       validate_session_security: {
         Args: {
