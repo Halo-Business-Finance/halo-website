@@ -118,7 +118,6 @@ const App = () => {
         <Toaster />
         <Sonner />
         <SecurityHeaders />
-        <AuthProvider>
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
@@ -185,7 +184,6 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
-        </AuthProvider>
           </TooltipProvider>
   </QueryClientProvider>
   );

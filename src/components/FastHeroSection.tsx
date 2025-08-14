@@ -48,7 +48,7 @@ const FastHeroSection = () => {
                 onClick={() => trackUserAction('hero_cta_click', { button: 'start_application' })}
                 asChild
               >
-                <a href="https://preview--hbf-application.lovable.app/auth">Start Application</a>
+                <Link to="/auth">Start Application</Link>
               </Button>
             </div>
           </div>
