@@ -156,9 +156,9 @@ const Footer = () => {
         </div>
 
         {/* Company info and newsletter - below menu */}
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="mb-8">
           {/* Company description */}
-          <div>
+          <div className="mb-6">
             <p className="text-white mb-6">
               Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
             </p>
