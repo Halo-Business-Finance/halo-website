@@ -695,7 +695,7 @@ export type Database = {
         Returns: string
       }
       mask_sensitive_data: {
-        Args: { data_text: string; mask_type?: string }
+        Args: { data_text: string; data_type: string }
         Returns: string
       }
       resolve_security_alert: {

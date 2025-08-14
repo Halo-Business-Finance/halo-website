@@ -128,22 +128,24 @@ export const SecureConsultationForm: React.FC = () => {
     try {
       // Encrypt sensitive data before submission
       const encryptedData = {
-        encrypted_name: await encryptSensitiveData(formData.name),
-        encrypted_email: await encryptSensitiveData(formData.email),
-        encrypted_phone: await encryptSensitiveData(formData.phone),
-        company: formData.company ? await encryptSensitiveData(formData.company) : '',
-        message: formData.message ? await encryptSensitiveData(formData.message) : '',
+        encrypted_name: encryptSensitiveData(formData.name),
+        encrypted_email: encryptSensitiveData(formData.email),
+        encrypted_phone: encryptSensitiveData(formData.phone || ''),
+        company: formData.company,
         loan_program: formData.loan_program,
         loan_amount: formData.loan_amount,
         timeframe: formData.timeframe,
+        message: formData.message,
         user_id: user.id
       };
 
-      const { error } = await supabase
-        .from('consultations')
-        .insert([encryptedData]);
+      // Submit through secure edge function instead of direct database insert
+      const { data, error } = await supabase.functions.invoke('send-consultation-email', {
+        body: encryptedData
+      });
 
       if (error) throw error;
+      if (!data?.success) throw new Error(data?.error || 'Failed to submit consultation');
 
       setIsSubmitted(true);
       toast({
