@@ -6,11 +6,7 @@ const IMAGE_CACHE = 'images-v2';
 // Critical resources to cache immediately
 const CRITICAL_RESOURCES = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/manifest.json',
-  '/src/assets/new-hero-background.jpg',
-  '/src/assets/hero-background.jpg'
+  '/manifest.json'
 ];
 
 // Resources to cache on demand
