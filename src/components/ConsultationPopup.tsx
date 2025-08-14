@@ -61,11 +61,50 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
       return;
     }
 
+    // Additional security validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      // Add client-side security metadata
+      const submissionData = {
+        ...formData,
+        clientFingerprint: navigator.userAgent.substring(0, 100), // Limit length for security
+        submissionTime: new Date().toISOString(),
+        origin: window.location.origin,
+        formVersion: "1.1" // For tracking form changes
+      };
+
+      // Log security event for monitoring (don't fail submission if this fails)
+      try {
+        await supabase.functions.invoke('log-security-event', {
+          body: {
+            event_type: 'consultation_form_submitted',
+            severity: 'info',
+            event_data: {
+              loan_program: formData.loanProgram,
+              loan_amount: formData.loanAmount,
+              has_company: !!formData.company,
+              form_completion_time: Date.now(),
+              origin: window.location.origin
+            }
+          }
+        });
+      } catch (logError) {
+        console.warn('Security logging failed:', logError);
+      }
+
       const { data, error } = await supabase.functions.invoke('send-consultation-email', {
-        body: formData
+        body: submissionData
       });
 
       if (error) {
@@ -95,9 +134,16 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
       });
     } catch (error: any) {
       console.error('Consultation submission error:', error);
+      
+      // Enhanced error handling with security considerations
+      let errorMessage = "Something went wrong. Please try again.";
+      if (error.message && !error.message.includes('database') && !error.message.includes('internal')) {
+        errorMessage = error.message;
+      }
+      
       toast({
         title: "Submission Failed",
-        description: error.message || "Something went wrong. Please try again.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
