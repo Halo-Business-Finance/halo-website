@@ -15,6 +15,12 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, signOut, userRole, isAdmin } = useAuth();
 
+  const handleMobileMenuToggle = () => {
+    console.log("Mobile menu button clicked, current state:", isOpen);
+    setIsOpen(!isOpen);
+    console.log("Setting menu to:", !isOpen);
+  };
+
   const menuItems = {
     "Company": {
       title: "Company",
@@ -166,84 +172,103 @@ const Header = () => {
               />
             </Link>
             
-            {/* Mobile Menu Button - Absolute positioned */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-lg p-2 h-10 w-10 z-50 hover:bg-slate-100"
-                  onClick={() => setIsOpen(true)}
-                >
-                  <Menu className="h-6 w-6 text-slate-700" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-80 overflow-y-auto">
-                <div className="flex flex-col gap-6 pt-6">
-                  <div className="mb-4">
-                    <h2 className="text-xl font-bold text-financial-navy">Menu</h2>
-                  </div>
-                  {/* Mobile CTA buttons */}
-                  <div className="flex flex-col gap-3">
-                    {user ? (
-                      <div className="space-y-2">
-                        <div className="text-sm text-muted-foreground">
-                          {user.user_metadata?.display_name || user.email}
-                          {userRole && <span className="ml-2 text-xs">({userRole})</span>}
-                        </div>
-                        {isAdmin && (
-                          <Button variant="outline" className="justify-start border-2" asChild>
-                            <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
-                              <Shield className="h-4 w-4 mr-2" />
-                              Security Dashboard
-                            </Link>
+            {/* Mobile Menu Button - Simple approach */}
+            <Button 
+              variant="ghost" 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-lg p-2 h-10 w-10 z-50 hover:bg-slate-100"
+              onClick={handleMobileMenuToggle}
+            >
+              <Menu className="h-6 w-6 text-slate-700" />
+              <span className="sr-only">Open menu</span>
+            </Button>
+            
+            {/* Mobile Menu Overlay - Custom implementation */}
+            {isOpen && (
+              <>
+                {/* Backdrop */}
+                <div 
+                  className="fixed inset-0 bg-black/50 z-40"
+                  onClick={() => setIsOpen(false)}
+                />
+                
+                {/* Menu Panel */}
+                <div className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-xl overflow-y-auto">
+                  <div className="flex flex-col gap-6 p-6">
+                    {/* Close button */}
+                    <div className="flex justify-between items-center mb-4">
+                      <h2 className="text-xl font-bold text-financial-navy">Menu</h2>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => setIsOpen(false)}
+                        className="h-8 w-8 p-0"
+                      >
+                        <span className="text-lg">×</span>
+                      </Button>
+                    </div>
+                    
+                    {/* Mobile CTA buttons */}
+                    <div className="flex flex-col gap-3">
+                      {user ? (
+                        <div className="space-y-2">
+                          <div className="text-sm text-muted-foreground">
+                            {user.user_metadata?.display_name || user.email}
+                            {userRole && <span className="ml-2 text-xs">({userRole})</span>}
+                          </div>
+                          {isAdmin && (
+                            <Button variant="outline" className="justify-start border-2" asChild>
+                              <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
+                                <Shield className="h-4 w-4 mr-2" />
+                                Security Dashboard
+                              </Link>
+                            </Button>
+                          )}
+                          <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
+                            <LogOut className="h-4 w-4 mr-2" />
+                            Sign Out
                           </Button>
-                        )}
-                        <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
-                          <LogOut className="h-4 w-4 mr-2" />
-                          Sign Out
+                        </div>
+                      ) : (
+                        <Button variant="outline" className="justify-start border-2" asChild>
+                          <Link to="/auth" onClick={() => setIsOpen(false)}>
+                            <User className="h-4 w-4 mr-2" />
+                            Sign In
+                          </Link>
                         </Button>
-                      </div>
-                    ) : (
-                      <Button variant="outline" className="justify-start border-2" asChild>
-                        <Link to="/auth" onClick={() => setIsOpen(false)}>
-                          <User className="h-4 w-4 mr-2" />
-                          Sign In
+                      )}
+                      <Button className="justify-start bg-financial-navy" asChild>
+                        <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
+                          Get Started
                         </Link>
                       </Button>
-                    )}
-                    <Button className="justify-start bg-financial-navy" asChild>
-                      <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
-                        Get Started
-                      </Link>
-                    </Button>
-                  </div>
-                  
-                  {/* Mobile navigation */}
-                  <div className="border-t pt-6 flex-1">
-                    <nav className="flex flex-col gap-4">
-                      {Object.entries(menuItems).map(([key, item]) => (
-                        <div key={key} className="space-y-3">
-                          <h3 className="font-bold text-lg text-financial-navy">{item.title}</h3>
-                          <div className="pl-4 space-y-2">
-                            {item.items.map((subItem) => (
-                              <Link
-                                key={subItem}
-                                to={getItemLink(item.title, subItem)}
-                                className="block text-slate-600 hover:text-financial-blue transition-colors py-1"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {subItem}
-                              </Link>
-                            ))}
+                    </div>
+                    
+                    {/* Mobile navigation */}
+                    <div className="border-t pt-6 flex-1">
+                      <nav className="flex flex-col gap-4">
+                        {Object.entries(menuItems).map(([key, item]) => (
+                          <div key={key} className="space-y-3">
+                            <h3 className="font-bold text-lg text-financial-navy">{item.title}</h3>
+                            <div className="pl-4 space-y-2">
+                              {item.items.map((subItem) => (
+                                <Link
+                                  key={subItem}
+                                  to={getItemLink(item.title, subItem)}
+                                  className="block text-slate-600 hover:text-financial-blue transition-colors py-1"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {subItem}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </nav>
+                        ))}
+                      </nav>
+                    </div>
                   </div>
                 </div>
-              </SheetContent>
-            </Sheet>
+              </>
+            )}
           </div>
         </div>
 
