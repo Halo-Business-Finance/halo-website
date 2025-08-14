@@ -1,13 +1,16 @@
 // Update this page (the content is just a fallback if you fail to update the page)
 
+import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ProductsSection from "@/components/ProductsSection";
-import ImageGallery from "@/components/ImageGallery";
-import Footer from "@/components/Footer";
-import IndustryShowcase from "@/components/IndustryShowcase";
-import SuccessShowcase from "@/components/SuccessShowcase";
 import SEO from "@/components/SEO";
+import CodeSplitWrapper from "@/components/optimization/CodeSplitWrapper";
+
+// Lazy load below-the-fold components for better performance
+const ProductsSection = lazy(() => import("@/components/ProductsSection"));
+const ImageGallery = lazy(() => import("@/components/ImageGallery"));
+const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
   return (
@@ -19,14 +22,33 @@ const Index = () => {
         canonical="https://halobusinessfinance.com/"
       />
       <div className="min-h-screen bg-background">
-      <Header />
-      <HeroSection />
-      <ProductsSection />
-      <ImageGallery />
-      <IndustryShowcase />
-      
-      
-      <Footer />
+        <Header />
+        <HeroSection />
+        
+        {/* Lazy load below-the-fold content for better performance */}
+        <CodeSplitWrapper fallback={<div className="h-96 bg-muted/20 animate-pulse" />}>
+          <Suspense fallback={<div className="h-96 bg-muted/20 animate-pulse" />}>
+            <ProductsSection />
+          </Suspense>
+        </CodeSplitWrapper>
+        
+        <CodeSplitWrapper fallback={<div className="h-64 bg-muted/20 animate-pulse" />}>
+          <Suspense fallback={<div className="h-64 bg-muted/20 animate-pulse" />}>
+            <ImageGallery />
+          </Suspense>
+        </CodeSplitWrapper>
+        
+        <CodeSplitWrapper fallback={<div className="h-96 bg-muted/20 animate-pulse" />}>
+          <Suspense fallback={<div className="h-96 bg-muted/20 animate-pulse" />}>
+            <IndustryShowcase />
+          </Suspense>
+        </CodeSplitWrapper>
+        
+        <CodeSplitWrapper fallback={<div className="h-64 bg-muted/20 animate-pulse" />}>
+          <Suspense fallback={<div className="h-64 bg-muted/20 animate-pulse" />}>
+            <Footer />
+          </Suspense>
+        </CodeSplitWrapper>
       </div>
     </>
   );
