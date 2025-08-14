@@ -182,7 +182,10 @@ export const EnhancedSecurityMonitor: React.FC = () => {
         }
       }
     } catch (error) {
-      console.error('Advanced security check failed:', error);
+      // Fail silently in production, log in development
+      if (import.meta.env.DEV) {
+        console.error('Advanced security check failed:', error);
+      }
     }
   };
 

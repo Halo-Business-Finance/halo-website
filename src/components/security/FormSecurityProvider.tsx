@@ -31,11 +31,10 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
         const { data: { session } } = await supabase.auth.getSession();
         
         if (!session?.access_token) {
-          // Only warn in development, fail silently in production
-          if (import.meta.env.DEV) {
-            console.warn('No active session - using fallback encryption');
-          }
-          setEncryptionKey('dev-fallback-key-not-secure-32char');
+          // Generate a secure random key instead of using predictable fallback
+          const randomKey = crypto.getRandomValues(new Uint8Array(32));
+          const secureKey = Array.from(randomKey, byte => byte.toString(16).padStart(2, '0')).join('');
+          setEncryptionKey(secureKey);
           return;
         }
 
@@ -48,17 +47,16 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
         if (response.data?.sessionEncryptionKey) {
           setEncryptionKey(response.data.sessionEncryptionKey);
         } else {
-          if (import.meta.env.DEV) {
-            console.warn('Failed to fetch encryption key, using fallback');
-          }
-          setEncryptionKey('dev-fallback-key-not-secure-32char');
+          // Generate secure random key if server key unavailable
+          const randomKey = crypto.getRandomValues(new Uint8Array(32));
+          const secureKey = Array.from(randomKey, byte => byte.toString(16).padStart(2, '0')).join('');
+          setEncryptionKey(secureKey);
         }
       } catch (error) {
-        if (import.meta.env.DEV) {
-          console.error('Failed to fetch encryption key:', error);
-        }
-        // Secure fallback for development
-        setEncryptionKey('dev-fallback-key-not-secure-32char');
+        // Generate secure random key on error
+        const randomKey = crypto.getRandomValues(new Uint8Array(32));
+        const secureKey = Array.from(randomKey, byte => byte.toString(16).padStart(2, '0')).join('');
+        setEncryptionKey(secureKey);
       }
     };
 
@@ -92,27 +90,29 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
   const encryptSensitiveData = (data: string): string => {
     try {
       if (!encryptionKey) {
-        console.warn('Encryption key not available, data not encrypted');
-        return data;
+        // Fail securely - don't store unencrypted sensitive data
+        throw new Error('Encryption unavailable');
       }
       return CryptoJS.AES.encrypt(data, encryptionKey).toString();
     } catch (error) {
-      console.error('Encryption failed:', error);
-      return data;
+      // Fail securely - don't return unencrypted data
+      throw new Error('Data encryption failed');
     }
   };
 
   const decryptSensitiveData = (encryptedData: string): string => {
     try {
       if (!encryptionKey) {
-        console.warn('Encryption key not available, returning encrypted data');
-        return encryptedData;
+        throw new Error('Decryption key unavailable');
       }
       const bytes = CryptoJS.AES.decrypt(encryptedData, encryptionKey);
-      return bytes.toString(CryptoJS.enc.Utf8);
+      const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+      if (!decrypted) {
+        throw new Error('Decryption produced empty result');
+      }
+      return decrypted;
     } catch (error) {
-      console.error('Decryption failed:', error);
-      return encryptedData;
+      throw new Error('Data decryption failed');
     }
   };
 

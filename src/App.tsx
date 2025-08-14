@@ -9,6 +9,7 @@ import { SecurityMonitor } from "@/components/security/SecurityMonitor";
 import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
 import { SessionManager } from "@/components/security/SessionManager";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
@@ -110,14 +111,15 @@ const App = () => {
 
   return (
   <QueryClientProvider client={queryClient}>
-    <FormSecurityProvider>
-      <SessionManager>
-        <AuthProvider>
-          <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <SecurityHeaders />
-          <SecurityMonitor />
+    <ProductionSecurityProvider>
+      <FormSecurityProvider>
+        <SessionManager>
+          <AuthProvider>
+            <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <SecurityHeaders />
+            <SecurityMonitor />
           <PerformanceMonitor />
           <DisclaimerPopup />
       <BrowserRouter>
@@ -190,6 +192,7 @@ const App = () => {
         </AuthProvider>
       </SessionManager>
     </FormSecurityProvider>
+    </ProductionSecurityProvider>
   </QueryClientProvider>
   );
 };
