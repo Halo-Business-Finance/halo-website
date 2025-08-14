@@ -1,3 +1,4 @@
+
 import { useEffect, Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,14 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/components/auth/AuthProvider";
-import { SecurityHeaders } from "@/components/security/SecurityHeaders";
-import { SecurityMonitor } from "@/components/security/SecurityMonitor";
-import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
-import { SessionManager } from "@/components/security/SessionManager";
-import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
-import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
-import { CriticalCSSLoader } from "@/components/optimization/CriticalCSSLoader";
-import DisclaimerPopup from "@/components/DisclaimerPopup";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -79,38 +72,21 @@ const EquipmentLoanApplication = lazy(() => import("./pages/EquipmentLoanApplica
 const WorkingCapitalApplication = lazy(() => import("./pages/WorkingCapitalApplication"));
 const CommercialRealEstateApplication = lazy(() => import("./pages/CommercialRealEstateApplication"));
 
-
-// Enhanced loading component for better UX
+// Simple loading component
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
+  <div className="min-h-screen bg-white flex items-center justify-center">
     <div className="text-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-      <p className="text-foreground">Loading...</p>
-      <div className="mt-2 text-sm text-muted-foreground">Optimizing content...</div>
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+      <p className="text-gray-800">Loading...</p>
     </div>
   </div>
 );
 
-// Optimize QueryClient for better performance
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
-      refetchOnWindowFocus: false,
-    },
-  },
-});
+// Simple QueryClient without complex options
+const queryClient = new QueryClient();
 
 const App = () => {
-  // Initialize service worker for caching
-  useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(error => {
-        console.error('SW registration failed:', error);
-      });
-    }
-  }, []);
+  console.log("App component rendering...");
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -119,74 +95,73 @@ const App = () => {
         <Sonner />
         <AuthProvider>
           <BrowserRouter>
-          <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/brokers" element={<BrokersPage />} />
-            <Route path="/lenders" element={<LendersPage />} />
-            <Route path="/company-overview" element={<CompanyOverview />} />
-            <Route path="/company-licenses" element={<CompanyLicensesPage />} />
-            <Route path="/sba-loans" element={<SBALoansPage />} />
-            <Route path="/commercial-loans" element={<CommercialLoansPage />} />
-            <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
-            <Route path="/business-capital" element={<BusinessCapitalPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
-            <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
-            <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
-            <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
-            <Route path="/contact-us" element={<ContactUsPage />} />
-            
-            <Route path="/working-capital" element={<WorkingCapitalPage />} />
-            <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
-            <Route path="/sba-loan-application" element={<SBALoanApplication />} />
-            <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
-            <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
-            <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
-            <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
-            <Route path="/term-loan-application" element={<TermLoanApplication />} />
-            <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
-            <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
-            <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
-            <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
-            <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
-            <Route path="/construction-loans" element={<ConstructionLoansPage />} />
-            <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
-            <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
-            <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
-            <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
-            <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
-            <Route path="/term-loans" element={<TermLoansPage />} />
-            <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
-            <Route path="/loan-calculator" element={<LoanCalculatorPage />} />
-            
-            <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
-            <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
-            <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-            <Route path="/cfipa" element={<CFIPAPage />} />
-            <Route path="/accessibility" element={<AccessibilityPage />} />
-            <Route path="/sitemap" element={<SiteMapPage />} />
-            <Route path="/customer-service" element={<CustomerServicePage />} />
-            <Route path="/technical-support" element={<TechnicalSupportPage />} />
-            <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
-            <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
-            <Route path="/business-finance-resources" element={<BusinessFinanceResourcesPage />} />
-            <Route path="/security" element={<SecurityPage />} />
-            <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/brokers" element={<BrokersPage />} />
+                <Route path="/lenders" element={<LendersPage />} />
+                <Route path="/company-overview" element={<CompanyOverview />} />
+                <Route path="/company-licenses" element={<CompanyLicensesPage />} />
+                <Route path="/sba-loans" element={<SBALoansPage />} />
+                <Route path="/commercial-loans" element={<CommercialLoansPage />} />
+                <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
+                <Route path="/business-capital" element={<BusinessCapitalPage />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
+                <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
+                <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
+                <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
+                <Route path="/contact-us" element={<ContactUsPage />} />
+                
+                <Route path="/working-capital" element={<WorkingCapitalPage />} />
+                <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
+                <Route path="/sba-loan-application" element={<SBALoanApplication />} />
+                <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
+                <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
+                <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
+                <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
+                <Route path="/term-loan-application" element={<TermLoanApplication />} />
+                <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
+                <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
+                <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
+                <Route path="/careers" element={<CareersPage />} />
+                <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
+                <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
+                <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
+                <Route path="/construction-loans" element={<ConstructionLoansPage />} />
+                <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
+                <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
+                <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
+                <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
+                <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
+                <Route path="/term-loans" element={<TermLoansPage />} />
+                <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
+                <Route path="/loan-calculator" element={<LoanCalculatorPage />} />
+                
+                <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
+                <Route path="/how-it-works" element={<HowItWorksPage />} />
+                <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
+                <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                <Route path="/cfipa" element={<CFIPAPage />} />
+                <Route path="/accessibility" element={<AccessibilityPage />} />
+                <Route path="/sitemap" element={<SiteMapPage />} />
+                <Route path="/customer-service" element={<CustomerServicePage />} />
+                <Route path="/technical-support" element={<TechnicalSupportPage />} />
+                <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
+                <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
+                <Route path="/business-finance-resources" element={<BusinessFinanceResourcesPage />} />
+                <Route path="/security" element={<SecurityPage />} />
+                <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </AuthProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 
