@@ -54,9 +54,16 @@ const Footer = () => {
   return (
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
+        {/* Company description at top left */}
+        <div className="mb-8">
+          <p className="text-white text-lg">
+            Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
+          </p>
+        </div>
+
         {/* Main footer content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8 items-start">
-          {/* Company info and newsletter */}
+          {/* Logo and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-6">
               <Link to="/" className="inline-block mb-4">
@@ -68,9 +75,6 @@ const Footer = () => {
                   decoding="async"
                 />
               </Link>
-              <p className="text-white mb-6">
-                Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
-              </p>
             </div>
 
             {/* Newsletter signup */}
