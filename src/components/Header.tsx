@@ -153,8 +153,8 @@ const Header = () => {
       <nav className="w-full px-4" aria-label="Main navigation">
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden">
-          {/* Centered Logo */}
-          <div className="flex justify-center py-4">
+          {/* Logo and Menu Button Row */}
+          <div className="flex items-center justify-between py-4">
             <Link to="/" className="block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
@@ -164,10 +164,8 @@ const Header = () => {
                 decoding="async"
               />
             </Link>
-          </div>
-          
-          {/* Mobile Menu Button */}
-          <div className="flex justify-center pb-4">
+            
+            {/* Mobile Menu Button */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" className="rounded-lg p-3 h-12 w-12">
