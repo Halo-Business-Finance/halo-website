@@ -175,6 +175,9 @@ const Header = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-80 overflow-y-auto">
                 <div className="flex flex-col gap-6 pt-6">
+                  <div className="mb-4">
+                    <h2 className="text-xl font-bold text-financial-navy">Menu</h2>
+                  </div>
                   {/* Mobile CTA buttons */}
                   <div className="flex flex-col gap-3">
                     {user ? (
