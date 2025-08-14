@@ -244,7 +244,6 @@ const Header = () => {
           {/* Desktop Navigation - Centered */}
           <div className="flex items-center justify-center flex-1 space-x-1">
             <Link to="/" className="mr-8 block relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-financial-blue/10 to-transparent rounded-xl blur-sm"></div>
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
                 alt="Halo Business Finance logo"
