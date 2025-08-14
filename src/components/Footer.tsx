@@ -63,7 +63,7 @@ const Footer = () => {
                 <img 
                   src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
                   alt="Halo Business Finance logo" 
-                  className="h-10 w-auto"
+                  className="h-20 w-auto"
                   loading="lazy"
                   decoding="async"
                 />
