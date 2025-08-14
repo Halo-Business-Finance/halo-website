@@ -83,55 +83,104 @@ export const EnhancedSecurityDashboard: React.FC = () => {
     try {
       setLoading(true);
       
-      // Fetch recent security events
-      const { data: events } = await supabase
-        .from('security_events')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(50);
+      // Use the secure API edge function instead of direct table access
+      const { data: dashboardData, error: dashboardError } = await supabase.functions.invoke(
+        'secure-security-api',
+        {
+          body: {
+            action: 'get_dashboard_metrics'
+          }
+        }
+      );
 
-      // Fetch active security alerts
-      const { data: alerts } = await supabase
-        .from('security_alerts')
-        .select('*')
-        .eq('status', 'open')
-        .order('created_at', { ascending: false });
+      if (dashboardError) {
+        console.error('Dashboard metrics error:', dashboardError);
+        throw dashboardError;
+      }
 
-      // Fetch active user sessions count
-      const { count: sessionsCount } = await supabase
-        .from('user_sessions')
-        .select('*', { count: 'exact', head: true })
-        .eq('is_active', true);
+      // Fetch recent security events through secure API
+      const { data: eventsResponse, error: eventsError } = await supabase.functions.invoke(
+        'secure-security-api',
+        {
+          body: {
+            action: 'get_events',
+            filters: {
+              limit: 50,
+              time_range: '24'
+            }
+          }
+        }
+      );
 
-      if (events) {
-        setRecentEvents(events.slice(0, 20));
-        
-        // Calculate metrics
-        const now = new Date();
-        const last24Hours = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-        
-        const recentEvents = events.filter(e => new Date(e.created_at) > last24Hours);
-        const criticalEvents = recentEvents.filter(e => e.severity === 'critical');
-        const failedLogins = recentEvents.filter(e => e.event_type.includes('failed_login'));
-        const suspiciousEvents = recentEvents.filter(e => e.risk_score > 75);
-        
+      if (eventsError) {
+        console.error('Security events error:', eventsError);
+        throw eventsError;
+      }
+
+      // Fetch active alerts through secure API
+      const { data: alertsResponse, error: alertsError } = await supabase.functions.invoke(
+        'secure-security-api',
+        {
+          body: {
+            action: 'get_alerts',
+            filters: {
+              limit: 20
+            }
+          }
+        }
+      );
+
+      if (alertsError) {
+        console.error('Security alerts error:', alertsError);
+        throw alertsError;
+      }
+
+      // Update metrics from secure API
+      if (dashboardData?.success && dashboardData.data) {
+        const metrics = dashboardData.data;
         setMetrics({
-          totalEvents: recentEvents.length,
-          criticalAlerts: criticalEvents.length,
-          activeUsers: sessionsCount || 0,
-          failedLogins: failedLogins.length,
-          suspiciousActivity: suspiciousEvents.length,
-          systemHealth: Math.max(60, 100 - (criticalEvents.length * 5) - (suspiciousEvents.length * 2))
+          totalEvents: metrics.events_24h || 0,
+          criticalAlerts: metrics.critical_events_7d || 0,
+          activeUsers: metrics.active_sessions || 0,
+          failedLogins: 0, // Will be calculated from events
+          suspiciousActivity: 0, // Will be calculated from events
+          systemHealth: Math.max(60, 100 - (metrics.critical_events_7d * 5))
         });
       }
 
-      if (alerts) {
-        setActiveAlerts(alerts);
+      // Update events list
+      if (eventsResponse?.success && eventsResponse.data) {
+        const events = eventsResponse.data;
+        setRecentEvents(events.slice(0, 20));
+        
+        // Calculate additional metrics from events
+        const failedLogins = events.filter((e: SecurityEvent) => e.event_type.includes('failed_login'));
+        const suspiciousEvents = events.filter((e: SecurityEvent) => e.risk_score > 75);
+        
+        setMetrics(prev => ({
+          ...prev,
+          failedLogins: failedLogins.length,
+          suspiciousActivity: suspiciousEvents.length
+        }));
+      }
+
+      // Update alerts
+      if (alertsResponse?.success && alertsResponse.data) {
+        setActiveAlerts(alertsResponse.data);
       }
 
       setLastUpdated(new Date());
     } catch (error) {
       console.error('Error fetching security data:', error);
+      // Fallback for users without proper access
+      setMetrics({
+        totalEvents: 0,
+        criticalAlerts: 0,
+        activeUsers: 0,
+        failedLogins: 0,
+        suspiciousActivity: 0,
+        systemHealth: 100
+      });
     } finally {
       setLoading(false);
     }
