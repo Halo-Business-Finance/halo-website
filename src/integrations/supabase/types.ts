@@ -444,6 +444,24 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      get_consultation_secure: {
+        Args: { consultation_id: string }
+        Returns: {
+          id: string
+          name: string
+          email: string
+          phone: string
+          company: string
+          loan_program: string
+          loan_amount: string
+          timeframe: string
+          message: string
+          created_at: string
+          updated_at: string
+          status: string
+          user_id: string
+        }[]
+      }
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: string
