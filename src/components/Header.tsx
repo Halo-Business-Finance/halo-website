@@ -156,7 +156,7 @@ const Header = () => {
             <div className="lg:hidden">
               <Link to="/" className="block">
                 <img
-                  src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png"
+                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
                   alt="Halo Business Finance logo"
                   className="h-10 w-auto"
                   loading="eager"
@@ -169,7 +169,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center justify-center flex-1 space-x-1">
             <Link to="/" className="mr-8 block">
               <img
-                src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png"
+                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
                 alt="Halo Business Finance logo"
                 className="h-12 w-auto"
                 loading="eager"

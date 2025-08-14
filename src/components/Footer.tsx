@@ -61,7 +61,7 @@ const Footer = () => {
             <div className="mb-6">
               <Link to="/" className="inline-block mb-4">
                 <img 
-                  src="/lovable-uploads/c0b204f9-b851-431c-9bb7-1c10c8c0ddd3.png" 
+                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
                   alt="Halo Business Finance logo" 
                   className="h-10 w-auto"
                   loading="lazy"
