@@ -105,11 +105,9 @@ const Header = () => {
       {/* Top utility bar - Professional banking style */}
       <div className="bg-financial-navy text-white">
         <div className="max-w-full mx-auto px-8 py-4">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-6">
-              <span className="hidden sm:inline text-white font-bold">Nationwide SBA & Commercial Loan Marketplace</span>
-            </div>
-            <div className="flex items-center gap-6">
+          <div className="flex items-center justify-center text-sm">
+            <span className="hidden sm:inline text-white font-bold text-center">Nationwide SBA & Commercial Loan Marketplace</span>
+            <div className="flex items-center gap-6 absolute right-8 top-1/2 -translate-y-1/2">
               <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-blue-200 transition-colors font-extrabold border-r border-white/30 pr-6">
                 <Phone className="h-4 w-4" />
                 <span>(800) 730-8461</span>
