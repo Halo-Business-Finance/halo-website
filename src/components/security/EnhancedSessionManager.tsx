@@ -72,20 +72,22 @@ export const EnhancedSessionManager: React.FC<SessionManagerProps> = ({
       const clientFingerprint = generateClientFingerprint();
       const clientIP = await getCurrentIP();
       
-      const { data, error } = await supabase.functions.invoke('create-secure-session', {
-        body: {
-          userId,
-          clientIP,
-          userAgent: navigator.userAgent,
-          clientFingerprint,
-          expiresHours: 24
-        }
+      // Use the secure database function instead of edge function
+      const { data, error } = await supabase.rpc('create_secure_session', {
+        p_user_id: userId,
+        p_ip_address: clientIP,
+        p_user_agent: navigator.userAgent,
+        p_client_fingerprint: clientFingerprint,
+        p_expires_hours: 24
       });
 
       if (error) throw error;
+      
+      // The function returns an array, get the first item
+      const sessionResult = Array.isArray(data) ? data[0] : data;
 
       const newSession: SessionData = {
-        sessionId: data.session_token,
+        sessionId: sessionResult.session_token,
         userId,
         lastActivity: Date.now(),
         securityLevel: 'normal',
@@ -93,13 +95,16 @@ export const EnhancedSessionManager: React.FC<SessionManagerProps> = ({
       };
 
       setSession(newSession);
+      
+      // Store only session metadata, not the actual token
       localStorage.setItem('secure_session', JSON.stringify({
-        sessionId: data.session_token,
+        sessionId: sessionResult.session_token, // This is the plain token for client use
         userId,
-        created: Date.now()
+        created: Date.now(),
+        sessionDbId: sessionResult.session_id
       }));
 
-      return data.session_token;
+      return sessionResult.session_token;
     } catch (error) {
       console.error('Failed to create secure session:', error);
       throw error;
@@ -111,16 +116,17 @@ export const EnhancedSessionManager: React.FC<SessionManagerProps> = ({
       const clientFingerprint = generateClientFingerprint();
       const clientIP = await getCurrentIP();
 
-      const { data, error } = await supabase.functions.invoke('validate-session-security', {
-        body: {
-          sessionToken: sessionId,
-          clientIP,
-          clientFingerprint
-        }
+      // Use the secure database function instead of edge function
+      const { data, error } = await supabase.rpc('validate_session_security', {
+        session_token: sessionId,
+        client_ip: clientIP,
+        client_fingerprint: clientFingerprint
       });
 
       if (error) return false;
-      return data?.isValid || false;
+      
+      // The function returns a boolean
+      return data || false;
     } catch (error) {
       console.error('Session validation failed:', error);
       return false;
