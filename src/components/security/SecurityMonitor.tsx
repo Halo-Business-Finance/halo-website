@@ -114,9 +114,40 @@ export const SecurityMonitor = () => {
     try {
       // Log security events for monitoring
       console.log('Security Event:', { eventType, details });
+      
+      // Log to database using the secure function
+      const { error } = await supabase.rpc('log_client_security_event', {
+        event_type: eventType,
+        severity: getSeverityLevel(eventType),
+        event_data: details,
+        user_agent: navigator.userAgent,
+        source: 'client'
+      });
+
+      if (error) {
+        console.error('Failed to log security event to database:', error);
+      }
     } catch (error) {
       // Silently fail to avoid infinite loops
       console.error('Failed to log security event:', error);
+    }
+  };
+
+  const getSeverityLevel = (eventType: string): string => {
+    switch (eventType) {
+      case 'suspicious_dom_manipulation':
+        return 'high';
+      case 'dev_tools_opened':
+        return 'medium';
+      case 'console_access':
+        return 'medium';
+      case 'external_api_call':
+        return 'low';
+      case 'page_hidden':
+      case 'page_visible':
+        return 'info';
+      default:
+        return 'low';
     }
   };
 
