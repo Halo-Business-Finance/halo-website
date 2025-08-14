@@ -221,7 +221,7 @@ const Footer = () => {
           </div>
 
           {/* Company description at bottom */}
-          <div className="text-center mt-8">
+          <div className="text-left mt-8">
             <p className="text-white text-lg">
               Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
             </p>
