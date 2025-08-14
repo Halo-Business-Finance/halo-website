@@ -166,32 +166,34 @@ const Header = () => {
             </Link>
             
             {/* Mobile Menu Button - Fixed positioning */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <Sheet open={isOpen} onOpenChange={(open) => {
+              console.log('Sheet state changed:', open);
+              setIsOpen(open);
+            }}>
               <SheetTrigger asChild>
                 <Button 
                   variant="ghost" 
                   size="sm"
                   className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 p-0 hover:bg-slate-100 focus:bg-slate-100 transition-colors"
                   aria-label="Open mobile menu"
+                  onClick={() => {
+                    console.log('Menu button clicked, current state:', isOpen);
+                  }}
                 >
                   <Menu className="h-6 w-6 text-slate-700" />
                 </Button>
               </SheetTrigger>
               <SheetContent 
                 side="right" 
-                className="w-80 overflow-y-auto bg-white border-l border-slate-200 p-0"
+                className="w-80 overflow-y-auto bg-white border-l border-slate-200"
               >
-                <SheetHeader className="sr-only">
-                  <SheetTitle>Navigation Menu</SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col h-full">
-                  {/* Mobile Menu Header */}
-                  <div className="border-b border-slate-200 p-6 pt-16">
-                    <h2 className="text-lg font-bold text-financial-navy">Navigation</h2>
-                  </div>
+                <div className="flex flex-col h-full min-h-screen">
+                  <SheetHeader className="p-6 pt-16 border-b border-slate-200">
+                    <SheetTitle className="text-lg font-bold text-financial-navy text-left">Navigation</SheetTitle>
+                  </SheetHeader>
                   
-                  <div className="flex-1 flex flex-col gap-6 p-6">
-                    {/* Mobile CTA buttons */}
+                  <div className="flex-1 p-6 space-y-6">
+                    <div className="text-sm text-slate-600">Welcome to our menu</div>
                     <div className="flex flex-col gap-3">
                       {user ? (
                         <div className="space-y-2">
