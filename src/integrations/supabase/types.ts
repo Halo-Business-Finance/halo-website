@@ -275,13 +275,6 @@ export type Database = {
             referencedRelation: "security_events"
             referencedColumns: ["id"]
           },
-          {
-            foreignKeyName: "security_alerts_event_id_fkey"
-            columns: ["event_id"]
-            isOneToOne: false
-            referencedRelation: "security_events_summary"
-            referencedColumns: ["id"]
-          },
         ]
       }
       security_configs: {
@@ -454,39 +447,7 @@ export type Database = {
       }
     }
     Views: {
-      security_events_summary: {
-        Row: {
-          created_at: string | null
-          event_data_raw: Json | null
-          event_type: string | null
-          id: string | null
-          ip_address: unknown | null
-          severity: string | null
-          source: string | null
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          event_data_raw?: Json | null
-          event_type?: string | null
-          id?: string | null
-          ip_address?: unknown | null
-          severity?: string | null
-          source?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          event_data_raw?: Json | null
-          event_type?: string | null
-          id?: string | null
-          ip_address?: unknown | null
-          severity?: string | null
-          source?: string | null
-          user_id?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       analyze_security_events: {
