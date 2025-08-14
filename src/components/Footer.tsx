@@ -55,7 +55,7 @@ const Footer = () => {
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8 items-start">
           {/* Company info and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-6">
@@ -93,7 +93,7 @@ const Footer = () => {
           </div>
 
           {/* Company links - MOVED TO FIRST */}
-          <div>
+          <div className="mt-16">
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               {companyLinks.map((link) => (
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
 
           {/* Loan Programs */}
-          <div>
+          <div className="mt-16">
             <h4 className="font-semibold mb-4">Loan Programs</h4>
             <ul className="space-y-2">
               {loanPrograms.map((link) => (
@@ -121,7 +121,7 @@ const Footer = () => {
           </div>
 
           {/* Partner Links */}
-          <div>
+          <div className="mt-16">
             <h4 className="font-semibold mb-4">Partner With Us</h4>
             <ul className="space-y-2">
               {partnerLinks.map((link) => (
@@ -135,7 +135,7 @@ const Footer = () => {
           </div>
 
           {/* Resources */}
-          <div>
+          <div className="mt-16">
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               {resourceLinks.map((link) => (
@@ -149,7 +149,7 @@ const Footer = () => {
           </div>
 
           {/* Support links */}
-          <div>
+          <div className="mt-16">
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2">
               {supportLinks.map((link) => (
