@@ -55,21 +55,44 @@ const Footer = () => {
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-4 mb-8">
-          {/* Logo */}
-          <div className="flex justify-center md:justify-start mb-4 md:mb-0">
-            <Link to="/" className="inline-block">
-              <img 
-                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
-                alt="Halo Business Finance logo" 
-                className="h-32 w-auto filter brightness-0 invert"
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8">
+          {/* Company info and newsletter */}
+          <div className="lg:col-span-2">
+            <div className="mb-6">
+              <Link to="/" className="inline-block mb-4">
+                <img 
+                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
+                  alt="Halo Business Finance logo" 
+                  className="h-40 w-auto filter brightness-0 invert"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Link>
+              <p className="text-white mb-6">
+                Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
+              </p>
+            </div>
+
+            {/* Newsletter signup */}
+            <div className="mb-6">
+              <h4 className="font-semibold mb-3">Stay Informed</h4>
+              <p className="text-sm text-white mb-3">
+                Get the latest financial insights and market updates.
+              </p>
+              <div className="flex gap-2">
+                <Input 
+                  type="email" 
+                  placeholder="Enter your email"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                />
+                <Button size="sm" className="bg-primary">
+                  Subscribe
+                </Button>
+              </div>
+            </div>
           </div>
 
-          {/* Company links */}
+          {/* Company links - MOVED TO FIRST */}
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
@@ -153,34 +176,6 @@ const Footer = () => {
             </ul>
           </div>
 
-        </div>
-
-        {/* Company info and newsletter - below menu */}
-        <div className="mb-8">
-          {/* Company description */}
-          <div className="mb-6">
-            <p className="text-white mb-6">
-              Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
-            </p>
-          </div>
-
-          {/* Newsletter signup */}
-          <div>
-            <h4 className="font-semibold mb-3">Stay Informed</h4>
-            <p className="text-sm text-white mb-3">
-              Get the latest financial insights and market updates.
-            </p>
-            <div className="flex gap-2">
-              <Input 
-                type="email" 
-                placeholder="Enter your email"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-              />
-              <Button size="sm" className="bg-primary">
-                Subscribe
-              </Button>
-            </div>
-          </div>
         </div>
 
         {/* Social media and bottom info */}
