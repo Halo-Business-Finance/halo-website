@@ -26,18 +26,6 @@ import {
   ChevronRight,
   ChevronLeft
 } from "lucide-react";
-import loanConsultation from "@/assets/loan-consultation.jpg";
-import businessGrowth from "@/assets/business-growth.jpg";
-import sbaLogo from "@/assets/sba-logo.jpg";
-import financialAdvisorConsultation from "@/assets/financial-advisor-consultation.jpg";
-import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
-import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
-import businessConsultationProfessional from "@/assets/business-consultation-professional.jpg";
-import step1SelectLoan from "@/assets/step1-select-loan.jpg";
-import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
-import step3PreApproved from "@/assets/step3-pre-approved.jpg";
-import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
-import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 
 const ProductsSection = () => {
@@ -333,11 +321,11 @@ const ProductsSection = () => {
             <div className="relative">
               <div className="grid md:grid-cols-5 gap-8">
                 {[
-                  { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
-                  { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
-                  { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
-                  { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
-                  { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
+                  { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: "/src/assets/step1-select-loan.jpg" },
+                  { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: "/src/assets/step2-answer-questions.jpg" },
+                  { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: "/src/assets/step3-pre-approved.jpg" },
+                  { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: "/src/assets/step4-upload-financials.jpg" },
+                  { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: "/src/assets/step5-get-funded.jpg" }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-stretch h-full">
                     <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col h-[480px]">
@@ -667,7 +655,7 @@ const ProductsSection = () => {
         {/* Enhanced CTA Section */}
         <div className="mt-20 relative overflow-hidden rounded-3xl shadow-2xl">
           <LazyImage 
-            src={financialAdvisorConsultation} 
+            src="/src/assets/financial-advisor-consultation.jpg"
             alt="Professional financial advisor consultation with business owner"
             className="absolute inset-0 w-full h-full object-cover"
             priority={false}

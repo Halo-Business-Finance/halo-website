@@ -123,8 +123,6 @@ const App = () => {
             <Sonner />
             <SecurityHeaders />
             <SecurityMonitor />
-           <PerformanceMonitor />
-           <CriticalCSSLoader />
            <DisclaimerPopup />
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
