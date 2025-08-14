@@ -378,6 +378,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      cleanup_old_consultations: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       cleanup_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
