@@ -55,15 +55,15 @@ const Footer = () => {
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-6 mb-8">
           {/* Company info and newsletter */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 lg:pr-8">
             <div className="mb-6">
               <Link to="/" className="inline-block mb-4">
                 <img 
                   src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
                   alt="Halo Business Finance logo" 
-                  className="h-40 w-auto filter brightness-0 invert"
+                  className="h-48 w-auto filter brightness-0 invert"
                   loading="lazy"
                   decoding="async"
                 />
