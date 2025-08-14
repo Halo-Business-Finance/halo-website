@@ -54,8 +54,8 @@ const Footer = () => {
   return (
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
-        {/* Company description at top left */}
-        <div className="mb-8">
+        {/* Company description at top center */}
+        <div className="mb-8 text-center">
           <p className="text-white text-lg">
             Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
           </p>
