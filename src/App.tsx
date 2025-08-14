@@ -1,14 +1,14 @@
+import { useEffect, Suspense, lazy } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SecurityHeaders } from "@/components/security/SecurityHeaders";
 import { SecurityMonitor } from "@/components/security/SecurityMonitor";
 import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
 import { SessionManager } from "@/components/security/SessionManager";
-import { AuthProvider } from "@/components/auth/AuthProvider";
 import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import { CriticalCSSLoader } from "@/components/optimization/CriticalCSSLoader";
@@ -118,6 +118,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <SecurityHeaders />
+        <AuthProvider>
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
@@ -184,6 +185,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
+        </AuthProvider>
           </TooltipProvider>
   </QueryClientProvider>
   );
