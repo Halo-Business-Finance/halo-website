@@ -151,22 +151,99 @@ const Header = () => {
       </div>
 
       <nav className="w-full px-4" aria-label="Main navigation">
-        <div className="flex items-center h-16 w-full">
-          {/* Mobile/Tablet Brand - Show on smaller screens */}
-            <div className="lg:hidden">
-              <Link to="/" className="block">
-                <img
-                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
-                  alt="Halo Business Finance logo"
-                  className="h-32 w-auto"
-                  loading="eager"
-                  decoding="async"
-                />
-              </Link>
-            </div>
+        {/* Mobile/Tablet Layout */}
+        <div className="lg:hidden">
+          {/* Centered Logo */}
+          <div className="flex justify-center py-4">
+            <Link to="/" className="block">
+              <img
+                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
+                alt="Halo Business Finance logo"
+                className="h-32 w-auto"
+                loading="eager"
+                decoding="async"
+              />
+            </Link>
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <div className="flex justify-center pb-4">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" className="rounded-lg p-3 h-12 w-12">
+                  <Menu className="h-6 w-6 text-slate-600" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80 overflow-y-auto">
+                <div className="flex flex-col gap-6 pt-6">
+                  {/* Mobile CTA buttons */}
+                  <div className="flex flex-col gap-3">
+                    {user ? (
+                      <div className="space-y-2">
+                        <div className="text-sm text-muted-foreground">
+                          {user.user_metadata?.display_name || user.email}
+                          {userRole && <span className="ml-2 text-xs">({userRole})</span>}
+                        </div>
+                        {isAdmin && (
+                          <Button variant="outline" className="justify-start border-2" asChild>
+                            <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
+                              <Shield className="h-4 w-4 mr-2" />
+                              Security Dashboard
+                            </Link>
+                          </Button>
+                        )}
+                        <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
+                          <LogOut className="h-4 w-4 mr-2" />
+                          Sign Out
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button variant="outline" className="justify-start border-2" asChild>
+                        <Link to="/auth" onClick={() => setIsOpen(false)}>
+                          <User className="h-4 w-4 mr-2" />
+                          Sign In
+                        </Link>
+                      </Button>
+                    )}
+                    <Button className="justify-start bg-financial-navy" asChild>
+                      <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
+                        Get Started
+                      </Link>
+                    </Button>
+                  </div>
+                  
+                  {/* Mobile navigation */}
+                  <div className="border-t pt-6 flex-1">
+                    <nav className="flex flex-col gap-4">
+                      {Object.entries(menuItems).map(([key, item]) => (
+                        <div key={key} className="space-y-3">
+                          <h3 className="font-bold text-lg text-financial-navy">{item.title}</h3>
+                          <div className="pl-4 space-y-2">
+                            {item.items.map((subItem) => (
+                              <Link
+                                key={subItem}
+                                to={getItemLink(item.title, subItem)}
+                                className="block text-slate-600 hover:text-financial-blue transition-colors py-1"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {subItem}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </nav>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
 
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex items-center h-16 w-full">
           {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex items-center justify-center flex-1 space-x-1">
+          <div className="flex items-center justify-center flex-1 space-x-1">
             <Link to="/" className="mr-8 block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
@@ -203,84 +280,13 @@ const Header = () => {
           </div>
 
           {/* Right side buttons - Enhanced professional style */}
-          <div className="hidden lg:flex items-center gap-3 ml-auto">
+          <div className="flex items-center gap-3 ml-auto">
             <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
               </Link>
             </Button>
           </div>
-
-          {/* Mobile menu button */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" className="rounded-lg p-3 h-12 w-12">
-                <Menu className="h-6 w-6 text-slate-600" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-80 overflow-y-auto">
-              <div className="flex flex-col gap-6 pt-6">
-                {/* Mobile CTA buttons */}
-                <div className="flex flex-col gap-3">
-                  {user ? (
-                    <div className="space-y-2">
-                      <div className="text-sm text-muted-foreground">
-                        {user.user_metadata?.display_name || user.email}
-                        {userRole && <span className="ml-2 text-xs">({userRole})</span>}
-                      </div>
-                      {isAdmin && (
-                        <Button variant="outline" className="justify-start border-2" asChild>
-                          <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
-                            <Shield className="h-4 w-4 mr-2" />
-                            Security Dashboard
-                          </Link>
-                        </Button>
-                      )}
-                      <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
-                        <LogOut className="h-4 w-4 mr-2" />
-                        Sign Out
-                      </Button>
-                    </div>
-                  ) : (
-                    <Button variant="outline" className="justify-start border-2" asChild>
-                      <Link to="/auth" onClick={() => setIsOpen(false)}>
-                        <User className="h-4 w-4 mr-2" />
-                        Sign In
-                      </Link>
-                    </Button>
-                  )}
-                  <Button className="justify-start bg-financial-navy" asChild>
-                    <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
-                      Get Started
-                    </Link>
-                  </Button>
-                </div>
-                
-                {/* Mobile navigation */}
-                <div className="border-t pt-6 flex-1">
-                  <nav className="flex flex-col gap-4">
-                    {Object.entries(menuItems).map(([key, item]) => (
-                      <div key={key} className="space-y-3">
-                        <h3 className="font-bold text-lg text-financial-navy">{item.title}</h3>
-                        <div className="pl-4 space-y-2">
-                          {item.items.map((subItem) => (
-                            <Link
-                              key={subItem}
-                              to={getItemLink(item.title, subItem)}
-                              className="block text-slate-600 hover:text-financial-blue transition-colors py-1"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {subItem}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </nav>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
       </nav>
     </header>
