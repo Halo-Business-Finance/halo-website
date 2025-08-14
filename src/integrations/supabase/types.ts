@@ -333,6 +333,8 @@ export type Database = {
           last_activity: string
           security_level: string | null
           session_token: string
+          session_token_hash: string | null
+          token_salt: string | null
           user_agent: string | null
           user_id: string
         }
@@ -346,6 +348,8 @@ export type Database = {
           last_activity?: string
           security_level?: string | null
           session_token: string
+          session_token_hash?: string | null
+          token_salt?: string | null
           user_agent?: string | null
           user_id: string
         }
@@ -359,6 +363,8 @@ export type Database = {
           last_activity?: string
           security_level?: string | null
           session_token?: string
+          session_token_hash?: string | null
+          token_salt?: string | null
           user_agent?: string | null
           user_id?: string
         }
@@ -388,6 +394,19 @@ export type Database = {
       cleanup_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
+      }
+      create_secure_session: {
+        Args: {
+          p_user_id: string
+          p_ip_address?: unknown
+          p_user_agent?: string
+          p_client_fingerprint?: string
+          p_expires_hours?: number
+        }
+        Returns: {
+          session_token: string
+          session_id: string
+        }[]
       }
       encrypt_sensitive_data: {
         Args: { data_text: string }
@@ -460,6 +479,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      hash_session_token: {
+        Args: { token: string; salt?: string }
+        Returns: Json
+      }
       initialize_admin_user: {
         Args: { target_email: string }
         Returns: boolean
@@ -486,6 +509,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      secure_cleanup_expired_sessions: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       secure_initialize_admin: {
         Args: { admin_email: string; confirmation_token?: string }
         Returns: boolean
@@ -495,6 +522,22 @@ export type Database = {
           session_token: string
           client_ip: unknown
           client_fingerprint: string
+        }
+        Returns: boolean
+      }
+      validate_session_security_v2: {
+        Args: {
+          session_token: string
+          client_ip: unknown
+          client_fingerprint: string
+        }
+        Returns: boolean
+      }
+      verify_session_token: {
+        Args: {
+          provided_token: string
+          stored_hash: string
+          stored_salt: string
         }
         Returns: boolean
       }
