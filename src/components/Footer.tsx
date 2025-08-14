@@ -54,13 +54,6 @@ const Footer = () => {
   return (
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
-        {/* Company description at top center */}
-        <div className="mb-8 text-center">
-          <p className="text-white text-lg">
-            Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
-          </p>
-        </div>
-
         {/* Main footer content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-8 items-start">
           {/* Logo and newsletter */}
@@ -227,6 +220,13 @@ const Footer = () => {
               <Link to="/accessibility" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Accessibility</Link>
               <Link to="/sitemap" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Site Map</Link>
             </div>
+          </div>
+
+          {/* Company description at bottom */}
+          <div className="text-center mt-8">
+            <p className="text-white text-lg">
+              Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
+            </p>
           </div>
 
           {/* Copyright and disclosures */}
