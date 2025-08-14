@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
-import FastHeroSection from "@/components/FastHeroSection";
+import FastProductGrid from "@/components/FastProductGrid";
+import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -13,13 +14,14 @@ const Index = () => {
       />
       <div className="min-h-screen bg-background">
         <Header />
-        <FastHeroSection />
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Website is Loading</h1>
-            <p className="text-muted-foreground">Testing with FastHeroSection component...</p>
+            <h1 className="text-4xl font-bold text-foreground mb-4">FastHeroSection Removed</h1>
+            <p className="text-muted-foreground">Testing other components...</p>
           </div>
         </div>
+        <FastProductGrid />
+        <Footer />
       </div>
     </>
   );
