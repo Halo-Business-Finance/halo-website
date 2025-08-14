@@ -366,7 +366,54 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      consultations_secure: {
+        Row: {
+          company: string | null
+          created_at: string | null
+          email: string | null
+          id: string | null
+          loan_amount: string | null
+          loan_program: string | null
+          message: string | null
+          name: string | null
+          phone: string | null
+          status: string | null
+          timeframe: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          company?: never
+          created_at?: string | null
+          email?: never
+          id?: string | null
+          loan_amount?: never
+          loan_program?: string | null
+          message?: never
+          name?: never
+          phone?: never
+          status?: string | null
+          timeframe?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          company?: never
+          created_at?: string | null
+          email?: never
+          id?: string | null
+          loan_amount?: never
+          loan_program?: string | null
+          message?: never
+          name?: never
+          phone?: never
+          status?: string | null
+          timeframe?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       assign_user_role: {
@@ -388,6 +435,10 @@ export type Database = {
       cleanup_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
+      }
+      encrypt_sensitive_data: {
+        Args: { data_text: string }
+        Returns: string
       }
       enforce_consultation_retention: {
         Args: Record<PropertyKey, never>
@@ -425,6 +476,14 @@ export type Database = {
           source?: string
         }
         Returns: string
+      }
+      mask_sensitive_data: {
+        Args: { data_text: string; mask_type?: string }
+        Returns: string
+      }
+      secure_cleanup_consultations: {
+        Args: Record<PropertyKey, never>
+        Returns: number
       }
       secure_initialize_admin: {
         Args: { admin_email: string; confirmation_token?: string }
