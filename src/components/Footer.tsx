@@ -217,8 +217,6 @@ const Footer = () => {
               <Link to="/cfipa" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">CFIPA</Link>
               <Link to="/privacy-policy" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Privacy Policy</Link>
               <Link to="/terms-of-service" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Terms of Use</Link>
-              <Link to="/accessibility" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Accessibility</Link>
-              <Link to="/sitemap" className="hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Site Map</Link>
             </div>
           </div>
 
@@ -231,6 +229,16 @@ const Footer = () => {
 
           {/* Copyright and disclosures */}
           <div className="mt-8 pt-6 border-t border-white/20">
+            {/* Bottom footer links */}
+            <div className="flex justify-center gap-4 mb-4">
+              <Link to="/accessibility" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                Accessibility
+              </Link>
+              <Link to="/sitemap" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                Site Map
+              </Link>
+            </div>
+            
             <div className="text-xs text-white space-y-2">
               <p>© 2025 Halo Business Finance. All rights reserved.</p>
               <p>
