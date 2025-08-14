@@ -154,7 +154,7 @@ const Header = () => {
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden">
           {/* Logo and Menu Button Row */}
-          <div className="relative flex justify-center py-2">
+          <div className="relative flex justify-center py-1">
             <Link to="/" className="block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
@@ -239,7 +239,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex items-center h-8 w-full">
+        <div className="hidden lg:flex items-center h-4 w-full">
           {/* Desktop Navigation - Centered */}
           <div className="flex items-center justify-center flex-1 space-x-1">
             <Link to="/" className="mr-8 block">
