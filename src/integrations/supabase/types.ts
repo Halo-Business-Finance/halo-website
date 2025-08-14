@@ -366,54 +366,7 @@ export type Database = {
       }
     }
     Views: {
-      consultations_secure: {
-        Row: {
-          company: string | null
-          created_at: string | null
-          email: string | null
-          id: string | null
-          loan_amount: string | null
-          loan_program: string | null
-          message: string | null
-          name: string | null
-          phone: string | null
-          status: string | null
-          timeframe: string | null
-          updated_at: string | null
-          user_id: string | null
-        }
-        Insert: {
-          company?: never
-          created_at?: string | null
-          email?: never
-          id?: string | null
-          loan_amount?: never
-          loan_program?: string | null
-          message?: never
-          name?: never
-          phone?: never
-          status?: string | null
-          timeframe?: string | null
-          updated_at?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          company?: never
-          created_at?: string | null
-          email?: never
-          id?: string | null
-          loan_amount?: never
-          loan_program?: string | null
-          message?: never
-          name?: never
-          phone?: never
-          status?: string | null
-          timeframe?: string | null
-          updated_at?: string | null
-          user_id?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       assign_user_role: {
@@ -462,9 +415,39 @@ export type Database = {
           user_id: string
         }[]
       }
+      get_consultations_list_secure: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          id: string
+          name: string
+          email: string
+          loan_program: string
+          loan_amount: string
+          status: string
+          created_at: string
+          user_id: string
+        }[]
+      }
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: string
+      }
+      get_my_consultations: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          id: string
+          name: string
+          email: string
+          phone: string
+          company: string
+          loan_program: string
+          loan_amount: string
+          timeframe: string
+          message: string
+          created_at: string
+          updated_at: string
+          status: string
+        }[]
       }
       get_user_role: {
         Args: { _user_id: string }
