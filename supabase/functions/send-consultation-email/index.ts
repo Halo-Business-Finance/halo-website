@@ -15,6 +15,7 @@ interface ConsultationRequest {
   loanAmount: string;
   timeframe: string;
   message?: string;
+  user_id?: string;
 }
 
 interface MicrosoftTokenResponse {
@@ -49,6 +50,7 @@ const handler = async (req: Request): Promise<Response> => {
         loan_amount: consultationData.loanAmount,
         timeframe: consultationData.timeframe,
         message: consultationData.message,
+        user_id: consultationData.user_id,
       })
       .select()
       .single();

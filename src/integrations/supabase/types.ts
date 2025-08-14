@@ -67,6 +67,7 @@ export type Database = {
           status: string
           timeframe: string
           updated_at: string
+          user_id: string | null
         }
         Insert: {
           company?: string | null
@@ -81,6 +82,7 @@ export type Database = {
           status?: string
           timeframe: string
           updated_at?: string
+          user_id?: string | null
         }
         Update: {
           company?: string | null
@@ -95,6 +97,7 @@ export type Database = {
           status?: string
           timeframe?: string
           updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }

@@ -112,9 +112,16 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
     setIsSubmitting(true);
 
     try {
+      // Get current user for ownership tracking
+      const { data: userData } = await supabase.auth.getUser();
+      if (!userData.user) {
+        throw new Error('User must be authenticated to submit consultation');
+      }
+
       // Add client-side security metadata
       const submissionData = {
         ...formData,
+        user_id: userData.user.id, // Add user_id for ownership tracking
         clientFingerprint: navigator.userAgent.substring(0, 100), // Limit length for security
         submissionTime: new Date().toISOString(),
         origin: window.location.origin,
