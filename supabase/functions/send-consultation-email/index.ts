@@ -7,15 +7,16 @@ const corsHeaders = {
 };
 
 interface ConsultationRequest {
-  name: string;
-  email: string;
-  phone?: string;
+  encrypted_name: string;
+  encrypted_email: string;
+  encrypted_phone?: string;
   company?: string;
   loanProgram: string;
   loanAmount: string;
   timeframe: string;
   message?: string;
-  user_id?: string;
+  user_id: string;
+  csrf_token?: string;
 }
 
 interface MicrosoftTokenResponse {
@@ -34,15 +35,19 @@ const handler = async (req: Request): Promise<Response> => {
     // Enhanced input validation and sanitization
     const rawData = await req.json();
     
-    // Validate required fields and sanitize inputs
-    if (!rawData.name || !rawData.email || !rawData.loanProgram) {
-      throw new Error('Missing required fields: name, email, or loanProgram');
+    // Validate required fields for encrypted data
+    if (!rawData.encrypted_name || !rawData.encrypted_email || !rawData.loan_program) {
+      throw new Error('Missing required encrypted fields');
     }
     
-    // Sanitize and validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(rawData.email)) {
-      throw new Error('Invalid email format');
+    // Validate user authentication
+    if (!rawData.user_id) {
+      throw new Error('User authentication required');
+    }
+    
+    // Validate CSRF token if provided
+    if (rawData.csrf_token && typeof rawData.csrf_token !== 'string') {
+      throw new Error('Invalid CSRF token format');
     }
     
     // Sanitize inputs to prevent XSS
@@ -54,15 +59,16 @@ const handler = async (req: Request): Promise<Response> => {
     };
     
     const consultationData: ConsultationRequest = {
-      name: sanitizeInput(rawData.encrypted_name || rawData.name),
-      email: (rawData.encrypted_email || rawData.email).trim().toLowerCase(),
-      phone: rawData.encrypted_phone || rawData.phone ? sanitizeInput(rawData.encrypted_phone || rawData.phone) : undefined,
+      encrypted_name: rawData.encrypted_name, // Keep encrypted
+      encrypted_email: rawData.encrypted_email, // Keep encrypted  
+      encrypted_phone: rawData.encrypted_phone || undefined, // Keep encrypted
       company: rawData.company ? sanitizeInput(rawData.company) : undefined,
-      loanProgram: sanitizeInput(rawData.loan_program || rawData.loanProgram),
-      loanAmount: rawData.loan_amount || rawData.loanAmount ? sanitizeInput(rawData.loan_amount || rawData.loanAmount) : '',
+      loanProgram: sanitizeInput(rawData.loan_program),
+      loanAmount: rawData.loan_amount ? sanitizeInput(rawData.loan_amount) : '',
       timeframe: rawData.timeframe ? sanitizeInput(rawData.timeframe) : '',
       message: rawData.message ? sanitizeInput(rawData.message) : undefined,
-      user_id: rawData.user_id
+      user_id: rawData.user_id,
+      csrf_token: rawData.csrf_token
     };
     
     // Initialize Supabase client
@@ -70,13 +76,13 @@ const handler = async (req: Request): Promise<Response> => {
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Store consultation in database with encrypted data
+    // Store consultation in database with properly encrypted data
     const { data: consultation, error: dbError } = await supabase
       .from('consultations')
       .insert({
-        encrypted_name: consultationData.name,
-        encrypted_email: consultationData.email,
-        encrypted_phone: consultationData.phone,
+        encrypted_name: consultationData.encrypted_name,
+        encrypted_email: consultationData.encrypted_email,
+        encrypted_phone: consultationData.encrypted_phone,
         company: consultationData.company,
         loan_program: consultationData.loanProgram,
         loan_amount: consultationData.loanAmount,
@@ -136,19 +142,24 @@ const handler = async (req: Request): Promise<Response> => {
         .replace(/'/g, "&#039;");
     };
     
-    const subject = `New Consultation Request - ${escapeHtml(consultationData.name)}`;
+    const subject = `New Encrypted Consultation Request - ID: ${consultation.id}`;
     const emailBody = `
-      <h2>New Consultation Request</h2>
-      <p><strong>Name:</strong> ${escapeHtml(consultationData.name)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(consultationData.email)}</p>
-      ${consultationData.phone ? `<p><strong>Phone:</strong> ${escapeHtml(consultationData.phone)}</p>` : ''}
-      ${consultationData.company ? `<p><strong>Company:</strong> ${escapeHtml(consultationData.company)}</p>` : ''}
+      <h2>New Consultation Request (Encrypted Data)</h2>
+      <p><strong>Consultation ID:</strong> ${consultation.id}</p>
+      <p><strong>User ID:</strong> ${consultationData.user_id}</p>
+      <p><strong>Company:</strong> ${consultationData.company ? escapeHtml(consultationData.company) : 'Not provided'}</p>
       <p><strong>Loan Program:</strong> ${escapeHtml(consultationData.loanProgram)}</p>
       <p><strong>Loan Amount:</strong> ${escapeHtml(consultationData.loanAmount)}</p>
       <p><strong>Timeframe:</strong> ${escapeHtml(consultationData.timeframe)}</p>
       ${consultationData.message ? `<p><strong>Message:</strong> ${escapeHtml(consultationData.message)}</p>` : ''}
       <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
-      <p><strong>Security Note:</strong> All client data is encrypted and handled according to security policies.</p>
+      <br>
+      <p><strong>⚠️ SECURITY NOTICE:</strong></p>
+      <ul>
+        <li>PII (Name, Email, Phone) is encrypted in database</li>
+        <li>Access consultation details via secure admin dashboard</li>
+        <li>Consultation ID: ${consultation.id}</li>
+      </ul>
     `;
 
     // Send email via Microsoft Graph API

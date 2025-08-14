@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Phone, Mail, Building2, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useFormSecurity } from "@/components/security/FormSecurityProvider";
 
 interface ConsultationPopupProps {
   trigger: React.ReactNode;
@@ -20,6 +21,7 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const { toast } = useToast();
+  const { encryptSensitiveData, generateCSRFToken, validateCSRFToken, csrfToken } = useFormSecurity();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -118,21 +120,35 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
         throw new Error('User must be authenticated to submit consultation');
       }
 
-      // Add client-side security metadata
+      // Generate CSRF token for this submission
+      const submissionCSRFToken = generateCSRFToken();
+      
+      // Encrypt PII data before transmission
+      let encryptedName, encryptedEmail, encryptedPhone;
+      try {
+        encryptedName = encryptSensitiveData(formData.name);
+        encryptedEmail = encryptSensitiveData(formData.email);
+        encryptedPhone = formData.phone ? encryptSensitiveData(formData.phone) : null;
+      } catch (encryptError) {
+        throw new Error('Failed to encrypt sensitive data. Please try again.');
+      }
+
+      // Add client-side security metadata with encrypted PII
       const submissionData = {
-        encrypted_name: formData.name, // Will be encrypted by the edge function
-        encrypted_email: formData.email, // Will be encrypted by the edge function
-        encrypted_phone: formData.phone, // Will be encrypted by the edge function
+        encrypted_name: encryptedName,
+        encrypted_email: encryptedEmail,
+        encrypted_phone: encryptedPhone,
         company: formData.company,
         loan_program: formData.loanProgram,
         loan_amount: formData.loanAmount,
         timeframe: formData.timeframe,
         message: formData.message,
         user_id: userData.user.id, // Add user_id for ownership tracking
+        csrf_token: submissionCSRFToken,
         clientFingerprint: navigator.userAgent.substring(0, 100), // Limit length for security
         submissionTime: new Date().toISOString(),
         origin: window.location.origin,
-        formVersion: "1.3" // Updated for encrypted fields only
+        formVersion: "2.0" // Updated for proper encryption
       };
 
       // Log security event for monitoring (don't fail submission if this fails)
