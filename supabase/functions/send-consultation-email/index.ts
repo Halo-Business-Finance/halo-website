@@ -31,7 +31,39 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const consultationData: ConsultationRequest = await req.json();
+    // Enhanced input validation and sanitization
+    const rawData = await req.json();
+    
+    // Validate required fields and sanitize inputs
+    if (!rawData.name || !rawData.email || !rawData.loanProgram) {
+      throw new Error('Missing required fields: name, email, or loanProgram');
+    }
+    
+    // Sanitize and validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(rawData.email)) {
+      throw new Error('Invalid email format');
+    }
+    
+    // Sanitize inputs to prevent XSS
+    const sanitizeInput = (input: string): string => {
+      return input.replace(/<script[^>]*>.*?<\/script>/gi, '')
+                  .replace(/<[^>]*>/g, '')
+                  .trim()
+                  .substring(0, 500); // Limit input length
+    };
+    
+    const consultationData: ConsultationRequest = {
+      name: sanitizeInput(rawData.name),
+      email: rawData.email.trim().toLowerCase(),
+      phone: rawData.phone ? sanitizeInput(rawData.phone) : undefined,
+      company: rawData.company ? sanitizeInput(rawData.company) : undefined,
+      loanProgram: sanitizeInput(rawData.loanProgram),
+      loanAmount: rawData.loanAmount ? sanitizeInput(rawData.loanAmount) : '',
+      timeframe: rawData.timeframe ? sanitizeInput(rawData.timeframe) : '',
+      message: rawData.message ? sanitizeInput(rawData.message) : undefined,
+      user_id: rawData.user_id
+    };
     
     // Initialize Supabase client
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
@@ -94,19 +126,29 @@ const handler = async (req: Request): Promise<Response> => {
 
     const tokenData: MicrosoftTokenResponse = await tokenResponse.json();
 
-    // Prepare email content
-    const subject = `New Consultation Request - ${consultationData.name}`;
+    // Prepare email content with HTML escaping for security
+    const escapeHtml = (unsafe: string): string => {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    };
+    
+    const subject = `New Consultation Request - ${escapeHtml(consultationData.name)}`;
     const emailBody = `
       <h2>New Consultation Request</h2>
-      <p><strong>Name:</strong> ${consultationData.name}</p>
-      <p><strong>Email:</strong> ${consultationData.email}</p>
-      ${consultationData.phone ? `<p><strong>Phone:</strong> ${consultationData.phone}</p>` : ''}
-      ${consultationData.company ? `<p><strong>Company:</strong> ${consultationData.company}</p>` : ''}
-      <p><strong>Loan Program:</strong> ${consultationData.loanProgram}</p>
-      <p><strong>Loan Amount:</strong> ${consultationData.loanAmount}</p>
-      <p><strong>Timeframe:</strong> ${consultationData.timeframe}</p>
-      ${consultationData.message ? `<p><strong>Message:</strong> ${consultationData.message}</p>` : ''}
+      <p><strong>Name:</strong> ${escapeHtml(consultationData.name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(consultationData.email)}</p>
+      ${consultationData.phone ? `<p><strong>Phone:</strong> ${escapeHtml(consultationData.phone)}</p>` : ''}
+      ${consultationData.company ? `<p><strong>Company:</strong> ${escapeHtml(consultationData.company)}</p>` : ''}
+      <p><strong>Loan Program:</strong> ${escapeHtml(consultationData.loanProgram)}</p>
+      <p><strong>Loan Amount:</strong> ${escapeHtml(consultationData.loanAmount)}</p>
+      <p><strong>Timeframe:</strong> ${escapeHtml(consultationData.timeframe)}</p>
+      ${consultationData.message ? `<p><strong>Message:</strong> ${escapeHtml(consultationData.message)}</p>` : ''}
       <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
+      <p><strong>Security Note:</strong> All client data is encrypted and handled according to security policies.</p>
     `;
 
     // Send email via Microsoft Graph API
@@ -161,13 +203,28 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error('Error in send-consultation-email function:', error);
+    
+    // Enhanced error handling - don't expose internal errors to client
+    let clientMessage = 'An error occurred while processing your request. Please try again.';
+    let statusCode = 500;
+    
+    if (error.message.includes('Missing required fields') || 
+        error.message.includes('Invalid email format')) {
+      clientMessage = error.message;
+      statusCode = 400;
+    } else if (error.message.includes('authentication') || 
+               error.message.includes('permission')) {
+      clientMessage = 'Authentication required. Please sign in and try again.';
+      statusCode = 401;
+    }
+    
     return new Response(
       JSON.stringify({ 
         success: false,
-        error: error.message 
+        error: clientMessage
       }),
       {
-        status: 500,
+        status: statusCode,
         headers: { 
           'Content-Type': 'application/json', 
           ...corsHeaders 

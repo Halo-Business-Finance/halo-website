@@ -9,6 +9,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import contactUsHeader from "@/assets/contact-us-header.jpg";
 import contactConsultationMeeting from "@/assets/contact-consultation-meeting.jpg";
 import customerServiceTeam from "@/assets/customer-service-team.jpg";
+import { SecureContactForm } from "@/components/security/SecureContactForm";
 
 const ContactUsPage = () => {
   return (
@@ -104,38 +105,7 @@ const ContactUsPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
-              <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium">First Name</label>
-                      <Input placeholder="Your first name" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium">Last Name</label>
-                      <Input placeholder="Your last name" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Email</label>
-                    <Input type="email" placeholder="your.email@example.com" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Phone</label>
-                    <Input type="tel" placeholder="(XXX) XXX-XXXX" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Subject</label>
-                    <Input placeholder="How can we help you?" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Message</label>
-                    <Textarea placeholder="Tell us about your financing needs..." rows={4} />
-                  </div>
-                  <Button type="submit" className="w-full">Send Message</Button>
-                </form>
-              </Card>
+              <SecureContactForm />
             </div>
           </div>
         </div>
