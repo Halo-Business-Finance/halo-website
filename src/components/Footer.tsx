@@ -238,20 +238,21 @@ const Footer = () => {
                 NMLS ID: 2272778. Commercial Loan Marketplace. 
                 Loan programs subject to credit approval and terms may vary by lender.
               </p>
+              
+              {/* Bottom footer links */}
+              <div className="flex justify-center gap-4 pt-2">
+                <Link to="/accessibility" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  Accessibility
+                </Link>
+                <Link to="/sitemap" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  Site Map
+                </Link>
+              </div>
+              
               <p>
                 Halo Business Finance is a direct CRE & equipment lender providing commercial financing solutions 
                 to businesses nationwide.
               </p>
-            </div>
-            
-            {/* Bottom footer links */}
-            <div className="flex justify-center gap-4 mt-4">
-              <Link to="/accessibility" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
-                Accessibility
-              </Link>
-              <Link to="/sitemap" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
-                Site Map
-              </Link>
             </div>
           </div>
         </div>
