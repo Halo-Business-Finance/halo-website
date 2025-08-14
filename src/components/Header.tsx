@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
 import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -181,10 +181,13 @@ const Header = () => {
                 side="right" 
                 className="w-80 overflow-y-auto bg-white border-l border-slate-200 p-0"
               >
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Navigation Menu</SheetTitle>
+                </SheetHeader>
                 <div className="flex flex-col h-full">
                   {/* Mobile Menu Header */}
-                  <div className="border-b border-slate-200 p-6">
-                    <h2 className="text-lg font-bold text-financial-navy">Menu</h2>
+                  <div className="border-b border-slate-200 p-6 pt-16">
+                    <h2 className="text-lg font-bold text-financial-navy">Navigation</h2>
                   </div>
                   
                   <div className="flex-1 flex flex-col gap-6 p-6">
