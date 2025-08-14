@@ -165,110 +165,108 @@ const Header = () => {
               />
             </Link>
             
-            {/* Mobile Menu Button - Simple approach */}
-            <div className="relative">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 p-0 hover:bg-slate-100 focus:bg-slate-100 transition-colors z-50"
-                aria-label="Open mobile menu"
-                onClick={() => {
-                  console.log('Menu button clicked, toggling from:', isOpen, 'to:', !isOpen);
-                  setIsOpen(!isOpen);
-                }}
-              >
-                <Menu className="h-6 w-6 text-slate-700" />
-              </Button>
-              
-              {/* Simple overlay menu - no Sheet component */}
-              {isOpen && (
-                <>
-                  {/* Backdrop */}
-                  <div 
-                    className="fixed inset-0 bg-black/50 z-40"
-                    onClick={() => setIsOpen(false)}
-                  />
+            {/* Mobile Menu Button - Fixed positioning */}
+            <Button 
+              variant="ghost" 
+              size="sm"
+              className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 p-0 hover:bg-slate-100 focus:bg-slate-100 transition-colors z-50"
+              aria-label="Open mobile menu"
+              onClick={() => {
+                console.log('Menu button clicked, toggling from:', isOpen, 'to:', !isOpen);
+                setIsOpen(!isOpen);
+              }}
+            >
+              <Menu className="h-6 w-6 text-slate-700" />
+            </Button>
+            
+            {/* Simple overlay menu - no Sheet component */}
+            {isOpen && (
+              <>
+                {/* Backdrop */}
+                <div 
+                  className="fixed inset-0 bg-black/50 z-40"
+                  onClick={() => setIsOpen(false)}
+                />
+                
+                {/* Menu Content */}
+                <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 overflow-y-auto animate-slide-in-right">
+                  {/* Close button */}
+                  <div className="flex justify-between items-center p-4 border-b">
+                    <h2 className="text-lg font-bold text-financial-navy">Navigation</h2>
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => setIsOpen(false)}
+                      className="h-8 w-8 p-0"
+                    >
+                      ✕
+                    </Button>
+                  </div>
                   
                   {/* Menu Content */}
-                  <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 overflow-y-auto animate-slide-in-right">
-                    {/* Close button */}
-                    <div className="flex justify-between items-center p-4 border-b">
-                      <h2 className="text-lg font-bold text-financial-navy">Navigation</h2>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => setIsOpen(false)}
-                        className="h-8 w-8 p-0"
-                      >
-                        ✕
+                  <div className="p-6 space-y-6">
+                    {/* Auth Section */}
+                    <div className="space-y-3">
+                      {user ? (
+                        <div className="space-y-2">
+                          <div className="text-sm p-3 bg-slate-50 rounded-lg">
+                            <div className="font-medium">{user.user_metadata?.display_name || user.email}</div>
+                            {userRole && <span className="text-xs text-slate-500">Role: {userRole}</span>}
+                          </div>
+                          {isAdmin && (
+                            <Button variant="outline" className="w-full justify-start" asChild>
+                              <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
+                                <Shield className="h-4 w-4 mr-2" />
+                                Security Dashboard
+                              </Link>
+                            </Button>
+                          )}
+                          <Button variant="outline" className="w-full justify-start" onClick={() => { signOut(); setIsOpen(false); }}>
+                            <LogOut className="h-4 w-4 mr-2" />
+                            Sign Out
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button variant="outline" className="w-full justify-start" asChild>
+                          <Link to="/auth" onClick={() => setIsOpen(false)}>
+                            <User className="h-4 w-4 mr-2" />
+                            Sign In
+                          </Link>
+                        </Button>
+                      )}
+                      <Button className="w-full bg-financial-navy hover:bg-financial-blue" asChild>
+                        <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
+                          Get Started
+                        </Link>
                       </Button>
                     </div>
                     
-                    {/* Menu Content */}
-                    <div className="p-6 space-y-6">
-                      {/* Auth Section */}
-                      <div className="space-y-3">
-                        {user ? (
-                          <div className="space-y-2">
-                            <div className="text-sm p-3 bg-slate-50 rounded-lg">
-                              <div className="font-medium">{user.user_metadata?.display_name || user.email}</div>
-                              {userRole && <span className="text-xs text-slate-500">Role: {userRole}</span>}
-                            </div>
-                            {isAdmin && (
-                              <Button variant="outline" className="w-full justify-start" asChild>
-                                <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
-                                  <Shield className="h-4 w-4 mr-2" />
-                                  Security Dashboard
-                                </Link>
-                              </Button>
-                            )}
-                            <Button variant="outline" className="w-full justify-start" onClick={() => { signOut(); setIsOpen(false); }}>
-                              <LogOut className="h-4 w-4 mr-2" />
-                              Sign Out
-                            </Button>
+                    {/* Navigation Links */}
+                    <div className="border-t pt-6 space-y-6">
+                      {Object.entries(menuItems).map(([key, item]) => (
+                        <div key={key} className="space-y-3">
+                          <h3 className="font-semibold text-financial-navy border-b border-slate-100 pb-2">
+                            {item.title}
+                          </h3>
+                          <div className="space-y-1">
+                            {item.items.map((subItem) => (
+                              <Link
+                                key={subItem}
+                                to={getItemLink(item.title, subItem)}
+                                className="block text-slate-600 hover:text-financial-blue hover:bg-slate-50 transition-colors py-2 px-3 rounded-md text-sm"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {subItem}
+                              </Link>
+                            ))}
                           </div>
-                        ) : (
-                          <Button variant="outline" className="w-full justify-start" asChild>
-                            <Link to="/auth" onClick={() => setIsOpen(false)}>
-                              <User className="h-4 w-4 mr-2" />
-                              Sign In
-                            </Link>
-                          </Button>
-                        )}
-                        <Button className="w-full bg-financial-navy hover:bg-financial-blue" asChild>
-                          <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
-                            Get Started
-                          </Link>
-                        </Button>
-                      </div>
-                      
-                      {/* Navigation Links */}
-                      <div className="border-t pt-6 space-y-6">
-                        {Object.entries(menuItems).map(([key, item]) => (
-                          <div key={key} className="space-y-3">
-                            <h3 className="font-semibold text-financial-navy border-b border-slate-100 pb-2">
-                              {item.title}
-                            </h3>
-                            <div className="space-y-1">
-                              {item.items.map((subItem) => (
-                                <Link
-                                  key={subItem}
-                                  to={getItemLink(item.title, subItem)}
-                                  className="block text-slate-600 hover:text-financial-blue hover:bg-slate-50 transition-colors py-2 px-3 rounded-md text-sm"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  {subItem}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </>
-              )}
-            </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
