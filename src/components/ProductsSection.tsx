@@ -324,10 +324,6 @@ const ProductsSection = () => {
       <div className="container mx-auto px-4">
         {/* Enhanced Header Section - JPMorgan Style */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-[var(--shadow-card)]">
-            <Sparkles className="h-5 w-5" />
-            Nationwide SBA & Commercial Loan Marketplace
-          </div>
           
           {/* Our Streamlined Loan Process Section */}
           <div className="mb-12">
