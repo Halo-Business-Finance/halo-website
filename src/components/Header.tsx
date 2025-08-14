@@ -152,9 +152,9 @@ const Header = () => {
 
       <nav className="w-full px-4" aria-label="Main navigation">
         {/* Mobile/Tablet Layout */}
-        <div className="lg:hidden">
+        <div className="lg:hidden h-auto">
           {/* Logo and Menu Button Row */}
-          <div className="relative flex justify-center items-center min-h-0 -py-10">
+          <div className="relative flex justify-center items-center h-fit py-0 my-0">
             <Link to="/" className="block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
