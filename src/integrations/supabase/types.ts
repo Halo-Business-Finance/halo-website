@@ -57,7 +57,6 @@ export type Database = {
         Row: {
           company: string | null
           created_at: string
-          email: string
           encrypted_email: string | null
           encrypted_name: string | null
           encrypted_phone: string | null
@@ -65,8 +64,6 @@ export type Database = {
           loan_amount: string
           loan_program: string
           message: string | null
-          name: string
-          phone: string | null
           status: string
           timeframe: string
           updated_at: string
@@ -75,7 +72,6 @@ export type Database = {
         Insert: {
           company?: string | null
           created_at?: string
-          email: string
           encrypted_email?: string | null
           encrypted_name?: string | null
           encrypted_phone?: string | null
@@ -83,8 +79,6 @@ export type Database = {
           loan_amount: string
           loan_program: string
           message?: string | null
-          name: string
-          phone?: string | null
           status?: string
           timeframe: string
           updated_at?: string
@@ -93,7 +87,6 @@ export type Database = {
         Update: {
           company?: string | null
           created_at?: string
-          email?: string
           encrypted_email?: string | null
           encrypted_name?: string | null
           encrypted_phone?: string | null
@@ -101,8 +94,6 @@ export type Database = {
           loan_amount?: string
           loan_program?: string
           message?: string | null
-          name?: string
-          phone?: string | null
           status?: string
           timeframe?: string
           updated_at?: string

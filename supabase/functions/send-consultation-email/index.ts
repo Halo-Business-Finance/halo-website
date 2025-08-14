@@ -54,12 +54,12 @@ const handler = async (req: Request): Promise<Response> => {
     };
     
     const consultationData: ConsultationRequest = {
-      name: sanitizeInput(rawData.name),
-      email: rawData.email.trim().toLowerCase(),
-      phone: rawData.phone ? sanitizeInput(rawData.phone) : undefined,
+      name: sanitizeInput(rawData.encrypted_name || rawData.name),
+      email: (rawData.encrypted_email || rawData.email).trim().toLowerCase(),
+      phone: rawData.encrypted_phone || rawData.phone ? sanitizeInput(rawData.encrypted_phone || rawData.phone) : undefined,
       company: rawData.company ? sanitizeInput(rawData.company) : undefined,
-      loanProgram: sanitizeInput(rawData.loanProgram),
-      loanAmount: rawData.loanAmount ? sanitizeInput(rawData.loanAmount) : '',
+      loanProgram: sanitizeInput(rawData.loan_program || rawData.loanProgram),
+      loanAmount: rawData.loan_amount || rawData.loanAmount ? sanitizeInput(rawData.loan_amount || rawData.loanAmount) : '',
       timeframe: rawData.timeframe ? sanitizeInput(rawData.timeframe) : '',
       message: rawData.message ? sanitizeInput(rawData.message) : undefined,
       user_id: rawData.user_id
@@ -70,13 +70,13 @@ const handler = async (req: Request): Promise<Response> => {
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Store consultation in database
+    // Store consultation in database with encrypted data
     const { data: consultation, error: dbError } = await supabase
       .from('consultations')
       .insert({
-        name: consultationData.name,
-        email: consultationData.email,
-        phone: consultationData.phone,
+        encrypted_name: consultationData.name,
+        encrypted_email: consultationData.email,
+        encrypted_phone: consultationData.phone,
         company: consultationData.company,
         loan_program: consultationData.loanProgram,
         loan_amount: consultationData.loanAmount,

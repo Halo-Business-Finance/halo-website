@@ -120,12 +120,19 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
 
       // Add client-side security metadata
       const submissionData = {
-        ...formData,
+        encrypted_name: formData.name, // Will be encrypted by the edge function
+        encrypted_email: formData.email, // Will be encrypted by the edge function
+        encrypted_phone: formData.phone, // Will be encrypted by the edge function
+        company: formData.company,
+        loan_program: formData.loanProgram,
+        loan_amount: formData.loanAmount,
+        timeframe: formData.timeframe,
+        message: formData.message,
         user_id: userData.user.id, // Add user_id for ownership tracking
         clientFingerprint: navigator.userAgent.substring(0, 100), // Limit length for security
         submissionTime: new Date().toISOString(),
         origin: window.location.origin,
-        formVersion: "1.2" // Updated for enhanced security
+        formVersion: "1.3" // Updated for encrypted fields only
       };
 
       // Log security event for monitoring (don't fail submission if this fails)

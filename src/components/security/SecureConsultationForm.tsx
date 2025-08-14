@@ -128,12 +128,14 @@ export const SecureConsultationForm: React.FC = () => {
     try {
       // Encrypt sensitive data before submission
       const encryptedData = {
-        ...formData,
-        name: await encryptSensitiveData(formData.name),
-        email: await encryptSensitiveData(formData.email),
-        phone: await encryptSensitiveData(formData.phone),
+        encrypted_name: await encryptSensitiveData(formData.name),
+        encrypted_email: await encryptSensitiveData(formData.email),
+        encrypted_phone: await encryptSensitiveData(formData.phone),
         company: formData.company ? await encryptSensitiveData(formData.company) : '',
         message: formData.message ? await encryptSensitiveData(formData.message) : '',
+        loan_program: formData.loan_program,
+        loan_amount: formData.loan_amount,
+        timeframe: formData.timeframe,
         user_id: user.id
       };
 
