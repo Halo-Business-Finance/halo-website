@@ -275,6 +275,13 @@ export type Database = {
             referencedRelation: "security_events"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "security_alerts_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "security_events_summary"
+            referencedColumns: ["id"]
+          },
         ]
       }
       security_configs: {
@@ -447,7 +454,36 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      security_events_summary: {
+        Row: {
+          created_at: string | null
+          event_data_masked: Json | null
+          event_type: string | null
+          id: string | null
+          ip_address_masked: string | null
+          severity: string | null
+          source: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          event_data_masked?: never
+          event_type?: string | null
+          id?: string | null
+          ip_address_masked?: never
+          severity?: string | null
+          source?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          event_data_masked?: never
+          event_type?: string | null
+          id?: string | null
+          ip_address_masked?: never
+          severity?: string | null
+          source?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       analyze_security_events: {
@@ -598,6 +634,10 @@ export type Database = {
           created_at: string
         }[]
       }
+      get_security_config: {
+        Args: { config_key: string }
+        Returns: Json
+      }
       get_session_overview_admin: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -651,6 +691,10 @@ export type Database = {
         Args: { data_text: string; mask_type?: string }
         Returns: string
       }
+      resolve_security_alert: {
+        Args: { alert_id: string; resolution_notes?: string }
+        Returns: boolean
+      }
       schedule_key_rotation: {
         Args: { p_key_identifier: string; p_rotation_date?: string }
         Returns: boolean
@@ -680,6 +724,15 @@ export type Database = {
           target_user_id: string
           role_to_revoke: Database["public"]["Enums"]["app_role"]
           reason?: string
+        }
+        Returns: boolean
+      }
+      update_rate_limit_config: {
+        Args: {
+          endpoint_name: string
+          new_max_requests: number
+          new_window_seconds: number
+          new_block_duration_seconds?: number
         }
         Returns: boolean
       }
