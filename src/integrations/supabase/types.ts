@@ -534,6 +534,22 @@ export type Database = {
           created_at: string
         }[]
       }
+      get_session_overview_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          session_id: string
+          user_id: string
+          created_at: string
+          last_activity: string
+          is_active: boolean
+          security_level: string
+          masked_ip: string
+        }[]
+      }
+      get_user_active_sessions_count: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       get_user_role: {
         Args: { _user_id: string }
         Returns: Database["public"]["Enums"]["app_role"]

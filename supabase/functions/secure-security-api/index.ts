@@ -195,14 +195,18 @@ Deno.serve(async (req) => {
         const [
           { count: totalEvents },
           { count: criticalEvents },
-          { count: openAlerts },
-          { count: activeSessions }
+          { count: openAlerts }
         ] = await Promise.all([
           supabase.from('security_events').select('*', { count: 'exact', head: true }).gte('created_at', last24Hours),
           supabase.from('security_events').select('*', { count: 'exact', head: true }).eq('severity', 'critical').gte('created_at', last7Days),
-          supabase.from('security_alerts').select('*', { count: 'exact', head: true }).eq('status', 'open'),
-          supabase.from('user_sessions').select('*', { count: 'exact', head: true }).eq('is_active', true)
+          supabase.from('security_alerts').select('*', { count: 'exact', head: true }).eq('status', 'open')
         ])
+
+        // Get active sessions count through secure function
+        const { data: sessionOverview, error: sessionError } = await supabase
+          .rpc('get_session_overview_admin')
+        
+        const activeSessions = sessionError ? 0 : sessionOverview?.filter((s: any) => s.is_active)?.length || 0
 
         responseData = {
           events_24h: totalEvents || 0,
@@ -256,12 +260,9 @@ Deno.serve(async (req) => {
           )
         }
 
+        // Use secure function that masks sensitive data
         const { data: sessions, error } = await supabase
-          .from('user_sessions')
-          .select('id, user_id, is_active, last_activity, created_at, expires_at, security_level')
-          .eq('is_active', true)
-          .order('last_activity', { ascending: false })
-          .limit(50)
+          .rpc('get_session_overview_admin')
 
         if (error) {
           console.log('Error fetching user sessions:', error)
