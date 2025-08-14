@@ -231,13 +231,8 @@ const Footer = () => {
           <div className="mt-8 pt-6 border-t border-white/20">
             <div className="text-xs text-white space-y-2">
               <p>© 2025 Halo Business Finance. All rights reserved.</p>
-              <p>
-                DFPI CFL License No. 60DBO-178064. California Commercial Financing Law disclosures available upon request.
-              </p>
-              <p>
-                NMLS ID: 2272778. Commercial Loan Marketplace. 
-                Loan programs subject to credit approval and terms may vary by lender.
-              </p>
+              <p>DFPI CFL License No. 60DBO-178064. California Commercial Financing Law disclosures available upon request.</p>
+              <p>NMLS ID: 2272778. Commercial Loan Marketplace. Loan programs subject to credit approval and terms may vary by lender.</p>
               <div className="flex flex-wrap justify-between items-center gap-4">
                 <span>
                   Halo Business Finance is a direct CRE & equipment lender providing commercial financing solutions 
