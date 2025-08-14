@@ -457,30 +457,33 @@ export type Database = {
       security_events_summary: {
         Row: {
           created_at: string | null
-          event_data_masked: Json | null
+          event_data_raw: Json | null
           event_type: string | null
           id: string | null
-          ip_address_masked: string | null
+          ip_address: unknown | null
           severity: string | null
           source: string | null
+          user_id: string | null
         }
         Insert: {
           created_at?: string | null
-          event_data_masked?: never
+          event_data_raw?: Json | null
           event_type?: string | null
           id?: string | null
-          ip_address_masked?: never
+          ip_address?: unknown | null
           severity?: string | null
           source?: string | null
+          user_id?: string | null
         }
         Update: {
           created_at?: string | null
-          event_data_masked?: never
+          event_data_raw?: Json | null
           event_type?: string | null
           id?: string | null
-          ip_address_masked?: never
+          ip_address?: unknown | null
           severity?: string | null
           source?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -637,6 +640,18 @@ export type Database = {
       get_security_config: {
         Args: { config_key: string }
         Returns: Json
+      }
+      get_security_events_masked: {
+        Args: { limit_count?: number; severity_filter?: string }
+        Returns: {
+          id: string
+          event_type: string
+          severity: string
+          created_at: string
+          source: string
+          event_data_masked: Json
+          ip_address_masked: string
+        }[]
       }
       get_session_overview_admin: {
         Args: Record<PropertyKey, never>
