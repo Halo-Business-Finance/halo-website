@@ -101,11 +101,11 @@ export const RoleManagement: React.FC = () => {
     }
 
     try {
-      // Use the secure server-side function for role assignment
+      // Use the enhanced secure function for role assignment with admin lockout prevention
       const expirationDate = expiresAt ? new Date(expiresAt).toISOString() : null;
       
       const { data, error } = await supabase
-        .rpc('assign_user_role', {
+        .rpc('secure_assign_user_role', {
           target_user_id: selectedUserId,
           new_role: selectedRole,
           expiration_date: expirationDate
@@ -115,7 +115,7 @@ export const RoleManagement: React.FC = () => {
 
       toast({
         title: 'Success',
-        description: `Role ${selectedRole} assigned securely with audit trail`,
+        description: `Role ${selectedRole} assigned securely with enhanced protection`,
       });
 
       setIsDialogOpen(false);
@@ -125,34 +125,50 @@ export const RoleManagement: React.FC = () => {
       fetchUserRoles();
     } catch (error: any) {
       console.error('Error assigning role:', error);
+      
+      // Enhanced error handling for security violations
+      const errorMessage = error.message || 'Failed to assign role';
+      const isSecurityError = errorMessage.includes('admin') || 
+                             errorMessage.includes('permissions') ||
+                             errorMessage.includes('lockout') ||
+                             errorMessage.includes('self-assign');
+      
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to assign role',
+        title: isSecurityError ? 'Security Restriction' : 'Error',
+        description: errorMessage,
         variant: 'destructive',
       });
     }
   };
 
-  const handleRevokeRole = async (roleId: string) => {
+  const handleRevokeRole = async (userId: string, role: 'admin' | 'moderator' | 'user') => {
     try {
-      const { error } = await supabase
-        .from('user_roles')
-        .update({ is_active: false })
-        .eq('id', roleId);
+      // Use secure revoke function with admin lockout prevention
+      const { error } = await supabase.rpc('secure_revoke_user_role', {
+        target_user_id: userId,
+        role_to_revoke: role,
+        reason: 'Administrative revocation via role management interface'
+      });
 
       if (error) throw error;
 
       toast({
         title: 'Success',
-        description: 'Role revoked successfully',
+        description: `${role} role revoked securely with protection measures`,
       });
 
       fetchUserRoles();
     } catch (error: any) {
       console.error('Error revoking role:', error);
+      
+      // Enhanced error handling for admin lockout prevention
+      const errorMessage = error.message || 'Failed to revoke role';
+      const isLockoutPrevention = errorMessage.includes('administrators') || 
+                                  errorMessage.includes('lockout');
+      
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to revoke role',
+        title: isLockoutPrevention ? 'Admin Protection Active' : 'Error',
+        description: errorMessage,
         variant: 'destructive',
       });
     }
@@ -339,8 +355,9 @@ export const RoleManagement: React.FC = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => handleRevokeRole(userRole.id)}
-                        disabled={userRole.role === 'admin'} // Prevent revoking admin roles for safety
+                        onClick={() => handleRevokeRole(userRole.user_id, userRole.role)}
+                        disabled={false} // Secure function handles admin protection
+                        className="text-destructive hover:text-destructive"
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>

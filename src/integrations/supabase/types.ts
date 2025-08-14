@@ -408,6 +408,15 @@ export type Database = {
           session_id: string
         }[]
       }
+      detect_session_anomaly: {
+        Args: {
+          session_id: string
+          new_ip: unknown
+          new_user_agent: string
+          new_fingerprint: string
+        }
+        Returns: Json
+      }
       encrypt_sensitive_data: {
         Args: { data_text: string }
         Returns: string
@@ -505,6 +514,14 @@ export type Database = {
         Args: { data_text: string; mask_type?: string }
         Returns: string
       }
+      secure_assign_user_role: {
+        Args: {
+          target_user_id: string
+          new_role: Database["public"]["Enums"]["app_role"]
+          expiration_date?: string
+        }
+        Returns: boolean
+      }
       secure_cleanup_consultations: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -515,6 +532,14 @@ export type Database = {
       }
       secure_initialize_admin: {
         Args: { admin_email: string; confirmation_token?: string }
+        Returns: boolean
+      }
+      secure_revoke_user_role: {
+        Args: {
+          target_user_id: string
+          role_to_revoke: Database["public"]["Enums"]["app_role"]
+          reason?: string
+        }
         Returns: boolean
       }
       validate_session_security: {
