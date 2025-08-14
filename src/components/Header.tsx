@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -154,106 +154,74 @@ const Header = () => {
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden h-auto">
           {/* Logo and Menu Button Row */}
-          <div className="relative flex justify-center items-center h-20 py-2">
+          <div className="relative flex justify-center items-center h-fit py-0 my-0">
             <Link to="/" className="block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
                 alt="Halo Business Finance logo"
-                className="h-16 w-auto"
+                className="h-32 w-auto"
                 loading="eager"
                 decoding="async"
               />
             </Link>
             
-            {/* Mobile Menu Button - Fixed positioning */}
-            <Button 
-              variant="ghost" 
-              size="sm"
-              className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 p-0 hover:bg-slate-100 focus:bg-slate-100 transition-colors z-50"
-              aria-label="Open mobile menu"
-              onClick={() => {
-                console.log('Menu button clicked, toggling from:', isOpen, 'to:', !isOpen);
-                setIsOpen(!isOpen);
-              }}
-            >
-              <Menu className="h-6 w-6 text-slate-700" />
-            </Button>
-            
-            {/* Simple overlay menu - no Sheet component */}
-            {isOpen && (
-              <>
-                {/* Backdrop */}
-                <div 
-                  className="fixed inset-0 bg-black/50 z-40"
-                  onClick={() => setIsOpen(false)}
-                />
-                
-                {/* Menu Content */}
-                <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 overflow-y-auto animate-slide-in-right">
-                  {/* Close button */}
-                  <div className="flex justify-between items-center p-4 border-b">
-                    <h2 className="text-lg font-bold text-financial-navy">Navigation</h2>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      onClick={() => setIsOpen(false)}
-                      className="h-8 w-8 p-0"
-                    >
-                      ✕
+            {/* Mobile Menu Button - Absolute positioned */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-lg p-1 h-8 w-8">
+                  <Menu className="h-5 w-5 text-slate-600" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80 overflow-y-auto">
+                <div className="flex flex-col gap-6 pt-6">
+                  {/* Mobile CTA buttons */}
+                  <div className="flex flex-col gap-3">
+                    {user ? (
+                      <div className="space-y-2">
+                        <div className="text-sm text-muted-foreground">
+                          {user.user_metadata?.display_name || user.email}
+                          {userRole && <span className="ml-2 text-xs">({userRole})</span>}
+                        </div>
+                        {isAdmin && (
+                          <Button variant="outline" className="justify-start border-2" asChild>
+                            <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
+                              <Shield className="h-4 w-4 mr-2" />
+                              Security Dashboard
+                            </Link>
+                          </Button>
+                        )}
+                        <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
+                          <LogOut className="h-4 w-4 mr-2" />
+                          Sign Out
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button variant="outline" className="justify-start border-2" asChild>
+                        <Link to="/auth" onClick={() => setIsOpen(false)}>
+                          <User className="h-4 w-4 mr-2" />
+                          Sign In
+                        </Link>
+                      </Button>
+                    )}
+                    <Button className="justify-start bg-financial-navy" asChild>
+                      <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
+                        Get Started
+                      </Link>
                     </Button>
                   </div>
                   
-                  {/* Menu Content */}
-                  <div className="p-6 space-y-6">
-                    {/* Auth Section */}
-                    <div className="space-y-3">
-                      {user ? (
-                        <div className="space-y-2">
-                          <div className="text-sm p-3 bg-slate-50 rounded-lg">
-                            <div className="font-medium">{user.user_metadata?.display_name || user.email}</div>
-                            {userRole && <span className="text-xs text-slate-500">Role: {userRole}</span>}
-                          </div>
-                          {isAdmin && (
-                            <Button variant="outline" className="w-full justify-start" asChild>
-                              <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
-                                <Shield className="h-4 w-4 mr-2" />
-                                Security Dashboard
-                              </Link>
-                            </Button>
-                          )}
-                          <Button variant="outline" className="w-full justify-start" onClick={() => { signOut(); setIsOpen(false); }}>
-                            <LogOut className="h-4 w-4 mr-2" />
-                            Sign Out
-                          </Button>
-                        </div>
-                      ) : (
-                        <Button variant="outline" className="w-full justify-start" asChild>
-                          <Link to="/auth" onClick={() => setIsOpen(false)}>
-                            <User className="h-4 w-4 mr-2" />
-                            Sign In
-                          </Link>
-                        </Button>
-                      )}
-                      <Button className="w-full bg-financial-navy hover:bg-financial-blue" asChild>
-                        <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
-                          Get Started
-                        </Link>
-                      </Button>
-                    </div>
-                    
-                    {/* Navigation Links */}
-                    <div className="border-t pt-6 space-y-6">
+                  {/* Mobile navigation */}
+                  <div className="border-t pt-6 flex-1">
+                    <nav className="flex flex-col gap-4">
                       {Object.entries(menuItems).map(([key, item]) => (
                         <div key={key} className="space-y-3">
-                          <h3 className="font-semibold text-financial-navy border-b border-slate-100 pb-2">
-                            {item.title}
-                          </h3>
-                          <div className="space-y-1">
+                          <h3 className="font-bold text-lg text-financial-navy">{item.title}</h3>
+                          <div className="pl-4 space-y-2">
                             {item.items.map((subItem) => (
                               <Link
                                 key={subItem}
                                 to={getItemLink(item.title, subItem)}
-                                className="block text-slate-600 hover:text-financial-blue hover:bg-slate-50 transition-colors py-2 px-3 rounded-md text-sm"
+                                className="block text-slate-600 hover:text-financial-blue transition-colors py-1"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {subItem}
@@ -262,11 +230,11 @@ const Header = () => {
                           </div>
                         </div>
                       ))}
-                    </div>
+                    </nav>
                   </div>
                 </div>
-              </>
-            )}
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
 
@@ -290,7 +258,7 @@ const Header = () => {
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-financial-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-slate-200 shadow-lg rounded-xl p-2 min-w-[260px] mt-2 z-[60]">
+                <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2 z-50">
                   <div className="py-2">
                     <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
                       {item.title}

@@ -1,7 +1,12 @@
+// Update this page (the content is just a fallback if you fail to update the page)
+
 import Header from "@/components/Header";
-import FastHeroSection from "@/components/FastHeroSection";
-import FastProductGrid from "@/components/FastProductGrid";
+import HeroSection from "@/components/HeroSection";
+import ProductsSection from "@/components/ProductsSection";
+import ImageGallery from "@/components/ImageGallery";
 import Footer from "@/components/Footer";
+import IndustryShowcase from "@/components/IndustryShowcase";
+import SuccessShowcase from "@/components/SuccessShowcase";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -14,10 +19,14 @@ const Index = () => {
         canonical="https://halobusinessfinance.com/"
       />
       <div className="min-h-screen bg-background">
-        <Header />
-        <FastHeroSection />
-        <FastProductGrid />
-        <Footer />
+      <Header />
+      <HeroSection />
+      <ProductsSection />
+      <ImageGallery />
+      <IndustryShowcase />
+      
+      
+      <Footer />
       </div>
     </>
   );

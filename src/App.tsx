@@ -10,8 +10,8 @@ import { FormSecurityProvider } from "@/components/security/FormSecurityProvider
 import { SessionManager } from "@/components/security/SessionManager";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
+import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
-import { CriticalCSSLoader } from "@/components/optimization/CriticalCSSLoader";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
 
 // Preload critical pages (above the fold)
@@ -103,21 +103,50 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  // Initialize service worker for caching
+  // Initialize performance optimizations
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(error => {
-        console.error('SW registration failed:', error);
-      });
-    }
+    const initializePerformance = async () => {
+      // Critical resource preloading
+      preloadCriticalResources();
+      addResourceHints();
+      
+      // Register service worker for caching
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator.serviceWorker.register('/sw.js');
+        } catch (error) {
+          console.error('SW registration failed:', error);
+        }
+      }
+      
+      // Inject critical CSS
+      const criticalCSS = `
+        .animate-fade-in { animation: fade-in 0.3s ease-out; }
+        .animate-scale-in { animation: scale-in 0.2s ease-out; }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scale-in { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+      `;
+      const style = document.createElement('style');
+      style.innerHTML = criticalCSS;
+      document.head.insertBefore(style, document.head.firstChild);
+    };
+    
+    initializePerformance();
   }, []);
 
   return (
   <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <SecurityHeaders />
+    <ProductionSecurityProvider>
+      <FormSecurityProvider>
+        <SessionManager>
+          <AuthProvider>
+            <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <SecurityHeaders />
+            <SecurityMonitor />
+          <PerformanceMonitor />
+          <DisclaimerPopup />
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
@@ -185,6 +214,10 @@ const App = () => {
         </Suspense>
       </BrowserRouter>
           </TooltipProvider>
+        </AuthProvider>
+      </SessionManager>
+    </FormSecurityProvider>
+    </ProductionSecurityProvider>
   </QueryClientProvider>
   );
 };
