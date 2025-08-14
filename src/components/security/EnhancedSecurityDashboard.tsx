@@ -1,33 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Progress } from '@/components/ui/progress';
-import { 
-  Shield, 
-  AlertTriangle, 
-  CheckCircle, 
-  XCircle, 
-  Activity,
-  Users,
-  Lock,
-  Eye,
-  RefreshCw,
-  TrendingUp,
-  Clock
-} from 'lucide-react';
+import { Shield, AlertTriangle, CheckCircle, XCircle, RefreshCw, Users, Database, Lock, Eye, Activity, TrendingUp } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { useAuth } from '@/components/auth/AuthProvider';
 
 interface SecurityMetrics {
   totalEvents: number;
   criticalAlerts: number;
-  activeUsers: number;
-  failedLogins: number;
-  suspiciousActivity: number;
-  systemHealth: number;
+  activeThreats: number;
+  sessionSecurity: 'healthy' | 'warning' | 'critical';
+  dataSecurity: 'healthy' | 'warning' | 'critical';
+  systemSecurity: 'healthy' | 'warning' | 'critical';
 }
 
 interface SecurityEvent {
@@ -35,41 +20,25 @@ interface SecurityEvent {
   event_type: string;
   severity: string;
   created_at: string;
-  risk_score: number;
-  ip_address: unknown;
-  resolved_at?: string;
-  resolved_by?: string;
-  session_id?: string;
-  source?: string;
-  user_agent?: string;
   user_id?: string;
-  event_data?: any;
-}
-
-interface SecurityAlert {
-  id: string;
-  alert_type: string;
-  priority: string;
-  status: string;
-  created_at: string;
-  event_id: string;
+  event_data: any;
+  ip_address?: string;
+  risk_score?: number;
+  resolved_at?: string;
 }
 
 export const EnhancedSecurityDashboard: React.FC = () => {
-  const { isAdmin, isModerator } = useAuth();
   const [metrics, setMetrics] = useState<SecurityMetrics>({
     totalEvents: 0,
     criticalAlerts: 0,
-    activeUsers: 0,
-    failedLogins: 0,
-    suspiciousActivity: 0,
-    systemHealth: 95
+    activeThreats: 0,
+    sessionSecurity: 'healthy',
+    dataSecurity: 'healthy',
+    systemSecurity: 'healthy'
   });
-  
   const [recentEvents, setRecentEvents] = useState<SecurityEvent[]>([]);
-  const [activeAlerts, setActiveAlerts] = useState<SecurityAlert[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
+  const [isLoading, setIsLoading] = useState(true);
+  const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
 
   useEffect(() => {
     fetchSecurityData();
@@ -81,108 +50,40 @@ export const EnhancedSecurityDashboard: React.FC = () => {
 
   const fetchSecurityData = async () => {
     try {
-      setLoading(true);
+      setIsLoading(true);
       
-      // Use the secure API edge function instead of direct table access
-      const { data: dashboardData, error: dashboardError } = await supabase.functions.invoke(
-        'secure-security-api',
-        {
-          body: {
-            action: 'get_dashboard_metrics'
-          }
+      // Fetch security metrics
+      const { data: metricsData, error: metricsError } = await supabase.functions.invoke('get-security-metrics', {
+        body: { timeframe: '24h' }
+      });
+
+      if (metricsError) throw metricsError;
+
+      // Fetch recent security events
+      const { data: eventsData, error: eventsError } = await supabase.functions.invoke('get-security-events', {
+        body: { 
+          limit: 10,
+          severities: ['critical', 'high', 'medium']
         }
-      );
+      });
 
-      if (dashboardError) {
-        console.error('Dashboard metrics error:', dashboardError);
-        throw dashboardError;
-      }
+      if (eventsError) throw eventsError;
 
-      // Fetch recent security events through secure API
-      const { data: eventsResponse, error: eventsError } = await supabase.functions.invoke(
-        'secure-security-api',
-        {
-          body: {
-            action: 'get_events',
-            filters: {
-              limit: 50,
-              time_range: '24'
-            }
-          }
-        }
-      );
-
-      if (eventsError) {
-        console.error('Security events error:', eventsError);
-        throw eventsError;
-      }
-
-      // Fetch active alerts through secure API
-      const { data: alertsResponse, error: alertsError } = await supabase.functions.invoke(
-        'secure-security-api',
-        {
-          body: {
-            action: 'get_alerts',
-            filters: {
-              limit: 20
-            }
-          }
-        }
-      );
-
-      if (alertsError) {
-        console.error('Security alerts error:', alertsError);
-        throw alertsError;
-      }
-
-      // Update metrics from secure API
-      if (dashboardData?.success && dashboardData.data) {
-        const metrics = dashboardData.data;
-        setMetrics({
-          totalEvents: metrics.events_24h || 0,
-          criticalAlerts: metrics.critical_events_7d || 0,
-          activeUsers: metrics.active_sessions || 0,
-          failedLogins: 0, // Will be calculated from events
-          suspiciousActivity: 0, // Will be calculated from events
-          systemHealth: Math.max(60, 100 - (metrics.critical_events_7d * 5))
-        });
-      }
-
-      // Update events list
-      if (eventsResponse?.success && eventsResponse.data) {
-        const events = eventsResponse.data;
-        setRecentEvents(events.slice(0, 20));
-        
-        // Calculate additional metrics from events
-        const failedLogins = events.filter((e: SecurityEvent) => e.event_type.includes('failed_login'));
-        const suspiciousEvents = events.filter((e: SecurityEvent) => e.risk_score > 75);
-        
-        setMetrics(prev => ({
-          ...prev,
-          failedLogins: failedLogins.length,
-          suspiciousActivity: suspiciousEvents.length
-        }));
-      }
-
-      // Update alerts
-      if (alertsResponse?.success && alertsResponse.data) {
-        setActiveAlerts(alertsResponse.data);
-      }
-
-      setLastUpdated(new Date());
-    } catch (error) {
-      console.error('Error fetching security data:', error);
-      // Fallback for users without proper access
-      setMetrics({
+      setMetrics(metricsData || {
         totalEvents: 0,
         criticalAlerts: 0,
-        activeUsers: 0,
-        failedLogins: 0,
-        suspiciousActivity: 0,
-        systemHealth: 100
+        activeThreats: 0,
+        sessionSecurity: 'healthy',
+        dataSecurity: 'healthy',
+        systemSecurity: 'healthy'
       });
+      
+      setRecentEvents(eventsData || []);
+      setLastUpdate(new Date());
+    } catch (error) {
+      console.error('Error fetching security data:', error);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -196,13 +97,29 @@ export const EnhancedSecurityDashboard: React.FC = () => {
     }
   };
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'critical': return 'destructive';
-      case 'high': return 'destructive';
-      case 'medium': return 'default';
-      case 'low': return 'secondary';
-      default: return 'outline';
+  const getSecurityStatusIcon = (status: string) => {
+    switch (status) {
+      case 'healthy':
+        return <CheckCircle className="h-4 w-4 text-green-500" />;
+      case 'warning':
+        return <AlertTriangle className="h-4 w-4 text-yellow-500" />;
+      case 'critical':
+        return <XCircle className="h-4 w-4 text-red-500" />;
+      default:
+        return <Shield className="h-4 w-4 text-gray-500" />;
+    }
+  };
+
+  const getSecurityStatusColor = (status: string) => {
+    switch (status) {
+      case 'healthy':
+        return 'bg-green-100 text-green-800';
+      case 'warning':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'critical':
+        return 'bg-red-100 text-red-800';
+      default:
+        return 'bg-gray-100 text-gray-800';
     }
   };
 
@@ -220,268 +137,145 @@ export const EnhancedSecurityDashboard: React.FC = () => {
     return 'Just now';
   };
 
-  if (!isAdmin && !isModerator) {
-    return (
-      <Alert>
-        <Shield className="h-4 w-4" />
-        <AlertDescription>
-          You don't have permission to access the security dashboard.
-        </AlertDescription>
-      </Alert>
-    );
-  }
-
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-bold text-foreground">Security Dashboard</h2>
+          <h1 className="text-3xl font-bold">Security Dashboard</h1>
           <p className="text-muted-foreground">
-            Real-time monitoring and threat detection
+            Last updated: {lastUpdate.toLocaleTimeString()}
           </p>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="text-sm text-muted-foreground">
-            Last updated: {lastUpdated.toLocaleTimeString()}
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={fetchSecurityData}
-            disabled={loading}
-          >
-            <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+        <div className="flex gap-2">
+          <Button onClick={fetchSecurityData} disabled={isLoading}>
+            <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
             Refresh
           </Button>
         </div>
       </div>
 
-      {/* Security Metrics Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Security Overview Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">System Health</CardTitle>
-            <Activity className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium">Session Security</CardTitle>
+            {getSecurityStatusIcon(metrics.sessionSecurity)}
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{metrics.systemHealth}%</div>
-            <Progress value={metrics.systemHealth} className="mt-2" />
-            <p className="text-xs text-muted-foreground mt-2">
-              Overall security status
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Users</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{metrics.activeUsers}</div>
-            <p className="text-xs text-muted-foreground">
-              Currently logged in
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Security Events</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{metrics.totalEvents}</div>
-            <p className="text-xs text-muted-foreground">
-              Last 24 hours
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Critical Alerts</CardTitle>
-            <AlertTriangle className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-destructive">
-              {metrics.criticalAlerts}
+            <div className="flex items-center space-x-2">
+              <Badge className={getSecurityStatusColor(metrics.sessionSecurity)}>
+                {metrics.sessionSecurity.toUpperCase()}
+              </Badge>
+              <Users className="h-4 w-4 text-muted-foreground" />
             </div>
-            <p className="text-xs text-muted-foreground">
-              Requires attention
-            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Data Security</CardTitle>
+            {getSecurityStatusIcon(metrics.dataSecurity)}
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center space-x-2">
+              <Badge className={getSecurityStatusColor(metrics.dataSecurity)}>
+                {metrics.dataSecurity.toUpperCase()}
+              </Badge>
+              <Database className="h-4 w-4 text-muted-foreground" />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">System Security</CardTitle>
+            {getSecurityStatusIcon(metrics.systemSecurity)}
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center space-x-2">
+              <Badge className={getSecurityStatusColor(metrics.systemSecurity)}>
+                {metrics.systemSecurity.toUpperCase()}
+              </Badge>
+              <Lock className="h-4 w-4 text-muted-foreground" />
+            </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Main Dashboard Tabs */}
-      <Tabs defaultValue="events" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="events">Security Events</TabsTrigger>
-          <TabsTrigger value="alerts">Active Alerts</TabsTrigger>
-          <TabsTrigger value="metrics">Detailed Metrics</TabsTrigger>
-        </TabsList>
+      {/* Security Metrics */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Security Events (24h)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-3xl font-bold">{metrics.totalEvents}</div>
+            <p className="text-sm text-muted-foreground">Total security events</p>
+          </CardContent>
+        </Card>
 
-        <TabsContent value="events">
-          <Card>
-            <CardHeader>
-              <CardTitle>Recent Security Events</CardTitle>
-              <CardDescription>
-                Latest security events and threat detections
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {recentEvents.length === 0 ? (
-                  <div className="text-center py-8 text-muted-foreground">
-                    No security events recorded
-                  </div>
-                ) : (
-                  recentEvents.map((event) => (
-                    <div
-                      key={event.id}
-                      className="flex items-center justify-between p-4 border rounded-lg"
-                    >
-                      <div className="flex items-center space-x-4">
-                        <div className="flex-shrink-0">
-                          {event.severity === 'critical' ? (
-                            <XCircle className="h-5 w-5 text-destructive" />
-                          ) : event.severity === 'high' ? (
-                            <AlertTriangle className="h-5 w-5 text-orange-500" />
-                          ) : (
-                            <Eye className="h-5 w-5 text-blue-500" />
-                          )}
-                        </div>
-                        <div>
-                          <div className="font-medium">{event.event_type}</div>
-                          <div className="text-sm text-muted-foreground">
-                            {String(event.ip_address || 'Unknown IP')} • {formatTimeAgo(event.created_at)}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Badge variant={getSeverityColor(event.severity)}>
-                          {event.severity}
-                        </Badge>
-                        <div className="text-sm text-muted-foreground">
-                          Risk: {event.risk_score}
-                        </div>
-                        {event.resolved_at && (
-                          <CheckCircle className="h-4 w-4 text-green-500" />
-                        )}
-                      </div>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Critical Alerts</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-3xl font-bold text-red-600">{metrics.criticalAlerts}</div>
+            <p className="text-sm text-muted-foreground">Requiring immediate attention</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Active Threats</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-3xl font-bold text-orange-600">{metrics.activeThreats}</div>
+            <p className="text-sm text-muted-foreground">Currently being monitored</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Recent Security Events */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Recent Security Events</CardTitle>
+          <CardDescription>Latest security events across all systems</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {recentEvents.length === 0 ? (
+            <Alert>
+              <CheckCircle className="h-4 w-4" />
+              <AlertDescription>
+                No recent security events. All systems operating normally.
+              </AlertDescription>
+            </Alert>
+          ) : (
+            <div className="space-y-3">
+              {recentEvents.map((event) => (
+                <div key={event.id} className="flex items-center justify-between p-3 border rounded-lg">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Badge className={getSeverityColor(event.severity)}>
+                        {event.severity.toUpperCase()}
+                      </Badge>
+                      <span className="font-medium">{event.event_type}</span>
                     </div>
-                  ))
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="alerts">
-          <Card>
-            <CardHeader>
-              <CardTitle>Active Security Alerts</CardTitle>
-              <CardDescription>
-                Open alerts requiring investigation or action
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {activeAlerts.length === 0 ? (
-                  <div className="text-center py-8 text-muted-foreground">
-                    <CheckCircle className="h-8 w-8 mx-auto mb-2 text-green-500" />
-                    No active alerts
+                    <p className="text-sm text-muted-foreground">
+                      {formatTimeAgo(event.created_at)}
+                    </p>
                   </div>
-                ) : (
-                  activeAlerts.map((alert) => (
-                    <div
-                      key={alert.id}
-                      className="flex items-center justify-between p-4 border rounded-lg"
-                    >
-                      <div className="flex items-center space-x-4">
-                        <AlertTriangle className="h-5 w-5 text-orange-500" />
-                        <div>
-                          <div className="font-medium">{alert.alert_type}</div>
-                          <div className="text-sm text-muted-foreground">
-                            Created {formatTimeAgo(alert.created_at)}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Badge variant={getPriorityColor(alert.priority)}>
-                          {alert.priority}
-                        </Badge>
-                        <Badge variant="outline">{alert.status}</Badge>
-                      </div>
-                    </div>
-                  ))
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="metrics">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Threat Analysis</CardTitle>
-                <CardDescription>
-                  Security threats detected in the last 24 hours
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span>Failed Login Attempts</span>
-                  <Badge variant="destructive">{metrics.failedLogins}</Badge>
+                  <div className="flex items-center gap-2">
+                    {event.severity === 'critical' && (
+                      <AlertTriangle className="h-4 w-4 text-red-500" />
+                    )}
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span>Suspicious Activity</span>
-                  <Badge variant="default">{metrics.suspiciousActivity}</Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>Critical Events</span>
-                  <Badge variant="destructive">{metrics.criticalAlerts}</Badge>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>System Status</CardTitle>
-                <CardDescription>
-                  Current security infrastructure status
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span>Authentication System</span>
-                  <Badge variant="default">
-                    <CheckCircle className="h-3 w-3 mr-1" />
-                    Online
-                  </Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>Security Monitoring</span>
-                  <Badge variant="default">
-                    <CheckCircle className="h-3 w-3 mr-1" />
-                    Active
-                  </Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>Threat Detection</span>
-                  <Badge variant="default">
-                    <CheckCircle className="h-3 w-3 mr-1" />
-                    Enabled
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
-      </Tabs>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 };
