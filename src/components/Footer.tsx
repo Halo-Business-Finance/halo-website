@@ -56,8 +56,23 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-6 mb-8">
-          {/* Newsletter signup only */}
-          <div className="lg:col-span-1">
+          {/* Company info and newsletter */}
+          <div className="lg:col-span-2 lg:pr-8">
+            <div className="mb-6">
+              <Link to="/" className="inline-block mb-4">
+                <img 
+                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
+                  alt="Halo Business Finance logo" 
+                  className="h-48 w-auto filter brightness-0 invert"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Link>
+              <p className="text-white mb-6">
+                Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
+              </p>
+            </div>
+
             {/* Newsletter signup */}
             <div className="mb-6">
               <h4 className="font-semibold mb-3">Stay Informed</h4>
@@ -75,25 +90,9 @@ const Footer = () => {
                 </Button>
               </div>
             </div>
-            <p className="text-white text-sm">
-              Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
-            </p>
           </div>
 
-          {/* Logo positioned more to the right */}
-          <div className="lg:col-span-1 flex justify-center lg:justify-start items-start">
-            <Link to="/" className="inline-block">
-              <img 
-                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
-                alt="Halo Business Finance logo" 
-                className="h-48 w-auto filter brightness-0 invert"
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-          </div>
-
-          {/* Company links */}
+          {/* Company links - MOVED TO FIRST */}
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
