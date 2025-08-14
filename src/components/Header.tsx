@@ -239,7 +239,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex items-center h-1 w-full">
+        <div className="hidden lg:flex items-center h-16 w-full">
           {/* Desktop Navigation - Centered */}
           <div className="flex items-center justify-center flex-1 space-x-1">
             <Link to="/" className="mr-8 block">
