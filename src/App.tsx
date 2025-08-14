@@ -88,7 +88,9 @@ const queryClient = new QueryClient();
 const App = () => {
   console.log("App component rendering...");
 
-  return (
+  try {
+    console.log("App component try block entered");
+    return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -162,7 +164,11 @@ const App = () => {
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
-  );
+    );
+  } catch (error) {
+    console.error("Error in App component:", error);
+    return <div style={{padding: '20px', color: 'red'}}>App Error: {String(error)}</div>;
+  }
 };
 
 export default App;
