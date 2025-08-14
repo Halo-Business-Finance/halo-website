@@ -68,6 +68,9 @@ const Footer = () => {
                   decoding="async"
                 />
               </Link>
+              <p className="text-white font-bold text-lg mb-4">
+                Nationwide SBA & Commercial Loan Marketplace
+              </p>
             </div>
 
             {/* Newsletter signup */}
