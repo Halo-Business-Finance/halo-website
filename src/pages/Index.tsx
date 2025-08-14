@@ -1,11 +1,21 @@
+import SEO from "@/components/SEO";
+
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-black mb-4">Website is Loading</h1>
-        <p className="text-gray-600">Testing basic render...</p>
+    <>
+      <SEO 
+        title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
+        description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 2,500+ businesses nationwide."
+        keywords="SBA loans, commercial loans, business financing, bridge loans, equipment financing, working capital, conventional loans, business capital, commercial real estate loans, SBA 7a loans, SBA 504 loans, SBA express loans, business line of credit, term loans, factoring based financing"
+        canonical="https://halobusinessfinance.com/"
+      />
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-black mb-4">Website is Loading</h1>
+          <p className="text-gray-600">Testing with SEO component...</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
