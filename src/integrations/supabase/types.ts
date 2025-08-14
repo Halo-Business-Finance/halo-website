@@ -103,33 +103,42 @@ export type Database = {
       }
       encryption_keys: {
         Row: {
+          access_log_enabled: boolean | null
           algorithm: string
           created_at: string
+          encrypted_key_data: string | null
           expires_at: string | null
           id: string
           is_active: boolean
+          key_encryption_salt: string | null
           key_hash: string
           key_identifier: string
           last_used_at: string | null
           rotation_scheduled_at: string | null
         }
         Insert: {
+          access_log_enabled?: boolean | null
           algorithm?: string
           created_at?: string
+          encrypted_key_data?: string | null
           expires_at?: string | null
           id?: string
           is_active?: boolean
+          key_encryption_salt?: string | null
           key_hash: string
           key_identifier: string
           last_used_at?: string | null
           rotation_scheduled_at?: string | null
         }
         Update: {
+          access_log_enabled?: boolean | null
           algorithm?: string
           created_at?: string
+          encrypted_key_data?: string | null
           expires_at?: string | null
           id?: string
           is_active?: boolean
+          key_encryption_salt?: string | null
           key_hash?: string
           key_identifier?: string
           last_used_at?: string | null
@@ -401,7 +410,6 @@ export type Database = {
           last_activity: string
           last_security_check: string | null
           security_level: string | null
-          session_token: string
           session_token_hash: string | null
           token_salt: string | null
           user_agent: string | null
@@ -419,7 +427,6 @@ export type Database = {
           last_activity?: string
           last_security_check?: string | null
           security_level?: string | null
-          session_token: string
           session_token_hash?: string | null
           token_salt?: string | null
           user_agent?: string | null
@@ -437,7 +444,6 @@ export type Database = {
           last_activity?: string
           last_security_check?: string | null
           security_level?: string | null
-          session_token?: string
           session_token_hash?: string | null
           token_salt?: string | null
           user_agent?: string | null
@@ -481,17 +487,21 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      create_secure_encryption_key: {
+        Args: { p_key_identifier: string; p_algorithm?: string }
+        Returns: string
+      }
       create_secure_session: {
         Args: {
           p_user_id: string
-          p_ip_address?: unknown
-          p_user_agent?: string
-          p_client_fingerprint?: string
+          p_ip_address: unknown
+          p_user_agent: string
+          p_client_fingerprint: string
           p_expires_hours?: number
         }
         Returns: {
-          session_token: string
           session_id: string
+          session_token: string
         }[]
       }
       detect_advanced_session_anomaly: {
@@ -530,6 +540,18 @@ export type Database = {
           p_behavioral_score?: number
         }
         Returns: Json
+      }
+      force_session_rotation: {
+        Args: { p_user_id: string }
+        Returns: number
+      }
+      generate_secure_session_token: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          token: string
+          hash: string
+          salt: string
+        }[]
       }
       get_consultation_secure: {
         Args: { consultation_id: string }
@@ -612,6 +634,15 @@ export type Database = {
           source: string
           event_data_masked: Json
           ip_address_masked: string
+        }[]
+      }
+      get_security_overview: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          active_sessions: number
+          security_events_24h: number
+          critical_alerts: number
+          encryption_keys_active: number
         }[]
       }
       get_session_overview_admin: {

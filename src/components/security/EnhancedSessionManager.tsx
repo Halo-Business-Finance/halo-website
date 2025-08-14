@@ -72,7 +72,7 @@ export const EnhancedSessionManager: React.FC<SessionManagerProps> = ({
       const clientFingerprint = generateClientFingerprint();
       const clientIP = await getCurrentIP();
       
-      // Use the secure database function instead of edge function
+      // Use the secure database function with enhanced security
       const { data, error } = await supabase.rpc('create_secure_session', {
         p_user_id: userId,
         p_ip_address: clientIP,
@@ -83,7 +83,7 @@ export const EnhancedSessionManager: React.FC<SessionManagerProps> = ({
 
       if (error) throw error;
       
-      // The function returns an array, get the first item
+      // The function returns an array with session_id and session_token
       const sessionResult = Array.isArray(data) ? data[0] : data;
 
       const newSession: SessionData = {
@@ -96,17 +96,21 @@ export const EnhancedSessionManager: React.FC<SessionManagerProps> = ({
 
       setSession(newSession);
       
-      // Store only session metadata, not the actual token
+      // Store only essential session metadata for client use
       localStorage.setItem('secure_session', JSON.stringify({
-        sessionId: sessionResult.session_token, // This is the plain token for client use
+        sessionId: sessionResult.session_token, // Plain token for client validation
         userId,
         created: Date.now(),
-        sessionDbId: sessionResult.session_id
+        sessionDbId: sessionResult.session_id,
+        securityLevel: 'enhanced'
       }));
+
+      // Log successful session creation on client
+      console.log('[SECURITY] Enhanced secure session created successfully');
 
       return sessionResult.session_token;
     } catch (error) {
-      console.error('Failed to create secure session:', error);
+      console.error('[SECURITY] Failed to create secure session:', error);
       throw error;
     }
   };
