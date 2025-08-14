@@ -55,15 +55,9 @@ const Footer = () => {
     <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-6 mb-8">
           {/* Newsletter signup only */}
-          <div className="lg:col-span-2">
-            <div className="mb-6">
-              <p className="text-white mb-6">
-                Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
-              </p>
-            </div>
-
+          <div className="lg:col-span-1">
             {/* Newsletter signup */}
             <div className="mb-6">
               <h4 className="font-semibold mb-3">Stay Informed</h4>
@@ -81,11 +75,14 @@ const Footer = () => {
                 </Button>
               </div>
             </div>
+            <p className="text-white text-sm">
+              Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
+            </p>
           </div>
 
-          {/* Company links with logo */}
-          <div className="flex flex-col items-start">
-            <Link to="/" className="inline-block mb-6">
+          {/* Logo positioned more to the right */}
+          <div className="lg:col-span-1 flex justify-center lg:justify-start items-start">
+            <Link to="/" className="inline-block">
               <img 
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
                 alt="Halo Business Finance logo" 
@@ -94,6 +91,10 @@ const Footer = () => {
                 decoding="async"
               />
             </Link>
+          </div>
+
+          {/* Company links */}
+          <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               {companyLinks.map((link) => (
