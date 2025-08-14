@@ -1,17 +1,24 @@
 // Update this page (the content is just a fallback if you fail to update the page)
 
+import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ProductsSection from "@/components/ProductsSection";
-import ImageGallery from "@/components/ImageGallery";
-import Footer from "@/components/Footer";
-import IndustryShowcase from "@/components/IndustryShowcase";
-import SuccessShowcase from "@/components/SuccessShowcase";
 import SEO from "@/components/SEO";
+import CriticalCSS from "@/components/optimization/CriticalCSS";
+import ResourcePreloader from "@/components/optimization/ResourcePreloader";
+
+// Lazy load below-the-fold components
+const ProductsSection = lazy(() => import("@/components/ProductsSection"));
+const ImageGallery = lazy(() => import("@/components/ImageGallery"));
+const Footer = lazy(() => import("@/components/Footer"));
+const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
+const SuccessShowcase = lazy(() => import("@/components/SuccessShowcase"));
 
 const Index = () => {
   return (
     <>
+      <CriticalCSS />
+      <ResourcePreloader />
       <SEO 
         title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
         description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 2,500+ businesses nationwide."
@@ -19,14 +26,20 @@ const Index = () => {
         canonical="https://halobusinessfinance.com/"
       />
       <div className="min-h-screen bg-background">
-      <Header />
-      <HeroSection />
-      <ProductsSection />
-      <ImageGallery />
-      <IndustryShowcase />
-      
-      
-      <Footer />
+        <Header />
+        <HeroSection />
+        <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
+          <ProductsSection />
+        </Suspense>
+        <Suspense fallback={<div className="h-40 bg-muted animate-pulse rounded-md mx-4" />}>
+          <ImageGallery />
+        </Suspense>
+        <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
+          <IndustryShowcase />
+        </Suspense>
+        <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
+          <Footer />
+        </Suspense>
       </div>
     </>
   );
