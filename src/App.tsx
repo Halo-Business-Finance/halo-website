@@ -114,16 +114,10 @@ const App = () => {
 
   return (
   <QueryClientProvider client={queryClient}>
-    <ProductionSecurityProvider>
-      <FormSecurityProvider>
-        <SessionManager>
-          <AuthProvider>
-            <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <SecurityHeaders />
-            <SecurityMonitor />
-           <DisclaimerPopup />
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <SecurityHeaders />
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
@@ -191,10 +185,6 @@ const App = () => {
         </Suspense>
       </BrowserRouter>
           </TooltipProvider>
-        </AuthProvider>
-      </SessionManager>
-    </FormSecurityProvider>
-    </ProductionSecurityProvider>
   </QueryClientProvider>
   );
 };
