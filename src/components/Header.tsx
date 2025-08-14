@@ -169,8 +169,13 @@ const Header = () => {
             {/* Mobile Menu Button - Absolute positioned */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-lg p-1 h-8 w-8">
-                  <Menu className="h-5 w-5 text-slate-600" />
+                <Button 
+                  variant="ghost" 
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-lg p-2 h-10 w-10 z-50 hover:bg-slate-100"
+                  onClick={() => setIsOpen(true)}
+                >
+                  <Menu className="h-6 w-6 text-slate-700" />
+                  <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-80 overflow-y-auto">
