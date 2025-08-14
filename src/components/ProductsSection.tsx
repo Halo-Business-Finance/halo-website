@@ -674,10 +674,6 @@ const ProductsSection = () => {
           />
           <div className="relative bg-financial-navy text-white py-20 px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <Sparkles className="h-4 w-4" />
-                Join 2,500+ Successful Businesses
-              </div>
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
