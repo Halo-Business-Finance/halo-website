@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Lock } from "lucide-react";
+import { useTrackUserAction } from "@/hooks/useAnalytics";
 
 const FastHeroSection = () => {
+  const trackUserAction = useTrackUserAction();
   return (
     <section 
       className="relative min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden bg-gradient-to-br from-primary to-primary-foreground" 
@@ -40,7 +42,12 @@ const FastHeroSection = () => {
                 <div className="text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
                 <div className="text-blue-100 text-sm">Fast 2-minute application</div>
               </div>
-              <Button size="lg" className="w-full bg-white text-primary font-semibold hover:bg-gray-50" asChild>
+              <Button 
+                size="lg" 
+                className="w-full bg-white text-primary font-semibold hover:bg-gray-50" 
+                onClick={() => trackUserAction('hero_cta_click', { button: 'start_application' })}
+                asChild
+              >
                 <a href="https://preview--hbf-application.lovable.app/auth">Start Application</a>
               </Button>
             </div>
