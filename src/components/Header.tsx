@@ -96,7 +96,7 @@ const Header = () => {
   };
 
   return (
-    <header className="relative shadow-lg border-b border-slate-200/60 z-50">
+    <header className="relative shadow-lg border-b border-slate-200/60 z-40">
       {/* Top utility bar - Professional banking style */}
       <div className="bg-financial-navy text-white">
         <div className="max-w-full mx-auto px-8 py-4">
