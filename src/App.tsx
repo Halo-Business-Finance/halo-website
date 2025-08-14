@@ -105,8 +105,33 @@ const queryClient = new QueryClient({
 const App = () => {
   // Initialize performance optimizations
   useEffect(() => {
-    preloadCriticalResources();
-    addResourceHints();
+    const initializePerformance = async () => {
+      // Critical resource preloading
+      preloadCriticalResources();
+      addResourceHints();
+      
+      // Register service worker for caching
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator.serviceWorker.register('/sw.js');
+        } catch (error) {
+          console.error('SW registration failed:', error);
+        }
+      }
+      
+      // Inject critical CSS
+      const criticalCSS = `
+        .animate-fade-in { animation: fade-in 0.3s ease-out; }
+        .animate-scale-in { animation: scale-in 0.2s ease-out; }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scale-in { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+      `;
+      const style = document.createElement('style');
+      style.innerHTML = criticalCSS;
+      document.head.insertBefore(style, document.head.firstChild);
+    };
+    
+    initializePerformance();
   }, []);
 
   return (

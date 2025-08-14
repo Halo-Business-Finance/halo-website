@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { LazyImage } from "@/components/optimization/LazyImage";
+import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
