@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -172,15 +171,14 @@ const Header = () => {
               />
             </Link>
             
-            {/* Mobile Menu Button - Simple approach */}
-            <Button 
-              variant="ghost" 
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-lg p-2 h-10 w-10 z-50 hover:bg-slate-100"
+            {/* Mobile Menu Button - Testing visibility */}
+            <button 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white p-3 rounded-lg z-[999] border-2 border-black"
               onClick={handleMobileMenuToggle}
+              style={{ backgroundColor: 'red', zIndex: 999 }}
             >
-              <Menu className="h-6 w-6 text-slate-700" />
-              <span className="sr-only">Open menu</span>
-            </Button>
+              MENU
+            </button>
             
             {/* Mobile Menu Overlay - Custom implementation */}
             {isOpen && (
