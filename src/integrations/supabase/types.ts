@@ -58,6 +58,9 @@ export type Database = {
           company: string | null
           created_at: string
           email: string
+          encrypted_email: string | null
+          encrypted_name: string | null
+          encrypted_phone: string | null
           id: string
           loan_amount: string
           loan_program: string
@@ -73,6 +76,9 @@ export type Database = {
           company?: string | null
           created_at?: string
           email: string
+          encrypted_email?: string | null
+          encrypted_name?: string | null
+          encrypted_phone?: string | null
           id?: string
           loan_amount: string
           loan_program: string
@@ -88,6 +94,9 @@ export type Database = {
           company?: string | null
           created_at?: string
           email?: string
+          encrypted_email?: string | null
+          encrypted_name?: string | null
+          encrypted_phone?: string | null
           id?: string
           loan_amount?: string
           loan_program?: string
@@ -164,6 +173,39 @@ export type Database = {
           max_requests?: number
           updated_at?: string
           window_seconds?: number
+        }
+        Relationships: []
+      }
+      security_access_audit: {
+        Row: {
+          access_time: string | null
+          action: string
+          id: string
+          ip_address: unknown | null
+          record_id: string | null
+          risk_assessment: string | null
+          table_name: string
+          user_id: string | null
+        }
+        Insert: {
+          access_time?: string | null
+          action: string
+          id?: string
+          ip_address?: unknown | null
+          record_id?: string | null
+          risk_assessment?: string | null
+          table_name: string
+          user_id?: string | null
+        }
+        Update: {
+          access_time?: string | null
+          action?: string
+          id?: string
+          ip_address?: unknown | null
+          record_id?: string | null
+          risk_assessment?: string | null
+          table_name?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -324,13 +366,16 @@ export type Database = {
       }
       user_sessions: {
         Row: {
+          access_count: number | null
           client_fingerprint: string | null
           created_at: string
+          encrypted_at: string | null
           expires_at: string
           id: string
           ip_address: unknown | null
           is_active: boolean
           last_activity: string
+          last_security_check: string | null
           security_level: string | null
           session_token: string
           session_token_hash: string | null
@@ -339,13 +384,16 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          access_count?: number | null
           client_fingerprint?: string | null
           created_at?: string
+          encrypted_at?: string | null
           expires_at: string
           id?: string
           ip_address?: unknown | null
           is_active?: boolean
           last_activity?: string
+          last_security_check?: string | null
           security_level?: string | null
           session_token: string
           session_token_hash?: string | null
@@ -354,13 +402,16 @@ export type Database = {
           user_id: string
         }
         Update: {
+          access_count?: number | null
           client_fingerprint?: string | null
           created_at?: string
+          encrypted_at?: string | null
           expires_at?: string
           id?: string
           ip_address?: unknown | null
           is_active?: boolean
           last_activity?: string
+          last_security_check?: string | null
           security_level?: string | null
           session_token?: string
           session_token_hash?: string | null
@@ -475,6 +526,21 @@ export type Database = {
           created_at: string
           updated_at: string
           status: string
+        }[]
+      }
+      get_secure_consultation_data: {
+        Args: { consultation_id: string }
+        Returns: {
+          id: string
+          masked_name: string
+          masked_email: string
+          masked_phone: string
+          company: string
+          loan_program: string
+          loan_amount_category: string
+          timeframe: string
+          status: string
+          created_at: string
         }[]
       }
       get_user_role: {
