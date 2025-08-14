@@ -154,7 +154,7 @@ const Header = () => {
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden">
           {/* Logo and Menu Button Row */}
-          <div className="flex items-center justify-between py-4">
+          <div className="relative flex justify-center py-4">
             <Link to="/" className="block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
@@ -165,10 +165,10 @@ const Header = () => {
               />
             </Link>
             
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Absolute positioned */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" className="rounded-lg p-3 h-12 w-12">
+                <Button variant="ghost" className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-lg p-3 h-12 w-12">
                   <Menu className="h-6 w-6 text-slate-600" />
                 </Button>
               </SheetTrigger>
