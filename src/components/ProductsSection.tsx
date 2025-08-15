@@ -331,7 +331,7 @@ const ProductsSection = () => {
             <p className="text-xl text-slate-600 mb-8">We make commercial lending simple</p>
             
             <div className="relative mx-auto">
-              <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                 {[
                   { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
                   { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
