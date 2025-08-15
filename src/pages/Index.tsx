@@ -6,7 +6,6 @@ import HeroSection from "@/components/HeroSection";
 import SEO from "@/components/SEO";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
 import ResourcePreloader from "@/components/optimization/ResourcePreloader";
-import AdvancedPerformanceOptimizer from "@/components/optimization/AdvancedPerformanceOptimizer";
 
 // Lazy load below-the-fold components
 const ProductsSection = lazy(() => import("@/components/ProductsSection"));
@@ -20,7 +19,6 @@ const Index = () => {
     <>
       <CriticalCSS />
       <ResourcePreloader />
-      <AdvancedPerformanceOptimizer />
       <SEO 
         title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
         description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 2,500+ businesses nationwide."
