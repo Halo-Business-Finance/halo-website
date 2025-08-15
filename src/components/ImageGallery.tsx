@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import LazyImage from "@/components/optimization/LazyImage";
+import WebPImageOptimizer from "@/components/optimization/WebPImageOptimizer";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
@@ -173,12 +173,13 @@ const ImageGallery = () => {
                 >
                   <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
                     <div className="relative h-56 overflow-hidden">
-                      <LazyImage 
+                      <WebPImageOptimizer 
                         src={item.image} 
                         alt={item.title}
                         width={400}
                         height={224}
-                        quality={75}
+                        quality={80}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
 

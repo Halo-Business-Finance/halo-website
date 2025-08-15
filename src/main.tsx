@@ -3,9 +3,13 @@ import { HelmetProvider } from "react-helmet-async"
 import App from './App.tsx'
 import './index.css'
 import { preloadCriticalResources, registerServiceWorker } from './utils/performance'
+import { cacheManager } from './utils/advancedCaching'
 
 // Preload critical resources immediately
 preloadCriticalResources();
+
+// Initialize advanced caching
+cacheManager.preloadCriticalResources();
 
 // Register service worker for caching
 registerServiceWorker();
