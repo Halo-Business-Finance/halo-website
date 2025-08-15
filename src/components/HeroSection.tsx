@@ -13,17 +13,10 @@ const HeroSection = () => {
       className="relative min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden"
       aria-label="Hero section"
     >
-      <WebPImageOptimizer 
-        src="/src/assets/new-hero-background.jpg"
-        alt="Business financing hero background"
-        className="absolute inset-0 w-full h-full object-cover"
-        priority={true}
-        width={1920}
-        height={800}
-        quality={90}
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div 
+        className="absolute inset-0 w-full h-full bg-gradient-to-r from-financial-navy via-financial-blue to-financial-accent"
+      ></div>
+      <div className="absolute inset-0 bg-black/30"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <header className="text-white space-y-6">
