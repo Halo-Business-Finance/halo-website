@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Shield, Lock } from "lucide-react";
 import WebPImageOptimizer from "@/components/optimization/WebPImageOptimizer";
 
-import heroBackground from "@/assets/new-hero-background.jpg";
+// Use string path instead of import to reduce bundle size
 
 const HeroSection = () => {
 
@@ -14,7 +14,7 @@ const HeroSection = () => {
       aria-label="Hero section"
     >
       <WebPImageOptimizer 
-        src={heroBackground}
+        src="/src/assets/new-hero-background.jpg"
         alt="Business financing hero background"
         className="absolute inset-0 w-full h-full object-cover"
         priority={true}
