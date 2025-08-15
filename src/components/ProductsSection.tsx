@@ -330,8 +330,8 @@ const ProductsSection = () => {
             <h3 className="text-3xl md:text-4xl font-bold mb-4">Our Streamlined Loan Process</h3>
             <p className="text-xl text-slate-600 mb-8">We make commercial lending simple</p>
             
-            <div className="relative">
-              <div className="grid md:grid-cols-5 gap-8">
+            <div className="relative mx-auto">
+              <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
                 {[
                   { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
                   { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
@@ -340,9 +340,9 @@ const ProductsSection = () => {
                   { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-stretch h-full">
-                    <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col h-[480px]">
+                    <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col h-[520px]">
                       <CardContent className="p-0 flex flex-col h-full">
-                        <div className="w-full h-64 rounded-lg overflow-hidden mb-4">
+                        <div className="w-full h-72 rounded-lg overflow-hidden mb-4">
                           <LazyImage src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
                         </div>
                         <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
