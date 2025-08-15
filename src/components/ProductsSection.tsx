@@ -340,20 +340,37 @@ const ProductsSection = () => {
                   { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-stretch h-full">
-                    <Card className="text-center p-6 animate-fade-in hover-scale w-full flex flex-col h-[520px]">
-                      <CardContent className="p-0 flex flex-col h-full">
-                        <div className="w-full h-72 rounded-lg overflow-hidden mb-4">
-                          <LazyImage src={item.image} alt={item.title} className="w-full h-full object-cover object-center" />
+                    <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full w-full">
+                      <div className="relative h-56 overflow-hidden">
+                        <LazyImage 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                          <div className="text-2xl font-bold mb-1 text-shadow">Step {item.step}</div>
+                          <h3 className="text-lg font-bold text-shadow">{item.title}</h3>
                         </div>
-                        <div className="text-3xl font-bold text-primary mb-4">Step {item.step}</div>
-                        <h4 className="font-semibold mb-2">{item.title}</h4>
-                        <p className="text-sm text-slate-600">{item.description}</p>
+                        
+                        {/* Elegant overlay badge */}
+                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                          Process Step
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-6 flex-1 flex flex-col">
+                        <p className="text-slate-600 leading-relaxed flex-grow text-sm">{item.description}</p>
+                        
+                        {/* Subtle accent line */}
+                        <div className="w-12 h-1 bg-primary rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
                       </CardContent>
                     </Card>
                     
                     {/* Arrow - only show between steps, not after the last one */}
                     {index < 4 && (
-                      <div className="hidden md:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                      <div className="hidden md:flex absolute -right-3 lg:-right-3 top-1/2 transform -translate-y-1/2 z-10">
                         <div className="bg-primary/10 rounded-full p-2 animate-pulse">
                           <ArrowRight className="h-6 w-6 text-primary" />
                         </div>
