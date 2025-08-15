@@ -55,8 +55,8 @@ const HowItWorksPage = () => {
             </p>
           </div>
 
-          <div className="relative max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-5 gap-6 lg:gap-8">
+          <div className="relative mx-auto">
+            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
               {[
                 { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
                 { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
@@ -65,7 +65,7 @@ const HowItWorksPage = () => {
                 { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
               ].map((item, index) => (
                 <div key={index} className="relative flex items-stretch h-full">
-                  <div className="relative h-48 lg:h-56 rounded-xl overflow-hidden shadow-[var(--shadow-card)] animate-fade-in hover-scale w-full">
+                  <div className="relative h-52 lg:h-64 rounded-xl overflow-hidden shadow-[var(--shadow-card)] animate-fade-in hover-scale w-full">
                     <img 
                       src={item.image} 
                       alt={item.title}
