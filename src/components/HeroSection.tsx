@@ -31,7 +31,7 @@ const HeroSection = () => {
               
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="block">Business Financing</span>
-                <span className="block text-primary-glow">that Grows with You</span>
+                <span className="block text-blue-200">that Grows with You</span>
               </h1>
               
               <p className="text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
@@ -42,11 +42,11 @@ const HeroSection = () => {
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center gap-6 pt-4">
               <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-primary-glow" />
+                <Shield className="h-5 w-5 text-blue-200" />
                 <span className="text-sm text-blue-100">SBA & Commercial Loan Marketplace</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <Lock className="h-4 w-4 text-primary-glow" />
+                <Lock className="h-4 w-4 text-blue-200" />
                 <span className="text-blue-100">Secure & Encrypted</span>
               </div>
             </div>
