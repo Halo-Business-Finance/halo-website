@@ -4,10 +4,8 @@ const ResourcePreloader = () => {
   useEffect(() => {
     // Preload critical images and fonts
     const criticalResources = [
-      '/assets/hero-background.jpg',
-      '/assets/new-hero-background.jpg',
-      '/assets/business-meeting.jpg',
-      '/assets/loan-calculator-professional.jpg'
+      '/src/assets/new-hero-background.jpg',
+      '/src/assets/business-meeting.jpg'
     ];
 
     // Preload images
