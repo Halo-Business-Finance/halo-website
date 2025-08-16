@@ -13,6 +13,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useFormSecurity } from '@/components/security/FormSecurityProvider';
 import { useAuth } from '@/components/auth/AuthProvider';
+import { useSecureAuth } from '@/components/security/SecureAuthProvider';
 import { useToast } from '@/hooks/use-toast';
 
 const AuthPage = () => {
@@ -21,6 +22,7 @@ const AuthPage = () => {
   const { toast } = useToast();
   const { encryptSensitiveData, sanitizeInput, validateInput, csrfToken } = useFormSecurity();
   const { user, session } = useAuth();
+  const { signUpSecure, resetPasswordSecure } = useSecureAuth();
   
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -123,16 +125,14 @@ const AuthPage = () => {
 
       const redirectUrl = `${window.location.origin}/`;
       
-      const { data, error } = await supabase.auth.signUp({
-        email: sanitizeInput(signupForm.email),
-        password: signupForm.password,
-        options: {
-          emailRedirectTo: redirectUrl,
-          data: {
-            display_name: sanitizeInput(signupForm.displayName),
-          }
-        }
-      });
+      const { error } = await signUpSecure(
+        sanitizeInput(signupForm.email),
+        signupForm.password,
+        sanitizeInput(signupForm.displayName)
+      );
+
+      // Get the signup result data from the secure function
+      const { data } = await supabase.auth.getSession();
 
       if (error) {
         if (error.message.includes('User already registered')) {
@@ -143,9 +143,9 @@ const AuthPage = () => {
         return;
       }
 
-      if (data.user && !data.session) {
+      if (data?.session?.user && !data.session) {
         setMessage('Please check your email and click the confirmation link to complete your registration.');
-      } else if (data.user && data.session) {
+      } else if (data?.session?.user && data.session) {
         toast({
           title: 'Account created!',
           description: 'Welcome to Halo Business Finance.',
@@ -153,6 +153,8 @@ const AuthPage = () => {
         
         const returnTo = searchParams.get('returnTo') || '/';
         navigate(returnTo, { replace: true });
+      } else {
+        setMessage('Please check your email and click the confirmation link to complete your registration.');
       }
     } catch (err: any) {
       setError(err.message || 'An unexpected error occurred');
@@ -172,12 +174,7 @@ const AuthPage = () => {
     setMessage('');
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(
-        sanitizeInput(loginForm.email),
-        {
-          redirectTo: `${window.location.origin}/auth?tab=reset-password`,
-        }
-      );
+      const { error } = await resetPasswordSecure(sanitizeInput(loginForm.email));
 
       if (error) {
         setError(error.message);

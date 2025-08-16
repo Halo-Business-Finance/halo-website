@@ -9,6 +9,7 @@ import { SecurityMonitor } from "@/components/security/SecurityMonitor";
 import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
 import { SessionManager } from "@/components/security/SessionManager";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import { SecureAuthProvider } from "@/components/security/SecureAuthProvider";
 import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
@@ -67,6 +68,7 @@ const AssetBasedLoansPage = lazy(() => import("./pages/AssetBasedLoansPage"));
 const BusinessFinanceResourcesPage = lazy(() => import("./pages/BusinessFinanceResourcesPage"));
 const SecurityPage = lazy(() => import("./pages/SecurityPage"));
 const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
+const SecuritySetupPage = lazy(() => import("./pages/SecuritySetupPage"));
 
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
@@ -140,7 +142,8 @@ const App = () => {
       <FormSecurityProvider>
         <SessionManager>
           <AuthProvider>
-            <TooltipProvider>
+            <SecureAuthProvider>
+              <TooltipProvider>
             <Toaster />
             <Sonner />
             <SecurityHeaders />
@@ -208,15 +211,17 @@ const App = () => {
             <Route path="/business-finance-resources" element={<BusinessFinanceResourcesPage />} />
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
+            <Route path="/security-setup" element={<SecuritySetupPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
-          </TooltipProvider>
-        </AuthProvider>
-      </SessionManager>
-    </FormSecurityProvider>
+              </TooltipProvider>
+            </SecureAuthProvider>
+          </AuthProvider>
+        </SessionManager>
+      </FormSecurityProvider>
     </ProductionSecurityProvider>
   </QueryClientProvider>
   );

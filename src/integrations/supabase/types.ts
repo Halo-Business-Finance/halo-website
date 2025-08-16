@@ -7,7 +7,7 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.12 (cd3cf9e)"
@@ -459,19 +459,19 @@ export type Database = {
       analyze_security_events: {
         Args: Record<PropertyKey, never>
         Returns: {
-          pattern_type: string
-          severity: string
-          event_count: number
           affected_users: number
-          time_window: string
+          event_count: number
+          pattern_type: string
           recommended_action: string
+          severity: string
+          time_window: string
         }[]
       }
       assign_user_role: {
         Args: {
-          target_user_id: string
-          new_role: Database["public"]["Enums"]["app_role"]
           expiration_date?: string
+          new_role: Database["public"]["Enums"]["app_role"]
+          target_user_id: string
         }
         Returns: boolean
       }
@@ -487,17 +487,21 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      create_initial_admin: {
+        Args: { admin_email: string }
+        Returns: boolean
+      }
       create_secure_encryption_key: {
-        Args: { p_key_identifier: string; p_algorithm?: string }
+        Args: { p_algorithm?: string; p_key_identifier: string }
         Returns: string
       }
       create_secure_session: {
         Args: {
-          p_user_id: string
-          p_ip_address: unknown
-          p_user_agent: string
           p_client_fingerprint: string
           p_expires_hours?: number
+          p_ip_address: unknown
+          p_user_agent: string
+          p_user_id: string
         }
         Returns: {
           session_id: string
@@ -506,20 +510,20 @@ export type Database = {
       }
       detect_advanced_session_anomaly: {
         Args: {
-          session_id: string
+          behavioral_data?: Json
+          new_fingerprint: string
           new_ip: unknown
           new_user_agent: string
-          new_fingerprint: string
-          behavioral_data?: Json
+          session_id: string
         }
         Returns: Json
       }
       detect_session_anomaly: {
         Args: {
-          session_id: string
+          new_fingerprint: string
           new_ip: unknown
           new_user_agent: string
-          new_fingerprint: string
+          session_id: string
         }
         Returns: Json
       }
@@ -533,11 +537,11 @@ export type Database = {
       }
       enhanced_rate_limit_check: {
         Args: {
-          p_identifier: string
           p_action: string
+          p_behavioral_score?: number
+          p_identifier: string
           p_limit?: number
           p_window_seconds?: number
-          p_behavioral_score?: number
         }
         Returns: Json
       }
@@ -548,39 +552,39 @@ export type Database = {
       generate_secure_session_token: {
         Args: Record<PropertyKey, never>
         Returns: {
-          token: string
           hash: string
           salt: string
+          token: string
         }[]
       }
       get_consultation_secure: {
         Args: { consultation_id: string }
         Returns: {
-          id: string
-          name: string
-          email: string
-          phone: string
           company: string
-          loan_program: string
-          loan_amount: string
-          timeframe: string
-          message: string
           created_at: string
-          updated_at: string
+          email: string
+          id: string
+          loan_amount: string
+          loan_program: string
+          message: string
+          name: string
+          phone: string
           status: string
+          timeframe: string
+          updated_at: string
           user_id: string
         }[]
       }
       get_consultations_list_secure: {
         Args: Record<PropertyKey, never>
         Returns: {
-          id: string
-          name: string
-          email: string
-          loan_program: string
-          loan_amount: string
-          status: string
           created_at: string
+          email: string
+          id: string
+          loan_amount: string
+          loan_program: string
+          name: string
+          status: string
           user_id: string
         }[]
       }
@@ -591,33 +595,33 @@ export type Database = {
       get_my_consultations: {
         Args: Record<PropertyKey, never>
         Returns: {
-          id: string
-          name: string
-          email: string
-          phone: string
           company: string
-          loan_program: string
-          loan_amount: string
-          timeframe: string
-          message: string
           created_at: string
-          updated_at: string
+          email: string
+          id: string
+          loan_amount: string
+          loan_program: string
+          message: string
+          name: string
+          phone: string
           status: string
+          timeframe: string
+          updated_at: string
         }[]
       }
       get_secure_consultation_data: {
         Args: { consultation_id: string }
         Returns: {
-          id: string
-          masked_name: string
-          masked_email: string
-          masked_phone: string
           company: string
-          loan_program: string
-          loan_amount_category: string
-          timeframe: string
-          status: string
           created_at: string
+          id: string
+          loan_amount_category: string
+          loan_program: string
+          masked_email: string
+          masked_name: string
+          masked_phone: string
+          status: string
+          timeframe: string
         }[]
       }
       get_security_config: {
@@ -627,34 +631,34 @@ export type Database = {
       get_security_events_masked: {
         Args: { limit_count?: number; severity_filter?: string }
         Returns: {
-          id: string
-          event_type: string
-          severity: string
           created_at: string
-          source: string
           event_data_masked: Json
+          event_type: string
+          id: string
           ip_address_masked: string
+          severity: string
+          source: string
         }[]
       }
       get_security_overview: {
         Args: Record<PropertyKey, never>
         Returns: {
           active_sessions: number
-          security_events_24h: number
           critical_alerts: number
           encryption_keys_active: number
+          security_events_24h: number
         }[]
       }
       get_session_overview_admin: {
         Args: Record<PropertyKey, never>
         Returns: {
+          created_at: string
+          is_active: boolean
+          last_activity: string
+          masked_ip: string
+          security_level: string
           session_id: string
           user_id: string
-          created_at: string
-          last_activity: string
-          is_active: boolean
-          security_level: string
-          masked_ip: string
         }[]
       }
       get_user_active_sessions_count: {
@@ -667,13 +671,13 @@ export type Database = {
       }
       has_role: {
         Args: {
-          _user_id: string
           _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
         }
         Returns: boolean
       }
       hash_session_token: {
-        Args: { token: string; salt?: string }
+        Args: { salt?: string; token: string }
         Returns: Json
       }
       initialize_admin_user: {
@@ -681,16 +685,16 @@ export type Database = {
         Returns: boolean
       }
       invalidate_suspicious_sessions: {
-        Args: { target_user_id: string; reason: string }
+        Args: { reason: string; target_user_id: string }
         Returns: number
       }
       log_client_security_event: {
         Args: {
+          event_data?: Json
           event_type: string
           severity: string
-          event_data?: Json
-          user_agent?: string
           source?: string
+          user_agent?: string
         }
         Returns: string
       }
@@ -708,9 +712,9 @@ export type Database = {
       }
       secure_assign_user_role: {
         Args: {
-          target_user_id: string
-          new_role: Database["public"]["Enums"]["app_role"]
           expiration_date?: string
+          new_role: Database["public"]["Enums"]["app_role"]
+          target_user_id: string
         }
         Returns: boolean
       }
@@ -728,18 +732,18 @@ export type Database = {
       }
       secure_revoke_user_role: {
         Args: {
-          target_user_id: string
-          role_to_revoke: Database["public"]["Enums"]["app_role"]
           reason?: string
+          role_to_revoke: Database["public"]["Enums"]["app_role"]
+          target_user_id: string
         }
         Returns: boolean
       }
       update_rate_limit_config: {
         Args: {
           endpoint_name: string
+          new_block_duration_seconds?: number
           new_max_requests: number
           new_window_seconds: number
-          new_block_duration_seconds?: number
         }
         Returns: boolean
       }
@@ -747,23 +751,27 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: {
           function_name: string
-          security_level: string
           recommendations: string[]
+          security_level: string
         }[]
+      }
+      validate_redirect_url: {
+        Args: { redirect_url: string }
+        Returns: boolean
       }
       validate_session_security: {
         Args: {
-          session_token: string
-          client_ip: unknown
           client_fingerprint: string
+          client_ip: unknown
+          session_token: string
         }
         Returns: boolean
       }
       validate_session_security_v2: {
         Args: {
-          session_token: string
-          client_ip: unknown
           client_fingerprint: string
+          client_ip: unknown
+          session_token: string
         }
         Returns: boolean
       }

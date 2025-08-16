@@ -61,7 +61,7 @@ export class EnhancedSecureErrorHandler extends Component<Props, State> {
   };
 
   private sanitizeErrorData = (errorData: any) => {
-    // Remove potential sensitive information from error messages
+    // Enhanced sensitive data patterns
     const sensitivePatterns = [
       /password/gi,
       /token/gi,
@@ -70,21 +70,53 @@ export class EnhancedSecureErrorHandler extends Component<Props, State> {
       /api[_-]?key/gi,
       /auth[_-]?token/gi,
       /session[_-]?id/gi,
+      /bearer\s+[a-zA-Z0-9\-._~+/]+=*/gi, // Bearer tokens
       /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, // Email addresses
       /\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/g, // Credit card patterns
-      /\b\d{3}-\d{2}-\d{4}\b/g // SSN patterns
+      /\b\d{3}-\d{2}-\d{4}\b/g, // SSN patterns
+      /\b\d{9}\b/g, // Tax ID patterns
+      /localhost:\d+/g, // Development URLs
+      /127\.0\.0\.1:\d+/g, // Local IP addresses
+      /file:\/\/[^\s]*/g, // File paths
+      /c:\\[^\s]*/gi, // Windows paths
+      /\/home\/[^\s]*/g, // Unix paths
+      /\.env[^\s]*/g // Environment files
     ];
 
     const sanitized = { ...errorData };
     
-    // Sanitize string values
-    Object.keys(sanitized).forEach(key => {
-      if (typeof sanitized[key] === 'string') {
+    // Sanitize string values recursively
+    const sanitizeValue = (obj: any): any => {
+      if (typeof obj === 'string') {
+        let sanitizedString = obj;
         sensitivePatterns.forEach(pattern => {
-          sanitized[key] = sanitized[key].replace(pattern, '[REDACTED]');
+          sanitizedString = sanitizedString.replace(pattern, '[REDACTED]');
         });
+        return sanitizedString;
+      } else if (typeof obj === 'object' && obj !== null) {
+        const sanitizedObj: any = {};
+        Object.keys(obj).forEach(key => {
+          sanitizedObj[key] = sanitizeValue(obj[key]);
+        });
+        return sanitizedObj;
       }
+      return obj;
+    };
+    
+    Object.keys(sanitized).forEach(key => {
+      sanitized[key] = sanitizeValue(sanitized[key]);
     });
+
+    // Remove potentially sensitive keys entirely in production
+    const isProduction = import.meta.env.PROD;
+    if (isProduction) {
+      const sensitiveKeys = ['stack', 'componentStack', 'url'];
+      sensitiveKeys.forEach(key => {
+        if (sanitized[key]) {
+          sanitized[key] = '[REDACTED_IN_PRODUCTION]';
+        }
+      });
+    }
 
     return sanitized;
   };
