@@ -108,7 +108,7 @@ const Header = () => {
           <div className="flex items-center justify-center text-sm">
             <span className="hidden sm:inline text-black font-bold text-center">Nationwide SBA & Commercial Loan Marketplace</span>
             <div className="flex items-center gap-6 absolute right-8 top-1/2 -translate-y-1/2">
-              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-slate-600 transition-colors font-extrabold border-r border-slate-300 pr-6 text-black">
+              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-financial-blue transition-colors font-medium text-slate-700 border-r border-slate-200 pr-4 mr-4">
                 <Phone className="h-4 w-4" />
                 <span>(800) 730-8461</span>
               </a>
@@ -116,7 +116,7 @@ const Header = () => {
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-black hover:text-slate-600 font-extrabold text-sm">
+                    <Button variant="ghost" className="text-slate-700 hover:text-financial-blue font-medium text-sm px-3 py-1 h-8">
                       <User className="h-4 w-4 mr-2" />
                       {user.user_metadata?.display_name || user.email}
                       <ChevronDown className="h-4 w-4 ml-2" />
@@ -144,9 +144,11 @@ const Header = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Link to="/auth" className="hover:text-slate-600 transition-colors font-extrabold text-sm text-black">
-                  Sign In
-                </Link>
+                <Button variant="ghost" className="text-slate-700 hover:text-financial-blue font-medium text-sm px-3 py-1 h-8" asChild>
+                  <Link to="/auth">
+                    Sign In
+                  </Link>
+                </Button>
               )}
             </div>
           </div>
