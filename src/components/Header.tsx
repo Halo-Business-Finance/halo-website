@@ -269,29 +269,37 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Desktop Layout - Chase style */}
+        {/* Desktop Layout - Logo above Company menu */}
         <div className="hidden lg:block w-full">
-          <div className="flex items-center h-16 px-8">
-            {/* Logo on the left */}
-            <Link to="/" className="mr-12 block relative">
-              <img
-                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
-                alt="Halo Business Finance logo"
-                className="h-16 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
-                style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
-                loading="eager"
-                decoding="async"
-              />
-            </Link>
-            
-            {/* Horizontal navigation menu */}
-            <nav className="flex items-center space-x-8 flex-1">
-              {Object.entries(menuItems).map(([key, item]) => (
-                <DropdownMenu key={key}>
-                  <DropdownMenuTrigger className="flex items-center text-slate-700 hover:text-financial-blue font-medium text-sm transition-all duration-200 group">
-                    {item.title}
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                  </DropdownMenuTrigger>
+          <div className="flex justify-center h-auto px-8 pt-2 pb-2">
+            {/* Navigation menu with logo positioned above Company menu */}
+            <div className="flex items-end space-x-8">
+              {Object.entries(menuItems).map(([key, item], index) => (
+                <div key={key} className="relative">
+                  {/* Logo above Company menu (first item) */}
+                  {index === 0 && (
+                    <div className="flex flex-col items-center mb-2">
+                      <Link to="/" className="block relative mb-1">
+                        <img
+                          src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
+                          alt="Halo Business Finance logo"
+                          className="h-20 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
+                          style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </Link>
+                      <span className="text-black font-bold text-xs text-center whitespace-nowrap mb-1">
+                        Nationwide SBA & Commercial<br />Loan Marketplace
+                      </span>
+                    </div>
+                  )}
+                  
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="flex items-center text-slate-700 hover:text-financial-blue font-medium text-sm transition-all duration-200 group">
+                      {item.title}
+                      <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                    </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2 z-50">
                     <div className="py-2">
                       <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
@@ -308,15 +316,16 @@ const Header = () => {
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                </div>
               ))}
-            </nav>
-            
-            {/* Get Started Button on the right */}
-            <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300 ml-8" asChild>
-              <Link to={user ? "/loan-calculator" : "/auth"}>
-                Get Started
-              </Link>
-            </Button>
+              
+              {/* Get Started Button */}
+              <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
+                <Link to={user ? "/loan-calculator" : "/auth"}>
+                  Get Started
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
