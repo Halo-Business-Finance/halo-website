@@ -272,24 +272,19 @@ const Header = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:block w-full">
-          {/* Logo positioned higher */}
-          <div className="flex justify-center pt-2 pb-1">
-            <Link to="/" className="block relative">
+        <div className="hidden lg:flex items-center h-16 w-full pt-1">
+          {/* Desktop Navigation - Centered */}
+          <div className="flex items-center justify-center flex-1 space-x-1">
+            <Link to="/" className="mr-8 block relative">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
                 alt="Halo Business Finance logo"
-                className="h-32 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
+                className="h-40 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
                 style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
                 loading="eager"
                 decoding="async"
               />
             </Link>
-          </div>
-          
-          {/* Navigation row below logo */}
-          <div className="flex items-center justify-center pb-2">
-            <div className="flex items-center space-x-1">
             {Object.entries(menuItems).map(([key, item]) => (
               <DropdownMenu key={key}>
                 <DropdownMenuTrigger className="flex items-center px-4 py-3 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-medium text-sm transition-all duration-200 rounded-lg group relative mx-1">
@@ -321,7 +316,6 @@ const Header = () => {
                 Get Started
               </Link>
             </Button>
-            </div>
           </div>
         </div>
       </nav>
