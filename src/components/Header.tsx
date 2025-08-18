@@ -169,13 +169,13 @@ const Header = () => {
               />
             </Link>
             
-            {/* Mobile Menu Button - Testing visibility */}
+            {/* Mobile Menu Button */}
             <button 
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white p-3 rounded-lg z-[999] border-2 border-black"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-financial-navy text-white p-3 rounded-lg z-[999] hover:bg-financial-navy/90 transition-colors"
               onClick={handleMobileMenuToggle}
-              style={{ backgroundColor: 'red', zIndex: 999 }}
+              aria-label="Toggle mobile menu"
             >
-              MENU
+              <Menu className="h-5 w-5" />
             </button>
             
             {/* Mobile Menu Overlay - Custom implementation */}
