@@ -309,11 +309,9 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ))}
-          </div>
-
-          {/* Right side buttons - Enhanced professional style */}
-          <div className="flex items-center gap-3 ml-auto">
-            <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300" asChild>
+            
+            {/* Get Started Button in Navigation */}
+            <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300 ml-4" asChild>
               <Link to={user ? "/loan-calculator" : "/auth"}>
                 Get Started
               </Link>
