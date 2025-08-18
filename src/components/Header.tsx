@@ -271,28 +271,23 @@ const Header = () => {
 
         {/* Desktop Layout */}
         <div className="hidden lg:block w-full">
-          {/* Logo positioned higher */}
-          <div className="flex justify-center pt-2 pb-1">
-            <Link to="/" className="block relative">
-              <img
-                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
-                alt="Halo Business Finance logo"
-                className="h-32 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
-                style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
-                loading="eager"
-                decoding="async"
-              />
-            </Link>
-          </div>
-          
-          {/* Marketplace text underneath logo */}
-          <div className="flex justify-center pb-3">
-            <span className="text-black font-bold text-lg">Nationwide SBA & Commercial Loan Marketplace</span>
-          </div>
-          
-          {/* Navigation row below logo */}
-          <div className="flex items-center justify-center pb-2">
+          {/* Navigation row with logo and text positioned above Company menu */}
+          <div className="flex items-start justify-center pb-2 relative">
             <div className="flex items-center space-x-1">
+              {/* Logo and text positioned above first menu item */}
+              <div className="flex flex-col items-center mr-1">
+                <Link to="/" className="block relative mb-1">
+                  <img
+                    src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
+                    alt="Halo Business Finance logo"
+                    className="h-32 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
+                    style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
+                    loading="eager"
+                    decoding="async"
+                  />
+                </Link>
+                <span className="text-black font-bold text-sm mb-2 whitespace-nowrap">Nationwide SBA & Commercial Loan Marketplace</span>
+              </div>
             {Object.entries(menuItems).map(([key, item]) => (
               <DropdownMenu key={key}>
                 <DropdownMenuTrigger className="flex items-center px-4 py-3 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-medium text-sm transition-all duration-200 rounded-lg group relative mx-1">
