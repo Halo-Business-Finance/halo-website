@@ -157,12 +157,12 @@ const Header = () => {
         {/* Mobile/Tablet Layout */}
         <div className="lg:hidden h-auto">
           {/* Logo and Menu Button Row */}
-          <div className="relative flex justify-center items-center h-fit py-1 my-0">
+          <div className="relative flex justify-center items-center h-fit py-0.5">
             <Link to="/" className="block">
               <img
                 src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
                 alt="Halo Business Finance logo"
-                className="h-32 w-auto relative z-10 drop-shadow-lg"
+                className="h-20 w-auto relative z-10 drop-shadow-lg"
                 style={{ filter: 'drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3))' }}
                 loading="eager"
                 decoding="async"
@@ -189,10 +189,10 @@ const Header = () => {
                 
                 {/* Menu Panel */}
                 <div className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-xl overflow-y-auto">
-                  <div className="flex flex-col gap-6 p-6">
+                  <div className="flex flex-col gap-4 p-4">
                     {/* Close button */}
-                    <div className="flex justify-between items-center mb-4">
-                      <h2 className="text-xl font-bold text-financial-navy">Menu</h2>
+                    <div className="flex justify-between items-center mb-2">
+                      <h2 className="text-lg font-bold text-financial-navy">Menu</h2>
                       <Button 
                         variant="ghost" 
                         size="sm"
@@ -240,17 +240,17 @@ const Header = () => {
                     </div>
                     
                     {/* Mobile navigation */}
-                    <div className="border-t pt-6 flex-1">
-                      <nav className="flex flex-col gap-4">
+                    <div className="border-t pt-3 flex-1">
+                      <nav className="flex flex-col gap-3">
                         {Object.entries(menuItems).map(([key, item]) => (
-                          <div key={key} className="space-y-3">
-                            <h3 className="font-bold text-lg text-financial-navy">{item.title}</h3>
-                            <div className="pl-4 space-y-2">
+                          <div key={key} className="space-y-2">
+                            <h3 className="font-bold text-base text-financial-navy">{item.title}</h3>
+                            <div className="pl-3 space-y-1">
                               {item.items.map((subItem) => (
                                 <Link
                                   key={subItem}
                                   to={getItemLink(item.title, subItem)}
-                                  className="block text-slate-600 hover:text-financial-blue transition-colors py-1"
+                                  className="block text-slate-600 hover:text-financial-blue transition-colors py-0.5 text-sm"
                                   onClick={() => setIsOpen(false)}
                                 >
                                   {subItem}
