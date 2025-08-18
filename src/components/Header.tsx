@@ -103,7 +103,7 @@ const Header = () => {
   return (
     <header className="relative shadow-lg border-b border-slate-200/60 z-40 bg-white">
       {/* Top utility bar - Professional banking style */}
-      <div className="bg-white border-b border-slate-200/60">
+      <div className="bg-white">
         <div className="max-w-full mx-auto px-8 py-4">
           <div className="flex items-center justify-center text-sm">
             <span className="hidden sm:inline text-black font-bold text-center">Nationwide SBA & Commercial Loan Marketplace</span>
