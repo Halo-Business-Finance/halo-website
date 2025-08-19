@@ -102,31 +102,26 @@ const Header = () => {
                   <div className="py-1">
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/loan-calculator" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Loan Calculator
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/business-finance-resources" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Business Resources
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/industry-solutions" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Industry Solutions
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Customer Service
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Technical Support
                       </Link>
                     </DropdownMenuItem>
@@ -160,19 +155,16 @@ const Header = () => {
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/contact-us" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Contact Us
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Customer Service
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                       <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                         Technical Support
                       </Link>
                     </DropdownMenuItem>
@@ -254,7 +246,6 @@ const Header = () => {
                       {item.items.map((subItem) => (
                         <DropdownMenuItem key={subItem.title} className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
                           <Link to={subItem.href} className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                            <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
                             {subItem.title}
                           </Link>
                         </DropdownMenuItem>
