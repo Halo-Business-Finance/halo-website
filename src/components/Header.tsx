@@ -20,8 +20,8 @@ const Header = () => {
 
   // Keep primary nav for mobile menu only
   const primaryNav = [
-    { title: "Personal", href: "/personal" },
-    { title: "Business", href: "/business", active: true },
+    { title: "Personal", href: "/" },
+    { title: "Business", href: "/", active: true },
     { title: "Commercial", href: "/commercial-loans" },
     { title: "Equipment", href: "/equipment-financing" },
     { title: "Capital Markets", href: "/capital-markets" },
@@ -38,7 +38,7 @@ const Header = () => {
         { title: "SBA 7(a) Loans", href: "/sba-7a-loans" },
         { title: "SBA 504 Loans", href: "/sba-504-loans" },
         { title: "SBA Express Loans", href: "/sba-express-loans" },
-        { title: "SBA Microloans", href: "/sba-microloans" },
+        { title: "SBA Microloans", href: "/sba-loans" },
         { title: "USDA B&I Loans", href: "/usda-bi-loans" }
       ]
     },
