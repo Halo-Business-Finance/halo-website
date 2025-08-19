@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { Calculator, DollarSign, Percent } from "lucide-react";
-import sbaLoanImg from "@/assets/sba-loan-professional.jpg";
-import conventionalLoanImg from "@/assets/conventional-loan-professional.jpg";
-import loanCalculatorImg from "@/assets/loan-calculator-professional.jpg";
+import businessFinancingImg from "@/assets/business-financing-meeting.jpg";
+import businessLoanImg from "@/assets/business-loan-approved.jpg";
+import calculatorImg from "@/assets/calculator-finance.jpg";
 
 const LoanCalculatorPage = () => {
   const [loanType, setLoanType] = useState("conventional");
@@ -75,7 +75,7 @@ const LoanCalculatorPage = () => {
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20 overflow-hidden">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src={loanCalculatorImg} 
+          src={calculatorImg} 
           alt="Professional loan calculator and business financing" 
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -278,7 +278,7 @@ const LoanCalculatorPage = () => {
               <Card className="overflow-hidden">
                 <div className="relative h-48">
                   <img 
-                    src={sbaLoanImg} 
+                    src={businessFinancingImg} 
                     alt="SBA loan programs and benefits" 
                     className="w-full h-full object-cover"
                   />
@@ -295,7 +295,7 @@ const LoanCalculatorPage = () => {
               <Card className="overflow-hidden">
                 <div className="relative h-48">
                   <img 
-                    src={conventionalLoanImg} 
+                    src={businessLoanImg} 
                     alt="Conventional business loan options" 
                     className="w-full h-full object-cover"
                   />
@@ -312,7 +312,7 @@ const LoanCalculatorPage = () => {
               <Card className="overflow-hidden">
                 <div className="relative h-48">
                   <img 
-                    src={loanCalculatorImg} 
+                    src={calculatorImg} 
                     alt="Loan calculator tools and payment estimation" 
                     className="w-full h-full object-cover"
                   />
