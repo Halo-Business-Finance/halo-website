@@ -104,15 +104,12 @@ const Header = () => {
     <header className="relative shadow-lg border-b border-slate-200/60 z-40 bg-white">
       {/* Top utility bar - Professional banking style */}
       <div className="bg-white">
-        <div className="max-w-full mx-auto px-4 sm:px-8 py-4">
-          <div className="flex items-center justify-between text-sm">
-            <div className="hidden sm:block"></div> {/* Left spacer for desktop */}
-            <span className="hidden sm:inline text-black font-bold text-center">Nationwide SBA & Commercial Loan Marketplace</span>
-            <div className="flex items-center gap-2 sm:gap-4 ml-auto">
-              <a href="tel:+18007308461" className="flex items-center gap-1 sm:gap-2 hover:text-financial-blue transition-colors font-medium text-slate-700 border-r border-slate-200 pr-2 sm:pr-4 text-xs sm:text-sm">
-                <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline">(800) 730-8461</span>
-                <span className="xs:hidden">Call</span>
+        <div className="max-w-full mx-auto px-8 py-4">
+          <div className="flex items-center justify-end text-sm">
+            <div className="flex items-center gap-4">
+              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-financial-blue transition-colors font-medium text-slate-700 border-r border-slate-200 pr-4">
+                <Phone className="h-4 w-4" />
+                <span>(800) 730-8461</span>
               </a>
               
               {user ? (
@@ -272,51 +269,61 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex items-center h-16 w-full pt-1">
-          {/* Desktop Navigation - Centered */}
-          <div className="flex items-center justify-center flex-1 space-x-1">
-            <Link to="/" className="mr-8 block relative">
-              <img
-                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
-                alt="Halo Business Finance logo"
-                className="h-40 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
-                style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
-                loading="eager"
-                decoding="async"
-              />
-            </Link>
-            {Object.entries(menuItems).map(([key, item]) => (
-              <DropdownMenu key={key}>
-                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-slate-700 hover:text-financial-blue hover:bg-slate-50/80 font-medium text-sm transition-all duration-200 rounded-lg group relative mx-1">
-                  {item.title}
-                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-financial-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2 z-50">
-                  <div className="py-2">
-                    <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
-                      {item.title}
-                    </div>
-                    {item.items.map((subItem) => (
-                      <DropdownMenuItem key={subItem} className="rounded-lg hover:bg-slate-50 transition-colors duration-200 p-3 mb-1" asChild>
-                        <Link to={getItemLink(item.title, subItem)} className="flex items-center text-slate-700 hover:text-financial-blue font-medium group">
-                          <div className="w-2 h-2 bg-financial-blue/20 rounded-full mr-3 group-hover:bg-financial-blue transition-colors duration-200"></div>
-                          {subItem}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ))}
-            
-            {/* Get Started Button in Navigation */}
-            <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300 ml-4" asChild>
-              <Link to={user ? "/loan-calculator" : "/auth"}>
-                Get Started
+        {/* Desktop Layout - Clean horizontal style */}
+        <div className="hidden lg:block w-full">
+          {/* Logo and marketplace text centered */}
+          <div className="flex justify-center pt-3 pb-2">
+            <div className="flex flex-col items-center">
+              <Link to="/" className="block relative mb-2">
+                <img
+                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
+                  alt="Halo Business Finance logo"
+                  className="h-16 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
+                  style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
+                  loading="eager"
+                  decoding="async"
+                />
               </Link>
-            </Button>
+              <span className="text-black font-bold text-sm text-center">
+                Nationwide SBA & Commercial Loan Marketplace
+              </span>
+            </div>
+          </div>
+          
+          {/* Horizontal navigation menu */}
+          <div className="flex justify-center items-center px-8 pb-3">
+            <div className="flex items-center space-x-8">
+              {Object.entries(menuItems).map(([key, item]) => (
+                <DropdownMenu key={key}>
+                  <DropdownMenuTrigger className="flex items-center text-slate-700 hover:text-financial-blue font-medium text-sm transition-all duration-200 group">
+                    {item.title}
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2 z-50">
+                    <div className="py-2">
+                      <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
+                        {item.title}
+                      </div>
+                      {item.items.map((subItem) => (
+                        <DropdownMenuItem key={subItem} className="rounded-lg hover:bg-slate-50 transition-colors duration-200 p-3 mb-1" asChild>
+                          <Link to={getItemLink(item.title, subItem)} className="flex items-center text-slate-700 hover:text-financial-blue font-medium group">
+                            <div className="w-2 h-2 bg-financial-blue/20 rounded-full mr-3 group-hover:bg-financial-blue transition-colors duration-200"></div>
+                            {subItem}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ))}
+              
+              {/* Get Started Button */}
+              <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300 ml-4" asChild>
+                <Link to={user ? "/loan-calculator" : "/auth"}>
+                  Get Started
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </nav>

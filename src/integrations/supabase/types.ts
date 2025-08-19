@@ -456,16 +456,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      advanced_rate_limit_check: {
-        Args: {
-          p_action: string
-          p_behavioral_score?: number
-          p_identifier: string
-          p_limit?: number
-          p_window_seconds?: number
-        }
-        Returns: Json
-      }
       analyze_security_events: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -582,23 +572,6 @@ export type Database = {
           status: string
           timeframe: string
           updated_at: string
-          user_id: string
-        }[]
-      }
-      get_consultation_secure_enhanced: {
-        Args: { consultation_id: string }
-        Returns: {
-          company: string
-          created_at: string
-          email: string
-          id: string
-          loan_amount: string
-          loan_program: string
-          message: string
-          name: string
-          phone: string
-          status: string
-          timeframe: string
           user_id: string
         }[]
       }
@@ -725,10 +698,6 @@ export type Database = {
         }
         Returns: string
       }
-      mask_consultation_data: {
-        Args: { data_record: Json; user_role: string }
-        Returns: Json
-      }
       mask_sensitive_data: {
         Args: { data_text: string; data_type: string }
         Returns: string
@@ -804,10 +773,6 @@ export type Database = {
           client_ip: unknown
           session_token: string
         }
-        Returns: boolean
-      }
-      verify_service_role_request: {
-        Args: { operation_type: string }
         Returns: boolean
       }
       verify_session_token: {
