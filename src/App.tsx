@@ -11,6 +11,9 @@ import { SessionManager } from "@/components/security/SessionManager";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SecureAuthProvider } from "@/components/security/SecureAuthProvider";
 import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
+import { EnhancedSecurityProvider } from "@/components/security/EnhancedSecurityProvider";
+import { EnhancedRateLimitProvider } from "@/components/security/EnhancedRateLimiter";
+import { DataProtectionProvider } from "@/components/security/DataProtectionProvider";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import PrivacyPolicyPopup from "@/components/PrivacyPolicyPopup";
@@ -143,6 +146,9 @@ const App = () => {
         <SessionManager>
           <AuthProvider>
             <SecureAuthProvider>
+              <EnhancedRateLimitProvider>
+                <DataProtectionProvider encryptionKey="halo-security-2025" userRole="user">
+                  <EnhancedSecurityProvider>
               <TooltipProvider>
             <Toaster />
             <Sonner />
@@ -218,6 +224,9 @@ const App = () => {
         </Suspense>
       </BrowserRouter>
               </TooltipProvider>
+                  </EnhancedSecurityProvider>
+                </DataProtectionProvider>
+              </EnhancedRateLimitProvider>
             </SecureAuthProvider>
           </AuthProvider>
         </SessionManager>
