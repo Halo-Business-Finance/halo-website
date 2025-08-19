@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { X, Shield } from "lucide-react";
+import { X, Shield, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
-const DisclaimerPopup = () => {
+const PrivacyPolicyPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check if user has already seen the disclaimer
-    const hasSeenDisclaimer = localStorage.getItem("halo-disclaimer-accepted");
-    if (!hasSeenDisclaimer) {
+    // Check if user has already seen the privacy policy notice
+    const hasSeenPrivacyNotice = localStorage.getItem("halo-privacy-notice-accepted");
+    if (!hasSeenPrivacyNotice) {
       // Small delay to ensure page has loaded
       const timer = setTimeout(() => {
         setIsVisible(true);
@@ -20,11 +21,11 @@ const DisclaimerPopup = () => {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem("halo-disclaimer-accepted", "true");
+    localStorage.setItem("halo-privacy-notice-accepted", "true");
     setIsVisible(false);
     toast({
-      title: "Terms Accepted",
-      description: "You can review our terms and privacy policy at any time in the footer.",
+      title: "Privacy Notice Acknowledged",
+      description: "You can review our full privacy policy at any time.",
     });
   };
 
@@ -41,11 +42,14 @@ const DisclaimerPopup = () => {
           <div className="flex items-center gap-3 flex-1">
             <Shield className="h-5 w-5 text-primary flex-shrink-0" />
             <div className="text-sm">
-              <span className="font-medium">Legal Notice:</span>
+              <span className="font-medium">Privacy Notice:</span>
               <span className="text-muted-foreground ml-1">
-                By using this site, you agree to our Terms of Service and Privacy Policy. 
-                We are a licensed commercial lending marketplace (NMLS ID: 2272778).
+                We use cookies and collect data to improve your experience. Your privacy is important to us.
               </span>
+              <Link to="/privacy-policy" className="text-primary hover:underline ml-2 inline-flex items-center gap-1">
+                Read Privacy Policy
+                <ExternalLink className="h-3 w-3" />
+              </Link>
             </div>
           </div>
           
@@ -72,4 +76,4 @@ const DisclaimerPopup = () => {
   );
 };
 
-export default DisclaimerPopup;
+export default PrivacyPolicyPopup;
