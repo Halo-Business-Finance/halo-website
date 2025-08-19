@@ -29,7 +29,7 @@ const Header = () => {
     { title: "About Us", href: "/company-overview" }
   ];
 
-  // Secondary navigation with dropdown menus
+  // Secondary navigation without Resources (moved to top bar)
   const secondaryNavWithDropdowns = [
     { 
       title: "SBA Loans", 
@@ -74,17 +74,6 @@ const Header = () => {
         { title: "Term Loans", href: "/term-loans" },
         { title: "Factoring-Based Financing", href: "/factoring-based-financing" }
       ]
-    },
-    { 
-      title: "Resources", 
-      href: "/resources",
-      items: [
-        { title: "Loan Calculator", href: "/loan-calculator" },
-        { title: "Business Resources", href: "/business-finance-resources" },
-        { title: "Industry Solutions", href: "/industry-solutions" },
-        { title: "Customer Service", href: "/customer-service" },
-        { title: "Technical Support", href: "/technical-support" }
-      ]
     }
   ];
 
@@ -94,14 +83,56 @@ const Header = () => {
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-12 px-6">
-            {/* Left Side - Company Navigation */}
-            <nav className="flex items-center">
+            {/* Left Side - Company and Resources Navigation */}
+            <nav className="flex items-center space-x-6">
               <Link
                 to="/company-overview"
                 className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Company
               </Link>
+              
+              {/* Resources Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                  Resources
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
+                  <div className="py-1">
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/loan-calculator" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Loan Calculator
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/business-finance-resources" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Business Resources
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/industry-solutions" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Industry Solutions
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Customer Service
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Technical Support
+                      </Link>
+                    </DropdownMenuItem>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
 
             {/* Right Side - Search, Phone and Sign In */}
