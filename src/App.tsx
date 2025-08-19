@@ -11,6 +11,9 @@ import { SessionManager } from "@/components/security/SessionManager";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SecureAuthProvider } from "@/components/security/SecureAuthProvider";
 import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
+import { EnhancedSecurityProvider } from "@/components/security/EnhancedSecurityProvider";
+import { SecurityHeadersProvider } from "@/components/security/SecurityHeadersProvider";
+import { SecurityAlertSystem } from "@/components/security/SecurityAlertSystem";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
@@ -140,19 +143,22 @@ const App = () => {
 
   return (
   <QueryClientProvider client={queryClient}>
-    <ProductionSecurityProvider>
-      <FormSecurityProvider>
-        <SessionManager>
-          <AuthProvider>
-            <SecureAuthProvider>
-              <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <SecurityHeaders />
-            <SecurityMonitor />
-          <PerformanceMonitor />
-          <DisclaimerPopup />
-      <BrowserRouter>
+    <SecurityHeadersProvider>
+      <ProductionSecurityProvider>
+        <FormSecurityProvider>
+          <SessionManager>
+            <AuthProvider>
+              <EnhancedSecurityProvider>
+                <SecureAuthProvider>
+                  <TooltipProvider>
+                    <Toaster />
+                    <Sonner />
+                    <SecurityHeaders />
+                    <SecurityMonitor />
+                    <PerformanceMonitor />
+                    <DisclaimerPopup />
+                    <BrowserRouter>
+                      <SecurityAlertSystem />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -220,13 +226,15 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </BrowserRouter>
-              </TooltipProvider>
-            </SecureAuthProvider>
-          </AuthProvider>
-        </SessionManager>
-      </FormSecurityProvider>
-    </ProductionSecurityProvider>
+                    </BrowserRouter>
+                  </TooltipProvider>
+                </SecureAuthProvider>
+              </EnhancedSecurityProvider>
+            </AuthProvider>
+          </SessionManager>
+        </FormSecurityProvider>
+      </ProductionSecurityProvider>
+    </SecurityHeadersProvider>
   </QueryClientProvider>
   );
 };

@@ -456,6 +456,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      advanced_rate_limit_check: {
+        Args: {
+          p_action: string
+          p_behavioral_score?: number
+          p_identifier: string
+          p_limit?: number
+          p_window_seconds?: number
+        }
+        Returns: Json
+      }
       analyze_security_events: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -474,6 +484,10 @@ export type Database = {
           target_user_id: string
         }
         Returns: boolean
+      }
+      automated_security_maintenance: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
       }
       cleanup_expired_sessions: {
         Args: Record<PropertyKey, never>
@@ -545,6 +559,15 @@ export type Database = {
         }
         Returns: Json
       }
+      enhanced_secure_assign_user_role: {
+        Args: {
+          expiration_date?: string
+          justification?: string
+          new_role: Database["public"]["Enums"]["app_role"]
+          target_user_id: string
+        }
+        Returns: boolean
+      }
       force_session_rotation: {
         Args: { p_user_id: string }
         Returns: number
@@ -572,6 +595,23 @@ export type Database = {
           status: string
           timeframe: string
           updated_at: string
+          user_id: string
+        }[]
+      }
+      get_consultation_secure_enhanced: {
+        Args: { consultation_id: string }
+        Returns: {
+          company: string
+          created_at: string
+          email: string
+          id: string
+          loan_amount: string
+          loan_program: string
+          message: string
+          name: string
+          phone: string
+          status: string
+          timeframe: string
           user_id: string
         }[]
       }
@@ -698,9 +738,24 @@ export type Database = {
         }
         Returns: string
       }
+      mask_consultation_data: {
+        Args: { data_record: Json; user_role: string }
+        Returns: Json
+      }
       mask_sensitive_data: {
         Args: { data_text: string; data_type: string }
         Returns: string
+      }
+      monitor_critical_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          event_count: number
+          event_type: string
+          last_occurrence: string
+          recommended_action: string
+          risk_assessment: string
+          severity: string
+        }[]
       }
       resolve_security_alert: {
         Args: { alert_id: string; resolution_notes?: string }
@@ -773,6 +828,10 @@ export type Database = {
           client_ip: unknown
           session_token: string
         }
+        Returns: boolean
+      }
+      verify_service_role_request: {
+        Args: { operation_type: string }
         Returns: boolean
       }
       verify_session_token: {
