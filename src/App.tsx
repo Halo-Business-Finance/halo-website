@@ -1,21 +1,33 @@
-import { useEffect } from "react";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
+import Index from "./pages/Index";
 
+const queryClient = new QueryClient();
 
 const App = () => {
-  console.log('App function called...');
-  
-  // Simple useEffect to test if React hooks work
-  useEffect(() => {
-    console.log('useEffect fired - React is working!');
-  }, []);
-
-  console.log('App component starting to render...');
-  
   return (
-    <div className="min-h-screen bg-background">
-      <h1 className="text-2xl font-bold p-4">Testing Basic Render</h1>
-      <p className="p-4">If you can see this, React is working.</p>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="light"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 };
 
