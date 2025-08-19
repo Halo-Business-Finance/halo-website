@@ -143,6 +143,38 @@ const Header = () => {
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
+              
+              {/* Partners Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                  Partners
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
+                  <div className="py-1">
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/brokers" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Brokers
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/lenders" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Lenders
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/company-licenses" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Company Licenses
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/nmls-compliance" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        NMLS Compliance
+                      </Link>
+                    </DropdownMenuItem>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
 
             {/* Right Side - Search, Customer Support and Sign In */}
