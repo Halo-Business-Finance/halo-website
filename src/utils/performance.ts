@@ -2,19 +2,44 @@
 
 // Critical resource preloading with priority hints
 export const preloadCriticalResources = () => {
-  try {
-    // Preload critical CSS for immediate rendering
-    const style = document.createElement('style');
-    style.innerHTML = `
-      /* Critical above-the-fold CSS */
-      .hero-section { min-height: 100vh; }
-      .container { max-width: 1200px; margin: 0 auto; }
-      .btn-primary { background: hsl(var(--primary)); }
-    `;
-    document.head.appendChild(style);
-  } catch (error) {
-    console.warn('Failed to preload critical resources:', error);
-  }
+  const criticalImages = [
+    '/src/assets/new-hero-background.jpg',
+    '/src/assets/hero-background.jpg',
+  ];
+
+  criticalImages.forEach(src => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = src;
+    link.fetchPriority = 'high';
+    document.head.appendChild(link);
+  });
+
+  // Preload critical fonts with optimal loading
+  const fonts = [
+    'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2',
+  ];
+
+  fonts.forEach(href => {
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'preload';
+    fontLink.as = 'font';
+    fontLink.href = href;
+    fontLink.crossOrigin = 'anonymous';
+    fontLink.fetchPriority = 'high';
+    document.head.appendChild(fontLink);
+  });
+
+  // Preload critical CSS
+  const style = document.createElement('style');
+  style.innerHTML = `
+    /* Critical above-the-fold CSS */
+    .hero-section { min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .btn-primary { background: hsl(var(--primary)); }
+  `;
+  document.head.appendChild(style);
 };
 
 // Advanced script loading with error handling and retries
