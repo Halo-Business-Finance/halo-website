@@ -36,7 +36,6 @@ const Footer = () => {
   ];
 
   const resourceLinks = [
-    { name: "Business Resources", link: "/business-finance-resources" },
     { name: "Loan Calculator", link: "/loan-calculator" },
     { name: "Industry Solutions", link: "/industry-solutions" },
     { name: "SBA Resources", link: "/sba-loans" },
