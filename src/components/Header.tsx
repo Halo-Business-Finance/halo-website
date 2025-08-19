@@ -203,6 +203,16 @@ const Header = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ))}
+              
+              {/* Get Started Button */}
+              <Button 
+                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-6 py-2 rounded-md ml-4" 
+                asChild
+              >
+                <Link to={user ? "/loan-calculator" : "/auth"}>
+                  Get Started
+                </Link>
+              </Button>
             </nav>
 
             {/* Mobile Menu Button */}
