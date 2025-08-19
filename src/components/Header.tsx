@@ -40,10 +40,20 @@ const Header = () => {
 
   return (
     <header className="relative bg-white z-40">
-      {/* Primary Navigation Bar - Simplified without main nav items */}
+      {/* Primary Navigation Bar - With Company button */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-end h-12 px-6">
+          <div className="flex items-center justify-between h-12 px-6">
+            {/* Left Side - Company Navigation */}
+            <nav className="flex items-center">
+              <Link
+                to="/company-overview"
+                className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Company
+              </Link>
+            </nav>
+
             {/* Right Side - Search, Phone and Sign In */}
             <div className="flex items-center space-x-6">
               <button className="text-gray-600 hover:text-blue-600">
