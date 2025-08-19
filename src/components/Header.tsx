@@ -163,13 +163,8 @@ const Header = () => {
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/company-licenses" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        Company Licenses
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/nmls-compliance" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        NMLS Compliance
+                      <Link to="/referral-partners" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Referral Partners
                       </Link>
                     </DropdownMenuItem>
                   </div>
