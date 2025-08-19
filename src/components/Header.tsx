@@ -85,12 +85,37 @@ const Header = () => {
           <div className="flex items-center justify-between h-12 px-6">
             {/* Left Side - Company and Resources Navigation */}
             <nav className="flex items-center space-x-6">
-              <Link
-                to="/company-overview"
-                className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Company
-              </Link>
+              {/* Company Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                  Company
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
+                  <div className="py-1">
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/company-overview" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Company Overview
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/how-it-works" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        How it Works
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/marketplace-benefits" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Marketplace Benefits
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/careers" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        Careers
+                      </Link>
+                    </DropdownMenuItem>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
