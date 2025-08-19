@@ -164,7 +164,7 @@ const App = () => {
             <Route path="/sba-loans" element={<SBALoansPage />} />
             <Route path="/commercial-loans" element={<CommercialLoansPage />} />
             <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
-            <Route path="/business-capital" element={<BusinessCapitalPage />} />
+            <Route path="/capital-markets" element={<BusinessCapitalPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
             <Route path="/sba-504-loans" element={<SBA504LoansPage />} />

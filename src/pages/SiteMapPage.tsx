@@ -57,9 +57,9 @@ const SiteMapPage = () => {
       ]
     },
     {
-      category: "Business Capital",
+      category: "Capital Markets",
       links: [
-        { name: "Business Capital Overview", url: "/business-capital" },
+        { name: "Capital Markets Overview", url: "/capital-markets" },
         { name: "Working Capital", url: "/working-capital" },
         { name: "Business Line of Credit", url: "/business-line-of-credit" },
         { name: "Term Loans", url: "/term-loans" },

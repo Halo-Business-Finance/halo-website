@@ -24,7 +24,7 @@ const Header = () => {
     { title: "Business", href: "/business", active: true },
     { title: "Commercial", href: "/commercial-loans" },
     { title: "Equipment", href: "/equipment-financing" },
-    { title: "Capital Markets", href: "/business-capital" },
+    { title: "Capital Markets", href: "/capital-markets" },
     { title: "Resources", href: "/resources" },
     { title: "About Us", href: "/company-overview" }
   ];
@@ -66,8 +66,8 @@ const Header = () => {
       ]
     },
     { 
-      title: "Business Capital", 
-      href: "/business-capital",
+      title: "Capital Markets", 
+      href: "/capital-markets",
       items: [
         { title: "Working Capital", href: "/working-capital" },
         { title: "Business Line of Credit", href: "/business-line-of-credit" },
