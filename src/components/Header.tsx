@@ -18,7 +18,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  // Primary navigation (top level) - BMO style
+  // Keep primary nav for mobile menu only
   const primaryNav = [
     { title: "Personal", href: "/personal" },
     { title: "Business", href: "/business", active: true },
@@ -40,27 +40,10 @@ const Header = () => {
 
   return (
     <header className="relative bg-white z-40">
-      {/* Primary Navigation Bar - Exact BMO style */}
+      {/* Primary Navigation Bar - Simplified without main nav items */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-12 px-6">
-            {/* Primary Navigation Links */}
-            <nav className="flex items-center">
-              {primaryNav.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.href}
-                  className={`px-4 py-3 text-sm font-medium transition-colors relative ${
-                    item.active 
-                      ? 'text-blue-600 border-b-2 border-blue-600' 
-                      : 'text-gray-700 hover:text-blue-600'
-                  }`}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
-
+          <div className="flex items-center justify-end h-12 px-6">
             {/* Right Side - Search, Phone and Sign In */}
             <div className="flex items-center space-x-6">
               <button className="text-gray-600 hover:text-blue-600">
