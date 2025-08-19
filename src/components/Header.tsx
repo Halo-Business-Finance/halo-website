@@ -135,6 +135,11 @@ const Header = () => {
                         Industry Solutions
                       </Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/sba-loans" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        SBA Resources
+                      </Link>
+                    </DropdownMenuItem>
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
