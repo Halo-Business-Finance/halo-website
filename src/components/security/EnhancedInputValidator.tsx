@@ -8,12 +8,14 @@ export interface ValidationResult {
 
 export class EnhancedInputValidator {
   private static readonly XSS_PATTERNS = [
-    // Enhanced XSS detection patterns
+    // Enhanced XSS detection patterns - comprehensive coverage
     /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
     /<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi,
     /javascript:/gi,
     /vbscript:/gi,
     /data:text\/html/gi,
+    /data:application\/javascript/gi,
+    /data:text\/javascript/gi,
     /on\w+\s*=/gi,
     /<img[^>]+src[^>]*>/gi,
     /<svg[^>]*>/gi,
@@ -21,6 +23,11 @@ export class EnhancedInputValidator {
     /<embed[^>]*>/gi,
     /<object[^>]*>/gi,
     /<applet[^>]*>/gi,
+    /<form[^>]*>/gi,
+    /<input[^>]*>/gi,
+    /<link[^>]*>/gi,
+    /<meta[^>]*>/gi,
+    /<style[^>]*>/gi,
     /expression\s*\(/gi,
     /url\s*\(/gi,
     /document\./gi,
@@ -29,7 +36,54 @@ export class EnhancedInputValidator {
     /setTimeout\s*\(/gi,
     /setInterval\s*\(/gi,
     /Function\s*\(/gi,
+    /constructor/gi,
+    /prototype/gi,
+    /__proto__/gi,
+    /import\s*\(/gi,
+    /require\s*\(/gi,
+    /XMLHttpRequest/gi,
+    /fetch\s*\(/gi,
+    /WebSocket/gi,
+    /postMessage/gi,
+    /localStorage/gi,
+    /sessionStorage/gi,
+    /indexedDB/gi,
+    /location\./gi,
+    /history\./gi,
+    /navigator\./gi,
+    /cookie/gi,
     /<\s*\w+\s+[^>]*\bon\w+\s*=/gi,
+    // Advanced XSS vectors
+    /\[constructor\]/gi,
+    /String\.fromCharCode/gi,
+    /atob\s*\(/gi,
+    /btoa\s*\(/gi,
+    /unescape\s*\(/gi,
+    /decodeURI/gi,
+    /&#x/gi,
+    /&#\d/gi,
+    /\\u[0-9a-fA-F]/gi,
+    /\\x[0-9a-fA-F]/gi,
+    // Template literal injections
+    /\${.*}/gi,
+    // Event handler variations
+    /on[a-z]+\s*=/gi,
+    // CSS expression injections
+    /expression\s*\([^)]*\)/gi,
+    /-moz-binding/gi,
+    // SVG specific
+    /<animate[^>]*>/gi,
+    /<foreignObject[^>]*>/gi,
+    // HTML5 specific
+    /<audio[^>]*>/gi,
+    /<video[^>]*>/gi,
+    /<source[^>]*>/gi,
+    /<track[^>]*>/gi,
+    // WebGL/Canvas
+    /getContext\s*\(/gi,
+    // Service Worker
+    /registerServiceWorker/gi,
+    /serviceWorker/gi
   ];
 
   private static readonly SQL_INJECTION_PATTERNS = [
