@@ -20,6 +20,25 @@ const Header = () => {
     console.log("Setting menu to:", !isOpen);
   };
 
+  // Primary navigation (top level)
+  const primaryNav = [
+    { title: "Company", href: "/company" },
+    { title: "Business", href: "/business", active: true },
+    { title: "Commercial", href: "/commercial" },
+    { title: "Equipment", href: "/equipment" },
+    { title: "Resources", href: "/resources" },
+    { title: "About Us", href: "/company-overview" }
+  ];
+
+  // Secondary navigation (under Business)
+  const secondaryNav = [
+    { title: "SBA Loans", href: "/sba-loans" },
+    { title: "Commercial Loans", href: "/commercial-loans" },
+    { title: "Equipment Financing", href: "/equipment-financing" },
+    { title: "Business Capital", href: "/business-capital" },
+    { title: "Loan Calculator", href: "/loan-calculator" }
+  ];
+
   const menuItems = {
     "Company": {
       title: "Company",
@@ -101,232 +120,184 @@ const Header = () => {
   };
 
   return (
-    <header className="relative shadow-lg border-b border-slate-200/60 z-40 bg-white">
-      {/* Top utility bar - Professional banking style */}
-      <div className="bg-white">
-        <div className="max-w-full mx-auto px-8 py-4">
-          <div className="flex items-center justify-end text-sm">
-            <div className="flex items-center gap-4">
-              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-financial-blue transition-colors font-medium text-slate-700 border-r border-slate-200 pr-4">
-                <Phone className="h-4 w-4" />
-                <span>(800) 730-8461</span>
-              </a>
-              
-              {user ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-slate-700 hover:text-financial-blue font-medium text-sm px-3 py-1 h-8">
-                      <User className="h-4 w-4 mr-2" />
-                      {user.user_metadata?.display_name || user.email}
-                      <ChevronDown className="h-4 w-4 ml-2" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56">
-                    {userRole && (
-                      <DropdownMenuItem disabled>
-                        <Shield className="h-4 w-4 mr-2" />
-                        Role: {userRole}
-                      </DropdownMenuItem>
-                    )}
-                    {isAdmin && (
-                      <DropdownMenuItem asChild>
-                        <Link to="/security-dashboard">
-                          <Shield className="h-4 w-4 mr-2" />
-                          Security Dashboard
-                        </Link>
-                      </DropdownMenuItem>
-                    )}
-                    <DropdownMenuItem onClick={signOut}>
-                      <LogOut className="h-4 w-4 mr-2" />
-                      Sign Out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Button variant="ghost" className="text-slate-700 hover:text-financial-blue font-medium text-sm px-3 py-1 h-8" asChild>
-                  <Link to="/auth">
-                    Sign In
+    <header className="relative bg-white shadow-sm border-b border-gray-200 z-40">
+      {/* BMO-style two-tier navigation */}
+      <div className="w-full">
+        {/* Primary Navigation Bar */}
+        <div className="bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex items-center justify-between h-12">
+              {/* Primary Navigation Links */}
+              <nav className="flex items-center space-x-8">
+                {primaryNav.map((item) => (
+                  <Link
+                    key={item.title}
+                    to={item.href}
+                    className={`text-sm font-medium transition-colors relative ${
+                      item.active 
+                        ? 'text-blue-600 border-b-2 border-blue-600 pb-3' 
+                        : 'text-gray-700 hover:text-blue-600 pb-3'
+                    }`}
+                  >
+                    {item.title}
                   </Link>
-                </Button>
-              )}
+                ))}
+              </nav>
+
+              {/* Right Side - Phone and Sign In */}
+              <div className="flex items-center space-x-4">
+                <a 
+                  href="tel:+18007308461" 
+                  className="text-sm text-gray-600 hover:text-blue-600 flex items-center gap-2"
+                >
+                  <Phone className="h-4 w-4" />
+                  (800) 730-8461
+                </a>
+                
+                {user ? (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="text-sm font-medium px-3 py-1 h-8">
+                        <User className="h-4 w-4 mr-2" />
+                        {user.user_metadata?.display_name || user.email}
+                        <ChevronDown className="h-4 w-4 ml-1" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-56">
+                      {userRole && (
+                        <DropdownMenuItem disabled>
+                          <Shield className="h-4 w-4 mr-2" />
+                          Role: {userRole}
+                        </DropdownMenuItem>
+                      )}
+                      {isAdmin && (
+                        <DropdownMenuItem asChild>
+                          <Link to="/security-dashboard">
+                            <Shield className="h-4 w-4 mr-2" />
+                            Security Dashboard
+                          </Link>
+                        </DropdownMenuItem>
+                      )}
+                      <DropdownMenuItem onClick={signOut}>
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Sign Out
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <Button 
+                    className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-6 py-2 rounded-md" 
+                    asChild
+                  >
+                    <Link to="/auth">
+                      SIGN IN
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Secondary Navigation Bar */}
+        <div className="bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo */}
+              <Link to="/" className="flex items-center">
+                <img
+                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
+                  alt="Halo Business Finance"
+                  className="h-12 w-auto"
+                />
+              </Link>
+
+              {/* Secondary Navigation */}
+              <nav className="hidden lg:flex items-center space-x-8">
+                {secondaryNav.map((item) => (
+                  <Link
+                    key={item.title}
+                    to={item.href}
+                    className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Mobile Menu Button */}
+              <button 
+                className="lg:hidden p-2"
+                onClick={handleMobileMenuToggle}
+                aria-label="Toggle mobile menu"
+              >
+                <Menu className="h-6 w-6 text-gray-700" />
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <nav className="w-full px-4 pt-1 bg-white" aria-label="Main navigation">
-        {/* Mobile/Tablet Layout */}
-        <div className="lg:hidden h-auto">
-          {/* Logo and Menu Button Row */}
-          <div className="relative flex justify-center items-center h-fit py-0.5">
-            <Link to="/" className="block">
-              <img
-                src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
-                alt="Halo Business Finance logo"
-                className="h-20 w-auto relative z-10 drop-shadow-lg"
-                style={{ filter: 'drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3))' }}
-                loading="eager"
-                decoding="async"
-              />
-            </Link>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-financial-navy text-white p-3 rounded-lg z-[999] hover:bg-financial-navy/90 transition-colors"
-              onClick={handleMobileMenuToggle}
-              aria-label="Toggle mobile menu"
-            >
-              <Menu className="h-5 w-5" />
-            </button>
-            
-            {/* Mobile Menu Overlay - Custom implementation */}
-            {isOpen && (
-              <>
-                {/* Backdrop */}
-                <div 
-                  className="fixed inset-0 bg-black/50 z-40"
-                  onClick={() => setIsOpen(false)}
-                />
-                
-                {/* Menu Panel */}
-                <div className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-xl overflow-y-auto">
-                  <div className="flex flex-col gap-4 p-4">
-                    {/* Close button */}
-                    <div className="flex justify-between items-center mb-2">
-                      <h2 className="text-lg font-bold text-financial-navy">Menu</h2>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => setIsOpen(false)}
-                        className="h-8 w-8 p-0"
-                      >
-                        <span className="text-lg">×</span>
-                      </Button>
-                    </div>
-                    
-                    {/* Mobile CTA buttons */}
-                    <div className="flex flex-col gap-3">
-                      {user ? (
-                        <div className="space-y-2">
-                          <div className="text-sm text-muted-foreground">
-                            {user.user_metadata?.display_name || user.email}
-                            {userRole && <span className="ml-2 text-xs">({userRole})</span>}
-                          </div>
-                          {isAdmin && (
-                            <Button variant="outline" className="justify-start border-2" asChild>
-                              <Link to="/security-dashboard" onClick={() => setIsOpen(false)}>
-                                <Shield className="h-4 w-4 mr-2" />
-                                Security Dashboard
-                              </Link>
-                            </Button>
-                          )}
-                          <Button variant="outline" className="justify-start border-2" onClick={() => { signOut(); setIsOpen(false); }}>
-                            <LogOut className="h-4 w-4 mr-2" />
-                            Sign Out
-                          </Button>
-                        </div>
-                      ) : (
-                        <Button variant="outline" className="justify-start border-2" asChild>
-                          <Link to="/auth" onClick={() => setIsOpen(false)}>
-                            <User className="h-4 w-4 mr-2" />
-                            Sign In
-                          </Link>
-                        </Button>
-                      )}
-                      <Button className="justify-start bg-financial-navy" asChild>
-                        <Link to={user ? "/loan-calculator" : "/auth"} onClick={() => setIsOpen(false)}>
-                          Get Started
-                        </Link>
-                      </Button>
-                    </div>
-                    
-                    {/* Mobile navigation */}
-                    <div className="border-t pt-3 flex-1">
-                      <nav className="flex flex-col gap-3">
-                        {Object.entries(menuItems).map(([key, item]) => (
-                          <div key={key} className="space-y-2">
-                            <h3 className="font-bold text-base text-financial-navy">{item.title}</h3>
-                            <div className="pl-3 space-y-1">
-                              {item.items.map((subItem) => (
-                                <Link
-                                  key={subItem}
-                                  to={getItemLink(item.title, subItem)}
-                                  className="block text-slate-600 hover:text-financial-blue transition-colors py-0.5 text-sm"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  {subItem}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </nav>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Desktop Layout - Clean horizontal style */}
-        <div className="hidden lg:block w-full">
-          {/* Logo and marketplace text centered */}
-          <div className="flex justify-center pt-3 pb-2">
-            <div className="flex flex-col items-center">
-              <Link to="/" className="block relative mb-2">
-                <img
-                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png"
-                  alt="Halo Business Finance logo"
-                  className="h-16 w-auto relative z-10 drop-shadow-lg transition-transform duration-300 hover:scale-105"
-                  style={{ filter: 'drop-shadow(0 8px 16px rgba(59, 130, 246, 0.2))' }}
-                  loading="eager"
-                  decoding="async"
-                />
-              </Link>
-              <span className="text-black font-bold text-sm text-center">
-                Nationwide SBA & Commercial Loan Marketplace
-              </span>
-            </div>
-          </div>
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <>
+          <div 
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            onClick={() => setIsOpen(false)}
+          />
           
-          {/* Horizontal navigation menu */}
-          <div className="flex justify-center items-center px-8 pb-3">
-            <div className="flex items-center space-x-8">
-              {Object.entries(menuItems).map(([key, item]) => (
-                <DropdownMenu key={key}>
-                  <DropdownMenuTrigger className="flex items-center text-slate-700 hover:text-financial-blue font-medium text-sm transition-all duration-200 group">
-                    {item.title}
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-white border border-slate-200 shadow-[var(--shadow-professional)] rounded-xl p-3 min-w-[260px] mt-2 z-50">
-                    <div className="py-2">
-                      <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
-                        {item.title}
-                      </div>
-                      {item.items.map((subItem) => (
-                        <DropdownMenuItem key={subItem} className="rounded-lg hover:bg-slate-50 transition-colors duration-200 p-3 mb-1" asChild>
-                          <Link to={getItemLink(item.title, subItem)} className="flex items-center text-slate-700 hover:text-financial-blue font-medium group">
-                            <div className="w-2 h-2 bg-financial-blue/20 rounded-full mr-3 group-hover:bg-financial-blue transition-colors duration-200"></div>
-                            {subItem}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ))}
+          <div className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-xl overflow-y-auto lg:hidden">
+            <div className="flex flex-col gap-4 p-4">
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-lg font-bold text-gray-900">Menu</h2>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => setIsOpen(false)}
+                  className="h-8 w-8 p-0"
+                >
+                  <span className="text-lg">×</span>
+                </Button>
+              </div>
               
-              {/* Get Started Button */}
-              <Button className="bg-financial-navy text-white font-semibold px-6 shadow-[var(--shadow-button)] hover:shadow-lg transition-all duration-300 ml-4" asChild>
-                <Link to={user ? "/loan-calculator" : "/auth"}>
-                  Get Started
-                </Link>
-              </Button>
+              {/* Mobile Navigation */}
+              <div className="space-y-4">
+                {primaryNav.map((item) => (
+                  <Link
+                    key={item.title}
+                    to={item.href}
+                    className="block text-gray-700 hover:text-blue-600 font-medium py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+                
+                <div className="border-t pt-4 space-y-2">
+                  {secondaryNav.map((item) => (
+                    <Link
+                      key={item.title}
+                      to={item.href}
+                      className="block text-gray-600 hover:text-blue-600 py-1 pl-4"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+                
+                {!user && (
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-4" asChild>
+                    <Link to="/auth" onClick={() => setIsOpen(false)}>
+                      Sign In
+                    </Link>
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </>
+      )}
     </header>
   );
 };
