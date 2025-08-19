@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useFormSecurity } from '@/components/security/FormSecurityProvider';
+import { useRateLimit } from '@/components/security/EnhancedRateLimiter';
+import { useDataProtection } from '@/components/security/DataProtectionProvider';
 import { SecureFormValidator, securityValidationRules, validateFormData } from '@/components/security/SecureFormValidator';
 import { SecureErrorHandler } from '@/components/security/SecureErrorHandler';
 import { Button } from '@/components/ui/button';
@@ -28,7 +30,9 @@ interface FormData {
 export const SecureConsultationForm: React.FC = () => {
   const { user } = useAuth();
   const { toast } = useToast();
-  const { generateCSRFToken, validateCSRFToken, encryptSensitiveData } = useFormSecurity();
+  const { generateCSRFToken, validateCSRFToken, encryptSensitiveData, sanitizeInput, validateInput } = useFormSecurity();
+  const { checkRateLimit } = useRateLimit();
+  const { encryptPII, sanitizeForStorage } = useDataProtection();
   
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -126,26 +130,107 @@ export const SecureConsultationForm: React.FC = () => {
     setError(null);
 
     try {
-      // Encrypt sensitive data before submission
+      // Enhanced rate limiting check
+      const rateLimitPassed = await checkRateLimit('consultation_submit', 3);
+      if (!rateLimitPassed) {
+        toast({
+          title: 'Rate limit exceeded',
+          description: 'Please wait before submitting another consultation request.',
+          variant: 'destructive',
+        });
+        return;
+      }
+
+      // Enhanced input validation with security logging
+      const validations = [
+        { field: 'name', value: formData.name, type: 'text' as const },
+        { field: 'email', value: formData.email, type: 'email' as const },
+        { field: 'phone', value: formData.phone, type: 'phone' as const },
+        { field: 'company', value: formData.company, type: 'text' as const },
+        { field: 'message', value: formData.message, type: 'text' as const },
+      ];
+
+      for (const validation of validations) {
+        if (!validateInput(validation.value, validation.type)) {
+          // Log validation failure for security monitoring
+          await supabase.rpc('log_client_security_event', {
+            event_type: 'form_validation_failure',
+            severity: 'medium',
+            event_data: { 
+              field: validation.field, 
+              validation_type: validation.type,
+              form_type: 'consultation'
+            },
+            source: 'secure_consultation_form'
+          });
+          
+          toast({
+            title: 'Invalid input',
+            description: `Please check your ${validation.field} format.`,
+            variant: 'destructive',
+          });
+          return;
+        }
+      }
+
+      // Enhanced encryption with multiple layers
       const encryptedData = {
-        encrypted_name: encryptSensitiveData(formData.name),
-        encrypted_email: encryptSensitiveData(formData.email),
-        encrypted_phone: encryptSensitiveData(formData.phone || ''),
-        company: formData.company,
+        encrypted_name: encryptPII(sanitizeInput(formData.name)),
+        encrypted_email: encryptPII(sanitizeInput(formData.email)),
+        encrypted_phone: encryptPII(sanitizeInput(formData.phone || '')),
+        company: sanitizeInput(formData.company),
         loan_program: formData.loan_program,
         loan_amount: formData.loan_amount,
         timeframe: formData.timeframe,
-        message: formData.message,
-        user_id: user.id
+        message: encryptSensitiveData(sanitizeInput(formData.message)),
+        user_id: user.id,
+        status: 'pending'
       };
 
-      // Submit through secure edge function instead of direct database insert
-      const { data, error } = await supabase.functions.invoke('send-consultation-email', {
-        body: encryptedData
-      });
+      // Enhanced sanitization for storage
+      const sanitizedData = sanitizeForStorage(encryptedData);
 
-      if (error) throw error;
-      if (!data?.success) throw new Error(data?.error || 'Failed to submit consultation');
+      // Ensure data has required structure for database insert
+      const finalData = {
+        encrypted_name: sanitizedData.encrypted_name as string,
+        encrypted_email: sanitizedData.encrypted_email as string,
+        encrypted_phone: sanitizedData.encrypted_phone as string,
+        company: sanitizedData.company as string,
+        loan_program: sanitizedData.loan_program as string,
+        loan_amount: sanitizedData.loan_amount as string,
+        timeframe: sanitizedData.timeframe as string,
+        message: sanitizedData.message as string,
+        user_id: sanitizedData.user_id as string,
+        status: sanitizedData.status as string
+      };
+
+      // Secure submission with enhanced logging
+      const { error } = await supabase
+        .from('consultations')
+        .insert([finalData]);
+
+      if (error) {
+        // Log submission error for security monitoring
+        await supabase.rpc('log_client_security_event', {
+          event_type: 'consultation_submission_error',
+          severity: 'high',
+          event_data: { error: error.message, form_type: 'consultation' },
+          source: 'secure_consultation_form'
+        });
+        throw error;
+      }
+
+      // Log successful submission
+      await supabase.rpc('log_client_security_event', {
+        event_type: 'consultation_submitted',
+        severity: 'info',
+        event_data: { 
+          loan_program: formData.loan_program,
+          loan_amount: formData.loan_amount,
+          submission_secured: true
+        },
+        source: 'secure_consultation_form'
+      });
 
       setIsSubmitted(true);
       toast({

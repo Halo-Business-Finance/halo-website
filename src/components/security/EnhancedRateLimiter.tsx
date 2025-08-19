@@ -113,8 +113,8 @@ export const EnhancedRateLimitProvider: React.FC<{ children: React.ReactNode }> 
       const identifier = user?.id || `anonymous_${getClientId()}`;
       const limit = customLimit || getDefaultLimit(action);
       
-      // Use enhanced rate limiting with behavioral score
-      const { data, error } = await supabase.rpc('enhanced_rate_limit_check', {
+      // Use the new advanced rate limiting function with enhanced security
+      const { data, error } = await supabase.rpc('advanced_rate_limit_check', {
         p_identifier: identifier,
         p_action: action,
         p_limit: limit,
