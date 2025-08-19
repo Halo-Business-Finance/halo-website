@@ -29,13 +29,63 @@ const Header = () => {
     { title: "About Us", href: "/company-overview" }
   ];
 
-  // Secondary navigation (under Business) - BMO style
-  const secondaryNav = [
-    { title: "SBA Loans", href: "/sba-loans" },
-    { title: "Commercial Loans", href: "/commercial-loans" },
-    { title: "Equipment Financing", href: "/equipment-financing" },
-    { title: "Business Capital", href: "/business-capital" },
-    { title: "Loan Calculator", href: "/loan-calculator" }
+  // Secondary navigation with dropdown menus
+  const secondaryNavWithDropdowns = [
+    { 
+      title: "SBA Loans", 
+      href: "/sba-loans",
+      items: [
+        { title: "SBA 7(a) Loans", href: "/sba-7a-loans" },
+        { title: "SBA 504 Loans", href: "/sba-504-loans" },
+        { title: "SBA Express Loans", href: "/sba-express-loans" },
+        { title: "SBA Microloans", href: "/sba-microloans" },
+        { title: "USDA B&I Loans", href: "/usda-bi-loans" }
+      ]
+    },
+    { 
+      title: "Commercial Loans", 
+      href: "/commercial-loans",
+      items: [
+        { title: "Conventional Loans", href: "/conventional-loans" },
+        { title: "CMBS Loans", href: "/cmbs-loans" },
+        { title: "Portfolio Loans", href: "/portfolio-loans" },
+        { title: "Construction Loans", href: "/construction-loans" },
+        { title: "Bridge Financing", href: "/bridge-financing" },
+        { title: "Multifamily Loans", href: "/multifamily-loans" },
+        { title: "Asset-Based Loans", href: "/asset-based-loans" }
+      ]
+    },
+    { 
+      title: "Equipment Financing", 
+      href: "/equipment-financing",
+      items: [
+        { title: "Equipment Loans", href: "/equipment-loans" },
+        { title: "Equipment Leasing", href: "/equipment-leasing" },
+        { title: "Heavy Equipment", href: "/heavy-equipment" },
+        { title: "Medical Equipment", href: "/medical-equipment" }
+      ]
+    },
+    { 
+      title: "Business Capital", 
+      href: "/business-capital",
+      items: [
+        { title: "Working Capital", href: "/working-capital" },
+        { title: "Business Line of Credit", href: "/business-line-of-credit" },
+        { title: "Term Loans", href: "/term-loans" },
+        { title: "Factoring-Based Financing", href: "/factoring-based-financing" }
+      ]
+    },
+    { 
+      title: "Resources", 
+      href: "/resources",
+      items: [
+        { title: "Loan Calculator", href: "/loan-calculator" },
+        { title: "Business Resources", href: "/business-finance-resources" },
+        { title: "Industry Solutions", href: "/industry-solutions" },
+        { title: "Customer Service", href: "/customer-service" },
+        { title: "Technical Support", href: "/technical-support" }
+      ]
+    }
   ];
 
   return (
@@ -131,16 +181,27 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Secondary Navigation */}
+            {/* Secondary Navigation with Dropdowns */}
             <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
-              {secondaryNav.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-2"
-                >
-                  {item.title}
-                </Link>
+              {secondaryNavWithDropdowns.map((item) => (
+                <DropdownMenu key={item.title}>
+                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-2 group">
+                    {item.title}
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
+                    <div className="py-1">
+                      {item.items.map((subItem) => (
+                        <DropdownMenuItem key={subItem.title} className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                          <Link to={subItem.href} className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                            <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                            {subItem.title}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               ))}
             </nav>
 
@@ -198,15 +259,22 @@ const Header = () => {
                 
                 <div className="border-t pt-4">
                   <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Services</h3>
-                  {secondaryNav.map((item) => (
-                    <Link
-                      key={item.title}
-                      to={item.href}
-                      className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.title}
-                    </Link>
+                  {secondaryNavWithDropdowns.map((item) => (
+                    <div key={item.title} className="mb-4">
+                      <div className="font-medium text-gray-700 mb-2">{item.title}</div>
+                      <div className="pl-4 space-y-1">
+                        {item.items.map((subItem) => (
+                          <Link
+                            key={subItem.title}
+                            to={subItem.href}
+                            className="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
                 
