@@ -48,6 +48,7 @@ const MedicalEquipmentPage = lazy(() => import("./pages/MedicalEquipmentPage"));
 const TermLoansPage = lazy(() => import("./pages/TermLoansPage"));
 const FactoringBasedFinancingPage = lazy(() => import("./pages/FactoringBasedFinancingPage"));
 const LoanCalculatorPage = lazy(() => import("./pages/LoanCalculatorPage"));
+const LoanCalculatorPageTest = lazy(() => import("./pages/LoanCalculatorPageTest"));
 
 const IndustrySolutionsPage = lazy(() => import("./pages/IndustrySolutionsPage"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorksPage"));
@@ -195,7 +196,8 @@ const App = () => {
             <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
             <Route path="/term-loans" element={<TermLoansPage />} />
             <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
-            <Route path="/loan-calculator" element={<LoanCalculatorPage />} />
+            <Route path="/loan-calculator" element={<LoanCalculatorPageTest />} />
+            <Route path="/loan-calculator-full" element={<LoanCalculatorPage />} />
             
             <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />

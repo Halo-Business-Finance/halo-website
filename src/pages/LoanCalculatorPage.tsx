@@ -12,6 +12,7 @@ import businessLoanImg from "@/assets/business-loan-approved.jpg";
 import calculatorImg from "@/assets/calculator-finance.jpg";
 
 const LoanCalculatorPage = () => {
+  console.log("LoanCalculatorPage component loaded");
   const [loanType, setLoanType] = useState("conventional");
   const [loanAmount, setLoanAmount] = useState("100000");
   const [interestRate, setInterestRate] = useState("7.5");
@@ -72,13 +73,7 @@ const LoanCalculatorPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40"></div>
-        <img 
-          src={calculatorImg} 
-          alt="Professional loan calculator and business financing" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <section className="relative bg-gradient-to-r from-primary to-secondary py-20 overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <Calculator className="h-16 w-16 mx-auto mb-4" />
