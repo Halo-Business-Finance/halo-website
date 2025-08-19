@@ -112,12 +112,12 @@ export const UniversalFormSecurityWrapper: React.FC<SecureFormWrapperProps> = ({
       );
     }
 
-    if (securityState.warnings.length > 0) {
+    if (securityState.securityWarnings.length > 0) {
       return (
         <Alert variant="default" className="mb-4">
           <Shield className="h-4 w-4" />
           <AlertDescription>
-            Security notice: {securityState.warnings.join(', ')}
+            Security notice: {securityState.securityWarnings.join(', ')}
           </AlertDescription>
         </Alert>
       );
@@ -171,7 +171,7 @@ export function withFormSecurity<T extends Record<string, any>>(
   Component: ComponentType<T>,
   securityConfig: FormSecurityConfig
 ) {
-  return React.forwardRef<any, T>((props, ref) => {
+  const WrappedComponent = (props: T) => {
     return (
       <UniversalFormSecurityWrapper
         config={securityConfig}
@@ -179,10 +179,14 @@ export function withFormSecurity<T extends Record<string, any>>(
           console.warn('Security violation detected:', violation, details);
         }}
       >
-        <Component ref={ref} {...props} />
+        <Component {...props} />
       </UniversalFormSecurityWrapper>
     );
-  });
+  };
+  
+  WrappedComponent.displayName = `withFormSecurity(${Component.displayName || Component.name})`;
+  
+  return WrappedComponent;
 }
 
 // Pre-configured security levels
