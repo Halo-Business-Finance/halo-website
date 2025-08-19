@@ -104,14 +104,15 @@ const Header = () => {
     <header className="relative shadow-lg border-b border-slate-200/60 z-40 bg-white">
       {/* Top utility bar - Professional banking style */}
       <div className="bg-white">
-        <div className="max-w-full mx-auto px-8 py-4">
-          <div className="grid grid-cols-3 items-center text-sm">
-            <div></div> {/* Left spacer */}
-            <span className="hidden sm:inline text-black font-bold text-center justify-self-center">Nationwide SBA & Commercial Loan Marketplace</span>
-            <div className="flex items-center gap-4 justify-self-end">
-              <a href="tel:+18007308461" className="flex items-center gap-2 hover:text-financial-blue transition-colors font-medium text-slate-700 border-r border-slate-200 pr-4">
-                <Phone className="h-4 w-4" />
-                <span>(800) 730-8461</span>
+        <div className="max-w-full mx-auto px-4 sm:px-8 py-4">
+          <div className="flex items-center justify-between text-sm">
+            <div className="hidden sm:block"></div> {/* Left spacer for desktop */}
+            <span className="hidden sm:inline text-black font-bold text-center">Nationwide SBA & Commercial Loan Marketplace</span>
+            <div className="flex items-center gap-2 sm:gap-4 ml-auto">
+              <a href="tel:+18007308461" className="flex items-center gap-1 sm:gap-2 hover:text-financial-blue transition-colors font-medium text-slate-700 border-r border-slate-200 pr-2 sm:pr-4 text-xs sm:text-sm">
+                <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="hidden xs:inline">(800) 730-8461</span>
+                <span className="xs:hidden">Call</span>
               </a>
               
               {user ? (

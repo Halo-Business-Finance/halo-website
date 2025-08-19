@@ -13,7 +13,7 @@ import { SecureAuthProvider } from "@/components/security/SecureAuthProvider";
 import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
-import DisclaimerPopup from "@/components/DisclaimerPopup";
+import PrivacyPolicyPopup from "@/components/PrivacyPolicyPopup";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -149,7 +149,7 @@ const App = () => {
             <SecurityHeaders />
             <SecurityMonitor />
           <PerformanceMonitor />
-          <DisclaimerPopup />
+          <PrivacyPolicyPopup />
       <BrowserRouter>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
