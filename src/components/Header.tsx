@@ -135,7 +135,7 @@ const Header = () => {
               </DropdownMenu>
             </nav>
 
-            {/* Right Side - Search, Phone and Sign In */}
+            {/* Right Side - Search, Customer Support and Sign In */}
             <div className="flex items-center space-x-6">
               <button className="text-gray-600 hover:text-blue-600">
                 <Search className="h-5 w-5" />
@@ -143,13 +143,42 @@ const Header = () => {
               
               <div className="hidden md:block w-px h-4 bg-gray-300"></div>
               
-              <a 
-                href="tel:+18007308461" 
-                className="hidden md:flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600"
-              >
-                <Phone className="h-4 w-4" />
-                (800) 730-8461
-              </a>
+              {/* Customer Support Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="hidden md:flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors group">
+                  <Phone className="h-4 w-4" />
+                  Customer Support
+                  <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
+                  <div className="py-1">
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <a href="tel:+18007308461" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <Phone className="h-4 w-4 mr-3" />
+                        Call (800) 730-8461
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/contact-us" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Contact Us
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Customer Service
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
+                      <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                        <div className="w-2 h-2 bg-blue-600/20 rounded-full mr-3"></div>
+                        Technical Support
+                      </Link>
+                    </DropdownMenuItem>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
               
               {user ? (
                 <DropdownMenu>
@@ -325,7 +354,7 @@ const Header = () => {
                     className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 mb-4"
                   >
                     <Phone className="h-4 w-4" />
-                    (800) 730-8461
+                    Call (800) 730-8461
                   </a>
                   
                   {!user && (
