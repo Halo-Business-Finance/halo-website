@@ -23,8 +23,8 @@ const DisclaimerPopup = () => {
     localStorage.setItem("halo-disclaimer-accepted", "true");
     setIsVisible(false);
     toast({
-      title: "Terms Accepted",
-      description: "You can review our terms and privacy policy at any time in the footer.",
+      title: "Privacy Policy Acknowledged",
+      description: "You can review our full privacy policy at any time in the footer.",
     });
   };
 
@@ -41,10 +41,9 @@ const DisclaimerPopup = () => {
           <div className="flex items-center gap-3 flex-1">
             <Shield className="h-5 w-5 text-primary flex-shrink-0" />
             <div className="text-sm">
-              <span className="font-medium">Legal Notice:</span>
+              <span className="font-medium">Privacy Policy:</span>
               <span className="text-muted-foreground ml-1">
-                By using this site, you agree to our Terms of Service and Privacy Policy. 
-                We are a licensed commercial lending marketplace (NMLS ID: 2272778).
+                Your privacy is important to us. We collect and use your information to process loan applications and connect you with qualified lenders. We implement industry-leading security measures to protect your data and comply with all applicable privacy regulations.
               </span>
             </div>
           </div>
