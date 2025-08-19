@@ -140,16 +140,6 @@ const Header = () => {
                         Industry Solutions
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        Customer Service
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
-                        Technical Support
-                      </Link>
-                    </DropdownMenuItem>
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
