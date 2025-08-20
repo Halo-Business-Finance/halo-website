@@ -391,24 +391,59 @@ const Header = () => {
               
               {/* Mobile Navigation */}
               <div className="space-y-6">
+                {/* Company Section */}
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Main</h3>
-                  {primaryNav.map((item) => (
-                    <Link
-                      key={item.title}
-                      to={item.href}
-                      className={`block py-2 text-sm font-medium transition-colors ${
-                        item.active ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.title}
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Company</h3>
+                  <div className="space-y-2">
+                    <Link to="/company-overview" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Company Overview
                     </Link>
-                  ))}
+                    <Link to="/how-it-works" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      How it Works
+                    </Link>
+                    <Link to="/marketplace-benefits" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Marketplace Benefits
+                    </Link>
+                    <Link to="/careers" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Careers
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Resources Section */}
+                <div className="border-t pt-4">
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Resources</h3>
+                  <div className="space-y-2">
+                    <Link to="/loan-calculator" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Loan Calculator
+                    </Link>
+                    <Link to="/industry-solutions" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Industry Solutions
+                    </Link>
+                    <Link to="/sba-loans" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      SBA Resources
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Partners Section */}
+                <div className="border-t pt-4">
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Partners</h3>
+                  <div className="space-y-2">
+                    <Link to="/brokers" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Brokers
+                    </Link>
+                    <Link to="/lenders" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Lenders
+                    </Link>
+                    <Link to="/referral-partners" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Referral Partners
+                    </Link>
+                  </div>
                 </div>
                 
                 <div className="border-t pt-4">
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Services</h3>
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Loan Services</h3>
                   {secondaryNavWithDropdowns.map((item) => (
                     <div key={item.title} className="mb-4">
                       <div className="font-medium text-gray-700 mb-2">{item.title}</div>
@@ -427,15 +462,38 @@ const Header = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Customer Support Section */}
+                <div className="border-t pt-4">
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Customer Support</h3>
+                  <div className="space-y-2">
+                    <a 
+                      href="tel:+18007308461" 
+                      className="flex items-center gap-2 py-2 text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Call (800) 730-8461
+                    </a>
+                    <Link to="/contact-us" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Contact Us
+                    </Link>
+                    <Link to="/customer-service" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Customer Service
+                    </Link>
+                    <Link to="/technical-support" className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
+                      Technical Support
+                    </Link>
+                    <ConsultationPopup 
+                      trigger={
+                        <button className="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors text-left w-full">
+                          Schedule Consultation
+                        </button>
+                      }
+                    />
+                  </div>
+                </div>
                 
                 <div className="border-t pt-4">
-                  <a 
-                    href="tel:+18007308461" 
-                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 mb-4"
-                  >
-                    <Phone className="h-4 w-4" />
-                    Call (800) 730-8461
-                  </a>
                   
                   {!user && (
                     <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wide" asChild>
