@@ -10,7 +10,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative min-h-[420px] md:min-h-[480px] flex items-center overflow-hidden"
+      className="relative min-h-[460px] md:min-h-[520px] flex items-center overflow-hidden"
       aria-label="Hero section"
     >
       <LazyImage 
