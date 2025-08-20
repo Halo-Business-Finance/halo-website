@@ -300,7 +300,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-16 px-4 sm:px-6">
             {/* Secondary Navigation with Dropdowns */}
-            <nav className="hidden lg:flex items-center justify-center space-x-8 flex-1">
+            <nav className="hidden lg:flex items-center space-x-8 flex-1">
               {secondaryNavWithDropdowns.map((item) => (
                 <DropdownMenu key={item.title}>
                   <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-2 px-1 group">
