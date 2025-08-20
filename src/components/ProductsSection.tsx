@@ -462,7 +462,7 @@ const ProductsSection = () => {
 
             <div className="overflow-hidden max-w-none w-full" ref={emblaRef}>
               <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
-                {products.slice(0, 3).map((product, index) => (
+                {products.slice(0, 4).map((product, index) => (
                   <div 
                     key={index} 
                     className="flex-shrink-0 w-64 md:w-72 lg:w-80"
@@ -537,11 +537,11 @@ const ProductsSection = () => {
 
           {/* Carousel Indicators */}
           <div className="flex justify-center mt-6 gap-2">
-            {Array.from({ length: Math.ceil(3 / 3) }).map((_, index) => (
+            {Array.from({ length: Math.ceil(4 / 4) }).map((_, index) => (
               <button
                 key={index}
                 className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200"
-                onClick={() => emblaApi?.scrollTo(index * 3)}
+                onClick={() => emblaApi?.scrollTo(index * 4)}
               />
             ))}
           </div>
@@ -644,7 +644,7 @@ const ProductsSection = () => {
             <div className="p-8 md:p-12 bg-slate-50/30">
               <div className="overflow-hidden max-w-none w-full" ref={businessEmblaRef}>
                 <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
-                  {businessProducts.slice(0, 3).map((product, index) => (
+                  {businessProducts.slice(0, 4).map((product, index) => (
                     <div 
                       key={index} 
                       className="flex-shrink-0 w-64 md:w-72 lg:w-80"
