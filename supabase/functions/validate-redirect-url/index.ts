@@ -17,11 +17,6 @@ serve(async (req) => {
   }
 
   try {
-    const supabaseClient = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
-    );
-
     const { redirectUrl }: ValidateRequest = await req.json();
 
     if (!redirectUrl) {
@@ -34,26 +29,66 @@ serve(async (req) => {
       );
     }
 
-    // Validate using the database function
-    const { data, error } = await supabaseClient.rpc('validate_redirect_url', {
-      redirect_url: redirectUrl
-    });
+    // Client-side URL validation to avoid database recursion issues
+    const allowedDomains = [
+      'localhost',
+      '127.0.0.1',
+      'halobusinessfinance.com',
+      'lovable.dev',
+      'lovable.app',
+      'supabase.co'
+    ];
 
-    if (error) {
-      console.error('Database validation error:', error);
-      return new Response(
-        JSON.stringify({ isValid: false, reason: 'Validation failed' }),
-        {
-          status: 500,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        }
+    let isValid = false;
+    let reason = 'Invalid domain';
+
+    try {
+      const url = new URL(redirectUrl);
+      const hostname = url.hostname;
+      
+      // Check if domain is in allowed list or is a subdomain of allowed domains
+      isValid = allowedDomains.some(domain => 
+        hostname === domain || 
+        hostname.endsWith('.' + domain)
       );
+
+      if (!isValid) {
+        reason = `Domain ${hostname} is not in allowed list`;
+      }
+    } catch (urlError) {
+      isValid = false;
+      reason = 'Invalid URL format';
+    }
+
+    // Log suspicious redirect attempts (but don't fail if logging fails)
+    if (!isValid) {
+      try {
+        const supabaseClient = createClient(
+          Deno.env.get('SUPABASE_URL') ?? '',
+          Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+        );
+
+        await supabaseClient.from('security_events').insert({
+          event_type: 'suspicious_redirect_url_detected',
+          severity: 'high',
+          event_data: {
+            attempted_url: redirectUrl,
+            validation_reason: reason,
+            user_agent: req.headers.get('user-agent') || 'unknown'
+          },
+          source: 'redirect_validation',
+          ip_address: req.headers.get('x-forwarded-for') || 'unknown'
+        });
+      } catch (logError) {
+        console.warn('Failed to log security event:', logError);
+      }
     }
 
     return new Response(
       JSON.stringify({ 
-        isValid: data,
-        redirectUrl: data ? redirectUrl : null
+        isValid,
+        redirectUrl: isValid ? redirectUrl : null,
+        reason: isValid ? 'Valid domain' : reason
       }),
       {
         status: 200,
