@@ -88,7 +88,7 @@ const Header = () => {
       {/* Primary Navigation Bar - Hidden on mobile, only visible on desktop */}
       <div className="hidden lg:block">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-12 px-6">
+          <div className="flex items-center justify-between h-16 px-6">
             {/* Left Side - Company and Resources Navigation */}
             <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
@@ -276,7 +276,7 @@ const Header = () => {
       {/* Secondary Navigation Bar - BMO style with logo */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+          <div className="flex items-center justify-between h-20 px-4 sm:px-6">
             {/* Logo */}
             <Link to="/" className="flex items-center mr-8">
               <div className="flex items-center space-x-2">
