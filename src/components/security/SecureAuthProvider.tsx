@@ -66,34 +66,42 @@ export const SecureAuthProvider: React.FC<SecureAuthProviderProps> = ({ children
       });
 
       if (error) {
-        // Log security event for failed signup attempts
-        await supabase.functions.invoke('log-security-event', {
-          body: {
-            event_type: 'signup_attempt_failed',
-            severity: 'medium',
-            event_data: {
-              email_domain: email.split('@')[1],
-              error_type: error.message,
-              timestamp: new Date().toISOString()
-            },
-            source: 'secure_auth'
-          }
-        });
+        // Log security event for failed signup attempts (but don't fail if logging fails)
+        try {
+          await supabase.functions.invoke('log-security-event', {
+            body: {
+              event_type: 'signup_attempt_failed',
+              severity: 'medium',
+              event_data: {
+                email_domain: email.split('@')[1],
+                error_type: error.message,
+                timestamp: new Date().toISOString()
+              },
+              source: 'secure_auth'
+            }
+          });
+        } catch (logError) {
+          console.warn('Failed to log security event, but continuing with signup:', logError);
+        }
       } else if (data.user) {
-        // Log successful signup
-        await supabase.functions.invoke('log-security-event', {
-          body: {
-            event_type: 'user_signup_success',
-            severity: 'info',
-            event_data: {
-              user_id: data.user.id,
-              email_domain: email.split('@')[1],
-              confirmation_required: !data.session,
-              timestamp: new Date().toISOString()
-            },
-            source: 'secure_auth'
-          }
-        });
+        // Log successful signup (but don't fail if logging fails)
+        try {
+          await supabase.functions.invoke('log-security-event', {
+            body: {
+              event_type: 'user_signup_success',
+              severity: 'info',
+              event_data: {
+                user_id: data.user.id,
+                email_domain: email.split('@')[1],
+                confirmation_required: !data.session,
+                timestamp: new Date().toISOString()
+              },
+              source: 'secure_auth'
+            }
+          });
+        } catch (logError) {
+          console.warn('Failed to log security event, but signup successful:', logError);
+        }
       }
 
       return { error };
@@ -121,19 +129,23 @@ export const SecureAuthProvider: React.FC<SecureAuthProviderProps> = ({ children
         redirectTo: redirectUrl,
       });
 
-      // Log password reset attempt
-      await supabase.functions.invoke('log-security-event', {
-        body: {
-          event_type: 'password_reset_requested',
-          severity: error ? 'medium' : 'info',
-          event_data: {
-            email_domain: email.split('@')[1],
-            success: !error,
-            timestamp: new Date().toISOString()
-          },
-          source: 'secure_auth'
-        }
-      });
+      // Log password reset attempt (but don't fail if logging fails)
+      try {
+        await supabase.functions.invoke('log-security-event', {
+          body: {
+            event_type: 'password_reset_requested',
+            severity: error ? 'medium' : 'info',
+            event_data: {
+              email_domain: email.split('@')[1],
+              success: !error,
+              timestamp: new Date().toISOString()
+            },
+            source: 'secure_auth'
+          }
+        });
+      } catch (logError) {
+        console.warn('Failed to log security event:', logError);
+      }
 
       return { error };
     } catch (err: any) {
