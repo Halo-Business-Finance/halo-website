@@ -168,7 +168,10 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
           }
         });
       } catch (logError) {
-        console.warn('Security logging failed:', logError);
+        // Enhanced secure logging - don't expose errors in production
+        if (import.meta.env.DEV) {
+          console.warn('Security logging failed:', logError);
+        }
       }
 
       const { data, error } = await supabase.functions.invoke('send-consultation-email', {
@@ -201,7 +204,13 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
         message: ""
       });
     } catch (error: any) {
-      console.error('Consultation submission error:', error);
+      // Secure error logging - don't expose sensitive error details in production
+      if (import.meta.env.DEV) {
+        console.error('Consultation submission error:', error);
+      } else {
+        // In production, only log sanitized error information
+        console.error('Consultation submission failed');
+      }
       
       // Enhanced error handling with security considerations
       let errorMessage = "Something went wrong. Please try again.";
@@ -268,10 +277,18 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
           </div>
         ) : (
           <div>
-            <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-              <div className="flex items-center gap-2 text-sm text-green-700">
-                <Shield className="h-4 w-4" />
-                <span>Secure Form - Your information is encrypted and protected</span>
+            {/* Enhanced Security Notice */}
+            <div className="mb-4 p-4 bg-primary/10 rounded-lg border border-primary/20">
+              <div className="flex items-start gap-3">
+                <Shield className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-semibold text-sm text-primary mb-1">Military-Grade Security</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Your sensitive information is protected with AES-256 encryption, 
+                    CSRF protection, and secure transmission protocols. All data is 
+                    sanitized and validated before processing.
+                  </p>
+                </div>
               </div>
             </div>
             

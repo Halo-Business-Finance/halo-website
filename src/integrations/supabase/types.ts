@@ -778,11 +778,18 @@ export type Database = {
         Returns: boolean
       }
       secure_assign_user_role_v2: {
-        Args: {
-          expiration_date?: string
-          new_role: Database["public"]["Enums"]["app_role"]
-          target_user_id: string
-        }
+        Args:
+          | {
+              expiration_date?: string
+              justification?: string
+              new_role: Database["public"]["Enums"]["app_role"]
+              target_user_id: string
+            }
+          | {
+              expiration_date?: string
+              new_role: Database["public"]["Enums"]["app_role"]
+              target_user_id: string
+            }
         Returns: Json
       }
       secure_cleanup_consultations: {

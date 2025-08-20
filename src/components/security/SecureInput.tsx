@@ -34,13 +34,40 @@ export const SecureInput: React.FC<SecureInputProps> = ({
   const sanitizeInput = (input: string): string => {
     if (!preventXSS) return input;
 
-    // Remove potential XSS vectors
-    return input
-      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-      .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
-      .replace(/javascript:/gi, '')
-      .replace(/on\w+\s*=/gi, '')
-      .replace(/<[^>]*>/g, ''); // Remove all HTML tags
+    // Enhanced XSS protection with comprehensive patterns
+    let sanitized = input;
+    
+    const xssPatterns = [
+      /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+      /<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi,
+      /<object[^>]*>.*?<\/object>/gi,
+      /<embed[^>]*>/gi,
+      /<link[^>]*>/gi,
+      /<meta[^>]*>/gi,
+      /javascript:/gi,
+      /data:text\/html/gi,
+      /vbscript:/gi,
+      /on\w+\s*=/gi,
+      /expression\s*\(/gi,
+      /@import/gi,
+      /<style[^>]*>.*?<\/style>/gis,
+      /&#x?\d+;/gi
+    ];
+    
+    xssPatterns.forEach(pattern => {
+      sanitized = sanitized.replace(pattern, '');
+    });
+    
+    // Remove all HTML tags and encode entities
+    sanitized = sanitized
+      .replace(/<[^>]*>/g, '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;');
+    
+    return sanitized.trim();
   };
 
   const validateInput = (input: string): string[] => {

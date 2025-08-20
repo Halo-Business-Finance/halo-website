@@ -47,17 +47,36 @@ class SecureLogger {
       this.sensitivePatterns.forEach(pattern => {
         sanitized = sanitized.replace(pattern, '[REDACTED]');
       });
+      // Enhanced security: Remove SQL injection patterns
+      sanitized = sanitized.replace(/(\bselect\b|\binsert\b|\bupdate\b|\bdelete\b|\bdrop\b|\bunion\b)/gi, '[SQL_KEYWORD_REDACTED]');
       return sanitized;
     }
     
     if (typeof data === 'object' && data !== null) {
-      const sanitized: any = Array.isArray(data) ? [] : {};
-      for (const key in data) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          sanitized[key] = this.sanitize(data[key]);
+      // Enhanced object sanitization with depth limit to prevent DoS
+      const maxDepth = 10;
+      const maxProperties = 50;
+      
+      const sanitizeRecursive = (obj: any, currentDepth: number): any => {
+        if (currentDepth > maxDepth) return '[MAX_DEPTH_REACHED]';
+        
+        if (typeof obj === 'string') {
+          return this.sanitize(obj);
+        } else if (obj && typeof obj === 'object') {
+          const result: any = Array.isArray(obj) ? [] : {};
+          const keys = Object.keys(obj).slice(0, maxProperties); // Limit properties
+          
+          for (const key of keys) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+              result[key] = sanitizeRecursive(obj[key], currentDepth + 1);
+            }
+          }
+          return result;
         }
-      }
-      return sanitized;
+        return obj;
+      };
+      
+      return sanitizeRecursive(data, 0);
     }
     
     return data;
@@ -68,9 +87,9 @@ class SecureLogger {
       const sanitizedArgs = args.map(arg => this.sanitize(arg));
       
       if (this.isProduction) {
-        // In production, only log errors and send to monitoring service
+        // In production, completely suppress console output for security
         if (level <= LOG_LEVELS.ERROR) {
-          console[method]('[SECURE]', ...sanitizedArgs);
+          // Only send critical errors to secure monitoring without console exposure
           this.sendToMonitoringService(level, sanitizedArgs);
         }
       } else {
