@@ -502,7 +502,7 @@ const ProductsSection = () => {
 
 
         {/* Professional Financial Services Carousel - SBA & Commercial Loans */}
-        <div className="relative bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+        <div className="relative rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
           {/* Elegant Header Section */}
           <div className="bg-gradient-to-r from-financial-navy to-primary p-8 md:p-12 text-white">
             <div className="flex justify-between items-center">
@@ -538,7 +538,7 @@ const ProductsSection = () => {
           </div>
 
           {/* Carousel Content */}
-          <div className="p-8 md:p-12 bg-slate-50/30">
+          <div className="p-8 md:p-12">
 
             <div className="overflow-hidden max-w-none w-full" ref={emblaRef}>
               <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
@@ -685,7 +685,7 @@ const ProductsSection = () => {
           </div>
 
           {/* Professional Financial Services Carousel - Business Capital */}
-          <div className="relative bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+          <div className="relative rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
             {/* Elegant Header Section */}
             <div className="bg-gradient-to-r from-financial-navy to-primary p-8 md:p-12 text-white">
               <div className="flex justify-between items-center">
@@ -721,7 +721,7 @@ const ProductsSection = () => {
             </div>
 
             {/* Carousel Content */}
-            <div className="p-8 md:p-12 bg-slate-50/30">
+            <div className="p-8 md:p-12">
               <div className="overflow-hidden max-w-none w-full" ref={businessEmblaRef}>
                 <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
                   {businessProducts.slice(0, 4).map((product, index) => (
