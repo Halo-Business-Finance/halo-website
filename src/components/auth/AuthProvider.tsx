@@ -35,22 +35,36 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setSession(session);
         setUser(session?.user ?? null);
         
-        // Fetch user role when user signs in
+        // Fetch user role when user signs in with enhanced security
         if (session?.user) {
           setTimeout(async () => {
             try {
-              const { data: roleData } = await supabase
-                .from('user_roles')
-                .select('role')
-                .eq('user_id', session.user.id)
-                .eq('is_active', true)
-                .order('granted_at', { ascending: false })
-                .limit(1)
-                .maybeSingle();
+              const { data: roleData, error } = await supabase
+                .rpc('get_user_role', { _user_id: session.user.id });
               
-              setUserRole(roleData?.role || 'user');
+              if (error) {
+                console.error('Error fetching user role:', error);
+                // Enhanced error handling with security logging
+                try {
+                  await supabase.from('security_events').insert({
+                    event_type: 'role_fetch_failed',
+                    severity: 'medium',
+                    user_id: session.user.id,
+                    event_data: { 
+                      error: error.message,
+                      timestamp: new Date().toISOString()
+                    },
+                    source: 'auth_provider'
+                  });
+                } catch (logError) {
+                  console.warn('Failed to log security event:', logError);
+                }
+                setUserRole('user');
+              } else {
+                setUserRole(roleData || 'user');
+              }
             } catch (error) {
-              console.error('Error fetching user role:', error);
+              console.error('Critical error fetching user role:', error);
               setUserRole('user');
             }
           }, 0);
@@ -74,15 +88,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const signOut = async () => {
     try {
-      // Log security event for logout
+      // Log security event for logout with enhanced security
       try {
-        await supabase.rpc('log_client_security_event', {
+        await supabase.from('security_events').insert({
           event_type: 'user_logout',
           severity: 'info',
+          user_id: user?.id,
           event_data: {
-            user_id: user?.id,
-            timestamp: new Date().toISOString(),
-            logout_method: 'manual'
+            logout_method: 'manual',
+            timestamp: new Date().toISOString()
           },
           source: 'auth_provider'
         });
