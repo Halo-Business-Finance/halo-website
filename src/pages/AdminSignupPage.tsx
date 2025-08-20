@@ -16,6 +16,7 @@ import { Loader2, Shield, UserPlus, Settings } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const AdminSignupPage = () => {
+  console.log('AdminSignupPage component rendering...');
   const { isAdmin, user } = useAuth();
   const { signUpSecure } = useSecureAuth();
   const navigate = useNavigate();
