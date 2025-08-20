@@ -260,7 +260,7 @@ const Header = () => {
                 </DropdownMenu>
               ) : (
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1" 
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1" 
                   asChild
                 >
                   <Link to="/auth">
