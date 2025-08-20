@@ -557,98 +557,37 @@ const ProductsSection = () => {
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
         </div>
 
-        {/* Futuristic CTA Section - Advanced Design */}
-        <div className="my-20 relative overflow-hidden">
-          {/* Animated Background Layer */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 animate-pulse">
-            {/* Animated Grid Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="h-full w-full bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
-            </div>
-            
-            {/* Floating Orbs */}
-            <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-[float_6s_ease-in-out_infinite]"></div>
-            <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-[float_8s_ease-in-out_infinite_reverse]"></div>
-            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-cyan-500/20 rounded-full blur-xl animate-[float_7s_ease-in-out_infinite]"></div>
-          </div>
-          
-          {/* Main Content Container */}
-          <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
-            {/* Holographic Border Effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_3s_ease-in-out_infinite] pointer-events-none"></div>
-            
-            {/* Content */}
-            <div className="relative px-8 py-20">
-              <div className="max-w-4xl mx-auto text-center">
-                {/* Animated Title */}
-                <div className="mb-6 animate-fade-in">
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                    <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-[gradient_4s_ease_infinite]">
-                      Ready to Fuel Your Business Growth?
-                    </span>
-                  </h3>
-                  {/* Subtitle with Glow Effect */}
-                  <div className="text-sm uppercase tracking-[0.2em] text-blue-300/80 font-medium mb-2 animate-[pulse_2s_ease-in-out_infinite]">
-                    Next-Generation Financing Platform
-                  </div>
-                </div>
-
-                {/* Description with Glassmorphism */}
-                <div className="backdrop-blur-sm bg-white/5 rounded-2xl p-6 mb-10 border border-white/10 animate-scale-in">
-                  <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                    Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Experience our 
-                    <Link to="/resources" className="text-cyan-300 underline hover:text-cyan-200 font-medium transition-colors duration-300 hover-scale"> advanced business financing resources </Link> 
-                    powered by AI-driven insights and 
-                    <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-cyan-300 underline hover:text-cyan-200 font-medium transition-colors duration-300 hover-scale"> intelligent loan matching</a>.
-                  </p>
-                </div>
-
-                {/* Action Buttons with Advanced Effects */}
-                <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in">
-                  {/* Primary Button - Holographic Style */}
-                  <Button asChild size="lg" className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold text-lg px-10 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden">
-                    <a href="https://preview--hbf-application.lovable.app/auth">
-                      {/* Button Glow Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 blur-xl group-hover:blur-lg transition-all duration-500"></div>
-                      <span className="relative z-10 flex items-center">
-                        Get Pre-Qualified
-                        <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                      </span>
-                      {/* Animated Border */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-[shimmer_2s_ease-in-out_infinite]"></div>
-                    </a>
-                  </Button>
-
-                  {/* Secondary Button - Glass Morphism */}
-                  <ConsultationPopup 
-                    trigger={
-                      <Button size="lg" className="group relative backdrop-blur-xl bg-white/10 border-2 border-white/20 text-white text-lg px-10 py-6 rounded-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 transform hover:-translate-y-1 hover-scale overflow-hidden">
-                        {/* Subtle Background Animation */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <span className="relative z-10 flex items-center">
-                          Schedule Consultation
-                          <ChevronRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                        </span>
-                      </Button>
-                    }
-                  />
-                </div>
-
-                {/* Additional Trust Indicators */}
-                <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-blue-200/60 text-sm animate-fade-in">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span>AI-Powered Matching</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                    <span>Instant Pre-Approval</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                    <span>Secure Processing</span>
-                  </div>
-                </div>
+        {/* Enhanced CTA Section - Moved between carousels */}
+        <div className="my-20 relative overflow-hidden rounded-3xl shadow-2xl">
+          <LazyImage 
+            src={financialAdvisorConsultation} 
+            alt="Professional financial advisor consultation with business owner"
+            className="absolute inset-0 w-full h-full object-cover"
+            priority={false}
+          />
+          <div className="relative bg-financial-navy text-white py-20 px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                Ready to Fuel Your Business Growth?
+              </h3>
+              <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100 font-medium">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100 font-medium">SCORE's business loan guide</a> for additional insights.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button asChild size="lg" className="bg-white text-slate-900 font-semibold text-lg px-8 py-4 shadow-xl hover:bg-slate-50 hover:shadow-2xl transition-all duration-300">
+                  <a href="https://preview--hbf-application.lovable.app/auth">
+                    Get Pre-Qualified
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </a>
+                </Button>
+                <ConsultationPopup 
+                  trigger={
+                    <Button size="lg" variant="ghost" className="border-2 border-white text-white text-lg px-8 py-4 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+                      Schedule Consultation
+                      <ChevronRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </div>
