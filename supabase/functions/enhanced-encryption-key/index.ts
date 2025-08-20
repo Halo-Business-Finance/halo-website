@@ -201,15 +201,6 @@ serve(async (req) => {
         }
       }
     });
-        user_id: user.id,
-        key_algorithm: 'AES-256-GCM',
-        expires_at: expiresAt.toISOString(),
-        rotation_scheduled: rotationDate.toISOString(),
-        security_level: 'enhanced',
-        key_derivation_iterations: iterations
-      },
-      source: 'enhanced_key_generation'
-    })
 
     return new Response(
       JSON.stringify({

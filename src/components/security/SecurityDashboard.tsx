@@ -42,10 +42,19 @@ export const SecurityDashboard: React.FC = () => {
       
       // Load security overview
       const { data: overviewData, error: overviewError } = await supabase
-        .rpc('get_security_overview');
+        .rpc('analyze_security_events');
       
       if (overviewError) throw overviewError;
-      setOverview(overviewData[0]);
+      if (overviewData && overviewData.length > 0) {
+        // Map analyze_security_events response to SecurityOverview format
+        const eventData = overviewData[0];
+        setOverview({
+          active_sessions: eventData.affected_users || 0,
+          security_events_24h: eventData.event_count || 0,
+          critical_alerts: eventData.severity === 'critical' ? 1 : 0,
+          encryption_keys_active: 0
+        });
+      }
       
       // Load security alerts
       const { data: alertsData, error: alertsError } = await supabase

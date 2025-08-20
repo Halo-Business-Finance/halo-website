@@ -10,14 +10,14 @@ import { supabase } from '@/integrations/supabase/client';
  */
 export const triggerSecurityCleanup = async (): Promise<{ success: boolean; cleanedCount?: number; error?: string }> => {
   try {
-    const { data, error } = await supabase.rpc('cleanup_old_security_events');
+    const { data, error } = await supabase.rpc('cleanup_security_events');
     
     if (error) {
       console.error('Security cleanup error:', error);
       return { success: false, error: error.message };
     }
     
-    return { success: true, cleanedCount: data };
+    return { success: true, cleanedCount: typeof data === 'number' ? data : 0 };
   } catch (error) {
     console.error('Security cleanup failed:', error);
     return { 

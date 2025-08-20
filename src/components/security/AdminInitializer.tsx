@@ -49,7 +49,7 @@ export const AdminInitializer: React.FC = () => {
     setError(null);
 
     try {
-      const { data, error } = await supabase.rpc('initialize_first_admin', {
+      const { data, error } = await supabase.rpc('create_initial_admin', {
         admin_email: adminEmail.trim()
       });
 

@@ -48,14 +48,9 @@ export const EnhancedSecurityProvider: React.FC<EnhancedSecurityProviderProps> =
 
         // Validate session security
         const { data: validation } = await supabase.rpc('validate_session_security', {
-          session_id: session.user.id, // Using user ID as session identifier
+          client_fingerprint: clientFingerprint,
           client_ip: currentIP,
-          user_agent: userAgent,
-          security_context: {
-            client_fingerprint: clientFingerprint,
-            timestamp: new Date().toISOString(),
-            page_url: window.location.href
-          }
+          session_token: session.access_token
         });
 
         if (validation) {
