@@ -497,6 +497,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      cleanup_old_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       cleanup_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -733,14 +737,21 @@ export type Database = {
         Returns: number
       }
       log_client_security_event: {
-        Args: {
-          event_data?: Json
-          event_type: string
-          severity: string
-          source?: string
-          user_agent?: string
-        }
-        Returns: string
+        Args:
+          | {
+              event_data?: Json
+              event_type: string
+              severity: string
+              source?: string
+              user_agent?: string
+            }
+          | {
+              event_data?: Json
+              event_type: string
+              severity?: string
+              source?: string
+            }
+        Returns: boolean
       }
       mask_consultation_data: {
         Args: { data_record: Json; user_role: string }

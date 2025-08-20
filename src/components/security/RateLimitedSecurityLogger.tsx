@@ -37,10 +37,9 @@ class RateLimitedSecurityLogger {
     const userAgent = navigator.userAgent;
     const key = this.getRateLimitKey(eventData.event_type, userAgent);
 
-    // Client-side rate limiting
+    // Client-side rate limiting (reduced for better performance)
     if (this.isRateLimited(key)) {
-      console.warn(`Security event rate limited: ${eventData.event_type}`);
-      return false;
+      return false; // Silently fail to reduce console noise
     }
 
     try {
@@ -53,13 +52,19 @@ class RateLimitedSecurityLogger {
       });
 
       if (error) {
-        console.error('Error logging security event:', error);
+        // Only log errors in development to reduce production noise
+        if (import.meta.env.DEV) {
+          console.error('Security event error:', error);
+        }
         return false;
       }
 
       return Boolean(data);
     } catch (error) {
-      console.error('Critical error logging security event:', error);
+      // Only log critical errors in development
+      if (import.meta.env.DEV) {
+        console.error('Critical security event error:', error);
+      }
       return false;
     }
   }
