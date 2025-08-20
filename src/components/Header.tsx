@@ -38,8 +38,17 @@ const Header = () => {
         { title: "SBA 7(a) Loans", href: "/sba-7a-loans" },
         { title: "SBA 504 Loans", href: "/sba-504-loans" },
         { title: "SBA Express Loans", href: "/sba-express-loans" },
-        { title: "SBA Microloans", href: "/sba-loans" },
-        { title: "USDA B&I Loans", href: "/usda-bi-loans" }
+        { title: "SBA Microloans", href: "/sba-loans" }
+      ]
+    },
+    { 
+      title: "USDA Loans", 
+      href: "/usda-bi-loans",
+      items: [
+        { title: "USDA B&I Loans", href: "/usda-bi-loans" },
+        { title: "USDA Rural Development", href: "/usda-rural-development" },
+        { title: "USDA Community Facilities", href: "/usda-community-facilities" },
+        { title: "USDA Water & Waste", href: "/usda-water-waste" }
       ]
     },
     { 
