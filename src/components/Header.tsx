@@ -98,7 +98,7 @@ const Header = () => {
       {/* Primary Navigation Bar - Hidden on mobile, only visible on desktop */}
       <div className="hidden lg:block">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-14 px-6">
+          <div className="flex items-center justify-between h-12 px-6">
             {/* Left Side - Company and Resources Navigation */}
             <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
@@ -295,7 +295,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center h-14 px-4 sm:px-6">
+          <div className="flex items-center h-12 px-4 sm:px-6">
             <Link to="/" className="flex items-center">
               <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
                 HALO BUSINESS FINANCE
@@ -308,7 +308,7 @@ const Header = () => {
       {/* Secondary Navigation Bar - Third tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center h-14 px-4 sm:px-6">
+          <div className="flex items-center h-12 px-4 sm:px-6">
             {/* Secondary Navigation with Dropdowns */}
             <nav className="hidden lg:flex items-center space-x-8 flex-1">
               {secondaryNavWithDropdowns.map((item) => (
