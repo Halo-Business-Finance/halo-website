@@ -24,7 +24,10 @@ import {
   Sparkles,
   Star,
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  RotateCcw,
+  Truck,
+  Heart
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
@@ -69,6 +72,19 @@ const ProductsSection = () => {
       color: "from-green-600 to-green-700"
     },
     {
+      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+      title: "SBA Express Loans",
+      description: "Fast-track SBA financing with expedited approval process.",
+      rate: "Prime + 4.5%",
+      rateLabel: "Starting Rate",
+      features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
+      learnLink: "/sba-express-loans",
+      applyLink: "/sba-loan-application",
+      badge: "Fast",
+      color: "from-orange-600 to-orange-700"
+    },
+    {
       logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
       title: "USDA B&I Loans",
@@ -82,6 +98,19 @@ const ProductsSection = () => {
       color: "from-emerald-600 to-emerald-700"
     },
     {
+      logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
+      title: "USDA Rural Development",
+      description: "Rural community development and business growth financing programs.",
+      rate: "Prime + 1.5%",
+      rateLabel: "Starting Rate",
+      features: ["Rural area development focus", "Community economic development", "USDA government backing"],
+      learnLink: "/usda-rural-development",
+      applyLink: "/sba-loan-application",
+      badge: null,
+      color: "from-emerald-500 to-emerald-600"
+    },
+    {
       icon: Building2,
       image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
       title: "Conventional Loans",
@@ -93,6 +122,19 @@ const ProductsSection = () => {
       applyLink: "/conventional-loan-application",
       badge: null,
       color: "from-purple-600 to-purple-700"
+    },
+    {
+      icon: Building2,
+      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
+      title: "Commercial Real Estate",
+      description: "Purchase, refinance, and develop commercial properties with flexible terms.",
+      rate: "5.5%",
+      rateLabel: "Starting APR",
+      features: ["Owner-occupied properties", "Investment real estate", "Commercial property development"],
+      learnLink: "/commercial-loans",
+      applyLink: "/commercial-real-estate-application",
+      badge: null,
+      color: "from-purple-500 to-purple-600"
     },
     {
       icon: Landmark,
@@ -184,6 +226,45 @@ const ProductsSection = () => {
       applyLink: "/equipment-loan-application",
       badge: null,
       color: "from-pink-600 to-pink-700"
+    },
+    {
+      icon: RotateCcw,
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80",
+      title: "Equipment Leasing",
+      description: "Lease business equipment with flexible terms and upgrade options.",
+      rate: "5.5%",
+      rateLabel: "Starting Rate",
+      features: ["100% financing with no down payment", "Preserve working capital and credit lines", "Easy equipment upgrades and replacements"],
+      learnLink: "/equipment-leasing",
+      applyLink: "/equipment-loan-application",
+      badge: null,
+      color: "from-pink-500 to-pink-600"
+    },
+    {
+      icon: Truck,
+      image: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?auto=format&fit=crop&q=80",
+      title: "Heavy Equipment",
+      description: "Specialized financing for construction and industrial heavy equipment.",
+      rate: "6.5%",
+      rateLabel: "Starting APR",
+      features: ["Construction and industrial equipment", "New and used equipment options", "Competitive rates and flexible terms"],
+      learnLink: "/heavy-equipment",
+      applyLink: "/equipment-loan-application",
+      badge: null,
+      color: "from-orange-500 to-orange-600"
+    },
+    {
+      icon: Heart,
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80",
+      title: "Medical Equipment",
+      description: "Healthcare equipment financing for medical practices and facilities.",
+      rate: "5.75%",
+      rateLabel: "Starting APR",
+      features: ["Medical and healthcare equipment", "Practice expansion financing", "Technology upgrade solutions"],
+      learnLink: "/medical-equipment",
+      applyLink: "/equipment-loan-application",
+      badge: null,
+      color: "from-blue-500 to-blue-600"
     }
   ];
 
