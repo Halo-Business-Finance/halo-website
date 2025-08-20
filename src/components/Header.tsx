@@ -80,6 +80,16 @@ const Header = () => {
         { title: "Term Loans", href: "/term-loans" },
         { title: "Factoring-Based Financing", href: "/factoring-based-financing" }
       ]
+    },
+    { 
+      title: "Debt and Equity", 
+      href: "/debt-and-equity",
+      items: [
+        { title: "Debt Financing", href: "/debt-financing" },
+        { title: "Equity Financing", href: "/equity-financing" },
+        { title: "Mezzanine Financing", href: "/mezzanine-financing" },
+        { title: "Private Placement", href: "/private-placement" }
+      ]
     }
   ];
 
