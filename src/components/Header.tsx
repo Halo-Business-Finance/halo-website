@@ -285,7 +285,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center h-16 px-4 sm:px-6">
+          <div className="flex items-center h-16 px-4 sm:px-6">
             <Link to="/" className="flex items-center">
               <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
                 HALO BUSINESS FINANCE
