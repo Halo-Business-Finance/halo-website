@@ -558,33 +558,33 @@ const ProductsSection = () => {
         </div>
 
         {/* Enhanced CTA Section - Moved between carousels */}
-        <div className="my-20 relative overflow-hidden rounded-3xl shadow-2xl">
+        <div className="my-12 relative overflow-hidden rounded-2xl shadow-lg">
           <LazyImage 
             src={financialAdvisorConsultation} 
             alt="Professional financial advisor consultation with business owner"
             className="absolute inset-0 w-full h-full object-cover"
             priority={false}
           />
-          <div className="relative bg-financial-navy text-white py-20 px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          <div className="relative bg-financial-navy text-white py-12 px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
-              <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto leading-relaxed">
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100 font-medium">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100 font-medium">SCORE's business loan guide</a> for additional insights.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button asChild size="lg" className="bg-white text-slate-900 font-semibold text-lg px-8 py-4 shadow-xl hover:bg-slate-50 hover:shadow-2xl transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-white text-slate-900 font-semibold px-6 py-3 shadow-lg hover:bg-slate-50 hover:shadow-xl transition-all duration-300">
                   <a href="https://preview--hbf-application.lovable.app/auth">
                     Get Pre-Qualified
-                    <ArrowRight className="h-5 w-5 ml-2" />
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </a>
                 </Button>
                 <ConsultationPopup 
                   trigger={
-                    <Button size="lg" variant="ghost" className="border-2 border-white text-white text-lg px-8 py-4 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+                    <Button size="lg" variant="ghost" className="border-2 border-white text-white px-6 py-3 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
                       Schedule Consultation
-                      <ChevronRight className="h-5 w-5 ml-2" />
+                      <ChevronRight className="h-4 w-4 ml-2" />
                     </Button>
                   }
                 />
