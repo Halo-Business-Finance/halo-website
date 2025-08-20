@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut, Lock } from "lucide-react";
+import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut, Lock, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
 import {
@@ -253,12 +253,20 @@ const Header = () => {
                       </DropdownMenuItem>
                     )}
                     {isAdmin && (
-                      <DropdownMenuItem asChild>
-                        <Link to="/security-dashboard">
-                          <Shield className="h-4 w-4 mr-2" />
-                          Security Dashboard
-                        </Link>
-                      </DropdownMenuItem>
+                      <>
+                        <DropdownMenuItem asChild>
+                          <Link to="/admin">
+                            <LayoutDashboard className="h-4 w-4 mr-2" />
+                            Admin Dashboard
+                          </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/security-dashboard">
+                            <Shield className="h-4 w-4 mr-2" />
+                            Security Dashboard
+                          </Link>
+                        </DropdownMenuItem>
+                      </>
                     )}
                     <DropdownMenuItem onClick={signOut}>
                       <LogOut className="h-4 w-4 mr-2" />

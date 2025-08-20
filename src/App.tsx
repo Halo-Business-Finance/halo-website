@@ -76,6 +76,11 @@ const SecurityPage = lazy(() => import("./pages/SecurityPage"));
 const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
 const AdminSignupPage = lazy(() => import("./pages/AdminSignupPage"));
 
+// Admin Pages
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
+const AdminConsultations = lazy(() => import("./pages/admin/AdminConsultations"));
+
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
 const SBA504LoanApplication = lazy(() => import("./pages/SBA504LoanApplication"));
@@ -224,6 +229,11 @@ const App = () => {
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
             <Route path="/admin-signup" element={<AdminSignupPage />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
+            <Route path="/admin/consultations" element={<AdminConsultations />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
