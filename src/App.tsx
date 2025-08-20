@@ -134,7 +134,7 @@ const App = () => {
         @keyframes scale-in { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
       `;
       const style = document.createElement('style');
-      style.innerHTML = criticalCSS;
+      style.textContent = criticalCSS;
       document.head.insertBefore(style, document.head.firstChild);
     };
     

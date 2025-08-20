@@ -163,7 +163,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     // Send email via Microsoft Graph API
-    const emailUrl = 'https://graph.microsoft.com/v1.0/users/varda@halobusinessfinance.com/sendMail';
+    const emailUrl = `https://graph.microsoft.com/v1.0/users/${Deno.env.get('BUSINESS_EMAIL') || 'varda@halobusinessfinance.com'}/sendMail`;
     const emailData = {
       message: {
         subject: subject,
@@ -174,7 +174,7 @@ const handler = async (req: Request): Promise<Response> => {
         toRecipients: [
           {
             emailAddress: {
-              address: 'varda@halobusinessfinance.com',
+              address: Deno.env.get('BUSINESS_EMAIL') || 'varda@halobusinessfinance.com',
             },
           },
         ],

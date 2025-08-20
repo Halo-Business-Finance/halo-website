@@ -14,13 +14,16 @@ export const SecurityMonitor = () => {
       // Monitor console access attempts
       const originalConsole = { ...console };
       
-      console.log = (...args) => {
-        logSecurityEvent('console_access', { 
-          method: 'log', 
-          args: args.slice(0, 2) // Only log first 2 args for privacy
-        });
-        originalConsole.log(...args);
-      };
+      // Only override console in development, not production
+      if (process.env.NODE_ENV !== 'production') {
+        console.log = (...args) => {
+          logSecurityEvent('console_access', { 
+            method: 'log'
+            // No args logged for security
+          });
+          originalConsole.log(...args);
+        };
+      }
 
       // Monitor DOM manipulation attempts
       const observer = new MutationObserver((mutations) => {
@@ -31,8 +34,8 @@ export const SecurityMonitor = () => {
                 const element = node as Element;
                 // Check for suspicious script injection
                 if (element.tagName === 'SCRIPT' || 
-                    element.innerHTML.includes('<script') ||
-                    element.innerHTML.includes('javascript:')) {
+                    (element.textContent && element.textContent.includes('<script')) ||
+                    (element.textContent && element.textContent.includes('javascript:'))) {
                   logSecurityEvent('suspicious_dom_manipulation', {
                     tagName: element.tagName,
                     suspicious_content: true
@@ -112,24 +115,28 @@ export const SecurityMonitor = () => {
 
   const logSecurityEvent = async (eventType: string, details: any) => {
     try {
-      // Log security events for monitoring
-      console.log('Security Event:', { eventType, details });
+      // Only log to console in development
+      if (process.env.NODE_ENV !== 'production') {
+        console.log('Security Event:', { eventType });
+      }
       
-      // Log to database using the secure function
+      // Log to database using the secure function (sanitized data)
       const { error } = await supabase.rpc('log_client_security_event', {
         event_type: eventType,
         severity: getSeverityLevel(eventType),
         event_data: details,
-        user_agent: navigator.userAgent,
+        user_agent: navigator.userAgent.substring(0, 200), // Limit user agent length
         source: 'client'
       });
 
-      if (error) {
+      if (error && process.env.NODE_ENV !== 'production') {
         console.error('Failed to log security event to database:', error);
       }
     } catch (error) {
       // Silently fail to avoid infinite loops
-      console.error('Failed to log security event:', error);
+      if (process.env.NODE_ENV !== 'production') {
+        console.error('Failed to log security event:', error);
+      }
     }
   };
 

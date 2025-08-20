@@ -33,7 +33,7 @@ export const preloadCriticalResources = () => {
 
   // Preload critical CSS
   const style = document.createElement('style');
-  style.innerHTML = `
+  style.textContent = `
     /* Critical above-the-fold CSS */
     .hero-section { min-height: 100vh; }
     .container { max-width: 1200px; margin: 0 auto; }
@@ -295,6 +295,6 @@ export const injectCriticalCSS = () => {
   `;
   
   const style = document.createElement('style');
-  style.innerHTML = criticalCSS;
+  style.textContent = criticalCSS;
   document.head.insertBefore(style, document.head.firstChild);
 };
