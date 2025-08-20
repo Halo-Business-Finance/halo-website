@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Play, Pause } from "lucide-react";
+import { ArrowRight, Play, Pause, CheckCircle } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
 import loanProcessOverview from "@/assets/loan-process-overview.jpg";
 import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
@@ -17,31 +17,41 @@ const LoanProcessCarousel = () => {
       step: 1,
       title: "Select Your Loan Program",
       description: "Choose from our comprehensive range of loan products",
-      image: loanProcessOverview
+      detail: "Browse SBA, conventional, and specialized financing options tailored to your business needs.",
+      image: loanProcessOverview,
+      color: "from-blue-600 to-blue-700"
     },
     {
       step: 2,
       title: "Answer Questions",
       description: "Complete our simple application about your loan request",
-      image: loanProcessExplanation
+      detail: "Our streamlined application takes just 10 minutes to complete with smart form technology.",
+      image: loanProcessExplanation,
+      color: "from-emerald-600 to-emerald-700"
     },
     {
       step: 3,
       title: "Get Pre-Approved",
       description: "Authorize a soft credit check for instant pre-approval",
-      image: loanApprovalCelebration
+      detail: "Receive conditional approval within 24 hours with no impact to your credit score.",
+      image: loanApprovalCelebration,
+      color: "from-purple-600 to-purple-700"
     },
     {
       step: 4,
       title: "Upload Financials",
       description: "Submit your documents to receive competitive term sheets",
-      image: loanOfficersWorking
+      detail: "Secure document upload with bank-level encryption and automated verification.",
+      image: loanOfficersWorking,
+      color: "from-amber-600 to-amber-700"
     },
     {
       step: 5,
       title: "Get Funded",
       description: "Sign your loan documents and receive your funding",
-      image: successfulLoanHandshake
+      detail: "Digital closing process with same-day funding for approved applications.",
+      image: successfulLoanHandshake,
+      color: "from-green-600 to-green-700"
     }
   ];
 
@@ -51,164 +61,184 @@ const LoanProcessCarousel = () => {
     
     const timer = setInterval(() => {
       setActiveStep((prevStep) => (prevStep + 1) % steps.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [isPlaying, steps.length]);
 
-  const getStepPosition = (index: number) => {
-    const position = (index - activeStep + steps.length) % steps.length;
-    const angle = (position * 72); // 360/5 = 72 degrees per step
-    const radius = 120; // Reduced radius for better fit
-    const centerX = 50;
-    const centerY = 50;
-    
-    const radians = (angle * Math.PI) / 180;
-    const x = centerX + (radius * Math.cos(radians)) / 2.5; // Adjusted scaling
-    const y = centerY + (radius * Math.sin(radians)) / 2.5; // Adjusted scaling
-    
-    return {
-      left: `${x}%`,
-      top: `${y}%`,
-      transform: 'translate(-50%, -50%)',
-      scale: position === 0 ? 1.1 : position === 1 || position === 4 ? 0.9 : 0.75,
-      zIndex: position === 0 ? 20 : position === 1 || position === 4 ? 10 : 5,
-      opacity: position === 0 ? 1 : position === 1 || position === 4 ? 0.8 : 0.6
-    };
-  };
-
   return (
     <div className="mb-12">
-      <div className="flex items-center justify-center gap-4 mb-8">
-        <h3 className="text-3xl md:text-4xl font-bold">Our Streamlined Loan Process</h3>
+      {/* Header with Play/Pause */}
+      <div className="flex items-center justify-center gap-6 mb-8">
+        <div className="text-center">
+          <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-2">
+            Our Streamlined Loan Process
+          </h3>
+          <p className="text-xl text-slate-600">We make commercial lending simple</p>
+        </div>
         <button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="bg-primary/10 hover:bg-primary/20 rounded-full p-3 transition-colors"
+          className="bg-primary/10 hover:bg-primary/20 rounded-full p-4 transition-all duration-300 group"
           aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
         >
           {isPlaying ? (
-            <Pause className="h-5 w-5 text-primary" />
+            <Pause className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
           ) : (
-            <Play className="h-5 w-5 text-primary" />
+            <Play className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
           )}
         </button>
       </div>
-      
-      <p className="text-xl text-slate-600 mb-12 text-center">We make commercial lending simple</p>
-      
-      {/* Merry-go-round Container */}
-      <div className="relative mx-auto w-full max-w-5xl h-[600px] md:h-[700px] overflow-visible bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200 shadow-lg">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)] rounded-3xl"></div>
-        {steps.map((step, index) => {
-          const position = getStepPosition(index);
-          const isActive = index === activeStep;
+
+      {/* Premium 3D Perspective Carousel */}
+      <div className="relative w-full max-w-7xl mx-auto">
+        {/* Background with perspective */}
+        <div className="relative h-[500px] md:h-[600px] perspective-1000">
           
-          return (
-            <div
-              key={index}
-              className="absolute transition-all duration-1000 ease-in-out cursor-pointer"
-              style={{
-                ...position,
-                transform: `translate(-50%, -50%) scale(${position.scale})`,
-                zIndex: position.zIndex,
-                opacity: position.opacity
-              }}
-              onClick={() => setActiveStep(index)}
-            >
-              <Card 
-                className={`group overflow-hidden shadow-lg transition-all duration-500 bg-white w-52 md:w-64 ${
-                  isActive 
-                    ? 'border-2 border-primary shadow-2xl' 
-                    : 'border border-slate-300 hover:border-primary hover:shadow-xl'
-                }`}
-              >
-                <div className="relative h-36 md:h-44 overflow-hidden">
-                  <LazyImage 
-                    src={step.image} 
-                    alt={step.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  
-                  {/* Step Number Badge */}
-                  <div className="absolute top-3 left-3">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${
-                      isActive ? 'bg-primary animate-pulse' : 'bg-primary/80'
-                    }`}>
-                      {step.step}
-                    </div>
-                  </div>
-                  
-                  <div className="absolute bottom-2 left-3 right-3 text-white">
-                    <h4 className="text-sm md:text-base font-bold text-shadow line-clamp-2">{step.title}</h4>
+          {/* Main Feature Card */}
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+            <Card className="w-80 md:w-96 h-[400px] md:h-[480px] overflow-hidden shadow-2xl border-2 border-primary/20 bg-white">
+              <div className="relative h-48 md:h-56 overflow-hidden">
+                <LazyImage 
+                  src={steps[activeStep].image} 
+                  alt={steps[activeStep].title}
+                  className="w-full h-full object-cover"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${steps[activeStep].color} opacity-80`} />
+                
+                {/* Step badge */}
+                <div className="absolute top-4 left-4">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
+                    <span className="text-white font-bold">Step {steps[activeStep].step}</span>
                   </div>
                 </div>
                 
-                <CardContent className="p-3 md:p-4">
-                  <p className="text-slate-600 leading-relaxed text-xs md:text-sm line-clamp-3">
-                    {step.description}
+                {/* Title overlay */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h4 className="text-white text-xl md:text-2xl font-bold leading-tight">
+                    {steps[activeStep].title}
+                  </h4>
+                </div>
+              </div>
+              
+              <CardContent className="p-6 h-[152px] md:h-[224px] flex flex-col justify-between">
+                <div>
+                  <p className="text-slate-700 text-lg leading-relaxed mb-4">
+                    {steps[activeStep].description}
                   </p>
-                  
-                  {/* Progress indicator */}
-                  <div className={`w-full h-1 bg-slate-200 rounded-full mt-3 overflow-hidden ${
-                    isActive ? 'bg-primary/20' : ''
-                  }`}>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {steps[activeStep].detail}
+                  </p>
+                </div>
+                
+                {/* Progress bar */}
+                <div className="space-y-2">
+                  <div className="flex justify-between text-xs text-slate-500">
+                    <span>Progress</span>
+                    <span>{Math.round(((activeStep + 1) / steps.length) * 100)}%</span>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
                     <div 
-                      className={`h-full bg-primary rounded-full transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0'
-                      }`}
+                      className={`h-2 bg-gradient-to-r ${steps[activeStep].color} rounded-full transition-all duration-1000`}
+                      style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
                     />
                   </div>
-                </CardContent>
-              </Card>
-              
-              {/* Connector Arrow for Active Step */}
-              {isActive && index < steps.length - 1 && (
-                <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 animate-pulse">
-                  <div className="bg-primary/20 rounded-full p-2">
-                    <ArrowRight className="h-5 w-5 text-primary" />
-                  </div>
                 </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Side Cards with 3D perspective */}
+          {steps.map((step, index) => {
+            if (index === activeStep) return null;
+            
+            const isNext = (index === (activeStep + 1) % steps.length);
+            const isPrev = (index === (activeStep - 1 + steps.length) % steps.length);
+            
+            if (!isNext && !isPrev) return null;
+            
+            return (
+              <div
+                key={index}
+                className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-700 cursor-pointer z-10 ${
+                  isNext 
+                    ? 'right-4 md:right-8 translate-x-4 rotate-y-12' 
+                    : 'left-4 md:left-8 -translate-x-4 -rotate-y-12'
+                }`}
+                onClick={() => setActiveStep(index)}
+              >
+                <Card className="w-64 h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80">
+                  <div className="relative h-32 overflow-hidden">
+                    <LazyImage 
+                      src={step.image} 
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${step.color} opacity-60`} />
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <div className="text-white text-sm font-semibold">
+                        Step {step.step}: {step.title}
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <p className="text-slate-600 text-sm">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
+
+          {/* Navigation arrows */}
+          <button
+            onClick={() => setActiveStep((activeStep - 1 + steps.length) % steps.length)}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+          >
+            <ArrowRight className="h-6 w-6 text-slate-700 rotate-180" />
+          </button>
+          
+          <button
+            onClick={() => setActiveStep((activeStep + 1) % steps.length)}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+          >
+            <ArrowRight className="h-6 w-6 text-slate-700" />
+          </button>
+        </div>
+
+        {/* Timeline at bottom */}
+        <div className="mt-12 flex justify-center items-center space-x-4">
+          {steps.map((step, index) => (
+            <div key={index} className="flex items-center">
+              <button
+                onClick={() => setActiveStep(index)}
+                className={`relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
+                  index <= activeStep 
+                    ? 'bg-primary text-white shadow-lg' 
+                    : 'bg-slate-200 text-slate-500 hover:bg-slate-300'
+                }`}
+              >
+                {index < activeStep ? (
+                  <CheckCircle className="h-6 w-6" />
+                ) : (
+                  <span className="font-bold">{step.step}</span>
+                )}
+                
+                {/* Label */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap">
+                  {step.title.split(' ')[0]}
+                </div>
+              </button>
+              
+              {/* Connector line */}
+              {index < steps.length - 1 && (
+                <div className={`w-16 h-0.5 mx-2 transition-colors duration-500 ${
+                  index < activeStep ? 'bg-primary' : 'bg-slate-200'
+                }`} />
               )}
             </div>
-          );
-        })}
-        
-        {/* Central Hub */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80 rounded-full flex items-center justify-center shadow-2xl border-4 border-white z-30">
-          <div className="text-white font-bold text-center">
-            <div className="text-xs uppercase tracking-wide">Step</div>
-            <div className="text-2xl font-black">{steps[activeStep].step}</div>
-          </div>
+          ))}
         </div>
-      </div>
-      
-      {/* Step Indicators */}
-      <div className="flex justify-center mt-8 space-x-3">
-        {steps.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveStep(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === activeStep 
-                ? 'bg-primary scale-125' 
-                : 'bg-slate-300 hover:bg-slate-400'
-            }`}
-            aria-label={`Go to step ${index + 1}`}
-          />
-        ))}
-      </div>
-      
-      {/* Active Step Details */}
-      <div className="text-center mt-8 max-w-2xl mx-auto">
-        <h4 className="text-xl font-bold text-primary mb-2">
-          Step {steps[activeStep].step}: {steps[activeStep].title}
-        </h4>
-        <p className="text-slate-600 text-lg">
-          {steps[activeStep].description}
-        </p>
       </div>
     </div>
   );
