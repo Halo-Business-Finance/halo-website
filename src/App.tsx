@@ -74,6 +74,7 @@ const MultifamilyLoansPage = lazy(() => import("./pages/MultifamilyLoansPage"));
 const AssetBasedLoansPage = lazy(() => import("./pages/AssetBasedLoansPage"));
 
 const SecurityPage = lazy(() => import("./pages/SecurityPage"));
+const SOCCompliancePage = lazy(() => import("./pages/SOCCompliancePage"));
 const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
 const AdminSignupPage = lazy(() => import("./pages/AdminSignupPage"));
 
@@ -228,6 +229,7 @@ const App = () => {
             <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
             <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
             
+            <Route path="/soc-compliance" element={<SOCCompliancePage />} />
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
             <Route path="/admin-signup" element={<AdminSignupPage />} />
