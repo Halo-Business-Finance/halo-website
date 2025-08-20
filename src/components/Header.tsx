@@ -297,9 +297,9 @@ const Header = () => {
             <nav className="hidden lg:flex items-center space-x-8 flex-1">
               {secondaryNavWithDropdowns.map((item) => (
                 <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors py-1 group">
+                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-2 px-1 group">
                     {item.title}
-                    <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                     <div className="py-1">
@@ -318,11 +318,11 @@ const Header = () => {
               {/* Get Started Button - positioned at the right end */}
               <div className="ml-auto">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-3 py-1 rounded-md flex items-center gap-1" 
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-base font-bold px-4 py-2 rounded-md flex items-center gap-1" 
                   asChild
                 >
                   <Link to={user ? "/loan-calculator" : "/auth"}>
-                    <Lock className="h-3 w-3" />
+                    <Lock className="h-4 w-4" />
                     Get Started
                   </Link>
                 </Button>
