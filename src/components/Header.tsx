@@ -89,7 +89,7 @@ const Header = () => {
       <div className="hidden lg:block">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-16 px-6">
-            {/* Left Side - Company and Resources Navigation */}
+            {/* Left Side - Logo, Company and Resources Navigation */}
             <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
               <DropdownMenu>
@@ -122,6 +122,13 @@ const Header = () => {
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
+
+              {/* Logo - positioned under Company dropdown */}
+              <Link to="/" className="flex items-center">
+                <span className="text-sm font-bold text-gray-900">
+                  HALO BUSINESS FINANCE
+                </span>
+              </Link>
 
               {/* Marketplace Benefits Button */}
               <Link 
@@ -282,19 +289,12 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Secondary Navigation Bar - BMO style with logo */}
+      {/* Secondary Navigation Bar - Service dropdowns without logo */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-20 px-4 sm:px-6">
-            {/* Logo */}
-            <Link to="/" className="flex items-center mr-8">
-              <span className="text-xl font-bold text-gray-900">
-                HALO BUSINESS FINANCE
-              </span>
-            </Link>
-
-            {/* Secondary Navigation with Dropdowns - positioned under logo */}
-            <nav className="hidden lg:flex items-center space-x-8 flex-1">
+            {/* Secondary Navigation with Dropdowns - positioned where logo used to be */}
+            <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-start">{/*Adjusted to start from the left since logo is removed*/}
               {secondaryNavWithDropdowns.map((item) => (
                 <DropdownMenu key={item.title}>
                   <DropdownMenuTrigger className="flex items-center text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors py-1 group">
