@@ -106,8 +106,8 @@ export const EnhancedSecurityProvider: React.FC<EnhancedSecurityProviderProps> =
     // Initial security check
     performSecurityCheck();
 
-    // Set up periodic security monitoring
-    const securityInterval = setInterval(performSecurityCheck, 60000); // Every minute
+    // Set up periodic security monitoring - Optimized interval
+    const securityInterval = setInterval(performSecurityCheck, 300000); // Every 5 minutes (reduced from 1 minute)
 
     // Monitor for suspicious activity
     const handleSuspiciousActivity = async () => {

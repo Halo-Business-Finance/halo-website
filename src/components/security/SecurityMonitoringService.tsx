@@ -36,7 +36,7 @@ interface SecurityMonitoringProps {
 
 export const SecurityMonitoringProvider: React.FC<SecurityMonitoringProps> = ({
   children,
-  monitoringInterval = 30000, // 30 seconds default
+  monitoringInterval = 120000, // Optimized: 2 minutes default (reduced from 30 seconds)
 }) => {
   const [securityEvents, setSecurityEvents] = useState<SecurityEvent[]>([]);
   const [securityScore, setSecurityScore] = useState<number>(100);
@@ -75,12 +75,14 @@ export const SecurityMonitoringProvider: React.FC<SecurityMonitoringProps> = ({
 
   const fetchSecurityEvents = async () => {
     try {
+      // Optimized: Only fetch high/critical events to reduce load
       const { data, error } = await supabase
         .from('security_events')
         .select('*')
         .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+        .in('severity', ['high', 'critical'])
         .order('created_at', { ascending: false })
-        .limit(50);
+        .limit(25); // Reduced limit
 
       if (error) {
         console.error('Error fetching security events:', error);
