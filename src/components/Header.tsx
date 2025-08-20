@@ -287,7 +287,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-20 px-4 sm:px-6">
             {/* Logo positioned under the Company dropdown from above */}
-            <Link to="/" className="flex items-center mr-8 -mt-2">
+            <Link to="/" className="flex items-center mr-8 -mt-4">
               <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
                 HALO BUSINESS FINANCE
               </span>
