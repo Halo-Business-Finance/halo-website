@@ -150,22 +150,19 @@ serve(async (req) => {
         event_data: {
           session_id: sessionId,
           token_expiration: expiresAt.toISOString(),
-          security_level: 'enhanced'
-        }
-      }
-    });
-        entropy_sources: {
-          crypto_random: true,
-          timestamp: true,
-          session_id: true,
-          user_agent: !!userAgent,
-          client_entropy: !!entropy
+          security_level: 'enhanced',
+          entropy_sources: {
+            crypto_random: true,
+            timestamp: true,
+            session_id: true,
+            user_agent: !!userAgent,
+            client_entropy: !!entropy
+          },
+          rotation_scheduled: rotationScheduled || false
         },
-        security_level: 'enhanced',
-        rotation_scheduled: rotationScheduled || false
-      },
-      user_agent: userAgent,
-      source: 'enhanced_csrf_generation'
+        user_agent: userAgent,
+        source: 'enhanced_csrf_generation'
+      }
     })
 
     return new Response(
