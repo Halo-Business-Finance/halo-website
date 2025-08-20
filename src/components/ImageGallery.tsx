@@ -112,32 +112,6 @@ const ImageGallery = () => {
 
         {/* Elegant Carousel Section */}
         <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/30 shadow-lg">
-          {/* Navigation Controls */}
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={scrollPrev}
-                disabled={prevBtnDisabled}
-                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary disabled:opacity-30"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={scrollNext}
-                disabled={nextBtnDisabled}
-                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary disabled:opacity-30"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </div>
-            <div className="text-sm text-foreground/70">
-              {galleryItems.length} success stories
-            </div>
-          </div>
 
           {/* Embla Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
