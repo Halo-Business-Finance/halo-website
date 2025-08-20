@@ -6,6 +6,7 @@ import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
+import LoanProcessCarousel from './LoanProcessCarousel';
 import { useCallback, useEffect, useState } from 'react';
 import { 
   CreditCard, 
@@ -454,75 +455,25 @@ const ProductsSection = () => {
         {/* Enhanced Header Section - JPMorgan Style */}
         <div className="text-center mb-20">
           
-          {/* Our Streamlined Loan Process Section */}
-          <div className="mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">Our Streamlined Loan Process</h3>
-            <p className="text-xl text-slate-600 mb-8">We make commercial lending simple</p>
+          {/* Our Streamlined Loan Process Section - Merry-go-round */}
+          <LoanProcessCarousel />
+          
+          {/* Text content below process steps */}
+          <div className="text-center mt-12">
+            <h4 className="text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h4>
             
-            <div className="relative mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-                {[
-                  { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: loanProcessOverview },
-                  { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: loanProcessExplanation },
-                  { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: loanApprovalCelebration },
-                  { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: loanOfficersWorking },
-                  { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: successfulLoanHandshake }
-                ].map((item, index) => (
-                  <div key={index} className="relative flex items-stretch h-full">
-                    <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full w-full">
-                      <div className="relative h-56 overflow-hidden">
-                        <LazyImage 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4 text-white">
-                          <div className="text-2xl font-bold mb-1 text-shadow">Step {item.step}</div>
-                          <h3 className="text-lg font-bold text-shadow">{item.title}</h3>
-                        </div>
-                        
-                      </div>
-                      
-                      <CardContent className="p-6 flex-1 flex flex-col">
-                        <p className="text-slate-600 leading-relaxed flex-grow text-sm">{item.description}</p>
-                        
-                        {/* Subtle accent line */}
-                        <div className="w-12 h-1 bg-primary rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
-                      </CardContent>
-                    </Card>
-                    
-                    {/* Arrow - only show between steps, not after the last one */}
-                    {index < 4 && (
-                      <div className="hidden md:flex absolute -right-3 lg:-right-3 top-1/2 transform -translate-y-1/2 z-10">
-                        <div className="bg-primary/10 rounded-full p-2 animate-pulse">
-                          <ArrowRight className="h-6 w-6 text-primary" />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+            {/* Get Started Button */}
+            <div className="mb-6">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
+                asChild
+              >
+                <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
+              </Button>
             </div>
             
-            {/* Text content below process steps */}
-            <div className="text-center mt-12">
-              <h4 className="text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h4>
-              
-              {/* Get Started Button */}
-              <div className="mb-6">
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
-                  asChild
-                >
-                  <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
-                </Button>
-              </div>
-              
-              <p className="text-lg text-slate-600">Professional lending process with modern technology</p>
-            </div>
+            <p className="text-lg text-slate-600">Professional lending process with modern technology</p>
           </div>
           
           {/* Section Divider */}
