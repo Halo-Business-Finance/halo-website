@@ -354,10 +354,6 @@ const ProductsSection = () => {
                           <h3 className="text-lg font-bold text-shadow">{item.title}</h3>
                         </div>
                         
-                        {/* Elegant overlay badge */}
-                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
-                          Process Step
-                        </div>
                       </div>
                       
                       <CardContent className="p-6 flex-1 flex flex-col">
