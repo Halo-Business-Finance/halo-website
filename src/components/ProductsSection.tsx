@@ -321,7 +321,7 @@ const ProductsSection = () => {
 
   return (
     <section className="py-20 md:py-28 bg-transparent">
-      <div className="container mx-auto px-4">
+      <div className="max-w-8xl mx-auto px-4">{/* Increased from container to max-w-8xl for wider layout */}
         {/* Enhanced Header Section - JPMorgan Style */}
         <div className="text-center mb-20">
           
