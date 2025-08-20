@@ -123,12 +123,12 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* About Us Button */}
+              {/* Marketplace Benefits Button */}
               <Link 
-                to="/company-overview" 
+                to="/marketplace-benefits" 
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
               >
-                About Us
+                Marketplace Benefits
               </Link>
               
               {/* Resources Dropdown */}
