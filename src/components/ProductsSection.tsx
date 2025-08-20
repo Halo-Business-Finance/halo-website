@@ -306,6 +306,18 @@ const ProductsSection = () => {
       color: "from-purple-500 to-purple-600"
     },
     {
+      icon: Receipt,
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
+      title: "Factoring-Based Financing",
+      description: "Convert outstanding invoices into immediate working capital through factoring.",
+      rate: "1-3%",
+      rateLabel: "Factor Rate",
+      features: ["Immediate cash flow solutions", "No debt on balance sheet", "Customer credit protection included"],
+      learnLink: "/factoring-based-financing",
+      applyLink: "/working-capital-application",
+      color: "from-orange-500 to-orange-600"
+    },
+    {
       logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       title: "SBA Express Loans",
@@ -319,16 +331,52 @@ const ProductsSection = () => {
       color: "from-orange-600 to-orange-700"
     },
     {
-      icon: Receipt,
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
-      title: "Factoring-Based Financing",
-      description: "Convert outstanding invoices into immediate working capital through factoring.",
-      rate: "1-3%",
-      rateLabel: "Factor Rate",
-      features: ["Immediate cash flow solutions", "No debt on balance sheet", "Customer credit protection included"],
-      learnLink: "/factoring-based-financing",
-      applyLink: "/working-capital-application",
-      color: "from-orange-500 to-orange-600"
+      icon: DollarSign,
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80",
+      title: "Debt Financing",
+      description: "Traditional debt financing solutions for business growth and expansion.",
+      rate: "5.5%",
+      rateLabel: "Starting APR",
+      features: ["Fixed and variable rate options", "Competitive terms and rates", "Flexible repayment structures"],
+      learnLink: "/debt-financing",
+      applyLink: "/term-loan-application",
+      color: "from-slate-500 to-slate-600"
+    },
+    {
+      icon: TrendingUp,
+      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80",
+      title: "Equity Financing",
+      description: "Raise capital through equity investment without taking on debt.",
+      rate: "Equity Based",
+      rateLabel: "Investment",
+      features: ["No monthly payments required", "Shared risk with investors", "Business growth partnership"],
+      learnLink: "/equity-financing",
+      applyLink: "/term-loan-application",
+      color: "from-green-500 to-green-600"
+    },
+    {
+      icon: Factory,
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
+      title: "Mezzanine Financing",
+      description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
+      rate: "8-15%",
+      rateLabel: "Return Rate",
+      features: ["Debt-equity hybrid structure", "Growth capital for expansion", "Acquisition financing solutions"],
+      learnLink: "/mezzanine-financing",
+      applyLink: "/term-loan-application",
+      color: "from-indigo-500 to-indigo-600"
+    },
+    {
+      icon: Landmark,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+      title: "Private Placement",
+      description: "Private capital placement for qualified businesses seeking growth funding.",
+      rate: "Market Rate",
+      rateLabel: "Negotiable",
+      features: ["Accredited investor access", "Private capital markets", "Customized financing terms"],
+      learnLink: "/private-placement",
+      applyLink: "/term-loan-application",
+      color: "from-purple-600 to-purple-700"
     }
   ];
 
