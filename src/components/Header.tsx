@@ -45,9 +45,7 @@ const Header = () => {
       href: "/usda-bi-loans",
       items: [
         { title: "USDA B&I Loans", href: "/usda-bi-loans" },
-        { title: "USDA Rural Development", href: "/usda-rural-development" },
-        { title: "USDA Community Facilities", href: "/usda-community-facilities" },
-        { title: "USDA Water & Waste", href: "/usda-water-waste" }
+        { title: "USDA Rural Development", href: "/usda-rural-development" }
       ]
     },
     { 
