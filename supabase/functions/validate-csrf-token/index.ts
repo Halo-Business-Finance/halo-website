@@ -50,10 +50,6 @@ const handler = async (req: Request): Promise<Response> => {
           }
         }
       });
-          session_id: sessionId?.substring(0, 8) + '...' || null
-        },
-        source: 'csrf_validation'
-      });
 
       return new Response(JSON.stringify({ 
         isValid: false,
@@ -89,10 +85,6 @@ const handler = async (req: Request): Promise<Response> => {
           }
         }
       });
-          expired_by_ms: currentTime - tokenConfig.expires
-        },
-        source: 'csrf_validation'
-      });
 
       return new Response(JSON.stringify({ 
         isValid: false,
@@ -118,10 +110,6 @@ const handler = async (req: Request): Promise<Response> => {
             provided_session: sessionId?.substring(0, 8) + '...'
           }
         }
-      });
-          provided_session: sessionId.substring(0, 8) + '...'
-        },
-        source: 'csrf_validation'
       });
 
       return new Response(JSON.stringify({ 
@@ -160,10 +148,6 @@ const handler = async (req: Request): Promise<Response> => {
           validation_time: new Date().toISOString()
         }
       }
-    });
-        token_age_ms: currentTime - tokenConfig.created
-      },
-      source: 'csrf_validation'
     });
 
     console.log(`CSRF token validated successfully: ${token.substring(0, 8)}...`);
