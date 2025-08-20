@@ -24,6 +24,7 @@ import NotFound from "./pages/NotFound";
 
 // Lazy load all other pages for better performance
 const AuthPage = lazy(() => import("./pages/AuthPage"));
+const AdminInitializerPage = lazy(() => import("./pages/AdminInitializerPage"));
 const ReferralPartnersPage = lazy(() => import("./pages/ReferralPartnersPage"));
 const BrokersPage = lazy(() => import("./pages/BrokersPage"));
 const LendersPage = lazy(() => import("./pages/LendersPage"));
@@ -169,6 +170,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<AuthPage />} />
+              <Route path="/admin-setup" element={<AdminInitializerPage />} />
             <Route path="/referral-partners" element={<ReferralPartnersPage />} />
             <Route path="/brokers" element={<BrokersPage />} />
             <Route path="/lenders" element={<LendersPage />} />
