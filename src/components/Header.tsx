@@ -87,8 +87,8 @@ const Header = () => {
 
   return (
     <header className="relative bg-white z-40">
-      {/* Primary Navigation Bar - With Company button */}
-      <div>
+      {/* Primary Navigation Bar - Hidden on mobile, only visible on desktop */}
+      <div className="hidden lg:block">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-12 px-6">
             {/* Left Side - Company and Resources Navigation */}
@@ -270,7 +270,7 @@ const Header = () => {
       {/* Secondary Navigation Bar - BMO style with logo */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 px-6">
+          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
             {/* Logo */}
             <Link to="/" className="flex items-center mr-8">
               <div className="flex items-center space-x-2">
@@ -337,7 +337,7 @@ const Header = () => {
           />
           
           <div className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-xl overflow-y-auto lg:hidden">
-            <div className="flex flex-col gap-4 p-6">
+            <div className="flex flex-col gap-4 p-4 sm:p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-bold text-gray-900">Menu</h2>
                 <Button 

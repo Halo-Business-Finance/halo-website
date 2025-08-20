@@ -132,4 +132,20 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-4;
+    }
+    
+    .max-w-7xl {
+      @apply px-4;
+    }
+    
+    /* Ensure proper spacing on mobile */
+    main {
+      @apply pt-0;
+    }
+  }
 }
