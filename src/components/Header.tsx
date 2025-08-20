@@ -283,7 +283,7 @@ const Header = () => {
       </div>
 
       {/* Secondary Navigation Bar - Logo positioned under Company dropdown */}
-      <div className="bg-white">
+      <div className="bg-white mt-2">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-20 px-4 sm:px-6">
             {/* Logo positioned under the Company dropdown from above */}
