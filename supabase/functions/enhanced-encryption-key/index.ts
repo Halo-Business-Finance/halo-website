@@ -189,13 +189,18 @@ serve(async (req) => {
       )
     }
 
-    // Log key generation event
-    await supabase.rpc('log_client_security_event', {
-      event_type: 'enhanced_encryption_key_generated',
-      severity: 'info',
-      event_data: {
-        key_purpose: keyPurpose,
-        session_id: sessionId,
+    // Log key generation event using optimized logger
+    await supabase.functions.invoke('security-event-optimizer', {
+      body: {
+        event_type: 'enhanced_encryption_key_generated',
+        severity: 'info',
+        event_data: {
+          key_purpose: keyPurpose,
+          session_id: sessionId,
+          algorithm: algorithm
+        }
+      }
+    });
         user_id: user.id,
         key_algorithm: 'AES-256-GCM',
         expires_at: expiresAt.toISOString(),

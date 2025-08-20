@@ -38,13 +38,18 @@ const handler = async (req: Request): Promise<Response> => {
       .single();
 
     if (fetchError || !tokenData) {
-      // Log failed validation attempt
-      await supabase.rpc('log_client_security_event', {
-        event_type: 'csrf_token_validation_failed',
-        severity: 'medium',
-        event_data: {
-          token_preview: token.substring(0, 8) + '...',
-          reason: 'token_not_found',
+      // Log failed validation attempt using optimized logger
+      await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: 'csrf_token_validation_failed',
+          severity: 'medium',
+          event_data: {
+            token_preview: token.substring(0, 8) + '...',
+            reason: 'token_not_found',
+            session_id: sessionId?.substring(0, 8) + '...' || null
+          }
+        }
+      });
           session_id: sessionId?.substring(0, 8) + '...' || null
         },
         source: 'csrf_validation'
@@ -73,12 +78,17 @@ const handler = async (req: Request): Promise<Response> => {
         .update({ is_active: false })
         .eq('id', tokenData.id);
 
-      await supabase.rpc('log_client_security_event', {
-        event_type: 'csrf_token_validation_failed',
-        severity: 'low',
-        event_data: {
-          token_preview: token.substring(0, 8) + '...',
-          reason: 'token_expired',
+      await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: 'csrf_token_validation_failed',
+          severity: 'low',
+          event_data: {
+            token_preview: token.substring(0, 8) + '...',
+            reason: 'token_expired',
+            expired_at: tokenConfig.expiresAt
+          }
+        }
+      });
           expired_by_ms: currentTime - tokenConfig.expires
         },
         source: 'csrf_validation'
@@ -98,12 +108,17 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Validate session matching if provided
     if (sessionId && tokenConfig.sessionId && tokenConfig.sessionId !== sessionId) {
-      await supabase.rpc('log_client_security_event', {
-        event_type: 'csrf_token_session_mismatch',
-        severity: 'high',
-        event_data: {
-          token_preview: token.substring(0, 8) + '...',
-          expected_session: tokenConfig.sessionId?.substring(0, 8) + '...',
+      await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: 'csrf_token_session_mismatch',
+          severity: 'high',
+          event_data: {
+            token_preview: token.substring(0, 8) + '...',
+            expected_session: tokenConfig.sessionId?.substring(0, 8) + '...',
+            provided_session: sessionId?.substring(0, 8) + '...'
+          }
+        }
+      });
           provided_session: sessionId.substring(0, 8) + '...'
         },
         source: 'csrf_validation'
@@ -134,13 +149,18 @@ const handler = async (req: Request): Promise<Response> => {
       })
       .eq('id', tokenData.id);
 
-    // Log successful validation
-    await supabase.rpc('log_client_security_event', {
-      event_type: 'csrf_token_validated_successfully',
-      severity: 'info',
-      event_data: {
-        token_preview: token.substring(0, 8) + '...',
-        session_id: sessionId?.substring(0, 8) + '...' || null,
+    // Log successful validation using optimized logger
+    await supabase.functions.invoke('security-event-optimizer', {
+      body: {
+        event_type: 'csrf_token_validated_successfully',
+        severity: 'info',
+        event_data: {
+          token_preview: token.substring(0, 8) + '...',
+          session_id: sessionId?.substring(0, 8) + '...' || null,
+          validation_time: new Date().toISOString()
+        }
+      }
+    });
         token_age_ms: currentTime - tokenConfig.created
       },
       source: 'csrf_validation'

@@ -485,19 +485,11 @@ export type Database = {
         }
         Returns: boolean
       }
-      automated_security_maintenance: {
-        Args: Record<PropertyKey, never>
-        Returns: Json
-      }
       cleanup_expired_sessions: {
         Args: Record<PropertyKey, never>
         Returns: number
       }
       cleanup_old_consultations: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      cleanup_old_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
       }
@@ -602,56 +594,9 @@ export type Database = {
           user_id: string
         }[]
       }
-      get_consultation_secure_enhanced: {
-        Args: { consultation_id: string }
-        Returns: {
-          company: string
-          created_at: string
-          email: string
-          id: string
-          loan_amount: string
-          loan_program: string
-          message: string
-          name: string
-          phone: string
-          status: string
-          timeframe: string
-          user_id: string
-        }[]
-      }
-      get_consultations_list_secure: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          created_at: string
-          email: string
-          id: string
-          loan_amount: string
-          loan_program: string
-          name: string
-          status: string
-          user_id: string
-        }[]
-      }
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: string
-      }
-      get_my_consultations: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          company: string
-          created_at: string
-          email: string
-          id: string
-          loan_amount: string
-          loan_program: string
-          message: string
-          name: string
-          phone: string
-          status: string
-          timeframe: string
-          updated_at: string
-        }[]
       }
       get_secure_consultation_data: {
         Args: { consultation_id: string }
@@ -684,27 +629,6 @@ export type Database = {
           source: string
         }[]
       }
-      get_security_overview: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          active_sessions: number
-          critical_alerts: number
-          encryption_keys_active: number
-          security_events_24h: number
-        }[]
-      }
-      get_session_overview_admin: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          created_at: string
-          is_active: boolean
-          last_activity: string
-          masked_ip: string
-          security_level: string
-          session_id: string
-          user_id: string
-        }[]
-      }
       get_user_active_sessions_count: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -728,30 +652,19 @@ export type Database = {
         Args: { target_email: string }
         Returns: boolean
       }
-      initialize_first_admin: {
-        Args: { admin_email: string }
-        Returns: Json
-      }
       invalidate_suspicious_sessions: {
         Args: { reason: string; target_user_id: string }
         Returns: number
       }
       log_client_security_event: {
-        Args:
-          | {
-              event_data?: Json
-              event_type: string
-              severity: string
-              source?: string
-              user_agent?: string
-            }
-          | {
-              event_data?: Json
-              event_type: string
-              severity?: string
-              source?: string
-            }
-        Returns: boolean
+        Args: {
+          event_data?: Json
+          event_type: string
+          severity: string
+          source?: string
+          user_agent?: string
+        }
+        Returns: string
       }
       mask_consultation_data: {
         Args: { data_record: Json; user_role: string }
@@ -761,24 +674,9 @@ export type Database = {
         Args: { data_text: string; data_type: string }
         Returns: string
       }
-      monitor_critical_security_events: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          event_count: number
-          event_type: string
-          last_occurrence: string
-          recommended_action: string
-          risk_assessment: string
-          severity: string
-        }[]
-      }
       optimize_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
-      }
-      resolve_security_alert: {
-        Args: { alert_id: string; resolution_notes?: string }
-        Returns: boolean
       }
       schedule_key_rotation: {
         Args: { p_key_identifier: string; p_rotation_date?: string }
@@ -793,27 +691,13 @@ export type Database = {
         Returns: boolean
       }
       secure_assign_user_role_v2: {
-        Args:
-          | {
-              expiration_date?: string
-              justification?: string
-              new_role: Database["public"]["Enums"]["app_role"]
-              target_user_id: string
-            }
-          | {
-              expiration_date?: string
-              new_role: Database["public"]["Enums"]["app_role"]
-              target_user_id: string
-            }
+        Args: {
+          expiration_date?: string
+          justification?: string
+          new_role: Database["public"]["Enums"]["app_role"]
+          target_user_id: string
+        }
         Returns: Json
-      }
-      secure_cleanup_consultations: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      secure_cleanup_expired_sessions: {
-        Args: Record<PropertyKey, never>
-        Returns: number
       }
       secure_initialize_admin: {
         Args: { admin_email: string; confirmation_token?: string }
@@ -824,15 +708,6 @@ export type Database = {
           reason?: string
           role_to_revoke: Database["public"]["Enums"]["app_role"]
           target_user_id: string
-        }
-        Returns: boolean
-      }
-      update_rate_limit_config: {
-        Args: {
-          endpoint_name: string
-          new_block_duration_seconds?: number
-          new_max_requests: number
-          new_window_seconds: number
         }
         Returns: boolean
       }
@@ -849,18 +724,11 @@ export type Database = {
         Returns: boolean
       }
       validate_session_security: {
-        Args:
-          | {
-              client_fingerprint: string
-              client_ip: unknown
-              session_token: string
-            }
-          | {
-              client_ip: unknown
-              security_context?: Json
-              session_id: string
-              user_agent: string
-            }
+        Args: {
+          client_fingerprint: string
+          client_ip: unknown
+          session_token: string
+        }
         Returns: boolean
       }
       validate_session_security_v2: {

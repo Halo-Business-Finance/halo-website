@@ -79,13 +79,19 @@ Deno.serve(async (req) => {
     if (!['admin', 'moderator'].includes(userRole)) {
       console.log(`Access denied for user role: ${userRole}`)
       
-      // Log unauthorized access attempt
-      await supabase.rpc('log_client_security_event', {
-        event_type: 'unauthorized_security_api_access',
-        severity: 'high',
-        event_data: {
-          user_id: user.id,
-          user_role: userRole,
+      // Log unauthorized access attempt using optimized logger
+      await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: 'unauthorized_security_api_access',
+          severity: 'high',
+          event_data: {
+            user_id: user.id,
+            user_role: userRole,
+            attempted_access: 'security_api',
+            ip_address: req.headers.get('cf-connecting-ip') || 'unknown'
+          }
+        }
+      });
           requested_endpoint: 'secure-security-api',
           ip_address: req.headers.get('cf-connecting-ip') || 'unknown'
         },
@@ -104,13 +110,19 @@ Deno.serve(async (req) => {
     const requestData: SecurityDataRequest = await req.json()
     console.log(`Security API request from ${userRole}: ${requestData.action}`)
 
-    // Log all security API access
-    await supabase.rpc('log_client_security_event', {
-      event_type: 'security_api_access',
-      severity: 'info',
-      event_data: {
-        user_id: user.id,
-        user_role: userRole,
+    // Log all security API access using optimized logger
+    await supabase.functions.invoke('security-event-optimizer', {
+      body: {
+        event_type: 'security_api_access',
+        severity: 'info',
+        event_data: {
+          user_id: user.id,
+          user_role: userRole,
+          action: requestData.action,
+          ip_address: req.headers.get('cf-connecting-ip') || 'unknown'
+        }
+      }
+    });
         action: requestData.action,
         has_filters: !!requestData.filters
       },

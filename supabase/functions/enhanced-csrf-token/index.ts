@@ -142,13 +142,18 @@ serve(async (req) => {
       )
     }
 
-    // Log enhanced security event
-    await supabase.rpc('log_client_security_event', {
-      event_type: 'enhanced_csrf_token_generated',
-      severity: 'info',
-      event_data: {
-        session_id: sessionId,
-        token_expiration: expiresAt.toISOString(),
+    // Log enhanced security event using optimized logger
+    await supabase.functions.invoke('security-event-optimizer', {
+      body: {
+        event_type: 'enhanced_csrf_token_generated',
+        severity: 'info',
+        event_data: {
+          session_id: sessionId,
+          token_expiration: expiresAt.toISOString(),
+          security_level: 'enhanced'
+        }
+      }
+    });
         entropy_sources: {
           crypto_random: true,
           timestamp: true,

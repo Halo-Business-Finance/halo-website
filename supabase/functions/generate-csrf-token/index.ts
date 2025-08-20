@@ -58,13 +58,18 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error('Failed to generate secure token');
     }
 
-    // Log token generation for security monitoring
-    await supabase.rpc('log_client_security_event', {
-      event_type: 'csrf_token_generated',
-      severity: 'info',
-      event_data: {
-        token_id: token.substring(0, 8) + '...',
-        session_id: sessionId?.substring(0, 8) + '...' || null,
+    // Log token generation for security monitoring using optimized logger
+    await supabase.functions.invoke('security-event-optimizer', {
+      body: {
+        event_type: 'csrf_token_generated',
+        severity: 'info',
+        event_data: {
+          token_id: token.substring(0, 8) + '...',
+          session_id: sessionId?.substring(0, 8) + '...' || null,
+          expires_at: expiresAt.toISOString()
+        }
+      }
+    });
         expires_in_minutes: 30
       },
       source: 'csrf_generation'

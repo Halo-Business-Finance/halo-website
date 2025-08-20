@@ -134,14 +134,19 @@ serve(async (req) => {
 
     const isValid = violations.length === 0
 
-    // Log security event if violations detected
+    // Log security event if violations detected using optimized logger
     if (!isValid) {
-      await supabase.rpc('log_client_security_event', {
-        event_type: 'input_validation_violation',
-        severity: riskScore > 50 ? 'high' : riskScore > 20 ? 'medium' : 'low',
-        event_data: {
-          input_type: type,
-          violations,
+      await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: 'input_validation_violation',
+          severity: riskScore > 50 ? 'high' : riskScore > 20 ? 'medium' : 'low',
+          event_data: {
+            input_type: type,
+            violations,
+            risk_score: riskScore
+          }
+        }
+      });
           risk_score: riskScore,
           context,
           original_length: input.length,
