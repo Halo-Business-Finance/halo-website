@@ -91,6 +91,17 @@ const ImageGallery = () => {
     setNextBtnDisabled(!emblaApi.canScrollNext());
   }, [emblaApi]);
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoplay = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 4000);
+
+    return () => clearInterval(autoplay);
+  }, [emblaApi]);
+
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
@@ -135,11 +146,6 @@ const ImageGallery = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 text-white">
                         <h3 className="text-xl font-bold mb-1 text-shadow">{item.title}</h3>
-                      </div>
-                      
-                      {/* Elegant overlay badge */}
-                      <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
-                        Success Story
                       </div>
                     </div>
                     
