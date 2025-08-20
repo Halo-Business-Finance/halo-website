@@ -24,11 +24,13 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
   const [encryptionKey, setEncryptionKey] = useState<string>('');
 
   useEffect(() => {
-    // Fetch session-specific encryption key from secure endpoint
+    // Fetch session-specific encryption key from enhanced secure endpoint
     const fetchEncryptionKey = async () => {
       try {
         // Get current user session
         const { data: { session } } = await supabase.auth.getSession();
+        const sessionId = sessionStorage.getItem('sessionId') || crypto.randomUUID();
+        sessionStorage.setItem('sessionId', sessionId);
         
         if (!session?.access_token) {
           // Generate a secure random key instead of using predictable fallback
@@ -38,10 +40,15 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
           return;
         }
 
-        const response = await supabase.functions.invoke('get-encryption-keys', {
+        const response = await supabase.functions.invoke('enhanced-encryption-key', {
           headers: {
             'Authorization': `Bearer ${session.access_token}`,
           },
+          body: {
+            sessionId,
+            keyPurpose: 'form_encryption',
+            rotationRequested: false
+          }
         });
         
         if (response.data?.sessionEncryptionKey) {
@@ -53,6 +60,7 @@ export const FormSecurityProvider: React.FC<FormSecurityProviderProps> = ({ chil
           setEncryptionKey(secureKey);
         }
       } catch (error) {
+        console.warn('Enhanced encryption key service unavailable, using secure fallback');
         // Generate secure random key on error
         const randomKey = crypto.getRandomValues(new Uint8Array(32));
         const secureKey = Array.from(randomKey, byte => byte.toString(16).padStart(2, '0')).join('');
