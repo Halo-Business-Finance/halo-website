@@ -460,8 +460,8 @@ const ProductsSection = () => {
           {/* Carousel Content */}
           <div className="p-8 md:p-12 bg-slate-50/30">
 
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-3 md:gap-4 pl-2 pr-24 md:pr-32">
+            <div className="overflow-hidden max-w-none w-full" ref={emblaRef}>
+              <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
                 {products.slice(0, 3).map((product, index) => (
                   <div 
                     key={index} 
@@ -642,8 +642,8 @@ const ProductsSection = () => {
 
             {/* Carousel Content */}
             <div className="p-8 md:p-12 bg-slate-50/30">
-              <div className="overflow-hidden" ref={businessEmblaRef}>
-                <div className="flex gap-3 md:gap-4 pl-2 pr-24 md:pr-32">
+              <div className="overflow-hidden max-w-none w-full" ref={businessEmblaRef}>
+                <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
                   {businessProducts.slice(0, 3).map((product, index) => (
                     <div 
                       key={index} 
