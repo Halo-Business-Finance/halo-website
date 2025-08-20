@@ -772,6 +772,10 @@ export type Database = {
           severity: string
         }[]
       }
+      optimize_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       resolve_security_alert: {
         Args: { alert_id: string; resolution_notes?: string }
         Returns: boolean

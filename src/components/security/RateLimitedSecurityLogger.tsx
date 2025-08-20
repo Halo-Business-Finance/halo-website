@@ -43,12 +43,16 @@ class RateLimitedSecurityLogger {
     }
 
     try {
-      // Use the rate-limited function from the migration
-      const { data, error } = await supabase.rpc('log_client_security_event', {
-        event_type: eventData.event_type,
-        severity: eventData.severity || 'info',
-        event_data: eventData.event_data || {},
-        source: eventData.source || 'client'
+      // Use the optimized security event logger
+      const { data, error } = await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: eventData.event_type,
+          severity: eventData.severity || 'info',
+          event_data: eventData.event_data || {},
+          source: eventData.source || 'client',
+          user_agent: userAgent,
+          ip_address: null // Let the edge function detect IP
+        }
       });
 
       if (error) {
@@ -59,7 +63,7 @@ class RateLimitedSecurityLogger {
         return false;
       }
 
-      return Boolean(data);
+      return data?.success || false;
     } catch (error) {
       // Only log critical errors in development
       if (import.meta.env.DEV) {
