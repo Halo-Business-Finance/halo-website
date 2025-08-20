@@ -66,13 +66,11 @@ const handler = async (req: Request): Promise<Response> => {
         event_data: {
           token_id: token.substring(0, 8) + '...',
           session_id: sessionId?.substring(0, 8) + '...' || null,
-          expires_at: expiresAt.toISOString()
-        }
+          expires_at: new Date(currentTime + (30 * 60 * 1000)).toISOString(),
+          expires_in_minutes: 30
+        },
+        source: 'csrf_generation'
       }
-    });
-        expires_in_minutes: 30
-      },
-      source: 'csrf_generation'
     });
 
     console.log(`CSRF token generated successfully: ${token.substring(0, 8)}...`);
