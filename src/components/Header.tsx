@@ -280,14 +280,9 @@ const Header = () => {
           <div className="flex items-center justify-between h-20 px-4 sm:px-6">
             {/* Logo */}
             <Link to="/" className="flex items-center mr-8">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">H</span>
-                </div>
-                <span className="text-xl font-bold text-gray-900">
-                  HALO BUSINESS FINANCE
-                </span>
-              </div>
+              <span className="text-xl font-bold text-gray-900">
+                HALO BUSINESS FINANCE
+              </span>
             </Link>
 
             {/* Secondary Navigation with Dropdowns */}
