@@ -25,7 +25,7 @@ const HeroSection = () => {
           <header className="text-white space-y-6">
             <div className="space-y-5">
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 <span className="block">Business Financing</span>
                 <span className="block text-primary-glow">that Grows with You</span>
               </h1>
