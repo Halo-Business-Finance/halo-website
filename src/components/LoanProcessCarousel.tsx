@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Play, Pause, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
 import loanProcessOverview from "@/assets/loan-process-overview.jpg";
 import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
@@ -68,25 +68,12 @@ const LoanProcessCarousel = () => {
 
   return (
     <div className="mb-12">
-      {/* Header with Play/Pause */}
-      <div className="flex items-center justify-center gap-6 mb-8">
-        <div className="text-center">
-          <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-2">
-            Our Streamlined Loan Process
-          </h3>
-          <p className="text-xl text-slate-600">We make commercial lending simple</p>
-        </div>
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="bg-primary/10 hover:bg-primary/20 rounded-full p-4 transition-all duration-300 group"
-          aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
-        >
-          {isPlaying ? (
-            <Pause className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
-          ) : (
-            <Play className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
-          )}
-        </button>
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-2">
+          Our Streamlined Loan Process
+        </h3>
+        <p className="text-xl text-slate-600">We make commercial lending simple</p>
       </div>
 
       {/* Premium 3D Perspective Carousel */}
@@ -103,7 +90,6 @@ const LoanProcessCarousel = () => {
                   alt={steps[activeStep].title}
                   className="w-full h-full object-cover"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${steps[activeStep].color} opacity-80`} />
                 
                 {/* Step badge */}
                 <div className="absolute top-4 left-4">
@@ -173,7 +159,6 @@ const LoanProcessCarousel = () => {
                       alt={step.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${step.color} opacity-60`} />
                     <div className="absolute bottom-2 left-2 right-2">
                       <div className="text-white text-sm font-semibold">
                         Step {step.step}: {step.title}
