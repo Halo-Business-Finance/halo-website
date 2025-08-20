@@ -116,7 +116,8 @@ Deno.serve(async (req) => {
           action: requestData.action,
           ip_address: req.headers.get('cf-connecting-ip') || 'unknown'
         }
-      })
+      }
+    });
 
     let responseData = null
 
