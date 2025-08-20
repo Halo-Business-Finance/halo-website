@@ -74,7 +74,7 @@ const AssetBasedLoansPage = lazy(() => import("./pages/AssetBasedLoansPage"));
 
 const SecurityPage = lazy(() => import("./pages/SecurityPage"));
 const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
-const SecuritySetupPage = lazy(() => import("./pages/SecuritySetupPage"));
+const AdminSignupPage = lazy(() => import("./pages/AdminSignupPage"));
 
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
@@ -223,7 +223,7 @@ const App = () => {
             
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
-            <Route path="/security-setup" element={<SecuritySetupPage />} />
+            <Route path="/admin-signup" element={<AdminSignupPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
