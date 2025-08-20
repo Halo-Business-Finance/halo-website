@@ -122,6 +122,14 @@ const Header = () => {
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
+
+              {/* About Us Button */}
+              <Link 
+                to="/company-overview" 
+                className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                About Us
+              </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
