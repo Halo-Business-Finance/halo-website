@@ -58,21 +58,22 @@ const LoanProcessCarousel = () => {
 
   const getStepPosition = (index: number) => {
     const position = (index - activeStep + steps.length) % steps.length;
-    const angle = (position * 72) - 72; // 360/5 = 72 degrees per step
-    const radius = 180;
+    const angle = (position * 72); // 360/5 = 72 degrees per step
+    const radius = 120; // Reduced radius for better fit
     const centerX = 50;
     const centerY = 50;
     
-    const x = centerX + (radius * Math.cos((angle * Math.PI) / 180)) / 5;
-    const y = centerY + (radius * Math.sin((angle * Math.PI) / 180)) / 5;
+    const radians = (angle * Math.PI) / 180;
+    const x = centerX + (radius * Math.cos(radians)) / 2.5; // Adjusted scaling
+    const y = centerY + (radius * Math.sin(radians)) / 2.5; // Adjusted scaling
     
     return {
       left: `${x}%`,
       top: `${y}%`,
       transform: 'translate(-50%, -50%)',
-      scale: position === 0 ? 1.2 : position === 1 || position === 4 ? 1 : 0.8,
-      zIndex: position === 0 ? 10 : position === 1 || position === 4 ? 5 : 1,
-      opacity: position <= 2 || position >= 3 ? 1 : 0.7
+      scale: position === 0 ? 1.1 : position === 1 || position === 4 ? 0.9 : 0.75,
+      zIndex: position === 0 ? 20 : position === 1 || position === 4 ? 10 : 5,
+      opacity: position === 0 ? 1 : position === 1 || position === 4 ? 0.8 : 0.6
     };
   };
 
@@ -96,7 +97,9 @@ const LoanProcessCarousel = () => {
       <p className="text-xl text-slate-600 mb-12 text-center">We make commercial lending simple</p>
       
       {/* Merry-go-round Container */}
-      <div className="relative mx-auto w-full max-w-4xl h-96 md:h-[500px] overflow-hidden">
+      <div className="relative mx-auto w-full max-w-5xl h-[600px] md:h-[700px] overflow-visible bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200 shadow-lg">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)] rounded-3xl"></div>
         {steps.map((step, index) => {
           const position = getStepPosition(index);
           const isActive = index === activeStep;
@@ -105,17 +108,22 @@ const LoanProcessCarousel = () => {
             <div
               key={index}
               className="absolute transition-all duration-1000 ease-in-out cursor-pointer"
-              style={position}
+              style={{
+                ...position,
+                transform: `translate(-50%, -50%) scale(${position.scale})`,
+                zIndex: position.zIndex,
+                opacity: position.opacity
+              }}
               onClick={() => setActiveStep(index)}
             >
               <Card 
-                className={`group overflow-hidden shadow-lg transition-all duration-500 bg-white w-48 md:w-56 ${
+                className={`group overflow-hidden shadow-lg transition-all duration-500 bg-white w-52 md:w-64 ${
                   isActive 
-                    ? 'border-2 border-primary shadow-2xl scale-110' 
+                    ? 'border-2 border-primary shadow-2xl' 
                     : 'border border-slate-300 hover:border-primary hover:shadow-xl'
                 }`}
               >
-                <div className="relative h-32 md:h-40 overflow-hidden">
+                <div className="relative h-36 md:h-44 overflow-hidden">
                   <LazyImage 
                     src={step.image} 
                     alt={step.title}
@@ -169,10 +177,10 @@ const LoanProcessCarousel = () => {
         })}
         
         {/* Central Hub */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
-          <div className="text-white font-bold text-sm text-center">
-            <div className="text-xs">Step</div>
-            <div className="text-lg">{steps[activeStep].step}</div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80 rounded-full flex items-center justify-center shadow-2xl border-4 border-white z-30">
+          <div className="text-white font-bold text-center">
+            <div className="text-xs uppercase tracking-wide">Step</div>
+            <div className="text-2xl font-black">{steps[activeStep].step}</div>
           </div>
         </div>
       </div>
