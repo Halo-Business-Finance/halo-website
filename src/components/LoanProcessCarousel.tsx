@@ -96,7 +96,7 @@ const LoanProcessCarousel = () => {
           
           {/* Main Feature Card */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <Card className="w-80 md:w-96 h-[400px] md:h-[480px] overflow-hidden shadow-2xl border-2 border-primary/20 bg-white">
+            <Card className="w-80 md:w-96 h-[400px] md:h-[480px] overflow-hidden shadow-2xl border-2 border-primary/20">
               <div className="relative h-48 md:h-56 overflow-hidden">
                 <LazyImage 
                   src={steps[activeStep].image} 
@@ -193,14 +193,14 @@ const LoanProcessCarousel = () => {
           {/* Navigation arrows */}
           <button
             onClick={() => setActiveStep((activeStep - 1 + steps.length) % steps.length)}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
           >
             <ArrowRight className="h-6 w-6 text-slate-700 rotate-180" />
           </button>
           
           <button
             onClick={() => setActiveStep((activeStep + 1) % steps.length)}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
           >
             <ArrowRight className="h-6 w-6 text-slate-700" />
           </button>
