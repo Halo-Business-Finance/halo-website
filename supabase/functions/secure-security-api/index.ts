@@ -92,11 +92,6 @@ Deno.serve(async (req) => {
           }
         }
       });
-          requested_endpoint: 'secure-security-api',
-          ip_address: req.headers.get('cf-connecting-ip') || 'unknown'
-        },
-        source: 'security_api'
-      })
 
       return new Response(
         JSON.stringify({ error: 'Insufficient permissions' }),
@@ -121,13 +116,7 @@ Deno.serve(async (req) => {
           action: requestData.action,
           ip_address: req.headers.get('cf-connecting-ip') || 'unknown'
         }
-      }
-    });
-        action: requestData.action,
-        has_filters: !!requestData.filters
-      },
-      source: 'security_api'
-    })
+      })
 
     let responseData = null
 
