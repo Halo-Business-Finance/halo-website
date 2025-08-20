@@ -294,9 +294,9 @@ const Header = () => {
             <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
               {secondaryNavWithDropdowns.map((item) => (
                 <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-2 group">
+                  <DropdownMenuTrigger className="flex items-center text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors py-1 group">
                     {item.title}
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                     <div className="py-1">
