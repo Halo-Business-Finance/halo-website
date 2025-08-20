@@ -17,7 +17,9 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
-    const { action } = await req.json()
+    // Parse request body once
+    const requestBody = await req.json()
+    const { action } = requestBody
 
     if (action === 'optimize') {
       // Run the optimization function
@@ -49,7 +51,7 @@ serve(async (req) => {
       source = 'client',
       user_agent,
       ip_address 
-    } = await req.json()
+    } = requestBody
 
     // Client IP detection
     const clientIP = ip_address || 

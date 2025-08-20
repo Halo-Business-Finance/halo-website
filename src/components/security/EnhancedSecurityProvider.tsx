@@ -87,14 +87,16 @@ export const EnhancedSecurityProvider: React.FC<EnhancedSecurityProviderProps> =
       } catch (error) {
         console.error('Security check failed:', error);
         
-        // Log client-side security event
+        // Log client-side security event using optimized logger
         try {
-          await supabase.rpc('log_client_security_event', {
-            event_type: 'security_check_failed',
-            severity: 'medium',
-            event_data: {
-              error: error instanceof Error ? error.message : 'Unknown error',
-              timestamp: new Date().toISOString()
+          await supabase.functions.invoke('security-event-optimizer', {
+            body: {
+              event_type: 'security_check_failed',
+              severity: 'medium',
+              event_data: {
+                error: error instanceof Error ? error.message : 'Unknown error',
+                timestamp: new Date().toISOString()
+              }
             }
           });
         } catch (logError) {
@@ -112,13 +114,15 @@ export const EnhancedSecurityProvider: React.FC<EnhancedSecurityProviderProps> =
     // Monitor for suspicious activity
     const handleSuspiciousActivity = async () => {
       try {
-        await supabase.rpc('log_client_security_event', {
-          event_type: 'suspicious_activity_detected',
-          severity: 'high',
-          event_data: {
-            activity_type: 'unusual_interaction',
-            timestamp: new Date().toISOString(),
-            page_url: window.location.href
+        await supabase.functions.invoke('security-event-optimizer', {
+          body: {
+            event_type: 'suspicious_activity_detected',
+            severity: 'high',
+            event_data: {
+              activity_type: 'unusual_interaction',
+              timestamp: new Date().toISOString(),
+              page_url: window.location.href
+            }
           }
         });
       } catch (error) {

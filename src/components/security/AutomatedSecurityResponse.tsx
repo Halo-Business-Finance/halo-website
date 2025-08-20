@@ -54,14 +54,16 @@ export const AutomatedSecurityResponse = () => {
           ipAddress: event.ip_address 
         });
         
-        // Log security event for IP blocking
-        await supabase.rpc('log_client_security_event', {
-          event_type: 'ip_auto_blocked',
-          severity: 'high',
-          event_data: { 
-            blocked_ip: event.ip_address,
-            reason: 'Excessive rate limit violations',
-            auto_response: true
+        // Log security event for IP blocking using optimized logger
+        await supabase.functions.invoke('security-event-optimizer', {
+          body: {
+            event_type: 'ip_auto_blocked',
+            severity: 'high',
+            event_data: { 
+              blocked_ip: event.ip_address,
+              reason: 'Excessive rate limit violations',
+              auto_response: true
+            }
           }
         });
         
@@ -77,14 +79,16 @@ export const AutomatedSecurityResponse = () => {
       action: async (event) => {
         secureLogger.securityEvent('admin_security_alert', { eventId: event.id });
         
-        // Send immediate notification to all admins
-        await supabase.rpc('log_client_security_event', {
-          event_type: 'admin_security_notification',
-          severity: 'critical',
-          event_data: {
-            original_event: event.event_type,
-            requires_review: true,
-            auto_flagged: true
+        // Send immediate notification to all admins using optimized logger
+        await supabase.functions.invoke('security-event-optimizer', {
+          body: {
+            event_type: 'admin_security_notification',
+            severity: 'critical',
+            event_data: {
+              original_event: event.event_type,
+              requires_review: true,
+              auto_flagged: true
+            }
           }
         });
         
@@ -101,13 +105,15 @@ export const AutomatedSecurityResponse = () => {
       action: async (event) => {
         secureLogger.securityEvent('data_access_alert', { eventId: event.id });
         
-        await supabase.rpc('log_client_security_event', {
-          event_type: 'suspicious_data_access',
-          severity: 'high',
-          event_data: {
-            original_event: event.event_type,
-            access_pattern: 'anomalous',
-            auto_flagged: true
+        await supabase.functions.invoke('security-event-optimizer', {
+          body: {
+            event_type: 'suspicious_data_access',
+            severity: 'high',
+            event_data: {
+              original_event: event.event_type,
+              access_pattern: 'anomalous',
+              auto_flagged: true
+            }
           }
         });
         
@@ -150,14 +156,16 @@ export const AutomatedSecurityResponse = () => {
                 
                 await response.action(event);
                 
-                // Log the automated response
-                await supabase.rpc('log_client_security_event', {
-                  event_type: 'automated_security_response',
-                  severity: 'info',
-                  event_data: {
-                    response_type: response.eventType,
-                    original_event_id: event.id,
-                    description: response.description
+                // Log the automated response using optimized logger
+                await supabase.functions.invoke('security-event-optimizer', {
+                  body: {
+                    event_type: 'automated_security_response',
+                    severity: 'info',
+                    event_data: {
+                      response_type: response.eventType,
+                      original_event_id: event.id,
+                      description: response.description
+                    }
                   }
                 });
               }

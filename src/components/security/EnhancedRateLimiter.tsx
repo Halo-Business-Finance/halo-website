@@ -144,17 +144,19 @@ export const EnhancedRateLimitProvider: React.FC<{ children: React.ReactNode }> 
       if (!rateLimitData.allowed) {
         toast.error(`Rate limit exceeded for ${action}. Please try again later.`);
         
-        // Log client-side rate limit hit
-        await supabase.rpc('log_client_security_event', {
-          event_type: 'rate_limit_exceeded_client',
-          severity: 'medium',
-          event_data: {
-            action,
-            attempts_count: rateLimitData.attempts_count,
-            limit: rateLimitData.limit,
-            behavioral_score: rateLimitData.behavioral_score
-          },
-          source: 'client_rate_limiter'
+        // Log client-side rate limit hit using optimized logger
+        await supabase.functions.invoke('security-event-optimizer', {
+          body: {
+            event_type: 'rate_limit_exceeded_client',
+            severity: 'medium',
+            event_data: {
+              action,
+              attempts_count: rateLimitData.attempts_count,
+              limit: rateLimitData.limit,
+              behavioral_score: rateLimitData.behavioral_score
+            },
+            source: 'client_rate_limiter'
+          }
         });
       } else if (rateLimitData.utilization_percentage > 80) {
         // Warn when approaching limit

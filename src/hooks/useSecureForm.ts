@@ -181,11 +181,13 @@ export const useSecureForm = (options: SecureFormOptions = {}) => {
 
   const logSecurityEvent = useCallback(async (eventType: string, eventData: any) => {
     try {
-      await supabase.rpc('log_client_security_event', {
-        event_type: eventType,
-        severity: 'medium',
-        event_data: eventData,
-        source: 'secure_form'
+      await supabase.functions.invoke('security-event-optimizer', {
+        body: {
+          event_type: eventType,
+          severity: 'medium',
+          event_data: eventData,
+          source: 'secure_form'
+        }
       });
     } catch (error) {
       console.error('Failed to log security event:', error);
