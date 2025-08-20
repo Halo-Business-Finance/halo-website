@@ -465,7 +465,7 @@ const ProductsSection = () => {
                 {products.slice(0, 3).map((product, index) => (
                   <div 
                     key={index} 
-                    className="flex-shrink-0 w-72 md:w-80 lg:w-96"
+                    className="flex-shrink-0 w-80 md:w-96 lg:w-[420px]"
                   >
                     <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
                       
@@ -647,7 +647,7 @@ const ProductsSection = () => {
                   {businessProducts.slice(0, 3).map((product, index) => (
                     <div 
                       key={index} 
-                      className="flex-shrink-0 w-72 md:w-80 lg:w-96"
+                      className="flex-shrink-0 w-80 md:w-96 lg:w-[420px]"
                     >
                       <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-[420px] hover:-translate-y-1 flex flex-col">
                         
