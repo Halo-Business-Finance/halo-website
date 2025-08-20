@@ -465,11 +465,11 @@ const ProductsSection = () => {
           <div className="p-8 md:p-12 bg-slate-50/30">
 
             <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-4 pl-2 pr-8">
+              <div className="flex gap-3 md:gap-4 pl-2 pr-8">
                 {products.slice(0, 3).map((product, index) => (
                   <div 
                     key={index} 
-                    className="flex-shrink-0 w-64 md:w-60"
+                    className="flex-shrink-0 w-72 md:w-80 lg:w-96"
                   >
                     <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
                       
@@ -611,11 +611,11 @@ const ProductsSection = () => {
             {/* Carousel Content */}
             <div className="p-8 md:p-12 bg-slate-50/30">
               <div className="overflow-hidden" ref={businessEmblaRef}>
-                <div className="flex gap-4 pl-2 pr-8">
+                <div className="flex gap-3 md:gap-4 pl-2 pr-8">
                   {businessProducts.slice(0, 3).map((product, index) => (
                     <div 
                       key={index} 
-                      className="flex-shrink-0 w-64 md:w-60"
+                      className="flex-shrink-0 w-72 md:w-80 lg:w-96"
                     >
                       <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-[420px] hover:-translate-y-1 flex flex-col">
                         
