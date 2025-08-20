@@ -306,7 +306,7 @@ const Header = () => {
       </div>
 
       {/* Secondary Navigation Bar - Third tier */}
-      <div className="bg-white border-t border-gray-100">
+      <div className="bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-16 px-4 sm:px-6">
             {/* Secondary Navigation with Dropdowns */}
