@@ -38,9 +38,11 @@ export const EnhancedSecurityMonitor: React.FC = () => {
   useEffect(() => {
     if (!isMonitoring) return;
 
+    // Environment-based monitoring frequency
+    const monitoringFrequency = import.meta.env.PROD ? 120000 : 30000; // 2 min in prod, 30s in dev
     const monitoringInterval = setInterval(async () => {
       await performAdvancedSecurityCheck();
-    }, 30000); // Check every 30 seconds
+    }, monitoringFrequency);
 
     // Enhanced behavioral tracking
     const trackBehavior = () => {
@@ -86,10 +88,11 @@ export const EnhancedSecurityMonitor: React.FC = () => {
 
     const behavioralCleanup = trackBehavior();
 
-    // Calculate behavioral score periodically
+    // Calculate behavioral score periodically (throttled)
+    const behavioralFrequency = import.meta.env.PROD ? 300000 : 60000; // 5 min in prod, 1 min in dev
     const behavioralInterval = setInterval(() => {
       calculateBehavioralScore();
-    }, 60000); // Update every minute
+    }, behavioralFrequency);
 
     return () => {
       clearInterval(monitoringInterval);

@@ -63,26 +63,27 @@ export const SecurityMonitor = () => {
         }
       });
 
-      // Monitor for developer tools
+      // Monitor for developer tools (throttled for performance)
       let devToolsOpen = false;
-      setInterval(() => {
+      const devToolsCheckInterval = process.env.NODE_ENV === 'production' ? 5000 : 2000;
+      const devToolsMonitor = setInterval(() => {
         const threshold = 160;
         if (window.outerHeight - window.innerHeight > threshold || 
             window.outerWidth - window.innerWidth > threshold) {
           if (!devToolsOpen) {
             devToolsOpen = true;
-            logSecurityEvent('dev_tools_opened', { 
-              timestamp: new Date().toISOString(),
-              window_dimensions: {
-                outer: { width: window.outerWidth, height: window.outerHeight },
-                inner: { width: window.innerWidth, height: window.innerHeight }
-              }
-            });
+            // Only log in development or for suspicious patterns
+            if (process.env.NODE_ENV !== 'production' || Math.random() < 0.1) {
+              logSecurityEvent('dev_tools_opened', { 
+                timestamp: new Date().toISOString(),
+                threshold_exceeded: true
+              });
+            }
           }
         } else {
           devToolsOpen = false;
         }
-      }, 1000);
+      }, devToolsCheckInterval);
 
       // Monitor network requests
       const originalFetch = window.fetch;
@@ -103,6 +104,7 @@ export const SecurityMonitor = () => {
 
       return () => {
         observer.disconnect();
+        clearInterval(devToolsMonitor);
         console.log = originalConsole.log;
         window.fetch = originalFetch;
       };

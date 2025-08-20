@@ -26,7 +26,7 @@ class SecureLogger {
 
   constructor() {
     this.isProduction = import.meta.env.PROD;
-    this.currentLevel = this.isProduction ? LOG_LEVELS.ERROR : LOG_LEVELS.DEBUG;
+    this.currentLevel = this.isProduction ? LOG_LEVELS.WARN : LOG_LEVELS.DEBUG;
     
     // Patterns to detect and redact sensitive information
     this.sensitivePatterns = [
@@ -100,18 +100,21 @@ class SecureLogger {
   }
 
   private async sendToMonitoringService(level: number, data: any[]) {
+    if (!this.isProduction) return; // Only send in production
+    
     try {
-      // In a real implementation, this would send to your monitoring service
-      // For now, we'll use a simple fetch to a logging endpoint
-      await fetch('/api/logs', {
+      // Use Supabase edge function for secure logging
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/log-security-event`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        },
         body: JSON.stringify({
-          level,
-          data,
-          timestamp: new Date().toISOString(),
-          userAgent: navigator.userAgent,
-          url: window.location.href
+          event_type: 'client_log',
+          severity: level <= LOG_LEVELS.ERROR ? 'high' : level <= LOG_LEVELS.WARN ? 'medium' : 'low',
+          event_data: { logs: data },
+          source: 'secure_logger'
         })
       }).catch(() => {}); // Fail silently in production
     } catch {
