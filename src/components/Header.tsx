@@ -93,7 +93,7 @@ const Header = () => {
             <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
                   Company
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
@@ -126,14 +126,14 @@ const Header = () => {
               {/* Marketplace Benefits Button */}
               <Link 
                 to="/marketplace-benefits" 
-                className="px-2 py-1 text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Marketplace Benefits
               </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
                   Resources
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
@@ -160,7 +160,7 @@ const Header = () => {
               
               {/* Partners Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
                   Partners
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
