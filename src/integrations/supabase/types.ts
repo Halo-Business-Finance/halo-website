@@ -724,6 +724,10 @@ export type Database = {
         Args: { target_email: string }
         Returns: boolean
       }
+      initialize_first_admin: {
+        Args: { admin_email: string }
+        Returns: Json
+      }
       invalidate_suspicious_sessions: {
         Args: { reason: string; target_user_id: string }
         Returns: number
@@ -773,6 +777,14 @@ export type Database = {
         }
         Returns: boolean
       }
+      secure_assign_user_role_v2: {
+        Args: {
+          expiration_date?: string
+          new_role: Database["public"]["Enums"]["app_role"]
+          target_user_id: string
+        }
+        Returns: Json
+      }
       secure_cleanup_consultations: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -815,11 +827,18 @@ export type Database = {
         Returns: boolean
       }
       validate_session_security: {
-        Args: {
-          client_fingerprint: string
-          client_ip: unknown
-          session_token: string
-        }
+        Args:
+          | {
+              client_fingerprint: string
+              client_ip: unknown
+              session_token: string
+            }
+          | {
+              client_ip: unknown
+              security_context?: Json
+              session_id: string
+              user_agent: string
+            }
         Returns: boolean
       }
       validate_session_security_v2: {
