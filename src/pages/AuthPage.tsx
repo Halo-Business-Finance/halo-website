@@ -14,6 +14,7 @@ import Footer from '@/components/Footer';
 import { useFormSecurity } from '@/components/security/FormSecurityProvider';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useSecureAuth } from '@/components/security/SecureAuthProvider';
+import { AuthDebugger } from '@/components/auth/AuthDebugger';
 import { useToast } from '@/hooks/use-toast';
 
 const AuthPage = () => {
@@ -430,6 +431,18 @@ const AuthPage = () => {
                     Privacy Policy
                   </a>
                 </p>
+              </div>
+
+              {/* Debug Panel - Only show if there are issues */}
+              <div className="mt-8">
+                <details>
+                  <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
+                    🔧 Having issues? Click here to run diagnostics
+                  </summary>
+                  <div className="mt-4">
+                    <AuthDebugger />
+                  </div>
+                </details>
               </div>
             </div>
           </div>
