@@ -5,7 +5,7 @@ import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import businessMeeting from "@/assets/business-meeting.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
 import businessHandshake from "@/assets/business-handshake.jpg";
@@ -71,7 +71,7 @@ const ImageGallery = () => {
     }
   ];
 
-  // Carousel setup with autoplay
+  // Carousel setup
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'start',
@@ -81,7 +81,6 @@ const ImageGallery = () => {
 
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -91,21 +90,6 @@ const ImageGallery = () => {
     setPrevBtnDisabled(!emblaApi.canScrollPrev());
     setNextBtnDisabled(!emblaApi.canScrollNext());
   }, [emblaApi]);
-
-  const toggleAutoplay = useCallback(() => {
-    setIsPlaying(!isPlaying);
-  }, [isPlaying]);
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!emblaApi || !isPlaying) return;
-
-    const autoplay = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 4000);
-
-    return () => clearInterval(autoplay);
-  }, [emblaApi, isPlaying]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -149,17 +133,9 @@ const ImageGallery = () => {
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={toggleAutoplay}
-                className="h-10 w-10 rounded-full border-slate-300 hover:border-primary"
-              >
-                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-              </Button>
             </div>
             <div className="text-sm text-foreground/70">
-              {isPlaying ? 'Auto-playing' : 'Paused'} • {galleryItems.length} success stories
+              {galleryItems.length} success stories
             </div>
           </div>
 
