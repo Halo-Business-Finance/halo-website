@@ -80,7 +80,7 @@ const Header = () => {
   return (
     <header className="relative bg-white z-40">
       {/* Primary Navigation Bar - With Company button */}
-      <div className="border-b border-gray-200">
+      <div>
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-12 px-6">
             {/* Left Side - Company and Resources Navigation */}
@@ -178,7 +178,7 @@ const Header = () => {
                 <Search className="h-5 w-5" />
               </button>
               
-              <div className="hidden md:block w-px h-4 bg-gray-300"></div>
+              
               
               {/* Customer Support Dropdown */}
               <DropdownMenu>
