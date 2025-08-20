@@ -103,12 +103,13 @@ class SecureLogger {
     if (!this.isProduction) return; // Only send in production
     
     try {
-      // Use Supabase edge function for secure logging
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/log-security-event`, {
+      // Use centralized security environment for secure logging
+      const { securityEnvironment } = await import('./securityEnvironment');
+      const response = await fetch(securityEnvironment.getEdgeFunctionUrl('log-security-event'), {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+          'Authorization': `Bearer ${securityEnvironment.getSupabaseAnonKey()}`
         },
         body: JSON.stringify({
           event_type: 'client_log',

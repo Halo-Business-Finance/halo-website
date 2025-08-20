@@ -117,9 +117,18 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
 
   const schema = generateSchema();
 
+  // Generate a secure nonce for CSP compliance
+  const nonce = React.useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return crypto.getRandomValues(new Uint32Array(1))[0].toString(16);
+    }
+    return 'fallback-nonce';
+  }, []);
+
   return (
     <script
       type="application/ld+json"
+      nonce={nonce}
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );

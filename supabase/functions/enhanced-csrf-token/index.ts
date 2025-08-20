@@ -12,6 +12,8 @@ interface EnhancedCSRFTokenRequest {
   userAgent?: string;
   entropy?: string;
   rotationScheduled?: boolean;
+  behavioralFingerprint?: string;
+  additionalEntropy?: string;
 }
 
 serve(async (req) => {
@@ -26,14 +28,22 @@ serve(async (req) => {
     const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-    const { sessionId, timestamp, userAgent, entropy, rotationScheduled }: EnhancedCSRFTokenRequest = await req.json()
+    const { 
+      sessionId, 
+      timestamp, 
+      userAgent, 
+      entropy, 
+      rotationScheduled,
+      behavioralFingerprint,
+      additionalEntropy 
+    }: EnhancedCSRFTokenRequest = await req.json()
 
     // Enhanced timestamp validation (prevent replay attacks)
     const currentTime = Date.now()
     const timeDiff = Math.abs(currentTime - timestamp)
     
-    // Allow 5 minute window for time differences
-    if (timeDiff > 5 * 60 * 1000) {
+    // Allow 2 minute window for time differences (more strict)
+    if (timeDiff > 2 * 60 * 1000) {
       return new Response(
         JSON.stringify({ error: 'Invalid timestamp - potential replay attack' }),
         { 
@@ -43,20 +53,37 @@ serve(async (req) => {
       )
     }
 
-    // Generate enhanced cryptographically secure token
+    // Validate session ID format for additional security
+    if (!sessionId || sessionId.length < 16 || !/^[a-zA-Z0-9\-_]+$/.test(sessionId)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid session identifier format' }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      )
+    }
+
+    // Generate enhanced cryptographically secure token with additional entropy sources
     const randomBytes = crypto.getRandomValues(new Uint8Array(64))
     const timestampBytes = new TextEncoder().encode(timestamp.toString())
     const sessionBytes = new TextEncoder().encode(sessionId)
     const entropyBytes = entropy ? new TextEncoder().encode(entropy) : new Uint8Array(0)
     const userAgentBytes = userAgent ? new TextEncoder().encode(userAgent) : new Uint8Array(0)
+    const behavioralBytes = behavioralFingerprint ? new TextEncoder().encode(behavioralFingerprint) : new Uint8Array(0)
+    const additionalBytes = additionalEntropy ? new TextEncoder().encode(additionalEntropy) : new Uint8Array(0)
+    const serverEntropyBytes = crypto.getRandomValues(new Uint8Array(32)) // Additional server entropy
     
-    // Combine all entropy sources
+    // Combine all entropy sources for maximum security
     const combinedBytes = new Uint8Array(
       randomBytes.length + 
       timestampBytes.length + 
       sessionBytes.length + 
       entropyBytes.length + 
-      userAgentBytes.length
+      userAgentBytes.length +
+      behavioralBytes.length +
+      additionalBytes.length +
+      serverEntropyBytes.length
     )
     
     let offset = 0
@@ -69,6 +96,12 @@ serve(async (req) => {
     combinedBytes.set(entropyBytes, offset)
     offset += entropyBytes.length
     combinedBytes.set(userAgentBytes, offset)
+    offset += userAgentBytes.length
+    combinedBytes.set(behavioralBytes, offset)
+    offset += behavioralBytes.length
+    combinedBytes.set(additionalBytes, offset)
+    offset += additionalBytes.length
+    combinedBytes.set(serverEntropyBytes, offset)
 
     // Generate final token using SHA-512
     const hashBuffer = await crypto.subtle.digest('SHA-512', combinedBytes)
