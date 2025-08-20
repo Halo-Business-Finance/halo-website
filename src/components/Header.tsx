@@ -311,12 +311,24 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center h-12 px-4 sm:px-6">
-            <Link to="/" className="flex items-center">
-              <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
-                HALO BUSINESS FINANCE
-              </span>
-            </Link>
+          <div className="flex items-center justify-between h-12 px-4 sm:px-6">
+            {/* Logo and Mobile Menu Button Container */}
+            <div className="flex items-center gap-3">
+              <Link to="/" className="flex items-center">
+                <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
+                  HALO BUSINESS FINANCE
+                </span>
+              </Link>
+              
+              {/* Mobile Menu Button - positioned next to logo */}
+              <button 
+                className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+                onClick={handleMobileMenuToggle}
+                aria-label="Toggle navigation"
+              >
+                <Menu className="h-6 w-6 text-gray-600" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -361,14 +373,6 @@ const Header = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button 
-              className="lg:hidden p-2 rounded-md hover:bg-gray-100 mx-auto"
-              onClick={handleMobileMenuToggle}
-              aria-label="Toggle mobile menu"
-            >
-              <Menu className="h-6 w-6 text-gray-700" />
-            </button>
           </div>
         </div>
       </div>
