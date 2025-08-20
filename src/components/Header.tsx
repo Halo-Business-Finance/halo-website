@@ -285,7 +285,7 @@ const Header = () => {
       {/* Secondary Navigation Bar - BMO style with logo */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-20 px-4 sm:px-6">
+          <div className="flex items-center h-20 px-4 sm:px-6">
             {/* Logo */}
             <Link to="/" className="flex items-center mr-8">
               <span className="text-xl font-bold text-gray-900">
@@ -293,8 +293,8 @@ const Header = () => {
               </span>
             </Link>
 
-            {/* Secondary Navigation with Dropdowns */}
-            <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+            {/* Secondary Navigation with Dropdowns - positioned under logo */}
+            <nav className="hidden lg:flex items-center space-x-8 flex-1">
               {secondaryNavWithDropdowns.map((item) => (
                 <DropdownMenu key={item.title}>
                   <DropdownMenuTrigger className="flex items-center text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors py-1 group">
@@ -315,16 +315,18 @@ const Header = () => {
                 </DropdownMenu>
               ))}
               
-              {/* Get Started Button */}
-              <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-3 py-1 rounded-md ml-4 flex items-center gap-1" 
-                asChild
-              >
-                <Link to={user ? "/loan-calculator" : "/auth"}>
-                  <Lock className="h-3 w-3" />
-                  Get Started
-                </Link>
-              </Button>
+              {/* Get Started Button - positioned at the right end */}
+              <div className="ml-auto">
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-3 py-1 rounded-md flex items-center gap-1" 
+                  asChild
+                >
+                  <Link to={user ? "/loan-calculator" : "/auth"}>
+                    <Lock className="h-3 w-3" />
+                    Get Started
+                  </Link>
+                </Button>
+              </div>
             </nav>
 
             {/* Mobile Menu Button */}
