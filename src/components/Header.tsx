@@ -130,14 +130,6 @@ const Header = () => {
               >
                 Marketplace Benefits
               </Link>
-
-              {/* Admin Signup & Security Setup Button */}
-              <Link 
-                to="/admin-signup" 
-                className="px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors border border-blue-200 rounded-md bg-blue-50"
-              >
-                👤 Admin Setup
-              </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
