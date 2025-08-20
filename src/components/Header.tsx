@@ -37,8 +37,7 @@ const Header = () => {
       items: [
         { title: "SBA 7(a) Loans", href: "/sba-7a-loans" },
         { title: "SBA 504 Loans", href: "/sba-504-loans" },
-        { title: "SBA Express Loans", href: "/sba-express-loans" },
-        { title: "SBA Microloans", href: "/sba-loans" }
+        { title: "SBA Express Loans", href: "/sba-express-loans" }
       ]
     },
     { 
