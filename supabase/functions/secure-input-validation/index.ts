@@ -147,13 +147,6 @@ serve(async (req) => {
           }
         }
       });
-          risk_score: riskScore,
-          context,
-          original_length: input.length,
-          sanitized_length: sanitizedInput.length
-        },
-        source: 'input_validation'
-      })
     }
 
     const response: ValidationResponse = {
