@@ -1,133 +1,182 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '@/components/auth/AuthProvider';
+import { supabase } from '@/integrations/supabase/client';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Shield, Loader2, CheckCircle, AlertTriangle } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { Shield, UserCheck, AlertTriangle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export const AdminInitializer: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const [adminEmail, setAdminEmail] = useState('');
+  const [isInitializing, setIsInitializing] = useState(false);
+  const [hasAdmins, setHasAdmins] = useState<boolean | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const { user, isAdmin } = useAuth();
   const { toast } = useToast();
 
-  const handleCreateAdmin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
+  // Check if admins already exist
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('user_roles')
+          .select('id')
+          .eq('role', 'admin')
+          .eq('is_active', true)
+          .limit(1);
+
+        if (error) throw error;
+        setHasAdmins(data && data.length > 0);
+      } catch (err) {
+        console.error('Error checking admin status:', err);
+        setHasAdmins(null);
+      }
+    };
+
+    checkAdminStatus();
+  }, []);
+
+  const handleInitializeAdmin = async () => {
+    if (!adminEmail.trim()) {
+      setError('Please enter an email address');
+      return;
+    }
+
+    setIsInitializing(true);
+    setError(null);
 
     try {
-      const { data, error: dbError } = await supabase.rpc('create_initial_admin', {
-        admin_email: email
+      const { data, error } = await supabase.rpc('initialize_first_admin', {
+        admin_email: adminEmail.trim()
       });
 
-      if (dbError) {
-        if (dbError.message.includes('Admin users already exist')) {
-          setError('Admin users already exist. Initial setup is complete.');
-        } else if (dbError.message.includes('not found')) {
-          setError('User not found. Please ensure the user has signed up first, then try again.');
-        } else {
-          setError(dbError.message);
-        }
-        return;
-      }
+      if (error) throw error;
 
-      if (data) {
-        setSuccess(true);
+      const result = data as any;
+      if (result?.success) {
         toast({
-          title: 'Admin Created Successfully',
-          description: 'The initial admin user has been created and security features are now active.',
+          title: 'Admin Initialized Successfully',
+          description: 'The first administrator has been created. Please refresh the page.',
         });
+        setHasAdmins(true);
+        setAdminEmail('');
+      } else {
+        setError(result?.error || 'Failed to initialize admin');
       }
     } catch (err: any) {
+      console.error('Error initializing admin:', err);
       setError(err.message || 'An unexpected error occurred');
     } finally {
-      setIsLoading(false);
+      setIsInitializing(false);
     }
   };
 
-  if (success) {
+  // If user is already an admin, show admin panel link
+  if (isAdmin) {
     return (
-      <Card className="w-full max-w-md mx-auto">
-        <CardHeader className="text-center">
-          <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-          <CardTitle className="text-green-700">Admin Setup Complete</CardTitle>
+      <Card className="border-primary">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <UserCheck className="h-5 w-5 text-primary" />
+            Administrator Access
+          </CardTitle>
           <CardDescription>
-            Your security system is now fully activated with admin privileges.
+            You have administrator privileges for this system.
           </CardDescription>
         </CardHeader>
-        <CardContent className="text-center">
-          <p className="text-sm text-muted-foreground mb-4">
-            You can now access all security management features and dashboards.
-          </p>
-          <Button onClick={() => window.location.reload()} className="w-full">
-            Continue to Application
+        <CardContent>
+          <Button asChild className="w-full">
+            <a href="/security-dashboard">Access Security Dashboard</a>
           </Button>
         </CardContent>
       </Card>
     );
   }
 
+  // If admins already exist, show info message
+  if (hasAdmins) {
+    return (
+      <Card className="border-muted">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Shield className="h-5 w-5 text-muted-foreground" />
+            System Already Initialized
+          </CardTitle>
+          <CardDescription>
+            This system already has administrators configured.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Alert>
+            <AlertTriangle className="h-4 w-4" />
+            <AlertDescription>
+              If you need administrator access, please contact an existing administrator.
+            </AlertDescription>
+          </Alert>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  // Show admin initialization form
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader className="text-center">
-        <Shield className="h-12 w-12 text-orange-500 mx-auto mb-4" />
-        <CardTitle className="text-orange-700">Security Setup Required</CardTitle>
+    <Card className="border-destructive">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Shield className="h-5 w-5 text-destructive" />
+          Initialize First Administrator
+        </CardTitle>
         <CardDescription>
-          Initialize your first admin user to activate security features
+          This system requires an initial administrator to be configured for security.
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <Alert className="mb-4">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertDescription>
-            <strong>Important:</strong> The user must have already signed up before they can be made an admin. 
-            Please ensure the email address belongs to an existing user account.
+      <CardContent className="space-y-4">
+        <Alert className="border-destructive bg-destructive/5">
+          <AlertTriangle className="h-4 w-4 text-destructive" />
+          <AlertDescription className="text-destructive">
+            <strong>Security Notice:</strong> Only initialize an administrator if you are authorized to manage this system.
+            This action will be logged and monitored.
           </AlertDescription>
         </Alert>
 
+        <div className="space-y-2">
+          <Label htmlFor="admin-email">Administrator Email</Label>
+          <Input
+            id="admin-email"
+            type="email"
+            placeholder="Enter email of user to make administrator"
+            value={adminEmail}
+            onChange={(e) => setAdminEmail(e.target.value)}
+            disabled={isInitializing}
+          />
+          <p className="text-sm text-muted-foreground">
+            This email must belong to a user who has already signed up for the system.
+          </p>
+        </div>
+
         {error && (
-          <Alert variant="destructive" className="mb-4">
-            <AlertDescription>{error}</AlertDescription>
+          <Alert className="border-destructive bg-destructive/5">
+            <AlertTriangle className="h-4 w-4 text-destructive" />
+            <AlertDescription className="text-destructive">{error}</AlertDescription>
           </Alert>
         )}
 
-        <form onSubmit={handleCreateAdmin} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="admin-email">Admin Email Address</Label>
-            <Input
-              id="admin-email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter the email of the first admin user"
-              required
-              disabled={isLoading}
-            />
-          </div>
+        <Button 
+          onClick={handleInitializeAdmin}
+          disabled={isInitializing || !adminEmail.trim()}
+          className="w-full"
+          variant="destructive"
+        >
+          {isInitializing ? 'Initializing...' : 'Initialize Administrator'}
+        </Button>
 
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={isLoading || !email}
-          >
-            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Create Initial Admin
-          </Button>
-        </form>
-
-        <div className="mt-4 text-xs text-muted-foreground">
-          <p><strong>Next steps after admin creation:</strong></p>
-          <ul className="list-disc list-inside mt-1 space-y-1">
-            <li>Access security dashboards and monitoring</li>
-            <li>Manage user roles and permissions</li>
-            <li>Configure additional security settings</li>
-            <li>Review and manage security events</li>
-          </ul>
+        <div className="text-xs text-muted-foreground space-y-1">
+          <p>• This action can only be performed once</p>
+          <p>• The specified user must have already created an account</p>
+          <p>• All administrative actions are logged for security</p>
         </div>
       </CardContent>
     </Card>

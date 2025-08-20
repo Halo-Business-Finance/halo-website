@@ -3,8 +3,11 @@ import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { AdminInitializer } from '@/components/security/AdminInitializer';
+import { SecureRoleManager } from '@/components/security/SecureRoleManager';
+import { useAuth } from '@/components/auth/AuthProvider';
 
 const SecuritySetupPage = () => {
+  const { isAdmin } = useAuth();
   return (
     <>
       <SEO 
@@ -28,9 +31,13 @@ const SecuritySetupPage = () => {
               </p>
             </div>
 
-            <div className="flex justify-center">
-              <AdminInitializer />
-            </div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <AdminInitializer />
+            
+            {isAdmin && (
+              <SecureRoleManager />
+            )}
+          </div>
 
             <div className="mt-12 bg-muted rounded-lg p-6">
               <h2 className="text-2xl font-semibold mb-4">Security Features</h2>

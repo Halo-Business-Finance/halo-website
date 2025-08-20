@@ -74,6 +74,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const signOut = async () => {
     try {
+      // Log security event for logout
+      try {
+        await supabase.rpc('log_client_security_event', {
+          event_type: 'user_logout',
+          severity: 'info',
+          event_data: {
+            user_id: user?.id,
+            timestamp: new Date().toISOString(),
+            logout_method: 'manual'
+          },
+          source: 'auth_provider'
+        });
+      } catch (logError) {
+        console.warn('Failed to log security event:', logError);
+      }
+
       const { error } = await supabase.auth.signOut();
       if (error) {
         toast({

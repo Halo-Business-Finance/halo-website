@@ -19,23 +19,23 @@ interface SecurityAlert {
 export const SecurityAlertSystem: React.FC = () => {
   const [alerts, setAlerts] = useState<SecurityAlert[]>([]);
   const [dismissed, setDismissed] = useState<Set<string>>(new Set());
-  const { criticalEvents, acknowledgeEvent, securityScore } = useEnhancedSecurity();
+  const { threats, dismissThreat, securityScore } = useEnhancedSecurity();
   const { isAdmin } = useAuth();
 
   useEffect(() => {
     if (!isAdmin) return;
 
-    // Convert security events to alerts
-    const newAlerts: SecurityAlert[] = criticalEvents
-      .filter(event => !dismissed.has(event.id))
-      .map(event => ({
-        id: event.id,
-        type: event.severity as 'critical' | 'high' | 'medium' | 'info',
-        title: getAlertTitle(event.event_type),
-        message: getAlertMessage(event.event_type, event.event_data),
-        timestamp: event.created_at,
-        actionRequired: event.severity === 'critical',
-        autoResolve: event.severity === 'info'
+    // Convert security threats to alerts
+    const newAlerts: SecurityAlert[] = threats
+      .filter(threat => !dismissed.has(threat.id))
+      .map(threat => ({
+        id: threat.id,
+        type: threat.severity as 'critical' | 'high' | 'medium' | 'info',
+        title: getAlertTitle(threat.type),
+        message: threat.message,
+        timestamp: threat.timestamp.toISOString(),
+        actionRequired: threat.severity === 'critical',
+        autoResolve: threat.severity === 'low'
       }));
 
     // Add system security score alert if low
@@ -60,12 +60,12 @@ export const SecurityAlertSystem: React.FC = () => {
     }, 10000);
 
     return () => clearTimeout(autoResolveTimer);
-  }, [criticalEvents, securityScore, dismissed, isAdmin]);
+  }, [threats, securityScore, dismissed, isAdmin]);
 
   const dismissAlert = (alertId: string) => {
     setDismissed(prev => new Set([...prev, alertId]));
     if (alertId !== 'low-security-score') {
-      acknowledgeEvent(alertId);
+      dismissThreat(alertId);
     }
   };
 
