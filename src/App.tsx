@@ -38,6 +38,7 @@ const SBA7aLoansPage = lazy(() => import("./pages/SBA7aLoansPage"));
 const SBA504LoansPage = lazy(() => import("./pages/SBA504LoansPage"));
 const SBAExpressLoansPage = lazy(() => import("./pages/SBAExpressLoansPage"));
 const USDABILoansPage = lazy(() => import("./pages/USDABILoansPage"));
+const USDARunalDevelopmentPage = lazy(() => import("./pages/USDARunalDevelopmentPage"));
 const CareersPage = lazy(() => import("./pages/CareersPage"));
 const ConventionalLoansPage = lazy(() => import("./pages/ConventionalLoansPage"));
 const CMBSLoansPage = lazy(() => import("./pages/CMBSLoansPage"));
@@ -177,6 +178,7 @@ const App = () => {
             <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
             <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
             <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
+            <Route path="/usda-rural-development" element={<USDARunalDevelopmentPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
             
             <Route path="/working-capital" element={<WorkingCapitalPage />} />
