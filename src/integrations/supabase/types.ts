@@ -53,6 +53,48 @@ export type Database = {
         }
         Relationships: []
       }
+      compliance_metrics: {
+        Row: {
+          created_at: string | null
+          id: string
+          measurement_date: string | null
+          metadata: Json | null
+          metric_category: string
+          metric_name: string
+          metric_unit: string | null
+          metric_value: number | null
+          period_end: string | null
+          period_start: string | null
+          target_value: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          measurement_date?: string | null
+          metadata?: Json | null
+          metric_category: string
+          metric_name: string
+          metric_unit?: string | null
+          metric_value?: number | null
+          period_end?: string | null
+          period_start?: string | null
+          target_value?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          measurement_date?: string | null
+          metadata?: Json | null
+          metric_category?: string
+          metric_name?: string
+          metric_unit?: string | null
+          metric_value?: number | null
+          period_end?: string | null
+          period_start?: string | null
+          target_value?: number | null
+        }
+        Relationships: []
+      }
       consultations: {
         Row: {
           company: string | null
@@ -361,6 +403,191 @@ export type Database = {
         }
         Relationships: []
       }
+      soc_audit_evidence: {
+        Row: {
+          collected_date: string | null
+          control_id: string | null
+          created_at: string | null
+          evidence_description: string
+          evidence_type: string
+          file_name: string | null
+          file_path: string | null
+          file_size: number | null
+          id: string
+          metadata: Json | null
+          review_status: string | null
+          reviewer_id: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          collected_date?: string | null
+          control_id?: string | null
+          created_at?: string | null
+          evidence_description: string
+          evidence_type: string
+          file_name?: string | null
+          file_path?: string | null
+          file_size?: number | null
+          id?: string
+          metadata?: Json | null
+          review_status?: string | null
+          reviewer_id?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          collected_date?: string | null
+          control_id?: string | null
+          created_at?: string | null
+          evidence_description?: string
+          evidence_type?: string
+          file_name?: string | null
+          file_path?: string | null
+          file_size?: number | null
+          id?: string
+          metadata?: Json | null
+          review_status?: string | null
+          reviewer_id?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "soc_audit_evidence_control_id_fkey"
+            columns: ["control_id"]
+            isOneToOne: false
+            referencedRelation: "soc_controls"
+            referencedColumns: ["control_id"]
+          },
+        ]
+      }
+      soc_controls: {
+        Row: {
+          category: Database["public"]["Enums"]["compliance_control_category"]
+          control_id: string
+          control_name: string
+          created_at: string | null
+          description: string | null
+          evidence_required: string[] | null
+          id: string
+          is_active: boolean | null
+          last_tested: string | null
+          next_test_due: string | null
+          risk_level: Database["public"]["Enums"]["compliance_risk_level"]
+          status: Database["public"]["Enums"]["compliance_control_status"]
+          testing_frequency: number | null
+          trust_services_criteria: string
+          updated_at: string | null
+        }
+        Insert: {
+          category: Database["public"]["Enums"]["compliance_control_category"]
+          control_id: string
+          control_name: string
+          created_at?: string | null
+          description?: string | null
+          evidence_required?: string[] | null
+          id?: string
+          is_active?: boolean | null
+          last_tested?: string | null
+          next_test_due?: string | null
+          risk_level?: Database["public"]["Enums"]["compliance_risk_level"]
+          status?: Database["public"]["Enums"]["compliance_control_status"]
+          testing_frequency?: number | null
+          trust_services_criteria: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: Database["public"]["Enums"]["compliance_control_category"]
+          control_id?: string
+          control_name?: string
+          created_at?: string | null
+          description?: string | null
+          evidence_required?: string[] | null
+          id?: string
+          is_active?: boolean | null
+          last_tested?: string | null
+          next_test_due?: string | null
+          risk_level?: Database["public"]["Enums"]["compliance_risk_level"]
+          status?: Database["public"]["Enums"]["compliance_control_status"]
+          testing_frequency?: number | null
+          trust_services_criteria?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      soc_reports: {
+        Row: {
+          audit_firm: string | null
+          auditor_name: string | null
+          compliant_controls: number | null
+          created_at: string | null
+          created_by: string | null
+          deficiencies_count: number | null
+          exceptions_count: number | null
+          generated_date: string | null
+          id: string
+          material_weaknesses_count: number | null
+          opinion: string | null
+          published_date: string | null
+          report_description: string | null
+          report_file_path: string | null
+          report_file_size: number | null
+          report_period_end: string
+          report_period_start: string
+          report_title: string
+          report_type: string
+          status: string | null
+          total_controls: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          audit_firm?: string | null
+          auditor_name?: string | null
+          compliant_controls?: number | null
+          created_at?: string | null
+          created_by?: string | null
+          deficiencies_count?: number | null
+          exceptions_count?: number | null
+          generated_date?: string | null
+          id?: string
+          material_weaknesses_count?: number | null
+          opinion?: string | null
+          published_date?: string | null
+          report_description?: string | null
+          report_file_path?: string | null
+          report_file_size?: number | null
+          report_period_end: string
+          report_period_start: string
+          report_title: string
+          report_type: string
+          status?: string | null
+          total_controls?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          audit_firm?: string | null
+          auditor_name?: string | null
+          compliant_controls?: number | null
+          created_at?: string | null
+          created_by?: string | null
+          deficiencies_count?: number | null
+          exceptions_count?: number | null
+          generated_date?: string | null
+          id?: string
+          material_weaknesses_count?: number | null
+          opinion?: string | null
+          published_date?: string | null
+          report_description?: string | null
+          report_file_path?: string | null
+          report_file_size?: number | null
+          report_period_end?: string
+          report_period_start?: string
+          report_title?: string
+          report_type?: string
+          status?: string | null
+          total_controls?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -485,6 +712,16 @@ export type Database = {
         }
         Returns: boolean
       }
+      calculate_compliance_score: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          compliant_controls: number
+          in_progress_controls: number
+          non_compliant_controls: number
+          overall_score: number
+          total_controls: number
+        }[]
+      }
       cleanup_expired_sessions: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -568,6 +805,10 @@ export type Database = {
         Args: { p_user_id: string }
         Returns: number
       }
+      generate_compliance_summary: {
+        Args: { report_period_days?: number }
+        Returns: Json
+      }
       generate_secure_session_token: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -592,6 +833,16 @@ export type Database = {
           timeframe: string
           updated_at: string
           user_id: string
+        }[]
+      }
+      get_controls_due_for_testing: {
+        Args: { days_ahead?: number }
+        Returns: {
+          category: Database["public"]["Enums"]["compliance_control_category"]
+          control_id: string
+          control_name: string
+          days_until_due: number
+          next_test_due: string
         }[]
       }
       get_current_user_role: {
@@ -754,6 +1005,18 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
+      compliance_control_category:
+        | "Security"
+        | "Availability"
+        | "Processing"
+        | "Confidentiality"
+        | "Privacy"
+      compliance_control_status:
+        | "compliant"
+        | "non_compliant"
+        | "in_progress"
+        | "not_applicable"
+      compliance_risk_level: "low" | "medium" | "high" | "critical"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -882,6 +1145,20 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
+      compliance_control_category: [
+        "Security",
+        "Availability",
+        "Processing",
+        "Confidentiality",
+        "Privacy",
+      ],
+      compliance_control_status: [
+        "compliant",
+        "non_compliant",
+        "in_progress",
+        "not_applicable",
+      ],
+      compliance_risk_level: ["low", "medium", "high", "critical"],
     },
   },
 } as const
