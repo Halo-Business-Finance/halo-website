@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut } from "lucide-react";
+import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
 import {
@@ -260,10 +260,11 @@ const Header = () => {
                 </DropdownMenu>
               ) : (
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-sm h-8 uppercase tracking-wide" 
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-sm h-8 uppercase tracking-wide flex items-center gap-2" 
                   asChild
                 >
                   <Link to="/auth">
+                    <Shield className="h-3 w-3" />
                     SIGN IN
                   </Link>
                 </Button>
@@ -313,10 +314,11 @@ const Header = () => {
               
               {/* Get Started Button */}
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-4 py-1.5 rounded-md ml-4"
+                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-4 py-1.5 rounded-md ml-4 flex items-center gap-2" 
                 asChild
               >
                 <Link to={user ? "/loan-calculator" : "/auth"}>
+                  <Lock className="h-4 w-4" />
                   Get Started
                 </Link>
               </Button>
