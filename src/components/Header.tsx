@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut, Lock, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
+import ConsultationPopup from "@/components/ConsultationPopup";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -234,6 +235,15 @@ const Header = () => {
                         Technical Support
                       </Link>
                     </DropdownMenuItem>
+                    <ConsultationPopup 
+                      trigger={
+                        <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1">
+                          <span className="flex items-center text-gray-700 hover:text-blue-600 font-medium cursor-pointer">
+                            Schedule Consultation
+                          </span>
+                        </DropdownMenuItem>
+                      }
+                    />
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
