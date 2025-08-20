@@ -93,7 +93,7 @@ const Header = () => {
             <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
                   Company
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
@@ -126,14 +126,14 @@ const Header = () => {
               {/* About Us Button */}
               <Link 
                 to="/company-overview" 
-                className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
               >
                 About Us
               </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
                   Resources
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
@@ -160,7 +160,7 @@ const Header = () => {
               
               {/* Partners Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
                   Partners
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
@@ -313,7 +313,7 @@ const Header = () => {
               
               {/* Get Started Button */}
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-6 py-2 rounded-md ml-4" 
+                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-4 py-1.5 rounded-md ml-4"
                 asChild
               >
                 <Link to={user ? "/loan-calculator" : "/auth"}>
