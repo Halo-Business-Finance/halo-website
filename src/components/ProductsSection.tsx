@@ -502,182 +502,69 @@ const ProductsSection = () => {
         </div>
 
 
-        {/* SBA & Commercial Financing Carousel */}
-        <div className="mb-12">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-financial-navy to-primary bg-clip-text text-transparent mb-2">
+        {/* SBA & Commercial Financing */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
               SBA & Commercial Financing
             </h3>
-            <p className="text-xl text-slate-600">Comprehensive solutions for your business growth</p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive solutions for your business growth
+            </p>
           </div>
-
-          {/* Premium 3D Perspective Carousel */}
-          <div className="relative w-full max-w-7xl mx-auto">
-            {/* Background with perspective */}
-            <div className="relative h-[500px] md:h-[600px] perspective-1000">
-              
-              {/* Main Feature Card */}
-              <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <Card className="w-80 md:w-96 h-[400px] md:h-[480px] overflow-hidden shadow-2xl border-2 border-primary/20">
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <LazyImage 
-                      src={products[activeProductIndex].image} 
-                      alt={products[activeProductIndex].title}
-                      className="w-full h-full object-cover"
-                    />
-                    {products[activeProductIndex].badge && (
-                      <div className="absolute top-3 right-3 z-10">
-                        <span className="bg-amber-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
-                          {products[activeProductIndex].badge}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  
-                  <CardContent className="p-6 h-[152px] md:h-[224px] flex flex-col justify-between">
-                    <div>
-                      {/* Title and rate moved to text area */}
-                      <div className="mb-3 text-left">
-                        <h4 className="text-slate-800 text-lg md:text-xl font-bold leading-tight text-left mb-2">
-                          {products[activeProductIndex].title}
-                        </h4>
-                        <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg px-3 py-2 border border-blue-100 inline-block">
-                          <div className="text-base font-bold text-primary">{products[activeProductIndex].rate}</div>
-                          <div className="text-xs text-slate-600">{products[activeProductIndex].rateLabel}</div>
-                        </div>
-                      </div>
-                      
-                      <p className="text-slate-700 text-sm leading-relaxed mb-3 text-left">
-                        {products[activeProductIndex].description}
-                      </p>
-                      
-                      {/* Features */}
-                      <div className="space-y-1">
-                        {products[activeProductIndex].features.slice(0, 2).map((feature, i) => (
-                          <div key={i} className="flex items-center text-xs">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0"></div>
-                            <span className="text-slate-700">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex gap-2 mt-3">
-                      <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5 text-xs">
-                        <Link to={products[activeProductIndex].learnLink}>
-                          Learn More
-                        </Link>
-                      </Button>
-                      <Button asChild size="sm" className="flex-1 bg-primary hover:bg-primary/90 shadow-md text-xs">
-                        <a href="https://preview--hbf-application.lovable.app/auth">
-                          Apply Now
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Side Cards with 3D perspective */}
-              {products.slice(0, 4).map((product, index) => {
-                if (index === activeProductIndex) return null;
-                
-                const isNext = (index === (activeProductIndex + 1) % 4);
-                const isPrev = (index === (activeProductIndex - 1 + 4) % 4);
-                
-                if (!isNext && !isPrev) return null;
-                
-                return (
-                  <div
-                    key={index}
-                    className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-700 cursor-pointer z-10 ${
-                      isNext 
-                        ? 'right-4 md:right-8 translate-x-4 rotate-y-12' 
-                        : 'left-4 md:left-8 -translate-x-4 -rotate-y-12'
-                    }`}
-                    onClick={() => setActiveProductIndex(index)}
-                  >
-                    <Card className="w-64 h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80">
-                      <div className="relative h-32 overflow-hidden">
-                        <LazyImage 
-                          src={product.image} 
-                          alt={product.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {product.badge && (
-                          <div className="absolute top-2 right-2">
-                            <span className="bg-amber-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
-                              {product.badge}
-                            </span>
-                          </div>
-                        )}
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <div className="text-white text-sm font-semibold">
-                            {product.title}
-                          </div>
-                        </div>
-                      </div>
-                      <CardContent className="p-4">
-                        <p className="text-slate-600 text-sm">
-                          {product.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                );
-              })}
-
-              {/* Navigation arrows */}
-              <button
-                onClick={() => setActiveProductIndex((activeProductIndex - 1 + 4) % 4)}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
-              >
-                <ArrowRight className="h-6 w-6 text-slate-700 rotate-180" />
-              </button>
-              
-              <button
-                onClick={() => setActiveProductIndex((activeProductIndex + 1) % 4)}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
-              >
-                <ArrowRight className="h-6 w-6 text-slate-700" />
-              </button>
-            </div>
-
-            {/* Timeline at bottom */}
-            <div className="mt-12 flex justify-center items-center space-x-4">
-              {products.slice(0, 4).map((product, index) => (
-                <div key={index} className="flex items-center">
-                  <button
-                    onClick={() => setActiveProductIndex(index)}
-                    className={`relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
-                      index <= activeProductIndex 
-                        ? 'bg-primary text-white shadow-lg' 
-                        : 'bg-slate-200 text-slate-500 hover:bg-slate-300'
-                    }`}
-                  >
-                    {index < activeProductIndex ? (
-                      <CheckCircle className="h-6 w-6" />
-                    ) : (
-                      <span className="font-bold">{index + 1}</span>
-                    )}
-                    
-                    {/* Label */}
-                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap">
-                      {product.title.split(' ')[0]}
-                    </div>
-                  </button>
-                  
-                  {/* Connector line */}
-                  {index < 3 && (
-                    <div className={`w-16 h-0.5 mx-2 transition-colors duration-500 ${
-                      index < activeProductIndex ? 'bg-primary' : 'bg-slate-200'
-                    }`} />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.slice(0, 6).map((product, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative h-48">
+                  <LazyImage 
+                    src={product.image}
+                    alt={`${product.title} - Commercial Financing Solution`}
+                    className="w-full h-full object-cover"
+                  />
+                  {product.badge && (
+                    <Badge 
+                      className={`absolute top-4 right-4 ${
+                        product.badge === "Popular" ? "bg-orange-500 hover:bg-orange-600" :
+                        product.badge === "Fast" ? "bg-green-500 hover:bg-green-600" :
+                        "bg-primary hover:bg-primary/90"
+                      }`}
+                    >
+                      {product.badge}
+                    </Badge>
                   )}
                 </div>
-              ))}
-            </div>
+                
+                <CardContent className="p-6">
+                  <h4 className="text-xl font-semibold mb-3">{product.title}</h4>
+                  
+                  <div className="bg-muted rounded-lg p-3 mb-4">
+                    <div className="text-2xl font-bold text-primary">{product.rate}</div>
+                    <div className="text-sm text-muted-foreground">{product.rateLabel}</div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-4">{product.description}</p>
+                  
+                  <ul className="space-y-2 mb-6">
+                    {product.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="flex gap-3">
+                    <Button variant="outline" size="sm" asChild className="flex-1">
+                      <Link to={product.learnLink}>Learn More</Link>
+                    </Button>
+                    <Button size="sm" asChild className="flex-1">
+                      <Link to={product.applyLink}>Apply Now</Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
