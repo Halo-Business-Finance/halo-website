@@ -90,24 +90,20 @@ const LoanProcessCarousel = () => {
                   alt={steps[activeStep].title}
                   className="w-full h-full object-cover"
                 />
-                
-                {/* Step badge */}
-                <div className="absolute top-4 left-4">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
-                    <span className="text-white font-bold">Step {steps[activeStep].step}</span>
-                  </div>
-                </div>
-                
-                {/* Title overlay */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h4 className="text-white text-xl md:text-2xl font-bold leading-tight">
-                    {steps[activeStep].title}
-                  </h4>
-                </div>
               </div>
               
               <CardContent className="p-6 h-[152px] md:h-[224px] flex flex-col justify-between">
                 <div>
+                  {/* Step badge and title moved to text area */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="bg-primary/10 backdrop-blur-sm rounded-full px-3 py-1 border border-primary/20">
+                      <span className="text-primary font-bold text-sm">Step {steps[activeStep].step}</span>
+                    </div>
+                    <h4 className="text-slate-800 text-xl md:text-2xl font-bold leading-tight">
+                      {steps[activeStep].title}
+                    </h4>
+                  </div>
+                  
                   <p className="text-slate-700 text-lg leading-relaxed mb-4">
                     {steps[activeStep].description}
                   </p>
