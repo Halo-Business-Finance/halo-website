@@ -398,6 +398,7 @@ const ProductsSection = () => {
 
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+  const [activeProductIndex, setActiveProductIndex] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -501,130 +502,182 @@ const ProductsSection = () => {
         </div>
 
 
-        {/* Professional Financial Services Carousel - SBA & Commercial Loans */}
-        <div className="relative rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
-          {/* Elegant Header Section */}
-          <div className="bg-gradient-to-r from-financial-navy to-primary p-8 md:p-12 text-white">
-            <div className="flex justify-between items-center">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-light mb-2">
-                  SBA & Commercial Financing
-                </h3>
-                <p className="text-blue-100 text-lg font-light">
-                  Comprehensive solutions for your business growth
-                </p>
-              </div>
-              <div className="flex gap-2">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={scrollPrev}
-                  disabled={prevBtnDisabled}
-                  className="h-12 w-12 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 disabled:opacity-30 transition-all duration-300 text-white"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={scrollNext}
-                  disabled={nextBtnDisabled}
-                  className="h-12 w-12 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 disabled:opacity-30 transition-all duration-300 text-white"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
+        {/* SBA & Commercial Financing Carousel */}
+        <div className="mb-12">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-financial-navy to-primary bg-clip-text text-transparent mb-2">
+              SBA & Commercial Financing
+            </h3>
+            <p className="text-xl text-slate-600">Comprehensive solutions for your business growth</p>
           </div>
 
-          {/* Carousel Content */}
-          <div className="p-8 md:p-12">
-
-            <div className="overflow-hidden max-w-none w-full" ref={emblaRef}>
-              <div className="flex gap-3 md:gap-4 pl-2 pr-12 md:pr-16">
-                {products.slice(0, 4).map((product, index) => (
-                  <div 
-                    key={index} 
-                    className="flex-shrink-0 w-64 md:w-72 lg:w-80"
-                  >
-                    <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-full hover:-translate-y-1">
+          {/* Premium 3D Perspective Carousel */}
+          <div className="relative w-full max-w-7xl mx-auto">
+            {/* Background with perspective */}
+            <div className="relative h-[500px] md:h-[600px] perspective-1000">
+              
+              {/* Main Feature Card */}
+              <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                <Card className="w-80 md:w-96 h-[400px] md:h-[480px] overflow-hidden shadow-2xl border-2 border-primary/20">
+                  <div className="relative h-48 md:h-56 overflow-hidden">
+                    <LazyImage 
+                      src={products[activeProductIndex].image} 
+                      alt={products[activeProductIndex].title}
+                      className="w-full h-full object-cover"
+                    />
+                    {products[activeProductIndex].badge && (
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className="bg-amber-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
+                          {products[activeProductIndex].badge}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  
+                  <CardContent className="p-6 h-[152px] md:h-[224px] flex flex-col justify-between">
+                    <div>
+                      {/* Title and rate moved to text area */}
+                      <div className="mb-3 text-left">
+                        <h4 className="text-slate-800 text-lg md:text-xl font-bold leading-tight text-left mb-2">
+                          {products[activeProductIndex].title}
+                        </h4>
+                        <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg px-3 py-2 border border-blue-100 inline-block">
+                          <div className="text-base font-bold text-primary">{products[activeProductIndex].rate}</div>
+                          <div className="text-xs text-slate-600">{products[activeProductIndex].rateLabel}</div>
+                        </div>
+                      </div>
                       
-                      {/* Cover Image */}
-                      <div className="relative h-64 overflow-hidden">
-                        <img 
-                          src={product.image}
+                      <p className="text-slate-700 text-sm leading-relaxed mb-3 text-left">
+                        {products[activeProductIndex].description}
+                      </p>
+                      
+                      {/* Features */}
+                      <div className="space-y-1">
+                        {products[activeProductIndex].features.slice(0, 2).map((feature, i) => (
+                          <div key={i} className="flex items-center text-xs">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0"></div>
+                            <span className="text-slate-700">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 mt-3">
+                      <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5 text-xs">
+                        <Link to={products[activeProductIndex].learnLink}>
+                          Learn More
+                        </Link>
+                      </Button>
+                      <Button asChild size="sm" className="flex-1 bg-primary hover:bg-primary/90 shadow-md text-xs">
+                        <a href="https://preview--hbf-application.lovable.app/auth">
+                          Apply Now
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Side Cards with 3D perspective */}
+              {products.slice(0, 4).map((product, index) => {
+                if (index === activeProductIndex) return null;
+                
+                const isNext = (index === (activeProductIndex + 1) % 4);
+                const isPrev = (index === (activeProductIndex - 1 + 4) % 4);
+                
+                if (!isNext && !isPrev) return null;
+                
+                return (
+                  <div
+                    key={index}
+                    className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-700 cursor-pointer z-10 ${
+                      isNext 
+                        ? 'right-4 md:right-8 translate-x-4 rotate-y-12' 
+                        : 'left-4 md:left-8 -translate-x-4 -rotate-y-12'
+                    }`}
+                    onClick={() => setActiveProductIndex(index)}
+                  >
+                    <Card className="w-64 h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80">
+                      <div className="relative h-32 overflow-hidden">
+                        <LazyImage 
+                          src={product.image} 
                           alt={product.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                         {product.badge && (
-                          <div className="absolute top-3 right-3 z-10">
+                          <div className="absolute top-2 right-2">
                             <span className="bg-amber-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
                               {product.badge}
                             </span>
                           </div>
                         )}
-                        {/* Title Overlay */}
-                        <div className="absolute bottom-3 left-3 right-3">
-                          <h4 className="text-white text-lg font-semibold leading-tight">
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <div className="text-white text-sm font-semibold">
                             {product.title}
-                          </h4>
+                          </div>
                         </div>
                       </div>
-                      
-                      <CardHeader className="pb-3 pt-4">
-                        {/* Rate Display */}
-                        <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg px-3 py-2 border border-blue-100">
-                          <div className="text-xl font-bold text-primary mb-1">{product.rate}</div>
-                          <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
-                        </div>
-                      </CardHeader>
-                      
-                      <CardContent className="pt-0 pb-4 flex flex-col flex-1">
-                        <p className="text-slate-600 mb-4 leading-relaxed flex-grow text-sm">
+                      <CardContent className="p-4">
+                        <p className="text-slate-600 text-sm">
                           {product.description}
                         </p>
-                        
-                        {/* Features */}
-                        <div className="space-y-2 mb-4">
-                          {product.features.slice(0, 2).map((feature, i) => (
-                            <div key={i} className="flex items-center text-xs">
-                              <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                              <span className="text-slate-700">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex gap-2 mt-auto">
-                          <Button asChild variant="outline" size="sm" className="flex-1 border-slate-300 hover:border-primary hover:bg-primary/5 text-xs">
-                            <Link to={product.learnLink}>
-                              Learn
-                            </Link>
-                          </Button>
-                          <Button asChild size="sm" className="flex-1 bg-primary hover:bg-primary/90 shadow-md text-xs">
-                            <a href="https://preview--hbf-application.lovable.app/auth">
-                              Apply
-                            </a>
-                          </Button>
-                        </div>
                       </CardContent>
                     </Card>
                   </div>
-                ))}
-                </div>
-              </div>
+                );
+              })}
 
-          {/* Carousel Indicators */}
-          <div className="flex justify-center mt-6 gap-2">
-            {Array.from({ length: Math.ceil(4 / 4) }).map((_, index) => (
+              {/* Navigation arrows */}
               <button
-                key={index}
-                className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200"
-                onClick={() => emblaApi?.scrollTo(index * 4)}
-              />
-            ))}
-          </div>
+                onClick={() => setActiveProductIndex((activeProductIndex - 1 + 4) % 4)}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+              >
+                <ArrowRight className="h-6 w-6 text-slate-700 rotate-180" />
+              </button>
+              
+              <button
+                onClick={() => setActiveProductIndex((activeProductIndex + 1) % 4)}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+              >
+                <ArrowRight className="h-6 w-6 text-slate-700" />
+              </button>
+            </div>
+
+            {/* Timeline at bottom */}
+            <div className="mt-12 flex justify-center items-center space-x-4">
+              {products.slice(0, 4).map((product, index) => (
+                <div key={index} className="flex items-center">
+                  <button
+                    onClick={() => setActiveProductIndex(index)}
+                    className={`relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
+                      index <= activeProductIndex 
+                        ? 'bg-primary text-white shadow-lg' 
+                        : 'bg-slate-200 text-slate-500 hover:bg-slate-300'
+                    }`}
+                  >
+                    {index < activeProductIndex ? (
+                      <CheckCircle className="h-6 w-6" />
+                    ) : (
+                      <span className="font-bold">{index + 1}</span>
+                    )}
+                    
+                    {/* Label */}
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap">
+                      {product.title.split(' ')[0]}
+                    </div>
+                  </button>
+                  
+                  {/* Connector line */}
+                  {index < 3 && (
+                    <div className={`w-16 h-0.5 mx-2 transition-colors duration-500 ${
+                      index < activeProductIndex ? 'bg-primary' : 'bg-slate-200'
+                    }`} />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
