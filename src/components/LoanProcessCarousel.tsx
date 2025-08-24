@@ -95,19 +95,19 @@ const LoanProcessCarousel = () => {
               <CardContent className="p-6 h-[152px] md:h-[224px] flex flex-col justify-between">
                 <div>
                   {/* Step badge and title moved to text area */}
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3 mb-3 text-left">
                     <div className="bg-primary/10 backdrop-blur-sm rounded-full px-2 py-1 border border-primary/20">
                       <span className="text-primary font-bold text-xs">Step {steps[activeStep].step}</span>
                     </div>
-                    <h4 className="text-slate-800 text-lg md:text-xl font-bold leading-tight">
+                    <h4 className="text-slate-800 text-lg md:text-xl font-bold leading-tight text-left">
                       {steps[activeStep].title}
                     </h4>
                   </div>
                   
-                  <p className="text-slate-700 text-base leading-relaxed mb-3">
+                  <p className="text-slate-700 text-base leading-relaxed mb-3 text-left">
                     {steps[activeStep].description}
                   </p>
-                  <p className="text-slate-600 text-xs leading-relaxed">
+                  <p className="text-slate-600 text-xs leading-relaxed text-left">
                     {steps[activeStep].detail}
                   </p>
                 </div>
