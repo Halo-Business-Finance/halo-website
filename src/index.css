@@ -166,8 +166,13 @@ All colors MUST be HSL.
   }
 }
 
-/* 3D Perspective and Transform Utilities */
+/* Content Container and 3D Utilities */
 @layer utilities {
+  .container-centered {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
   .perspective-1000 {
     perspective: 1000px;
   }
