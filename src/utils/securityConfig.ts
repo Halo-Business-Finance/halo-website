@@ -32,19 +32,19 @@ export const getSecurityConfig = (): SecurityConfig => {
   const isProduction = import.meta.env.PROD;
   
   return {
-    monitoring: {
-      frequency: isProduction ? 120000 : 30000, // 2 min in prod, 30s in dev
-      behavioralCheckFrequency: isProduction ? 300000 : 60000, // 5 min in prod, 1 min in dev
-      devToolsCheckFrequency: isProduction ? 10000 : 2000, // 10s in prod, 2s in dev
-      enableConsoleMonitoring: !isProduction, // Only in development
-      enableDOMMonitoring: true,
-      enableBehavioralAnalysis: true,
-    },
-    logging: {
-      maxEventRetention: isProduction ? 86400000 : 3600000, // 24h in prod, 1h in dev
-      logSensitivity: isProduction ? 'minimal' : 'verbose',
-      enableClientLogging: !isProduction,
-    },
+  monitoring: {
+    frequency: isProduction ? 900000 : 300000, // 15 min in prod, 5 min in dev (reduced from 2 min/30s)
+    behavioralCheckFrequency: isProduction ? 1800000 : 300000, // 30 min in prod, 5 min in dev (reduced from 5 min/1 min)
+    devToolsCheckFrequency: isProduction ? 60000 : 10000, // 1 min in prod, 10s in dev (reduced frequency)
+    enableConsoleMonitoring: false, // Disabled to reduce noise
+    enableDOMMonitoring: isProduction ? false : true, // Only in development
+    enableBehavioralAnalysis: isProduction ? false : true, // Reduced in production
+  },
+  logging: {
+    maxEventRetention: isProduction ? 86400000 : 3600000, // 24h in prod, 1h in dev
+    logSensitivity: 'minimal', // Always minimal to reduce event volume
+    enableClientLogging: false, // Disabled to reduce noise
+  },
     rateLimit: {
       maxAttempts: isProduction ? 3 : 10,
       windowMs: isProduction ? 900000 : 300000, // 15 min in prod, 5 min in dev

@@ -9,7 +9,7 @@ interface SecurityEventData {
 
 class RateLimitedSecurityLogger {
   private rateLimitMap = new Map<string, { count: number; lastReset: number }>();
-  private readonly maxEventsPerMinute = 5; // Reduced from 10 to 5
+  private readonly maxEventsPerMinute = 2; // Further reduced from 5 to 2 for better performance
   private readonly resetInterval = 60000; // 1 minute
 
   private getRateLimitKey(eventType: string, userAgent?: string): string {

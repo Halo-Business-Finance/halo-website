@@ -53,6 +53,21 @@ serve(async (req) => {
       ip_address 
     } = requestBody
 
+    // Skip logging low-priority client events to reduce noise
+    const lowPriorityEvents = ['client_log', 'right_click_detected', 'console_access', 'dev_tools_check']
+    if (lowPriorityEvents.includes(event_type) && severity === 'info') {
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: 'Low priority event filtered out',
+          filtered: true
+        }),
+        {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders }
+        }
+      )
+    }
+
     // Client IP detection
     const clientIP = ip_address || 
       req.headers.get('cf-connecting-ip') || 
@@ -69,39 +84,60 @@ serve(async (req) => {
       source_function: 'security-event-optimizer'
     }
 
-    // Log with enhanced data
-    const { data: insertResult, error: insertError } = await supabaseClient
-      .from('security_events')
-      .insert({
-        event_type,
-        severity,
-        event_data: enhancedEventData,
-        source,
-        ip_address: clientIP,
-        user_agent: user_agent || req.headers.get('user-agent')
-      })
+    // Only log critical and high severity events, or specific important event types
+    const importantEventTypes = [
+      'admin_role_assigned', 'admin_role_revoked', 'session_anomaly_detected',
+      'unauthorized_access_attempt', 'data_breach_detected', 'brute_force_attempt',
+      'initial_admin_created', 'security_optimization_completed'
+    ]
 
-    if (insertError) {
-      console.error('Failed to log security event:', insertError)
-      
+    if (severity === 'critical' || severity === 'high' || importantEventTypes.includes(event_type)) {
+      // Log with enhanced data
+      const { data: insertResult, error: insertError } = await supabaseClient
+        .from('security_events')
+        .insert({
+          event_type,
+          severity,
+          event_data: enhancedEventData,
+          source,
+          ip_address: clientIP,
+          user_agent: user_agent || req.headers.get('user-agent')
+        })
+
+      if (insertError) {
+        console.error('Failed to log security event:', insertError)
+        
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: 'Failed to log security event',
+            details: insertError.message
+          }),
+          {
+            status: 500,
+            headers: { 'Content-Type': 'application/json', ...corsHeaders }
+          }
+        )
+      }
+
       return new Response(
         JSON.stringify({
-          success: false,
-          error: 'Failed to log security event',
-          details: insertError.message
+          success: true,
+          message: 'Security event logged successfully',
+          event_id: insertResult?.[0]?.id
         }),
         {
-          status: 500,
           headers: { 'Content-Type': 'application/json', ...corsHeaders }
         }
       )
     }
 
+    // For non-critical events, just return success without logging
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Security event logged successfully',
-        event_id: insertResult?.[0]?.id
+        message: 'Event filtered - not critical enough to log',
+        filtered: true
       }),
       {
         headers: { 'Content-Type': 'application/json', ...corsHeaders }
