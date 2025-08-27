@@ -67,16 +67,56 @@ serve(async (req) => {
     const ip_address = getClientIP(req);
     const user_agent = req.headers.get('user-agent') || 'unknown';
 
-    // Implement intelligent event filtering
+    // Enhanced intelligent event filtering for client_log spam prevention
     const lowPriorityEvents = [
       'console_access',
-      'page_view',
+      'page_view', 
       'ui_interaction',
       'form_validation',
-      'session_heartbeat'
+      'session_heartbeat',
+      'client_log' // Major spam source - needs aggressive filtering
     ];
 
-    const shouldAggregate = lowPriorityEvents.includes(event_type) && severity === 'info';
+    // Special handling for client_log events (major spam source)
+    if (event_type === 'client_log') {
+      // Only log critical and high-severity client logs
+      if (!['critical', 'high'].includes(severity)) {
+        console.log(`Filtered client_log event: ${severity} severity - too low priority`);
+        return new Response(
+          JSON.stringify({ 
+            success: true, 
+            filtered: true,
+            reason: 'Low-priority client_log event filtered'
+          }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+      
+      // Rate limit client_log events - max 2 per minute per IP
+      const oneMinuteAgo = new Date(Date.now() - 60 * 1000).toISOString();
+      const { count: recentClientLogs } = await supabase
+        .from('security_events')
+        .select('*', { count: 'exact', head: true })
+        .eq('event_type', 'client_log')
+        .eq('ip_address', ip_address)
+        .gte('created_at', oneMinuteAgo);
+
+      if (recentClientLogs && recentClientLogs >= 2) {
+        console.log(`Rate limited client_log from ${ip_address}: ${recentClientLogs} recent events`);
+        return new Response(
+          JSON.stringify({ 
+            success: true, 
+            rate_limited: true,
+            reason: 'Too many client_log events from this IP'
+          }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+    }
+
+    const shouldAggregate = lowPriorityEvents.includes(event_type) && 
+                           severity === 'info' && 
+                           event_type !== 'client_log'; // Don't aggregate client_log, filter instead
 
     // For low-priority events, check if we should aggregate instead of logging each one
     if (shouldAggregate) {
