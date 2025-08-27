@@ -189,9 +189,9 @@ const LoanProcessCarousel = () => {
           </button>
         </div>
 
-        {/* Timeline at bottom - Responsive */}
-        <div className="mt-8 sm:mt-12 flex justify-center items-center px-4">
-          <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto pb-2">
+        {/* Timeline at bottom - Responsive with proper spacing for mobile */}
+        <div className="mt-8 sm:mt-12 flex justify-center items-center px-2 sm:px-4">
+          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center shrink-0">
                 <button
@@ -208,15 +208,24 @@ const LoanProcessCarousel = () => {
                     <span className="font-bold text-sm sm:text-base">{step.step}</span>
                   )}
                   
-                  {/* Label - Hidden on mobile for space */}
-                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap hidden sm:block">
-                    {step.title.split(' ')[0]}
+                  {/* Label - Better mobile display with proper titles */}
+                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
+                    <span className="block sm:hidden">
+                      {step.step === 1 && "Select"}
+                      {step.step === 2 && "Answer"}
+                      {step.step === 3 && "Get Pre-approved"}
+                      {step.step === 4 && "Upload"}
+                      {step.step === 5 && "Get Funded"}
+                    </span>
+                    <span className="hidden sm:block">
+                      {step.title.split(' ')[0]}
+                    </span>
                   </div>
                 </button>
                 
-                {/* Connector line - Responsive width */}
+                {/* Connector line - Responsive width with mobile optimization */}
                 {index < steps.length - 1 && (
-                  <div className={`w-8 sm:w-16 h-0.5 mx-1 sm:mx-2 transition-colors duration-500 ${
+                  <div className={`w-4 sm:w-16 h-0.5 mx-0.5 sm:mx-2 transition-colors duration-500 ${
                     index < activeStep ? 'bg-primary' : 'bg-slate-200'
                   }`} />
                 )}
