@@ -3,8 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Shield, AlertTriangle, CheckCircle, XCircle, RefreshCw, Users, Database, Lock, Eye, Activity, TrendingUp } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { SecurityEventCleanup } from './SecurityEventCleanup';
+import { toast } from 'sonner';
 
 interface SecurityMetrics {
   totalEvents: number;
@@ -155,6 +158,15 @@ export const EnhancedSecurityDashboard: React.FC = () => {
         </div>
       </div>
 
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="overview">Security Overview</TabsTrigger>
+          <TabsTrigger value="events">Recent Events</TabsTrigger>
+          <TabsTrigger value="cleanup">Database Cleanup</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="space-y-6">
+
       {/* Security Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card>
@@ -235,47 +247,91 @@ export const EnhancedSecurityDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </div>
+        </TabsContent>
 
-      {/* Recent Security Events */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Security Events</CardTitle>
-          <CardDescription>Latest security events across all systems</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {recentEvents.length === 0 ? (
-            <Alert>
-              <CheckCircle className="h-4 w-4" />
-              <AlertDescription>
-                No recent security events. All systems operating normally.
-              </AlertDescription>
-            </Alert>
-          ) : (
-            <div className="space-y-3">
-              {recentEvents.map((event) => (
-                <div key={event.id} className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Badge className={getSeverityColor(event.severity)}>
-                        {event.severity.toUpperCase()}
-                      </Badge>
-                      <span className="font-medium">{event.event_type}</span>
+        <TabsContent value="events" className="space-y-6">
+          {/* Recent Security Events */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Security Events</CardTitle>
+              <CardDescription>Latest security events across all systems</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {recentEvents.length === 0 ? (
+                <Alert>
+                  <CheckCircle className="h-4 w-4" />
+                  <AlertDescription>
+                    No recent security events. All systems operating normally.
+                  </AlertDescription>
+                </Alert>
+              ) : (
+                <div className="space-y-3">
+                  {recentEvents.map((event) => (
+                    <div key={event.id} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Badge className={getSeverityColor(event.severity)}>
+                            {event.severity.toUpperCase()}
+                          </Badge>
+                          <span className="font-medium">{event.event_type}</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                          {formatTimeAgo(event.created_at)}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {event.severity === 'critical' && (
+                          <AlertTriangle className="h-4 w-4 text-red-500" />
+                        )}
+                      </div>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      {formatTimeAgo(event.created_at)}
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="cleanup" className="space-y-6">
+          <div className="grid gap-6">
+            <SecurityEventCleanup />
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Database className="h-5 w-5" />
+                  Database Optimization Status
+                </CardTitle>
+                <CardDescription>
+                  Monitor security event database performance and cleanup status
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <p className="text-2xl font-bold text-blue-600">
+                      {recentEvents.filter(e => e.event_type === 'client_log').length}
                     </p>
+                    <p className="text-sm text-muted-foreground">Client Log Events</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    {event.severity === 'critical' && (
-                      <AlertTriangle className="h-4 w-4 text-red-500" />
-                    )}
+                  <div>
+                    <p className="text-2xl font-bold text-green-600">
+                      {recentEvents.filter(e => e.severity === 'info').length}
+                    </p>
+                    <p className="text-sm text-muted-foreground">Info Events</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-red-600">
+                      {recentEvents.filter(e => ['critical', 'high'].includes(e.severity)).length}
+                    </p>
+                    <p className="text-sm text-muted-foreground">Critical/High Events</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

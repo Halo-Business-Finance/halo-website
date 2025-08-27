@@ -109,7 +109,7 @@ verify_jwt = true
 verify_jwt = true
 
 [functions.send-consultation-email]
-verify_jwt = false
+verify_jwt = true  # SECURITY FIX: Enable JWT verification for consultation emails
 
 [functions.validate-csrf-token]
 verify_jwt = false
