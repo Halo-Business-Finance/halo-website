@@ -313,16 +313,16 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center lg:justify-between h-8 lg:h-12 px-4 sm:px-6">
             {/* Logo and Mobile Menu Button Container - Centered on mobile/tablet */}
-            <div className="flex items-center gap-2">
-              <Link to="/" className="flex items-center">
-                <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap">
+            <div className="flex items-center justify-center gap-2">
+              <Link to="/" className="flex items-center justify-center">
+                <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                   HALO BUSINESS FINANCE
                 </span>
               </Link>
               
               {/* Mobile Menu Button - positioned next to logo */}
               <button 
-                className="lg:hidden p-1.5 lg:p-2 rounded-md hover:bg-gray-100"
+                className="lg:hidden p-1.5 lg:p-2 rounded-md hover:bg-gray-100 flex items-center justify-center"
                 onClick={handleMobileMenuToggle}
                 aria-label="Toggle navigation"
               >
