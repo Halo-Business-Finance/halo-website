@@ -81,7 +81,8 @@ const AdminSignupPage = () => {
 
       if (signupError) {
         console.error('Signup error:', signupError);
-        setError('Failed to create account: ' + signupError.message);
+        const errorMessage = signupError.message || 'An unknown error occurred during signup';
+        setError('Failed to create account: ' + errorMessage);
         return;
       }
 
