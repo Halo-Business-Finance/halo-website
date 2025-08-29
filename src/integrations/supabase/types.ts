@@ -321,9 +321,9 @@ export type Database = {
         Row: {
           company: string | null
           created_at: string
-          encrypted_email: string | null
-          encrypted_name: string | null
-          encrypted_phone: string | null
+          encrypted_email: string
+          encrypted_name: string
+          encrypted_phone: string
           id: string
           loan_amount: string
           loan_program: string
@@ -336,9 +336,9 @@ export type Database = {
         Insert: {
           company?: string | null
           created_at?: string
-          encrypted_email?: string | null
-          encrypted_name?: string | null
-          encrypted_phone?: string | null
+          encrypted_email: string
+          encrypted_name: string
+          encrypted_phone: string
           id?: string
           loan_amount: string
           loan_program: string
@@ -351,9 +351,9 @@ export type Database = {
         Update: {
           company?: string | null
           created_at?: string
-          encrypted_email?: string | null
-          encrypted_name?: string | null
-          encrypted_phone?: string | null
+          encrypted_email?: string
+          encrypted_name?: string
+          encrypted_phone?: string
           id?: string
           loan_amount?: string
           loan_program?: string
@@ -1188,6 +1188,10 @@ export type Database = {
         Args: { data_record: Json; user_role: string }
         Returns: Json
       }
+      mask_financial_data: {
+        Args: { data_value: number; user_role: string }
+        Returns: string
+      }
       mask_pii_data: {
         Args: { data_text: string; data_type: string; user_role?: string }
         Returns: string
@@ -1238,7 +1242,14 @@ export type Database = {
         Returns: boolean
       }
       should_log_security_event: {
-        Args: { p_event_type: string; p_severity: string; p_source?: string }
+        Args:
+          | {
+              event_data?: Json
+              event_type: string
+              severity: string
+              source_ip: unknown
+            }
+          | { p_event_type: string; p_severity: string; p_source?: string }
         Returns: boolean
       }
       validate_function_security: {
