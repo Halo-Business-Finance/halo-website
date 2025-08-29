@@ -7,6 +7,7 @@ import { AdminInitializer } from '@/components/security/AdminInitializer';
 import { SecureRoleManager } from '@/components/security/SecureRoleManager';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useSecureAuth } from '@/components/security/SecureAuthProvider';
+import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -61,23 +62,46 @@ const AdminSignupPage = () => {
     setError('');
 
     try {
-      const { error } = await signUpSecure(
+      // First, create the user account
+      const { error: signupError } = await signUpSecure(
         formData.email,
         formData.password,
         formData.displayName
       );
 
-      if (error) {
-        setError(error.message || 'Failed to create admin account');
-      } else {
-        toast({
-          title: 'Admin account created successfully',
-          description: 'Please check your email to verify your account, then proceed to security setup.',
-        });
-        // Don't navigate immediately - let them verify email first
+      if (signupError) {
+        setError(signupError.message || 'Failed to create admin account');
+        return;
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
+
+      // Wait a moment for the user to be created
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Then assign admin role using the secure function
+      const { error: adminError } = await supabase.rpc('create_initial_admin', {
+        admin_email: formData.email
+      });
+
+      if (adminError) {
+        setError('Account created but failed to assign admin role: ' + adminError.message);
+        return;
+      }
+
+      toast({
+        title: 'Admin account created successfully',
+        description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
+      });
+      
+      // Clear the form
+      setFormData({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        displayName: ''
+      });
+
+    } catch (err: any) {
+      setError('An unexpected error occurred: ' + (err.message || 'Unknown error'));
     } finally {
       setIsLoading(false);
     }
