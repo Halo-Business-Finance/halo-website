@@ -87,7 +87,7 @@ const AdminSignupPage = () => {
       // Wait a moment for the trigger to create the profile
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Use the new simplified function that works with user_id directly
+      // Use the available function that works with user_id directly
       const { error: adminError } = await supabase.rpc('make_user_admin', {
         target_user_id: data.user.id
       });
