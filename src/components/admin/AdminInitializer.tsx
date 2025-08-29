@@ -40,12 +40,9 @@ export const AdminInitializer: React.FC = () => {
     
     setIsLoading(true);
     try {
-      const { error } = await supabase
-        .from('user_roles')
-        .insert({
-          user_id: user.id,
-          role: 'admin'
-        });
+      const { data, error } = await supabase.rpc('create_initial_admin', {
+        admin_email: user.email
+      });
 
       if (error) throw error;
 
@@ -77,13 +74,10 @@ export const AdminInitializer: React.FC = () => {
       if (error) throw error;
 
       if (data.user) {
-        // Assign admin role
-        const { error: roleError } = await supabase
-          .from('user_roles')
-          .insert({
-            user_id: data.user.id,
-            role: 'admin'
-          });
+        // Use the secure function to assign admin role
+        const { error: roleError } = await supabase.rpc('create_initial_admin', {
+          admin_email: email
+        });
 
         if (roleError) throw roleError;
 
