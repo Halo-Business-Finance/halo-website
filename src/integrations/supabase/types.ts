@@ -1162,6 +1162,10 @@ export type Database = {
         Args: { target_email: string }
         Returns: boolean
       }
+      intelligent_security_event_cleanup: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       invalidate_suspicious_sessions: {
         Args: { reason: string; target_user_id: string }
         Returns: number
@@ -1200,6 +1204,10 @@ export type Database = {
         Args: { p_key_identifier: string; p_rotation_date?: string }
         Returns: boolean
       }
+      schedule_security_maintenance: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
       secure_assign_user_role: {
         Args: {
           expiration_date?: string
@@ -1227,6 +1235,10 @@ export type Database = {
           role_to_revoke: Database["public"]["Enums"]["app_role"]
           target_user_id: string
         }
+        Returns: boolean
+      }
+      should_log_security_event: {
+        Args: { p_event_type: string; p_severity: string; p_source?: string }
         Returns: boolean
       }
       validate_function_security: {

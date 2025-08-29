@@ -169,10 +169,10 @@ export const useSecurityMonitor = () => {
     }
   }, [checkSecurityHealth]);
 
-  // Automatic health checks every 5 minutes
+  // Automatic health checks every 10 minutes (optimized frequency)
   useEffect(() => {
     checkSecurityHealth();
-    const interval = setInterval(checkSecurityHealth, 15 * 60 * 1000); // Reduced frequency
+    const interval = setInterval(checkSecurityHealth, 10 * 60 * 1000); // Optimized frequency
     return () => clearInterval(interval);
   }, [checkSecurityHealth]);
 
