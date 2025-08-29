@@ -14,6 +14,228 @@ export type Database = {
   }
   public: {
     Tables: {
+      application_documents: {
+        Row: {
+          application_id: string
+          created_at: string
+          document_name: string
+          document_type: string
+          file_path: string
+          file_size: number | null
+          id: string
+          is_required: boolean | null
+          mime_type: string | null
+          review_notes: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string | null
+          upload_date: string | null
+          user_id: string
+        }
+        Insert: {
+          application_id: string
+          created_at?: string
+          document_name: string
+          document_type: string
+          file_path: string
+          file_size?: number | null
+          id?: string
+          is_required?: boolean | null
+          mime_type?: string | null
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string | null
+          upload_date?: string | null
+          user_id: string
+        }
+        Update: {
+          application_id?: string
+          created_at?: string
+          document_name?: string
+          document_type?: string
+          file_path?: string
+          file_size?: number | null
+          id?: string
+          is_required?: boolean | null
+          mime_type?: string | null
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string | null
+          upload_date?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_documents_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      application_messages: {
+        Row: {
+          application_id: string
+          created_at: string
+          id: string
+          is_internal: boolean | null
+          message: string
+          message_type: string | null
+          read_at: string | null
+          recipient_id: string | null
+          sender_id: string
+          subject: string | null
+        }
+        Insert: {
+          application_id: string
+          created_at?: string
+          id?: string
+          is_internal?: boolean | null
+          message: string
+          message_type?: string | null
+          read_at?: string | null
+          recipient_id?: string | null
+          sender_id: string
+          subject?: string | null
+        }
+        Update: {
+          application_id?: string
+          created_at?: string
+          id?: string
+          is_internal?: boolean | null
+          message?: string
+          message_type?: string | null
+          read_at?: string | null
+          recipient_id?: string | null
+          sender_id?: string
+          subject?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_messages_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      application_status_history: {
+        Row: {
+          application_id: string
+          change_reason: string | null
+          changed_by: string | null
+          created_at: string
+          id: string
+          new_status: string
+          notes: string | null
+          previous_status: string | null
+        }
+        Insert: {
+          application_id: string
+          change_reason?: string | null
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_status: string
+          notes?: string | null
+          previous_status?: string | null
+        }
+        Update: {
+          application_id?: string
+          change_reason?: string | null
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_status?: string
+          notes?: string | null
+          previous_status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_status_history_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      applications: {
+        Row: {
+          annual_revenue: number | null
+          application_data: Json | null
+          application_number: string
+          application_type: string
+          assigned_officer_id: string | null
+          business_address: Json | null
+          business_ein: string | null
+          business_name: string | null
+          business_phone: string | null
+          business_type: string | null
+          created_at: string
+          id: string
+          last_updated_at: string | null
+          loan_amount: number | null
+          notes: string | null
+          priority_level: string | null
+          status: string
+          submitted_at: string | null
+          updated_at: string
+          user_id: string
+          years_in_business: number | null
+        }
+        Insert: {
+          annual_revenue?: number | null
+          application_data?: Json | null
+          application_number?: string
+          application_type: string
+          assigned_officer_id?: string | null
+          business_address?: Json | null
+          business_ein?: string | null
+          business_name?: string | null
+          business_phone?: string | null
+          business_type?: string | null
+          created_at?: string
+          id?: string
+          last_updated_at?: string | null
+          loan_amount?: number | null
+          notes?: string | null
+          priority_level?: string | null
+          status?: string
+          submitted_at?: string | null
+          updated_at?: string
+          user_id: string
+          years_in_business?: number | null
+        }
+        Update: {
+          annual_revenue?: number | null
+          application_data?: Json | null
+          application_number?: string
+          application_type?: string
+          assigned_officer_id?: string | null
+          business_address?: Json | null
+          business_ein?: string | null
+          business_name?: string | null
+          business_phone?: string | null
+          business_type?: string | null
+          created_at?: string
+          id?: string
+          last_updated_at?: string | null
+          loan_amount?: number | null
+          notes?: string | null
+          priority_level?: string | null
+          status?: string
+          submitted_at?: string | null
+          updated_at?: string
+          user_id?: string
+          years_in_business?: number | null
+        }
+        Relationships: []
+      }
       audit_logs: {
         Row: {
           action: string
