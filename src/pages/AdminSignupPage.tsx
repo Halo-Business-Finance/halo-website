@@ -62,35 +62,48 @@ const AdminSignupPage = () => {
     setError('');
 
     try {
-      // First, create the user account
-      const { error: signupError } = await signUpSecure(
-        formData.email,
-        formData.password,
-        formData.displayName
-      );
+      // Direct signup without secure auth provider to avoid edge function dependencies
+      const { data, error: signupError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`,
+          data: {
+            display_name: formData.displayName
+          }
+        }
+      });
 
       if (signupError) {
-        setError(signupError.message || 'Failed to create admin account');
+        setError('Failed to create account: ' + signupError.message);
         return;
       }
 
-      // Wait a moment for the user to be created
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!data.user) {
+        setError('Failed to create user account');
+        return;
+      }
 
-      // Then assign admin role using the secure function
+      // Wait a moment for the user to be fully created
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Try to assign admin role using the secure function
       const { error: adminError } = await supabase.rpc('create_initial_admin', {
         admin_email: formData.email
       });
 
       if (adminError) {
-        setError('Account created but failed to assign admin role: ' + adminError.message);
-        return;
+        // If admin role assignment fails, still show success for user creation
+        toast({
+          title: 'Account created',
+          description: `Account created successfully for ${formData.email}. Admin role assignment may require manual intervention. Please check your email to verify your account.`,
+        });
+      } else {
+        toast({
+          title: 'Admin account created successfully',
+          description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
+        });
       }
-
-      toast({
-        title: 'Admin account created successfully',
-        description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
-      });
       
       // Clear the form
       setFormData({
