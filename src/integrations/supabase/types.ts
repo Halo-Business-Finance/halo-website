@@ -917,6 +917,10 @@ export type Database = {
         }
         Returns: string
       }
+      make_user_admin: {
+        Args: { target_user_id: string }
+        Returns: boolean
+      }
       mask_consultation_data: {
         Args: { data_record: Json; user_role: string }
         Returns: Json

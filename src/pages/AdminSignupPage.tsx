@@ -84,23 +84,23 @@ const AdminSignupPage = () => {
         return;
       }
 
-      // Wait a moment for the user to be fully created
+      // Wait a moment for the trigger to create the profile
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Try to assign admin role using the secure function
-      const { error: adminError } = await supabase.rpc('create_initial_admin', {
-        admin_email: formData.email
+      // Use the new simplified function that works with user_id directly
+      const { error: adminError } = await supabase.rpc('make_user_admin', {
+        target_user_id: data.user.id
       });
 
       if (adminError) {
         // If admin role assignment fails, still show success for user creation
         toast({
           title: 'Account created',
-          description: `Account created successfully for ${formData.email}. Admin role assignment may require manual intervention. Please check your email to verify your account.`,
+          description: `Account created successfully for ${formData.email}. Admin role assignment failed: ${adminError.message}. Please contact support.`,
         });
       } else {
         toast({
-          title: 'Admin account created successfully',
+          title: 'Admin account created successfully!',
           description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
         });
       }
