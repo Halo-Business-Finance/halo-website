@@ -311,8 +311,8 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-10 lg:h-12 px-4 sm:px-6">
-            {/* Logo and Mobile Menu Button Container */}
+          <div className="flex items-center justify-center lg:justify-between h-10 lg:h-12 px-4 sm:px-6">
+            {/* Logo and Mobile Menu Button Container - Centered on mobile/tablet */}
             <div className="flex items-center gap-3">
               <Link to="/" className="flex items-center">
                 <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
