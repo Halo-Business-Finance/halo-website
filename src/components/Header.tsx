@@ -311,22 +311,22 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center lg:justify-between h-10 lg:h-12 px-4 sm:px-6">
+          <div className="flex items-center justify-center lg:justify-between h-8 lg:h-12 px-4 sm:px-6">
             {/* Logo and Mobile Menu Button Container - Centered on mobile/tablet */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Link to="/" className="flex items-center">
-                <span className="text-xl font-bold text-gray-900 whitespace-nowrap">
+                <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap">
                   HALO BUSINESS FINANCE
                 </span>
               </Link>
               
               {/* Mobile Menu Button - positioned next to logo */}
               <button 
-                className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+                className="lg:hidden p-1.5 lg:p-2 rounded-md hover:bg-gray-100"
                 onClick={handleMobileMenuToggle}
                 aria-label="Toggle navigation"
               >
-                <Menu className="h-6 w-6 text-gray-600" />
+                <Menu className="h-5 w-5 lg:h-6 lg:w-6 text-gray-600" />
               </button>
             </div>
           </div>
