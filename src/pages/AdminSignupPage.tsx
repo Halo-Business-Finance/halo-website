@@ -135,27 +135,33 @@ const AdminSignupPage = () => {
         return;
       }
 
-      // Use the new secure admin function with email
-      console.log('Attempting to assign admin role...');
-      const { data: adminResult, error: adminError } = await supabase.rpc('make_user_admin', {
-        target_email: formData.email
+      // Use the simpler admin function that bypasses rate limiting
+      console.log('Attempting to assign admin role using simple method...');
+      const { data: adminResult, error: adminError } = await supabase.rpc('simple_admin_signup', {
+        user_email: formData.email,
+        display_name: formData.displayName || null
       });
 
       console.log('Admin role assignment result:', { adminResult, adminError });
 
       if (adminError) {
         console.error('Admin role assignment failed:', adminError);
-        // If admin role assignment fails, still show success for user creation
         toast({
-          title: 'Account created',
-          description: `Account created successfully for ${formData.email}. Admin role assignment failed: ${adminError.message}. Please contact support.`,
+          title: 'Account created but admin assignment failed',
+          description: `Account created for ${formData.email}, but admin role assignment failed: ${adminError.message}. Please contact support.`,
           variant: 'destructive',
         });
-      } else {
+      } else if ((adminResult as any)?.success) {
         console.log('Admin role assigned successfully');
         toast({
           title: 'Admin account created successfully!',
           description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
+        });
+      } else {
+        toast({
+          title: 'Admin assignment issue',
+          description: (adminResult as any)?.error || 'Unknown error during admin assignment',
+          variant: 'destructive',
         });
       }
       

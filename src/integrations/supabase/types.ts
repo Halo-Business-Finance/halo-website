@@ -1252,6 +1252,10 @@ export type Database = {
           | { p_event_type: string; p_severity: string; p_source?: string }
         Returns: boolean
       }
+      simple_admin_signup: {
+        Args: { display_name?: string; user_email: string }
+        Returns: Json
+      }
       validate_function_security: {
         Args: Record<PropertyKey, never>
         Returns: {
