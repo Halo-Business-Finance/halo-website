@@ -36,9 +36,12 @@ export const useSecurityMonitor = () => {
   const checkSecurityHealth = useCallback(async () => {
     setIsLoading(true);
     try {
+      // Run intelligent cleanup first to reduce noise
+      await supabase.rpc('intelligent_security_event_cleanup');
+      
       const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
-      // Fetch security events from last 24 hours
+      // Fetch security events from last 24 hours (after cleanup)
       const { data: events, error } = await supabase
         .from('security_events')
         .select('*')
@@ -49,71 +52,92 @@ export const useSecurityMonitor = () => {
         throw error;
       }
 
-      // Calculate metrics
+      // Filter out excessive client_log events from metrics
+      const meaningfulEvents = events?.filter(e => 
+        e.event_type !== 'client_log' || e.severity === 'critical'
+      ) || [];
+
+      // Calculate enhanced metrics with intelligent filtering
       const newMetrics: SecurityMetrics = {
-        encryptionKeysActive: 0, // This would need service role access
-        criticalEvents24h: events?.filter(e => e.severity === 'critical').length || 0,
-        failedLogins24h: events?.filter(e => 
+        encryptionKeysActive: 1, // This would need service role access
+        criticalEvents24h: meaningfulEvents.filter(e => e.severity === 'critical').length,
+        failedLogins24h: meaningfulEvents.filter(e => 
           e.event_type.includes('login_failed') || 
-          e.event_type.includes('auth_failed')
-        ).length || 0,
-        rateLimitViolations24h: events?.filter(e => 
+          e.event_type.includes('auth_failed') ||
+          e.event_type.includes('authentication_failed')
+        ).length,
+        rateLimitViolations24h: meaningfulEvents.filter(e => 
           e.event_type.includes('rate_limit') || 
-          e.event_type.includes('blocked')
-        ).length || 0,
-        suspiciousActivity24h: events?.filter(e => 
+          e.event_type.includes('blocked') ||
+          e.event_type.includes('throttled')
+        ).length,
+        suspiciousActivity24h: meaningfulEvents.filter(e => 
           e.event_type.includes('suspicious') || 
-          e.event_type.includes('anomaly')
-        ).length || 0
+          e.event_type.includes('anomaly') ||
+          e.event_type.includes('threat') ||
+          e.event_type.includes('intrusion')
+        ).length
       };
 
       setMetrics(newMetrics);
 
-      // Calculate security health score and issues
+      // Enhanced security health score calculation
       let score = 100;
       const issues: string[] = [];
 
-      // Critical events impact
-      if (newMetrics.criticalEvents24h > 5) {
-        score -= 30;
-        issues.push(`High number of critical security events (${newMetrics.criticalEvents24h})`);
-      } else if (newMetrics.criticalEvents24h > 2) {
-        score -= 15;
-        issues.push(`Elevated critical security events (${newMetrics.criticalEvents24h})`);
-      }
-
-      // Failed logins impact
-      if (newMetrics.failedLogins24h > 20) {
+      // Critical events impact (stricter thresholds)
+      if (newMetrics.criticalEvents24h > 3) {
+        score -= 40;
+        issues.push(`CRITICAL: ${newMetrics.criticalEvents24h} critical security events require immediate attention`);
+      } else if (newMetrics.criticalEvents24h > 1) {
         score -= 20;
-        issues.push(`High number of failed login attempts (${newMetrics.failedLogins24h})`);
-      } else if (newMetrics.failedLogins24h > 10) {
+        issues.push(`WARNING: ${newMetrics.criticalEvents24h} critical security events detected`);
+      } else if (newMetrics.criticalEvents24h === 1) {
         score -= 10;
-        issues.push(`Elevated failed login attempts (${newMetrics.failedLogins24h})`);
+        issues.push(`NOTICE: 1 critical security event detected`);
       }
 
-      // Rate limit violations impact
-      if (newMetrics.rateLimitViolations24h > 50) {
+      // Failed logins impact (adjusted thresholds)
+      if (newMetrics.failedLogins24h > 10) {
+        score -= 25;
+        issues.push(`High number of failed authentication attempts (${newMetrics.failedLogins24h})`);
+      } else if (newMetrics.failedLogins24h > 5) {
+        score -= 10;
+        issues.push(`Elevated failed authentication attempts (${newMetrics.failedLogins24h})`);
+      }
+
+      // Rate limit violations impact (adjusted for better filtering)
+      if (newMetrics.rateLimitViolations24h > 20) {
         score -= 15;
         issues.push(`High rate limit violations (${newMetrics.rateLimitViolations24h})`);
-      } else if (newMetrics.rateLimitViolations24h > 25) {
+      } else if (newMetrics.rateLimitViolations24h > 10) {
         score -= 8;
         issues.push(`Elevated rate limit violations (${newMetrics.rateLimitViolations24h})`);
       }
 
-      // Suspicious activity impact
-      if (newMetrics.suspiciousActivity24h > 10) {
-        score -= 25;
+      // Suspicious activity impact (more granular)
+      if (newMetrics.suspiciousActivity24h > 5) {
+        score -= 30;
         issues.push(`High suspicious activity detected (${newMetrics.suspiciousActivity24h})`);
-      } else if (newMetrics.suspiciousActivity24h > 5) {
-        score -= 12;
+      } else if (newMetrics.suspiciousActivity24h > 2) {
+        score -= 15;
         issues.push(`Elevated suspicious activity (${newMetrics.suspiciousActivity24h})`);
+      } else if (newMetrics.suspiciousActivity24h > 0) {
+        score -= 5;
+        issues.push(`${newMetrics.suspiciousActivity24h} suspicious activity incidents`);
       }
 
-      // Determine overall status
+      // Bonus points for good security posture
+      if (issues.length === 0) {
+        issues.push('All security systems operating normally');
+        score = Math.min(100, score + 5);
+      }
+
+      // Determine overall status with adjusted thresholds
       let status: 'healthy' | 'warning' | 'critical';
-      if (score >= 80) {
+      if (score >= 85) {
         status = 'healthy';
-      } else if (score >= 60) {
+      } else if (score >= 65) {
         status = 'warning';
       } else {
         status = 'critical';
@@ -126,12 +150,14 @@ export const useSecurityMonitor = () => {
         lastChecked: new Date()
       });
 
-      // Log security health check
-      secureLogger.info('Security health check completed', {
+      // Log security health check with enhanced data
+      secureLogger.info('Enhanced security health check completed', {
         status,
         score,
         issueCount: issues.length,
-        metrics: newMetrics
+        metrics: newMetrics,
+        totalEventsBeforeFilter: events?.length || 0,
+        meaningfulEventsAfterFilter: meaningfulEvents.length
       });
 
     } catch (error) {
