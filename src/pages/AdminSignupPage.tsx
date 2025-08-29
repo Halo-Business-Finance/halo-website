@@ -102,12 +102,22 @@ const AdminSignupPage = () => {
         .from('profiles')
         .select('*')
         .eq('user_id', data.user.id)
-        .single();
+        .maybeSingle();
 
       console.log('Profile check:', { profileCheck, profileError });
 
       if (profileError) {
-        console.error('Profile not found:', profileError);
+        console.error('Profile query error:', profileError);
+        toast({
+          title: 'Profile check failed',
+          description: `Unable to verify profile creation. Please try again or contact support.`,
+          variant: 'destructive',
+        });
+        return;
+      }
+
+      if (!profileCheck) {
+        console.error('Profile not found after signup');
         toast({
           title: 'Account created but profile missing',
           description: `Account created for ${formData.email}, but profile creation failed. Please contact support.`,
