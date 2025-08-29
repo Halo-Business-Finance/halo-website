@@ -124,11 +124,13 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
   // Generate a secure nonce for CSP compliance
   const nonce = contentSanitizer.generateSecureNonce();
 
+  // Use safer approach without dangerouslySetInnerHTML
   return (
     <script
       type="application/ld+json"
       nonce={nonce}
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(sanitizedSchema) }}
-    />
+    >
+      {JSON.stringify(sanitizedSchema)}
+    </script>
   );
 };

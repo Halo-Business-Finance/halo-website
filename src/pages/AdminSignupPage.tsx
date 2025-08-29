@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { AdminInitializer } from '@/components/security/AdminInitializer';
 import { SecureRoleManager } from '@/components/security/SecureRoleManager';
+import { SecurityEventLogger } from '@/components/security/SecurityEventLogger';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useSecureAuth } from '@/components/security/SecureAuthProvider';
 import { supabase } from '@/integrations/supabase/client';
@@ -301,6 +302,8 @@ const AdminSignupPage = () => {
               <TabsContent value="security" className="space-y-6">
                 <div className="space-y-8">
                   <AdminInitializer />
+                  
+                  <SecurityEventLogger />
                   
                   {isAdmin && (
                     <SecureRoleManager />
