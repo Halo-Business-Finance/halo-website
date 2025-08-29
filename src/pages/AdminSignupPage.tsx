@@ -81,7 +81,15 @@ const AdminSignupPage = () => {
 
       if (signupError) {
         console.error('Signup error:', signupError);
-        const errorMessage = signupError.message || 'An unknown error occurred during signup';
+        let errorMessage = signupError.message || 'An unknown error occurred during signup';
+        
+        // Handle rate limiting errors specifically
+        if (errorMessage.includes('rate limited') || errorMessage.includes('only request this after')) {
+          errorMessage = 'Too many signup attempts. Please wait a few minutes before trying again.';
+        } else if (errorMessage.includes('timeout') || errorMessage.includes('Processing this request timed out')) {
+          errorMessage = 'Server is temporarily busy. Please try again in a few moments.';
+        }
+        
         setError('Failed to create account: ' + errorMessage);
         return;
       }
