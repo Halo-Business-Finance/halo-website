@@ -115,10 +115,10 @@ const AdminSignupPage = () => {
         return;
       }
 
-      // Use the available function that works with user_id directly
+      // Use the new secure admin function with email
       console.log('Attempting to assign admin role...');
       const { data: adminResult, error: adminError } = await supabase.rpc('make_user_admin', {
-        target_user_id: data.user.id
+        target_email: formData.email
       });
 
       console.log('Admin role assignment result:', { adminResult, adminError });

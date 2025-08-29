@@ -14,6 +14,8 @@ import { ProductionSecurityProvider } from "@/components/security/ProductionSecu
 import { EnhancedSecurityProvider } from "@/components/security/EnhancedSecurityProvider";
 import { SecurityHeadersProvider } from "@/components/security/SecurityHeadersProvider";
 import { SecurityAlertSystem } from "@/components/security/SecurityAlertSystem";
+import { SecureCSPProvider } from "@/components/security/SecureCSPProvider";
+import { EnhancedSecurityHeaders } from "@/components/security/EnhancedSecurityHeaders";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
@@ -156,17 +158,19 @@ const App = () => {
         <FormSecurityProvider>
           <SessionManager>
             <AuthProvider>
-              <EnhancedSecurityProvider>
-                <SecureAuthProvider>
-                  <TooltipProvider>
-                    <Toaster />
-                    <Sonner />
-                    <SecurityHeaders />
-                    <SecurityMonitor />
-                    <PerformanceMonitor />
-                    <DisclaimerPopup />
-                    <BrowserRouter>
-                      <SecurityAlertSystem />
+              <SecureCSPProvider enableStrictCSP={true}>
+                <EnhancedSecurityProvider>
+                  <SecureAuthProvider>
+                    <TooltipProvider>
+                      <Toaster />
+                      <Sonner />
+                      <SecurityHeaders />
+                      <EnhancedSecurityHeaders />
+                      <SecurityMonitor />
+                      <PerformanceMonitor />
+                      <DisclaimerPopup />
+                      <BrowserRouter>
+                        <SecurityAlertSystem />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -242,10 +246,11 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-                    </BrowserRouter>
-                  </TooltipProvider>
-                </SecureAuthProvider>
-              </EnhancedSecurityProvider>
+                      </BrowserRouter>
+                    </TooltipProvider>
+                  </SecureAuthProvider>
+                </EnhancedSecurityProvider>
+              </SecureCSPProvider>
             </AuthProvider>
           </SessionManager>
         </FormSecurityProvider>

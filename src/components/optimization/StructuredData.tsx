@@ -1,4 +1,5 @@
 import React from 'react';
+import { contentSanitizer } from '@/utils/contentSanitizer';
 
 interface StructuredDataProps {
   type: 'Organization' | 'FinancialService' | 'BreadcrumbList' | 'FAQ' | 'Product' | 'Article';
@@ -117,19 +118,17 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
 
   const schema = generateSchema();
 
+  // Sanitize schema data to prevent XSS
+  const sanitizedSchema = contentSanitizer.sanitizeJSONSchema(schema);
+
   // Generate a secure nonce for CSP compliance
-  const nonce = React.useMemo(() => {
-    if (typeof window !== 'undefined') {
-      return crypto.getRandomValues(new Uint32Array(1))[0].toString(16);
-    }
-    return 'fallback-nonce';
-  }, []);
+  const nonce = contentSanitizer.generateSecureNonce();
 
   return (
     <script
       type="application/ld+json"
       nonce={nonce}
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(sanitizedSchema) }}
     />
   );
 };
