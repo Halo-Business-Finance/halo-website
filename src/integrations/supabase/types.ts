@@ -918,7 +918,7 @@ export type Database = {
         Returns: string
       }
       make_user_admin: {
-        Args: { target_user_id: string }
+        Args: { target_email: string } | { target_user_id: string }
         Returns: boolean
       }
       mask_consultation_data: {
