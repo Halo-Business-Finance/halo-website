@@ -62,6 +62,8 @@ const AdminSignupPage = () => {
     setError('');
 
     try {
+      console.log('Starting admin signup for:', formData.email);
+      
       // Direct signup without secure auth provider to avoid edge function dependencies
       const { data, error: signupError } = await supabase.auth.signUp({
         email: formData.email,
@@ -74,31 +76,63 @@ const AdminSignupPage = () => {
         }
       });
 
+      console.log('Signup result:', { data, signupError });
+
       if (signupError) {
+        console.error('Signup error:', signupError);
         setError('Failed to create account: ' + signupError.message);
         return;
       }
 
       if (!data.user) {
+        console.error('No user data returned');
         setError('Failed to create user account');
         return;
       }
 
+      console.log('User created successfully, user ID:', data.user.id);
+
       // Wait a moment for the trigger to create the profile
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Waiting for profile creation...');
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      // Check if profile was created
+      const { data: profileCheck, error: profileError } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('user_id', data.user.id)
+        .single();
+
+      console.log('Profile check:', { profileCheck, profileError });
+
+      if (profileError) {
+        console.error('Profile not found:', profileError);
+        toast({
+          title: 'Account created but profile missing',
+          description: `Account created for ${formData.email}, but profile creation failed. Please contact support.`,
+          variant: 'destructive',
+        });
+        return;
+      }
 
       // Use the available function that works with user_id directly
-      const { error: adminError } = await supabase.rpc('make_user_admin', {
+      console.log('Attempting to assign admin role...');
+      const { data: adminResult, error: adminError } = await supabase.rpc('make_user_admin', {
         target_user_id: data.user.id
       });
 
+      console.log('Admin role assignment result:', { adminResult, adminError });
+
       if (adminError) {
+        console.error('Admin role assignment failed:', adminError);
         // If admin role assignment fails, still show success for user creation
         toast({
           title: 'Account created',
           description: `Account created successfully for ${formData.email}. Admin role assignment failed: ${adminError.message}. Please contact support.`,
+          variant: 'destructive',
         });
       } else {
+        console.log('Admin role assigned successfully');
         toast({
           title: 'Admin account created successfully!',
           description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
@@ -114,6 +148,7 @@ const AdminSignupPage = () => {
       });
 
     } catch (err: any) {
+      console.error('Unexpected error during admin signup:', err);
       setError('An unexpected error occurred: ' + (err.message || 'Unknown error'));
     } finally {
       setIsLoading(false);
