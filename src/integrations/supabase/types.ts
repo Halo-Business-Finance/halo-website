@@ -944,6 +944,15 @@ export type Database = {
           total_controls: number
         }[]
       }
+      check_auth_rate_limit: {
+        Args: {
+          p_action: string
+          p_identifier: string
+          p_limit?: number
+          p_window_minutes?: number
+        }
+        Returns: Json
+      }
       cleanup_expired_sessions: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -987,6 +996,15 @@ export type Database = {
         }
         Returns: Json
       }
+      detect_security_anomalies: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          anomaly_type: string
+          count: number
+          recommendation: string
+          severity: string
+        }[]
+      }
       detect_session_anomaly: {
         Args: {
           new_fingerprint: string
@@ -995,6 +1013,10 @@ export type Database = {
           session_id: string
         }
         Returns: Json
+      }
+      emergency_cleanup_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: number
       }
       encrypt_sensitive_data: {
         Args: { data_text: string }
@@ -1086,6 +1108,21 @@ export type Database = {
           timeframe: string
         }[]
       }
+      get_secure_consultation_data_enhanced: {
+        Args: { consultation_id: string }
+        Returns: {
+          company: string
+          created_at: string
+          id: string
+          loan_amount_category: string
+          loan_program: string
+          masked_email: string
+          masked_name: string
+          masked_phone: string
+          status: string
+          timeframe: string
+        }[]
+      }
       get_security_config: {
         Args: { config_key: string }
         Returns: Json
@@ -1146,6 +1183,10 @@ export type Database = {
       mask_consultation_data: {
         Args: { data_record: Json; user_role: string }
         Returns: Json
+      }
+      mask_pii_data: {
+        Args: { data_text: string; data_type: string; user_role?: string }
+        Returns: string
       }
       mask_sensitive_data: {
         Args: { data_text: string; data_type: string }
