@@ -79,7 +79,7 @@ const LoanProcessCarousel = () => {
       {/* Corporate Mobile-First Responsive Carousel */}
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Professional Background with Navy Corporate Styling */}
-        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-gradient-to-br from-financial-navy via-financial-blue to-financial-accent rounded-2xl border border-white/20 shadow-xl">
+        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-financial-navy rounded-2xl border border-white/20 shadow-xl">
           
           {/* Decorative Corporate Elements */}
           <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 rounded-2xl"></div>
@@ -194,9 +194,9 @@ const LoanProcessCarousel = () => {
           </button>
         </div>
 
-        {/* Corporate Timeline at Bottom */}
+        {/* Corporate Timeline at Bottom with Navy Background */}
         <div className="mt-8 sm:mt-12 flex justify-center items-center px-2 sm:px-4">
-          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center bg-white/40 backdrop-blur-sm rounded-2xl border border-gray-200/60 py-6 shadow-sm">
+          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center bg-financial-navy/50 backdrop-blur-sm rounded-2xl border border-white/20 py-6 shadow-sm">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center shrink-0">
                 <button
@@ -204,7 +204,7 @@ const LoanProcessCarousel = () => {
                   className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 shadow-sm ${
                     index <= activeStep 
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg border border-blue-200' 
-                      : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200 hover:border-gray-300'
+                      : 'bg-white/20 text-white/70 hover:bg-white/30 border border-white/30 hover:border-white/50'
                   }`}
                 >
                   {index < activeStep ? (
@@ -214,7 +214,7 @@ const LoanProcessCarousel = () => {
                   )}
                   
                   {/* Label - Better mobile display with proper titles */}
-                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
+                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-white/80 whitespace-nowrap text-center">
                     <span className="block sm:hidden">
                       {step.step === 1 && "Select"}
                       {step.step === 2 && "Answer"}
@@ -231,7 +231,7 @@ const LoanProcessCarousel = () => {
                 {/* Corporate Connector Line */}
                 {index < steps.length - 1 && (
                   <div className={`w-4 sm:w-16 h-0.5 mx-0.5 sm:mx-2 transition-colors duration-500 ${
-                    index < activeStep ? 'bg-gradient-to-r from-blue-600 to-blue-700' : 'bg-gray-300'
+                    index < activeStep ? 'bg-gradient-to-r from-blue-600 to-blue-700' : 'bg-white/30'
                   }`} />
                 )}
               </div>
