@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,15 +8,11 @@ import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
+import LoanProcessCarousel from './LoanProcessCarousel';
 import { 
-  CreditCard, 
   PiggyBank, 
   Car, 
-  TrendingUp, 
   Building2,
-  ArrowRight,
-  CheckCircle,
-  Factory,
   Landmark,
   Hammer,
   Users,
@@ -27,7 +23,6 @@ import {
   ChevronRight,
   ChevronLeft,
   RotateCcw,
-  Truck,
   Heart
 } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";

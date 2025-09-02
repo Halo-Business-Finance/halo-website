@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { TrendingUp, Users, Shield, Clock, Award, Star, CheckCircle, Lock } from "lucide-react";
+import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
+import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
 import commercialPropertyInvestment from "@/assets/commercial-property-investment.jpg";
 import restaurantEquipmentFinancing from "@/assets/restaurant-equipment-financing.jpg";
 import healthcareBusinessFinancing from "@/assets/healthcare-business-financing.jpg";

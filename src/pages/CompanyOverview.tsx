@@ -1,12 +1,35 @@
+import React from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Target, Award, TrendingUp, Building2, Shield, Linkedin, FileText, MessageSquare, ShieldCheck, Upload, DollarSign, ArrowRight, Landmark } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { 
+  Shield, 
+  Award, 
+  TrendingUp, 
+  Users, 
+  CheckCircle, 
+  FileText, 
+  Clock, 
+  DollarSign, 
+  Building,
+  Star,
+  Zap,
+  Target,
+  Lock,
+  ArrowRight,
+  Building2,
+  Landmark
+} from "lucide-react";
+import SEO from "@/components/SEO";
+import { Link } from "react-router-dom";
+import ConsultationPopup from "@/components/ConsultationPopup";
+import VardaChatBot from "@/components/VardaChatBot";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
-import VardaChatBot from "@/components/VardaChatBot";
 import missionProfessionals from "@/assets/mission-professionals.jpg";
 import ethicsProfessionals from "@/assets/ethics-professionals.jpg";
 import transparencyProfessionals from "@/assets/transparency-professionals.jpg";

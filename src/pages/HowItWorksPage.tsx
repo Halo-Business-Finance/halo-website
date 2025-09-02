@@ -20,19 +20,24 @@ import {
   Building2,
   Landmark
 } from "lucide-react";
-import loanProcessingTeam from "@/assets/loan-processing-team.jpg";
-import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
-import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
-import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
-import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
-import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
+import SEO from "@/components/SEO";
+import { Link } from "react-router-dom";
 import ConsultationPopup from "@/components/ConsultationPopup";
+import businessGrowth from "@/assets/business-growth.jpg";
+import sbaLogo from "@/assets/sba-logo.jpg";
+import howItWorksHeader from "@/assets/how-it-works-header.jpg";
 import step1SelectLoan from "@/assets/step1-select-loan.jpg";
 import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
 import step3PreApproved from "@/assets/step3-pre-approved.jpg";
 import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
+import { LoanApprovalChart } from "@/components/charts/LoanApprovalChart";
+import { IndustryStatsChart } from "@/components/charts/IndustryStatsChart";
+import { ProcessDiagram } from "@/components/charts/ProcessDiagram";
 import SuccessShowcase from "@/components/SuccessShowcase";
+import loanProcessingTeam from "@/assets/loan-processing-team.jpg";
+import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
+import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
 
 const HowItWorksPage = () => {
   return (
