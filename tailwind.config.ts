@@ -71,9 +71,7 @@ export default {
 				financial: {
 					blue: 'hsl(var(--financial-blue))',
 					navy: 'hsl(var(--financial-navy))',
-					'navy-light': 'hsl(var(--financial-navy-light))',
-					light: 'hsl(var(--financial-light))',
-					gold: 'hsl(var(--financial-gold))'
+					light: 'hsl(var(--financial-light))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

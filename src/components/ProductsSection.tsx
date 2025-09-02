@@ -447,46 +447,57 @@ const ProductsSection = () => {
 
   return (
     <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
-      {/* Enterprise Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-financial-navy to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-radial from-financial-blue to-transparent rounded-full blur-3xl"></div>
-      </div>
+      {/* Corporate Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(68,90,120,0.02)_50%,transparent_75%)] pointer-events-none"></div>
       
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        
-        {/* Our Streamlined Loan Process Section - Already styled above */}
-        <LoanProcessCarousel />
-        
-        {/* Premium Section Transition */}
-        <div className="my-20">
-          <div className="flex items-center justify-center">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-financial-navy/30 to-transparent"></div>
-            <div className="px-8">
-              <div className="w-6 h-6 bg-gradient-to-br from-financial-navy to-financial-blue rounded-full shadow-lg border-2 border-white"></div>
+      <div className="max-w-8xl mx-auto px-4 relative z-10">{/* Increased from container to max-w-8xl for wider layout */}
+        {/* Enhanced Corporate Header Section */}
+        <div className="text-center mb-12">
+          
+          {/* Our Streamlined Loan Process Section - Corporate Style */}
+          <LoanProcessCarousel />
+          
+          {/* Corporate Text Content Below Process Steps */}
+          <div className="text-center mt-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/60 p-8 shadow-sm">
+            <h4 className="text-2xl font-bold mb-6 text-gray-900 tracking-tight">Fast, Simple, Secure</h4>
+            
+            {/* Corporate Get Started Button */}
+            <div className="mb-6">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-0"
+                asChild
+              >
+                <a href="https://preview--hbf-application.lovable.app/auth">
+                  <Lock className="h-4 w-4 mr-2" />
+                  Get Started
+                </a>
+              </Button>
             </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-financial-navy/30 to-transparent"></div>
-          </div>
-        </div>
-        
-        {/* Enterprise Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-financial-navy/10 rounded-full px-6 py-3 mb-6">
-            <div className="w-2 h-2 bg-financial-gold rounded-full"></div>
-            <span className="text-financial-navy font-bold text-sm tracking-wide uppercase">Premium Solutions</span>
+            
+            <p className="text-lg text-gray-700 font-medium">Professional lending process with modern technology</p>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
-            <span className="text-financial-navy block">
+          {/* Corporate Section Divider */}
+          <div className="flex items-center justify-center my-20">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+            <div className="px-8">
+              <div className="w-4 h-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-sm"></div>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <span className="text-financial-navy">
               Comprehensive Business
             </span>
-            <span className="text-financial-navy block">
+            <br />
+            <span className="text-financial-navy">
               Financing Solutions
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-            Enterprise-grade financing options designed for ambitious businesses. From SBA loans to commercial real estate, we provide the capital foundation for your growth strategy.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             We provide credit, financing, treasury and payment solutions to help your business succeed. 
             Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
           </p>
