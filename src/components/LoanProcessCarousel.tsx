@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
 import step1SelectLoan from "@/assets/step1-select-loan.jpg";
 import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
@@ -10,7 +10,8 @@ import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const LoanProcessCarousel = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
 
   const steps = [
     {
@@ -57,154 +58,126 @@ const LoanProcessCarousel = () => {
 
   // Auto-rotate carousel
   useEffect(() => {
-    if (!isPlaying) return;
-    
     const timer = setInterval(() => {
       setActiveStep((prevStep) => (prevStep + 1) % steps.length);
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [isPlaying, steps.length]);
+  }, [steps.length]);
+
+  const scrollPrev = useCallback(() => {
+    setActiveStep((activeStep - 1 + steps.length) % steps.length);
+  }, [activeStep, steps.length]);
+
+  const scrollNext = useCallback(() => {
+    setActiveStep((activeStep + 1) % steps.length);
+  }, [activeStep, steps.length]);
 
   return (
-    <div className="mb-8 bg-financial-navy py-12 -mx-4 sm:-mx-6 lg:-mx-8">
-      {/* Corporate Header with Navy Background */}
-      <div className="text-center mb-4 px-4 sm:px-6 lg:px-8">
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">
-          Our Streamlined Loan Process
-        </h3>
-        <p className="text-lg text-white/90 font-medium">We make commercial lending simple</p>
-      </div>
+    <section className="py-16 bg-slate-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
+            Our Streamlined Loan Process
+          </h2>
+          <p className="text-xl text-foreground max-w-2xl mx-auto">
+            We make commercial lending simple with our proven 5-step process that gets you funded faster.
+          </p>
+        </div>
 
-      {/* Corporate Mobile-First Responsive Carousel */}
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Professional Background with Navy Corporate Styling */}
-        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-financial-navy rounded-2xl shadow-xl">
-          
-          {/* Decorative Corporate Elements */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 rounded-2xl"></div>
-          <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full blur-2xl"></div>
-          <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-xl"></div>
+        {/* Elegant Carousel Section */}
+        <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/30 shadow-lg">
           
           {/* Enhanced Corporate Main Feature Card */}
-          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <Card className="w-[320px] sm:w-80 md:w-96 h-[380px] sm:h-[400px] md:h-[480px] overflow-hidden shadow-2xl bg-white/95 backdrop-blur-sm">
-              <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+          <div className="flex justify-center mb-8">
+            <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white w-full max-w-md">
+              <div className="relative h-56 overflow-hidden">
                 <LazyImage 
                   src={steps[activeStep].image} 
                   alt={steps[activeStep].title}
-                  className="w-full h-full object-cover"
+                  width={400}
+                  height={224}
+                  quality={75}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-              </div>
-              
-              <CardContent className="p-4 sm:p-6 h-[140px] sm:h-[152px] md:h-[224px] flex flex-col justify-between bg-white">
-                <div>
-                  {/* Corporate Step Badge and Title */}
-                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 text-left">
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 backdrop-blur-sm rounded-lg px-3 py-1.5 shrink-0 shadow-sm">
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-primary rounded-lg px-3 py-1.5 shadow-sm">
                       <span className="text-white font-semibold text-xs tracking-wide">STEP {steps[activeStep].step}</span>
                     </div>
-                    <h4 className="text-gray-900 text-base sm:text-lg md:text-xl font-bold leading-tight text-left tracking-tight">
-                      {steps[activeStep].title}
-                    </h4>
                   </div>
-                  
-                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left font-medium">
-                    {steps[activeStep].description}
-                  </p>
-                  <p className="text-gray-600 text-xs leading-relaxed text-left hidden sm:block">
-                    {steps[activeStep].detail}
-                  </p>
+                  <h3 className="text-xl font-bold mb-1 text-shadow">{steps[activeStep].title}</h3>
                 </div>
+              </div>
+              
+              <CardContent className="p-6 flex-1 flex flex-col">
+                <p className="text-slate-600 leading-relaxed mb-3">{steps[activeStep].description}</p>
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">{steps[activeStep].detail}</p>
                 
-                {/* Corporate Progress Bar */}
+                {/* Progress Bar */}
                 <div className="space-y-2">
-                  <div className="flex justify-between text-xs text-gray-600 font-medium">
+                  <div className="flex justify-between text-xs text-slate-600 font-medium">
                     <span>Progress</span>
                     <span>{Math.round(((activeStep + 1) / steps.length) * 100)}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                  <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
                     <div 
-                      className={`h-2.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-1000 shadow-sm`}
+                      className={`h-2.5 bg-primary rounded-full transition-all duration-1000 shadow-sm`}
                       style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
                     />
                   </div>
                 </div>
+                
+                {/* Subtle accent line */}
+                <div className="w-12 h-1 bg-primary rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Enhanced Corporate Side Cards */}
-          <div className="hidden md:block">
-            {steps.map((step, index) => {
-              if (index === activeStep) return null;
-              
-              const isNext = (index === (activeStep + 1) % steps.length);
-              const isPrev = (index === (activeStep - 1 + steps.length) % steps.length);
-              
-              if (!isNext && !isPrev) return null;
-              
-              return (
-                <div
-                  key={index}
-                  className={`absolute top-1/2 transform -translate-y-1/2 transition-all duration-700 cursor-pointer z-10 ${
-                    isNext 
-                      ? 'right-4 lg:right-8 translate-x-4 rotate-y-12' 
-                      : 'left-4 lg:left-8 -translate-x-4 -rotate-y-12'
-                  }`}
-                  onClick={() => setActiveStep(index)}
-                >
-                  <Card className="w-56 lg:w-64 h-72 lg:h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80 bg-white/90 backdrop-blur-sm">
-                    <div className="relative h-28 lg:h-32 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                      <LazyImage 
-                        src={step.image} 
-                        alt={step.title}
-                        className="w-full h-full object-cover opacity-90"
-                      />
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <div className="text-gray-800 text-sm font-semibold bg-white/90 backdrop-blur-sm rounded px-2 py-1">
-                          Step {step.step}: {step.title}
-                        </div>
-                      </div>
-                    </div>
-                    <CardContent className="p-4">
-                      <p className="text-slate-600 text-sm">
-                        {step.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-            })}
           </div>
 
           {/* Corporate Navigation Arrows */}
           <button
             onClick={() => setActiveStep((activeStep - 1 + steps.length) % steps.length)}
-            className="absolute left-2 sm:left-4 md:left-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:shadow-xl transition-all duration-300 z-30"
+            disabled={prevBtnDisabled}
           >
-            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 rotate-180" />
+            <ChevronLeft className="h-6 w-6 text-slate-700" />
           </button>
           
           <button
             onClick={() => setActiveStep((activeStep + 1) % steps.length)}
-            className="absolute right-2 sm:right-4 md:right-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:shadow-xl transition-all duration-300 z-30"
+            disabled={nextBtnDisabled}
           >
-            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
+            <ChevronRight className="h-6 w-6 text-slate-700" />
           </button>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center mt-6 gap-2">
+            {steps.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                  index === activeStep ? 'bg-primary' : 'bg-slate-300 hover:bg-primary'
+                }`}
+                onClick={() => setActiveStep(index)}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Corporate Timeline at Bottom with Navy Background */}
-        <div className="mt-8 sm:mt-12 flex justify-center items-center px-2 sm:px-4">
-          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center bg-financial-navy/50 backdrop-blur-sm rounded-2xl py-6 shadow-sm">
+        {/* Corporate Timeline at Bottom */}
+        <div className="bg-slate-50 rounded-2xl p-8 max-w-4xl mx-auto border border-slate-200/50 shadow-lg">
+          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-4 w-full justify-center">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center shrink-0">
                 <button
                   onClick={() => setActiveStep(index)}
                   className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 shadow-sm ${
                     index <= activeStep 
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg' 
-                      : 'bg-white/20 text-white/70 hover:bg-white/30'
+                      ? 'bg-primary text-white shadow-lg' 
+                      : 'bg-slate-200 text-slate-500 hover:bg-slate-300'
                   }`}
                 >
                   {index < activeStep ? (
@@ -213,8 +186,8 @@ const LoanProcessCarousel = () => {
                     <span className="font-bold text-sm sm:text-base">{step.step}</span>
                   )}
                   
-                  {/* Label - Better mobile display with proper titles */}
-                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-white/80 whitespace-nowrap text-center">
+                  {/* Label */}
+                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
                     <span className="block sm:hidden">
                       {step.step === 1 && "Select"}
                       {step.step === 2 && "Answer"}
@@ -228,10 +201,10 @@ const LoanProcessCarousel = () => {
                   </div>
                 </button>
                 
-                {/* Corporate Connector Line */}
+                {/* Connector Line */}
                 {index < steps.length - 1 && (
                   <div className={`w-4 sm:w-16 h-0.5 mx-0.5 sm:mx-2 transition-colors duration-500 ${
-                    index < activeStep ? 'bg-gradient-to-r from-blue-600 to-blue-700' : 'bg-white/30'
+                    index < activeStep ? 'bg-primary' : 'bg-slate-300'
                   }`} />
                 )}
               </div>
@@ -239,7 +212,7 @@ const LoanProcessCarousel = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
