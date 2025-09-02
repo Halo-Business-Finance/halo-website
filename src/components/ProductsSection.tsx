@@ -1,13 +1,13 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
-import LoanProcessCarousel from './LoanProcessCarousel';
-import { useCallback, useEffect, useState } from 'react';
 import { 
   CreditCard, 
   PiggyBank, 
@@ -470,7 +470,10 @@ const ProductsSection = () => {
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
                 asChild
               >
-                <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
+                <a href="https://preview--hbf-application.lovable.app/auth">
+                  <Lock className="h-4 w-4 mr-2" />
+                  Get Started
+                </a>
               </Button>
             </div>
             

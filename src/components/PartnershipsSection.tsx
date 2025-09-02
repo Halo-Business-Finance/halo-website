@@ -1,9 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle, Award, TrendingUp, Shield, Users, Star, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ExternalLink, Star, Users, TrendingUp, Award, Landmark } from "lucide-react";
-
-const PartnershipsSection = () => {
+import businessGrowth from "@/assets/business-growth.jpg";
   const partnerships = [
     {
       name: "SBA & Commercial Loan Marketplace",
@@ -172,8 +171,9 @@ const PartnershipsSection = () => {
               </p>
               <Link 
                 to="/pre-qualification"
-                className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
+                <Lock className="h-4 w-4 mr-2" />
                 Get Started Today
               </Link>
             </CardContent>

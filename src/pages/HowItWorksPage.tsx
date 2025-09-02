@@ -1,12 +1,25 @@
+import React from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Clock, Shield, Network, TrendingUp, Star, Award, Building2, ArrowRight, Landmark } from "lucide-react";
-import { Link } from "react-router-dom";
-import businessGrowth from "@/assets/business-growth.jpg";
-import sbaLogo from "@/assets/sba-logo.jpg";
-import howItWorksHeader from "@/assets/how-it-works-header.jpg";
+import { Badge } from "@/components/ui/badge";
+import { 
+  CheckCircle, 
+  FileText, 
+  Clock, 
+  DollarSign, 
+  Shield, 
+  TrendingUp, 
+  Users, 
+  Award, 
+  ArrowRight, 
+  Lock,
+  Network,
+  Star,
+  Building2,
+  Landmark
+} from "lucide-react";
 import loanProcessingTeam from "@/assets/loan-processing-team.jpg";
 import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
 import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
@@ -105,7 +118,10 @@ const HowItWorksPage = () => {
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
                 asChild
               >
-                <a href="https://preview--hbf-application.lovable.app/auth">Get Started</a>
+                <a href="https://preview--hbf-application.lovable.app/auth">
+                  <Lock className="h-4 w-4 mr-2" />
+                  Get Started
+                </a>
               </Button>
             </div>
             

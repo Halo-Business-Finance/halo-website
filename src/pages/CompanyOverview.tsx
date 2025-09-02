@@ -116,6 +116,7 @@ const CompanyOverview = () => {
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
                 onClick={() => window.open('/halo-application', '_blank')}
               >
+                <Lock className="h-4 w-4 mr-2" />
                 Get Started
               </Button>
             </div>
@@ -336,6 +337,7 @@ const CompanyOverview = () => {
               </div>
 
               <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Lock className="h-4 w-4 mr-2" />
                 Get Started Today
               </Button>
             </div>

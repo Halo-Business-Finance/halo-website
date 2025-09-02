@@ -1,8 +1,8 @@
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
-import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
+import { TrendingUp, Users, Shield, Clock, Award, Star, CheckCircle, Lock } from "lucide-react";
 import commercialPropertyInvestment from "@/assets/commercial-property-investment.jpg";
 import restaurantEquipmentFinancing from "@/assets/restaurant-equipment-financing.jpg";
 import healthcareBusinessFinancing from "@/assets/healthcare-business-financing.jpg";
@@ -115,7 +115,10 @@ const IndustryShowcase = () => {
                 </div>
               </div>
               <Button asChild className="mt-6">
-                <Link to="/pre-qualification">Get Started Today</Link>
+                <Link to="/pre-qualification">
+                  <Lock className="h-4 w-4 mr-2" />
+                  Get Started Today
+                </Link>
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-4">
