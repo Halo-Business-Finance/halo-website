@@ -24,51 +24,52 @@ All colors MUST be HSL.
   }
 
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3%;
+    /* Base colors - Light theme */
+    --background: 0 0% 100%;          /* Pure white */
+    --foreground: 0 0% 9%;            /* Near black for text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3%;
+    --card: 0 0% 100%;                /* White cards */
+    --card-foreground: 0 0% 9%;       /* Black text on cards */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3%;
+    --popover: 0 0% 100%;             /* White popover */
+    --popover-foreground: 0 0% 9%;    /* Black text on popover */
 
-    --primary: 214 84% 25%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 214 70% 35%;
+    --primary: 214 84% 25%;           /* Navy blue primary */
+    --primary-foreground: 0 0% 100%;  /* White text on primary */
+    --primary-glow: 214 70% 35%;      /* Lighter blue variant */
 
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 0 0% 3%;
+    --secondary: 210 40% 98%;         /* Light gray background */
+    --secondary-foreground: 0 0% 9%;  /* Black text on secondary */
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 0 0% 35%;
+    --muted: 210 40% 96%;             /* Muted background */
+    --muted-foreground: 0 0% 45%;     /* Dark gray text on muted */
 
-    --accent: 214 84% 25%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 214 84% 25%;            /* Navy accent */
+    --accent-foreground: 0 0% 100%;   /* White text on accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;         /* Red for errors */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 214 84% 25%;
+    --border: 214 31% 91%;            /* Light border */
+    --input: 214 31% 91%;             /* Light input border */
+    --ring: 214 84% 25%;              /* Navy focus ring */
 
-    --success: 142 71% 45%;
-    --success-foreground: 0 0% 100%;
+    --success: 142 71% 45%;           /* Green for success */
+    --success-foreground: 0 0% 100%;  /* White text on success */
 
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 3%;
+    --warning: 38 92% 50%;            /* Orange for warning */
+    --warning-foreground: 0 0% 9%;    /* Black text on warning */
 
-    --info: 199 89% 48%;
-    --info-foreground: 0 0% 100%;
+    --info: 199 89% 48%;              /* Blue for info */
+    --info-foreground: 0 0% 100%;     /* White text on info */
 
     /* Corporate navy blue colors for banking sector */
-    --financial-navy: 214 100% 12%;
-    --financial-navy-light: 214 50% 15%;
-    --financial-blue: 214 84% 25%;
-    --financial-light: 210 40% 98%;
-    --financial-accent: 214 70% 35%;
-    --financial-gold: 38 100% 50%;
+    --financial-navy: 214 100% 12%;              /* Very dark navy */
+    --financial-navy-light: 214 50% 15%;         /* Slightly lighter navy */
+    --financial-blue: 214 84% 25%;               /* Standard navy blue */
+    --financial-light: 210 40% 98%;              /* Very light blue/gray */
+    --financial-accent: 214 70% 35%;             /* Medium blue */
+    --financial-gold: 38 100% 50%;               /* Corporate gold */
     
     /* Corporate gradients for professional look */
     --gradient-primary: linear-gradient(135deg, hsl(var(--financial-navy)), hsl(var(--financial-blue)));
@@ -84,65 +85,74 @@ All colors MUST be HSL.
 
     --radius: 0.375rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 0 0% 3%;
-
-    --sidebar-primary: 0 0% 3%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 0 0% 3%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar colors - Light theme */
+    --sidebar-background: 0 0% 98%;           /* Very light gray */
+    --sidebar-foreground: 0 0% 9%;           /* Black text */
+    --sidebar-primary: 0 0% 9%;              /* Black primary */
+    --sidebar-primary-foreground: 0 0% 98%;  /* Light text on primary */
+    --sidebar-accent: 240 5% 96%;            /* Light accent */
+    --sidebar-accent-foreground: 0 0% 9%;    /* Black text on accent */
+    --sidebar-border: 220 13% 91%;           /* Light border */
+    --sidebar-ring: 214 84% 25%;             /* Navy focus ring */
   }
 
   .dark {
-    --background: 215 28% 17%;
-    --foreground: 210 40% 98%;
+    /* Base colors - Dark theme */
+    --background: 222 84% 5%;           /* Very dark background */
+    --foreground: 210 40% 98%;          /* Nearly white text */
 
-    --card: 215 28% 17%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 84% 5%;                 /* Dark card background */
+    --card-foreground: 210 40% 98%;     /* Light text on cards */
 
-    --popover: 215 28% 17%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 84% 5%;              /* Dark popover */
+    --popover-foreground: 210 40% 98%;  /* Light text on popover */
 
-    --primary: 214 50% 35%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 214 84% 25%;             /* Navy primary (same) */
+    --primary-foreground: 0 0% 100%;    /* White text on primary */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217 32% 18%;           /* Dark gray secondary */
+    --secondary-foreground: 210 40% 98%; /* Light text on secondary */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 0 0% 0%;
+    --muted: 217 32% 18%;               /* Dark muted background */
+    --muted-foreground: 215 20% 65%;    /* Light gray text on muted */
 
-    --accent: 214 50% 35%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 214 84% 25%;              /* Navy accent (same) */
+    --accent-foreground: 0 0% 100%;     /* White text on accent */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;           /* Dark red for errors */
+    --destructive-foreground: 210 40% 98%; /* Light text on destructive */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 214 50% 35%;
+    --border: 217 32% 18%;              /* Dark border */
+    --input: 217 32% 18%;               /* Dark input border */
+    --ring: 214 84% 25%;                /* Navy focus ring (same) */
 
-    --financial-blue: 214 50% 35%;
-    --financial-navy: 215 35% 25%;
-    --financial-light: 217.2 32.6% 17.5%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 214 50% 35%;
+    --success: 142 71% 45%;             /* Green success (same) */
+    --success-foreground: 0 0% 100%;    /* White text on success */
+
+    --warning: 38 92% 50%;              /* Orange warning (same) */
+    --warning-foreground: 0 0% 9%;      /* Dark text on warning */
+
+    --info: 199 89% 48%;                /* Blue info (same) */
+    --info-foreground: 0 0% 100%;       /* White text on info */
+
+    /* Financial colors - Dark theme adjustments */
+    --financial-navy: 214 84% 25%;              /* Lighter navy for dark mode */
+    --financial-navy-light: 214 50% 35%;       /* Even lighter for dark mode */
+    --financial-blue: 214 84% 25%;              /* Same blue */
+    --financial-light: 217 32% 18%;             /* Dark background for "light" areas */
+    --financial-accent: 214 70% 45%;            /* Lighter accent for dark mode */
+    --financial-gold: 38 100% 60%;              /* Slightly lighter gold */
+
+    /* Sidebar colors - Dark theme */
+    --sidebar-background: 240 6% 10%;           /* Very dark sidebar */
+    --sidebar-foreground: 240 5% 96%;           /* Light text */
+    --sidebar-primary: 224 76% 48%;             /* Blue primary */
+    --sidebar-primary-foreground: 0 0% 100%;    /* White text on primary */
+    --sidebar-accent: 240 4% 16%;               /* Dark accent */
+    --sidebar-accent-foreground: 240 5% 96%;    /* Light text on accent */
+    --sidebar-border: 240 4% 16%;               /* Dark border */
+    --sidebar-ring: 214 84% 25%;                /* Navy focus ring */
   }
-}
 
 @layer base {
   * {
