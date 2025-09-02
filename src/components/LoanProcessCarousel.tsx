@@ -77,14 +77,14 @@ const LoanProcessCarousel = () => {
       </div>
 
       {/* Corporate Mobile-First Responsive Carousel */}
-      <div className="relative w-full max-w-7xl mx-auto">
-        {/* Professional Background with Corporate Styling */}
-        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 rounded-2xl border border-gray-200/60 shadow-xl">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Professional Background with Navy Corporate Styling */}
+        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-gradient-to-br from-financial-navy via-financial-blue to-financial-accent rounded-2xl border border-white/20 shadow-xl">
           
           {/* Decorative Corporate Elements */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-blue-600/5 rounded-2xl"></div>
-          <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-2xl"></div>
-          <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 rounded-2xl"></div>
+          <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full blur-2xl"></div>
+          <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-xl"></div>
           
           {/* Enhanced Corporate Main Feature Card */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
