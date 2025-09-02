@@ -15,6 +15,7 @@ export interface SecurityConfig {
     maxEventRetention: number; // milliseconds
     logSensitivity: 'minimal' | 'standard' | 'verbose';
     enableClientLogging: boolean;
+    blockNoiseEvents: boolean;
   };
   rateLimit: {
     maxAttempts: number;
