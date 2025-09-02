@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
-import loanProcessOverview from "@/assets/loan-process-overview.jpg";
-import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
-import loanApprovalCelebration from "@/assets/loan-approval-celebration.jpg";
-import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
-import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
+import step1SelectLoan from "@/assets/step1-select-loan.jpg";
+import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
+import step3PreApproved from "@/assets/step3-pre-approved.jpg";
+import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
+import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const LoanProcessCarousel = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -18,7 +18,7 @@ const LoanProcessCarousel = () => {
       title: "Select Your Loan Program",
       description: "Choose from our comprehensive range of loan products",
       detail: "Browse SBA, conventional, and specialized financing options tailored to your business needs.",
-      image: loanProcessOverview,
+      image: step1SelectLoan,
       color: "from-blue-600 to-blue-700"
     },
     {
@@ -26,7 +26,7 @@ const LoanProcessCarousel = () => {
       title: "Answer Questions",
       description: "Complete our simple application about your loan request",
       detail: "Our streamlined application takes just 10 minutes to complete with smart form technology.",
-      image: loanProcessExplanation,
+      image: step2AnswerQuestions,
       color: "from-emerald-600 to-emerald-700"
     },
     {
@@ -34,7 +34,7 @@ const LoanProcessCarousel = () => {
       title: "Get Pre-Approved",
       description: "Authorize a soft credit check for instant pre-approval",
       detail: "Receive conditional approval within 24 hours with no impact to your credit score.",
-      image: loanApprovalCelebration,
+      image: step3PreApproved,
       color: "from-purple-600 to-purple-700"
     },
     {
@@ -42,7 +42,7 @@ const LoanProcessCarousel = () => {
       title: "Upload Financials",
       description: "Submit your documents to receive competitive term sheets",
       detail: "Secure document upload with bank-level encryption and automated verification.",
-      image: loanOfficersWorking,
+      image: step4UploadFinancials,
       color: "from-amber-600 to-amber-700"
     },
     {
@@ -50,7 +50,7 @@ const LoanProcessCarousel = () => {
       title: "Get Funded",
       description: "Sign your loan documents and receive your funding",
       detail: "Digital closing process with same-day funding for approved applications.",
-      image: successfulLoanHandshake,
+      image: step5GetFunded,
       color: "from-green-600 to-green-700"
     }
   ];
