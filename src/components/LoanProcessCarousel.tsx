@@ -79,7 +79,7 @@ const LoanProcessCarousel = () => {
       {/* Corporate Mobile-First Responsive Carousel */}
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Professional Background with Navy Corporate Styling */}
-        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-financial-navy rounded-2xl border border-white/20 shadow-xl">
+        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-financial-navy rounded-2xl shadow-xl">
           
           {/* Decorative Corporate Elements */}
           <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 rounded-2xl"></div>
@@ -88,7 +88,7 @@ const LoanProcessCarousel = () => {
           
           {/* Enhanced Corporate Main Feature Card */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <Card className="w-[320px] sm:w-80 md:w-96 h-[380px] sm:h-[400px] md:h-[480px] overflow-hidden shadow-2xl border border-gray-200/80 bg-white/95 backdrop-blur-sm">
+            <Card className="w-[320px] sm:w-80 md:w-96 h-[380px] sm:h-[400px] md:h-[480px] overflow-hidden shadow-2xl bg-white/95 backdrop-blur-sm">
               <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                 <LazyImage 
                   src={steps[activeStep].image} 
@@ -101,7 +101,7 @@ const LoanProcessCarousel = () => {
                 <div>
                   {/* Corporate Step Badge and Title */}
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 text-left">
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-blue-200 shrink-0 shadow-sm">
+                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 backdrop-blur-sm rounded-lg px-3 py-1.5 shrink-0 shadow-sm">
                       <span className="text-white font-semibold text-xs tracking-wide">STEP {steps[activeStep].step}</span>
                     </div>
                     <h4 className="text-gray-900 text-base sm:text-lg md:text-xl font-bold leading-tight text-left tracking-tight">
@@ -154,7 +154,7 @@ const LoanProcessCarousel = () => {
                   }`}
                   onClick={() => setActiveStep(index)}
                 >
-                  <Card className="w-56 lg:w-64 h-72 lg:h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80 bg-white/90 backdrop-blur-sm border border-gray-200/60">
+                  <Card className="w-56 lg:w-64 h-72 lg:h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80 bg-white/90 backdrop-blur-sm">
                     <div className="relative h-28 lg:h-32 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                       <LazyImage 
                         src={step.image} 
@@ -181,14 +181,14 @@ const LoanProcessCarousel = () => {
           {/* Corporate Navigation Arrows */}
           <button
             onClick={() => setActiveStep((activeStep - 1 + steps.length) % steps.length)}
-            className="absolute left-2 sm:left-4 md:left-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
+            className="absolute left-2 sm:left-4 md:left-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
           >
             <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 rotate-180" />
           </button>
           
           <button
             onClick={() => setActiveStep((activeStep + 1) % steps.length)}
-            className="absolute right-2 sm:right-4 md:right-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
+            className="absolute right-2 sm:right-4 md:right-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
           >
             <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
           </button>
@@ -196,15 +196,15 @@ const LoanProcessCarousel = () => {
 
         {/* Corporate Timeline at Bottom with Navy Background */}
         <div className="mt-8 sm:mt-12 flex justify-center items-center px-2 sm:px-4">
-          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center bg-financial-navy/50 backdrop-blur-sm rounded-2xl border border-white/20 py-6 shadow-sm">
+          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center bg-financial-navy/50 backdrop-blur-sm rounded-2xl py-6 shadow-sm">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center shrink-0">
                 <button
                   onClick={() => setActiveStep(index)}
                   className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 shadow-sm ${
                     index <= activeStep 
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg border border-blue-200' 
-                      : 'bg-white/20 text-white/70 hover:bg-white/30 border border-white/30 hover:border-white/50'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg' 
+                      : 'bg-white/20 text-white/70 hover:bg-white/30'
                   }`}
                 >
                   {index < activeStep ? (
