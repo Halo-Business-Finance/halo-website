@@ -446,23 +446,27 @@ const ProductsSection = () => {
   }, [businessEmblaApi, businessOnSelect]);
 
   return (
-    <section className="py-20 md:py-28 bg-transparent">
-      <div className="max-w-8xl mx-auto px-4">{/* Increased from container to max-w-8xl for wider layout */}
-        {/* Enhanced Header Section - JPMorgan Style */}
-        <div className="text-center mb-20">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
+      {/* Corporate Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(68,90,120,0.02)_50%,transparent_75%)] pointer-events-none"></div>
+      
+      <div className="max-w-8xl mx-auto px-4 relative z-10">{/* Increased from container to max-w-8xl for wider layout */}
+        {/* Enhanced Corporate Header Section */}
+        <div className="text-center mb-12">
           
-          {/* Our Streamlined Loan Process Section - Merry-go-round */}
+          {/* Our Streamlined Loan Process Section - Corporate Style */}
           <LoanProcessCarousel />
           
-          {/* Text content below process steps */}
-          <div className="text-center mt-12">
-            <h4 className="text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h4>
+          {/* Corporate Text Content Below Process Steps */}
+          <div className="text-center mt-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/60 p-8 shadow-sm">
+            <h4 className="text-2xl font-bold mb-6 text-gray-900 tracking-tight">Fast, Simple, Secure</h4>
             
-            {/* Get Started Button */}
+            {/* Corporate Get Started Button */}
             <div className="mb-6">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-0"
                 asChild
               >
                 <a href="https://preview--hbf-application.lovable.app/auth">
@@ -472,16 +476,16 @@ const ProductsSection = () => {
               </Button>
             </div>
             
-            <p className="text-lg text-slate-600">Professional lending process with modern technology</p>
+            <p className="text-lg text-gray-700 font-medium">Professional lending process with modern technology</p>
           </div>
           
-          {/* Section Divider */}
+          {/* Corporate Section Divider */}
           <div className="flex items-center justify-center my-20">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
             <div className="px-8">
-              <div className="w-3 h-3 bg-primary rounded-full"></div>
+              <div className="w-4 h-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-sm"></div>
             </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">

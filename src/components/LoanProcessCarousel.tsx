@@ -67,24 +67,29 @@ const LoanProcessCarousel = () => {
   }, [isPlaying, steps.length]);
 
   return (
-    <div className="mb-12">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">
+    <div className="mb-8">
+      {/* Corporate Header with Reduced Spacing */}
+      <div className="text-center mb-4">
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 tracking-tight">
           Our Streamlined Loan Process
         </h3>
-        <p className="text-lg text-black">We make commercial lending simple</p>
+        <p className="text-lg text-gray-700 font-medium">We make commercial lending simple</p>
       </div>
 
-      {/* Mobile-First Responsive Carousel */}
+      {/* Corporate Mobile-First Responsive Carousel */}
       <div className="relative w-full max-w-7xl mx-auto">
-        {/* Background with responsive perspective */}
-        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0">
+        {/* Professional Background with Corporate Styling */}
+        <div className="relative h-[450px] sm:h-[500px] md:h-[600px] perspective-1000 px-4 sm:px-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 rounded-2xl border border-gray-200/60 shadow-xl">
           
-          {/* Main Feature Card - Responsive sizing */}
+          {/* Decorative Corporate Elements */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-blue-600/5 rounded-2xl"></div>
+          <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-2xl"></div>
+          <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-xl"></div>
+          
+          {/* Enhanced Corporate Main Feature Card */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <Card className="w-[320px] sm:w-80 md:w-96 h-[380px] sm:h-[400px] md:h-[480px] overflow-hidden shadow-2xl border-2 border-primary/20">
-              <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
+            <Card className="w-[320px] sm:w-80 md:w-96 h-[380px] sm:h-[400px] md:h-[480px] overflow-hidden shadow-2xl border border-gray-200/80 bg-white/95 backdrop-blur-sm">
+              <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                 <LazyImage 
                   src={steps[activeStep].image} 
                   alt={steps[activeStep].title}
@@ -92,35 +97,35 @@ const LoanProcessCarousel = () => {
                 />
               </div>
               
-              <CardContent className="p-4 sm:p-6 h-[140px] sm:h-[152px] md:h-[224px] flex flex-col justify-between">
+              <CardContent className="p-4 sm:p-6 h-[140px] sm:h-[152px] md:h-[224px] flex flex-col justify-between bg-white">
                 <div>
-                  {/* Step badge and title - mobile optimized */}
+                  {/* Corporate Step Badge and Title */}
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 text-left">
-                    <div className="bg-primary/10 backdrop-blur-sm rounded-full px-2 py-1 border border-primary/20 shrink-0">
-                      <span className="text-primary font-bold text-xs">Step {steps[activeStep].step}</span>
+                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-blue-200 shrink-0 shadow-sm">
+                      <span className="text-white font-semibold text-xs tracking-wide">STEP {steps[activeStep].step}</span>
                     </div>
-                    <h4 className="text-slate-800 text-base sm:text-lg md:text-xl font-bold leading-tight text-left">
+                    <h4 className="text-gray-900 text-base sm:text-lg md:text-xl font-bold leading-tight text-left tracking-tight">
                       {steps[activeStep].title}
                     </h4>
                   </div>
                   
-                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left">
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left font-medium">
                     {steps[activeStep].description}
                   </p>
-                  <p className="text-slate-600 text-xs leading-relaxed text-left hidden sm:block">
+                  <p className="text-gray-600 text-xs leading-relaxed text-left hidden sm:block">
                     {steps[activeStep].detail}
                   </p>
                 </div>
                 
-                {/* Progress bar */}
+                {/* Corporate Progress Bar */}
                 <div className="space-y-2">
-                  <div className="flex justify-between text-xs text-slate-500">
+                  <div className="flex justify-between text-xs text-gray-600 font-medium">
                     <span>Progress</span>
                     <span>{Math.round(((activeStep + 1) / steps.length) * 100)}%</span>
                   </div>
-                  <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
                     <div 
-                      className={`h-2 bg-gradient-to-r ${steps[activeStep].color} rounded-full transition-all duration-1000`}
+                      className={`h-2.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-1000 shadow-sm`}
                       style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
                     />
                   </div>
@@ -129,7 +134,7 @@ const LoanProcessCarousel = () => {
             </Card>
           </div>
 
-          {/* Side Cards - Hidden on mobile for better UX */}
+          {/* Enhanced Corporate Side Cards */}
           <div className="hidden md:block">
             {steps.map((step, index) => {
               if (index === activeStep) return null;
@@ -149,15 +154,15 @@ const LoanProcessCarousel = () => {
                   }`}
                   onClick={() => setActiveStep(index)}
                 >
-                  <Card className="w-56 lg:w-64 h-72 lg:h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80">
-                    <div className="relative h-28 lg:h-32 overflow-hidden">
+                  <Card className="w-56 lg:w-64 h-72 lg:h-80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 opacity-75 hover:opacity-100 scale-75 hover:scale-80 bg-white/90 backdrop-blur-sm border border-gray-200/60">
+                    <div className="relative h-28 lg:h-32 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                       <LazyImage 
                         src={step.image} 
                         alt={step.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-90"
                       />
                       <div className="absolute bottom-2 left-2 right-2">
-                        <div className="text-white text-sm font-semibold">
+                        <div className="text-gray-800 text-sm font-semibold bg-white/90 backdrop-blur-sm rounded px-2 py-1">
                           Step {step.step}: {step.title}
                         </div>
                       </div>
@@ -173,33 +178,33 @@ const LoanProcessCarousel = () => {
             })}
           </div>
 
-          {/* Navigation arrows - Touch-friendly on mobile */}
+          {/* Corporate Navigation Arrows */}
           <button
             onClick={() => setActiveStep((activeStep - 1 + steps.length) % steps.length)}
-            className="absolute left-2 sm:left-4 md:left-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation"
+            className="absolute left-2 sm:left-4 md:left-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
           >
-            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700 rotate-180" />
+            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 rotate-180" />
           </button>
           
           <button
             onClick={() => setActiveStep((activeStep + 1) % steps.length)}
-            className="absolute right-2 sm:right-4 md:right-0 top-1/2 transform -translate-y-1/2 bg-white/60 hover:bg-white/80 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation"
+            className="absolute right-2 sm:right-4 md:right-0 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white border border-gray-200 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30 touch-manipulation backdrop-blur-sm"
           >
-            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700" />
+            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
           </button>
         </div>
 
-        {/* Timeline at bottom - Responsive with proper spacing for mobile */}
+        {/* Corporate Timeline at Bottom */}
         <div className="mt-8 sm:mt-12 flex justify-center items-center px-2 sm:px-4">
-          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center">
+          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-8 w-full justify-center bg-white/40 backdrop-blur-sm rounded-2xl border border-gray-200/60 py-6 shadow-sm">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center shrink-0">
                 <button
                   onClick={() => setActiveStep(index)}
-                  className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 ${
+                  className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 shadow-sm ${
                     index <= activeStep 
-                      ? 'bg-primary text-white shadow-lg' 
-                      : 'bg-slate-200 text-slate-500 hover:bg-slate-300'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg border border-blue-200' 
+                      : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   {index < activeStep ? (
@@ -223,10 +228,10 @@ const LoanProcessCarousel = () => {
                   </div>
                 </button>
                 
-                {/* Connector line - Responsive width with mobile optimization */}
+                {/* Corporate Connector Line */}
                 {index < steps.length - 1 && (
                   <div className={`w-4 sm:w-16 h-0.5 mx-0.5 sm:mx-2 transition-colors duration-500 ${
-                    index < activeStep ? 'bg-primary' : 'bg-slate-200'
+                    index < activeStep ? 'bg-gradient-to-r from-blue-600 to-blue-700' : 'bg-gray-300'
                   }`} />
                 )}
               </div>
