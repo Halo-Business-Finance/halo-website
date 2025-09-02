@@ -1,8 +1,11 @@
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Award, TrendingUp, Shield, Users, Star, Lock } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, Award, TrendingUp, Shield, Users, Star, Lock, ExternalLink, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
 import businessGrowth from "@/assets/business-growth.jpg";
+
+const PartnershipsSection = () => {
   const partnerships = [
     {
       name: "SBA & Commercial Loan Marketplace",
