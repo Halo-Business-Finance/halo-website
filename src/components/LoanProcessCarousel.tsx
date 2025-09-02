@@ -67,13 +67,13 @@ const LoanProcessCarousel = () => {
   }, [isPlaying, steps.length]);
 
   return (
-    <div className="mb-8">
-      {/* Corporate Header with Reduced Spacing */}
-      <div className="text-center mb-4">
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 tracking-tight">
+    <div className="mb-8 bg-financial-navy py-12 -mx-4 sm:-mx-6 lg:-mx-8">
+      {/* Corporate Header with Navy Background */}
+      <div className="text-center mb-4 px-4 sm:px-6 lg:px-8">
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">
           Our Streamlined Loan Process
         </h3>
-        <p className="text-lg text-gray-700 font-medium">We make commercial lending simple</p>
+        <p className="text-lg text-white/90 font-medium">We make commercial lending simple</p>
       </div>
 
       {/* Corporate Mobile-First Responsive Carousel */}
