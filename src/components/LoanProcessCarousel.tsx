@@ -70,10 +70,10 @@ const LoanProcessCarousel = () => {
     <div className="mb-12">
       {/* Header */}
       <div className="text-center mb-8">
-        <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-2">
+        <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">
           Our Streamlined Loan Process
         </h3>
-        <p className="text-xl text-slate-600">We make commercial lending simple</p>
+        <p className="text-lg text-black">We make commercial lending simple</p>
       </div>
 
       {/* Mobile-First Responsive Carousel */}
