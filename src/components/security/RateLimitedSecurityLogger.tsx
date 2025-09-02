@@ -9,8 +9,9 @@ interface SecurityEventData {
 
 class RateLimitedSecurityLogger {
   private rateLimitMap = new Map<string, { count: number; lastReset: number }>();
-  private readonly maxEventsPerMinute = 2; // Further reduced from 5 to 2 for better performance
-  private readonly resetInterval = 60000; // 1 minute
+  private readonly maxEventsPerMinute = 1; // Drastically reduced to prevent log flooding
+  private readonly resetInterval = 300000; // 5 minutes - increased window
+  private readonly criticalEventsBypass = ['critical', 'high']; // Allow critical events through
 
   private getRateLimitKey(eventType: string, userAgent?: string): string {
     return `${eventType}_${userAgent || 'unknown'}`;
@@ -36,9 +37,17 @@ class RateLimitedSecurityLogger {
   async logSecurityEvent(eventData: SecurityEventData): Promise<boolean> {
     const userAgent = navigator.userAgent;
     const key = this.getRateLimitKey(eventData.event_type, userAgent);
+    
+    // Bypass rate limiting for critical events
+    const isCritical = this.criticalEventsBypass.includes(eventData.severity || 'info');
+    
+    // Block low-severity events that create noise
+    if (!isCritical && ['client_log', 'console_access', 'dom_mutation'].includes(eventData.event_type)) {
+      return false; // Block noisy event types
+    }
 
-    // Client-side rate limiting (reduced for better performance)
-    if (this.isRateLimited(key)) {
+    // Client-side rate limiting (drastically reduced for performance)
+    if (!isCritical && this.isRateLimited(key)) {
       return false; // Silently fail to reduce console noise
     }
 
