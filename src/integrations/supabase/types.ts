@@ -967,7 +967,7 @@ export type Database = {
       }
       create_initial_admin: {
         Args: { admin_email: string }
-        Returns: Json
+        Returns: boolean
       }
       create_secure_encryption_key: {
         Args: { p_algorithm?: string; p_key_identifier: string }
