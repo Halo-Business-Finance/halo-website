@@ -134,116 +134,43 @@ const LoanProcessCarousel = () => {
           </div>
         </div>
 
-        {/* Executive Process Dashboard */}
-        <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 sm:p-8 max-w-7xl mx-auto border border-slate-200/50 shadow-xl">
-          {/* Executive Header */}
-          <div className="text-center mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">Executive Process Dashboard</h3>
-            <p className="text-muted-foreground text-sm sm:text-base">Real-time performance metrics and process analytics</p>
-          </div>
-
-          {/* Executive KPI Metrics */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white rounded-xl p-4 shadow-md border border-slate-200/30">
-              <div className="text-3xl font-bold text-primary mb-1">96%</div>
-              <div className="text-sm text-muted-foreground">Approval Rate</div>
-            </div>
-            <div className="bg-white rounded-xl p-4 shadow-md border border-slate-200/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-1">3.2</div>
-              <div className="text-sm text-muted-foreground">Avg Days to Fund</div>
-            </div>
-            <div className="bg-white rounded-xl p-4 shadow-md border border-slate-200/30">
-              <div className="text-3xl font-bold text-purple-600 mb-1">$2.1B</div>
-              <div className="text-sm text-muted-foreground">Capital Deployed</div>
-            </div>
-            <div className="bg-white rounded-xl p-4 shadow-md border border-slate-200/30">
-              <div className="text-3xl font-bold text-amber-600 mb-1">4.9</div>
-              <div className="text-sm text-muted-foreground">Client Rating</div>
-            </div>
-          </div>
-
-          {/* Process Flow with Performance Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {steps.map((step, index) => {
-              const metrics = [
-                { completion: "99.2%", avgTime: "8 min", satisfaction: "4.9/5" },
-                { completion: "97.8%", avgTime: "12 min", satisfaction: "4.8/5" },
-                { completion: "94.5%", avgTime: "18 hrs", satisfaction: "4.9/5" },
-                { completion: "91.3%", avgTime: "1.2 days", satisfaction: "4.7/5" },
-                { completion: "96.1%", avgTime: "2.8 hrs", satisfaction: "4.9/5" }
-              ];
-
-              return (
-                <div key={step.step} className="relative">
-                  <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200/50 hover:shadow-xl transition-all duration-300 group">
-                    {/* Step Header */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-gradient-to-r from-primary to-primary/80 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                          {step.step}
-                        </div>
-                        <div className="text-sm font-semibold text-foreground">{step.title.split(' ')[0]}</div>
-                      </div>
-                      <div className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-1 rounded-full">
-                        {metrics[index].completion}
-                      </div>
-                    </div>
-
-                    {/* Process Details */}
-                    <div className="space-y-2 mb-3">
-                      <div className="text-xs text-muted-foreground">{step.description}</div>
-                      
-                      {/* Performance Indicators */}
-                      <div className="flex justify-between text-xs">
-                        <span className="text-slate-500">Avg Time:</span>
-                        <span className="font-medium text-slate-700">{metrics[index].avgTime}</span>
-                      </div>
-                      <div className="flex justify-between text-xs">
-                        <span className="text-slate-500">Rating:</span>
-                        <span className="font-medium text-slate-700">{metrics[index].satisfaction}</span>
-                      </div>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="w-full bg-slate-100 rounded-full h-2">
-                      <div 
-                        className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-300 group-hover:from-primary/80 group-hover:to-primary"
-                        style={{ width: metrics[index].completion }}
-                      ></div>
-                    </div>
+        {/* Complete Process Timeline - Mobile Optimized */}
+        <div className="bg-slate-50 rounded-2xl p-4 sm:p-6 md:p-8 max-w-5xl mx-auto border border-slate-200/50 shadow-lg">
+          <h3 className="text-lg sm:text-xl font-semibold text-center mb-4 sm:mb-6 text-foreground">Complete Process Overview</h3>
+          <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 overflow-x-auto pb-4 w-full justify-start sm:justify-center scrollbar-hide">
+            {steps.map((step, index) => (
+              <div key={index} className="flex items-center shrink-0">
+                <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full transition-all duration-300 shadow-sm bg-primary text-white">
+                  <span className="font-bold text-xs sm:text-sm md:text-base">{step.step}</span>
+                  
+                  {/* Label */}
+                  <div className="absolute -bottom-5 sm:-bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
+                    <span className="block sm:hidden">
+                      {step.step === 1 && "Select"}
+                      {step.step === 2 && "Answer"}
+                      {step.step === 3 && "Pre-approved"}
+                      {step.step === 4 && "Upload"}
+                      {step.step === 5 && "Funded"}
+                    </span>
+                    <span className="hidden sm:block md:hidden">
+                      {step.step === 1 && "Select"}
+                      {step.step === 2 && "Answer"}
+                      {step.step === 3 && "Get Pre-approved"}
+                      {step.step === 4 && "Upload"}
+                      {step.step === 5 && "Get Funded"}
+                    </span>
+                    <span className="hidden md:block">
+                      {step.title.split(' ')[0]}
+                    </span>
                   </div>
-
-                  {/* Connector Arrow */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute -right-2 top-1/2 transform -translate-y-1/2 z-10">
-                      <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
-                        <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Executive Summary */}
-          <div className="mt-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">15,000+</div>
-                <div className="text-sm text-muted-foreground">Businesses Funded</div>
+                
+                {/* Connector Line */}
+                {index < steps.length - 1 && (
+                  <div className="w-2 sm:w-4 md:w-16 h-0.5 mx-0.5 sm:mx-1 md:mx-2 bg-primary" />
+                )}
               </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">72 Hours</div>
-                <div className="text-sm text-muted-foreground">Fastest Funding Time</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">98.7%</div>
-                <div className="text-sm text-muted-foreground">Customer Retention</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
