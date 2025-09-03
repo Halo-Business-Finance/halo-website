@@ -74,27 +74,8 @@ export const AdminInitializer: React.FC = () => {
     }
   };
 
-  // If user is already an admin, show admin panel link
-  if (isAdmin) {
-    return (
-      <Card className="border-primary">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <UserCheck className="h-5 w-5 text-primary" />
-            Administrator Access
-          </CardTitle>
-          <CardDescription>
-            You have administrator privileges for this system.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild className="w-full">
-            <a href="/security-dashboard">Access Security Dashboard</a>
-          </Button>
-        </CardContent>
-      </Card>
-    );
-  }
+  // Show admin panel link if admin users exist and someone is logged in with admin role
+  // Note: This would need the useAuth hook to check isAdmin status
 
   // If admins already exist, show info message
   if (hasAdmins) {
