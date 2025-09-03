@@ -134,43 +134,97 @@ const LoanProcessCarousel = () => {
           </div>
         </div>
 
-        {/* Complete Process Timeline - Mobile Optimized */}
-        <div className="bg-slate-50 rounded-2xl p-4 sm:p-6 md:p-8 max-w-5xl mx-auto border border-slate-200/50 shadow-lg">
-          <h3 className="text-lg sm:text-xl font-semibold text-center mb-4 sm:mb-6 text-foreground">Complete Process Overview</h3>
-          <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 overflow-x-auto pb-4 w-full justify-start sm:justify-center scrollbar-hide">
-            {steps.map((step, index) => (
-              <div key={index} className="flex items-center shrink-0">
-                <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full transition-all duration-300 shadow-sm bg-primary text-white">
-                  <span className="font-bold text-xs sm:text-sm md:text-base">{step.step}</span>
-                  
-                  {/* Label */}
-                  <div className="absolute -bottom-5 sm:-bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
-                    <span className="block sm:hidden">
-                      {step.step === 1 && "Select"}
-                      {step.step === 2 && "Answer"}
-                      {step.step === 3 && "Pre-approved"}
-                      {step.step === 4 && "Upload"}
-                      {step.step === 5 && "Funded"}
-                    </span>
-                    <span className="hidden sm:block md:hidden">
-                      {step.step === 1 && "Select"}
-                      {step.step === 2 && "Answer"}
-                      {step.step === 3 && "Get Pre-approved"}
-                      {step.step === 4 && "Upload"}
-                      {step.step === 5 && "Get Funded"}
-                    </span>
-                    <span className="hidden md:block">
-                      {step.title.split(' ')[0]}
-                    </span>
+        {/* Corporate Executive Process Overview */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 md:p-12 max-w-6xl mx-auto border border-slate-700/50 shadow-2xl relative overflow-hidden">
+          {/* Premium background pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-2xl"></div>
+          
+          <div className="relative z-10">
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-white bg-clip-text text-transparent mb-3">
+                Executive Process Overview
+              </h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/50 mx-auto mb-4"></div>
+              <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                Our institutional-grade lending process ensures rapid deployment of capital with enterprise-level security
+              </p>
+            </div>
+
+            {/* Corporate Process Flow */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+              {steps.map((step, index) => (
+                <div key={index} className="relative group">
+                  {/* Process Card */}
+                  <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-slate-600/30 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
+                    {/* Step Number with Corporate Styling */}
+                    <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-4 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-300">
+                      <span className="text-white font-bold text-lg sm:text-xl">{step.step}</span>
+                    </div>
+                    
+                    {/* Process Title */}
+                    <h4 className="text-white font-semibold text-sm sm:text-base text-center mb-2 leading-tight">
+                      {step.step === 1 && "Program Selection"}
+                      {step.step === 2 && "Application Intake"}
+                      {step.step === 3 && "Pre-Qualification"}
+                      {step.step === 4 && "Document Processing"}
+                      {step.step === 5 && "Capital Deployment"}
+                    </h4>
+                    
+                    {/* Process Description */}
+                    <p className="text-slate-300 text-xs sm:text-sm text-center leading-relaxed opacity-90">
+                      {step.step === 1 && "Curated financing solutions"}
+                      {step.step === 2 && "Intelligent data capture"}
+                      {step.step === 3 && "Rapid credit assessment"}
+                      {step.step === 4 && "Secure verification"}
+                      {step.step === 5 && "Immediate funding"}
+                    </p>
+                    
+                    {/* Corporate Accent */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/0 via-primary/60 to-primary/0 rounded-b-2xl"></div>
                   </div>
+                  
+                  {/* Connection Indicator - Corporate Style */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                      <div className="w-8 h-0.5 bg-gradient-to-r from-primary to-primary/50 relative">
+                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full shadow-sm"></div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Mobile Connection */}
+                  {index < steps.length - 1 && (
+                    <div className="lg:hidden flex justify-center py-2">
+                      <div className="w-0.5 h-4 bg-gradient-to-b from-primary to-primary/50"></div>
+                    </div>
+                  )}
                 </div>
-                
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="w-2 sm:w-4 md:w-16 h-0.5 mx-0.5 sm:mx-1 md:mx-2 bg-primary" />
-                )}
+              ))}
+            </div>
+            
+            {/* Executive Summary Bar */}
+            <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-700/50">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">24hrs</div>
+                  <div className="text-xs sm:text-sm text-slate-400">Processing Time</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">95%</div>
+                  <div className="text-xs sm:text-sm text-slate-400">Approval Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">$2.5B+</div>
+                  <div className="text-xs sm:text-sm text-slate-400">Loans Funded</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">Bank-Grade</div>
+                  <div className="text-xs sm:text-sm text-slate-400">Security</div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
