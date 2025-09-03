@@ -92,12 +92,12 @@ const LoanProcessCarousel = () => {
           </p>
         </div>
 
-        {/* Carousel showing 3 steps at a time */}
+        {/* Carousel - Mobile shows 1 step, Tablet shows 2 steps, Desktop shows 3 steps */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/30 shadow-lg mb-8 sm:mb-12 max-w-6xl mx-auto">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {steps.map((step, index) => (
-                <div key={step.step} className="flex-[0_0_33.333%] min-w-0 pl-4">
+                <div key={step.step} className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4">
                   <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white mr-4">
                     <div className="relative h-40 sm:h-48 overflow-hidden">
                       <LazyImage 
