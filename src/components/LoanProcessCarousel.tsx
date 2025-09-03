@@ -70,33 +70,33 @@ const LoanProcessCarousel = () => {
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-slate-200/30 shadow-lg mb-12">
           
           {/* Five Step Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-5 gap-4">
             {steps.map((step, index) => (
-              <Card key={step.step} className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white">
-                <div className="relative h-40 overflow-hidden">
+              <Card key={step.step} className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white min-w-0">
+                <div className="relative h-32 overflow-hidden">
                   <LazyImage 
                     src={step.image} 
                     alt={step.title}
-                    width={250}
-                    height={160}
+                    width={200}
+                    height={128}
                     quality={75}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="bg-primary rounded-lg px-2 py-1 shadow-sm">
-                        <span className="text-white font-semibold text-xs tracking-wide">STEP {step.step}</span>
+                  <div className="absolute bottom-2 left-2 right-2 text-white">
+                    <div className="flex items-center gap-1 mb-1">
+                      <div className="bg-primary rounded px-1.5 py-0.5 shadow-sm">
+                        <span className="text-white font-semibold text-xs tracking-wide">{step.step}</span>
                       </div>
                     </div>
-                    <h3 className="text-sm font-bold mb-1 text-shadow leading-tight">{step.title}</h3>
+                    <h3 className="text-xs font-bold text-shadow leading-tight truncate">{step.title}</h3>
                   </div>
                 </div>
                 
-                <CardContent className="p-4 flex-1 flex flex-col">
-                  <p className="text-slate-600 leading-relaxed mb-2 text-xs">{step.description}</p>
-                  <p className="text-slate-500 text-xs leading-relaxed mb-3 line-clamp-2">{step.detail}</p>
+                <CardContent className="p-3 flex-1 flex flex-col">
+                  <p className="text-slate-600 leading-relaxed mb-2 text-xs line-clamp-2">{step.description}</p>
+                  <p className="text-slate-500 text-xs leading-relaxed mb-2 line-clamp-2">{step.detail}</p>
                   
                   {/* Subtle accent line */}
                   <div className="w-8 h-0.5 bg-primary rounded-full mt-auto group-hover:w-full transition-all duration-300"></div>
