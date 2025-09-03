@@ -55,25 +55,25 @@ const LoanProcessCarousel = () => {
 
 
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-8 sm:py-12 md:py-16 bg-slate-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
             Our Streamlined Loan Process
           </h2>
-          <p className="text-xl text-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-foreground max-w-2xl mx-auto px-4">
             We make commercial lending simple with our proven 5-step process that gets you funded faster.
           </p>
         </div>
 
-        {/* All Five Steps Display */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-slate-200/30 shadow-lg mb-12">
+        {/* All Steps Display - Mobile & Tablet Friendly */}
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/30 shadow-lg mb-8 sm:mb-12">
           
           {/* Five Step Cards */}
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
             {steps.map((step, index) => (
               <Card key={step.step} className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white min-w-0">
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative h-32 sm:h-36 md:h-32 overflow-hidden">
                   <LazyImage 
                     src={step.image} 
                     alt={step.title}
@@ -90,13 +90,13 @@ const LoanProcessCarousel = () => {
                         <span className="text-white font-semibold text-xs tracking-wide">{step.step}</span>
                       </div>
                     </div>
-                    <h3 className="text-xs font-bold text-shadow leading-tight truncate">{step.title}</h3>
+                    <h3 className="text-xs sm:text-sm font-bold text-shadow leading-tight line-clamp-2">{step.title}</h3>
                   </div>
                 </div>
                 
-                <CardContent className="p-3 flex-1 flex flex-col">
-                  <p className="text-slate-600 leading-relaxed mb-2 text-xs line-clamp-2">{step.description}</p>
-                  <p className="text-slate-500 text-xs leading-relaxed mb-2 line-clamp-2">{step.detail}</p>
+                <CardContent className="p-3 sm:p-4 flex-1 flex flex-col">
+                  <p className="text-slate-600 leading-relaxed mb-2 text-xs sm:text-sm line-clamp-2">{step.description}</p>
+                  <p className="text-slate-500 text-xs leading-relaxed mb-2 line-clamp-2 hidden sm:block">{step.detail}</p>
                   
                   {/* Subtle accent line */}
                   <div className="w-8 h-0.5 bg-primary rounded-full mt-auto group-hover:w-full transition-all duration-300"></div>
@@ -106,25 +106,32 @@ const LoanProcessCarousel = () => {
           </div>
         </div>
 
-        {/* Complete Process Timeline */}
-        <div className="bg-slate-50 rounded-2xl p-8 max-w-5xl mx-auto border border-slate-200/50 shadow-lg">
-          <h3 className="text-xl font-semibold text-center mb-6 text-foreground">Complete Process Overview</h3>
-          <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto pb-4 w-full justify-center">
+        {/* Complete Process Timeline - Mobile Optimized */}
+        <div className="bg-slate-50 rounded-2xl p-4 sm:p-6 md:p-8 max-w-5xl mx-auto border border-slate-200/50 shadow-lg">
+          <h3 className="text-lg sm:text-xl font-semibold text-center mb-4 sm:mb-6 text-foreground">Complete Process Overview</h3>
+          <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 overflow-x-auto pb-4 w-full justify-start sm:justify-center scrollbar-hide">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center shrink-0">
-                <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 shadow-sm bg-primary text-white">
-                  <span className="font-bold text-sm sm:text-base">{step.step}</span>
+                <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full transition-all duration-300 shadow-sm bg-primary text-white">
+                  <span className="font-bold text-xs sm:text-sm md:text-base">{step.step}</span>
                   
                   {/* Label */}
-                  <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
+                  <div className="absolute -bottom-5 sm:-bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-slate-600 whitespace-nowrap text-center">
                     <span className="block sm:hidden">
+                      {step.step === 1 && "Select"}
+                      {step.step === 2 && "Answer"}
+                      {step.step === 3 && "Pre-approved"}
+                      {step.step === 4 && "Upload"}
+                      {step.step === 5 && "Funded"}
+                    </span>
+                    <span className="hidden sm:block md:hidden">
                       {step.step === 1 && "Select"}
                       {step.step === 2 && "Answer"}
                       {step.step === 3 && "Get Pre-approved"}
                       {step.step === 4 && "Upload"}
                       {step.step === 5 && "Get Funded"}
                     </span>
-                    <span className="hidden sm:block">
+                    <span className="hidden md:block">
                       {step.title.split(' ')[0]}
                     </span>
                   </div>
@@ -132,7 +139,7 @@ const LoanProcessCarousel = () => {
                 
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="w-4 sm:w-16 h-0.5 mx-0.5 sm:mx-2 bg-primary" />
+                  <div className="w-2 sm:w-4 md:w-16 h-0.5 mx-0.5 sm:mx-1 md:mx-2 bg-primary" />
                 )}
               </div>
             ))}
