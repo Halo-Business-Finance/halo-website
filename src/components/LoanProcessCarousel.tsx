@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
 import LazyImage from "@/components/optimization/LazyImage";
 import step1SelectLoan from "@/assets/step1-select-loan.jpg";
 import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
@@ -9,6 +10,11 @@ import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const LoanProcessCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    slidesToScroll: 1,
+    align: 'start'
+  });
 
   const steps = [
     {
@@ -53,6 +59,22 @@ const LoanProcessCarousel = () => {
     }
   ];
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoPlay = () => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi.scrollTo(0);
+      }
+    };
+
+    const intervalId = setInterval(autoPlay, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [emblaApi]);
 
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-slate-50">
@@ -66,43 +88,45 @@ const LoanProcessCarousel = () => {
           </p>
         </div>
 
-        {/* All Steps Display - Mobile & Tablet Friendly */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/30 shadow-lg mb-8 sm:mb-12">
-          
-          {/* Five Step Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
-            {steps.map((step, index) => (
-              <Card key={step.step} className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white min-w-0">
-                <div className="relative h-32 sm:h-36 md:h-32 overflow-hidden">
-                  <LazyImage 
-                    src={step.image} 
-                    alt={step.title}
-                    width={200}
-                    height={128}
-                    quality={75}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+        {/* Carousel showing 3 steps at a time */}
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/30 shadow-lg mb-8 sm:mb-12 max-w-6xl mx-auto">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {steps.map((step, index) => (
+                <div key={step.step} className="flex-[0_0_33.333%] min-w-0 pl-4">
+                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white mr-4">
+                    <div className="relative h-40 sm:h-48 overflow-hidden">
+                      <LazyImage 
+                        src={step.image} 
+                        alt={step.title}
+                        width={300}
+                        height={192}
+                        quality={75}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-2 left-2 right-2 text-white">
-                    <div className="flex items-center gap-1 mb-1">
-                      <div className="bg-primary rounded px-1.5 py-0.5 shadow-sm">
-                        <span className="text-white font-semibold text-xs tracking-wide">{step.step}</span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-3 left-3 right-3 text-white">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="bg-primary rounded px-2 py-1 shadow-sm">
+                            <span className="text-white font-semibold text-sm tracking-wide">{step.step}</span>
+                          </div>
+                        </div>
+                        <h3 className="text-sm sm:text-base font-bold text-shadow leading-tight">{step.title}</h3>
                       </div>
                     </div>
-                    <h3 className="text-xs sm:text-sm font-bold text-shadow leading-tight line-clamp-2">{step.title}</h3>
-                  </div>
+                    
+                    <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
+                      <p className="text-slate-600 leading-relaxed mb-3 text-sm sm:text-base">{step.description}</p>
+                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-3">{step.detail}</p>
+                      
+                      {/* Subtle accent line */}
+                      <div className="w-12 h-0.5 bg-primary rounded-full mt-auto group-hover:w-full transition-all duration-300"></div>
+                    </CardContent>
+                  </Card>
                 </div>
-                
-                <CardContent className="p-3 sm:p-4 flex-1 flex flex-col">
-                  <p className="text-slate-600 leading-relaxed mb-2 text-xs sm:text-sm line-clamp-2">{step.description}</p>
-                  <p className="text-slate-500 text-xs leading-relaxed mb-2 line-clamp-2 hidden sm:block">{step.detail}</p>
-                  
-                  {/* Subtle accent line */}
-                  <div className="w-8 h-0.5 bg-primary rounded-full mt-auto group-hover:w-full transition-all duration-300"></div>
-                </CardContent>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
