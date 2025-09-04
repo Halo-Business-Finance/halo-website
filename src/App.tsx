@@ -158,7 +158,7 @@ const App = () => {
         <FormSecurityProvider>
           <SessionManager>
             <AuthProvider>
-              <SecureCSPProvider enableStrictCSP={true}>
+              <SecureCSPProvider enableStrictCSP={false}>
                 <EnhancedSecurityProvider>
                   <SecureAuthProvider>
                     <TooltipProvider>
