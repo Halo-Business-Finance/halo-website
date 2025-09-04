@@ -1,14 +1,27 @@
 import React, { ReactNode } from 'react';
+import { EnhancedSecurityProvider } from './EnhancedSecurityProvider';
+import { ProductionSecurityProvider } from './ProductionSecurityProvider';
 
 interface OptimizedSecurityProviderProps {
   children: ReactNode;
 }
 
 /**
- * Simplified Security Provider to prevent blank page issues
+ * Optimized Security Provider that combines essential security features
+ * while reducing overhead and excessive logging
  */
 export const OptimizedSecurityProvider = ({ children }: OptimizedSecurityProviderProps) => {
-  // Simplified provider that just passes through children
-  // Security components were causing blank pages due to missing dependencies
+  // Only enable comprehensive security monitoring in production
+  if (import.meta.env.PROD) {
+    return (
+      <ProductionSecurityProvider>
+        <EnhancedSecurityProvider>
+          {children}
+        </EnhancedSecurityProvider>
+      </ProductionSecurityProvider>
+    );
+  }
+
+  // In development, use minimal security overhead
   return <>{children}</>;
 };

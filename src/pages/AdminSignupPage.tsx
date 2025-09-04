@@ -7,6 +7,7 @@ import { AdminInitializer } from '@/components/security/AdminInitializer';
 import { SecureRoleManager } from '@/components/security/SecureRoleManager';
 import { SecurityEventLogger } from '@/components/security/SecurityEventLogger';
 import { useAuth } from '@/components/auth/AuthProvider';
+import { useSecureAuth } from '@/components/security/SecureAuthProvider';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,42 +18,11 @@ import { Loader2, Shield, UserPlus, Settings } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const AdminSignupPage = () => {
-  console.log('AdminSignupPage: Starting to render...');
-  
-  let authData, navigation, toastHook;
-  
-  try {
-    console.log('AdminSignupPage: Getting auth data...');
-    authData = useAuth();
-    console.log('AdminSignupPage: Auth data retrieved:', authData);
-  } catch (error) {
-    console.error('AdminSignupPage: Error with useAuth:', error);
-    return <div>Auth Provider Error</div>;
-  }
-
-  try {
-    console.log('AdminSignupPage: Getting navigation...');
-    navigation = useNavigate();
-    console.log('AdminSignupPage: Navigation retrieved');
-  } catch (error) {
-    console.error('AdminSignupPage: Error with useNavigate:', error);
-    return <div>Navigation Error</div>;
-  }
-
-  try {
-    console.log('AdminSignupPage: Getting toast...');
-    toastHook = useToast();
-    console.log('AdminSignupPage: Toast retrieved');
-  } catch (error) {
-    console.error('AdminSignupPage: Error with useToast:', error);
-    return <div>Toast Error</div>;
-  }
-
-  const { isAdmin, user } = authData;
-  const navigate = navigation;
-  const { toast } = toastHook;
-  
-  console.log('AdminSignupPage: All hooks loaded successfully');
+  console.log('AdminSignupPage component rendering...');
+  const { isAdmin, user } = useAuth();
+  const { signUpSecure } = useSecureAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
   
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -356,22 +326,13 @@ const AdminSignupPage = () => {
 
               <TabsContent value="security" className="space-y-6">
                 <div className="space-y-8">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Security Initialization</CardTitle>
-                      <CardDescription>
-                        Security components are temporarily disabled to ensure page functionality
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Alert>
-                        <Shield className="h-4 w-4" />
-                        <AlertDescription>
-                          Security features will be enabled once the core system is stable.
-                        </AlertDescription>
-                      </Alert>
-                    </CardContent>
-                  </Card>
+                  <AdminInitializer />
+                  
+                  <SecurityEventLogger />
+                  
+                  {isAdmin && (
+                    <SecureRoleManager />
+                  )}
                 </div>
 
                 <Card>
