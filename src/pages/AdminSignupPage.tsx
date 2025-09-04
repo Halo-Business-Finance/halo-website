@@ -7,7 +7,6 @@ import { AdminInitializer } from '@/components/security/AdminInitializer';
 import { SecureRoleManager } from '@/components/security/SecureRoleManager';
 import { SecurityEventLogger } from '@/components/security/SecurityEventLogger';
 import { useAuth } from '@/components/auth/AuthProvider';
-import { useSecureAuth } from '@/components/security/SecureAuthProvider';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -20,7 +19,7 @@ import { useToast } from '@/hooks/use-toast';
 const AdminSignupPage = () => {
   console.log('AdminSignupPage: Starting to render...');
   
-  let authData, secureAuth, navigation, toastHook;
+  let authData, navigation, toastHook;
   
   try {
     console.log('AdminSignupPage: Getting auth data...');
@@ -29,15 +28,6 @@ const AdminSignupPage = () => {
   } catch (error) {
     console.error('AdminSignupPage: Error with useAuth:', error);
     return <div>Auth Provider Error</div>;
-  }
-
-  try {
-    console.log('AdminSignupPage: Getting secure auth...');
-    secureAuth = useSecureAuth();
-    console.log('AdminSignupPage: Secure auth retrieved');
-  } catch (error) {
-    console.error('AdminSignupPage: Error with useSecureAuth:', error);
-    return <div>Secure Auth Provider Error</div>;
   }
 
   try {
@@ -59,7 +49,6 @@ const AdminSignupPage = () => {
   }
 
   const { isAdmin, user } = authData;
-  const { signUpSecure } = secureAuth;
   const navigate = navigation;
   const { toast } = toastHook;
   
