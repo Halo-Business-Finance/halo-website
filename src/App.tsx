@@ -4,18 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
-import { SecurityHeaders } from "@/components/security/SecurityHeaders";
-import { SecurityMonitor } from "@/components/security/SecurityMonitor";
-import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
-import { SessionManager } from "@/components/security/SessionManager";
+import { OptimizedSecurityProvider } from "@/components/security/OptimizedSecurityProvider";
 import { AuthProvider } from "@/components/auth/AuthProvider";
-import { SecureAuthProvider } from "@/components/security/SecureAuthProvider";
-import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
-import { EnhancedSecurityProvider } from "@/components/security/EnhancedSecurityProvider";
-import { SecurityHeadersProvider } from "@/components/security/SecurityHeadersProvider";
-import { SecurityAlertSystem } from "@/components/security/SecurityAlertSystem";
-import { SecureCSPProvider } from "@/components/security/SecureCSPProvider";
-import { EnhancedSecurityHeaders } from "@/components/security/EnhancedSecurityHeaders";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
@@ -155,11 +145,12 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <DisclaimerPopup />
-          <BrowserRouter>
+        <OptimizedSecurityProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <DisclaimerPopup />
+            <BrowserRouter>
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -237,6 +228,7 @@ const App = () => {
             </Suspense>
           </BrowserRouter>
         </TooltipProvider>
+      </OptimizedSecurityProvider>
       </AuthProvider>
     </QueryClientProvider>
   );
