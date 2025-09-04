@@ -27,6 +27,7 @@ const AdminSetupPage = () => {
     setResult(null);
 
     try {
+      // Use the enhanced secure first admin function
       const { data, error } = await supabase.rpc('create_first_admin', {
         target_email: email
       });
@@ -40,6 +41,24 @@ const AdminSetupPage = () => {
           title: "Admin Account Created",
           description: "First admin account has been successfully created with enhanced security.",
         });
+        
+        // Log successful admin creation for security monitoring
+        try {
+          await supabase.functions.invoke('log-security-event', {
+            body: {
+              event_type: 'admin_bootstrap_completed',
+              severity: 'critical',
+              event_data: {
+                target_email: email,
+                success: true,
+                timestamp: new Date().toISOString()
+              },
+              source: 'admin_setup_page'
+            }
+          });
+        } catch (logError) {
+          console.warn('Failed to log admin creation event:', logError);
+        }
       } else {
         toast({
           variant: "destructive",

@@ -965,6 +965,20 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      create_enhanced_security_session: {
+        Args: {
+          p_client_fingerprint: string
+          p_ip_address: unknown
+          p_security_level?: string
+          p_user_agent: string
+          p_user_id: string
+        }
+        Returns: {
+          requires_mfa: boolean
+          risk_score: number
+          session_id: string
+        }[]
+      }
       create_first_admin: {
         Args: { admin_password?: string; target_email: string }
         Returns: Json
@@ -1282,6 +1296,10 @@ export type Database = {
         Returns: string
       }
       optimize_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      optimize_security_events_v2: {
         Args: Record<PropertyKey, never>
         Returns: number
       }
