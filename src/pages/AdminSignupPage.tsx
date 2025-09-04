@@ -63,9 +63,10 @@ const AdminSignupPage = () => {
     setError('');
 
     try {
-      console.log('Starting admin signup for:', formData.email);
+      console.log('Starting admin setup for:', formData.email);
       
-      // Direct signup without secure auth provider to avoid edge function dependencies
+      // Try to create new user account or handle existing user
+      console.log('Creating/verifying admin account');
       const { data, error: signupError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
@@ -77,66 +78,38 @@ const AdminSignupPage = () => {
         }
       });
 
-      console.log('Signup result:', { data, signupError });
+      let userExists = false;
 
       if (signupError) {
         console.error('Signup error:', signupError);
         let errorMessage = signupError.message || 'An unknown error occurred during signup';
         
-        // Handle rate limiting errors specifically
+        // Handle different error scenarios
         if (errorMessage.includes('rate limited') || errorMessage.includes('only request this after')) {
           errorMessage = 'Too many signup attempts. Please wait a few minutes before trying again.';
+          setError(errorMessage);
+          return;
         } else if (errorMessage.includes('timeout') || errorMessage.includes('Processing this request timed out')) {
           errorMessage = 'Server is temporarily busy. Please try again in a few moments.';
+          setError(errorMessage);
+          return;
+        } else if (errorMessage.includes('already registered') || errorMessage.includes('already exists')) {
+          console.log('User already exists, will assign admin role to existing account');
+          userExists = true;
+        } else {
+          setError('Failed to create account: ' + errorMessage);
+          return;
         }
-        
-        setError('Failed to create account: ' + errorMessage);
-        return;
       }
 
-      if (!data.user) {
-        console.error('No user data returned');
-        setError('Failed to create user account');
-        return;
+      if (!userExists && data?.user) {
+        console.log('New user created successfully, user ID:', data.user.id);
+        // Wait for trigger to create profile
+        await new Promise(resolve => setTimeout(resolve, 2000));
       }
 
-      console.log('User created successfully, user ID:', data.user.id);
-
-      // Wait a moment for the trigger to create the profile
-      console.log('Waiting for profile creation...');
-      await new Promise(resolve => setTimeout(resolve, 3000));
-
-      // Check if profile was created
-      const { data: profileCheck, error: profileError } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('user_id', data.user.id)
-        .maybeSingle();
-
-      console.log('Profile check:', { profileCheck, profileError });
-
-      if (profileError) {
-        console.error('Profile query error:', profileError);
-        toast({
-          title: 'Profile check failed',
-          description: `Unable to verify profile creation. Please try again or contact support.`,
-          variant: 'destructive',
-        });
-        return;
-      }
-
-      if (!profileCheck) {
-        console.error('Profile not found after signup');
-        toast({
-          title: 'Account created but profile missing',
-          description: `Account created for ${formData.email}, but profile creation failed. Please contact support.`,
-          variant: 'destructive',
-        });
-        return;
-      }
-
-      // Use the simpler admin function that bypasses rate limiting
-      console.log('Attempting to assign admin role using simple method...');
+      // Use the admin function to assign role (it handles profile creation too)
+      console.log('Assigning admin role using simple_admin_signup function...');
       const { data: adminResult, error: adminError } = await supabase.rpc('simple_admin_signup', {
         user_email: formData.email,
         display_name: formData.displayName || null
@@ -147,15 +120,17 @@ const AdminSignupPage = () => {
       if (adminError) {
         console.error('Admin role assignment failed:', adminError);
         toast({
-          title: 'Account created but admin assignment failed',
-          description: `Account created for ${formData.email}, but admin role assignment failed: ${adminError.message}. Please contact support.`,
+          title: 'Admin assignment failed',
+          description: `Failed to assign admin role: ${adminError.message}`,
           variant: 'destructive',
         });
       } else if ((adminResult as any)?.success) {
         console.log('Admin role assigned successfully');
         toast({
-          title: 'Admin account created successfully!',
-          description: 'Your admin account has been created and admin privileges assigned. Please check your email to verify your account.',
+          title: 'Admin account setup complete!',
+          description: userExists 
+            ? 'Admin privileges have been assigned to the existing account.'
+            : 'Admin account created successfully. Please check your email to verify your account.',
         });
       } else {
         toast({
