@@ -47,10 +47,9 @@ const AdminConsultations = () => {
 
   const fetchConsultations = async () => {
     try {
+      // Use secure function that masks PII data and logs admin access
       const { data, error } = await supabase
-        .from('consultations')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .rpc('get_secure_admin_consultation_data');
 
       if (error) throw error;
       setConsultations(data || []);
@@ -234,26 +233,29 @@ const AdminConsultations = () => {
                 <TableBody>
                   {filteredConsultations.map((consultation) => (
                     <TableRow key={consultation.id}>
-                      <TableCell>
-                        <div>
-                          <div className="font-medium">
-                            {consultation.company || 'No company name'}
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            ID: {consultation.id.slice(0, 8)}...
-                          </div>
-                        </div>
-                      </TableCell>
+                       <TableCell>
+                         <div>
+                           <div className="font-medium">
+                             {consultation.company || 'No company name'}
+                           </div>
+                           <div className="text-sm text-muted-foreground">
+                             Contact: {consultation.masked_name} | {consultation.masked_email}
+                           </div>
+                           <div className="text-xs text-muted-foreground">
+                             ID: {consultation.id.slice(0, 8)}...
+                           </div>
+                         </div>
+                       </TableCell>
                       <TableCell>
                         <Badge variant="outline">
                           {consultation.loan_program}
                         </Badge>
                       </TableCell>
-                      <TableCell>
-                        <span className="font-medium">
-                          {consultation.loan_amount}
-                        </span>
-                      </TableCell>
+                       <TableCell>
+                         <span className="font-medium">
+                           {consultation.loan_amount_category}
+                         </span>
+                       </TableCell>
                       <TableCell>
                         {getStatusBadge(consultation.status)}
                       </TableCell>

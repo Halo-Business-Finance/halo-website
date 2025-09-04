@@ -1104,6 +1104,21 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: string
       }
+      get_secure_admin_consultation_data: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          company: string
+          created_at: string
+          id: string
+          loan_amount_category: string
+          loan_program: string
+          masked_email: string
+          masked_name: string
+          masked_phone: string
+          status: string
+          timeframe: string
+        }[]
+      }
       get_secure_consultation_data: {
         Args: { consultation_id: string }
         Returns: {
