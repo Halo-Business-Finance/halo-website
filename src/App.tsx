@@ -143,10 +143,16 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{padding: '20px', backgroundColor: 'white', color: 'black'}}>
-      <h1>TEST - App is loading!</h1>
-      <p>If you can see this, React is working.</p>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
