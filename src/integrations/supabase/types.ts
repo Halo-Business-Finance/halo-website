@@ -1149,6 +1149,16 @@ export type Database = {
           timeframe: string
         }[]
       }
+      get_secure_security_configs: {
+        Args: { config_filter?: string }
+        Returns: {
+          config_key: string
+          created_at: string
+          id: string
+          is_active: boolean
+          masked_config_value: string
+        }[]
+      }
       get_security_config: {
         Args: { config_key: string }
         Returns: Json
