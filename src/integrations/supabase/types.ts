@@ -986,6 +986,17 @@ export type Database = {
           session_token: string
         }[]
       }
+      create_status_history_entry: {
+        Args: {
+          p_application_id: string
+          p_change_reason?: string
+          p_changed_by?: string
+          p_new_status: string
+          p_notes?: string
+          p_previous_status: string
+        }
+        Returns: string
+      }
       detect_advanced_session_anomaly: {
         Args: {
           behavioral_data?: Json
