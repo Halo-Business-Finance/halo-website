@@ -1094,6 +1094,20 @@ export type Database = {
           token: string
         }[]
       }
+      get_admin_user_profiles: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          created_at: string
+          display_name: string
+          email: string
+          is_active: boolean
+          profile_id: string
+          role: Database["public"]["Enums"]["app_role"]
+          role_granted_at: string
+          updated_at: string
+          user_id: string
+        }[]
+      }
       get_consultation_secure: {
         Args: { consultation_id: string }
         Returns: {

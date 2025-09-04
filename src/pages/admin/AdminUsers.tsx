@@ -48,27 +48,13 @@ const AdminUsers = () => {
     try {
       setIsLoading(true);
       
-      // Get profiles with user roles in a single query
-      const { data: profiles, error: profilesError } = await supabase
-        .from('profiles')
-        .select(`
-          id,
-          user_id,
-          display_name,
-          is_active,
-          created_at,
-          updated_at,
-          user_roles!inner(
-            role,
-            is_active,
-            granted_at
-          )
-        `)
-        .order('created_at', { ascending: false });
+      // Use the secure admin function to get user profiles with emails
+      const { data: userProfiles, error } = await supabase
+        .rpc('get_admin_user_profiles');
 
-      if (profilesError) {
-        console.error('Error fetching users:', profilesError);
-        // Try without the inner join
+      if (error) {
+        console.error('Error fetching user profiles:', error);
+        // Fallback to basic profile data without emails
         const { data: fallbackProfiles, error: fallbackError } = await supabase
           .from('profiles')
           .select(`
@@ -81,11 +67,9 @@ const AdminUsers = () => {
           `)
           .order('created_at', { ascending: false });
 
-        if (fallbackError) {
-          throw fallbackError;
-        }
+        if (fallbackError) throw fallbackError;
 
-        // Get roles separately
+        // Get roles separately for fallback
         const { data: roles } = await supabase
           .from('user_roles')
           .select('user_id, role, is_active, granted_at')
@@ -95,24 +79,29 @@ const AdminUsers = () => {
           const userRole = roles?.find(role => role.user_id === profile.user_id);
           return {
             ...profile,
-            email: 'Email not available', // We can't access auth.users directly
-            user_roles: userRole ? [userRole] : [],
-            role: userRole?.role || 'user'
+            email: 'Email not available',
+            role: userRole?.role || 'user',
+            role_granted_at: userRole?.granted_at
           };
         });
 
         setUsers(usersWithRoles);
       } else {
-        // Process the successful query
-        const usersWithRoles = (profiles || []).map((profile: any) => ({
-          ...profile,
-          email: 'Email not available', // We can't access auth.users directly
-          role: Array.isArray(profile.user_roles) && profile.user_roles.length > 0 
-            ? profile.user_roles[0].role 
-            : 'user'
+        // Successfully got user profiles with emails
+        const processedUsers = (userProfiles || []).map((profile: any) => ({
+          id: profile.profile_id,
+          user_id: profile.user_id,
+          display_name: profile.display_name,
+          email: profile.email,
+          is_active: profile.is_active,
+          created_at: profile.created_at,
+          updated_at: profile.updated_at,
+          role: profile.role,
+          role_granted_at: profile.role_granted_at,
+          user_roles: [{ role: profile.role, granted_at: profile.role_granted_at }]
         }));
 
-        setUsers(usersWithRoles);
+        setUsers(processedUsers);
       }
     } catch (error) {
       console.error('Error fetching users:', error);
