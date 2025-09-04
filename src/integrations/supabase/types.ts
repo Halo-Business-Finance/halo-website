@@ -1025,6 +1025,10 @@ export type Database = {
         }
         Returns: Json
       }
+      detect_unauthorized_access_patterns: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
+      }
       emergency_cleanup_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -1119,6 +1123,18 @@ export type Database = {
           timeframe: string
         }[]
       }
+      get_secure_application_data: {
+        Args: { application_id?: string; include_sensitive?: boolean }
+        Returns: {
+          application_number: string
+          application_type: string
+          business_name: string
+          created_at: string
+          id: string
+          masked_business_data: Json
+          status: string
+        }[]
+      }
       get_secure_consultation_data: {
         Args: { consultation_id: string }
         Returns: {
@@ -1135,7 +1151,9 @@ export type Database = {
         }[]
       }
       get_secure_consultation_data_enhanced: {
-        Args: { consultation_id: string }
+        Args:
+          | { consultation_id: string }
+          | { consultation_id?: string; user_filter?: string }
         Returns: {
           company: string
           created_at: string
