@@ -79,6 +79,7 @@ const SecurityPage = lazy(() => import("./pages/SecurityPage"));
 const SOCCompliancePage = lazy(() => import("./pages/SOCCompliancePage"));
 const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
 const AdminSignupPage = lazy(() => import("./pages/AdminSignupPage"));
+const AdminSetupPage = lazy(() => import("./pages/AdminSetupPage"));
 
 // Admin Pages
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
@@ -163,7 +164,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/auth" element={<AuthPage />} />
-                <Route path="/admin-setup" element={<AdminInitializerPage />} />
+                <Route path="/admin-setup" element={<AdminSetupPage />} />
                 <Route path="/referral-partners" element={<ReferralPartnersPage />} />
                 <Route path="/brokers" element={<BrokersPage />} />
                 <Route path="/lenders" element={<LendersPage />} />
