@@ -33,10 +33,13 @@ import {
 import { supabase } from '@/integrations/supabase/client';
 
 const AdminUsers = () => {
-  const { isAdmin, loading } = useAuth();
+  const { isAdmin, loading, user, userRole } = useAuth();
   const [users, setUsers] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
+  // Debug logging
+  console.log('AdminUsers - Auth state:', { isAdmin, loading, user: user?.id, userRole });
 
   useEffect(() => {
     if (isAdmin) {
@@ -90,8 +93,44 @@ const AdminUsers = () => {
     );
   }
 
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <CardTitle>Authentication Required</CardTitle>
+            <CardDescription>
+              Please sign in with an admin account to access user management
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center">
+            <Button onClick={() => window.location.href = '/auth'}>
+              Sign In
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   if (!isAdmin) {
-    return <Navigate to="/auth" replace />;
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <CardTitle>Access Denied</CardTitle>
+            <CardDescription>
+              You need admin privileges to access this page. Current role: {userRole || 'user'}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center">
+            <Button onClick={() => window.location.href = '/'}>
+              Go Home
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   const filteredUsers = users.filter(user => 
