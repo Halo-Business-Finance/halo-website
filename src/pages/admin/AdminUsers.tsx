@@ -49,46 +49,14 @@ const AdminUsers = () => {
       setIsLoading(true);
       
       // Use the secure admin function to get user profiles with emails
-      const { data: userProfiles, error } = await supabase
-        .rpc('get_admin_user_profiles');
+      const { data: userProfiles, error } = await supabase.rpc('get_admin_user_profiles');
 
       if (error) {
         console.error('Error fetching user profiles:', error);
-        // Fallback to basic profile data without emails
-        const { data: fallbackProfiles, error: fallbackError } = await supabase
-          .from('profiles')
-          .select(`
-            id,
-            user_id,
-            display_name,
-            is_active,
-            created_at,
-            updated_at
-          `)
-          .order('created_at', { ascending: false });
-
-        if (fallbackError) throw fallbackError;
-
-        // Get roles separately for fallback
-        const { data: roles } = await supabase
-          .from('user_roles')
-          .select('user_id, role, is_active, granted_at')
-          .eq('is_active', true);
-
-        const usersWithRoles = (fallbackProfiles || []).map(profile => {
-          const userRole = roles?.find(role => role.user_id === profile.user_id);
-          return {
-            ...profile,
-            email: 'Email not available',
-            role: userRole?.role || 'user',
-            role_granted_at: userRole?.granted_at
-          };
-        });
-
-        setUsers(usersWithRoles);
+        setUsers([]);
       } else {
-        // Successfully got user profiles with emails
-        const processedUsers = (userProfiles || []).map((profile: any) => ({
+        // Transform the data to match our expected format
+        const transformedUsers = (userProfiles || []).map((profile: any) => ({
           id: profile.profile_id,
           user_id: profile.user_id,
           display_name: profile.display_name,
@@ -97,11 +65,14 @@ const AdminUsers = () => {
           created_at: profile.created_at,
           updated_at: profile.updated_at,
           role: profile.role,
-          role_granted_at: profile.role_granted_at,
-          user_roles: [{ role: profile.role, granted_at: profile.role_granted_at }]
+          user_roles: [{
+            role: profile.role,
+            is_active: true,
+            granted_at: profile.role_granted_at
+          }]
         }));
 
-        setUsers(processedUsers);
+        setUsers(transformedUsers);
       }
     } catch (error) {
       console.error('Error fetching users:', error);
