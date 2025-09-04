@@ -46,11 +46,19 @@ const AdminUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const { data: profiles, error } = await supabase
+      setIsLoading(true);
+      
+      // Get profiles with user roles in a single query
+      const { data: profiles, error: profilesError } = await supabase
         .from('profiles')
         .select(`
-          *,
-          user_roles (
+          id,
+          user_id,
+          display_name,
+          is_active,
+          created_at,
+          updated_at,
+          user_roles!inner(
             role,
             is_active,
             granted_at
@@ -58,10 +66,57 @@ const AdminUsers = () => {
         `)
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
-      setUsers(profiles || []);
+      if (profilesError) {
+        console.error('Error fetching users:', profilesError);
+        // Try without the inner join
+        const { data: fallbackProfiles, error: fallbackError } = await supabase
+          .from('profiles')
+          .select(`
+            id,
+            user_id,
+            display_name,
+            is_active,
+            created_at,
+            updated_at
+          `)
+          .order('created_at', { ascending: false });
+
+        if (fallbackError) {
+          throw fallbackError;
+        }
+
+        // Get roles separately
+        const { data: roles } = await supabase
+          .from('user_roles')
+          .select('user_id, role, is_active, granted_at')
+          .eq('is_active', true);
+
+        const usersWithRoles = (fallbackProfiles || []).map(profile => {
+          const userRole = roles?.find(role => role.user_id === profile.user_id);
+          return {
+            ...profile,
+            email: 'Email not available', // We can't access auth.users directly
+            user_roles: userRole ? [userRole] : [],
+            role: userRole?.role || 'user'
+          };
+        });
+
+        setUsers(usersWithRoles);
+      } else {
+        // Process the successful query
+        const usersWithRoles = (profiles || []).map((profile: any) => ({
+          ...profile,
+          email: 'Email not available', // We can't access auth.users directly
+          role: Array.isArray(profile.user_roles) && profile.user_roles.length > 0 
+            ? profile.user_roles[0].role 
+            : 'user'
+        }));
+
+        setUsers(usersWithRoles);
+      }
     } catch (error) {
       console.error('Error fetching users:', error);
+      setUsers([]);
     } finally {
       setIsLoading(false);
     }
@@ -81,18 +136,20 @@ const AdminUsers = () => {
 
   const filteredUsers = users.filter(user => 
     user.display_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.user_id?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const getRoleBadge = (user: any) => {
-    const role = user.user_roles?.[0]?.role || 'user';
+    const role = user.role || user.user_roles?.[0]?.role || 'user';
     const colors = {
-      admin: 'bg-red-100 text-red-800',
-      moderator: 'bg-yellow-100 text-yellow-800', 
-      user: 'bg-green-100 text-green-800'
+      admin: 'bg-red-100 text-red-800 border-red-200',
+      moderator: 'bg-yellow-100 text-yellow-800 border-yellow-200', 
+      user: 'bg-green-100 text-green-800 border-green-200'
     };
     return (
       <Badge className={colors[role as keyof typeof colors] || colors.user}>
+        <Shield className="h-3 w-3 mr-1" />
         {role}
       </Badge>
     );
@@ -135,7 +192,7 @@ const AdminUsers = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {users.filter(u => u.user_roles?.[0]?.role === 'admin').length}
+                {users.filter(u => (u.role || u.user_roles?.[0]?.role) === 'admin').length}
               </div>
             </CardContent>
           </Card>
@@ -206,6 +263,7 @@ const AdminUsers = () => {
                 <TableHeader>
                   <TableRow>
                     <TableHead>User</TableHead>
+                    <TableHead>Email</TableHead>
                     <TableHead>Role</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Joined</TableHead>
@@ -213,25 +271,29 @@ const AdminUsers = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {filteredUsers.map((user) => (
-                    <TableRow key={user.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-3">
-                          <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
-                            <span className="text-white text-sm font-medium">
-                              {user.display_name?.charAt(0).toUpperCase() || 'U'}
-                            </span>
-                          </div>
-                          <div>
-                            <div className="font-medium">
-                              {user.display_name || 'No name'}
+                  {filteredUsers.length > 0 ? (
+                    filteredUsers.map((user) => (
+                      <TableRow key={user.id}>
+                        <TableCell>
+                          <div className="flex items-center gap-3">
+                            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+                              <span className="text-primary-foreground text-sm font-medium">
+                                {user.display_name?.charAt(0).toUpperCase() || 'U'}
+                              </span>
                             </div>
-                            <div className="text-sm text-muted-foreground">
-                              {user.user_id}
+                            <div>
+                              <div className="font-medium text-foreground">
+                                {user.display_name || 'No name'}
+                              </div>
+                              <div className="text-sm text-muted-foreground">
+                                ID: {user.user_id?.slice(0, 8)}...
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </TableCell>
+                        </TableCell>
+                        <TableCell>
+                          <div className="text-sm text-foreground">{user.email}</div>
+                        </TableCell>
                       <TableCell>
                         {getRoleBadge(user)}
                       </TableCell>
@@ -268,8 +330,20 @@ const AdminUsers = () => {
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </TableCell>
+                      </TableRow>
+                    ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={6} className="text-center py-8">
+                        <div className="flex flex-col items-center gap-2">
+                          <Users className="h-8 w-8 text-muted-foreground" />
+                          <p className="text-muted-foreground">
+                            {searchTerm ? 'No users found matching your search.' : 'No users found.'}
+                          </p>
+                        </div>
+                      </TableCell>
                     </TableRow>
-                  ))}
+                  )}
                 </TableBody>
               </Table>
             )}
