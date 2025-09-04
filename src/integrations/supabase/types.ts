@@ -965,6 +965,24 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      create_enhanced_security_session: {
+        Args: {
+          p_client_fingerprint: string
+          p_ip_address: unknown
+          p_security_level?: string
+          p_user_agent: string
+          p_user_id: string
+        }
+        Returns: {
+          requires_mfa: boolean
+          risk_score: number
+          session_id: string
+        }[]
+      }
+      create_first_admin: {
+        Args: { admin_password?: string; target_email: string }
+        Returns: Json
+      }
       create_initial_admin: {
         Args: { admin_email: string }
         Returns: boolean
@@ -1167,6 +1185,20 @@ export type Database = {
           timeframe: string
         }[]
       }
+      get_secure_customer_data: {
+        Args: { customer_id: string; data_type?: string }
+        Returns: {
+          access_level: string
+          company: string
+          created_at: string
+          id: string
+          loan_program: string
+          masked_email: string
+          masked_name: string
+          masked_phone: string
+          status: string
+        }[]
+      }
       get_secure_security_configs: {
         Args: { config_filter?: string }
         Returns: {
@@ -1220,6 +1252,15 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      intelligent_security_event_filter: {
+        Args: {
+          p_event_type: string
+          p_ip_address?: unknown
+          p_severity: string
+          p_source: string
+        }
+        Returns: boolean
+      }
       invalidate_suspicious_sessions: {
         Args: { reason: string; target_user_id: string }
         Returns: number
@@ -1255,6 +1296,10 @@ export type Database = {
         Returns: string
       }
       optimize_security_events: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      optimize_security_events_v2: {
         Args: Record<PropertyKey, never>
         Returns: number
       }
@@ -1309,6 +1354,10 @@ export type Database = {
       simple_admin_signup: {
         Args: { display_name?: string; user_email: string }
         Returns: Json
+      }
+      validate_encryption_key_access: {
+        Args: { p_key_identifier: string; p_operation?: string }
+        Returns: boolean
       }
       validate_function_security: {
         Args: Record<PropertyKey, never>
