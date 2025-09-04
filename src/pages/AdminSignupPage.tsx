@@ -356,13 +356,22 @@ const AdminSignupPage = () => {
 
               <TabsContent value="security" className="space-y-6">
                 <div className="space-y-8">
-                  <AdminInitializer />
-                  
-                  <SecurityEventLogger />
-                  
-                  {isAdmin && (
-                    <SecureRoleManager />
-                  )}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Security Initialization</CardTitle>
+                      <CardDescription>
+                        Security components are temporarily disabled to ensure page functionality
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Alert>
+                        <Shield className="h-4 w-4" />
+                        <AlertDescription>
+                          Security features will be enabled once the core system is stable.
+                        </AlertDescription>
+                      </Alert>
+                    </CardContent>
+                  </Card>
                 </div>
 
                 <Card>
