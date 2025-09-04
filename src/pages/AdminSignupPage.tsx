@@ -18,11 +18,52 @@ import { Loader2, Shield, UserPlus, Settings } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const AdminSignupPage = () => {
-  console.log('AdminSignupPage component rendering...');
-  const { isAdmin, user } = useAuth();
-  const { signUpSecure } = useSecureAuth();
-  const navigate = useNavigate();
-  const { toast } = useToast();
+  console.log('AdminSignupPage: Starting to render...');
+  
+  let authData, secureAuth, navigation, toastHook;
+  
+  try {
+    console.log('AdminSignupPage: Getting auth data...');
+    authData = useAuth();
+    console.log('AdminSignupPage: Auth data retrieved:', authData);
+  } catch (error) {
+    console.error('AdminSignupPage: Error with useAuth:', error);
+    return <div>Auth Provider Error</div>;
+  }
+
+  try {
+    console.log('AdminSignupPage: Getting secure auth...');
+    secureAuth = useSecureAuth();
+    console.log('AdminSignupPage: Secure auth retrieved');
+  } catch (error) {
+    console.error('AdminSignupPage: Error with useSecureAuth:', error);
+    return <div>Secure Auth Provider Error</div>;
+  }
+
+  try {
+    console.log('AdminSignupPage: Getting navigation...');
+    navigation = useNavigate();
+    console.log('AdminSignupPage: Navigation retrieved');
+  } catch (error) {
+    console.error('AdminSignupPage: Error with useNavigate:', error);
+    return <div>Navigation Error</div>;
+  }
+
+  try {
+    console.log('AdminSignupPage: Getting toast...');
+    toastHook = useToast();
+    console.log('AdminSignupPage: Toast retrieved');
+  } catch (error) {
+    console.error('AdminSignupPage: Error with useToast:', error);
+    return <div>Toast Error</div>;
+  }
+
+  const { isAdmin, user } = authData;
+  const { signUpSecure } = secureAuth;
+  const navigate = navigation;
+  const { toast } = toastHook;
+  
+  console.log('AdminSignupPage: All hooks loaded successfully');
   
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
