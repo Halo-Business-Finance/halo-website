@@ -81,52 +81,37 @@ const LoanProcessCarousel = () => {
   }, [emblaApi]);
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 bg-slate-50">
+    <section className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 mb-6 tracking-tight">
             Our Streamlined Loan Process
           </h2>
-          <p className="text-lg sm:text-xl text-foreground max-w-2xl mx-auto px-4">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We make commercial lending simple with our proven 5-step process that gets you funded faster.
           </p>
         </div>
 
-        {/* Carousel - Mobile shows 1 step, Tablet shows 2 steps, Desktop shows 3 steps */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/30 shadow-lg mb-8 sm:mb-12 max-w-6xl mx-auto">
-          <div className="overflow-hidden" ref={emblaRef}>
+        {/* Clean JP Morgan Style Carousel */}
+        <div className="bg-white rounded-lg border border-slate-200 shadow-sm mb-16 sm:mb-20 max-w-7xl mx-auto">
+          <div className="overflow-hidden p-6 sm:p-8 md:p-10" ref={emblaRef}>
             <div className="flex">
               {steps.map((step, index) => (
                 <div key={step.step} className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4">
-                  <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white mr-4">
-                    <div className="relative h-40 sm:h-48 overflow-hidden">
-                      <LazyImage 
-                        src={step.image} 
-                        alt={step.title}
-                        width={300}
-                        height={192}
-                        quality={75}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="bg-primary rounded px-2 py-1 shadow-sm">
-                            <span className="text-white font-semibold text-sm tracking-wide">{step.step}</span>
-                          </div>
-                        </div>
-                        <h3 className="text-sm sm:text-base font-bold text-shadow leading-tight">{step.title}</h3>
+                  <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 mr-4 h-full">
+                    <div className="p-6 sm:p-8">
+                      {/* Clean step number */}
+                      <div className="flex items-center justify-center w-12 h-12 bg-slate-900 text-white rounded-full mb-6 text-lg font-medium">
+                        {step.step}
                       </div>
-                    </div>
-                    
-                    <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
-                      <p className="text-slate-600 leading-relaxed mb-3 text-sm sm:text-base">{step.description}</p>
-                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-3">{step.detail}</p>
                       
-                      {/* Subtle accent line */}
-                      <div className="w-12 h-0.5 bg-primary rounded-full mt-auto group-hover:w-full transition-all duration-300"></div>
-                    </CardContent>
+                      <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight">{step.title}</h3>
+                      <p className="text-slate-600 leading-relaxed mb-4">{step.description}</p>
+                      <p className="text-sm text-slate-500 leading-relaxed">{step.detail}</p>
+                      
+                      {/* Subtle blue accent line */}
+                      <div className="w-8 h-0.5 bg-slate-900 mt-6"></div>
+                    </div>
                   </Card>
                 </div>
               ))}
@@ -134,95 +119,83 @@ const LoanProcessCarousel = () => {
           </div>
         </div>
 
-        {/* Corporate Executive Process Overview */}
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 md:p-12 max-w-6xl mx-auto border border-slate-700/50 shadow-2xl relative overflow-hidden">
-          {/* Premium background pattern */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-2xl"></div>
-          
-          <div className="relative z-10">
-            <div className="text-center mb-8 sm:mb-12">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-white bg-clip-text text-transparent mb-3">
-                Executive Process Overview
-              </h3>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/50 mx-auto mb-4"></div>
-              <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                Our institutional-grade lending process ensures rapid deployment of capital with enterprise-level security
-              </p>
-            </div>
+        {/* JP Morgan Style Executive Process Overview */}
+        <div className="bg-white border border-slate-200 rounded-lg shadow-sm p-8 sm:p-12 md:p-16 max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-4 tracking-tight">
+              Executive Process Overview
+            </h3>
+            <div className="w-12 h-0.5 bg-slate-900 mx-auto mb-6"></div>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Our institutional-grade lending process ensures rapid deployment of capital with enterprise-level security
+            </p>
+          </div>
 
-            {/* Corporate Process Flow */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
-              {steps.map((step, index) => (
-                <div key={index} className="relative group">
-                  {/* Process Card */}
-                  <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-slate-600/30 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
-                    {/* Step Number with Corporate Styling */}
-                    <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-4 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-300">
-                      <span className="text-white font-bold text-lg sm:text-xl">{step.step}</span>
-                    </div>
-                    
-                    {/* Process Title */}
-                    <h4 className="text-white font-semibold text-sm sm:text-base text-center mb-2 leading-tight">
-                      {step.step === 1 && "Program Selection"}
-                      {step.step === 2 && "Application Intake"}
-                      {step.step === 3 && "Pre-Qualification"}
-                      {step.step === 4 && "Document Processing"}
-                      {step.step === 5 && "Capital Deployment"}
-                    </h4>
-                    
-                    {/* Process Description */}
-                    <p className="text-slate-300 text-xs sm:text-sm text-center leading-relaxed opacity-90">
-                      {step.step === 1 && "Curated financing solutions"}
-                      {step.step === 2 && "Intelligent data capture"}
-                      {step.step === 3 && "Rapid credit assessment"}
-                      {step.step === 4 && "Secure verification"}
-                      {step.step === 5 && "Immediate funding"}
-                    </p>
-                    
-                    {/* Corporate Accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/0 via-primary/60 to-primary/0 rounded-b-2xl"></div>
+          {/* Clean Process Flow */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 md:gap-12">
+            {steps.map((step, index) => (
+              <div key={index} className="relative group">
+                {/* Clean Process Card */}
+                <div className="bg-white border border-slate-200 hover:border-slate-300 rounded-lg p-6 sm:p-8 transition-all duration-200 hover:shadow-sm">
+                  {/* Clean step number */}
+                  <div className="flex items-center justify-center w-14 h-14 bg-slate-900 text-white rounded-full mx-auto mb-6 text-xl font-medium">
+                    {step.step}
                   </div>
                   
-                  {/* Connection Indicator - Corporate Style */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                      <div className="w-8 h-0.5 bg-gradient-to-r from-primary to-primary/50 relative">
-                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full shadow-sm"></div>
-                      </div>
-                    </div>
-                  )}
+                  {/* Process Title */}
+                  <h4 className="text-slate-900 font-semibold text-lg text-center mb-3 leading-tight">
+                    {step.step === 1 && "Select"}
+                    {step.step === 2 && "Answer"}
+                    {step.step === 3 && "Get"}
+                    {step.step === 4 && "Upload"}
+                    {step.step === 5 && "Funded"}
+                  </h4>
                   
-                  {/* Mobile Connection */}
-                  {index < steps.length - 1 && (
-                    <div className="lg:hidden flex justify-center py-2">
-                      <div className="w-0.5 h-4 bg-gradient-to-b from-primary to-primary/50"></div>
-                    </div>
-                  )}
+                  {/* Process Description */}
+                  <p className="text-slate-600 text-sm text-center leading-relaxed">
+                    {step.step === 1 && "Choose your loan program from our comprehensive suite"}
+                    {step.step === 2 && "Complete our streamlined application process"}
+                    {step.step === 3 && "Receive pre-approval within 24 hours"}
+                    {step.step === 4 && "Submit documents through secure portal"}
+                    {step.step === 5 && "Get funded with digital closing process"}
+                  </p>
                 </div>
-              ))}
-            </div>
-            
-            {/* Executive Summary Bar */}
-            <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-700/50">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-                <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">24hrs</div>
-                  <div className="text-xs sm:text-sm text-slate-400">Processing Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">95%</div>
-                  <div className="text-xs sm:text-sm text-slate-400">Approval Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">$2.5B+</div>
-                  <div className="text-xs sm:text-sm text-slate-400">Loans Funded</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-primary mb-1">Bank-Grade</div>
-                  <div className="text-xs sm:text-sm text-slate-400">Security</div>
-                </div>
+                
+                {/* Clean Connection Line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-10">
+                    <div className="w-12 h-0.5 bg-slate-300"></div>
+                  </div>
+                )}
+                
+                {/* Mobile Connection */}
+                {index < steps.length - 1 && (
+                  <div className="lg:hidden flex justify-center py-4">
+                    <div className="w-0.5 h-8 bg-slate-300"></div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* Clean Executive Summary */}
+          <div className="mt-16 pt-12 border-t border-slate-200">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-light text-slate-900 mb-2">24hrs</div>
+                <div className="text-sm text-slate-600">Processing Time</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-light text-slate-900 mb-2">95%</div>
+                <div className="text-sm text-slate-600">Approval Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-light text-slate-900 mb-2">$2.5B+</div>
+                <div className="text-sm text-slate-600">Loans Funded</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-light text-slate-900 mb-2">Bank-Grade</div>
+                <div className="text-sm text-slate-600">Security</div>
               </div>
             </div>
           </div>
