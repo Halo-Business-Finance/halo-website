@@ -94,7 +94,8 @@ const LoanProcessCarousel = () => {
                       
                       <div className="p-6 flex-1 flex flex-col justify-between">
                         <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight min-h-[56px]">{step.title}</h3>
+                          <h3 className="text-xl font-semibold text-slate-900 mb-2 leading-tight min-h-[56px]">{step.title}</h3>
+                          <p className="text-sm font-medium text-slate-500 mb-4">Step {step.step}</p>
                           <p className="text-slate-600 leading-relaxed mb-4 min-h-[48px]">{step.description}</p>
                           <p className="text-sm text-slate-500 leading-relaxed min-h-[60px]">{step.detail}</p>
                         </div>
