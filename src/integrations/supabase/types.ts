@@ -1454,6 +1454,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      verify_active_admin_session: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
       verify_service_role_request: {
         Args: { operation_type: string }
         Returns: boolean
