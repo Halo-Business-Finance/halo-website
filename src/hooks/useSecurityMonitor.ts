@@ -36,8 +36,13 @@ export const useSecurityMonitor = () => {
   const checkSecurityHealth = useCallback(async () => {
     setIsLoading(true);
     try {
-      // Run intelligent cleanup first to reduce noise
-      await supabase.rpc('intelligent_security_event_cleanup');
+      // Run intelligent cleanup first to reduce noise and prevent log flooding
+      const cleanupResult = await supabase.rpc('intelligent_security_event_cleanup');
+      
+      // Log cleanup results for monitoring
+      if (cleanupResult && typeof cleanupResult === 'number' && cleanupResult > 0) {
+        secureLogger.info(`Security log cleanup removed ${cleanupResult} flood events`);
+      }
       
       const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
