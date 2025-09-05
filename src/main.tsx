@@ -7,6 +7,7 @@ import { ProductionSecurityProvider } from './components/security/ProductionSecu
 import { AuthProvider } from '@/components/auth/AuthProvider'
 import { HardenedSecurityProvider } from '@/components/security/HardenedSecurityProvider'
 import { EnhancedEncryptionProvider } from '@/components/security/EnhancedEncryptionProvider'
+import { ZeroTrustProvider } from '@/components/security/ZeroTrustProvider'
 import { Toaster } from '@/components/ui/toaster'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -25,8 +26,10 @@ createRoot(document.getElementById("root")!).render(
         <EnhancedEncryptionProvider>
           <AuthProvider>
             <HardenedSecurityProvider>
-              <App />
-              <Toaster />
+              <ZeroTrustProvider>
+                <App />
+                <Toaster />
+              </ZeroTrustProvider>
             </HardenedSecurityProvider>
           </AuthProvider>
         </EnhancedEncryptionProvider>
