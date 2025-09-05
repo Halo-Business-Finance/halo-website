@@ -97,7 +97,7 @@ const LoanProcessCarousel = () => {
           <div className="overflow-hidden p-6 sm:p-8 md:p-10" ref={emblaRef}>
             <div className="flex">
               {steps.map((step, index) => (
-                <div key={step.step} className="flex-[0_0_100%] sm:flex-[0_0_60%] lg:flex-[0_0_40%] min-w-0 pl-4">
+                <div key={step.step} className="flex-[0_0_100%] sm:flex-[0_0_55%] lg:flex-[0_0_45%] xl:flex-[0_0_35%] min-w-0 pl-4">
                    <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 mr-4 h-full">
                      {/* Step Image */}
                      <div className="relative h-48 overflow-hidden rounded-t-lg">
