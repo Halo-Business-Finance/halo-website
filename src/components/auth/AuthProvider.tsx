@@ -58,62 +58,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         
         if (error) {
           console.error('Error fetching user role:', error);
-          // Enhanced error handling with security logging
-          try {
-            await supabase.from('security_events').insert({
-              event_type: 'role_fetch_failed',
-              severity: 'medium',
-              user_id: userId,
-              event_data: { 
-                error: error.message,
-                timestamp: new Date().toISOString(),
-                cached_attempt: true
-              },
-              source: 'auth_provider_secure'
-            });
-          } catch (logError) {
-            console.warn('Failed to log security event:', logError);
-          }
           setUserRole('user');
         } else {
           setUserRole(roleData || 'user');
-          
-          // Log successful role fetch
-          try {
-            await supabase.from('security_events').insert({
-              event_type: 'role_fetch_success',
-              severity: 'info',
-              user_id: userId,
-              event_data: { 
-                role: roleData || 'user',
-                timestamp: new Date().toISOString(),
-                cached_fetch: true
-              },
-              source: 'auth_provider_secure'
-            });
-          } catch (logError) {
-            console.warn('Failed to log security event:', logError);
-          }
         }
       } catch (error) {
         console.error('Critical error fetching user role:', error);
         setUserRole('user');
-        
-        // Log critical error
-        try {
-          await supabase.from('security_events').insert({
-            event_type: 'role_fetch_critical_error',
-            severity: 'high',
-            user_id: userId,
-            event_data: { 
-              error: error instanceof Error ? error.message : 'Unknown error',
-              timestamp: new Date().toISOString()
-            },
-            source: 'auth_provider_secure'
-          });
-        } catch (logError) {
-          console.warn('Failed to log critical security event:', logError);
-        }
       }
     };
 
@@ -129,22 +80,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const signOut = async () => {
     try {
-      // Log security event for logout with enhanced security
-      try {
-        await supabase.from('security_events').insert({
-          event_type: 'user_logout',
-          severity: 'info',
-          user_id: user?.id,
-          event_data: {
-            logout_method: 'manual',
-            timestamp: new Date().toISOString()
-          },
-          source: 'auth_provider'
-        });
-      } catch (logError) {
-        console.warn('Failed to log security event:', logError);
-      }
-
       const { error } = await supabase.auth.signOut();
       if (error) {
         toast({
