@@ -76,8 +76,8 @@ const LoanProcessCarousel = () => {
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {steps.map((step, index) => (
-                <CarouselItem key={step.step} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                  <div className="w-full h-[500px]">
+                <CarouselItem key={step.step} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 flex-shrink-0">
+                  <div className="w-full h-[500px] max-w-[400px] mx-auto">
                     <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 w-full h-full flex flex-col">
                       {/* Step Image */}
                       <div className="relative h-48 w-full overflow-hidden rounded-t-lg flex-shrink-0">
