@@ -13,7 +13,8 @@ const LoanProcessCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     slidesToScroll: 1,
-    align: 'start',
+    align: 'center',
+    containScroll: 'trimSnaps',
     breakpoints: {
       '(min-width: 640px)': { slidesToScroll: 1 },
       '(min-width: 1024px)': { slidesToScroll: 1 }
