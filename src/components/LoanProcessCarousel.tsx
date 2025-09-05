@@ -87,15 +87,14 @@ const LoanProcessCarousel = () => {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           loading="lazy"
                         />
-                        {/* Step number overlay */}
-                        <div className="absolute top-4 left-4 flex items-center justify-center w-12 h-12 bg-slate-900/90 text-white rounded-full text-lg font-medium">
-                          {step.step}
-                        </div>
                       </div>
                       
                       <div className="p-6 flex-1 flex flex-col justify-between text-left">
                         <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-3">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="flex items-center justify-center w-8 h-8 bg-slate-900 text-white rounded-full text-sm font-medium">
+                              {step.step}
+                            </div>
                             <span className="text-xs font-semibold text-slate-900 bg-slate-100 px-2 py-1 rounded uppercase tracking-wider">Step {step.step}</span>
                           </div>
                           <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight min-h-[56px] tracking-tight text-left">{step.title}</h3>
