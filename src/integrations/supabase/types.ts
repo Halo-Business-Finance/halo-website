@@ -1485,6 +1485,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: boolean
       }
+      verify_encryption_key_access: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
       verify_service_role_request: {
         Args: { operation_type: string }
         Returns: boolean
@@ -1495,6 +1499,10 @@ export type Database = {
           stored_hash: string
           stored_salt: string
         }
+        Returns: boolean
+      }
+      verify_ultra_secure_admin_audit_access: {
+        Args: Record<PropertyKey, never>
         Returns: boolean
       }
     }
