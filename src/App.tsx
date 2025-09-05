@@ -78,6 +78,7 @@ const AssetBasedLoansPage = lazy(() => import("./pages/AssetBasedLoansPage"));
 const SecurityPage = lazy(() => import("./pages/SecurityPage"));
 const SOCCompliancePage = lazy(() => import("./pages/SOCCompliancePage"));
 const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
+const ZeroTrustPage = lazy(() => import("./pages/ZeroTrustPage"));
 const AdminSignupPage = lazy(() => import("./pages/AdminSignupPage"));
 
 // Admin Pages
@@ -236,6 +237,7 @@ const App = () => {
             <Route path="/soc-compliance" element={<SOCCompliancePage />} />
             <Route path="/security" element={<SecurityPage />} />
             <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
+            <Route path="/zero-trust" element={<ZeroTrustPage />} />
             <Route path="/admin-signup" element={<AdminSignupPage />} />
             
             {/* Admin Routes */}

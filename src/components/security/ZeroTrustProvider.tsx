@@ -228,39 +228,49 @@ export const ZeroTrustProvider: React.FC<ZeroTrustProviderProps> = ({ children }
     };
   }, []);
 
-  // Continuous verification every 30 seconds
+  // Continuous verification every 30 seconds (only if user exists)
   useEffect(() => {
-    if (user && session) {
-      continuousVerify();
-      const interval = setInterval(continuousVerify, 30000);
-      return () => clearInterval(interval);
+    if (!user || !session) {
+      // Reset all values if no user/session
+      setTrustScore(0);
+      setIsVerified(false);
+      setRiskLevel('critical');
+      setSessionValid(false);
+      return;
     }
+
+    continuousVerify();
+    const interval = setInterval(continuousVerify, 30000);
+    return () => clearInterval(interval);
   }, [user, session, deviceFingerprint]);
 
-  // Session validation every 5 minutes
+  // Session validation every 5 minutes (only if user exists)
   useEffect(() => {
-    if (user && session) {
-      const validateSession = async () => {
-        try {
-          const { data, error } = await supabase.functions.invoke('validate-session', {
-            body: { deviceFingerprint, timestamp: Date.now() }
-          });
-          
-          if (error || !data?.valid) {
-            setSessionValid(false);
-            setTrustScore(0);
-            setIsVerified(false);
-            setRiskLevel('critical');
-          }
-        } catch (error) {
-          secureLogger.error('Session validation failed:', error);
-          setSessionValid(false);
-        }
-      };
-
-      const interval = setInterval(validateSession, 5 * 60 * 1000);
-      return () => clearInterval(interval);
+    if (!user || !session) {
+      setSessionValid(false);
+      return;
     }
+
+    const validateSession = async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke('validate-session', {
+          body: { deviceFingerprint, timestamp: Date.now() }
+        });
+        
+        if (error || !data?.valid) {
+          setSessionValid(false);
+          setTrustScore(0);
+          setIsVerified(false);
+          setRiskLevel('critical');
+        }
+      } catch (error) {
+        secureLogger.error('Session validation failed:', error);
+        setSessionValid(false);
+      }
+    };
+
+    const interval = setInterval(validateSession, 5 * 60 * 1000);
+    return () => clearInterval(interval);
   }, [user, session, deviceFingerprint]);
 
   const contextValue: ZeroTrustContextType = {

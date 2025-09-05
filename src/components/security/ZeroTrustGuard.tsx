@@ -17,7 +17,7 @@ export const ZeroTrustGuard: React.FC<ZeroTrustGuardProps> = ({
   requiredTrustScore = 70,
   requiredAccessLevel = 'normal',
   fallback,
-  bypassForPublic = false
+  bypassForPublic = true // Changed default to true for easier usage
 }) => {
   const {
     trustScore,
