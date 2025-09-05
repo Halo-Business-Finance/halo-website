@@ -98,13 +98,10 @@ const LoanProcessCarousel = () => {
                           <div className="w-12 h-px bg-slate-300 mb-4"></div>
                           <p className="text-slate-700 leading-relaxed mb-4 min-h-[48px] font-medium text-left">{step.description}</p>
                           <p className="text-sm text-slate-600 leading-relaxed min-h-[60px] font-normal text-left">{step.detail}</p>
-                        </div>
-                        
-                        {/* Subtle blue accent line */}
-                        <div className="w-16 h-0.5 bg-blue-900 mt-6 flex-shrink-0"></div>
-                      </div>
-                    </Card>
-                  </div>
+                         </div>
+                       </div>
+                     </Card>
+                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
