@@ -440,7 +440,8 @@ const AuthPage = () => {
                     🔧 Having issues? Click here to run diagnostics
                   </summary>
                   <div className="mt-4">
-                    <AuthDebugger />
+                    {/* Show AuthDebugger only in development */}
+                    {import.meta.env.DEV && <AuthDebugger />}
                   </div>
                 </details>
               </div>

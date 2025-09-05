@@ -1,169 +1,107 @@
-import { useEffect, ReactNode } from 'react';
-import { secureLogger, replaceConsole } from '@/utils/secureLogger';
-import { AutomatedSecurityResponse } from './AutomatedSecurityResponse';
+import React, { createContext, useContext, useEffect, ReactNode } from 'react';
+import { SecurityHeaders } from './SecurityHeaders';
+import { useToast } from '@/hooks/use-toast';
+
+interface SecurityContextType {
+  isProductionMode: boolean;
+  enableDebugMode: boolean;
+  securityLevel: 'development' | 'staging' | 'production';
+}
+
+const SecurityContext = createContext<SecurityContextType | undefined>(undefined);
 
 interface ProductionSecurityProviderProps {
   children: ReactNode;
 }
 
-export const ProductionSecurityProvider = ({ children }: ProductionSecurityProviderProps) => {
+export const ProductionSecurityProvider: React.FC<ProductionSecurityProviderProps> = ({ 
+  children 
+}) => {
+  const { toast } = useToast();
+  const isProductionMode = import.meta.env.PROD;
+  
+  // Determine security level based on environment
+  const securityLevel = isProductionMode ? 'production' : 'development';
+  
+  // Only enable debug mode in development
+  const enableDebugMode = !isProductionMode;
+
   useEffect(() => {
-    // Initialize production security measures
-    const initializeProductionSecurity = () => {
-      // Replace console methods in production
-      if (import.meta.env.PROD) {
-        replaceConsole();
-        secureLogger.info('Production security initialized');
-      }
-
-      // Disable debugging in production
-      if (import.meta.env.PROD) {
-        // Disable common debugging tools
-        Object.defineProperty(window, '__REACT_DEVTOOLS_GLOBAL_HOOK__', {
-          value: undefined,
-          writable: false,
-          configurable: false
-        });
-
-        // Disable source map exposure
-        if ('DevTools' in window) {
-          (window as any).DevTools = undefined;
-        }
-
-        // Monitor for debugging attempts
-        let devToolsOpen = false;
-        const threshold = 160;
-
-        const detectDevTools = () => {
-          if (window.outerHeight - window.innerHeight > threshold || 
-              window.outerWidth - window.innerWidth > threshold) {
-            if (!devToolsOpen) {
-              devToolsOpen = true;
-              secureLogger.securityEvent('devtools_detected', {
-                timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent
-              });
-            }
-          } else {
-            devToolsOpen = false;
-          }
+    // Production security hardening
+    if (isProductionMode) {
+      // Disable eval for security
+      try {
+        (window as any).eval = () => {
+          throw new Error('eval is disabled for security reasons');
         };
-
-        // Check every 500ms
-        const devToolsInterval = setInterval(detectDevTools, 500);
-
-        return () => clearInterval(devToolsInterval);
+      } catch (e) {
+        // eval might already be disabled
       }
-    };
 
-    // Content Security Policy runtime enforcement
-    const enforceCSP = () => {
-      // Monitor for inline script violations
-      const originalCreateElement = document.createElement;
-      document.createElement = function(tagName: string) {
-        const element = originalCreateElement.call(this, tagName);
-        
-        if (tagName.toLowerCase() === 'script') {
-          const originalSetAttribute = element.setAttribute;
-          element.setAttribute = function(name: string, value: string) {
-            if (name.toLowerCase() === 'src' && !value.startsWith('https://')) {
-              secureLogger.securityEvent('unsafe_script_blocked', {
-                src: value,
-                timestamp: new Date().toISOString()
-              });
-              throw new Error('Unsafe script source blocked by CSP enforcement');
-            }
-            return originalSetAttribute.call(this, name, value);
-          };
-        }
-        
-        return element;
-      };
-    };
+      // Remove development tools from window object
+      delete (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      delete (window as any).__REDUX_DEVTOOLS_EXTENSION__;
 
-    // Initialize security monitoring
-    const initializeMonitoring = () => {
-      // Monitor global error events
-      const handleGlobalError = (event: ErrorEvent) => {
-        secureLogger.error('Global error caught', {
-          message: event.message,
-          filename: event.filename,
-          lineno: event.lineno,
-          colno: event.colno,
-          stack: event.error?.stack?.substring(0, 500) // Limit stack trace length
-        });
-      };
-
-      // Monitor unhandled promise rejections
-      const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-        secureLogger.error('Unhandled promise rejection', {
-          reason: event.reason?.toString?.()?.substring(0, 500)
-        });
-      };
-
-      window.addEventListener('error', handleGlobalError);
-      window.addEventListener('unhandledrejection', handleUnhandledRejection);
-
-      return () => {
-        window.removeEventListener('error', handleGlobalError);
-        window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-      };
-    };
-
-    // Network request monitoring
-    const monitorNetworkRequests = () => {
-      const originalFetch = window.fetch;
-      window.fetch = async function(...args) {
-        const [url, options] = args;
-        const startTime = performance.now();
-        
-        try {
-          const response = await originalFetch.apply(this, args);
-          const endTime = performance.now();
-          
-          // Log slow requests
-          if (endTime - startTime > 5000) {
-            secureLogger.performanceEvent('slow_request', endTime - startTime, {
-              url: typeof url === 'string' ? url : url.toString(),
-              method: options?.method || 'GET'
-            });
+      // Monitor for unauthorized access attempts
+      const securityMonitor = () => {
+        // Check for suspicious global variables
+        const suspiciousGlobals = ['webpackJsonp', '__webpack_require__'];
+        for (const global of suspiciousGlobals) {
+          if ((window as any)[global]) {
+            console.warn('[SECURITY] Potential unauthorized access detected');
+            break;
           }
-          
-          // Log failed requests
-          if (!response.ok) {
-            secureLogger.warn('Request failed', {
-              url: typeof url === 'string' ? url : url.toString(),
-              status: response.status,
-              statusText: response.statusText
-            });
-          }
-          
-          return response;
-        } catch (error) {
-          secureLogger.error('Request error', {
-            url: typeof url === 'string' ? url : url.toString(),
-            error: error instanceof Error ? error.message : 'Unknown error'
-          });
-          throw error;
         }
       };
-    };
 
-    const cleanup1 = initializeProductionSecurity();
-    enforceCSP();
-    const cleanup2 = initializeMonitoring();
-    monitorNetworkRequests();
+      // Run security monitor every 30 seconds in production
+      const monitorInterval = setInterval(securityMonitor, 30000);
 
-    return () => {
-      cleanup1?.();
-      cleanup2?.();
-    };
-  }, []);
+      return () => clearInterval(monitorInterval);
+    }
+  }, [isProductionMode]);
+
+  const contextValue: SecurityContextType = {
+    isProductionMode,
+    enableDebugMode,
+    securityLevel
+  };
 
   return (
-    <>
-      <AutomatedSecurityResponse />
+    <SecurityContext.Provider value={contextValue}>
+      <SecurityHeaders />
       {children}
-    </>
+    </SecurityContext.Provider>
   );
+};
+
+export const useSecurity = (): SecurityContextType => {
+  const context = useContext(SecurityContext);
+  if (!context) {
+    throw new Error('useSecurity must be used within a ProductionSecurityProvider');
+  }
+  return context;
+};
+
+/**
+ * Higher-order component to conditionally render components based on security level
+ */
+export const withSecurityLevel = <P extends object>(
+  Component: React.ComponentType<P>,
+  requiredLevel: 'development' | 'staging' | 'production' = 'development'
+) => {
+  return (props: P) => {
+    const { securityLevel } = useSecurity();
+    
+    // Only render if security level matches or is less restrictive
+    const levelHierarchy = { development: 0, staging: 1, production: 2 };
+    const currentLevel = levelHierarchy[securityLevel];
+    const requiredLevelValue = levelHierarchy[requiredLevel];
+    
+    if (currentLevel >= requiredLevelValue) {
+      return <Component {...props} />;
+    }
+    
+    return null;
+  };
 };

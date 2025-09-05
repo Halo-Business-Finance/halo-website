@@ -15,6 +15,7 @@ import {
   Eye
 } from 'lucide-react';
 import { useAuth } from '@/components/auth/AuthProvider';
+import { useToast } from '@/hooks/use-toast';
 
 interface SecurityPattern {
   pattern_type: string;
@@ -33,6 +34,7 @@ interface SecurityMetrics {
 }
 
 export const SecurityAnalyticsDashboard: React.FC = () => {
+  const { toast } = useToast();
   const { isAdmin, isModerator } = useAuth();
   const [patterns, setPatterns] = useState<SecurityPattern[]>([]);
   const [metrics, setMetrics] = useState<SecurityMetrics>({
@@ -100,11 +102,20 @@ export const SecurityAnalyticsDashboard: React.FC = () => {
       const { data, error } = await supabase.rpc('validate_function_security');
       if (error) throw error;
       
-      console.log('Security validation results:', data);
-      alert(`Security validation completed. Check console for details.`);
+      if (import.meta.env.DEV) {
+        console.log('Security validation results:', data);
+      }
+      toast({
+        title: "Security Validation Complete",
+        description: "Check the security dashboard for detailed results.",
+      });
     } catch (error) {
       console.error('Security validation failed:', error);
-      alert('Security validation failed. Check console for details.');
+      toast({
+        title: "Security Validation Failed",
+        description: "Please check your authentication and try again.",
+        variant: "destructive",
+      });
     }
   };
 

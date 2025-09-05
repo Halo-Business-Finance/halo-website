@@ -3,6 +3,7 @@ import { HelmetProvider } from "react-helmet-async"
 import App from './App.tsx'
 import './index.css'
 import { preloadCriticalResources, registerServiceWorker } from './utils/performance'
+import { ProductionSecurityProvider } from './components/security/ProductionSecurityProvider'
 
 // Preload critical resources immediately
 preloadCriticalResources();
@@ -12,6 +13,8 @@ registerServiceWorker();
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
-    <App />
+    <ProductionSecurityProvider>
+      <App />
+    </ProductionSecurityProvider>
   </HelmetProvider>
 );
