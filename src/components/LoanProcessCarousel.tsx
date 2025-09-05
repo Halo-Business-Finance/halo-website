@@ -95,10 +95,10 @@ const LoanProcessCarousel = () => {
         {/* Clean JP Morgan Style Carousel */}
         <div className="bg-white rounded-lg border border-slate-200 shadow-sm mb-16 sm:mb-20 max-w-7xl mx-auto">
           <div className="overflow-hidden p-6 sm:p-8 md:p-10" ref={emblaRef}>
-            <div className="flex">
+            <div className="flex gap-4">
               {steps.map((step, index) => (
-                <div key={step.step} className="flex-[0_0_100%] sm:flex-[0_0_52%] lg:flex-[0_0_42%] xl:flex-[0_0_38%] min-w-0 pl-4">
-                   <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 mr-4 h-full">
+                <div key={step.step} className="flex-[0_0_90%] sm:flex-[0_0_48%] lg:flex-[0_0_40%] xl:flex-[0_0_32%] min-w-0">
+                   <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 h-full">
                      {/* Step Image */}
                      <div className="relative h-48 overflow-hidden rounded-t-lg">
                        <LazyImage
