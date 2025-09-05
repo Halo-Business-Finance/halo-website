@@ -70,13 +70,14 @@ const LoanProcessCarousel = () => {
               align: "start",
               loop: true,
               containScroll: "trimSnaps",
+              slidesToScroll: 1,
             }}
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {steps.map((step, index) => (
-                <CarouselItem key={step.step} className="pl-2 md:pl-4 min-w-[320px] max-w-[320px]">
-                  <div className="w-[320px] h-[500px]">
+                <CarouselItem key={step.step} className="pl-2 md:pl-4 basis-[340px] shrink-0">
+                  <div className="w-[340px] h-[500px]">
                     <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 w-full h-full flex flex-col">
                       {/* Step Image */}
                       <div className="relative h-48 w-full overflow-hidden rounded-t-lg flex-shrink-0">
