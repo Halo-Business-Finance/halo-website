@@ -76,10 +76,10 @@ const LoanProcessCarousel = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {steps.map((step, index) => (
                 <CarouselItem key={step.step} className="pl-2 md:pl-4 basis-4/5 md:basis-2/5 lg:basis-1/3">
-                  <div className="h-full">
-                    <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 h-full">
+                  <div className="w-full h-[500px]">
+                    <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 w-full h-full flex flex-col">
                       {/* Step Image */}
-                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                      <div className="relative h-48 w-full overflow-hidden rounded-t-lg flex-shrink-0">
                         <LazyImage
                           src={step.image}
                           alt={`Step ${step.step}: ${step.title}`}
@@ -92,10 +92,12 @@ const LoanProcessCarousel = () => {
                         </div>
                       </div>
                       
-                      <div className="p-6 h-[280px] flex flex-col">
-                        <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight">{step.title}</h3>
-                        <p className="text-slate-600 leading-relaxed mb-4 flex-shrink-0">{step.description}</p>
-                        <p className="text-sm text-slate-500 leading-relaxed flex-grow">{step.detail}</p>
+                      <div className="p-6 flex-1 flex flex-col justify-between">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight min-h-[56px]">{step.title}</h3>
+                          <p className="text-slate-600 leading-relaxed mb-4 min-h-[48px]">{step.description}</p>
+                          <p className="text-sm text-slate-500 leading-relaxed min-h-[60px]">{step.detail}</p>
+                        </div>
                         
                         {/* Subtle blue accent line */}
                         <div className="w-8 h-0.5 bg-slate-900 mt-6 flex-shrink-0"></div>
