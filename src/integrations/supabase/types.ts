@@ -968,6 +968,10 @@ export type Database = {
         }
         Returns: Json
       }
+      analyze_behavioral_patterns: {
+        Args: { p_behavioral_data: Json; p_user_id: string }
+        Returns: Json
+      }
       analyze_security_events: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -1501,6 +1505,14 @@ export type Database = {
         }
         Returns: boolean
       }
+      verify_access_elevation: {
+        Args: {
+          p_current_trust_score: number
+          p_required_level: string
+          p_user_id: string
+        }
+        Returns: Json
+      }
       verify_active_admin_business_session: {
         Args: Record<PropertyKey, never>
         Returns: boolean
@@ -1535,6 +1547,14 @@ export type Database = {
       }
       verify_ultra_secure_admin_audit_access: {
         Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      verify_zero_trust_session: {
+        Args: {
+          p_device_fingerprint: string
+          p_trust_score?: number
+          p_user_id: string
+        }
         Returns: boolean
       }
     }
