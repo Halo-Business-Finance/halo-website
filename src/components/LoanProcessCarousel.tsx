@@ -64,11 +64,12 @@ const LoanProcessCarousel = () => {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4">
           <Carousel
             opts={{
-              align: "center",
+              align: "start",
               loop: true,
+              containScroll: "trimSnaps",
             }}
             className="w-full"
           >
