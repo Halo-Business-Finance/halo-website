@@ -80,7 +80,7 @@ const LoanProcessCarousel = () => {
                   <div className="w-full h-[500px] max-w-[400px] mx-auto">
                     <Card className="group bg-white border border-blue-900 hover:border-blue-800 shadow-sm hover:shadow-md transition-all duration-200 w-full h-full flex flex-col">
                       {/* Step Image */}
-                      <div className="relative h-48 w-full overflow-hidden rounded-t-lg flex-shrink-0">
+                      <div className="relative h-64 w-full overflow-hidden rounded-t-lg flex-shrink-0">
                         <LazyImage
                           src={step.image}
                           alt={`Step ${step.step}: ${step.title}`}
@@ -91,10 +91,10 @@ const LoanProcessCarousel = () => {
                       
                       <div className="p-6 flex-1 flex flex-col justify-between text-left">
                         <div className="flex-1">
-                          <div className="mb-3">
+                          <div className="mb-1">
                             <span className="text-xs font-semibold text-slate-900 bg-slate-100 px-2 py-1 rounded uppercase tracking-wider">Step {step.step}</span>
                           </div>
-                          <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight min-h-[56px] tracking-tight text-left">{step.title}</h3>
+                          <h3 className="text-xl font-bold text-slate-900 mb-1 leading-tight min-h-[56px] tracking-tight text-left">{step.title}</h3>
                           <div className="w-full h-px bg-blue-600 mb-4"></div>
                           <p className="text-slate-700 leading-relaxed mb-4 min-h-[48px] font-medium text-left">{step.description}</p>
                           <p className="text-sm text-slate-600 leading-relaxed min-h-[60px] font-normal text-left">{step.detail}</p>
