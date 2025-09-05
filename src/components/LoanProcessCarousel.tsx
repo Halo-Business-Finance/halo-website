@@ -76,30 +76,32 @@ const LoanProcessCarousel = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {steps.map((step, index) => (
                 <CarouselItem key={step.step} className="pl-2 md:pl-4 basis-4/5 md:basis-2/5 lg:basis-1/3">
-                  <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 h-full">
-                    {/* Step Image */}
-                    <div className="relative h-48 overflow-hidden rounded-t-lg">
-                      <LazyImage
-                        src={step.image}
-                        alt={`Step ${step.step}: ${step.title}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                      {/* Step number overlay */}
-                      <div className="absolute top-4 left-4 flex items-center justify-center w-12 h-12 bg-slate-900/90 text-white rounded-full text-lg font-medium">
-                        {step.step}
+                  <div className="h-full">
+                    <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 h-full">
+                      {/* Step Image */}
+                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                        <LazyImage
+                          src={step.image}
+                          alt={`Step ${step.step}: ${step.title}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                        {/* Step number overlay */}
+                        <div className="absolute top-4 left-4 flex items-center justify-center w-12 h-12 bg-slate-900/90 text-white rounded-full text-lg font-medium">
+                          {step.step}
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="p-6 sm:p-8">
-                      <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight">{step.title}</h3>
-                      <p className="text-slate-600 leading-relaxed mb-4">{step.description}</p>
-                      <p className="text-sm text-slate-500 leading-relaxed">{step.detail}</p>
                       
-                      {/* Subtle blue accent line */}
-                      <div className="w-8 h-0.5 bg-slate-900 mt-6"></div>
-                    </div>
-                  </Card>
+                      <div className="p-6 h-[280px] flex flex-col">
+                        <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight">{step.title}</h3>
+                        <p className="text-slate-600 leading-relaxed mb-4 flex-shrink-0">{step.description}</p>
+                        <p className="text-sm text-slate-500 leading-relaxed flex-grow">{step.detail}</p>
+                        
+                        {/* Subtle blue accent line */}
+                        <div className="w-8 h-0.5 bg-slate-900 mt-6 flex-shrink-0"></div>
+                      </div>
+                    </Card>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
