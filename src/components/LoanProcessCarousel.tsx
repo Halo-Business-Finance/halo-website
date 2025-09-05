@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import useEmblaCarousel from 'embla-carousel-react';
 import LazyImage from "@/components/optimization/LazyImage";
 import step1SelectLoan from "@/assets/step1-select-loan.jpg";
 import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
@@ -10,17 +9,6 @@ import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const LoanProcessCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true,
-    slidesToScroll: 1,
-    align: 'center',
-    containScroll: 'trimSnaps',
-    breakpoints: {
-      '(min-width: 640px)': { slidesToScroll: 1 },
-      '(min-width: 1024px)': { slidesToScroll: 1 }
-    }
-  });
-
   const steps = [
     {
       step: 1,
@@ -64,23 +52,6 @@ const LoanProcessCarousel = () => {
     }
   ];
 
-  // Auto-play functionality
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const autoPlay = () => {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
-      } else {
-        emblaApi.scrollTo(0);
-      }
-    };
-
-    const intervalId = setInterval(autoPlay, 3000);
-
-    return () => clearInterval(intervalId);
-  }, [emblaApi]);
-
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -93,40 +64,47 @@ const LoanProcessCarousel = () => {
           </p>
         </div>
 
-        {/* Clean JP Morgan Style Carousel */}
-        <div className="bg-white rounded-lg border border-slate-200 shadow-sm mb-16 sm:mb-20 max-w-7xl mx-auto">
-          <div className="overflow-hidden p-6 sm:p-8 md:p-10" ref={emblaRef}>
-            <div className="flex gap-4">
+        <div className="max-w-7xl mx-auto">
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
               {steps.map((step, index) => (
-                <div key={step.step} className="flex-[0_0_90%] sm:flex-[0_0_48%] lg:flex-[0_0_40%] xl:flex-[0_0_32%] min-w-0">
-                   <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 h-full">
-                     {/* Step Image */}
-                     <div className="relative h-48 overflow-hidden rounded-t-lg">
-                       <LazyImage
-                         src={step.image}
-                         alt={`Step ${step.step}: ${step.title}`}
-                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                         loading="lazy"
-                       />
-                       {/* Step number overlay */}
-                       <div className="absolute top-4 left-4 flex items-center justify-center w-12 h-12 bg-slate-900/90 text-white rounded-full text-lg font-medium">
-                         {step.step}
-                       </div>
-                     </div>
-                     
-                     <div className="p-6 sm:p-8">
-                       <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight">{step.title}</h3>
-                       <p className="text-slate-600 leading-relaxed mb-4">{step.description}</p>
-                       <p className="text-sm text-slate-500 leading-relaxed">{step.detail}</p>
-                       
-                       {/* Subtle blue accent line */}
-                       <div className="w-8 h-0.5 bg-slate-900 mt-6"></div>
-                     </div>
-                   </Card>
-                </div>
+                <CarouselItem key={step.step} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-2/5">
+                  <Card className="group bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 h-full">
+                    {/* Step Image */}
+                    <div className="relative h-48 overflow-hidden rounded-t-lg">
+                      <LazyImage
+                        src={step.image}
+                        alt={`Step ${step.step}: ${step.title}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      {/* Step number overlay */}
+                      <div className="absolute top-4 left-4 flex items-center justify-center w-12 h-12 bg-slate-900/90 text-white rounded-full text-lg font-medium">
+                        {step.step}
+                      </div>
+                    </div>
+                    
+                    <div className="p-6 sm:p-8">
+                      <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight">{step.title}</h3>
+                      <p className="text-slate-600 leading-relaxed mb-4">{step.description}</p>
+                      <p className="text-sm text-slate-500 leading-relaxed">{step.detail}</p>
+                      
+                      {/* Subtle blue accent line */}
+                      <div className="w-8 h-0.5 bg-slate-900 mt-6"></div>
+                    </div>
+                  </Card>
+                </CarouselItem>
               ))}
-            </div>
-          </div>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>
