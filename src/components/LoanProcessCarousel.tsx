@@ -97,9 +97,9 @@ const LoanProcessCarousel = () => {
                           <div className="flex items-center gap-2 mb-3">
                             <span className="text-xs font-semibold text-slate-900 bg-slate-100 px-2 py-1 rounded uppercase tracking-wider">Step {step.step}</span>
                           </div>
-                          <h3 className="text-xl font-semibold text-slate-900 mb-4 leading-tight min-h-[56px]">{step.title}</h3>
-                          <p className="text-slate-600 leading-relaxed mb-4 min-h-[48px]">{step.description}</p>
-                          <p className="text-sm text-slate-500 leading-relaxed min-h-[60px]">{step.detail}</p>
+                          <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight min-h-[56px] tracking-tight">{step.title}</h3>
+                          <p className="text-slate-700 leading-relaxed mb-4 min-h-[48px] font-medium">{step.description}</p>
+                          <p className="text-sm text-slate-600 leading-relaxed min-h-[60px] font-normal">{step.detail}</p>
                         </div>
                         
                         {/* Subtle blue accent line */}
