@@ -109,16 +109,34 @@ export const EnhancedCSRFProvider: React.FC<EnhancedCSRFProviderProps> = ({
     try {
       const sessionId = sessionStorage.getItem('csrf_session_id');
       
-      const { data, error } = await supabase.functions.invoke('validate-csrf-token', {
-        body: { token, sessionId }
-      });
+      // Use enhanced server-side validation
+      const { data, error } = await supabase
+        .rpc('validate_csrf_token_enhanced', {
+          token,
+          session_id: sessionId,
+          max_age_minutes: 60
+        });
 
       if (error) {
         console.error('CSRF token validation error:', error);
         return false;
       }
 
-      return data?.isValid || false;
+      const isValid = data || false;
+      
+      // Log validation result for security monitoring
+      await supabase.from('security_events').insert({
+        event_type: 'csrf_token_validation_result',
+        severity: isValid ? 'info' : 'medium',
+        event_data: {
+          validation_result: isValid,
+          session_id: sessionId,
+          timestamp: new Date().toISOString()
+        },
+        source: 'enhanced_csrf_provider'
+      });
+
+      return isValid;
     } catch (error) {
       console.error('Failed to validate CSRF token:', error);
       return false;

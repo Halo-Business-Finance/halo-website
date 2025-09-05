@@ -1018,6 +1018,17 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      create_audit_trail: {
+        Args: {
+          action_type: string
+          additional_context?: Json
+          new_data?: Json
+          old_data?: Json
+          resource_id: string
+          resource_type: string
+        }
+        Returns: string
+      }
       create_enhanced_security_session: {
         Args: {
           p_client_fingerprint: string
@@ -1319,6 +1330,19 @@ export type Database = {
         Args: { _user_id: string }
         Returns: Database["public"]["Enums"]["app_role"]
       }
+      get_user_role_cached: {
+        Args: { p_user_id: string }
+        Returns: string
+      }
+      handle_security_incident: {
+        Args: {
+          affected_user_id: string
+          incident_data: Json
+          incident_type: string
+          severity: string
+        }
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -1441,6 +1465,10 @@ export type Database = {
         Args: { display_name?: string; user_email: string }
         Returns: Json
       }
+      validate_csrf_token_enhanced: {
+        Args: { max_age_minutes?: number; session_id: string; token: string }
+        Returns: boolean
+      }
       validate_encryption_key_access: {
         Args: { p_key_identifier: string; p_operation?: string }
         Returns: boolean
@@ -1483,6 +1511,10 @@ export type Database = {
       }
       verify_active_business_application_session: {
         Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      verify_active_session_with_mfa: {
+        Args: { max_idle_minutes?: number; required_security_level?: string }
         Returns: boolean
       }
       verify_encryption_key_access: {

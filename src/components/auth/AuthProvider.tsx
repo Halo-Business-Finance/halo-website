@@ -27,9 +27,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Set up auth state listener
+    // Set up auth state listener with race condition prevention
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      (event, session) => {
         // Log auth state changes only in development
         if (import.meta.env.DEV) {
           console.log('Auth state changed:', event, session?.user?.id);
@@ -38,39 +38,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setSession(session);
         setUser(session?.user ?? null);
         
-        // Fetch user role when user signs in with enhanced security
+        // Handle role fetching without race conditions
         if (session?.user) {
-          setTimeout(async () => {
-            try {
-              const { data: roleData, error } = await supabase
-                .rpc('get_user_role', { _user_id: session.user.id });
-              
-              if (error) {
-                console.error('Error fetching user role:', error);
-                // Enhanced error handling with security logging
-                try {
-                  await supabase.from('security_events').insert({
-                    event_type: 'role_fetch_failed',
-                    severity: 'medium',
-                    user_id: session.user.id,
-                    event_data: { 
-                      error: error.message,
-                      timestamp: new Date().toISOString()
-                    },
-                    source: 'auth_provider'
-                  });
-                } catch (logError) {
-                  console.warn('Failed to log security event:', logError);
-                }
-                setUserRole('user');
-              } else {
-                setUserRole(roleData || 'user');
-              }
-            } catch (error) {
-              console.error('Critical error fetching user role:', error);
-              setUserRole('user');
-            }
-          }, 0);
+          // Use the new cached role function to prevent race conditions
+          fetchUserRoleSecurely(session.user.id);
         } else {
           setUserRole(null);
         }
@@ -78,6 +49,73 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setLoading(false);
       }
     );
+
+    // Secure role fetching function
+    const fetchUserRoleSecurely = async (userId: string) => {
+      try {
+        const { data: roleData, error } = await supabase
+          .rpc('get_user_role_cached', { p_user_id: userId });
+        
+        if (error) {
+          console.error('Error fetching user role:', error);
+          // Enhanced error handling with security logging
+          try {
+            await supabase.from('security_events').insert({
+              event_type: 'role_fetch_failed',
+              severity: 'medium',
+              user_id: userId,
+              event_data: { 
+                error: error.message,
+                timestamp: new Date().toISOString(),
+                cached_attempt: true
+              },
+              source: 'auth_provider_secure'
+            });
+          } catch (logError) {
+            console.warn('Failed to log security event:', logError);
+          }
+          setUserRole('user');
+        } else {
+          setUserRole(roleData || 'user');
+          
+          // Log successful role fetch
+          try {
+            await supabase.from('security_events').insert({
+              event_type: 'role_fetch_success',
+              severity: 'info',
+              user_id: userId,
+              event_data: { 
+                role: roleData || 'user',
+                timestamp: new Date().toISOString(),
+                cached_fetch: true
+              },
+              source: 'auth_provider_secure'
+            });
+          } catch (logError) {
+            console.warn('Failed to log security event:', logError);
+          }
+        }
+      } catch (error) {
+        console.error('Critical error fetching user role:', error);
+        setUserRole('user');
+        
+        // Log critical error
+        try {
+          await supabase.from('security_events').insert({
+            event_type: 'role_fetch_critical_error',
+            severity: 'high',
+            user_id: userId,
+            event_data: { 
+              error: error instanceof Error ? error.message : 'Unknown error',
+              timestamp: new Date().toISOString()
+            },
+            source: 'auth_provider_secure'
+          });
+        } catch (logError) {
+          console.warn('Failed to log critical security event:', logError);
+        }
+      }
+    };
 
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
