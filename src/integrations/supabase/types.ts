@@ -1193,6 +1193,25 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: string
       }
+      get_secure_admin_business_application_data: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          application_number: string
+          application_type: string
+          business_type: string
+          created_at: string
+          id: string
+          last_updated_at: string
+          loan_amount_category: string
+          masked_business_ein: string
+          masked_business_name: string
+          priority_level: string
+          revenue_category: string
+          status: string
+          user_id: string
+          years_in_business: number
+        }[]
+      }
       get_secure_admin_consultation_data: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -1454,7 +1473,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      verify_active_admin_business_session: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
       verify_active_admin_session: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      verify_active_business_application_session: {
         Args: Record<PropertyKey, never>
         Returns: boolean
       }
