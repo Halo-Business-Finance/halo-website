@@ -101,7 +101,7 @@ const LoanProcessCarousel = () => {
                         </div>
                         
                         {/* Subtle blue accent line */}
-                        <div className="w-8 h-0.5 bg-slate-900 mt-6 flex-shrink-0"></div>
+                        <div className="w-16 h-0.5 bg-blue-900 mt-6 flex-shrink-0"></div>
                       </div>
                     </Card>
                   </div>
