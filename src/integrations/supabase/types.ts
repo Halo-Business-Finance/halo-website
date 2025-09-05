@@ -317,6 +317,59 @@ export type Database = {
         }
         Relationships: []
       }
+      consultation_analytics: {
+        Row: {
+          consultation_id: string | null
+          created_at: string | null
+          created_date: string
+          created_hour: number
+          id: string
+          industry_category: string | null
+          loan_program: string
+          loan_size_category: string
+          region_code: string | null
+          status: string
+          timeframe_category: string
+          updated_at: string | null
+        }
+        Insert: {
+          consultation_id?: string | null
+          created_at?: string | null
+          created_date: string
+          created_hour: number
+          id?: string
+          industry_category?: string | null
+          loan_program: string
+          loan_size_category: string
+          region_code?: string | null
+          status: string
+          timeframe_category: string
+          updated_at?: string | null
+        }
+        Update: {
+          consultation_id?: string | null
+          created_at?: string | null
+          created_date?: string
+          created_hour?: number
+          id?: string
+          industry_category?: string | null
+          loan_program?: string
+          loan_size_category?: string
+          region_code?: string | null
+          status?: string
+          timeframe_category?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultation_analytics_consultation_id_fkey"
+            columns: ["consultation_id"]
+            isOneToOne: false
+            referencedRelation: "consultations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       consultations: {
         Row: {
           company: string | null
