@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
-
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
@@ -85,7 +84,6 @@ const TermLoanApplication = lazy(() => import("./pages/TermLoanApplication"));
 const EquipmentLoanApplication = lazy(() => import("./pages/EquipmentLoanApplication"));
 const WorkingCapitalApplication = lazy(() => import("./pages/WorkingCapitalApplication"));
 const CommercialRealEstateApplication = lazy(() => import("./pages/CommercialRealEstateApplication"));
-
 
 // Enhanced loading component for better UX
 const LoadingFallback = () => (
