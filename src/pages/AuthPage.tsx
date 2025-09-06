@@ -198,7 +198,7 @@ const AuthPage = () => {
         canonical="https://halobusinessfinance.com/auth"
       />
       
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-black">
         <Header />
         
         <main className="container mx-auto px-4 py-16">
@@ -206,10 +206,10 @@ const AuthPage = () => {
             <div className="w-full max-w-md">
               <div className="text-center mb-8">
                 <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h1 className="text-3xl font-bold text-foreground mb-2">
+                <h1 className="text-3xl font-bold text-black mb-2">
                   Secure Access
                 </h1>
-                <p className="text-muted-foreground">
+                <p className="text-black">
                   Sign in to your account or create a new one
                 </p>
               </div>
@@ -250,8 +250,8 @@ const AuthPage = () => {
                       <form onSubmit={handleLogin} className="space-y-4">
                         <input type="hidden" name="csrf_token" value={csrfToken} />
                         
-                        <div className="space-y-2">
-                          <Label htmlFor="signin-email">Email</Label>
+                         <div className="space-y-2">
+                           <Label htmlFor="signin-email" className="text-black">Email</Label>
                           <Input
                             id="signin-email"
                             type="email"
@@ -263,8 +263,8 @@ const AuthPage = () => {
                           />
                         </div>
 
-                        <div className="space-y-2">
-                          <Label htmlFor="signin-password">Password</Label>
+                         <div className="space-y-2">
+                           <Label htmlFor="signin-password" className="text-black">Password</Label>
                           <div className="relative">
                             <Input
                               id="signin-password"
@@ -327,8 +327,8 @@ const AuthPage = () => {
                       <form onSubmit={handleSignup} className="space-y-4">
                         <input type="hidden" name="csrf_token" value={csrfToken} />
                         
-                        <div className="space-y-2">
-                          <Label htmlFor="signup-name">Display Name</Label>
+                         <div className="space-y-2">
+                           <Label htmlFor="signup-name" className="text-black">Display Name</Label>
                           <Input
                             id="signup-name"
                             type="text"
@@ -340,8 +340,8 @@ const AuthPage = () => {
                           />
                         </div>
 
-                        <div className="space-y-2">
-                          <Label htmlFor="signup-email">Email</Label>
+                         <div className="space-y-2">
+                           <Label htmlFor="signup-email" className="text-black">Email</Label>
                           <Input
                             id="signup-email"
                             type="email"
@@ -353,8 +353,8 @@ const AuthPage = () => {
                           />
                         </div>
 
-                        <div className="space-y-2">
-                          <Label htmlFor="signup-password">Password</Label>
+                         <div className="space-y-2">
+                           <Label htmlFor="signup-password" className="text-black">Password</Label>
                           <div className="relative">
                             <Input
                               id="signup-password"
@@ -382,8 +382,8 @@ const AuthPage = () => {
                           </div>
                         </div>
 
-                        <div className="space-y-2">
-                          <Label htmlFor="signup-confirm-password">Confirm Password</Label>
+                         <div className="space-y-2">
+                           <Label htmlFor="signup-confirm-password" className="text-black">Confirm Password</Label>
                           <Input
                             id="signup-confirm-password"
                             type="password"
@@ -395,9 +395,9 @@ const AuthPage = () => {
                           />
                         </div>
 
-                        <div className="text-sm text-muted-foreground">
-                          <p>Password must contain:</p>
-                          <ul className="list-disc list-inside mt-1 space-y-1">
+                         <div className="text-sm text-black">
+                           <p>Password must contain:</p>
+                           <ul className="list-disc list-inside mt-1 space-y-1">
                             <li>At least 8 characters</li>
                             <li>One uppercase letter</li>
                             <li>One lowercase letter</li>
@@ -420,7 +420,7 @@ const AuthPage = () => {
                 </TabsContent>
               </Tabs>
 
-              <div className="mt-6 text-center text-sm text-muted-foreground">
+              <div className="mt-6 text-center text-sm text-black">
                 <p>
                   By signing in, you agree to our{' '}
                   <a href="/terms-of-service" className="text-primary hover:underline">
