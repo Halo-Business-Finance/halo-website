@@ -2,16 +2,13 @@ import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from "react-helmet-async"
 import App from './App.tsx'
 import './index.css'
-import { preloadCriticalResources, registerServiceWorker } from './utils/performance'
+import { preloadCriticalResources } from './utils/performance'
 import { AuthProvider } from '@/components/auth/AuthProvider'
 import { Toaster } from '@/components/ui/toaster'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Preload critical resources immediately
 preloadCriticalResources();
-
-// Register service worker for caching
-registerServiceWorker();
 
 const queryClient = new QueryClient();
 
