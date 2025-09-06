@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut, Lock, LayoutDashboard, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/components/auth/AuthProvider";
+
 import ConsultationPopup from "@/components/ConsultationPopup";
 import {
   DropdownMenu,
@@ -13,7 +13,11 @@ import {
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, signOut, userRole, isAdmin } = useAuth();
+  // Remove auth dependency for public website
+  const user = null;
+  const userRole = null;
+  const isAdmin = false;
+  const signOut = async () => {};
 
   const handleMobileMenuToggle = () => {
     setIsOpen(!isOpen);
