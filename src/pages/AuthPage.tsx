@@ -240,12 +240,12 @@ const AuthPage = () => {
 
                 <TabsContent value="signin">
                   <Card>
-                    <CardHeader>
-                      <CardTitle>Welcome Back</CardTitle>
-                      <CardDescription>
-                        Enter your credentials to access your account
-                      </CardDescription>
-                    </CardHeader>
+                     <CardHeader>
+                       <CardTitle className="text-black">Welcome Back</CardTitle>
+                       <CardDescription className="text-black">
+                         Enter your credentials to access your account
+                       </CardDescription>
+                     </CardHeader>
                     <CardContent>
                       <form onSubmit={handleLogin} className="space-y-4">
                         <input type="hidden" name="csrf_token" value={csrfToken} />
@@ -317,11 +317,11 @@ const AuthPage = () => {
 
                 <TabsContent value="signup">
                   <Card>
-                    <CardHeader>
-                      <CardTitle>Create Account</CardTitle>
-                      <CardDescription>
-                        Join Halo Business Finance for secure business financing
-                      </CardDescription>
+                     <CardHeader>
+                       <CardTitle className="text-black">Create Account</CardTitle>
+                       <CardDescription className="text-black">
+                         Join Halo Business Finance for secure business financing
+                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <form onSubmit={handleSignup} className="space-y-4">
