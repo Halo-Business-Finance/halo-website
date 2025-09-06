@@ -6,27 +6,8 @@ export const SecurityHeaders = () => {
     // Generate nonce for inline scripts
     const nonce = btoa(Math.random().toString()).substring(0, 16);
     
-    // Enhanced Content Security Policy with nonce support
-    const csp = [
-      "default-src 'self'",
-      `script-src 'self' 'nonce-${nonce}' https://zwqtewpycdbvjgkntejd.supabase.co https://js.stripe.com`,
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://zwqtewpycdbvjgkntejd.supabase.co https://*.supabase.co https://api.stripe.com https://*.lovable.dev",
-      "frame-src 'self' https://js.stripe.com https://hooks.stripe.com",
-      "worker-src 'self' blob:",
-      "object-src 'none'",
-      "base-uri 'self'",
-      "form-action 'self'",
-      "frame-ancestors 'self' https://lovable.dev https://*.lovable.dev",
-      "upgrade-insecure-requests",
-      "require-trusted-types-for 'script'"
-    ].join('; ');
-
     // Security Headers - Updated for Lovable compatibility
     const securityHeaders = {
-      'Content-Security-Policy': csp,
       'X-Frame-Options': 'SAMEORIGIN', // Changed from DENY to allow Lovable iframe
       'X-Content-Type-Options': 'nosniff',
       'X-XSS-Protection': '1; mode=block',

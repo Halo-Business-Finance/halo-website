@@ -11,22 +11,6 @@ export const SimplifiedSecurityHeaders = () => {
 
     // Set essential security headers via meta tags for client-side applications
     const setSecurityHeaders = () => {
-      // Content Security Policy - More permissive for Lovable compatibility
-      const cspMeta = document.createElement('meta');
-      cspMeta.setAttribute('http-equiv', 'Content-Security-Policy');
-      cspMeta.content = `
-        default-src 'self' https:;
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob:;
-        style-src 'self' 'unsafe-inline' https:;
-        img-src 'self' https: data: blob:;
-        font-src 'self' https: data:;
-        connect-src 'self' https: wss:;
-        frame-src 'self' https:;
-        object-src 'none';
-        base-uri 'self';
-        form-action 'self' https:;
-      `.replace(/\s+/g, ' ').trim();
-
       // X-Content-Type-Options
       const noSniffMeta = document.createElement('meta');
       noSniffMeta.setAttribute('http-equiv', 'X-Content-Type-Options');
@@ -43,9 +27,6 @@ export const SimplifiedSecurityHeaders = () => {
       frameMeta.content = 'SAMEORIGIN'; // Changed from DENY to allow Lovable
 
       // Only add if not already present
-      if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
-        document.head.appendChild(cspMeta);
-      }
       if (!document.querySelector('meta[http-equiv="X-Content-Type-Options"]')) {
         document.head.appendChild(noSniffMeta);
       }

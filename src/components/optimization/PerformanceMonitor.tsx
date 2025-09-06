@@ -58,8 +58,13 @@ export const PerformanceMonitor = () => {
       entryList.getEntries().forEach((entry) => {
         const resourceEntry = entry as PerformanceResourceTiming;
         
+        // Defensive checks to prevent crashes on failed resources
+        if (!resourceEntry || typeof resourceEntry.transferSize !== 'number' || typeof entry.duration !== 'number') {
+          return;
+        }
+        
         // Large resource detection
-        if (resourceEntry.transferSize && resourceEntry.transferSize > 1000000) { // 1MB
+        if (resourceEntry.transferSize > 1000000) { // 1MB
           console.warn(`Large resource: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024 / 1024)}MB)`);
         }
         
@@ -69,8 +74,11 @@ export const PerformanceMonitor = () => {
         }
         
         // Failed resources
-        if (resourceEntry.transferSize === 0 && entry.duration > 0) {
-          console.error(`Failed to load: ${entry.name}`);
+        if (resourceEntry.transferSize === 0 && entry.duration > 0 && entry.name) {
+          // Only log actual failures, not normal zero-size resources
+          if (!entry.name.includes('data:') && !entry.name.includes('blob:')) {
+            console.warn(`Resource may have failed to load: ${entry.name}`);
+          }
         }
       });
     });

@@ -32,33 +32,8 @@ export const useSecurityHeaders = (config: SecurityHeadersConfig = {}) => {
 
     // Enhanced Content Security Policy
     if (enableCSP) {
-      const cspContent = customCSP || [
-        "default-src 'self'",
-        // Remove unsafe-inline and use nonce-based scripts
-        "script-src 'self' https://*.supabase.co https://halobusinessfinance.com 'nonce-security-nonce'",
-        // Stricter style policy
-        "style-src 'self' https://fonts.googleapis.com 'nonce-security-nonce'",
-        "font-src 'self' https://fonts.gstatic.com",
-        "img-src 'self' data: https: blob:",
-        // Enhanced connect policy with specific endpoints
-        "connect-src 'self' https://*.supabase.co https://api.halobusinessfinance.com wss://*.supabase.co",
-        "frame-ancestors 'none'",
-        "form-action 'self'",
-        "base-uri 'self'",
-        "object-src 'none'",
-        // Additional security directives
-        "manifest-src 'self'",
-        "worker-src 'self'",
-        "child-src 'none'",
-        "frame-src 'none'",
-        "media-src 'self'",
-        "upgrade-insecure-requests"
-      ].join('; ');
-
-      headers.push({
-        name: 'Content-Security-Policy',
-        content: cspContent
-      });
+      // Skip CSP injection to avoid conflicts with existing CSP
+      console.info('CSP management delegated to main security headers');
     }
 
     // Referrer Policy

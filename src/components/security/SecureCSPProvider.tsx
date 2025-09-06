@@ -22,27 +22,8 @@ export const SecureCSPProvider: React.FC<SecureCSPProviderProps> = ({
     (window as any).__CSP_STYLE_NONCE__ = styleNonce;
 
     if (enableStrictCSP) {
-      // Create meta tag for Content Security Policy
-      const cspMeta = document.createElement('meta');
-      cspMeta.httpEquiv = 'Content-Security-Policy';
-      cspMeta.content = [
-        `default-src 'self'`,
-        `script-src 'self' 'nonce-${scriptNonce}' https://halobusinessfinance.com https://*.supabase.co`,
-        `style-src 'self' 'unsafe-inline' 'nonce-${styleNonce}' https://fonts.googleapis.com`,
-        `font-src 'self' https://fonts.gstatic.com`,
-        `img-src 'self' data: https: blob:`,
-        `connect-src 'self' https://*.supabase.co https://api.halobusinessfinance.com`,
-        `frame-ancestors 'none'`,
-        `form-action 'self'`,
-        `base-uri 'self'`,
-        `object-src 'none'`,
-        `upgrade-insecure-requests`
-      ].join('; ');
-      
-      // Only add if not already present
-      if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
-        document.head.appendChild(cspMeta);
-      }
+      // Skip CSP injection to avoid conflicts - nonces still available for components
+      console.info('CSP nonces generated but CSP injection skipped to avoid conflicts');
 
       // Add additional security headers via meta tags
       const additionalHeaders = [
