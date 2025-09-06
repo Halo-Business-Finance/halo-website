@@ -27,15 +27,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Set up auth state listener
+    // Set up auth state listener with race condition prevention
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
+        // Log auth state changes only in development
+        if (import.meta.env.DEV) {
+          console.log('Auth state changed:', event, session?.user?.id);
+        }
+        
         setSession(session);
         setUser(session?.user ?? null);
         
-        // For public website, default all users to 'user' role
+        // Handle role fetching without race conditions
         if (session?.user) {
-          setUserRole('user');
+          // Use the new cached role function to prevent race conditions
+          fetchUserRoleSecurely(session.user.id);
         } else {
           setUserRole(null);
         }
@@ -44,13 +50,28 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
     );
 
+    // Secure role fetching function
+    const fetchUserRoleSecurely = async (userId: string) => {
+      try {
+        const { data: roleData, error } = await supabase
+          .rpc('get_user_role_cached', { p_user_id: userId });
+        
+        if (error) {
+          console.error('Error fetching user role:', error);
+          setUserRole('user');
+        } else {
+          setUserRole(roleData || 'user');
+        }
+      } catch (error) {
+        console.error('Critical error fetching user role:', error);
+        setUserRole('user');
+      }
+    };
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
-      if (session?.user) {
-        setUserRole('user');
-      }
       setLoading(false);
     });
 
