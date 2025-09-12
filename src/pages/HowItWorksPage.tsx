@@ -101,11 +101,9 @@ const HowItWorksPage = () => {
                   
                   {/* Arrow - only show between steps, not after the last one */}
                   {index < 4 && (
-                    <div className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 transform -translate-y-1/2 z-10">
-                      <div className="bg-primary/10 rounded-full p-2 animate-pulse">
+                      <div className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 transform -translate-y-1/2 z-10">
                         <ArrowRight className="h-6 w-6 text-primary" />
                       </div>
-                    </div>
                   )}
                 </div>
               ))}
@@ -148,10 +146,8 @@ const HowItWorksPage = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Network className="h-6 w-6 text-primary" />
-                  </div>
+                <div className="flex items-start gap-4"> 
+                  <Network className="h-6 w-6 text-primary flex-shrink-0" />
                   <div>
                     <h4 className="text-xl font-semibold mb-3">Comprehensive Network</h4>
                     <p className="text-muted-foreground">Access to the most extensive network of commercial lenders in the industry, from community banks to major financial institutions.</p>
@@ -160,9 +156,7 @@ const HowItWorksPage = () => {
               </Card>
               <Card className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <TrendingUp className="h-6 w-6 text-primary" />
-                  </div>
+                  <TrendingUp className="h-6 w-6 text-primary flex-shrink-0" />
                   <div>
                     <h4 className="text-xl font-semibold mb-3">Competitive Marketplace</h4>
                     <p className="text-muted-foreground">Lenders compete for your business, resulting in better rates, terms, and loan structures tailored to your needs.</p>
@@ -171,9 +165,7 @@ const HowItWorksPage = () => {
               </Card>
               <Card className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Shield className="h-6 w-6 text-primary" />
-                  </div>
+                  <Shield className="h-6 w-6 text-primary flex-shrink-0" />
                   <div>
                     <h4 className="text-xl font-semibold mb-3">Vetted Partners Only</h4>
                     <p className="text-muted-foreground">All lenders undergo rigorous qualification processes including licensing verification, financial stability, and track record review.</p>
@@ -182,9 +174,7 @@ const HowItWorksPage = () => {
               </Card>
               <Card className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Star className="h-6 w-6 text-primary" />
-                  </div>
+                  <Star className="h-6 w-6 text-primary flex-shrink-0" />
                   <div>
                     <h4 className="text-xl font-semibold mb-3">Performance Monitoring</h4>
                     <p className="text-muted-foreground">Continuous monitoring of lender performance, customer satisfaction, and loan quality to maintain high standards.</p>
@@ -272,9 +262,7 @@ const HowItWorksPage = () => {
             <Card className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="h-8 w-8 text-primary" />
-                  </div>
+                  <TrendingUp className="h-8 w-8 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     SBA Loan Expertise
                   </h3>
@@ -291,9 +279,7 @@ const HowItWorksPage = () => {
             <Card className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-primary" />
-                  </div>
+                  <Shield className="h-8 w-8 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Secure & Compliant
                   </h3>
@@ -310,9 +296,7 @@ const HowItWorksPage = () => {
             <Card className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Clock className="h-8 w-8 text-primary" />
-                  </div>
+                  <Clock className="h-8 w-8 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Fast Approval Process
                   </h3>
@@ -331,9 +315,7 @@ const HowItWorksPage = () => {
             <Card className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Building2 className="h-8 w-8 text-primary" />
-                  </div>
+                  <Building2 className="h-8 w-8 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Commercial Lending Focus
                   </h3>
@@ -350,9 +332,7 @@ const HowItWorksPage = () => {
             <Card className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Landmark className="h-8 w-8 text-primary" />
-                  </div>
+                  <Landmark className="h-8 w-8 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Dedicated Loan Officers
                   </h3>
