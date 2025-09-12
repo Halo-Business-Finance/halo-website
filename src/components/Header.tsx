@@ -263,25 +263,24 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-[auto,1fr,auto] items-center lg:h-12 px-1 sm:px-4 py-4 gap-1">
-            {/* Mobile Menu Button - left side on mobile */}
-            <button 
-              className="lg:hidden p-1 -ml-1 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80] shrink-0"
-              onClick={handleMobileMenuToggle}
-              aria-label="Toggle navigation"
-            >
-              <Menu className="h-8 w-8 text-gray-600" />
-            </button>
+          <div className="flex items-center lg:h-12 px-4 py-4">
+            {/* Mobile Menu Button - only visible when menu is closed */}
+            {!isOpen && (
+              <button 
+                className="lg:hidden p-2 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
+                onClick={handleMobileMenuToggle}
+                aria-label="Toggle navigation"
+              >
+                <Menu className="h-8 w-8 text-gray-600" />
+              </button>
+            )}
             
-            {/* Logo - centered on mobile/tablet */}
-            <Link to="/" className="flex items-center justify-center min-w-0 lg:flex-none">
-              <span className="text-xl sm:text-2xl lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none truncate">
+            {/* Logo - hidden on mobile, visible on desktop */}
+            <Link to="/" className="hidden lg:flex items-center justify-center">
+              <span className="text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
-            
-            {/* Right placeholder to balance centering on mobile */}
-            <div className="lg:hidden w-0 sm:w-8" aria-hidden="true" />
           </div>
         </div>
       </div>
