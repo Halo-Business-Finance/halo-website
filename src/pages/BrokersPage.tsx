@@ -197,7 +197,7 @@ const BrokersPage = () => {
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <Card className="bg-white/10 border-white/20">
+              <Card className="bg-white/10 border-white/20 text-white">
                 <CardContent className="p-6 text-center">
                   <Phone className="h-8 w-8 mx-auto mb-4 text-white" />
                   <h4 className="text-lg font-semibold mb-2">Call Us</h4>
@@ -206,7 +206,7 @@ const BrokersPage = () => {
                 </CardContent>
               </Card>
               
-              <Card className="bg-white/10 border-white/20">
+              <Card className="bg-white/10 border-white/20 text-white">
                 <CardContent className="p-6 text-center">
                   <Mail className="h-8 w-8 mx-auto mb-4 text-white" />
                   <h4 className="text-lg font-semibold mb-2">Email Us</h4>
