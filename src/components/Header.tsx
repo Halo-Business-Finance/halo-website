@@ -263,7 +263,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-10 lg:h-12 px-3 py-0 sm:px-6">
+          <div className="flex items-center justify-between h-10 lg:h-12 px-3 py-1 sm:px-6">
             {/* Mobile Menu Button - left side on mobile */}
             <button 
               className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
