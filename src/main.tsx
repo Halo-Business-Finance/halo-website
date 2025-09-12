@@ -23,7 +23,6 @@ createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <App />
-      <Toaster />
     </QueryClientProvider>
   </HelmetProvider>
 );

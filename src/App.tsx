@@ -1,9 +1,6 @@
-import { Toaster } from "@/components/ui/toaster";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { lazy, Suspense, useEffect } from "react";
-import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
-import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
-import DisclaimerPopup from "@/components/DisclaimerPopup";
+import React, { lazy, Suspense } from "react";
+import { SimpleErrorBoundary } from "@/components/SimpleErrorBoundary";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -72,156 +69,108 @@ const EquipmentLoanApplication = lazy(() => import("./pages/EquipmentLoanApplica
 const WorkingCapitalApplication = lazy(() => import("./pages/WorkingCapitalApplication"));
 const CommercialRealEstateApplication = lazy(() => import("./pages/CommercialRealEstateApplication"));
 
-
 // Enhanced loading component for better UX
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-      <p className="text-foreground">Loading...</p>
-      <div className="mt-2 text-sm text-muted-foreground">Optimizing content...</div>
+  <div style={{
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'system-ui, sans-serif'
+  }}>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        border: '3px solid #e5e7eb',
+        borderTop: '3px solid #2563eb',
+        borderRadius: '50%',
+        animation: 'spin 1s linear infinite',
+        margin: '0 auto 16px'
+      }}></div>
+      <p>Loading...</p>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   </div>
 );
 
-
-// Simple error boundary to surface runtime errors in preview
-class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, { hasError: boolean; error?: any }> {
-  constructor(props: {}) {
-    super(props);
-    this.state = { hasError: false };
-  }
-  static getDerivedStateFromError(error: any) {
-    return { hasError: true, error };
-  }
-  componentDidCatch(error: any, info: any) {
-    console.error('App error boundary caught:', error, info);
-  }
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{ padding: 24 }}>
-          <h1>Something went wrong.</h1>
-          <pre style={{ whiteSpace: 'pre-wrap' }}>{String(this.state.error)}</pre>
-        </div>
-      );
-    }
-    return this.props.children as any;
-  }
-}
-
-
 const App: React.FC = () => {
-  // Initialize performance optimizations
-  useEffect(() => {
-    const initializePerformance = async () => {
-      // Critical resource preloading
-      preloadCriticalResources();
-      addResourceHints();
-      // Force-unregister any existing service workers and clear caches (preview safety)
-      if ('serviceWorker' in navigator) {
-        try {
-          const regs = await navigator.serviceWorker.getRegistrations();
-          await Promise.all(regs.map((r) => r.unregister()));
-          if ('caches' in window) {
-            const keys = await caches.keys();
-            await Promise.all(keys.map((k) => caches.delete(k)));
-          }
-        } catch (e) {
-          console.warn('SW cleanup issue:', e);
-        }
-      }
-      
-      // Inject critical CSS
-      const criticalCSS = `
-        .animate-fade-in { animation: fade-in 0.3s ease-out; }
-        .animate-scale-in { animation: scale-in 0.2s ease-out; }
-        @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes scale-in { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-      `;
-      const style = document.createElement('style');
-      style.textContent = criticalCSS;
-      document.head.insertBefore(style, document.head.firstChild);
-    };
-    
-    initializePerformance();
-  }, []);
-
   return (
-    <ErrorBoundary>
-      {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
-      <PerformanceMonitor />
-      <DisclaimerPopup />
+    <SimpleErrorBoundary>
       <BrowserRouter>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/referral-partners" element={<ReferralPartnersPage />} />
-                <Route path="/brokers" element={<BrokersPage />} />
-                <Route path="/lenders" element={<LendersPage />} />
-                <Route path="/company-overview" element={<CompanyOverview />} />
-                <Route path="/company-licenses" element={<CompanyLicensesPage />} />
-                <Route path="/sba-loans" element={<SBALoansPage />} />
-                <Route path="/commercial-loans" element={<CommercialLoansPage />} />
-                <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
-                <Route path="/capital-markets" element={<BusinessCapitalPage />} />
-                <Route path="/resources" element={<ResourcesPage />} />
-                <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
-                <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
-                <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
-                <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
-                <Route path="/usda-rural-development" element={<USDARunalDevelopmentPage />} />
-                <Route path="/contact-us" element={<ContactUsPage />} />
-                
-                <Route path="/working-capital" element={<WorkingCapitalPage />} />
-                <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
-                <Route path="/sba-loan-application" element={<SBALoanApplication />} />
-                <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
-                <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
-                <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
-                <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
-                <Route path="/term-loan-application" element={<TermLoanApplication />} />
-                <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
-                <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
-                <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
-                <Route path="/careers" element={<CareersPage />} />
-                <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
-                <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
-                <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
-                <Route path="/construction-loans" element={<ConstructionLoansPage />} />
-                <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
-                <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
-                <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
-                <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
-                <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
-                <Route path="/term-loans" element={<TermLoansPage />} />
-                <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
-                <Route path="/loan-calculator" element={<LoanCalculatorPageTest />} />
-                <Route path="/loan-calculator-full" element={<LoanCalculatorPage />} />
-                
-                <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
-                <Route path="/how-it-works" element={<HowItWorksPage />} />
-                <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
-                <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-                <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-                <Route path="/cfipa" element={<CFIPAPage />} />
-                <Route path="/accessibility" element={<AccessibilityPage />} />
-                <Route path="/sitemap" element={<SiteMapPage />} />
-                <Route path="/customer-service" element={<CustomerServicePage />} />
-                <Route path="/technical-support" element={<TechnicalSupportPage />} />
-                <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
-                <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
-                
-                <Route path="/soc-compliance" element={<SOCCompliancePage />} />
-                <Route path="/security" element={<SecurityPage />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-      
-    </ErrorBoundary>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/referral-partners" element={<ReferralPartnersPage />} />
+            <Route path="/brokers" element={<BrokersPage />} />
+            <Route path="/lenders" element={<LendersPage />} />
+            <Route path="/company-overview" element={<CompanyOverview />} />
+            <Route path="/company-licenses" element={<CompanyLicensesPage />} />
+            <Route path="/sba-loans" element={<SBALoansPage />} />
+            <Route path="/commercial-loans" element={<CommercialLoansPage />} />
+            <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
+            <Route path="/capital-markets" element={<BusinessCapitalPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
+            <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
+            <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
+            <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
+            <Route path="/usda-rural-development" element={<USDARunalDevelopmentPage />} />
+            <Route path="/contact-us" element={<ContactUsPage />} />
+            
+            <Route path="/working-capital" element={<WorkingCapitalPage />} />
+            <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
+            <Route path="/sba-loan-application" element={<SBALoanApplication />} />
+            <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
+            <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
+            <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
+            <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
+            <Route path="/term-loan-application" element={<TermLoanApplication />} />
+            <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
+            <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
+            <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
+            <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
+            <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
+            <Route path="/construction-loans" element={<ConstructionLoansPage />} />
+            <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
+            <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
+            <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
+            <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
+            <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
+            <Route path="/term-loans" element={<TermLoansPage />} />
+            <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
+            <Route path="/loan-calculator" element={<LoanCalculatorPageTest />} />
+            <Route path="/loan-calculator-full" element={<LoanCalculatorPage />} />
+            
+            <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
+            <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+            <Route path="/cfipa" element={<CFIPAPage />} />
+            <Route path="/accessibility" element={<AccessibilityPage />} />
+            <Route path="/sitemap" element={<SiteMapPage />} />
+            <Route path="/customer-service" element={<CustomerServicePage />} />
+            <Route path="/technical-support" element={<TechnicalSupportPage />} />
+            <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
+            <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
+            
+            <Route path="/soc-compliance" element={<SOCCompliancePage />} />
+            <Route path="/security" element={<SecurityPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </SimpleErrorBoundary>
   );
 };
 
