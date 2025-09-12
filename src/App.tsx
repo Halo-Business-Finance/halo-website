@@ -1,6 +1,4 @@
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense, useEffect } from "react";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
@@ -151,13 +149,10 @@ const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
-          <PerformanceMonitor />
-          <DisclaimerPopup />
-          <BrowserRouter>
+      {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
+      <PerformanceMonitor />
+      <DisclaimerPopup />
+      <BrowserRouter>
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -225,7 +220,7 @@ const App: React.FC = () => {
               </Routes>
             </Suspense>
           </BrowserRouter>
-      </TooltipProvider>
+      
     </ErrorBoundary>
   );
 };
