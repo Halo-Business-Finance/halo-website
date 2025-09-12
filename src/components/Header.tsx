@@ -275,7 +275,7 @@ const Header = () => {
             
             {/* Logo - full width display */}
             <Link to="/" className="flex items-center flex-1 lg:flex-none -ml-3">
-              <span className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gray-900 whitespace-nowrap leading-none">
+              <span className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
