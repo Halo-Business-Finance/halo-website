@@ -19,7 +19,7 @@ const BusinessLineOfCreditPage = () => {
               <div className="flex items-center gap-4 mb-6">
                 <Badge className="bg-white text-primary">Flexible Access</Badge>
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-6">Business Line of Credit</h1>
+              <h1 className="text-2xl md:text-3xl font-bold mb-6">Business Line of Credit</h1>
               <p className="text-xl mb-8 opacity-90">
                 Revolving credit facility that provides flexible access to capital when you need it most.
               </p>

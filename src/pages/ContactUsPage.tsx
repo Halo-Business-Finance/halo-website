@@ -32,7 +32,7 @@ const ContactUsPage = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">Contact Us</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-6">Contact Us</h1>
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               Get in touch with our business financing experts. We're here to help you find the right loan solution for your business.
             </p>

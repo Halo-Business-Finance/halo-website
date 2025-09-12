@@ -21,7 +21,7 @@ const EquipmentLeasingPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Flexible Solutions</Badge>
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">Equipment Leasing</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-6">Equipment Leasing</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Lease the equipment you need with lower monthly payments and flexible end-of-term options. Perfect for businesses that need to stay current with technology.
             </p>

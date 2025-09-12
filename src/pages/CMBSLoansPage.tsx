@@ -42,7 +42,7 @@ const CMBSLoansPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Commercial Mortgage-Backed Securities</Badge>
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">CMBS Loans</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-6">CMBS Loans</h1>
             <p className="text-xl mb-8 opacity-90 max-w-4xl mx-auto">
               Access the deepest pool of commercial real estate capital through our CMBS loan program. 
               Benefit from competitive rates, non-recourse structures, and flexible terms for your commercial property financing needs.
