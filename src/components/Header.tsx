@@ -263,10 +263,10 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center lg:h-12 px-1 py-4 sm:px-6">
+          <div className="flex items-center lg:h-12 px-0 py-4 sm:px-4">
             {/* Mobile Menu Button - positioned further left */}
             <button 
-              className="lg:hidden p-1 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80] mr-3"
+              className="lg:hidden p-1 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80] mr-2 ml-1"
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
@@ -274,7 +274,7 @@ const Header = () => {
             </button>
             
             {/* Logo - full width display */}
-            <Link to="/" className="flex items-center flex-1 lg:flex-none -ml-2">
+            <Link to="/" className="flex items-center flex-1 lg:flex-none -ml-3">
               <span className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
