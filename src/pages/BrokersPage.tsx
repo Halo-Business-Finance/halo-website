@@ -186,37 +186,37 @@ const BrokersPage = () => {
       <MarketplaceOverview />
 
       {/* Contact Section */}
-      <section className="py-16 text-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl md:text-4xl font-bold mb-6">
+            <h3 className="text-2xl md:text-4xl font-bold mb-6 text-foreground">
               Ready to Get Started?
             </h3>
-            <p className="text-lg md:text-xl text-blue-100 mb-8">
+            <p className="text-lg md:text-xl text-foreground mb-8">
               Contact our broker partnership team to learn more about joining our network.
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <Card className="bg-white/10 border-white/20 text-white">
+              <Card className="bg-white border border-gray-200">
                 <CardContent className="p-6 text-center">
-                  <Phone className="h-8 w-8 mx-auto mb-4 text-white" />
-                  <h4 className="text-lg font-semibold mb-2">Call Us</h4>
-                  <p className="text-blue-100">(800) 730-8461</p>
-                  <p className="text-sm text-blue-200">Broker Partnership Line</p>
+                  <Phone className="h-8 w-8 mx-auto mb-4 text-primary" />
+                  <h4 className="text-lg font-semibold mb-2 text-foreground">Call Us</h4>
+                  <p className="text-foreground">(800) 730-8461</p>
+                  <p className="text-sm text-foreground">Broker Partnership Line</p>
                 </CardContent>
               </Card>
               
-              <Card className="bg-white/10 border-white/20 text-white">
+              <Card className="bg-white border border-gray-200">
                 <CardContent className="p-6 text-center">
-                  <Mail className="h-8 w-8 mx-auto mb-4 text-white" />
-                  <h4 className="text-lg font-semibold mb-2">Email Us</h4>
-                  <p className="text-blue-100">brokers@halobusinessfinance.com</p>
-                  <p className="text-sm text-blue-200">Partnership Inquiries</p>
+                  <Mail className="h-8 w-8 mx-auto mb-4 text-primary" />
+                  <h4 className="text-lg font-semibold mb-2 text-foreground">Email Us</h4>
+                  <p className="text-foreground">brokers@halobusinessfinance.com</p>
+                  <p className="text-sm text-foreground">Partnership Inquiries</p>
                 </CardContent>
               </Card>
             </div>
 
-            <Button size="lg" className="bg-white text-primary font-semibold" asChild>
+            <Button size="lg" className="bg-primary text-white font-semibold" asChild>
               <a href="https://preview--hbf-application.lovable.app/auth">
                 Apply Now
                 <ArrowRight className="h-5 w-5 ml-2" />
