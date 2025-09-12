@@ -1,24 +1,10 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
-import { SecurityHeaders } from "@/components/security/SecurityHeaders";
-import { SecurityMonitor } from "@/components/security/SecurityMonitor";
-import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
-import { SessionManager } from "@/components/security/SessionManager";
-import { AuthProvider } from "@/components/auth/AuthProvider";
-import { SecureAuthProvider } from "@/components/security/SecureAuthProvider";
-import { ProductionSecurityProvider } from "@/components/security/ProductionSecurityProvider";
-import { EnhancedSecurityProvider } from "@/components/security/EnhancedSecurityProvider";
-import { SecurityHeadersProvider } from "@/components/security/SecurityHeadersProvider";
-import { SecurityAlertSystem } from "@/components/security/SecurityAlertSystem";
-import { SecureCSPProvider } from "@/components/security/SecureCSPProvider";
-import { EnhancedSecurityHeaders } from "@/components/security/EnhancedSecurityHeaders";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
-import { SecureDataProvider } from "@/components/security/SecureDataProvider";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
 
 // Preload critical pages (above the fold)
@@ -110,16 +96,6 @@ const LoadingFallback = () => (
   </div>
 );
 
-// Optimize QueryClient for better performance
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 const App = () => {
   // Initialize performance optimizations
@@ -158,8 +134,7 @@ const App = () => {
   }, []);
 
   return (
-  <SecureDataProvider>
-    <TooltipProvider>
+  <TooltipProvider>
     <Toaster />
           <Sonner />
           {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
@@ -244,7 +219,7 @@ const App = () => {
             </Suspense>
           </BrowserRouter>
           </TooltipProvider>
-        </SecureDataProvider>
+        
   );
 };
 
