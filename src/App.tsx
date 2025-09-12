@@ -128,15 +128,19 @@ const App = () => {
       // Critical resource preloading
       preloadCriticalResources();
       addResourceHints();
-      
-      // Service worker disabled in preview to avoid caching issues
-      // if ('serviceWorker' in navigator && import.meta.env.PROD) {
-      //   try {
-      //     await navigator.serviceWorker.register('/sw.js');
-      //   } catch (error) {
-      //     console.error('SW registration failed:', error);
-      //   }
-      // }
+      // Force-unregister any existing service workers and clear caches (preview safety)
+      if ('serviceWorker' in navigator) {
+        try {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(regs.map((r) => r.unregister()));
+          if ('caches' in window) {
+            const keys = await caches.keys();
+            await Promise.all(keys.map((k) => caches.delete(k)));
+          }
+        } catch (e) {
+          console.warn('SW cleanup issue:', e);
+        }
+      }
       
       // Inject critical CSS
       const criticalCSS = `
@@ -156,7 +160,7 @@ const App = () => {
   return (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <ProductionSecurityProvider>
+      
         <SecureDataProvider>
           <TooltipProvider>
           <Toaster />
@@ -244,7 +248,7 @@ const App = () => {
           </BrowserRouter>
           </TooltipProvider>
         </SecureDataProvider>
-      </ProductionSecurityProvider>
+      
     </AuthProvider>
   </QueryClientProvider>
   );
