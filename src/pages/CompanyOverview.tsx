@@ -68,10 +68,10 @@ const CompanyOverview = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-2xl md:text-5xl font-bold mb-6">
               About Halo Business Finance
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
+            <p className="text-lg md:text-2xl mb-8 opacity-90">
               Nationwide SBA, Commercial and Equipment Loan Marketplace
             </p>
             <p className="text-lg opacity-80">
@@ -86,10 +86,10 @@ const CompanyOverview = () => {
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl md:text-4xl font-bold mb-4">
               Our Streamlined Loan Process
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg md:text-xl text-muted-foreground">
               We make commercial lending simple
             </p>
           </div>
@@ -257,10 +257,10 @@ const CompanyOverview = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl md:text-4xl font-bold mb-4">
               Our Marketplace Benefits
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg md:text-xl text-muted-foreground">
               Our commercial loan marketplace helps borrowers get the best interest rate 
               without the hassle of looking for a lender.
             </p>

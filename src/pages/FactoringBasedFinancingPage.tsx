@@ -15,7 +15,7 @@ const FactoringBasedFinancingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Flexible Payments</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Factoring-Based Financing</h1>
+            <h1 className="text-2xl md:text-5xl font-bold mb-6">Factoring-Based Financing</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Financing that grows with your business. Pay a percentage of revenue instead of fixed monthly payments. Perfect for seasonal or growing businesses.
             </p>

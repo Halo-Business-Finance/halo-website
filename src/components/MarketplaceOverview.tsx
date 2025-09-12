@@ -78,10 +78,10 @@ const MarketplaceOverview = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <Badge className="mb-4" variant="secondary">Nationwide Loan Marketplace</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6">
             The Nation's Leading Commercial Loan Marketplace
           </h2>
-          <p className="text-xl text-foreground max-w-4xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto mb-8">
             Connect with 150+ verified lenders across all 50 states through our comprehensive marketplace platform. 
             From community banks to national institutions, find the perfect financing partner for your business needs.
           </p>

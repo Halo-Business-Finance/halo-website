@@ -114,10 +114,10 @@ const CompanyLicensesPage = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center text-white">
               <Badge className="bg-white text-primary mb-4">Fully Licensed & Compliant</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-2xl md:text-5xl font-bold mb-6">
                 Company Licenses & Regulatory Compliance
               </h1>
-              <p className="text-xl md:text-2xl mb-8 opacity-90">
+              <p className="text-lg md:text-2xl mb-8 opacity-90">
                 Transparency in our licensing and regulatory compliance
               </p>
               <p className="text-lg opacity-80">

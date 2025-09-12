@@ -53,7 +53,7 @@ const HowItWorksPage = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
+            <h1 className="text-2xl md:text-5xl font-bold mb-6">How It Works</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Our streamlined process connects you with the right lenders for your business financing needs. Get pre-qualified and funded quickly through our marketplace.
             </p>

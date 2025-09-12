@@ -488,7 +488,7 @@ const ProductsSection = () => {
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
             <span className="text-financial-navy">
               Comprehensive Business
             </span>

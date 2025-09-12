@@ -93,10 +93,10 @@ const EquipmentFinancingPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-2xl md:text-5xl font-bold mb-6">
                 Equipment Financing That Powers Your Business
               </h1>
-              <p className="text-xl mb-8 opacity-90">
+              <p className="text-lg md:text-xl mb-8 opacity-90">
                 From construction equipment to medical devices, we provide flexible financing solutions to help you acquire the equipment your business needs to thrive.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">

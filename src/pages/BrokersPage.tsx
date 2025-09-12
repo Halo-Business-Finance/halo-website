@@ -71,10 +71,10 @@ const BrokersPage = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6">
               Partner With Halo Business Finance
             </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               Join our network of successful brokers and grow your business with access to competitive loan products, superior support, and industry-leading commissions.
             </p>
             <div className="flex justify-center">
@@ -90,10 +90,10 @@ const BrokersPage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
               Why Partner With Us?
             </h2>
-            <p className="text-xl text-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-foreground max-w-2xl mx-auto">
               We provide everything you need to succeed as a commercial loan broker.
             </p>
           </div>
@@ -105,7 +105,7 @@ const BrokersPage = () => {
                   <div className="flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h4 className="text-xl font-semibold text-foreground mb-3">
+                  <h4 className="text-lg md:text-xl font-semibold text-foreground mb-3">
                     {benefit.title}
                   </h4>
                   <p className="text-foreground">
@@ -123,10 +123,10 @@ const BrokersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold text-foreground mb-4">
+              <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
                 Commission Structure
               </h3>
-              <p className="text-xl text-foreground">
+              <p className="text-lg md:text-xl text-foreground">
                 Transparent and competitive commission rates based on loan volume.
               </p>
             </div>
@@ -162,10 +162,10 @@ const BrokersPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold text-foreground mb-4">
+              <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
                 What You Get as a Partner
               </h3>
-              <p className="text-xl text-foreground">
+              <p className="text-lg md:text-xl text-foreground">
                 Comprehensive support and resources to maximize your success.
               </p>
             </div>
@@ -189,10 +189,10 @@ const BrokersPage = () => {
       <section className="py-16 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-4xl font-bold mb-6">
+            <h3 className="text-2xl md:text-4xl font-bold mb-6">
               Ready to Get Started?
             </h3>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-lg md:text-xl text-blue-100 mb-8">
               Contact our broker partnership team to learn more about joining our network.
             </p>
             
