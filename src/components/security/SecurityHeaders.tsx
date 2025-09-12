@@ -8,7 +8,7 @@ export const SecurityHeaders = () => {
     
     // Security Headers - Updated for Lovable compatibility
     const securityHeaders = {
-      'X-Frame-Options': 'SAMEORIGIN', // Changed from DENY to allow Lovable iframe
+      'X-Frame-Options': 'ALLOWALL', // Allow embedding (Lovable preview, public site)
       'X-Content-Type-Options': 'nosniff',
       'X-XSS-Protection': '1; mode=block',
       'Referrer-Policy': 'strict-origin-when-cross-origin',
