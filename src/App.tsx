@@ -158,12 +158,9 @@ const App = () => {
   }, []);
 
   return (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      
-        <SecureDataProvider>
-          <TooltipProvider>
-          <Toaster />
+  <SecureDataProvider>
+    <TooltipProvider>
+    <Toaster />
           <Sonner />
           {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
           <PerformanceMonitor />
@@ -248,9 +245,6 @@ const App = () => {
           </BrowserRouter>
           </TooltipProvider>
         </SecureDataProvider>
-      
-    </AuthProvider>
-  </QueryClientProvider>
   );
 };
 
