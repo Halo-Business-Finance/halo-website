@@ -52,7 +52,7 @@ const HowItWorksPage = () => {
         />
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center text-white">
+          <div className="text-left text-white">
             <h1 className="text-3xl md:text-4xl font-bold mb-6">How It Works</h1>
             <p className="text-lg mb-8 opacity-90 max-w-3xl mx-auto">
               Our streamlined process connects you with the right lenders for your business financing needs. Get pre-qualified and funded quickly through our marketplace.
@@ -64,7 +64,7 @@ const HowItWorksPage = () => {
       {/* Our Streamlined Loan Process Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-left mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Our Streamlined Loan Process
             </h2>
@@ -111,7 +111,7 @@ const HowItWorksPage = () => {
           </div>
           
           {/* Text content below process steps */}
-          <div className="text-center mt-12">
+          <div className="text-left mt-12">
             <h3 className="text-xl md:text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
             
             {/* Get Started Button */}
@@ -137,7 +137,7 @@ const HowItWorksPage = () => {
         <div className="container mx-auto px-4">
           {/* Why Our Marketplace Works Section */}
           <div className="mb-16">
-            <div className="text-center mb-12">
+            <div className="text-left mb-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Our Marketplace Works</h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 Our platform creates a win-win environment where borrowers get better access to capital and lenders connect with qualified opportunities.
@@ -249,7 +249,7 @@ const HowItWorksPage = () => {
       {/* Why Choose Halo Business Finance Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-left mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Why Choose Halo Business Finance?
             </h2>
@@ -260,9 +260,9 @@ const HowItWorksPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-0 shadow-none group">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-left">
                 <div className="mb-4">
-                  <TrendingUp className="h-8 w-8 text-primary mx-auto mb-4" />
+                  <TrendingUp className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     SBA Loan Expertise
                   </h3>
@@ -277,9 +277,9 @@ const HowItWorksPage = () => {
               </CardContent>
             </Card>
             <Card className="border-0 shadow-none group">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-left">
                 <div className="mb-4">
-                  <Shield className="h-8 w-8 text-primary mx-auto mb-4" />
+                  <Shield className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Secure & Compliant
                   </h3>
@@ -294,9 +294,9 @@ const HowItWorksPage = () => {
               </CardContent>
             </Card>
             <Card className="border-0 shadow-none group">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-left">
                 <div className="mb-4">
-                  <Clock className="h-8 w-8 text-primary mx-auto mb-4" />
+                  <Clock className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Fast Approval Process
                   </h3>
@@ -313,9 +313,9 @@ const HowItWorksPage = () => {
               </CardContent>
             </Card>
             <Card className="border-0 shadow-none group">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-left">
                 <div className="mb-4">
-                  <Building2 className="h-8 w-8 text-primary mx-auto mb-4" />
+                  <Building2 className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Commercial Lending Focus
                   </h3>
@@ -330,9 +330,9 @@ const HowItWorksPage = () => {
               </CardContent>
             </Card>
             <Card className="border-0 shadow-none group">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-left">
                 <div className="mb-4">
-                  <Landmark className="h-8 w-8 text-primary mx-auto mb-4" />
+                  <Landmark className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     Dedicated Loan Officers
                   </h3>
@@ -347,7 +347,7 @@ const HowItWorksPage = () => {
               </CardContent>
             </Card>
             <Card className="border-0 shadow-none group">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-left">
                 <div className="mb-4">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="h-8 w-8 text-primary" />
@@ -368,7 +368,7 @@ const HowItWorksPage = () => {
           </div>
 
           {/* Enhanced Call to action with business image */}
-          <div className="text-center mt-16">
+          <div className="text-left mt-16">
                 <div className="relative overflow-hidden rounded-2xl max-w-4xl mx-auto">
                   <img 
                     src={successfulLoanHandshake} 
@@ -382,7 +382,7 @@ const HowItWorksPage = () => {
                     alt="SBA & Commercial Loan Marketplace"
                     className="h-12 w-auto"
                   />
-                  <div className="text-center md:text-left">
+                  <div className="text-left md:text-left">
                     <h3 className="text-xl md:text-2xl font-bold mb-2">
                       Ready to Fuel Your Business Growth?
                     </h3>
@@ -391,7 +391,7 @@ const HowItWorksPage = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-start">
                   <Button size="lg" className="bg-white text-primary font-semibold" asChild>
                     <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
                   </Button>
@@ -412,7 +412,7 @@ const HowItWorksPage = () => {
       {/* Data Driven Success Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-left mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Data-Driven Success
             </h2>
