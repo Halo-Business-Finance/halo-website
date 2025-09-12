@@ -34,15 +34,15 @@ export const getSecurityConfig = (): SecurityConfig => {
   
   return {
   monitoring: {
-    frequency: isProduction ? 3600000 : 900000, // 1 hour in prod, 15 min in dev (drastically reduced)
-    behavioralCheckFrequency: isProduction ? 7200000 : 1800000, // 2 hours in prod, 30 min in dev (drastically reduced)
-    devToolsCheckFrequency: isProduction ? 300000 : 60000, // 5 min in prod, 1 min in dev (drastically reduced)
+    frequency: isProduction ? 7200000 : 3600000, // 2 hours in prod, 1 hour in dev (further reduced)
+    behavioralCheckFrequency: isProduction ? 14400000 : 7200000, // 4 hours in prod, 2 hours in dev (further reduced)
+    devToolsCheckFrequency: isProduction ? 1800000 : 300000, // 30 min in prod, 5 min in dev (reduced)
     enableConsoleMonitoring: false, // Disabled to reduce noise
     enableDOMMonitoring: false, // Completely disabled - major noise source
     enableBehavioralAnalysis: false, // Completely disabled in all environments
   },
   logging: {
-    maxEventRetention: isProduction ? 3600000 : 1800000, // 1h in prod, 30min in dev (drastically reduced)
+    maxEventRetention: isProduction ? 7200000 : 3600000, // 2h in prod, 1h in dev (further reduced)
     logSensitivity: 'minimal', // Always minimal to reduce event volume
     enableClientLogging: false, // Disabled to reduce noise
     blockNoiseEvents: true, // Block client_log and similar noise events

@@ -154,110 +154,95 @@ const App = () => {
 
   return (
   <QueryClientProvider client={queryClient}>
-    <SecurityHeadersProvider>
+    <AuthProvider>
       <ProductionSecurityProvider>
-        <FormSecurityProvider>
-          <SessionManager>
-            <AuthProvider>
-              <SecureCSPProvider enableStrictCSP={true}>
-                <EnhancedSecurityProvider>
-                  <SecureAuthProvider>
-                    <TooltipProvider>
-                      <Toaster />
-                      <Sonner />
-                      <SecurityHeaders />
-                      <EnhancedSecurityHeaders />
-                      <SecurityMonitor />
-                      <PerformanceMonitor />
-                      <DisclaimerPopup />
-                      <BrowserRouter>
-                        <SecurityAlertSystem />
-          <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/admin-setup" element={<AdminInitializerPage />} />
-            <Route path="/referral-partners" element={<ReferralPartnersPage />} />
-            <Route path="/brokers" element={<BrokersPage />} />
-            <Route path="/lenders" element={<LendersPage />} />
-            <Route path="/company-overview" element={<CompanyOverview />} />
-            <Route path="/company-licenses" element={<CompanyLicensesPage />} />
-            <Route path="/sba-loans" element={<SBALoansPage />} />
-            <Route path="/commercial-loans" element={<CommercialLoansPage />} />
-            <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
-            <Route path="/capital-markets" element={<BusinessCapitalPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
-            <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
-            <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
-            <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
-            <Route path="/usda-rural-development" element={<USDARunalDevelopmentPage />} />
-            <Route path="/contact-us" element={<ContactUsPage />} />
-            
-            <Route path="/working-capital" element={<WorkingCapitalPage />} />
-            <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
-            <Route path="/sba-loan-application" element={<SBALoanApplication />} />
-            <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
-            <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
-            <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
-            <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
-            <Route path="/term-loan-application" element={<TermLoanApplication />} />
-            <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
-            <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
-            <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
-            <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
-            <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
-            <Route path="/construction-loans" element={<ConstructionLoansPage />} />
-            <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
-            <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
-            <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
-            <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
-            <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
-            <Route path="/term-loans" element={<TermLoansPage />} />
-            <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
-            <Route path="/loan-calculator" element={<LoanCalculatorPageTest />} />
-            <Route path="/loan-calculator-full" element={<LoanCalculatorPage />} />
-            
-            <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
-            <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
-            <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-            <Route path="/cfipa" element={<CFIPAPage />} />
-            <Route path="/accessibility" element={<AccessibilityPage />} />
-            <Route path="/sitemap" element={<SiteMapPage />} />
-            <Route path="/customer-service" element={<CustomerServicePage />} />
-            <Route path="/technical-support" element={<TechnicalSupportPage />} />
-            <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
-            <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
-            
-            <Route path="/soc-compliance" element={<SOCCompliancePage />} />
-            <Route path="/security" element={<SecurityPage />} />
-            <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
-            <Route path="/zero-trust" element={<ZeroTrustPage />} />
-            <Route path="/admin-signup" element={<AdminSignupPage />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/users" element={<AdminUsers />} />
-            <Route path="/admin/consultations" element={<AdminConsultations />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-                      </BrowserRouter>
-                    </TooltipProvider>
-                  </SecureAuthProvider>
-                </EnhancedSecurityProvider>
-              </SecureCSPProvider>
-            </AuthProvider>
-          </SessionManager>
-        </FormSecurityProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <SecurityHeaders />
+          <PerformanceMonitor />
+          <DisclaimerPopup />
+          <BrowserRouter>
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/admin-setup" element={<AdminInitializerPage />} />
+                <Route path="/referral-partners" element={<ReferralPartnersPage />} />
+                <Route path="/brokers" element={<BrokersPage />} />
+                <Route path="/lenders" element={<LendersPage />} />
+                <Route path="/company-overview" element={<CompanyOverview />} />
+                <Route path="/company-licenses" element={<CompanyLicensesPage />} />
+                <Route path="/sba-loans" element={<SBALoansPage />} />
+                <Route path="/commercial-loans" element={<CommercialLoansPage />} />
+                <Route path="/equipment-financing" element={<EquipmentFinancingPage />} />
+                <Route path="/capital-markets" element={<BusinessCapitalPage />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/sba-7a-loans" element={<SBA7aLoansPage />} />
+                <Route path="/sba-504-loans" element={<SBA504LoansPage />} />
+                <Route path="/sba-express-loans" element={<SBAExpressLoansPage />} />
+                <Route path="/usda-bi-loans" element={<USDABILoansPage />} />
+                <Route path="/usda-rural-development" element={<USDARunalDevelopmentPage />} />
+                <Route path="/contact-us" element={<ContactUsPage />} />
+                
+                <Route path="/working-capital" element={<WorkingCapitalPage />} />
+                <Route path="/business-line-of-credit" element={<BusinessLineOfCreditPage />} />
+                <Route path="/sba-loan-application" element={<SBALoanApplication />} />
+                <Route path="/sba-504-application" element={<SBA504LoanApplication />} />
+                <Route path="/bridge-loan-application" element={<BridgeLoanApplication />} />
+                <Route path="/conventional-loan-application" element={<ConventionalLoanApplication />} />
+                <Route path="/business-line-of-credit-application" element={<BusinessLineOfCreditApplication />} />
+                <Route path="/term-loan-application" element={<TermLoanApplication />} />
+                <Route path="/equipment-loan-application" element={<EquipmentLoanApplication />} />
+                <Route path="/working-capital-application" element={<WorkingCapitalApplication />} />
+                <Route path="/commercial-real-estate-application" element={<CommercialRealEstateApplication />} />
+                <Route path="/careers" element={<CareersPage />} />
+                <Route path="/conventional-loans" element={<ConventionalLoansPage />} />
+                <Route path="/cmbs-loans" element={<CMBSLoansPage />} />
+                <Route path="/portfolio-loans" element={<PortfolioLoansPage />} />
+                <Route path="/construction-loans" element={<ConstructionLoansPage />} />
+                <Route path="/bridge-financing" element={<BridgeFinancingPage />} />
+                <Route path="/equipment-loans" element={<EquipmentLoansPage />} />
+                <Route path="/equipment-leasing" element={<EquipmentLeasingPage />} />
+                <Route path="/heavy-equipment" element={<HeavyEquipmentPage />} />
+                <Route path="/medical-equipment" element={<MedicalEquipmentPage />} />
+                <Route path="/term-loans" element={<TermLoansPage />} />
+                <Route path="/factoring-based-financing" element={<FactoringBasedFinancingPage />} />
+                <Route path="/loan-calculator" element={<LoanCalculatorPageTest />} />
+                <Route path="/loan-calculator-full" element={<LoanCalculatorPage />} />
+                
+                <Route path="/industry-solutions" element={<IndustrySolutionsPage />} />
+                <Route path="/how-it-works" element={<HowItWorksPage />} />
+                <Route path="/marketplace-benefits" element={<MarketplaceBenefitsPage />} />
+                <Route path="/nmls-compliance" element={<NMLSCompliancePage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                <Route path="/cfipa" element={<CFIPAPage />} />
+                <Route path="/accessibility" element={<AccessibilityPage />} />
+                <Route path="/sitemap" element={<SiteMapPage />} />
+                <Route path="/customer-service" element={<CustomerServicePage />} />
+                <Route path="/technical-support" element={<TechnicalSupportPage />} />
+                <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
+                <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
+                
+                <Route path="/soc-compliance" element={<SOCCompliancePage />} />
+                <Route path="/security" element={<SecurityPage />} />
+                <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
+                <Route path="/zero-trust" element={<ZeroTrustPage />} />
+                <Route path="/admin-signup" element={<AdminSignupPage />} />
+                
+                {/* Admin Routes */}
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/users" element={<AdminUsers />} />
+                <Route path="/admin/consultations" element={<AdminConsultations />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
       </ProductionSecurityProvider>
-    </SecurityHeadersProvider>
+    </AuthProvider>
   </QueryClientProvider>
   );
 };
