@@ -270,12 +270,12 @@ const Header = () => {
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
-              <Menu className="h-5 w-5 text-gray-600" />
+              <Menu className="h-6 w-6 text-gray-600" />
             </button>
             
             {/* Logo - centered on mobile/tablet */}
             <Link to="/" className="flex items-center justify-center flex-1 lg:flex-none">
-              <span className="text-sm lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+              <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
