@@ -62,7 +62,7 @@ const BrokersPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-32 overflow-hidden">
         <img 
           src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0" 
           alt="Industrial warehouse representing broker services"
