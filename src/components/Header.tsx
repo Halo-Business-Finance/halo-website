@@ -270,7 +270,7 @@ const Header = () => {
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
-              <Menu className="h-7 w-7 text-gray-600" />
+              <Menu className="h-8 w-8 text-gray-600" />
             </button>
             
             {/* Logo - full width display */}
