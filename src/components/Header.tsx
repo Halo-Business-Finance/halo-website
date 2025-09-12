@@ -93,7 +93,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="relative bg-white z-40">
+    <header className="relative bg-white z-30">
       {/* Primary Navigation Bar - Hidden on mobile, only visible on desktop */}
       <div className="hidden lg:block">
         <div className="max-w-7xl mx-auto">
@@ -266,11 +266,11 @@ const Header = () => {
           <div className="flex items-center justify-between h-6 lg:h-12 px-3 py-1 sm:px-6">
             {/* Mobile Menu Button - left side on mobile */}
             <button 
-              className="lg:hidden p-1.5 lg:p-2 rounded-md hover:bg-gray-100 flex items-center justify-center"
+              className="lg:hidden p-2 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
-              <Menu className="h-5 w-5 lg:h-6 lg:w-6 text-gray-600" />
+              <Menu className="h-6 w-6 text-gray-600" />
             </button>
             
             {/* Logo - centered on mobile/tablet */}
@@ -334,21 +334,21 @@ const Header = () => {
       {isOpen && (
         <>
           <div 
-            className="fixed inset-0 bg-black/60 z-40 lg:hidden transition-opacity duration-300"
+            className="fixed inset-0 bg-black/60 z-[60] lg:hidden transition-opacity duration-300"
             onClick={() => setIsOpen(false)}
           />
           
-          <div className="fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 shadow-2xl overflow-y-auto lg:hidden transform transition-transform duration-300 ease-in-out">
+          <div className="fixed top-0 left-0 h-full w-full max-w-sm bg-white z-[70] shadow-2xl overflow-y-auto lg:hidden transform transition-transform duration-300 ease-in-out">
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 flex justify-between items-center">
+            <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-4 flex justify-between items-center">
               <h2 className="text-lg font-bold text-gray-900">HALO BUSINESS FINANCE</h2>
               <Button 
                 variant="ghost" 
                 size="sm"
                 onClick={() => setIsOpen(false)}
-                className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
+                className="h-10 w-10 p-0 hover:bg-gray-100 rounded-full flex items-center justify-center"
               >
-                <span className="text-2xl text-gray-500">×</span>
+                <span className="text-3xl text-gray-500 leading-none">×</span>
               </Button>
             </div>
             
