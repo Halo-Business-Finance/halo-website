@@ -12,8 +12,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 // Lazy load all other pages for better performance
-const AuthPage = lazy(() => import("./pages/AuthPage"));
-const AdminInitializerPage = lazy(() => import("./pages/AdminInitializerPage"));
 const ReferralPartnersPage = lazy(() => import("./pages/ReferralPartnersPage"));
 const BrokersPage = lazy(() => import("./pages/BrokersPage"));
 const LendersPage = lazy(() => import("./pages/LendersPage"));
@@ -64,14 +62,6 @@ const AssetBasedLoansPage = lazy(() => import("./pages/AssetBasedLoansPage"));
 
 const SecurityPage = lazy(() => import("./pages/SecurityPage"));
 const SOCCompliancePage = lazy(() => import("./pages/SOCCompliancePage"));
-const SecurityDashboardPage = lazy(() => import("./pages/SecurityDashboardPage"));
-const ZeroTrustPage = lazy(() => import("./pages/ZeroTrustPage"));
-const AdminSignupPage = lazy(() => import("./pages/AdminSignupPage"));
-
-// Admin Pages
-const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
-const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
-const AdminConsultations = lazy(() => import("./pages/admin/AdminConsultations"));
 
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
@@ -171,8 +161,6 @@ const App: React.FC = () => {
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/auth" element={<AuthPage />} />
-                <Route path="/admin-setup" element={<AdminInitializerPage />} />
                 <Route path="/referral-partners" element={<ReferralPartnersPage />} />
                 <Route path="/brokers" element={<BrokersPage />} />
                 <Route path="/lenders" element={<LendersPage />} />
@@ -232,14 +220,6 @@ const App: React.FC = () => {
                 
                 <Route path="/soc-compliance" element={<SOCCompliancePage />} />
                 <Route path="/security" element={<SecurityPage />} />
-                <Route path="/security-dashboard" element={<SecurityDashboardPage />} />
-                <Route path="/zero-trust" element={<ZeroTrustPage />} />
-                <Route path="/admin-signup" element={<AdminSignupPage />} />
-                
-                {/* Admin Routes */}
-                <Route path="/admin" element={<AdminDashboard />} />
-                <Route path="/admin/users" element={<AdminUsers />} />
-                <Route path="/admin/consultations" element={<AdminConsultations />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

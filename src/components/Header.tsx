@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Phone, ChevronDown, Shield, User, LogOut, Lock, LayoutDashboard, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/components/auth/AuthProvider";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import {
   DropdownMenu,
@@ -13,7 +12,6 @@ import {
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, signOut, userRole, isAdmin } = useAuth();
 
   const handleMobileMenuToggle = () => {
     setIsOpen(!isOpen);
@@ -248,61 +246,15 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              {user ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-sm font-medium px-3 py-1 h-8 text-gray-700 hover:text-blue-600">
-                      <User className="h-4 w-4 mr-2" />
-                      {user.user_metadata?.display_name || user.email}
-                      <ChevronDown className="h-4 w-4 ml-1" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56">
-                    {userRole && (
-                      <DropdownMenuItem disabled>
-                        <Shield className="h-4 w-4 mr-2" />
-                        Role: {userRole}
-                      </DropdownMenuItem>
-                    )}
-                    {isAdmin && (
-                      <>
-                        <DropdownMenuItem asChild>
-                          <Link to="/admin">
-                            <LayoutDashboard className="h-4 w-4 mr-2" />
-                            Admin Dashboard
-                          </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem asChild>
-                          <Link to="/soc-compliance">
-                            <Award className="h-4 w-4 mr-2" />
-                            SOC Compliance
-                          </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem asChild>
-                          <Link to="/security-dashboard">
-                            <Shield className="h-4 w-4 mr-2" />
-                            Security Dashboard
-                          </Link>
-                        </DropdownMenuItem>
-                      </>
-                    )}
-                    <DropdownMenuItem onClick={signOut}>
-                      <LogOut className="h-4 w-4 mr-2" />
-                      Sign Out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1" 
-                  asChild
-                >
-                  <Link to="/auth">
-                    <Shield className="h-2.5 w-2.5" />
-                    SIGN IN
-                  </Link>
-                </Button>
-              )}
+              <a 
+                href="https://app.halolending.com/login" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors" 
+              >
+                <Shield className="h-2.5 w-2.5" />
+                CLIENT PORTAL
+              </a>
             </div>
           </div>
         </div>
@@ -367,7 +319,7 @@ const Header = () => {
                 className="bg-blue-600 hover:bg-blue-700 text-white text-base font-bold px-4 py-2 rounded-md flex items-center gap-1" 
                 asChild
               >
-                <Link to={user ? "/loan-calculator" : "/auth"}>
+                <Link to="/loan-calculator">
                   <Lock className="h-4 w-4" />
                   Get Started
                 </Link>
@@ -529,16 +481,18 @@ const Header = () => {
                   </div>
                 </div>
                 
-                {/* Sign In Section */}
-                {!user && (
-                  <div className="border-t border-gray-100 pt-4">
-                    <Button className="w-full bg-gray-900 hover:bg-black text-white font-semibold py-3 rounded-lg transition-all duration-200" asChild>
-                      <Link to="/auth" onClick={() => setIsOpen(false)}>
-                        Sign In
-                      </Link>
-                    </Button>
-                  </div>
-                )}
+                {/* Client Portal Section */}
+                <div className="border-t border-gray-100 pt-4">
+                  <a 
+                    href="https://app.halolending.com/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-gray-900 hover:bg-black text-white font-semibold py-3 rounded-lg transition-all duration-200 flex items-center justify-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Client Portal
+                  </a>
+                </div>
               </div>
             </div>
           </div>

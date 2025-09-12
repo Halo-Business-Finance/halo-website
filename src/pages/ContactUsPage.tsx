@@ -9,7 +9,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import contactUsHeader from "@/assets/contact-us-header.jpg";
 import contactConsultationMeeting from "@/assets/contact-consultation-meeting.jpg";
 import customerServiceTeam from "@/assets/customer-service-team.jpg";
-import { SecureContactForm } from "@/components/security/SecureContactForm";
+import ConsultationPopup from "@/components/ConsultationPopup";
 
 const ContactUsPage = () => {
   return (
@@ -105,7 +105,42 @@ const ContactUsPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
-              <SecureContactForm />
+              <Card className="p-6">
+                <CardContent className="p-0">
+                  <h3 className="text-2xl font-semibold mb-6">Schedule a Consultation</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Ready to discuss your business financing needs? Our experts are here to help you find the perfect loan solution.
+                  </p>
+                  <div className="space-y-4">
+                    <ConsultationPopup 
+                      trigger={
+                        <Button className="w-full bg-primary hover:bg-primary/90">
+                          Schedule Free Consultation
+                        </Button>
+                      }
+                    />
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Or call us directly:</p>
+                      <a 
+                        href="tel:+18007308461" 
+                        className="text-lg font-semibold text-primary hover:text-primary/80"
+                      >
+                        (800) 730-8461
+                      </a>
+                    </div>
+                    <div className="text-center">
+                      <a 
+                        href="https://app.halolending.com/apply" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-secondary text-secondary-foreground px-6 py-2 rounded-md hover:bg-secondary/90 transition-colors"
+                      >
+                        Start Application Online
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
