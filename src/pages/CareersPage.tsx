@@ -3,308 +3,344 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Users, MapPin, Clock, Star } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { 
+  Users, 
+  MapPin, 
+  Clock, 
+  Star, 
+  TrendingUp, 
+  Heart, 
+  Award,
+  Briefcase,
+  Building,
+  ChevronRight,
+  Target,
+  Shield,
+  Zap
+} from "lucide-react";
 import careersHeader from "@/assets/careers-header.jpg";
 import teamCollaboration from "@/assets/team-collaboration.jpg";
-import businessDevelopmentTeam from "@/assets/business-development-team.jpg";
-import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
-import careerSuccessCelebration from "@/assets/career-success-celebration.jpg";
-import teamCelebrationSuccess from "@/assets/team-celebration-success.jpg";
-import teamAchievementCelebration from "@/assets/team-achievement-celebration.jpg";
-import teamMilestoneCelebration from "@/assets/team-milestone-celebration.jpg";
-import newEmployeeCelebration from "@/assets/new-employee-celebration.jpg";
-import quarterlyCelebrationToast from "@/assets/quarterly-celebration-toast.jpg";
-import workAnniversaryCelebration from "@/assets/work-anniversary-celebration.jpg";
-import promotionCelebration from "@/assets/promotion-celebration.jpg";
-import teamBuildingCelebration from "@/assets/team-building-celebration.jpg";
-import companyMilestoneCelebration from "@/assets/company-milestone-celebration.jpg";
 
 const CareersPage = () => {
+  const benefits = [
+    {
+      icon: Heart,
+      title: "Comprehensive Benefits",
+      description: "Full health, dental, vision insurance, 401(k) matching, and flexible PTO policy."
+    },
+    {
+      icon: TrendingUp,
+      title: "Career Development",
+      description: "Mentorship programs, professional development budget, and clear advancement paths."
+    },
+    {
+      icon: Shield,
+      title: "Job Security",
+      description: "Stable industry leader with consistent growth and expansion opportunities."
+    },
+    {
+      icon: Zap,
+      title: "Innovation Culture",
+      description: "Work with cutting-edge fintech solutions and contribute to industry advancement."
+    },
+    {
+      icon: Users,
+      title: "Collaborative Environment",
+      description: "Cross-functional teams, open communication, and inclusive workplace culture."
+    },
+    {
+      icon: Target,
+      title: "Performance Recognition",
+      description: "Merit-based bonuses, performance incentives, and annual recognition programs."
+    }
+  ];
+
+  const departments = [
+    {
+      title: "Sales & Business Development",
+      description: "Drive revenue growth and build strategic partnerships",
+      positions: ["Senior Loan Officer", "Business Development Manager", "Sales Director"],
+      icon: Briefcase
+    },
+    {
+      title: "Technology & Engineering",
+      description: "Build and maintain our fintech platform",
+      positions: ["Full Stack Developer", "DevOps Engineer", "Product Manager"],
+      icon: Building
+    },
+    {
+      title: "Operations & Support", 
+      description: "Ensure seamless customer experience and operations",
+      positions: ["Operations Manager", "Customer Success Manager", "Compliance Officer"],
+      icon: Users
+    }
+  ];
+
+  const openPositions = [
+    {
+      title: "Senior Loan Officer",
+      department: "Sales",
+      location: "Remote",
+      type: "Full-time",
+      experience: "3+ years",
+      description: "Lead commercial lending relationships and help businesses secure financing solutions. Work with diverse portfolio of clients ranging from small businesses to enterprise accounts."
+    },
+    {
+      title: "Business Development Manager",
+      department: "Sales",
+      location: "New York, NY",
+      type: "Full-time", 
+      experience: "5+ years",
+      description: "Drive business growth through strategic partnerships and new market development. Build relationships with brokers, referral partners, and enterprise clients."
+    },
+    {
+      title: "Full Stack Developer",
+      department: "Technology",
+      location: "Remote",
+      type: "Full-time",
+      experience: "4+ years",
+      description: "Develop and maintain our loan marketplace platform using React, Node.js, and cloud technologies. Work on features that directly impact customer experience."
+    },
+    {
+      title: "Compliance Officer",
+      department: "Operations",
+      location: "Hybrid",
+      type: "Full-time",
+      experience: "6+ years",
+      description: "Ensure regulatory compliance across all business operations. Monitor lending practices, manage audit processes, and maintain industry certifications."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative py-20 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-24 overflow-hidden">
         <img 
           src={careersHeader} 
-          alt="Professional diverse business team working together in modern fintech office environment"
+          alt="Professional team collaboration in modern office"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 text-white"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center text-white">
-            <h1 className="text-2xl md:text-5xl font-bold mb-6">Join Our Team</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-              Build your career with a leading business finance company. We're looking for passionate professionals to help businesses achieve their financial goals.
+          <div className="max-w-3xl text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              Build Your Career With Industry Leaders
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
+              Join our mission to transform business financing through technology, innovation, and exceptional service.
             </p>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-              View Open Positions
-            </Button>
-          </div>
-
-          <div className="bg-gradient-to-r from-primary/5 to-financial-navy/5 rounded-2xl p-8 mb-12">
-            <h3 className="text-2xl font-bold text-center mb-8">Celebrating Our Team Every Day</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={quarterlyCelebrationToast} 
-                  alt="Professional business team celebrating quarterly success with champagne toast"
-                  className="w-full h-40 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <h5 className="font-semibold text-sm">Quarterly Success</h5>
-                  <p className="text-xs opacity-90">Celebrating achievements</p>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={workAnniversaryCelebration} 
-                  alt="Happy diverse fintech team celebrating work anniversary with balloons"
-                  className="w-full h-40 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <h5 className="font-semibold text-sm">Work Anniversaries</h5>
-                  <p className="text-xs opacity-90">Honoring loyalty</p>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={promotionCelebration} 
-                  alt="Professional team celebrating promotion announcement with confetti"
-                  className="w-full h-40 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <h5 className="font-semibold text-sm">Career Growth</h5>
-                  <p className="text-xs opacity-90">Promoting from within</p>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3">
+                View Open Positions
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-3">
+                Learn About Our Culture
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16">
+      {/* Company Stats */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Great Team</h3>
-                <p className="text-muted-foreground">Work with industry experts</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <Star className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Growth Opportunities</h3>
-                <p className="text-muted-foreground">Advance your career</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center p-6">
-              <CardContent className="p-0">
-                <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Work-Life Balance</h3>
-                <p className="text-muted-foreground">Flexible schedules</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="relative rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src={teamCelebrationSuccess} 
-                alt="Professional diverse business team celebrating successful project completion with high-fives"
-                className="w-full h-48 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-semibold">Team Success</h4>
-                <p className="text-sm opacity-90">Celebrating achievements together</p>
-              </div>
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">$2B+</div>
+              <div className="text-gray-600">Loans Facilitated</div>
             </div>
-            <div className="relative rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src={teamAchievementCelebration} 
-                alt="Professional fintech team celebrating achievement with trophy and awards"
-                className="w-full h-48 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-semibold">Recognition & Awards</h4>
-                <p className="text-sm opacity-90">Excellence rewarded</p>
-              </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">10K+</div>
+              <div className="text-gray-600">Businesses Served</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">95%</div>
+              <div className="text-gray-600">Client Satisfaction</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">150+</div>
+              <div className="text-gray-600">Team Members</div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="max-w-4xl mx-auto mb-12">
-            <div className="relative rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src={teamCollaboration} 
-                alt="Professional business team collaboration meeting in modern fintech office"
-                className="w-full h-64 md:h-80 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
-            </div>
+      {/* Why Join Us */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why Choose Halo Business Finance?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We offer more than just a job – we provide a platform for professional growth, innovation, and meaningful impact in the business finance industry.
+            </p>
           </div>
 
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Open Positions</h2>
-            
-            <Card>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle>Senior Loan Officer</CardTitle>
-                    <div className="flex items-center gap-2 mt-2">
-                      <MapPin className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-muted-foreground">Remote</span>
-                      <Badge>Full-time</Badge>
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="h-full hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
+                    <benefit.icon className="h-6 w-6 text-primary" />
                   </div>
-                   <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Apply Now</a></Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Help businesses secure financing solutions. 3+ years experience in commercial lending required.
-                </p>
-              </CardContent>
-            </Card>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 items-center my-12">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={loanOfficersWorking} 
-                  alt="Professional loan officers working at desk with financial documents"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Senior Loan Officer Position</h3>
-                <p className="text-muted-foreground mb-4">
-                  Join our lending team and help businesses secure the financing they need to grow. 
-                  Work with a diverse portfolio of clients and gain expertise in commercial lending.
-                </p>
-                <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Learn More</a></Button>
-              </div>
+          {/* Culture Image */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src={teamCollaboration} 
+              alt="Team collaboration in modern workspace"
+              className="w-full h-80 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+            <div className="absolute bottom-8 left-8 text-white">
+              <h3 className="text-2xl font-bold mb-2">Innovation Through Collaboration</h3>
+              <p className="text-lg">Where diverse perspectives drive breakthrough solutions</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <Card>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle>Business Development Manager</CardTitle>
-                    <div className="flex items-center gap-2 mt-2">
-                      <MapPin className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-muted-foreground">New York, NY</span>
-                      <Badge>Full-time</Badge>
-                    </div>
+      {/* Departments */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Explore Our Departments
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Find your place in our growing organization across multiple disciplines and specializations.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {departments.map((dept, index) => (
+              <Card key={index} className="h-full hover:shadow-lg transition-all duration-300 group">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4 group-hover:bg-primary/20 transition-colors">
+                    <dept.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Apply Now</a></Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Drive business growth through strategic partnerships and client relationships.
-                </p>
-              </CardContent>
-            </Card>
+                  <CardTitle className="text-xl">{dept.title}</CardTitle>
+                  <p className="text-muted-foreground">{dept.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 mb-4">
+                    <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
+                      Open Roles
+                    </h4>
+                    {dept.positions.map((position, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <ChevronRight className="h-4 w-4 text-primary" />
+                        <span className="text-sm">{position}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Button variant="outline" className="w-full">
+                    View Positions
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="grid md:grid-cols-3 gap-6 my-12">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={teamMilestoneCelebration} 
-                  alt="Happy diverse business professionals celebrating team milestone with cake and balloons"
-                  className="w-full h-40 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <h5 className="font-semibold text-sm">Team Milestones</h5>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={newEmployeeCelebration} 
-                  alt="Professional team applauding and celebrating new employee welcome"
-                  className="w-full h-40 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <h5 className="font-semibold text-sm">Welcome New Team Members</h5>
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-primary/10 to-financial-navy/10 rounded-lg p-6 flex flex-col justify-center items-center text-center">
-                <Star className="h-12 w-12 text-primary mb-3" />
-                <h5 className="font-semibold mb-2">Join Our Success</h5>
-                <p className="text-sm text-muted-foreground">Be part of a winning team</p>
-              </div>
-            </div>
+      {/* Open Positions */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Current Opportunities
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Join our team and help shape the future of business financing.
+            </p>
+          </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 items-center my-12">
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Business Development Opportunities</h3>
-                <p className="text-muted-foreground mb-4">
-                  Drive growth through strategic partnerships and client relationships. 
-                  Build lasting connections in the business finance industry.
-                </p>
-                <Button asChild><a href="https://preview--hbf-application.lovable.app/auth">Explore Roles</a></Button>
-              </div>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={businessDevelopmentTeam} 
-                  alt="Professional business development meeting with diverse team"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {openPositions.map((position, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <CardTitle className="text-xl">{position.title}</CardTitle>
+                        <Badge variant="secondary">{position.department}</Badge>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <MapPin className="h-4 w-4" />
+                          {position.location}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="h-4 w-4" />
+                          {position.type}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Award className="h-4 w-4" />
+                          {position.experience}
+                        </div>
+                      </div>
+                    </div>
+                    <Button className="lg:ml-4 shrink-0" asChild>
+                      <a href="https://preview--hbf-application.lovable.app/auth">
+                        Apply Now
+                      </a>
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {position.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
-            <div className="grid md:grid-cols-2 gap-8 my-12">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={teamBuildingCelebration} 
-                  alt="Diverse business professionals celebrating team building success with group hug"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="font-semibold">Team Building</h4>
-                  <p className="text-sm opacity-90">Building stronger connections</p>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={companyMilestoneCelebration} 
-                  alt="Professional fintech team celebrating company milestone with banner and group photo"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="font-semibold">Company Milestones</h4>
-                  <p className="text-sm opacity-90">Growing together</p>
-                </div>
-              </div>
-            </div>
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">
+              Don't see the right role? We're always looking for exceptional talent.
+            </p>
+            <Button variant="outline" asChild>
+              <a href="https://preview--hbf-application.lovable.app/auth">
+                Submit General Application
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
 
-            <div className="text-center bg-gradient-to-r from-primary to-financial-navy rounded-2xl p-8 text-white mt-12">
-              <div className="relative rounded-lg overflow-hidden shadow-lg mb-6 max-w-2xl mx-auto">
-                <img 
-                  src={careerSuccessCelebration} 
-                  alt="Professional diverse team celebrating career success and professional growth"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Ready to Build Your Career With Us?</h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join our growing team and be part of a company that values professional development, innovation, and making a difference in the business finance industry.
-              </p>
-              <Button size="lg" className="bg-white text-primary font-semibold">
-                View All Opportunities
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-r from-primary to-primary/90">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Shape the Future of Business Finance?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Join our mission to empower businesses through innovative financing solutions. 
+              Your career growth and success are our priority.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold px-8">
+                Browse All Positions
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary px-8">
+                Learn About Benefits
               </Button>
             </div>
           </div>
