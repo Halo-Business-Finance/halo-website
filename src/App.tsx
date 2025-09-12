@@ -129,14 +129,14 @@ const App = () => {
       preloadCriticalResources();
       addResourceHints();
       
-      // Register service worker for caching
-      if ('serviceWorker' in navigator && import.meta.env.PROD) {
-        try {
-          await navigator.serviceWorker.register('/sw.js');
-        } catch (error) {
-          console.error('SW registration failed:', error);
-        }
-      }
+      // Service worker disabled in preview to avoid caching issues
+      // if ('serviceWorker' in navigator && import.meta.env.PROD) {
+      //   try {
+      //     await navigator.serviceWorker.register('/sw.js');
+      //   } catch (error) {
+      //     console.error('SW registration failed:', error);
+      //   }
+      // }
       
       // Inject critical CSS
       const criticalCSS = `
@@ -161,7 +161,7 @@ const App = () => {
           <TooltipProvider>
           <Toaster />
           <Sonner />
-          <SecurityHeaders />
+          {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
           <PerformanceMonitor />
           <DisclaimerPopup />
           <BrowserRouter>
