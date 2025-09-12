@@ -274,7 +274,7 @@ const Header = () => {
             </button>
             
             {/* Logo - full width display */}
-            <Link to="/" className="flex items-center flex-1 lg:flex-none -ml-3">
+            <Link to="/" className={`flex items-center flex-1 lg:flex-none transition-all duration-300 ${isOpen ? 'justify-center -ml-0' : '-ml-3'}`}>
               <span className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
