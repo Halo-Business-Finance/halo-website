@@ -71,7 +71,7 @@ const BusinessCapitalPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
-              <h1 className="text-2xl md:text-5xl font-bold mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold mb-6">
                 Business Capital Solutions for Every Need
               </h1>
               <p className="text-lg md:text-xl mb-8 opacity-90">

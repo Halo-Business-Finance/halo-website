@@ -144,10 +144,10 @@ const AssetBasedLoansPage = () => {
                   <Banknote className="w-4 h-4 mr-2" />
                   Asset-Based Lending Specialists
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <h1 className="text-3xl md:text-4xl font-bold mb-6">
                   Asset-Based <span className="text-primary">Loan Solutions</span>
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 text-gray-100">
+                <p className="text-lg mb-8 text-gray-100">
                   Turn your business assets into working capital. Finance against accounts receivable, inventory, 
                   equipment, and real estate with advance rates up to 85%.
                 </p>

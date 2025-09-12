@@ -53,8 +53,8 @@ const HowItWorksPage = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
-            <h1 className="text-2xl md:text-5xl font-bold mb-6">How It Works</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">How It Works</h1>
+            <p className="text-lg mb-8 opacity-90 max-w-3xl mx-auto">
               Our streamlined process connects you with the right lenders for your business financing needs. Get pre-qualified and funded quickly through our marketplace.
             </p>
           </div>
@@ -65,10 +65,10 @@ const HowItWorksPage = () => {
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Our Streamlined Loan Process
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg text-muted-foreground">
               We make commercial lending simple
             </p>
           </div>
@@ -112,7 +112,7 @@ const HowItWorksPage = () => {
           
           {/* Text content below process steps */}
           <div className="text-center mt-12">
-            <h3 className="text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
             
             {/* Get Started Button */}
             <div className="mb-6">
@@ -138,7 +138,7 @@ const HowItWorksPage = () => {
           {/* Why Our Marketplace Works Section */}
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Why Our Marketplace Works</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Our Marketplace Works</h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 Our platform creates a win-win environment where borrowers get better access to capital and lenders connect with qualified opportunities.
               </p>
@@ -186,7 +186,7 @@ const HowItWorksPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Why Choose Our Marketplace?</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Choose Our Marketplace?</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
@@ -250,10 +250,10 @@ const HowItWorksPage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Why Choose Halo Business Finance?
             </h2>
-            <p className="text-xl text-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-foreground max-w-2xl mx-auto">
               We're committed to providing your business with the capital, expertise, and personalized service you need to achieve your growth goals.
             </p>
           </div>

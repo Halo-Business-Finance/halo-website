@@ -15,7 +15,7 @@ const BridgeFinancingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Quick Capital</Badge>
-            <h1 className="text-2xl md:text-5xl font-bold mb-6">Bridge Financing</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">Bridge Financing</h1>
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Fast, flexible financing to bridge the gap between immediate capital needs and long-term financing solutions. Perfect for time-sensitive opportunities.
             </p>

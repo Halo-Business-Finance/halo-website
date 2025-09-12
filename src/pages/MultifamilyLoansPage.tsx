@@ -111,10 +111,10 @@ const MultifamilyLoansPage = () => {
                   <Building2 className="w-4 h-4 mr-2" />
                   Multifamily Lending Specialists
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <h1 className="text-3xl md:text-4xl font-bold mb-6">
                   Multifamily <span className="text-primary">Loan Solutions</span>
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 text-gray-100">
+                <p className="text-lg mb-8 text-gray-100">
                   Finance apartment buildings, student housing, and rental properties with competitive rates starting at 5.25%. 
                   $1M to $100M+ loans available nationwide.
                 </p>

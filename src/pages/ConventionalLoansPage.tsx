@@ -15,7 +15,7 @@ const ConventionalLoansPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Traditional Financing</Badge>
-            <h1 className="text-2xl md:text-5xl font-bold mb-6">Conventional Commercial Loans</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">Conventional Commercial Loans</h1>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Traditional commercial real estate financing with competitive rates and flexible terms. Perfect for established businesses looking to purchase or refinance properties.
             </p>

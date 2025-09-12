@@ -68,7 +68,7 @@ const CompanyOverview = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-2xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">
               About Halo Business Finance
             </h1>
             <p className="text-lg md:text-2xl mb-8 opacity-90">

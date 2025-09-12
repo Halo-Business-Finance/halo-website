@@ -76,10 +76,10 @@ const USDABILoansPage = () => {
               <Badge className="mb-6 bg-white/20 text-white border-white/30">
                 USDA Rural Development Program
               </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold mb-6">
                 USDA Business & Industry Loans
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-white/90">
+              <p className="text-lg mb-8 text-white/90">
                 Up to $25 million for rural business development with competitive rates and flexible terms
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
