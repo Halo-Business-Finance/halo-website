@@ -183,7 +183,7 @@ const ContentHub = () => {
             {tools.map((tool, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow text-center">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="flex items-center justify-center mx-auto mb-4">
                     <tool.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{tool.title}</h3>

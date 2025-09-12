@@ -200,14 +200,14 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium">Follow Us:</span>
               <div className="flex gap-3">
-                <a href="https://www.facebook.com/HaloBusinessFinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary rounded-full hover:bg-primary/90 transition-colors duration-200">
-                  <Facebook className="h-4 w-4 text-white" />
+                <a href="https://www.facebook.com/HaloBusinessFinance" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors duration-200">
+                  <Facebook className="h-6 w-6" />
                 </a>
-                <a href="https://x.com/halobizfinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary rounded-full hover:bg-primary/90 transition-colors duration-200">
-                  <Twitter className="h-4 w-4 text-white" />
+                <a href="https://x.com/halobizfinance" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors duration-200">
+                  <Twitter className="h-6 w-6" />
                 </a>
-                <a href="https://www.linkedin.com/company/halobusinessfinance" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary rounded-full hover:bg-primary/90 transition-colors duration-200">
-                  <Linkedin className="h-4 w-4 text-white" />
+                <a href="https://www.linkedin.com/company/halobusinessfinance" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors duration-200">
+                  <Linkedin className="h-6 w-6" />
                 </a>
               </div>
             </div>

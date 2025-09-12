@@ -93,28 +93,28 @@ export const ProcessDiagram = () => {
         return {
           bg: 'bg-gradient-to-br from-success/20 to-success/10',
           border: 'border-success/30',
-          icon: 'bg-success text-white shadow-lg shadow-success/20',
+          icon: 'text-success',
           accent: 'text-success'
         };
       case 'current':
         return {
           bg: 'bg-gradient-to-br from-primary/20 to-primary/10',
           border: 'border-primary/30 ring-2 ring-primary/20',
-          icon: 'bg-primary text-white shadow-lg shadow-primary/20',
+          icon: 'text-primary',
           accent: 'text-primary'
         };
       case 'upcoming':
         return {
           bg: 'bg-gradient-to-br from-muted/50 to-muted/20',
           border: 'border-muted/40',
-          icon: 'bg-muted text-muted-foreground shadow-md',
+          icon: 'text-muted-foreground',
           accent: 'text-muted-foreground'
         };
       default:
         return {
           bg: 'bg-muted/20',
           border: 'border-muted/40',
-          icon: 'bg-muted text-muted-foreground',
+          icon: 'text-muted-foreground',
           accent: 'text-muted-foreground'
         };
     }

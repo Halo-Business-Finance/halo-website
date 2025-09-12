@@ -130,7 +130,7 @@ const AuthoritySignals = () => {
             {awards.map((award, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="flex items-center justify-center mx-auto mb-4">
                     <Award className="h-8 w-8 text-primary" />
                   </div>
                   <Badge variant="outline" className="mb-3">{award.year}</Badge>

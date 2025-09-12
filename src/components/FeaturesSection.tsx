@@ -71,7 +71,7 @@ const FeaturesSection = () => {
             <Card key={index} className="border-0 shadow-none group">
               <CardContent className="p-6 text-center">
                 <div className="mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">

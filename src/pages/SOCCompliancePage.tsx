@@ -210,7 +210,7 @@ const SOCCompliancePage: React.FC = () => {
           <Card>
             <CardContent className="flex items-center p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-green-100 rounded-full dark:bg-green-900">
+                <div className="flex items-center justify-center">
                   <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
@@ -224,7 +224,7 @@ const SOCCompliancePage: React.FC = () => {
           <Card>
             <CardContent className="flex items-center p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-100 rounded-full dark:bg-blue-900">
+                <div className="flex items-center justify-center">
                   <Shield className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
@@ -238,7 +238,7 @@ const SOCCompliancePage: React.FC = () => {
           <Card>
             <CardContent className="flex items-center p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-purple-100 rounded-full dark:bg-purple-900">
+                <div className="flex items-center justify-center">
                   <FileText className="h-8 w-8 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
