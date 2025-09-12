@@ -263,25 +263,25 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-14 lg:h-12 px-4 py-2 sm:px-6">
+          <div className="flex items-center justify-between h-12 lg:h-12 px-3 py-0 sm:px-6">
             {/* Mobile Menu Button - left side on mobile */}
             <button 
-              className="lg:hidden p-2 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
+              className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
-              <Menu className="h-6 w-6 text-gray-600" />
+              <Menu className="h-5 w-5 text-gray-600" />
             </button>
             
             {/* Logo - centered on mobile/tablet */}
             <Link to="/" className="flex items-center justify-center flex-1 lg:flex-none">
-              <span className="text-base lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+              <span className="text-sm lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
             
             {/* Spacer for mobile to balance the menu button */}
-            <div className="lg:hidden w-10"></div>
+            <div className="lg:hidden w-8"></div>
           </div>
         </div>
       </div>
