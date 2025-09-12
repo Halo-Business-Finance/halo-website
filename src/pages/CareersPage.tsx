@@ -184,7 +184,7 @@ const CareersPage = () => {
             {benefits.map((benefit, index) => (
               <Card key={index} className="h-full hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
-                  <benefit.icon className="h-12 w-12 text-primary mb-4" />
+                  <benefit.icon className="h-6 w-6 text-primary mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     {benefit.title}
                   </h3>
@@ -228,7 +228,7 @@ const CareersPage = () => {
             {departments.map((dept, index) => (
               <Card key={index} className="h-full hover:shadow-lg transition-all duration-300 group">
                 <CardHeader className="pb-4">
-                  <dept.icon className="h-12 w-12 text-primary mb-4" />
+                  <dept.icon className="h-6 w-6 text-primary mb-4" />
                   <CardTitle className="text-xl">{dept.title}</CardTitle>
                   <p className="text-muted-foreground">{dept.description}</p>
                 </CardHeader>
