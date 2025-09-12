@@ -33,9 +33,9 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3%;
 
-    --primary: 214 84% 25%;
+    --primary: 220 100% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 214 70% 35%;
+    --primary-glow: 220 80% 30%;
 
     --secondary: 210 40% 98%;
     --secondary-foreground: 0 0% 3%;
@@ -43,7 +43,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96%;
     --muted-foreground: 0 0% 35%;
 
-    --accent: 214 84% 25%;
+    --accent: 220 100% 20%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -51,7 +51,7 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 214 84% 25%;
+    --ring: 220 100% 20%;
 
     --success: 142 71% 45%;
     --success-foreground: 0 0% 100%;
@@ -62,11 +62,11 @@ All colors MUST be HSL.
     --info: 199 89% 48%;
     --info-foreground: 0 0% 100%;
 
-    /* Professional banking colors inspired by Chase/JPMorgan */
-    --financial-navy: 214 84% 18%;
-    --financial-blue: 214 84% 25%;
+    /* Professional Navy blue colors */
+    --financial-navy: 220 100% 15%;
+    --financial-blue: 220 100% 20%;
     --financial-light: 210 40% 98%;
-    --financial-accent: 214 70% 35%;
+    --financial-accent: 220 80% 30%;
     
     /* Gradients for professional look */
     --gradient-primary: linear-gradient(135deg, hsl(var(--financial-navy)), hsl(var(--financial-blue)));
@@ -107,7 +107,7 @@ All colors MUST be HSL.
     --popover: 215 28% 17%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 214 50% 35%;
+    --primary: 220 80% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -116,7 +116,7 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 0 0% 0%;
 
-    --accent: 214 50% 35%;
+    --accent: 220 80% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -124,19 +124,19 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 214 50% 35%;
+    --ring: 220 80% 40%;
 
-    --financial-blue: 214 50% 35%;
-    --financial-navy: 215 35% 25%;
+    --financial-blue: 220 80% 40%;
+    --financial-navy: 220 100% 25%;
     --financial-light: 217.2 32.6% 17.5%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 220 80% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 214 50% 35%;
+    --sidebar-ring: 220 80% 40%;
   }
 }
 
