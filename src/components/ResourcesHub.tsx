@@ -160,7 +160,7 @@ const ResourcesHub = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-50 border-2 border-primary shadow-lg">
-                  <a href="https://preview--hbf-application.lovable.app/auth">Get Pre-Qualified</a>
+                  <Link to="/auth">Get Pre-Qualified</Link>
                 </Button>
                 <Button asChild size="lg" className="border border-white bg-transparent text-white hover:bg-white/10 hover:text-white">
                   <Link to="/contact-us">Speak with Expert</Link>

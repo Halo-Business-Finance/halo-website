@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { Building, DollarSign, Shield } from "lucide-react";
 
 const ConventionalLoansPage = () => {
@@ -19,8 +20,8 @@ const ConventionalLoansPage = () => {
               Traditional commercial real estate financing with competitive rates and flexible terms. Perfect for established businesses looking to purchase or refinance properties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=conventional">Apply Now</a></Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=conventional">Get Quote</a></Button>
+               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><Link to="/auth?loan=conventional">Apply Now</Link></Button>
+               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/auth?loan=conventional">Get Quote</Link></Button>
             </div>
           </div>
         </div>
