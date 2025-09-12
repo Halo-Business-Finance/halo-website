@@ -199,7 +199,7 @@ const BrokersPage = () => {
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
-                  <Phone className="h-8 w-8 mx-auto mb-4" />
+                  <Phone className="h-8 w-8 mx-auto mb-4 text-white" />
                   <h4 className="text-lg font-semibold mb-2">Call Us</h4>
                   <p className="text-blue-100">(800) 730-8461</p>
                   <p className="text-sm text-blue-200">Broker Partnership Line</p>
@@ -208,7 +208,7 @@ const BrokersPage = () => {
               
               <Card className="bg-white/10 border-white/20">
                 <CardContent className="p-6 text-center">
-                  <Mail className="h-8 w-8 mx-auto mb-4" />
+                  <Mail className="h-8 w-8 mx-auto mb-4 text-white" />
                   <h4 className="text-lg font-semibold mb-2">Email Us</h4>
                   <p className="text-blue-100">brokers@halobusinessfinance.com</p>
                   <p className="text-sm text-blue-200">Partnership Inquiries</p>
