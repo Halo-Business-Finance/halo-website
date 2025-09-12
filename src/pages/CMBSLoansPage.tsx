@@ -38,7 +38,7 @@ const CMBSLoansPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
+      <section className="relative py-20">
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
             <Badge className="bg-white text-primary mb-4">Commercial Mortgage-Backed Securities</Badge>

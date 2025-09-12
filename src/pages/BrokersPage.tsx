@@ -68,7 +68,7 @@ const BrokersPage = () => {
           alt="Industrial warehouse representing broker services"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-financial-navy/80 text-white"></div>
+        <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">
@@ -186,7 +186,7 @@ const BrokersPage = () => {
       <MarketplaceOverview />
 
       {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-br from-primary to-financial-navy text-white">
+      <section className="py-16 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-bold mb-6">

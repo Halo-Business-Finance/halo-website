@@ -67,7 +67,7 @@ const BusinessCapitalPage = () => {
           alt="Business finance charts representing business capital"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
+        <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
