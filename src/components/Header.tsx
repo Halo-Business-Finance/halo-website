@@ -263,7 +263,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center lg:h-12 px-4 py-4">
+          <div className="flex items-center justify-between lg:h-12 px-4 py-4">
             {/* Mobile Menu Button - only visible when menu is closed */}
             {!isOpen && (
               <button 
@@ -275,9 +275,9 @@ const Header = () => {
               </button>
             )}
             
-            {/* Logo - hidden on mobile, visible on desktop */}
-            <Link to="/" className="hidden lg:flex items-center justify-center">
-              <span className="text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+            {/* Logo - visible on all screens */}
+            <Link to="/" className="flex items-center justify-center flex-1 lg:flex-none">
+              <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
