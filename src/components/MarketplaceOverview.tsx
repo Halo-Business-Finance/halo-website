@@ -92,7 +92,7 @@ const MarketplaceOverview = () => {
           {marketplaceStats.map((stat, index) => (
             <Card key={index} className="text-center group">
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-3xl font-bold mb-2">{stat.value}</h3>

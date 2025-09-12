@@ -103,7 +103,7 @@ const ResourcesPage = () => {
             {resources.map((resource, index) => (
               <Card key={index} className="text-center p-8 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="flex items-center justify-center mx-auto mb-6">
                     <resource.icon className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">{resource.title}</h3>

@@ -102,7 +102,7 @@ const BrokersPage = () => {
             {benefits.map((benefit, index) => (
               <Card key={index} className="text-center">
                 <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
                   <h4 className="text-xl font-semibold text-foreground mb-3">
@@ -145,7 +145,7 @@ const BrokersPage = () => {
               ))}
             </div>
 
-            <div className="mt-8 p-6 bg-blue-50 rounded-lg">
+            <div className="mt-8 p-6 border border-primary/20 rounded-lg">
               <h4 className="text-lg font-semibold text-foreground mb-2">Additional Bonuses</h4>
               <ul className="space-y-1 text-foreground">
                 <li>• Volume bonuses for top performers</li>
