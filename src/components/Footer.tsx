@@ -57,7 +57,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-4 md:gap-6 lg:gap-8 mb-8 items-start">
           {/* Logo and newsletter */}
           <div className="lg:col-span-2">
-            <div className="mb-2">
+            <div className="mb-1">
               <Link to="/" className="inline-block mb-4">
                 <img 
                   src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
