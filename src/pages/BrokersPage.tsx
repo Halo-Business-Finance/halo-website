@@ -71,9 +71,6 @@ const BrokersPage = () => {
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              Partner With Halo Business Finance
-            </h1>
             <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               Join our network of successful brokers and grow your business with access to competitive loan products, superior support, and industry-leading commissions.
             </p>
