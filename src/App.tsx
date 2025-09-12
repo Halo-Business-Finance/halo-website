@@ -6,7 +6,6 @@ import React, { lazy, Suspense, useEffect } from "react";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
-import { FormSecurityProvider } from "@/components/security/FormSecurityProvider";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -162,8 +161,7 @@ const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <FormSecurityProvider>
-        <TooltipProvider>
+      <TooltipProvider>
           <Toaster />
           <Sonner />
           {/* <SecurityHeaders /> temporarily disabled for preview unblock */}
@@ -247,8 +245,7 @@ const App: React.FC = () => {
               </Routes>
             </Suspense>
           </BrowserRouter>
-        </TooltipProvider>
-      </FormSecurityProvider>
+      </TooltipProvider>
     </ErrorBoundary>
   );
 };

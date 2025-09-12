@@ -11,7 +11,7 @@ import { supabase } from '@/integrations/supabase/client';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useFormSecurity } from '@/components/security/FormSecurityProvider';
+
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useSecureAuth } from '@/components/security/SecureAuthProvider';
 import { AuthDebugger } from '@/components/auth/AuthDebugger';
@@ -21,7 +21,7 @@ const AuthPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
-  const { encryptSensitiveData, sanitizeInput, validateInput, csrfToken } = useFormSecurity();
+  // Simplified without form security
   const { user, session } = useAuth();
   const { signUpSecure, resetPasswordSecure } = useSecureAuth();
   
@@ -66,13 +66,13 @@ const AuthPage = () => {
     setError('');
 
     try {
-      // Validate inputs
-      if (!validateInput(loginForm.email, 'email')) {
+      // Basic validation
+      if (!loginForm.email || !loginForm.email.includes('@')) {
         throw new Error('Please enter a valid email address');
       }
 
       const { data, error } = await supabase.auth.signInWithPassword({
-        email: sanitizeInput(loginForm.email),
+        email: loginForm.email.trim(),
         password: loginForm.password
       });
 
@@ -110,8 +110,8 @@ const AuthPage = () => {
     setMessage('');
 
     try {
-      // Validate inputs
-      if (!validateInput(signupForm.email, 'email')) {
+      // Basic validation
+      if (!signupForm.email || !signupForm.email.includes('@')) {
         throw new Error('Please enter a valid email address');
       }
 
@@ -127,9 +127,9 @@ const AuthPage = () => {
       const redirectUrl = `${window.location.origin}/`;
       
       const { error } = await signUpSecure(
-        sanitizeInput(signupForm.email),
+        signupForm.email.trim(),
         signupForm.password,
-        sanitizeInput(signupForm.displayName)
+        signupForm.displayName.trim()
       );
 
       // Get the signup result data from the secure function
@@ -175,7 +175,7 @@ const AuthPage = () => {
     setMessage('');
 
     try {
-      const { error } = await resetPasswordSecure(sanitizeInput(loginForm.email));
+      const { error } = await resetPasswordSecure(loginForm.email.trim());
 
       if (error) {
         setError(error.message);
@@ -248,7 +248,6 @@ const AuthPage = () => {
                      </CardHeader>
                     <CardContent>
                       <form onSubmit={handleLogin} className="space-y-4">
-                        <input type="hidden" name="csrf_token" value={csrfToken} />
                         
                          <div className="space-y-2">
                            <Label htmlFor="signin-email" className="text-black">Email</Label>
@@ -325,7 +324,7 @@ const AuthPage = () => {
                     </CardHeader>
                     <CardContent>
                       <form onSubmit={handleSignup} className="space-y-4">
-                        <input type="hidden" name="csrf_token" value={csrfToken} />
+                        
                         
                          <div className="space-y-2">
                            <Label htmlFor="signup-name" className="text-black">Display Name</Label>
