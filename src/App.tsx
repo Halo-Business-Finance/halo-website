@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
@@ -97,6 +97,31 @@ const LoadingFallback = () => (
 );
 
 
+// Simple error boundary to surface runtime errors in preview
+class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, { hasError: boolean; error?: any }> {
+  constructor(props: {}) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error: any, info: any) {
+    console.error('App error boundary caught:', error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 24 }}>
+          <h1>Something went wrong.</h1>
+          <pre style={{ whiteSpace: 'pre-wrap' }}>{String(this.state.error)}</pre>
+        </div>
+      );
+    }
+    return this.props.children as any;
+  }
+}
+
 const App = () => {
   // Initialize performance optimizations
   useEffect(() => {
@@ -134,6 +159,7 @@ const App = () => {
   }, []);
 
   return (
+  <ErrorBoundary>
   <TooltipProvider>
     <Toaster />
           <Sonner />
@@ -219,7 +245,7 @@ const App = () => {
             </Suspense>
           </BrowserRouter>
           </TooltipProvider>
-        
+        </ErrorBoundary>
   );
 };
 
