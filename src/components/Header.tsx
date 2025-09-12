@@ -102,29 +102,29 @@ const Header = () => {
             <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
                   Company
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/company-overview" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/company-overview" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Company Overview
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/how-it-works" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/how-it-works" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         How it Works
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/marketplace-benefits" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/marketplace-benefits" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Marketplace Benefits
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/careers" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/careers" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Careers
                       </Link>
                     </DropdownMenuItem>
@@ -135,31 +135,31 @@ const Header = () => {
               {/* Marketplace Benefits Button */}
               <Link 
                 to="/marketplace-benefits" 
-                className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
               >
                 Marketplace Benefits
               </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
                   Resources
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/loan-calculator" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/loan-calculator" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Loan Calculator
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/industry-solutions" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/industry-solutions" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Industry Solutions
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/sba-loans" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/sba-loans" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         SBA Resources
                       </Link>
                     </DropdownMenuItem>
@@ -169,24 +169,24 @@ const Header = () => {
               
               {/* Partners Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
                   Partners
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/brokers" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/brokers" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Brokers
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/lenders" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/lenders" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Lenders
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/referral-partners" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/referral-partners" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Referral Partners
                       </Link>
                     </DropdownMenuItem>
@@ -197,7 +197,7 @@ const Header = () => {
 
             {/* Right Side - Search, Customer Support and Sign In */}
             <div className="flex items-center space-x-6">
-              <button className="text-gray-600 hover:text-blue-600">
+              <button className="text-gray-600 hover:text-primary">
                 <Search className="h-5 w-5" />
               </button>
               
@@ -205,7 +205,7 @@ const Header = () => {
               
               {/* Customer Support Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-blue-600 transition-colors group">
+                <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
                   <Phone className="h-3 w-3" />
                   Customer Support
                   <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
@@ -213,30 +213,30 @@ const Header = () => {
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <a href="tel:+18007308461" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <a href="tel:+18007308461" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         <Phone className="h-4 w-4 mr-3" />
                         Call (800) 730-8461
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/contact-us" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/contact-us" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Contact Us
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Customer Service
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+                      <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-primary font-medium">
                         Technical Support
                       </Link>
                     </DropdownMenuItem>
                     <ConsultationPopup 
                       trigger={
                         <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1">
-                          <span className="flex items-center text-gray-700 hover:text-blue-600 font-medium cursor-pointer">
+                          <span className="flex items-center text-gray-700 hover:text-primary font-medium cursor-pointer">
                             Schedule Consultation
                           </span>
                         </DropdownMenuItem>
@@ -250,7 +250,7 @@ const Header = () => {
                 href="https://app.halolending.com/login" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors" 
+                className="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors" 
               >
                 <Shield className="h-2.5 w-2.5" />
                 CLIENT PORTAL
@@ -291,7 +291,7 @@ const Header = () => {
             <nav className="hidden lg:flex items-center space-x-8 flex-1">
               {secondaryNavWithDropdowns.map((item) => (
                 <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors py-2 px-1 group">
+                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-primary transition-colors py-2 px-1 group">
                     {item.title}
                     <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   </DropdownMenuTrigger>
@@ -299,7 +299,7 @@ const Header = () => {
                     <div className="py-1">
                       {item.items.map((subItem) => (
                         <DropdownMenuItem key={subItem.title} className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                          <Link to={subItem.href} className="flex items-center text-gray-700 hover:text-blue-600 font-medium text-sm">
+                          <Link to={subItem.href} className="flex items-center text-gray-700 hover:text-primary font-medium text-sm">
                             {subItem.title}
                           </Link>
                         </DropdownMenuItem>
@@ -313,7 +313,7 @@ const Header = () => {
             {/* Get Started Button - positioned at the right */}
             <div className="hidden lg:block ml-auto">
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white text-base font-bold px-4 py-2 rounded-md flex items-center gap-1" 
+                className="bg-primary hover:bg-primary/90 text-white text-base font-bold px-4 py-2 rounded-md flex items-center gap-1" 
                 asChild
               >
                 <Link to="/loan-calculator">
