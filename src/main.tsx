@@ -9,6 +9,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 // Preload critical resources immediately
 preloadCriticalResources();
 
+// Basic global error logging (to surface issues in preview)
+window.addEventListener('error', (e) => {
+  console.error('Global error:', e.message, e.error);
+});
+window.addEventListener('unhandledrejection', (e) => {
+  console.error('Unhandled promise rejection:', e.reason);
+});
+
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
