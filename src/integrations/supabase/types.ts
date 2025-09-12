@@ -1127,6 +1127,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: number
       }
+      enforce_data_retention: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       enhanced_rate_limit_check: {
         Args: {
           p_action: string
@@ -1406,7 +1410,7 @@ export type Database = {
         Returns: string
       }
       mask_sensitive_data: {
-        Args: { data_text: string; data_type: string }
+        Args: { data_type: string; data_value: string }
         Returns: string
       }
       optimize_security_events: {

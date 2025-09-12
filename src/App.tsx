@@ -18,6 +18,7 @@ import { SecureCSPProvider } from "@/components/security/SecureCSPProvider";
 import { EnhancedSecurityHeaders } from "@/components/security/EnhancedSecurityHeaders";
 import { preloadCriticalResources, addResourceHints } from "@/utils/performance";
 import { PerformanceMonitor } from "@/components/optimization/PerformanceMonitor";
+import { SecureDataProvider } from "@/components/security/SecureDataProvider";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
 
 // Preload critical pages (above the fold)
@@ -156,7 +157,8 @@ const App = () => {
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
       <ProductionSecurityProvider>
-        <TooltipProvider>
+        <SecureDataProvider>
+          <TooltipProvider>
           <Toaster />
           <Sonner />
           <SecurityHeaders />
@@ -240,7 +242,8 @@ const App = () => {
               </Routes>
             </Suspense>
           </BrowserRouter>
-        </TooltipProvider>
+          </TooltipProvider>
+        </SecureDataProvider>
       </ProductionSecurityProvider>
     </AuthProvider>
   </QueryClientProvider>
