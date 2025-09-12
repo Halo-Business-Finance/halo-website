@@ -126,7 +126,7 @@ const CareersPage = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
               Build Your Career With Industry Leaders
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
@@ -172,7 +172,7 @@ const CareersPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Why Choose Halo Business Finance?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -216,7 +216,7 @@ const CareersPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Explore Our Departments
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -258,7 +258,7 @@ const CareersPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Current Opportunities
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -324,7 +324,7 @@ const CareersPage = () => {
       <section className="py-20 bg-gradient-to-r from-primary to-primary/90">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Ready to Shape the Future of Business Finance?
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
