@@ -386,7 +386,7 @@ const HowItWorksPage = () => {
                     <h3 className="text-xl md:text-2xl font-bold mb-2">
                       Ready to Fuel Your Business Growth?
                     </h3>
-                    <p className="text-lg text-blue-100 max-w-2xl">
+                    <p className="text-base text-blue-100 max-w-2xl">
                       Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Our expertise in <Link to="/sba-loans" className="text-white underline hover:text-blue-100">SBA lending</Link> and SBA & Commercial Loan Marketplace ensures you get the best rates and terms available.
                     </p>
                   </div>
