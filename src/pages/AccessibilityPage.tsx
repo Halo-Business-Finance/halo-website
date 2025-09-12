@@ -19,10 +19,10 @@ const AccessibilityPage = () => {
         />
         <div className="absolute inset-0 text-white"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center text-white">
+          <div className="text-left text-white">
             <Badge className="bg-white text-primary mb-4">WCAG 2.1 AA Compliant</Badge>
             <h1 className="text-2xl md:text-3xl font-bold mb-6">Accessibility Statement</h1>
-            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl">
               We are committed to ensuring our website is accessible to all users, regardless of their abilities or the technology they use.
             </p>
           </div>
@@ -32,30 +32,30 @@ const AccessibilityPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Eye className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Eye className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">Visual</h3>
                 <p className="text-muted-foreground">High contrast and screen reader support</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Ear className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Ear className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">Auditory</h3>
                 <p className="text-muted-foreground">Alternative text and captions</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <MousePointer className="h-12 w-12 text-primary mx-auto mb-4" />
+                <MousePointer className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">Motor</h3>
                 <p className="text-muted-foreground">Keyboard navigation support</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Keyboard className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Keyboard className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">Cognitive</h3>
                 <p className="text-muted-foreground">Clear navigation and content</p>
               </CardContent>

@@ -40,14 +40,14 @@ const CMBSLoansPage = () => {
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center text-white">
+          <div className="text-left text-white">
             <Badge className="bg-white text-primary mb-4">Commercial Mortgage-Backed Securities</Badge>
             <h1 className="text-2xl md:text-3xl font-bold mb-6">CMBS Loans</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-4xl mx-auto">
+            <p className="text-xl mb-8 opacity-90 max-w-4xl">
               Access the deepest pool of commercial real estate capital through our CMBS loan program. 
               Benefit from competitive rates, non-recourse structures, and flexible terms for your commercial property financing needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=cmbs">Apply for CMBS Loan</a></Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/contact-us">View Rate Sheet</Link></Button>
             </div>
@@ -59,30 +59,30 @@ const CMBSLoansPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
+                <DollarSign className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">$2M - $200M+</h3>
                 <p className="text-muted-foreground">Loan amounts</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Percent className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Percent className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">75-80% LTV</h3>
                 <p className="text-muted-foreground">Competitive leverage</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Clock className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">5-10 Years</h3>
                 <p className="text-muted-foreground">Fixed rate terms</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Shield className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Non-Recourse</h3>
                 <p className="text-muted-foreground">Limited liability</p>
               </CardContent>

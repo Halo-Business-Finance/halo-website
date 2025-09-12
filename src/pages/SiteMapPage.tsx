@@ -127,10 +127,10 @@ const SiteMapPage = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-financial-navy/80 to-primary/70"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center text-white">
-            <MapPin className="h-16 w-16 mx-auto mb-4" />
+          <div className="text-left text-white">
+            <MapPin className="h-16 w-16 mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Site Map</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+            <p className="text-xl mb-8 opacity-90 max-w-3xl">
               Navigate our website easily with this comprehensive overview of all our pages and resources.
             </p>
           </div>

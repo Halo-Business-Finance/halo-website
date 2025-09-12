@@ -38,23 +38,23 @@ const BusinessLineOfCreditPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
+                <DollarSign className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Up to $500,000</h3>
                 <p className="text-muted-foreground">Credit line amount</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <Repeat className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Repeat className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Revolving</h3>
                 <p className="text-muted-foreground">Access as needed</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6">
+            <Card className="text-left p-6">
               <CardContent className="p-0">
-                <CreditCard className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CreditCard className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-2xl font-bold mb-2">Prime + 2%</h3>
                 <p className="text-muted-foreground">Starting rate</p>
               </CardContent>

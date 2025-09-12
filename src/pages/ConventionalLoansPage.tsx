@@ -13,13 +13,13 @@ const ConventionalLoansPage = () => {
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center text-white">
+          <div className="text-left text-white">
             <Badge className="bg-white text-primary mb-4">Traditional Financing</Badge>
             <h1 className="text-2xl md:text-3xl font-bold mb-6">Conventional Commercial Loans</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+            <p className="text-xl mb-8 opacity-90 max-w-3xl">
               Traditional commercial real estate financing with competitive rates and flexible terms. Perfect for established businesses looking to purchase or refinance properties.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
                <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><Link to="/auth?loan=conventional">Apply Now</Link></Button>
                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/auth?loan=conventional">Get Quote</Link></Button>
             </div>

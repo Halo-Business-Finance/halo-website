@@ -13,13 +13,13 @@ const FactoringBasedFinancingPage = () => {
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center text-white">
+          <div className="text-left text-white">
             <Badge className="bg-white text-primary mb-4">Flexible Payments</Badge>
             <h1 className="text-2xl md:text-3xl font-bold mb-6">Factoring-Based Financing</h1>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+            <p className="text-xl mb-8 opacity-90 max-w-3xl">
               Financing that grows with your business. Pay a percentage of revenue instead of fixed monthly payments. Perfect for seasonal or growing businesses.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href="https://preview--hbf-application.lovable.app/auth?loan=factoring">Apply for Factoring</a></Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/how-it-works">Learn How It Works</Link></Button>
             </div>
