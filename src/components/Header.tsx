@@ -353,7 +353,7 @@ const Header = () => {
               {/* Get Started CTA */}
               <div className="mb-6">
                 <Button 
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-200" 
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-200" 
                   asChild
                 >
                   <Link to="/loan-calculator" onClick={() => setIsOpen(false)}>
@@ -363,12 +363,12 @@ const Header = () => {
               </div>
 
               {/* Contact Information */}
-              <div className="bg-blue-50 rounded-lg p-4 mb-6">
+              <div className="bg-primary/10 rounded-lg p-4 mb-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Phone className="h-5 w-5 text-blue-600" />
+                  <Phone className="h-5 w-5 text-primary" />
                   <a 
                     href="tel:+18007308461" 
-                    className="text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+                    className="text-primary font-semibold hover:text-primary/80 transition-colors"
                   >
                     (800) 730-8461
                   </a>
@@ -382,16 +382,16 @@ const Header = () => {
                 <div>
                   <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">Company</h3>
                   <div className="space-y-1">
-                    <Link to="/company-overview" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/company-overview" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Company Overview
                     </Link>
-                    <Link to="/how-it-works" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/how-it-works" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       How it Works
                     </Link>
-                    <Link to="/marketplace-benefits" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/marketplace-benefits" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Marketplace Benefits
                     </Link>
-                    <Link to="/careers" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/careers" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Careers
                     </Link>
                   </div>
@@ -411,7 +411,7 @@ const Header = () => {
                             <Link
                               key={subItem.title}
                               to={subItem.href}
-                              className="block py-2 px-3 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200"
+                              className="block py-2 px-3 text-sm text-gray-600 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200"
                               onClick={() => setIsOpen(false)}
                             >
                               {subItem.title}
@@ -427,13 +427,13 @@ const Header = () => {
                 <div className="border-t border-gray-100 pt-4">
                   <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">Resources</h3>
                   <div className="space-y-1">
-                    <Link to="/loan-calculator" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/loan-calculator" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Loan Calculator
                     </Link>
-                    <Link to="/industry-solutions" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/industry-solutions" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Industry Solutions
                     </Link>
-                    <Link to="/sba-loans" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/sba-loans" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       SBA Resources
                     </Link>
                   </div>
@@ -443,13 +443,13 @@ const Header = () => {
                 <div className="border-t border-gray-100 pt-4">
                   <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">Partners</h3>
                   <div className="space-y-1">
-                    <Link to="/brokers" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/brokers" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Brokers
                     </Link>
-                    <Link to="/lenders" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/lenders" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Lenders
                     </Link>
-                    <Link to="/referral-partners" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/referral-partners" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Referral Partners
                     </Link>
                   </div>
@@ -459,18 +459,18 @@ const Header = () => {
                 <div className="border-t border-gray-100 pt-4">
                   <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-1">Support</h3>
                   <div className="space-y-1">
-                    <Link to="/contact-us" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/contact-us" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Contact Us
                     </Link>
-                    <Link to="/customer-service" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/customer-service" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Customer Service
                     </Link>
-                    <Link to="/technical-support" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="/technical-support" className="flex items-center py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium" onClick={() => setIsOpen(false)}>
                       Technical Support
                     </Link>
                     <ConsultationPopup 
                       trigger={
-                        <button className="flex items-center w-full py-2.5 px-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-all duration-200 font-medium text-left">
+                        <button className="flex items-center w-full py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium text-left">
                           Schedule Consultation
                         </button>
                       }
