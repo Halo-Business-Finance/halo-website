@@ -77,12 +77,9 @@ const BrokersPage = () => {
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               Join our network of successful brokers and grow your business with access to competitive loan products, superior support, and industry-leading commissions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button size="lg" className="bg-white text-primary font-semibold">
                 Apply to Become a Broker
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white">
-                Download Broker Kit
               </Button>
             </div>
           </div>
