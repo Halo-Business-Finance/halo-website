@@ -263,7 +263,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between lg:h-12 px-3 py-4 sm:px-6">
+          <div className="grid grid-cols-[auto,1fr,auto] items-center lg:h-12 px-2 py-4 sm:px-6 gap-2">
             {/* Mobile Menu Button - left side on mobile */}
             <button 
               className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
@@ -274,14 +274,16 @@ const Header = () => {
             </button>
             
             {/* Logo - centered on mobile/tablet */}
-            <Link to="/" className="flex items-center justify-center flex-1 lg:flex-none">
-              <span className="text-2xl lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+            <Link to="/" className="flex items-center justify-center min-w-0 lg:flex-none">
+              <span className="text-xl sm:text-2xl lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none truncate">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
             
-            {/* Spacer for mobile to balance the menu button */}
-            <div className="lg:hidden w-8"></div>
+            {/* Right placeholder to balance centering on mobile */}
+            <div className="lg:hidden p-2 pointer-events-none">
+              <Menu className="h-8 w-8 opacity-0" />
+            </div>
           </div>
         </div>
       </div>
