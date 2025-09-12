@@ -263,7 +263,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-6 lg:h-12 px-3 py-1 sm:px-6">
+          <div className="flex items-center justify-between h-14 lg:h-12 px-4 py-2 sm:px-6">
             {/* Mobile Menu Button - left side on mobile */}
             <button 
               className="lg:hidden p-2 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80]"
@@ -275,7 +275,7 @@ const Header = () => {
             
             {/* Logo - centered on mobile/tablet */}
             <Link to="/" className="flex items-center justify-center flex-1 lg:flex-none">
-              <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+              <span className="text-base lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
