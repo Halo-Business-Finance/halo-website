@@ -266,7 +266,7 @@ const Header = () => {
           <div className="flex items-center lg:h-12 -px-1 py-4 sm:px-4">
             {/* Mobile Menu Button - positioned further left */}
             <button 
-              className={`lg:hidden p-1 rounded-md hover:bg-gray-100 flex items-center justify-center z-[80] mr-6 transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              className={`lg:hidden p-1 rounded-md hover:bg-gray-100 z-[80] mr-6 ${isOpen ? 'hidden' : 'flex items-center justify-center'}`}
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
