@@ -406,17 +406,17 @@ const Header = () => {
                         <div className="px-3 py-1 text-sm font-semibold text-gray-800 bg-gray-50 rounded-md">
                           {item.title}
                         </div>
-                        <div className="pl-3 space-y-1">
-                          {item.items.map((subItem) => (
-                            <Link
-                              key={subItem.title}
-                              to={subItem.href}
-                              className="block py-2 px-3 text-sm text-gray-600 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {subItem.title}
-                            </Link>
-                          ))}
+                         <div className="pl-3 space-y-1">
+                           {item.items.map((subItem) => (
+                             <Link
+                               key={subItem.title}
+                               to={subItem.href}
+                               className="block py-2.5 px-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-md transition-all duration-200 font-medium"
+                               onClick={() => setIsOpen(false)}
+                             >
+                               {subItem.title}
+                             </Link>
+                           ))}
                         </div>
                       </div>
                     ))}
