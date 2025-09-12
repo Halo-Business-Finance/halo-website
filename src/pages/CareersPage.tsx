@@ -136,7 +136,7 @@ const CareersPage = () => {
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3">
                 View Open Positions
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black px-8 py-3">
+              <Button size="lg" variant="outline" className="border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-black px-8 py-3">
                 Learn About Our Culture
               </Button>
             </div>
@@ -248,7 +248,7 @@ const CareersPage = () => {
                       </div>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                     View Positions
                   </Button>
                 </CardContent>
@@ -315,7 +315,7 @@ const CareersPage = () => {
             <p className="text-muted-foreground mb-4">
               Don't see the right role? We're always looking for exceptional talent.
             </p>
-            <Button variant="outline" asChild>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white" asChild>
               <a href="https://preview--hbf-application.lovable.app/auth">
                 Submit General Application
               </a>
@@ -339,7 +339,7 @@ const CareersPage = () => {
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold px-8">
                 Browse All Positions
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary px-8">
+              <Button size="lg" variant="outline" className="border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary px-8">
                 Learn About Benefits
               </Button>
             </div>
