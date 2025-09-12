@@ -311,24 +311,25 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center lg:justify-between h-8 lg:h-12 px-4 sm:px-6">
-            {/* Logo and Mobile Menu Button Container - Centered on mobile/tablet */}
-            <div className="flex items-center justify-center gap-2">
-              <Link to="/" className="flex items-center justify-center">
-                <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
-                  HALO BUSINESS FINANCE
-                </span>
-              </Link>
-              
-              {/* Mobile Menu Button - positioned next to logo */}
-              <button 
-                className="lg:hidden p-1.5 lg:p-2 rounded-md hover:bg-gray-100 flex items-center justify-center"
-                onClick={handleMobileMenuToggle}
-                aria-label="Toggle navigation"
-              >
-                <Menu className="h-5 w-5 lg:h-6 lg:w-6 text-gray-600" />
-              </button>
-            </div>
+          <div className="flex items-center justify-between h-8 lg:h-12 px-4 sm:px-6">
+            {/* Mobile Menu Button - left side on mobile */}
+            <button 
+              className="lg:hidden p-1.5 lg:p-2 rounded-md hover:bg-gray-100 flex items-center justify-center"
+              onClick={handleMobileMenuToggle}
+              aria-label="Toggle navigation"
+            >
+              <Menu className="h-5 w-5 lg:h-6 lg:w-6 text-gray-600" />
+            </button>
+            
+            {/* Logo - centered on mobile/tablet */}
+            <Link to="/" className="flex items-center justify-center flex-1 lg:flex-none">
+              <span className="text-lg lg:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+                HALO BUSINESS FINANCE
+              </span>
+            </Link>
+            
+            {/* Spacer for mobile to balance the menu button */}
+            <div className="lg:hidden w-10"></div>
           </div>
         </div>
       </div>
