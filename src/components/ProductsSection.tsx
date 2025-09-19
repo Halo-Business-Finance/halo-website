@@ -468,6 +468,22 @@ const ProductsSection = () => {
         {/* Enhanced Corporate Header Section */}
         <div className="text-center mb-12">
           
+          {/* Commercial & Business Financing Solutions Header */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+              <span className="text-financial-navy">
+                Commercial & Business
+              </span>
+              <br />
+              <span className="text-financial-navy">
+                Financing Solutions
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto leading-relaxed">
+              Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
+            </p>
+          </div>
+          
           {/* Our Streamlined Loan Process Section */}
           <div className="py-16 bg-muted/50 rounded-2xl">
             <div className="container mx-auto px-4">
@@ -548,21 +564,7 @@ const ProductsSection = () => {
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
           </div>
-          
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
-            <span className="text-financial-navy">
-              Commercial & Business
-            </span>
-            <br />
-            <span className="text-financial-navy">
-              Financing Solutions
-            </span>
-          </h2>
-          <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto leading-relaxed">
-            Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
-          </p>
         </div>
-
 
         {/* SBA & Commercial Financing */}
         <div className="mb-20">
