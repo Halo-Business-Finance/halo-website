@@ -101,36 +101,66 @@ export type Database = {
       }
       admin_users: {
         Row: {
+          account_locked_until: string | null
           created_at: string
+          credential_audit_trail: Json | null
           email: string
+          failed_login_attempts: number | null
           full_name: string
           id: string
           is_active: boolean
           last_login_at: string | null
+          mfa_enabled: boolean | null
+          mfa_secret_encrypted: string | null
+          password_algorithm: string | null
           password_hash: string
+          password_iterations: number | null
+          password_last_changed: string | null
+          password_salt: string | null
           role: string
+          security_clearance_level: string | null
           updated_at: string
         }
         Insert: {
+          account_locked_until?: string | null
           created_at?: string
+          credential_audit_trail?: Json | null
           email: string
+          failed_login_attempts?: number | null
           full_name: string
           id?: string
           is_active?: boolean
           last_login_at?: string | null
+          mfa_enabled?: boolean | null
+          mfa_secret_encrypted?: string | null
+          password_algorithm?: string | null
           password_hash: string
+          password_iterations?: number | null
+          password_last_changed?: string | null
+          password_salt?: string | null
           role?: string
+          security_clearance_level?: string | null
           updated_at?: string
         }
         Update: {
+          account_locked_until?: string | null
           created_at?: string
+          credential_audit_trail?: Json | null
           email?: string
+          failed_login_attempts?: number | null
           full_name?: string
           id?: string
           is_active?: boolean
           last_login_at?: string | null
+          mfa_enabled?: boolean | null
+          mfa_secret_encrypted?: string | null
+          password_algorithm?: string | null
           password_hash?: string
+          password_iterations?: number | null
+          password_last_changed?: string | null
+          password_salt?: string | null
           role?: string
+          security_clearance_level?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -297,7 +327,13 @@ export type Database = {
           business_name: string | null
           business_phone: string | null
           business_type: string | null
+          compliance_classification: string | null
           created_at: string
+          encrypted_financial_data: Json | null
+          encryption_compliance_version: string | null
+          financial_audit_trail: Json | null
+          financial_data_hash: string | null
+          financial_encryption_key_id: string | null
           id: string
           last_updated_at: string | null
           loan_amount: number | null
@@ -305,6 +341,7 @@ export type Database = {
           priority_level: string | null
           status: string
           submitted_at: string | null
+          tamper_detection_hash: string | null
           updated_at: string
           user_id: string
           years_in_business: number | null
@@ -320,7 +357,13 @@ export type Database = {
           business_name?: string | null
           business_phone?: string | null
           business_type?: string | null
+          compliance_classification?: string | null
           created_at?: string
+          encrypted_financial_data?: Json | null
+          encryption_compliance_version?: string | null
+          financial_audit_trail?: Json | null
+          financial_data_hash?: string | null
+          financial_encryption_key_id?: string | null
           id?: string
           last_updated_at?: string | null
           loan_amount?: number | null
@@ -328,6 +371,7 @@ export type Database = {
           priority_level?: string | null
           status?: string
           submitted_at?: string | null
+          tamper_detection_hash?: string | null
           updated_at?: string
           user_id: string
           years_in_business?: number | null
@@ -343,7 +387,13 @@ export type Database = {
           business_name?: string | null
           business_phone?: string | null
           business_type?: string | null
+          compliance_classification?: string | null
           created_at?: string
+          encrypted_financial_data?: Json | null
+          encryption_compliance_version?: string | null
+          financial_audit_trail?: Json | null
+          financial_data_hash?: string | null
+          financial_encryption_key_id?: string | null
           id?: string
           last_updated_at?: string | null
           loan_amount?: number | null
@@ -351,11 +401,20 @@ export type Database = {
           priority_level?: string | null
           status?: string
           submitted_at?: string | null
+          tamper_detection_hash?: string | null
           updated_at?: string
           user_id?: string
           years_in_business?: number | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "applications_financial_encryption_key_id_fkey"
+            columns: ["financial_encryption_key_id"]
+            isOneToOne: false
+            referencedRelation: "encryption_keys"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       audit_logs: {
         Row: {
@@ -635,12 +694,18 @@ export type Database = {
         Row: {
           assigned_to: string | null
           created_at: string
+          data_classification: string | null
+          data_encryption_key_id: string | null
+          encrypted_submitted_data: Json | null
+          encryption_version: string | null
           form_type: string
           id: string
           ip_address: unknown | null
+          last_encryption_audit: string | null
           notes: string | null
           priority: string
           referrer: string | null
+          retention_policy: string | null
           status: string
           submitted_data: Json
           updated_at: string
@@ -652,12 +717,18 @@ export type Database = {
         Insert: {
           assigned_to?: string | null
           created_at?: string
+          data_classification?: string | null
+          data_encryption_key_id?: string | null
+          encrypted_submitted_data?: Json | null
+          encryption_version?: string | null
           form_type: string
           id?: string
           ip_address?: unknown | null
+          last_encryption_audit?: string | null
           notes?: string | null
           priority?: string
           referrer?: string | null
+          retention_policy?: string | null
           status?: string
           submitted_data?: Json
           updated_at?: string
@@ -669,12 +740,18 @@ export type Database = {
         Update: {
           assigned_to?: string | null
           created_at?: string
+          data_classification?: string | null
+          data_encryption_key_id?: string | null
+          encrypted_submitted_data?: Json | null
+          encryption_version?: string | null
           form_type?: string
           id?: string
           ip_address?: unknown | null
+          last_encryption_audit?: string | null
           notes?: string | null
           priority?: string
           referrer?: string | null
+          retention_policy?: string | null
           status?: string
           submitted_data?: Json
           updated_at?: string
@@ -689,6 +766,13 @@ export type Database = {
             columns: ["assigned_to"]
             isOneToOne: false
             referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lead_submissions_data_encryption_key_id_fkey"
+            columns: ["data_encryption_key_id"]
+            isOneToOne: false
+            referencedRelation: "encryption_keys"
             referencedColumns: ["id"]
           },
         ]
@@ -1439,6 +1523,14 @@ export type Database = {
         }
         Returns: string
       }
+      decrypt_field_data: {
+        Args: { encrypted_package: Json; master_key_id: string }
+        Returns: string
+      }
+      derive_field_encryption_key: {
+        Args: { field_identifier: string; master_key_id: string; salt: string }
+        Returns: string
+      }
       detect_advanced_session_anomaly: {
         Args: {
           behavioral_data?: Json
@@ -1448,6 +1540,16 @@ export type Database = {
           session_id: string
         }
         Returns: Json
+      }
+      detect_potential_data_breaches: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          affected_tables: string[]
+          incident_count: number
+          recommendation: string
+          threat_level: string
+          threat_type: string
+        }[]
       }
       detect_security_anomalies: {
         Args: Record<PropertyKey, never>
@@ -1474,6 +1576,15 @@ export type Database = {
       emergency_cleanup_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
+      }
+      encrypt_field_data: {
+        Args: {
+          field_type: string
+          master_key_id: string
+          plaintext_value: string
+          use_deterministic?: boolean
+        }
+        Returns: Json
       }
       encrypt_sensitive_data: {
         Args: { data_text: string }
@@ -1714,6 +1825,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      hash_admin_password: {
+        Args: { admin_email: string; plain_password: string }
+        Returns: Json
+      }
       hash_session_token: {
         Args: { salt?: string; token: string }
         Returns: Json
@@ -1849,6 +1964,15 @@ export type Database = {
         Args: { max_age_minutes?: number; session_id: string; token: string }
         Returns: boolean
       }
+      validate_encryption_compliance: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          compliance_status: string
+          encryption_coverage_percent: number
+          recommendations: string[]
+          table_name: string
+        }[]
+      }
       validate_encryption_key_access: {
         Args: { p_key_identifier: string; p_operation?: string }
         Returns: boolean
@@ -1907,6 +2031,16 @@ export type Database = {
       }
       verify_admin_access_with_session_check: {
         Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      verify_admin_password: {
+        Args: {
+          admin_email: string
+          iterations?: number
+          plain_password: string
+          stored_hash: string
+          stored_salt: string
+        }
         Returns: boolean
       }
       verify_admin_session: {
