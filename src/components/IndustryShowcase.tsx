@@ -105,7 +105,7 @@ const IndustryShowcase = () => {
     }
   ];
 
-  // Auto-advance carousel every 6 seconds (slower)
+  // Auto-advance carousel every 6 seconds (slower) - Desktop only
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => {
@@ -118,12 +118,20 @@ const IndustryShowcase = () => {
   }, [industries.length]);
 
   const nextSlide = () => {
-    const maxIndex = Math.max(0, industries.length - 4);
+    // For mobile: cycle through all industries individually
+    // For desktop: cycle through in groups of 4
+    const maxIndex = window.innerWidth < 768 
+      ? industries.length - 1 
+      : Math.max(0, industries.length - 4);
     setCurrentIndex(currentIndex >= maxIndex ? 0 : currentIndex + 1);
   };
 
   const prevSlide = () => {
-    const maxIndex = Math.max(0, industries.length - 4);
+    // For mobile: cycle through all industries individually  
+    // For desktop: cycle through in groups of 4
+    const maxIndex = window.innerWidth < 768 
+      ? industries.length - 1 
+      : Math.max(0, industries.length - 4);
     setCurrentIndex(currentIndex <= 0 ? maxIndex : currentIndex - 1);
   };
 
@@ -143,18 +151,15 @@ const IndustryShowcase = () => {
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative mb-12">
-          {/* Navigation removed for auto-play only */}
-
-          {/* Cards Container - Smooth Sliding */}
+        {/* Mobile Carousel */}
+        <div className="md:hidden relative mb-12">
           <div className="overflow-hidden">
             <div 
-              className="flex transition-transform duration-1000 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {industries.map((industry, index) => (
-                <div key={index} className="w-1/4 flex-shrink-0 px-3">
+                <div key={index} className="w-full flex-shrink-0 px-3">
                   <Card className="overflow-hidden group hover:shadow-lg transition-all duration-300 h-full">
                     <div className="relative h-48 overflow-hidden">
                       <img 
@@ -168,9 +173,9 @@ const IndustryShowcase = () => {
                       </div>
                     </div>
                     <CardContent className="p-6">
-                    <p className="text-xs text-foreground mb-4 leading-relaxed">
-                      {industry.description}
-                    </p>
+                      <p className="text-xs text-foreground mb-4 leading-relaxed">
+                        {industry.description}
+                      </p>
                       <ul className="space-y-2 mb-4">
                         {industry.loanTypes.map((type, i) => (
                           <li key={i} className="text-xs flex items-center">
@@ -191,7 +196,88 @@ const IndustryShowcase = () => {
             </div>
           </div>
 
-          {/* Indicators */}
+          {/* Mobile Navigation */}
+          <div className="flex justify-center gap-4 mt-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={prevSlide}
+              className="h-10 w-10 p-0"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={nextSlide}
+              className="h-10 w-10 p-0"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Mobile Indicators */}
+          <div className="flex justify-center space-x-2 mt-4">
+            {industries.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  index === currentIndex 
+                    ? 'bg-primary scale-110' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Carousel */}
+        <div className="hidden md:block relative mb-12">
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+            >
+              {industries.map((industry, index) => (
+                <div key={index} className="w-1/4 flex-shrink-0 px-3">
+                  <Card className="overflow-hidden group hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={industry.image} 
+                        alt={industry.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <h3 className="text-lg font-semibold mb-1">{industry.title}</h3>
+                      </div>
+                    </div>
+                    <CardContent className="p-6">
+                      <p className="text-xs text-foreground mb-4 leading-relaxed">
+                        {industry.description}
+                      </p>
+                      <ul className="space-y-2 mb-4">
+                        {industry.loanTypes.map((type, i) => (
+                          <li key={i} className="text-xs flex items-center">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                            {type}
+                          </li>
+                        ))}
+                      </ul>
+                      <Button asChild size="sm" className="w-full">
+                        <Link to={industry.ctaLink}>
+                          {industry.ctaText}
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Indicators */}
           <div className="flex justify-center space-x-2 mt-6">
             {Array.from({ length: Math.max(1, industries.length - 3) }).map((_, index) => (
               <button
