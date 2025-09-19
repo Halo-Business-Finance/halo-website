@@ -115,10 +115,10 @@ const ImageGallery = () => {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4 mt-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Your Success is Our Mission
           </h2>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <p className="text-base text-foreground max-w-2xl mx-auto">
             From initial consultation to loan closing, we're committed to providing the support and financing your business needs to thrive.
           </p>
         </div>
