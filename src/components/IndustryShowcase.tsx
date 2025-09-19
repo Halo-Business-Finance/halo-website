@@ -12,6 +12,8 @@ import constructionLoanSuccess from "@/assets/construction-loan-success.jpg";
 import apartmentBuildingFinancing from "@/assets/apartment-building-financing.jpg";
 import doctorsOfficeConsultation from "@/assets/doctors-office-consultation.jpg";
 import oilEnergyIndustry from "@/assets/oil-energy-industry.jpg";
+import transportationLogisticsIndustry from "@/assets/transportation-logistics-industry.jpg";
+import retailBusinessFinancing from "@/assets/retail-business-financing.jpg";
 
 const IndustryShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,6 +58,22 @@ const IndustryShowcase = () => {
       loanTypes: ["Equipment financing", "Project development", "Working capital"],
       ctaText: "Energy Financing",
       ctaLink: "/equipment-financing"
+    },
+    {
+      image: transportationLogisticsIndustry,
+      title: "Transportation & Logistics",
+      description: "Financing solutions for trucking companies, freight operations, and logistics businesses",
+      loanTypes: ["Fleet financing", "Equipment loans", "Working capital"],
+      ctaText: "Transportation Loans",
+      ctaLink: "/equipment-financing"
+    },
+    {
+      image: retailBusinessFinancing,
+      title: "Retail & E-commerce",
+      description: "Business financing for retail stores, online businesses, and e-commerce operations",
+      loanTypes: ["Inventory financing", "Store expansion", "Working capital"],
+      ctaText: "Retail Financing",
+      ctaLink: "/working-capital"
     }
   ];
 
