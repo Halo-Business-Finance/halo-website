@@ -10,11 +10,12 @@ import restaurantEquipmentFinancing from "@/assets/restaurant-equipment-financin
 import healthcareBusinessFinancing from "@/assets/healthcare-business-financing.jpg";
 import constructionLoanSuccess from "@/assets/construction-loan-success.jpg";
 import apartmentBuildingFinancing from "@/assets/apartment-building-financing.jpg";
+import doctorsOfficeConsultation from "@/assets/doctors-office-consultation.jpg";
 
 const IndustryShowcase = () => {
   const industries = [
     {
-      image: healthcareBusinessFinancing,
+      image: doctorsOfficeConsultation,
       title: "Healthcare & Medical",
       description: "Specialized financing for medical practices, dental offices, and healthcare facilities",
       loanTypes: ["Equipment financing", "Practice expansion", "Working capital"],
