@@ -476,7 +476,7 @@ const ProductsSection = () => {
               </span>
               <br />
               <span className="text-financial-navy">
-                Financing Solutions
+                Financing Marketplace
               </span>
             </h2>
           </div>
