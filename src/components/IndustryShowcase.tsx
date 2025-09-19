@@ -144,20 +144,7 @@ const IndustryShowcase = () => {
 
         {/* Carousel Container */}
         <div className="relative mb-12">
-          {/* Navigation Buttons */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
-          >
-            <ChevronLeft className="h-6 w-6 text-gray-600" />
-          </button>
-          
-          <button 
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
-          >
-            <ChevronRight className="h-6 w-6 text-gray-600" />
-          </button>
+          {/* Navigation removed for auto-play only */}
 
           {/* Cards Container */}
           <div className="overflow-hidden">
