@@ -568,7 +568,7 @@ const ProductsSection = () => {
         <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              SBA, Bridge, USDA and Conventional Loans
+              SBA, Bridge, USDA & Conventional Loans
             </h3>
           </div>
           
