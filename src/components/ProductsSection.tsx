@@ -622,7 +622,7 @@ const ProductsSection = () => {
                     <div className="text-xl font-bold text-primary mb-1">{product.rate}</div>
                     <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
                   </div>
-                  <p className="text-xs text-foreground mb-4 leading-relaxed">
+                  <p className="text-sm text-foreground mb-4 leading-relaxed">
                     {product.description}
                   </p>
                   <ul className="space-y-2 mb-4">
