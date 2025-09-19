@@ -648,14 +648,12 @@ const ProductsSection = () => {
                     {product.description}
                   </p>
                   <ul className="space-y-2 mb-4">
-                    <li className="text-xs flex items-center">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                      Quick approval process
-                    </li>
-                    <li className="text-xs flex items-center">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                      Competitive rates
-                    </li>
+                    {product.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="text-xs flex items-center">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
                   </ul>
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
