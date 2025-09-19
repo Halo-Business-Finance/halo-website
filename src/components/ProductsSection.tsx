@@ -650,20 +650,20 @@ const ProductsSection = () => {
              ))}
            </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Button asChild size="lg" className="bg-white text-slate-900 font-semibold px-6 py-3 shadow-lg hover:bg-slate-50 hover:shadow-xl transition-all duration-300">
-                <a href="https://preview--hbf-application.lovable.app/auth">
-                  Get Pre-Qualified
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" className="bg-transparent border-slate-900 text-slate-900 font-semibold px-6 py-3 shadow-lg hover:bg-slate-900 hover:text-white transition-all duration-300">
-                <Link to="/contact-us">
-                  Schedule Consultation
-                  <Phone className="h-4 w-4 ml-2" />
-                </Link>
-              </Button>
-            </div>
+             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                 <a href="https://preview--hbf-application.lovable.app/auth">
+                   Get Pre-Qualified
+                   <ArrowRight className="h-5 w-5 ml-2" />
+                 </a>
+               </Button>
+               <Button variant="outline" size="lg" className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105">
+                 <Link to="/contact-us">
+                   Schedule Consultation
+                   <Phone className="h-5 w-5 ml-2" />
+                 </Link>
+               </Button>
+             </div>
             
             <div className="text-center max-w-7xl mx-auto mt-6">
               <p className="text-2xl text-gray-900 whitespace-nowrap text-center mx-auto font-sans">
