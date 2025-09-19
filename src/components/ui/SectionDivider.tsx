@@ -52,7 +52,6 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
             {/* Center accent */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <div className="w-4 h-4 bg-white/40 rounded-full"></div>
               </div>
             </div>
             
