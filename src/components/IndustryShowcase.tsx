@@ -133,7 +133,7 @@ const IndustryShowcase = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="relative h-32 rounded-lg overflow-hidden">
+              <div className="relative h-48 rounded-lg overflow-hidden">
                 <img 
                   src={businessFinancingMeeting} 
                   alt="Business financing consultation meeting"
