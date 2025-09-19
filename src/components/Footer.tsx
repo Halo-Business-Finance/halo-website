@@ -67,7 +67,7 @@ const Footer = () => {
                   decoding="async"
                 />
               </Link>
-              <p className="text-white text-sm md:text-lg mb-4">
+              <p className="text-white text-xs md:text-base mb-4">
                 Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
               </p>
             </div>
