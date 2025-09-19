@@ -597,7 +597,7 @@ const ProductsSection = () => {
         </div>
 
         {/* Business Capital Section */}
-        <div className="pt-8">
+        <div className="pt-4">
           <div className="text-left mb-6 max-w-7xl mx-auto">
           </div>
 
