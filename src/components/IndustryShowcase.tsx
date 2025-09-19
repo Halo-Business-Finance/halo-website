@@ -9,6 +9,7 @@ import commercialPropertyInvestment from "@/assets/commercial-property-investmen
 import restaurantEquipmentFinancing from "@/assets/restaurant-equipment-financing.jpg";
 import healthcareBusinessFinancing from "@/assets/healthcare-business-financing.jpg";
 import constructionLoanSuccess from "@/assets/construction-loan-success.jpg";
+import apartmentBuildingFinancing from "@/assets/apartment-building-financing.jpg";
 
 const IndustryShowcase = () => {
   const industries = [
@@ -37,7 +38,7 @@ const IndustryShowcase = () => {
       ctaLink: "/construction-loans"
     },
     {
-      image: commercialPropertyInvestment,
+      image: apartmentBuildingFinancing,
       title: "Multi-Family Financing",
       description: "Commercial real estate loans for property acquisition and investment projects",
       loanTypes: ["Property acquisition", "Refinancing", "Portfolio loans"],
