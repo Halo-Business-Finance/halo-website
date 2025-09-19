@@ -622,6 +622,9 @@ const ProductsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <h3 className="text-lg font-semibold mb-1">{product.title}</h3>
+                    <p className="text-sm text-white/90 leading-relaxed">
+                      {product.description}
+                    </p>
                   </div>
                 </div>
                 <CardContent className="p-6">
@@ -637,9 +640,6 @@ const ProductsSection = () => {
                       <div className="text-xs text-black font-medium">{product.terms}</div>
                     </div>
                   )}
-                  <p className="text-sm text-foreground mb-4 leading-relaxed">
-                    {product.description}
-                  </p>
                   <ul className="space-y-2 mb-4">
                     {product.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="text-xs flex items-center">
