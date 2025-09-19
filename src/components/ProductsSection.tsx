@@ -613,7 +613,7 @@ const ProductsSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-7xl mx-auto">
             {businessProducts.slice(0, 4).map((product, index) => (
               <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-slate-50 to-white flex flex-col items-center justify-center p-6">
+                <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex flex-col items-center justify-center p-6">
                   {product.icon && (
                     <product.icon className="h-8 w-8 text-primary mb-4 flex-shrink-0" />
                   )}
