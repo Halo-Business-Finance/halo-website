@@ -497,7 +497,7 @@ const ProductsSection = () => {
               Financing Solutions
             </span>
           </h2>
-          <p className="text-base md:text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto leading-relaxed">
             Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
           </p>
         </div>
