@@ -38,7 +38,7 @@ const IndustryShowcase = () => {
     },
     {
       image: commercialPropertyInvestment,
-      title: "Real Estate Investment",
+      title: "Multi-Family Financing",
       description: "Commercial real estate loans for property acquisition and investment projects",
       loanTypes: ["Property acquisition", "Refinancing", "Portfolio loans"],
       ctaText: "Real Estate Loans",
