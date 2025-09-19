@@ -460,7 +460,7 @@ const ProductsSection = () => {
           
           {/* Corporate Text Content Below Process Steps */}
           <div className="text-center mt-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/60 p-8 shadow-sm">
-            <h4 className="text-2xl font-bold mb-6 text-gray-900 tracking-tight">Fast, Simple, Secure</h4>
+            <h4 className="text-xl font-bold mb-6 text-gray-900 tracking-tight">Fast, Simple, Secure</h4>
             
             {/* Corporate Get Started Button */}
             <div className="mb-6">
