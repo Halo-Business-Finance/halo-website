@@ -101,9 +101,9 @@ const IndustryShowcase = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-4">Success Stories</h3>
-              <p className="text-muted-foreground mb-6">
-                Join thousands of businesses that have successfully grown with our financing solutions. From small startups to established enterprises, we've helped businesses achieve their goals.
-              </p>
+            <p className="text-foreground mb-6">
+              Join thousands of businesses that have successfully grown with our financing solutions. From small startups to established enterprises, we've helped businesses achieve their goals.
+            </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success rounded-full" />
