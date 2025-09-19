@@ -303,7 +303,7 @@ const ProductsSection = () => {
     },
     {
       icon: Receipt,
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80",
       title: "Factoring Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
