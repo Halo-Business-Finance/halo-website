@@ -693,83 +693,55 @@ const ProductsSection = () => {
             </h3>
           </div>
 
-          {/* Mobile Carousel */}
-          <div className="md:hidden">
-            <div className="overflow-hidden" ref={businessEmblaRef}>
-              <div className="flex">
-                {businessProducts.slice(0, 4).map((product, index) => (
-                  <div key={index} className="flex-[0_0_80%] min-w-0 pl-4">
-                    <Card className="overflow-hidden group hover:shadow-lg transition-shadow mr-4">
-                      <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                        {product.icon && (
-                          <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
-                        )}
-                        <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
-                        <p className="text-sm text-white leading-relaxed text-left">
-                          {product.description}
-                        </p>
-                      </div>
-                      <CardContent className="p-6">
-                        {/* Rate Display */}
-                        <div className="rounded-lg px-3 py-2 mb-4">
-                          <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
-                          <div className="text-xs text-black font-medium">{product.rateLabel}</div>
-                        </div>
-                        {/* Terms Display */}
-                        {product.terms && (
-                          <div className="rounded-lg px-3 py-2 mb-4">
-                            <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
-                            <div className="text-xs text-black font-medium">{product.terms}</div>
-                          </div>
-                        )}
-                        <ul className="space-y-2 mb-4">
-                          {product.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="text-xs flex items-center">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="flex flex-col gap-2">
-                          <Button asChild size="sm" className="w-full">
-                            <Link to={product.learnLink}>
-                              Learn More
-                            </Link>
-                          </Button>
-                          <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
-                            <Link to={product.applyLink}>
-                              Apply Now
-                            </Link>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
+          {/* Mobile Vertical Stack */}
+          <div className="md:hidden space-y-4 mb-12 max-w-sm mx-auto">
+            {businessProducts.slice(0, 4).map((product, index) => (
+              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
+                  {product.icon && (
+                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
+                  )}
+                  <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
+                  <p className="text-sm text-white leading-relaxed text-left">
+                    {product.description}
+                  </p>
+                </div>
+                <CardContent className="p-6">
+                  {/* Rate Display */}
+                  <div className="rounded-lg px-3 py-2 mb-4">
+                    <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
+                    <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                   </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Mobile Navigation */}
-            <div className="flex justify-center gap-4 mt-6">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={businessScrollPrev}
-                disabled={businessPrevBtnDisabled}
-                className="h-10 w-10 p-0"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={businessScrollNext}
-                disabled={businessNextBtnDisabled}
-                className="h-10 w-10 p-0"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
+                  {/* Terms Display */}
+                  {product.terms && (
+                    <div className="rounded-lg px-3 py-2 mb-4">
+                      <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
+                      <div className="text-xs text-black font-medium">{product.terms}</div>
+                    </div>
+                  )}
+                  <ul className="space-y-2 mb-4">
+                    {product.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="text-xs flex items-center">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col gap-2">
+                    <Button asChild size="sm" className="w-full">
+                      <Link to={product.learnLink}>
+                        Learn More
+                      </Link>
+                    </Button>
+                    <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
+                      <Link to={product.applyLink}>
+                        Apply Now
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {/* Desktop Grid */}
