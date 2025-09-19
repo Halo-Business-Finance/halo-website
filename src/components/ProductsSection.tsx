@@ -8,7 +8,11 @@ import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
-import LoanProcessCarousel from './LoanProcessCarousel';
+import step1SelectLoan from "@/assets/step1-select-loan.jpg";
+import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
+import step3PreApproved from "@/assets/step3-pre-approved.jpg";
+import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
+import step5GetFunded from "@/assets/step5-get-funded.jpg";
 import { 
   PiggyBank, 
   Car, 
@@ -464,28 +468,76 @@ const ProductsSection = () => {
         {/* Enhanced Corporate Header Section */}
         <div className="text-center mb-12">
           
-          {/* Our Streamlined Loan Process Section - Corporate Style */}
-          <LoanProcessCarousel />
-          
-          {/* Corporate Text Content Below Process Steps */}
-          <div className="text-center mt-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/60 p-8 shadow-sm">
-            <h4 className="text-xl font-bold mb-6 text-gray-900 tracking-tight">Fast, Simple, Secure</h4>
-            
-            {/* Corporate Get Started Button */}
-            <div className="mb-6">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-0"
-                asChild
-              >
-                <a href="https://app.halolending.com">
-                  <Lock className="h-4 w-4 mr-2" />
-                  Get Started
-                </a>
-              </Button>
+          {/* Our Streamlined Loan Process Section */}
+          <div className="py-16 bg-muted/50 rounded-2xl">
+            <div className="container mx-auto px-4">
+              <div className="text-left mb-12">
+                <h2 className="text-xl md:text-2xl font-bold mb-4">
+                  Our Streamlined Loan Process
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  We make commercial lending simple
+                </p>
+              </div>
+
+              <div className="relative mx-auto">
+                <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+                  {[
+                    { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
+                    { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
+                    { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
+                    { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
+                    { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
+                  ].map((item, index) => (
+                    <div key={index} className="relative flex items-stretch h-full">
+                      <div className="relative h-52 lg:h-64 rounded-xl overflow-hidden shadow-[var(--shadow-card)] animate-fade-in hover-scale w-full">
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        <div className="absolute top-4 left-4 right-4">
+                          <div className="text-2xl font-bold text-white mb-1">Step {item.step}</div>
+                        </div>
+                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                          <div className="text-sm font-bold mb-1">{item.title}</div>
+                          <div className="text-xs text-white/90 leading-relaxed">{item.description}</div>
+                        </div>
+                      </div>
+                      
+                      {/* Arrow - only show between steps, not after the last one */}
+                      {index < 4 && (
+                          <div className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 transform -translate-y-1/2 z-10">
+                            <ArrowRight className="h-6 w-6 text-primary" />
+                          </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Text content below process steps */}
+              <div className="text-left mt-12">
+                <h3 className="text-xl md:text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
+                
+                {/* Get Started Button */}
+                <div className="mb-6">
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
+                    asChild
+                  >
+                    <a href="https://preview--hbf-application.lovable.app/auth">
+                      <Lock className="h-4 w-4 mr-2" />
+                      Get Started
+                    </a>
+                  </Button>
+                </div>
+                
+                <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
+              </div>
             </div>
-            
-            <p className="text-lg text-gray-700 font-medium">Professional lending process with modern technology</p>
           </div>
           
           {/* Corporate Section Divider */}
