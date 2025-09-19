@@ -15,6 +15,8 @@ import oilEnergyIndustry from "@/assets/oil-energy-industry.jpg";
 import transportationLogisticsIndustry from "@/assets/transportation-logistics-industry.jpg";
 import retailBusinessFinancing from "@/assets/retail-business-financing.jpg";
 import hotelMotelFinancing from "@/assets/hotel-motel-financing.jpg";
+import carwashBusinessFinancing from "@/assets/carwash-business-financing.jpg";
+import gasStationFinancing from "@/assets/gas-station-financing.jpg";
 
 const IndustryShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,6 +85,22 @@ const IndustryShowcase = () => {
       loanTypes: ["Property acquisition", "Renovation loans", "Equipment financing"],
       ctaText: "Hospitality Financing",
       ctaLink: "/sba-504-loans"
+    },
+    {
+      image: carwashBusinessFinancing,
+      title: "Car Wash",
+      description: "Financing solutions for car wash businesses, equipment, and facility development",
+      loanTypes: ["Equipment financing", "Facility construction", "Working capital"],
+      ctaText: "Car Wash Financing",
+      ctaLink: "/equipment-financing"
+    },
+    {
+      image: gasStationFinancing,
+      title: "Gas Station",
+      description: "Financing for gas stations, fuel operations, and convenience store businesses",
+      loanTypes: ["Property acquisition", "Equipment upgrades", "Working capital"],
+      ctaText: "Gas Station Financing",
+      ctaLink: "/commercial-loans"
     }
   ];
 
