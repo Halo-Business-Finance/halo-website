@@ -273,6 +273,7 @@ const ProductsSection = () => {
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "1.20 factoring",
       rateLabel: "Starting Rate",
+      terms: "3-18 months",
       features: ["Bridge seasonal cash gaps", "Cover operational expenses", "Inventory and payroll funding"],
       learnLink: "/working-capital",
       applyLink: "/working-capital-application",
@@ -285,6 +286,7 @@ const ProductsSection = () => {
       description: "Flexible access to capital when you need it with revolving credit lines.",
       rate: "Prime + 2%",
       rateLabel: "Starting Rate",
+      terms: "12-60 months",
       features: ["Access up to credit limit", "Only pay interest on draws", "Renewable credit facility"],
       learnLink: "/business-line-of-credit",
       applyLink: "/business-line-of-credit-application",
@@ -297,6 +299,7 @@ const ProductsSection = () => {
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "8.75%",
       rateLabel: "Starting APR",
+      terms: "2-7 years",
       features: ["Fixed monthly payments", "Predictable payment schedule", "Business expansion funding"],
       learnLink: "/term-loans",
       applyLink: "/term-loan-application",
@@ -309,6 +312,7 @@ const ProductsSection = () => {
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
+      terms: "30-90 days",
       features: ["Convert invoices to cash", "No debt on balance sheet", "Customer credit protection"],
       learnLink: "/factoring-based-financing",
       applyLink: "/working-capital-application",
@@ -321,6 +325,7 @@ const ProductsSection = () => {
       description: "Fast-track SBA financing with expedited approval process.",
       rate: "Prime + 4.5%",
       rateLabel: "Starting Rate",
+      terms: "Up to 7 years",
       features: ["SBA guarantee protection", "Fast 36-hour approval", "Revolving line option"],
       learnLink: "/sba-express-loans",
       applyLink: "/sba-loan-application",
@@ -334,6 +339,7 @@ const ProductsSection = () => {
       description: "Traditional debt financing solutions for business growth and expansion.",
       rate: "5.5%",
       rateLabel: "Starting APR",
+      terms: "1-10 years",
       features: ["Bank-grade underwriting", "Secured by business assets", "Competitive market rates"],
       learnLink: "/debt-financing",
       applyLink: "/term-loan-application",
@@ -346,6 +352,7 @@ const ProductsSection = () => {
       description: "Raise capital through equity investment without taking on debt.",
       rate: "Equity Based",
       rateLabel: "Investment",
+      terms: "Permanent",
       features: ["Sell ownership stake", "No personal guarantees", "Strategic investor partnerships"],
       learnLink: "/equity-financing",
       applyLink: "/term-loan-application",
@@ -358,6 +365,7 @@ const ProductsSection = () => {
       description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
       rate: "8-15%",
       rateLabel: "Return Rate",
+      terms: "3-7 years",
       features: ["Combine debt and equity", "Growth stage companies", "Acquisition financing"],
       learnLink: "/mezzanine-financing",
       applyLink: "/term-loan-application",
@@ -622,6 +630,13 @@ const ProductsSection = () => {
                     <div className="text-xl font-bold text-primary mb-1">{product.rate}</div>
                     <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
                   </div>
+                  {/* Terms Display */}
+                  {product.terms && (
+                    <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg px-3 py-2 border border-green-200 mb-4">
+                      <div className="text-sm font-semibold text-green-800 mb-1">Terms</div>
+                      <div className="text-xs text-green-700 font-medium">{product.terms}</div>
+                    </div>
+                  )}
                   <p className="text-sm text-foreground mb-4 leading-relaxed">
                     {product.description}
                   </p>
