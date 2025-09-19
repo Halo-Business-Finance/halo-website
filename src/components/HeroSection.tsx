@@ -26,8 +26,8 @@ const HeroSection = () => {
             <div className="space-y-5">
               
               <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-                <span className="block">Business Financing</span>
-                <span className="block text-primary-glow">that Grows with You</span>
+                <span className="block">Nationwide Commercial &</span>
+                <span className="block text-primary-glow">Business Financing Marketplace</span>
               </h1>
               
               <p className="text-base md:text-2xl text-white max-w-2xl leading-relaxed">
