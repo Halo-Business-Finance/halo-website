@@ -80,7 +80,7 @@ const IndustryShowcase = () => {
     },
     {
       image: hotelMotelFinancing,
-      title: "Hotel & Motel",
+      title: "Hotel & Motel Industry",
       description: "Hospitality financing for hotels, motels, and accommodation businesses",
       loanTypes: ["Property acquisition", "Renovation loans", "Equipment financing"],
       ctaText: "Hospitality Financing",
