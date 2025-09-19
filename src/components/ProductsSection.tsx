@@ -8,6 +8,7 @@ import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import step1SelectLoan from "@/assets/step1-select-loan.jpg";
 import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
 import step3PreApproved from "@/assets/step3-pre-approved.jpg";
@@ -362,7 +363,7 @@ const ProductsSection = () => {
         slidesToScroll: 1
       }
     }
-  });
+  }, [Autoplay({ delay: 4000, stopOnInteraction: false })]);
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [activeProductIndex, setActiveProductIndex] = useState(0);
