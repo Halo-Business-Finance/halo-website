@@ -37,6 +37,7 @@ import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
 import loanApprovalCelebration from "@/assets/loan-approval-celebration.jpg";
 import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
 import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
+import accountingOffice from "@/assets/accounting-office.jpg";
 
 
 const ProductsSection = () => {
@@ -303,7 +304,7 @@ const ProductsSection = () => {
     },
     {
       icon: Receipt,
-      image: "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80",
+      image: accountingOffice,
       title: "Factoring Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
