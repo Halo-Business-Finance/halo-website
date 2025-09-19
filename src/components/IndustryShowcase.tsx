@@ -126,7 +126,7 @@ const IndustryShowcase = () => {
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-32 rounded-lg overflow-hidden">
+              <div className="relative h-48 rounded-lg overflow-hidden">
                 <img 
                   src={sbaLoanHandshake} 
                   alt="SBA loan approval handshake"
