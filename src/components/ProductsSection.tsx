@@ -657,12 +657,14 @@ const ProductsSection = () => {
                    <ArrowRight className="h-5 w-5 ml-2" />
                  </a>
                </Button>
-               <Button variant="outline" size="lg" className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105">
-                 <Link to="/contact-us">
-                   Schedule Consultation
-                   <Phone className="h-5 w-5 ml-2" />
-                 </Link>
-               </Button>
+               <ConsultationPopup 
+                 trigger={
+                   <Button variant="outline" size="lg" className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105">
+                     Schedule Consultation
+                     <Phone className="h-5 w-5 ml-2" />
+                   </Button>
+                 }
+               />
              </div>
             
             <div className="text-center max-w-7xl mx-auto mt-6">
