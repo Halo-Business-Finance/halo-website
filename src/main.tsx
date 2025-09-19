@@ -1,3 +1,4 @@
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from "react-helmet-async"
 import App from './App.tsx'
@@ -20,9 +21,12 @@ window.addEventListener('unhandledrejection', (e) => {
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </HelmetProvider>
+  <React.StrictMode>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <App />
+        <Toaster />
+      </QueryClientProvider>
+    </HelmetProvider>
+  </React.StrictMode>
 );
