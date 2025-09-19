@@ -568,8 +568,31 @@ const ProductsSection = () => {
                 ))}
               </div>
             </div>
+            </div>
+            
+            {/* Navigation Controls - Under Carousel */}
+            <div className="flex justify-center gap-4 mt-6">
+              <Button
+                variant="outline"
+                size="icon"
+                className="bg-white/90 hover:bg-white shadow-lg"
+                onClick={scrollPrev}
+                disabled={prevBtnDisabled}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="icon"
+                className="bg-white/90 hover:bg-white shadow-lg"
+                onClick={scrollNext}
+                disabled={nextBtnDisabled}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
-        </div>
 
         {/* Section Divider */}
         <div className="flex items-center justify-center my-20">
