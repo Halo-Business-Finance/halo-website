@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock } from "lucide-react";
+import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
@@ -665,12 +665,27 @@ const ProductsSection = () => {
                </Card>
              ))}
            </div>
-           
-           <div className="text-center max-w-7xl mx-auto mt-6">
-             <p className="text-2xl text-gray-900 whitespace-nowrap text-center mx-auto font-sans">
-               Powerful business capital loans designed to help your business grow and succeed.
-             </p>
-           </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button asChild size="lg" className="bg-white text-slate-900 font-semibold px-6 py-3 shadow-lg hover:bg-slate-50 hover:shadow-xl transition-all duration-300">
+                <a href="https://preview--hbf-application.lovable.app/auth">
+                  Get Pre-Qualified
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" className="bg-transparent border-slate-900 text-slate-900 font-semibold px-6 py-3 shadow-lg hover:bg-slate-900 hover:text-white transition-all duration-300">
+                <Link to="/contact-us">
+                  Schedule Consultation
+                  <Phone className="h-4 w-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
+            
+            <div className="text-center max-w-7xl mx-auto mt-6">
+              <p className="text-2xl text-gray-900 whitespace-nowrap text-center mx-auto font-sans">
+                Powerful business capital loans designed to help your business grow and succeed.
+              </p>
+            </div>
         </div>
       </div>
     </section>
