@@ -17,7 +17,27 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Ensure a single JSX runtime instance
+      "react/jsx-runtime": "react/jsx-runtime",
+      "react/jsx-dev-runtime": "react/jsx-dev-runtime",
     },
-    dedupe: ["react", "react-dom", "react-helmet-async", "@tanstack/react-query"],
+    dedupe: [
+      "react",
+      "react-dom",
+      "react-helmet-async",
+      "@tanstack/react-query",
+      "react/jsx-runtime",
+      "react/jsx-dev-runtime",
+    ],
+  },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "react-helmet-async",
+      "@tanstack/react-query",
+    ],
+    force: true,
   },
 }));
