@@ -309,7 +309,7 @@ const ProductsSection = () => {
       icon: FileText,
       image: accountingOffice,
       title: "Factoring Financing",
-      description: "Convert invoices into immediate cash through factoring.",
+      description: "Convert invoices into immediate cash through invoice factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
       terms: "30-90 days",
