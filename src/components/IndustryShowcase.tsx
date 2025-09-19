@@ -213,7 +213,7 @@ const IndustryShowcase = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Success Stories</h3>
             <p className="text-foreground mb-6">
-              Join thousands of businesses that have successfully grown with our financing solutions. From small startups to established enterprises, we've helped businesses achieve their goals.
+              Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. From small startups to established enterprises, we've helped businesses achieve their goals. Check out our business financing resources or read additional insights from industry experts.
             </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
