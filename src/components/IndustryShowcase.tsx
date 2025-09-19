@@ -30,7 +30,7 @@ const IndustryShowcase = () => {
     },
     {
       image: constructionLoanSuccess,
-      title: "Construction & Development",
+      title: "Construction",
       description: "Commercial construction loans and development financing for builders and contractors",
       loanTypes: ["Construction loans", "Equipment financing", "Working capital"],
       ctaText: "Construction Loans",
