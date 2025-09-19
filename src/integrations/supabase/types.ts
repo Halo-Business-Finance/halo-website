@@ -61,6 +61,57 @@ export type Database = {
           },
         ]
       }
+      admin_password_changes: {
+        Row: {
+          admin_user_id: string
+          applied_at: string | null
+          change_authorized_by: string | null
+          change_reason: string | null
+          created_at: string | null
+          id: string
+          ip_address: unknown | null
+          mfa_verified: boolean | null
+          new_password_hash: string
+          new_password_salt: string
+          old_password_hash_verification: string
+          requires_mfa: boolean | null
+          revoked_at: string | null
+          status: string | null
+        }
+        Insert: {
+          admin_user_id: string
+          applied_at?: string | null
+          change_authorized_by?: string | null
+          change_reason?: string | null
+          created_at?: string | null
+          id?: string
+          ip_address?: unknown | null
+          mfa_verified?: boolean | null
+          new_password_hash: string
+          new_password_salt: string
+          old_password_hash_verification: string
+          requires_mfa?: boolean | null
+          revoked_at?: string | null
+          status?: string | null
+        }
+        Update: {
+          admin_user_id?: string
+          applied_at?: string | null
+          change_authorized_by?: string | null
+          change_reason?: string | null
+          created_at?: string | null
+          id?: string
+          ip_address?: unknown | null
+          mfa_verified?: boolean | null
+          new_password_hash?: string
+          new_password_salt?: string
+          old_password_hash_verification?: string
+          requires_mfa?: boolean | null
+          revoked_at?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
       admin_sessions: {
         Row: {
           admin_user_id: string
@@ -1633,6 +1684,20 @@ export type Database = {
           token: string
         }[]
       }
+      get_admin_profile_secure: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          is_active: boolean
+          last_login_at: string
+          mfa_enabled: boolean
+          role: string
+          security_clearance_level: string
+        }[]
+      }
       get_admin_user_profiles: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -1952,6 +2017,10 @@ export type Database = {
         Args: { display_name?: string; user_email: string }
         Returns: Json
       }
+      update_admin_profile_secure: {
+        Args: { p_full_name?: string; p_security_clearance_level?: string }
+        Returns: boolean
+      }
       validate_admin_session: {
         Args: {
           p_admin_email: string
@@ -2041,6 +2110,10 @@ export type Database = {
           stored_hash: string
           stored_salt: string
         }
+        Returns: boolean
+      }
+      verify_admin_self_access: {
+        Args: Record<PropertyKey, never>
         Returns: boolean
       }
       verify_admin_session: {
