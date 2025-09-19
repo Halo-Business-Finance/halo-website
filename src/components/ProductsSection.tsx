@@ -307,7 +307,7 @@ const ProductsSection = () => {
       image: accountingOffice,
       title: "Factoring Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
-      rate: "1-3%",
+      rate: "1.20 factoring",
       rateLabel: "Factor Rate",
       features: ["Convert invoices to cash", "No debt on balance sheet", "Customer credit protection"],
       learnLink: "/factoring-based-financing",
