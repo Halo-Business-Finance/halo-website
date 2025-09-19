@@ -268,7 +268,7 @@ const ProductsSection = () => {
     {
       icon: CreditCard,
       image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
-      title: "Working Capital",
+      title: "Business Working Capital",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
       rateLabel: "Starting Rate",
@@ -292,7 +292,7 @@ const ProductsSection = () => {
     {
       icon: Building2,
       image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
-      title: "Term Loans",
+      title: "Business Term Loans",
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
       rateLabel: "Starting APR",
@@ -304,7 +304,7 @@ const ProductsSection = () => {
     {
       icon: Receipt,
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
-      title: "Factoring Financing",
+      title: "Business Factoring Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
