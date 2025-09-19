@@ -14,6 +14,7 @@ import doctorsOfficeConsultation from "@/assets/doctors-office-consultation.jpg"
 import oilEnergyIndustry from "@/assets/oil-energy-industry.jpg";
 import transportationLogisticsIndustry from "@/assets/transportation-logistics-industry.jpg";
 import retailBusinessFinancing from "@/assets/retail-business-financing.jpg";
+import hotelMotelFinancing from "@/assets/hotel-motel-financing.jpg";
 
 const IndustryShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,6 +75,14 @@ const IndustryShowcase = () => {
       loanTypes: ["Inventory financing", "Store expansion", "Working capital"],
       ctaText: "Retail Financing",
       ctaLink: "/working-capital"
+    },
+    {
+      image: hotelMotelFinancing,
+      title: "Hotel & Motel",
+      description: "Hospitality financing for hotels, motels, and accommodation businesses",
+      loanTypes: ["Property acquisition", "Renovation loans", "Equipment financing"],
+      ctaText: "Hospitality Financing",
+      ctaLink: "/sba-504-loans"
     }
   ];
 
