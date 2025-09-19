@@ -613,19 +613,14 @@ const ProductsSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-7xl mx-auto">
             {businessProducts.slice(0, 4).map((product, index) => (
               <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-lg font-semibold mb-1">{product.title}</h3>
-                    <p className="text-sm text-white/90 leading-relaxed">
-                      {product.description}
-                    </p>
-                  </div>
+                <div className="h-48 bg-gradient-to-br from-slate-50 to-white flex flex-col items-center justify-center p-6">
+                  {product.icon && (
+                    <product.icon className="h-12 w-12 text-primary mb-4" />
+                  )}
+                  <h3 className="text-lg font-semibold mb-2 text-center">{product.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
+                    {product.description}
+                  </p>
                 </div>
                 <CardContent className="p-6">
                   {/* Rate Display */}
