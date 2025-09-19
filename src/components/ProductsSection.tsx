@@ -584,7 +584,7 @@ const ProductsSection = () => {
             className="absolute inset-0 w-full h-full object-cover"
             priority={false}
           />
-          <div className="relative text-white pt-64 pb-44 px-6 max-w-4xl mx-auto">
+          <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-2xl md:text-3xl text-white mb-4 underline decoration-2 text-center font-bold">
                 Business Capital Solutions
