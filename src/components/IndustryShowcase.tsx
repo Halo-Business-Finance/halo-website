@@ -11,6 +11,7 @@ import healthcareBusinessFinancing from "@/assets/healthcare-business-financing.
 import constructionLoanSuccess from "@/assets/construction-loan-success.jpg";
 import apartmentBuildingFinancing from "@/assets/apartment-building-financing.jpg";
 import doctorsOfficeConsultation from "@/assets/doctors-office-consultation.jpg";
+import oilEnergyIndustry from "@/assets/oil-energy-industry.jpg";
 
 const IndustryShowcase = () => {
   const industries = [
@@ -45,6 +46,14 @@ const IndustryShowcase = () => {
       loanTypes: ["Property acquisition", "Refinancing", "Portfolio loans"],
       ctaText: "Real Estate Loans",
       ctaLink: "/sba-504-loans"
+    },
+    {
+      image: oilEnergyIndustry,
+      title: "Oil & Energy",
+      description: "Specialized financing for oil, gas, and renewable energy projects and operations",
+      loanTypes: ["Equipment financing", "Project development", "Working capital"],
+      ctaText: "Energy Financing",
+      ctaLink: "/equipment-financing"
     }
   ];
 
