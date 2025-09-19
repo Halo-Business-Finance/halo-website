@@ -486,7 +486,7 @@ const ProductsSection = () => {
               
               {/* Text content below process steps */}
               <div className="text-center mt-12">
-                <h3 className="text-xl font-semibold mb-6 text-primary md:text-xl">Fast, Simple, Secure</h3>
+                <h3 className="text-xl font-semibold mb-6 md:text-xl text-black">Fast, Simple & Streamlined Loan Process</h3>
                 
                 {/* Get Started Button */}
                 <div className="mb-6">
@@ -498,7 +498,7 @@ const ProductsSection = () => {
                   </Button>
                 </div>
                 
-                <p className="text-lg text-black">Professional lending process with modern technology</p>
+                <p className="text-lg text-black">Commercial lending powered by modern technology</p>
               </div>
             </div>
           </div>
