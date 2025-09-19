@@ -678,6 +678,8 @@ const ProductsSection = () => {
             className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
             priority={false}
           />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight mt-6">
