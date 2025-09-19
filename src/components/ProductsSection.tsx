@@ -623,7 +623,47 @@ const ProductsSection = () => {
           </div>
 
           {/* Professional Financial Services Carousel - Business Capital */}
-          <div className="relative rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {businessProducts.slice(0, 4).map((product, index) => (
+              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <h3 className="text-lg font-semibold mb-1">{product.title}</h3>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <p className="text-sm text-foreground mb-4 leading-relaxed">
+                    {product.description}
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="text-xs flex items-center">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                      {product.rateLabel}
+                    </li>
+                    <li className="text-xs flex items-center">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                      Quick approval process
+                    </li>
+                    <li className="text-xs flex items-center">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                      Competitive rates
+                    </li>
+                  </ul>
+                  <Button asChild size="sm" className="w-full">
+                    <Link to={product.ctaLink}>
+                      {product.ctaText}
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
             {/* Elegant Header Section */}
             <div className="bg-gradient-to-r from-financial-navy to-primary p-8 md:p-12 text-white">
               <div className="flex justify-between items-center">
