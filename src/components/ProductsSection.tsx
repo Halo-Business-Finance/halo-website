@@ -267,7 +267,7 @@ const ProductsSection = () => {
 
   const businessProducts = [
     {
-      icon: FileText,
+      icon: Receipt,
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80",
       title: "Working Capital Loans",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
@@ -306,7 +306,7 @@ const ProductsSection = () => {
       color: "from-purple-500 to-purple-600"
     },
     {
-      icon: Receipt,
+      icon: FileText,
       image: accountingOffice,
       title: "Factoring Financing",
       description: "Convert invoices into immediate working capital through factoring.",
