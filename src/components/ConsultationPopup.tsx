@@ -74,23 +74,41 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
     setIsSubmitting(true);
 
     try {
-      // Simple submission data for external processing
+      // Submit to lead management system
       const submissionData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        loan_program: formData.loanProgram,
-        loan_amount: formData.loanAmount,
-        timeframe: formData.timeframe,
-        message: formData.message,
-        submissionTime: new Date().toISOString(),
-        origin: window.location.origin
+        form_type: 'consultation',
+        submitted_data: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          loan_program: formData.loanProgram,
+          loan_amount: formData.loanAmount,
+          timeframe: formData.timeframe,
+          message: formData.message,
+          submissionTime: new Date().toISOString(),
+          origin: window.location.origin,
+          userAgent: navigator.userAgent,
+          utm_source: new URLSearchParams(window.location.search).get('utm_source'),
+          utm_medium: new URLSearchParams(window.location.search).get('utm_medium'),
+          utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign')
+        }
       };
 
-      // Here you would typically send to your external system
-      // For now, we'll just show success
-      console.log('Consultation request:', submissionData);
+      const response = await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3cXRld3B5Y2Ridmpna250ZWpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1MjIxNjgsImV4cCI6MjA2OTA5ODE2OH0.vb1LXUj3SVKEMMU5f6vV98381h-2wmsDOyMa6wqqWMs`
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to submit consultation');
+      }
       
       toast({
         title: "Consultation Requested",
