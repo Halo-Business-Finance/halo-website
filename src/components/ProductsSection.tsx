@@ -283,7 +283,7 @@ const ProductsSection = () => {
       icon: TrendingUp,
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80",
       title: "Business Line of Credit",
-      description: "Flexible access to capital when you need it with revolving credit lines.",
+      description: "Access to capital when you need it with revolving credit lines.",
       rate: "Prime + 2%",
       rateLabel: "Starting Rate",
       terms: "12-60 months",
