@@ -507,7 +507,7 @@ const ProductsSection = () => {
           <div className="flex items-center justify-center my-20">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
             <div className="px-8">
-              <div className="w-4 h-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-sm"></div>
+              
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
           </div>
