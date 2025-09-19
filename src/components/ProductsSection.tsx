@@ -267,7 +267,7 @@ const ProductsSection = () => {
 
   const businessProducts = [
     {
-      icon: CreditCard,
+      icon: Receipt,
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80",
       title: "Working Capital Loans",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
