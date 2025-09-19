@@ -426,10 +426,10 @@ const ProductsSection = () => {
       
       <div className="max-w-8xl mx-auto px-4 relative z-10">{/* Increased from container to max-w-8xl for wider layout */}
         {/* Enhanced Corporate Header Section */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-1">
           
           {/* Our Streamlined Loan Process Section */}
-          <div className="py-1 md:py-2 rounded-2xl">
+          <div className="py-0 md:py-1 rounded-2xl">
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-xl font-bold mb-4 md:text-2xl">
