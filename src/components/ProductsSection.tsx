@@ -655,11 +655,18 @@ const ProductsSection = () => {
                       Competitive rates
                     </li>
                   </ul>
-                  <Button asChild size="sm" className="w-full">
-                    <Link to={product.learnLink}>
-                      Learn More
-                    </Link>
-                  </Button>
+                  <div className="flex flex-col gap-2">
+                    <Button asChild size="sm" className="w-full">
+                      <Link to={product.learnLink}>
+                        Learn More
+                      </Link>
+                    </Button>
+                    <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
+                      <Link to={product.applyLink}>
+                        Apply Now
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
