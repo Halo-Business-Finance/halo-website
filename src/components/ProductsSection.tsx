@@ -200,7 +200,7 @@ const ProductsSection = () => {
     {
       icon: DollarSign,
       image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
-      title: "Asset-Based Loans",
+      title: "Asset Loans",
       description: "Collateral-based financing using business assets as security.",
       rate: "6.75%",
       rateLabel: "Starting APR",
@@ -304,7 +304,7 @@ const ProductsSection = () => {
     {
       icon: Receipt,
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
-      title: "Factoring-Based Financing",
+      title: "Factoring Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
