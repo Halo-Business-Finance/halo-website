@@ -33,6 +33,13 @@ const HeroSection = () => {
               <p className="text-sm md:text-xl text-blue-100 max-w-2xl leading-relaxed">
                 Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">Commercial Financing</Link> to help your business go far.
               </p>
+              
+              {/* Apply Here Button */}
+              <div className="pt-4">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
+                  <a href="https://app.halolending.com">Apply Here</a>
+                </Button>
+              </div>
             </div>
 
             {/* Trust indicators */}
