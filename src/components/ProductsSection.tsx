@@ -594,7 +594,7 @@ const ProductsSection = () => {
           />
           <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight mt-6">
                 Ready to Fuel Your Business Growth?
               </h3>
             </div>
