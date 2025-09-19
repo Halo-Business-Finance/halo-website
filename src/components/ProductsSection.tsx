@@ -309,7 +309,7 @@ const ProductsSection = () => {
       icon: Receipt,
       image: accountingOffice,
       title: "Factoring Financing",
-      description: "Convert outstanding invoices into immediate working capital through factoring.",
+      description: "Convert invoices into immediate working capital through factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
       terms: "30-90 days",
