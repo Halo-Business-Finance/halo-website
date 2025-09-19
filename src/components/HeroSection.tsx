@@ -31,7 +31,7 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-base md:text-2xl text-white max-w-2xl leading-relaxed">
-                Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-white font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-white font-medium">Commercial Financing</Link> to help your business go far.
+                Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-white font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-white font-medium">Commercial Financing</Link> to help your business get approved for a loan without the hassle of looking for a bank or lender.
               </p>
               
               {/* Apply Here Button */}
