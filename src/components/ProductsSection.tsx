@@ -525,9 +525,8 @@ const ProductsSection = () => {
           {/* Loan Cards Slider */}
           <div className="relative max-w-7xl mx-auto mb-12">
             <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {products.map((product, index) => (
-                  <div key={index} className="flex-[0_0_300px] min-w-0 mr-4">
+              <div className="flex gap-4">
+                {products.slice(0, 4).map((product, index) => <div key={index} className="flex-[0_0_calc(25%-12px)] min-w-0">
                     <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full">
                       <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
                         {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
@@ -543,12 +542,10 @@ const ProductsSection = () => {
                           <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                         </div>
                         <ul className="space-y-2 mb-4">
-                          {product.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="text-xs flex items-center">
+                          {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                               {feature}
-                            </li>
-                          ))}
+                            </li>)}
                         </ul>
                         <div className="flex flex-col gap-2">
                           <Button asChild size="sm" className="w-full">
@@ -564,31 +561,18 @@ const ProductsSection = () => {
                         </div>
                       </CardContent>
                     </Card>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
-          </div>
+            </div>
             
             {/* Navigation Controls - Under Carousel */}
             <div className="flex justify-center gap-4 mt-6">
-              <Button
-                variant="outline"
-                size="icon"
-                className="bg-white/90 hover:bg-white shadow-lg"
-                onClick={scrollPrev}
-                disabled={prevBtnDisabled}
-              >
+              <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white shadow-lg" onClick={scrollPrev} disabled={prevBtnDisabled}>
                 <ChevronLeft className="h-4 w-4" />
               </Button>
               
-              <Button
-                variant="outline"
-                size="icon"
-                className="bg-white/90 hover:bg-white shadow-lg"
-                onClick={scrollNext}
-                disabled={nextBtnDisabled}
-              >
+              <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white shadow-lg" onClick={scrollNext} disabled={nextBtnDisabled}>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
@@ -598,7 +582,7 @@ const ProductsSection = () => {
         <div className="flex items-center justify-center my-20">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           <div className="px-8">
-            <div className="w-3 h-3 bg-primary rounded-full"></div>
+            
           </div>
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
         </div>
