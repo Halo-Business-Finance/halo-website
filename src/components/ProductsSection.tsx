@@ -586,7 +586,7 @@ const ProductsSection = () => {
           />
           <div className="relative text-white pt-40 pb-20 px-6 max-w-4xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl text-white mb-4 underline decoration-2 text-center">
+              <h3 className="text-2xl md:text-3xl text-white mb-4 underline decoration-2 text-center font-bold">
                 Business Capital Solutions
               </h3>
               <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
