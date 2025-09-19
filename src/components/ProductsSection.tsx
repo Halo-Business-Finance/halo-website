@@ -268,7 +268,7 @@ const ProductsSection = () => {
     {
       icon: CreditCard,
       image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
-      title: "Working Capital",
+      title: "Working Capital Loans",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
       rateLabel: "Starting Rate",
