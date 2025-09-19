@@ -273,7 +273,7 @@ const ProductsSection = () => {
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
       rateLabel: "Starting Rate",
-      features: ["Revolving credit line available", "Quick access to funds", "Flexible repayment terms"],
+      features: ["Flexible draw schedule", "Interest-only on used funds", "No collateral requirements"],
       learnLink: "/working-capital",
       applyLink: "/working-capital-application",
       color: "from-blue-500 to-blue-600"
@@ -297,7 +297,7 @@ const ProductsSection = () => {
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
       rateLabel: "Starting APR",
-      features: ["Fixed monthly payments", "Competitive rates", "Quick approval process"],
+      features: ["Fixed monthly payments", "Predictable payment schedule", "Business expansion funding"],
       learnLink: "/term-loans",
       applyLink: "/term-loan-application",
       color: "from-purple-500 to-purple-600"
@@ -309,7 +309,7 @@ const ProductsSection = () => {
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
       rateLabel: "Factor Rate",
-      features: ["Immediate cash flow solutions", "No debt on balance sheet", "Customer credit protection included"],
+      features: ["Convert invoices to cash", "No debt on balance sheet", "Customer credit protection"],
       learnLink: "/factoring-based-financing",
       applyLink: "/working-capital-application",
       color: "from-orange-500 to-orange-600"
@@ -334,7 +334,7 @@ const ProductsSection = () => {
       description: "Traditional debt financing solutions for business growth and expansion.",
       rate: "5.5%",
       rateLabel: "Starting APR",
-      features: ["Fixed and variable rate options", "Competitive terms and rates", "Flexible repayment structures"],
+      features: ["Traditional bank lending", "Secured and unsecured options", "Established business focus"],
       learnLink: "/debt-financing",
       applyLink: "/term-loan-application",
       color: "from-slate-500 to-slate-600"
@@ -346,7 +346,7 @@ const ProductsSection = () => {
       description: "Raise capital through equity investment without taking on debt.",
       rate: "Equity Based",
       rateLabel: "Investment",
-      features: ["No monthly payments required", "Shared risk with investors", "Business growth partnership"],
+      features: ["No monthly debt payments", "Shared business ownership", "Growth capital injection"],
       learnLink: "/equity-financing",
       applyLink: "/term-loan-application",
       color: "from-green-500 to-green-600"
@@ -358,7 +358,7 @@ const ProductsSection = () => {
       description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
       rate: "8-15%",
       rateLabel: "Return Rate",
-      features: ["Debt-equity hybrid structure", "Growth capital for expansion", "Acquisition financing solutions"],
+      features: ["Debt-equity hybrid funding", "Expansion capital focus", "High-growth businesses"],
       learnLink: "/mezzanine-financing",
       applyLink: "/term-loan-application",
       color: "from-indigo-500 to-indigo-600"
@@ -370,7 +370,7 @@ const ProductsSection = () => {
       description: "Private capital placement for qualified businesses seeking growth funding.",
       rate: "Market Rate",
       rateLabel: "Negotiable",
-      features: ["Accredited investor access", "Private capital markets", "Customized financing terms"],
+      features: ["Private investor access", "Customized deal structures", "Large funding amounts"],
       learnLink: "/private-placement",
       applyLink: "/term-loan-application",
       color: "from-purple-600 to-purple-700"
