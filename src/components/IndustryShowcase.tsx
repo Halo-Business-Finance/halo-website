@@ -98,7 +98,7 @@ const IndustryShowcase = () => {
       image: gasStationFinancing,
       title: "Gas Station Financing",
       description: "Financing for gas stations, fuel operations, and convenience store businesses",
-      loanTypes: ["Property acquisition", "Equipment upgrades", "Working capital"],
+      loanTypes: ["Property acquisition", "Construction loans", "Working capital"],
       ctaText: "Gas Station Financing",
       ctaLink: "/commercial-loans"
     }
