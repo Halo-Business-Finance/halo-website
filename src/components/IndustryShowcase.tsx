@@ -49,7 +49,7 @@ const IndustryShowcase = () => {
     },
     {
       image: oilEnergyIndustry,
-      title: "Oil & Energy",
+      title: "Oil & Energy Industry",
       description: "Specialized financing for oil, gas, and renewable energy projects and operations",
       loanTypes: ["Equipment financing", "Project development", "Working capital"],
       ctaText: "Energy Financing",
