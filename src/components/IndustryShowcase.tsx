@@ -104,14 +104,14 @@ const IndustryShowcase = () => {
     }
   ];
 
-  // Auto-advance carousel every 4 seconds
+  // Auto-advance carousel every 6 seconds (slower)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => {
         const maxIndex = Math.max(0, industries.length - 4);
         return prevIndex >= maxIndex ? 0 : prevIndex + 1;
       });
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, [industries.length]);
@@ -146,41 +146,46 @@ const IndustryShowcase = () => {
         <div className="relative mb-12">
           {/* Navigation removed for auto-play only */}
 
-          {/* Cards Container */}
+          {/* Cards Container - Smooth Sliding */}
           <div className="overflow-hidden">
-            <div className="grid grid-cols-4 gap-6 transition-all duration-500 ease-in-out">
-              {getCurrentCards().map((industry, index) => (
-                <Card key={`${currentIndex}-${index}`} className="overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in">
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={industry.image} 
-                      alt={industry.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="text-lg font-semibold mb-1">{industry.title}</h3>
+            <div 
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+            >
+              {industries.map((industry, index) => (
+                <div key={index} className="w-1/4 flex-shrink-0 px-3">
+                  <Card className="overflow-hidden group hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={industry.image} 
+                        alt={industry.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <h3 className="text-lg font-semibold mb-1">{industry.title}</h3>
+                      </div>
                     </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {industry.description}
-                    </p>
-                    <ul className="space-y-2 mb-4">
-                      {industry.loanTypes.map((type, i) => (
-                        <li key={i} className="text-xs flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                          {type}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button asChild size="sm" className="w-full">
-                      <Link to={industry.ctaLink}>
-                        {industry.ctaText}
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <CardContent className="p-6">
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                        {industry.description}
+                      </p>
+                      <ul className="space-y-2 mb-4">
+                        {industry.loanTypes.map((type, i) => (
+                          <li key={i} className="text-xs flex items-center">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                            {type}
+                          </li>
+                        ))}
+                      </ul>
+                      <Button asChild size="sm" className="w-full">
+                        <Link to={industry.ctaLink}>
+                          {industry.ctaText}
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
