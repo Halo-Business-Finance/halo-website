@@ -618,7 +618,7 @@ const ProductsSection = () => {
                     <product.icon className="h-8 w-8 text-primary mb-4 flex-shrink-0" />
                   )}
                   <h3 className="text-lg font-semibold mb-2 text-center">{product.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
+                  <p className="text-sm text-black leading-relaxed text-left">
                     {product.description}
                   </p>
                 </div>
