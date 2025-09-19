@@ -572,137 +572,87 @@ const ProductsSection = () => {
             </h3>
           </div>
           
-          {/* Mobile Carousel */}
-          <div className="md:hidden">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {products.slice(0, 6).map((product, index) => (
-                  <div key={index} className="flex-[0_0_80%] min-w-0 pl-4">
-                    <Card className="overflow-hidden hover:shadow-lg transition-shadow mr-4">
-                      <div className="relative h-48">
-                        <LazyImage 
-                          src={product.image}
-                          alt={`${product.title} - Commercial Financing Solution`}
-                          className="w-full h-full object-cover"
-                        />
-                        {product.badge && (
-                          <Badge 
-                            className={`absolute top-4 right-4 ${
-                              product.badge === "Popular" ? "bg-orange-500 hover:bg-orange-600" :
-                              product.badge === "Fast" ? "bg-green-500 hover:bg-green-600" :
-                              "bg-primary hover:bg-primary/90"
-                            }`}
-                          >
-                            {product.badge}
-                          </Badge>
-                        )}
-                      </div>
-                      
-                      <CardContent className="p-6">
-                        <h4 className="text-xl font-semibold mb-3">{product.title}</h4>
-                        
-                        <div className="bg-muted rounded-lg p-3 mb-4">
-                          <div className="text-2xl font-bold text-primary">{product.rate}</div>
-                          <div className="text-sm text-muted-foreground">{product.rateLabel}</div>
-                        </div>
-                        
-                        <p className="text-muted-foreground mb-4">{product.description}</p>
-                        
-                        <ul className="space-y-2 mb-6">
-                          {product.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-sm text-muted-foreground">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        
-                        <div className="flex gap-3">
-                          <Button variant="outline" size="sm" asChild className="flex-1">
-                            <Link to={product.learnLink}>Learn More</Link>
-                          </Button>
-                          <Button size="sm" asChild className="flex-1">
-                            <Link to={product.applyLink}>Apply Now</Link>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Mobile Navigation */}
-            <div className="flex justify-center gap-4 mt-6">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={scrollPrev}
-                disabled={prevBtnDisabled}
-                className="h-10 w-10 p-0"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={scrollNext}
-                disabled={nextBtnDisabled}
-                className="h-10 w-10 p-0"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Mobile Vertical Stack */}
+          <div className="md:hidden space-y-4 mb-12 max-w-sm mx-auto">
             {products.slice(0, 6).map((product, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative h-48">
-                  <LazyImage 
-                    src={product.image}
-                    alt={`${product.title} - Commercial Financing Solution`}
-                    className="w-full h-full object-cover"
-                  />
-                  {product.badge && (
-                    <Badge 
-                      className={`absolute top-4 right-4 ${
-                        product.badge === "Popular" ? "bg-orange-500 hover:bg-orange-600" :
-                        product.badge === "Fast" ? "bg-green-500 hover:bg-green-600" :
-                        "bg-primary hover:bg-primary/90"
-                      }`}
-                    >
-                      {product.badge}
-                    </Badge>
+              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
+                  {product.icon && (
+                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
                   )}
+                  <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
+                  <p className="text-sm text-white leading-relaxed text-left">
+                    {product.description}
+                  </p>
                 </div>
-                
                 <CardContent className="p-6">
-                  <h4 className="text-xl font-semibold mb-3">{product.title}</h4>
-                  
-                  <div className="bg-muted rounded-lg p-3 mb-4">
-                    <div className="text-2xl font-bold text-primary">{product.rate}</div>
-                    <div className="text-sm text-muted-foreground">{product.rateLabel}</div>
+                  {/* Rate Display */}
+                  <div className="rounded-lg px-3 py-2 mb-4">
+                    <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
+                    <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                   </div>
-                  
-                  <p className="text-muted-foreground mb-4">{product.description}</p>
-                  
-                  <ul className="space-y-2 mb-6">
-                    {product.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                  <ul className="space-y-2 mb-4">
+                    {product.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="text-xs flex items-center">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                        {feature}
                       </li>
                     ))}
                   </ul>
-                  
-                  <div className="flex gap-3">
-                    <Button variant="outline" size="sm" asChild className="flex-1">
-                      <Link to={product.learnLink}>Learn More</Link>
+                  <div className="flex flex-col gap-2">
+                    <Button asChild size="sm" className="w-full">
+                      <Link to={product.learnLink}>
+                        Learn More
+                      </Link>
                     </Button>
-                    <Button size="sm" asChild className="flex-1">
-                      <Link to={product.applyLink}>Apply Now</Link>
+                    <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
+                      <Link to={product.applyLink}>
+                        Apply Now
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 max-w-7xl mx-auto">
+            {products.slice(0, 6).map((product, index) => (
+              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
+                  {product.icon && (
+                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
+                  )}
+                  <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
+                  <p className="text-sm text-white leading-relaxed text-left">
+                    {product.description}
+                  </p>
+                </div>
+                <CardContent className="p-6">
+                  {/* Rate Display */}
+                  <div className="rounded-lg px-3 py-2 mb-4">
+                    <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
+                    <div className="text-xs text-black font-medium">{product.rateLabel}</div>
+                  </div>
+                  <ul className="space-y-2 mb-4">
+                    {product.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="text-xs flex items-center">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col gap-2">
+                    <Button asChild size="sm" className="w-full">
+                      <Link to={product.learnLink}>
+                        Learn More
+                      </Link>
+                    </Button>
+                    <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
+                      <Link to={product.applyLink}>
+                        Apply Now
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
