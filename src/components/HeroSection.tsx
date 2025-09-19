@@ -30,7 +30,7 @@ const HeroSection = () => {
                 <span className="block text-primary-glow">that Grows with You</span>
               </h1>
               
-              <p className="text-sm md:text-xl text-blue-100 max-w-2xl leading-relaxed">
+              <p className="text-base md:text-2xl text-blue-100 max-w-2xl leading-relaxed">
                 Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-blue-100 font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-blue-100 font-medium">Commercial Financing</Link> to help your business go far.
               </p>
               
