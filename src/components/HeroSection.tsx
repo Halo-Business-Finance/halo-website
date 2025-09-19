@@ -25,12 +25,12 @@ const HeroSection = () => {
           <header className="text-white space-y-6">
             <div className="space-y-5">
               
-              <h1 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+              <h1 className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
                 <span className="block">Nationwide Commercial &</span>
                 <span className="block text-primary-glow">Business Financing Marketplace</span>
               </h1>
               
-              <p className="text-sm md:text-lg text-white max-w-6xl leading-relaxed">
+              <p className="text-xs md:text-base text-white max-w-full leading-relaxed">
                 Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-white font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-white font-medium">Commercial Financing</Link> to help your business get approved for a loan without the hassle of looking for a bank or lender.
               </p>
               
