@@ -175,7 +175,7 @@ const ImageGallery = () => {
 
         {/* Enhanced Call to Action */}
         <div className="text-center">
-          <div className="bg-slate-50 rounded-2xl p-8 max-w-5xl mx-auto border border-slate-200/50 shadow-lg">
+          <div className="rounded-2xl p-8 max-w-5xl mx-auto border border-slate-200/50 shadow-lg">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Ready to Take Your Business to the Next Level?
             </h3>
