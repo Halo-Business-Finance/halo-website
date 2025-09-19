@@ -459,7 +459,7 @@ const ProductsSection = () => {
   }, [businessEmblaApi, businessOnSelect]);
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
+    <section className="py-8 md:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
       {/* Corporate Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(68,90,120,0.02)_50%,transparent_75%)] pointer-events-none"></div>
@@ -469,7 +469,7 @@ const ProductsSection = () => {
         <div className="text-center mb-12">
           
           {/* Our Streamlined Loan Process Section */}
-          <div className="py-16 bg-muted/50 rounded-2xl">
+          <div className="py-8 md:py-16 bg-muted/50 rounded-2xl">
             <div className="container mx-auto px-4">
               <div className="text-left mb-12">
                 <h2 className="text-xl md:text-2xl font-bold mb-4">
