@@ -21,7 +21,7 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="w-full items-center">
           <header className="text-white space-y-6">
             <div className="space-y-5">
               
