@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import SEO from "@/components/SEO";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
 import ResourcePreloader from "@/components/optimization/ResourcePreloader";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 // Lazy load below-the-fold components
 const ProductsSection = lazy(() => import("@/components/ProductsSection"));
@@ -28,15 +29,27 @@ const Index = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <HeroSection />
+        
+        <SectionDivider variant="corporate" height="md" />
+        
         <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
           <ProductsSection />
         </Suspense>
+        
+        <SectionDivider variant="gradient" height="sm" />
+        
         <Suspense fallback={<div className="h-40 bg-muted animate-pulse rounded-md mx-4" />}>
           <ImageGallery />
         </Suspense>
+        
+        <SectionDivider variant="corporate" height="md" />
+        
         <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
           <IndustryShowcase />
         </Suspense>
+        
+        <SectionDivider variant="minimal" height="sm" />
+        
         <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
           <Footer />
         </Suspense>
