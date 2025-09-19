@@ -167,9 +167,9 @@ const IndustryShowcase = () => {
                       </div>
                     </div>
                     <CardContent className="p-6">
-                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                        {industry.description}
-                      </p>
+                    <p className="text-xs text-foreground mb-4 leading-relaxed">
+                      {industry.description}
+                    </p>
                       <ul className="space-y-2 mb-4">
                         {industry.loanTypes.map((type, i) => (
                           <li key={i} className="text-xs flex items-center">
