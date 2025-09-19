@@ -479,9 +479,6 @@ const ProductsSection = () => {
                 Financing Solutions
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto leading-relaxed">
-              Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
-            </p>
           </div>
           
           {/* Our Streamlined Loan Process Section */}
@@ -572,6 +569,9 @@ const ProductsSection = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               SBA, Bridge, USDA & Conventional Loans
             </h3>
+            <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto leading-relaxed">
+              Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
+            </p>
           </div>
           
           {/* Mobile Vertical Stack */}
