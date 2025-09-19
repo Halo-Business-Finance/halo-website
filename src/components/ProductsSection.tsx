@@ -428,7 +428,7 @@ const ProductsSection = () => {
           <div className="py-1 md:py-2 rounded-2xl">
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
-                <h2 className="text-xl md:text-2xl font-bold mb-4">
+                <h2 className="text-xl font-bold mb-4 md:text-3xl">
                   Our Streamlined Loan Process
                 </h2>
                 <p className="text-lg text-black">
@@ -486,7 +486,7 @@ const ProductsSection = () => {
               
               {/* Text content below process steps */}
               <div className="text-center mt-12">
-                <h3 className="text-xl md:text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
+                <h3 className="text-xl font-semibold mb-6 text-primary md:text-xl">Fast, Simple, Secure</h3>
                 
                 {/* Get Started Button */}
                 <div className="mb-6">
