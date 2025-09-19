@@ -522,80 +522,73 @@ const ProductsSection = () => {
             </p>
           </div>
           
-          {/* Mobile Vertical Stack */}
-          <div className="md:hidden space-y-4 mb-12 max-w-sm mx-auto">
-            {products.slice(0, 6).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                  {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
-                  <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
-                  <p className="text-sm text-white leading-relaxed text-left">
-                    {product.description}
-                  </p>
-                </div>
-                <CardContent className="p-6">
-                  {/* Rate Display */}
-                  <div className="rounded-lg px-3 py-2 mb-4">
-                    <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
-                    <div className="text-xs text-black font-medium">{product.rateLabel}</div>
+          {/* Loan Cards Slider */}
+          <div className="relative max-w-7xl mx-auto mb-12">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex gap-4">
+                {products.slice(0, 4).map((product, index) => (
+                  <div key={index} className="flex-[0_0_calc(25%-12px)] min-w-0">
+                    <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full">
+                      <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
+                        {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
+                        <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
+                        <p className="text-sm text-white leading-relaxed text-center">
+                          {product.description}
+                        </p>
+                      </div>
+                      <CardContent className="p-6">
+                        {/* Rate Display */}
+                        <div className="rounded-lg px-3 py-2 mb-4">
+                          <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
+                          <div className="text-xs text-black font-medium">{product.rateLabel}</div>
+                        </div>
+                        <ul className="space-y-2 mb-4">
+                          {product.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="text-xs flex items-center">
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex flex-col gap-2">
+                          <Button asChild size="sm" className="w-full">
+                            <Link to={product.learnLink}>
+                              Learn More
+                            </Link>
+                          </Button>
+                          <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
+                            <Link to={product.applyLink}>
+                              Apply Now
+                            </Link>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <ul className="space-y-2 mb-4">
-                    {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>)}
-                  </ul>
-                  <div className="flex flex-col gap-2">
-                    <Button asChild size="sm" className="w-full">
-                      <Link to={product.learnLink}>
-                        Learn More
-                      </Link>
-                    </Button>
-                    <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
-                      <Link to={product.applyLink}>
-                        Apply Now
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 max-w-7xl mx-auto">
-            {products.slice(0, 6).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                  {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
-                  <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
-                  <p className="text-sm text-white leading-relaxed text-left">
-                    {product.description}
-                  </p>
-                </div>
-                <CardContent className="p-6">
-                  {/* Rate Display */}
-                  <div className="rounded-lg px-3 py-2 mb-4">
-                    <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
-                    <div className="text-xs text-black font-medium">{product.rateLabel}</div>
-                  </div>
-                  <ul className="space-y-2 mb-4">
-                    {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>)}
-                  </ul>
-                  <div className="flex flex-col gap-2">
-                    <Button asChild size="sm" className="w-full">
-                      <Link to={product.learnLink}>
-                        Learn More
-                      </Link>
-                    </Button>
-                    <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
-                      <Link to={product.applyLink}>
-                        Apply Now
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>)}
+                ))}
+              </div>
+            </div>
+            
+            {/* Navigation Controls */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg"
+              onClick={scrollPrev}
+              disabled={prevBtnDisabled}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg"
+              onClick={scrollNext}
+              disabled={nextBtnDisabled}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
 
