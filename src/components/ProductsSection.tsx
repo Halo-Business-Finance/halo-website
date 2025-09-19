@@ -13,22 +13,7 @@ import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
 import step3PreApproved from "@/assets/step3-pre-approved.jpg";
 import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
-import { 
-  PiggyBank, 
-  Car, 
-  Building2,
-  Landmark,
-  Hammer,
-  Users,
-  DollarSign,
-  Receipt,
-  Sparkles,
-  Star,
-  ChevronRight,
-  ChevronLeft,
-  RotateCcw,
-  Heart
-} from "lucide-react";
+import { PiggyBank, Car, Building2, Landmark, Hammer, Users, DollarSign, Receipt, Sparkles, Star, ChevronRight, ChevronLeft, RotateCcw, Heart } from "lucide-react";
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -42,352 +27,321 @@ import loanApprovalCelebration from "@/assets/loan-approval-celebration.jpg";
 import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
 import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
 import accountingOffice from "@/assets/accounting-office.jpg";
-
-
 const ProductsSection = () => {
-  const products = [
-    {
-      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
-      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
-      title: "SBA 7(a) Loans",
-      description: "Versatile financing for working capital, equipment, and real estate purchases.",
-      rate: "Prime + 2.75%",
-      rateLabel: "Starting Rate",
-      features: ["Up to $5 million loan amount", "Long-term financing up to 25 years", "SBA government guarantee protection"],
-      learnLink: "/sba-7a-loans",
-      applyLink: "/sba-loan-application",
-      badge: "Popular",
-      color: "from-blue-600 to-blue-700"
-    },
-    {
-      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
-      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
-      title: "SBA 504 Loans",
-      description: "Fixed-rate financing for real estate and major equipment purchases.",
-      rate: "Fixed Rate",
-      rateLabel: "Long-term",
-      features: ["Up to $5.5 million total project", "Only 10% down payment required", "Fixed interest rates available"],
-      learnLink: "/sba-504-loans",
-      applyLink: "/sba-504-application",
-      badge: null,
-      color: "from-green-600 to-green-700"
-    },
-    {
-      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
-      title: "SBA Express Loans",
-      description: "Fast-track SBA financing with expedited approval process.",
-      rate: "Prime + 4.5%",
-      rateLabel: "Starting Rate",
-      features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
-      learnLink: "/sba-express-loans",
-      applyLink: "/sba-loan-application",
-      badge: "Fast",
-      color: "from-orange-600 to-orange-700"
-    },
-    {
-      logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
-      title: "USDA B&I Loans",
-      description: "Rural business development financing backed by USDA guarantee.",
-      rate: "Prime + 2%",
-      rateLabel: "Starting Rate",
-      features: ["Up to $25 million loan amount", "Rural area business focus only", "USDA government guarantee backing"],
-      learnLink: "/usda-bi-loans",
-      applyLink: "/sba-loan-application",
-      badge: null,
-      color: "from-emerald-600 to-emerald-700"
-    },
-    {
-      logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
-      title: "USDA Rural Development",
-      description: "Rural community development and business growth financing programs.",
-      rate: "Prime + 1.5%",
-      rateLabel: "Starting Rate",
-      features: ["Rural area development focus", "Community economic development", "USDA government backing"],
-      learnLink: "/usda-rural-development",
-      applyLink: "/sba-loan-application",
-      badge: null,
-      color: "from-emerald-500 to-emerald-600"
-    },
-    {
-      icon: Building2,
-      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
-      title: "Conventional Loans",
-      description: "Traditional commercial financing for established businesses with strong credit profiles.",
-      rate: "5.25%",
-      rateLabel: "Starting APR",
-      features: ["No government guarantee required", "Faster approval process timeline", "Flexible repayment terms available"],
-      learnLink: "/conventional-loans",
-      applyLink: "/conventional-loan-application",
-      badge: null,
-      color: "from-purple-600 to-purple-700"
-    },
-    {
-      icon: Building2,
-      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
-      title: "Commercial Real Estate",
-      description: "Purchase, refinance, and develop commercial properties with flexible terms.",
-      rate: "5.5%",
-      rateLabel: "Starting APR",
-      features: ["Owner-occupied properties", "Investment real estate", "Commercial property development"],
-      learnLink: "/commercial-loans",
-      applyLink: "/commercial-real-estate-application",
-      badge: null,
-      color: "from-purple-500 to-purple-600"
-    },
-    {
-      icon: Landmark,
-      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
-      title: "CMBS Loans",
-      description: "Commercial mortgage-backed securities for large commercial real estate transactions.",
-      rate: "4.75%",
-      rateLabel: "Starting Rate",
-      features: ["$2 million minimum loan amounts", "Non-recourse financing options available", "Fixed interest rates guaranteed"],
-      learnLink: "/cmbs-loans",
-      applyLink: "/conventional-loan-application",
-      badge: null,
-      color: "from-indigo-600 to-indigo-700"
-    },
-    {
-      icon: PiggyBank,
-      image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
-      title: "Portfolio Loans",
-      description: "Held-in-portfolio lending solutions with flexible underwriting standards.",
-      rate: "5.5%",
-      rateLabel: "Starting APR",
-      features: ["Flexible underwriting standards applied", "Quick decision making process", "Relationship-based banking approach"],
-      learnLink: "/portfolio-loans",
-      applyLink: "/conventional-loan-application",
-      badge: null,
-      color: "from-teal-600 to-teal-700"
-    },
-    {
-      icon: Hammer,
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
-      title: "Construction Loans",
-      description: "Financing for new construction and major renovation projects.",
-      rate: "Prime + 1.5%",
-      rateLabel: "Starting Rate",
-      features: ["Interest-only payments during construction", "Progress-based funding disbursement schedule", "Convert to permanent financing option"],
-      learnLink: "/construction-loans",
-      applyLink: "/conventional-loan-application",
-      badge: null,
-      color: "from-amber-600 to-amber-700"
-    },
-    {
-      icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
-      title: "Bridge Loans",
-      description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
-      rate: "8.5%",
-      rateLabel: "Starting APR",
-      features: ["Fast 7-day closing process", "Up to $10 million available", "Flexible short-term repayment options"],
-      learnLink: "/bridge-financing",
-      applyLink: "/bridge-loan-application",
-      badge: "Fast",
-      color: "from-red-600 to-red-700"
-    },
-    {
-      icon: Users,
-      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
-      title: "Multifamily Loans",
-      description: "Financing for apartment buildings and multi-unit residential properties.",
-      rate: "4.5%",
-      rateLabel: "Starting Rate",
-      features: ["5+ unit properties qualified", "Non-recourse financing options available", "Long-term fixed rate stability"],
-      learnLink: "/multifamily-loans",
-      applyLink: "/conventional-loan-application",
-      badge: null,
-      color: "from-cyan-600 to-cyan-700"
-    },
-    {
-      icon: DollarSign,
-      image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
-      title: "Asset Loans",
-      description: "Collateral-based financing using business assets as security.",
-      rate: "6.75%",
-      rateLabel: "Starting APR",
-      features: ["Asset-backed security collateral required", "Flexible repayment terms available", "Fast approval process timeline"],
-      learnLink: "/asset-based-loans",
-      applyLink: "/conventional-loan-application",
-      badge: null,
-      color: "from-violet-600 to-violet-700"
-    },
-    {
-      icon: Car,
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80",
-      title: "Equipment Financing",
-      description: "Fund new or used equipment purchases with competitive terms.",
-      rate: "6.25%",
-      rateLabel: "Starting APR",
-      features: ["100% financing available option", "Fast approval process guaranteed", "Flexible payment schedules offered"],
-      learnLink: "/equipment-financing",
-      applyLink: "/equipment-loan-application",
-      badge: null,
-      color: "from-pink-600 to-pink-700"
-    },
-    {
-      icon: RotateCcw,
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80",
-      title: "Equipment Leasing",
-      description: "Lease business equipment with flexible terms and upgrade options.",
-      rate: "5.5%",
-      rateLabel: "Starting Rate",
-      features: ["100% financing with no down payment", "Preserve working capital and credit lines", "Easy equipment upgrades and replacements"],
-      learnLink: "/equipment-leasing",
-      applyLink: "/equipment-loan-application",
-      badge: null,
-      color: "from-pink-500 to-pink-600"
-    },
-    {
-      icon: Truck,
-      image: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?auto=format&fit=crop&q=80",
-      title: "Heavy Equipment",
-      description: "Specialized financing for construction and industrial heavy equipment.",
-      rate: "6.5%",
-      rateLabel: "Starting APR",
-      features: ["Construction and industrial equipment", "New and used equipment options", "Competitive rates and flexible terms"],
-      learnLink: "/heavy-equipment",
-      applyLink: "/equipment-loan-application",
-      badge: null,
-      color: "from-orange-500 to-orange-600"
-    },
-    {
-      icon: Heart,
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80",
-      title: "Medical Equipment",
-      description: "Healthcare equipment financing for medical practices and facilities.",
-      rate: "5.75%",
-      rateLabel: "Starting APR",
-      features: ["Medical and healthcare equipment", "Practice expansion financing", "Technology upgrade solutions"],
-      learnLink: "/medical-equipment",
-      applyLink: "/equipment-loan-application",
-      badge: null,
-      color: "from-blue-500 to-blue-600"
-    }
-  ];
-
-  const businessProducts = [
-    {
-      icon: Receipt,
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80",
-      title: "Working Capital Loans",
-      description: "Bridge cash flow gaps and fund day-to-day business operations.",
-      rate: "1.20 factoring",
-      rateLabel: "Starting Rate",
-      terms: "3-18 months",
-      features: ["Bridge seasonal cash gaps", "Cover operational expenses", "Inventory and payroll funding"],
-      learnLink: "/working-capital",
-      applyLink: "/working-capital-application",
-      color: "from-blue-500 to-blue-600"
-    },
-    {
-      icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80",
-      title: "Business Line of Credit",
-      description: "Access to capital when you need it with revolving credit lines.",
-      rate: "Prime + 2%",
-      rateLabel: "Starting Rate",
-      terms: "12-60 months",
-      features: ["Access up to credit limit", "Only pay interest on draws", "Renewable credit facility"],
-      learnLink: "/business-line-of-credit",
-      applyLink: "/business-line-of-credit-application",
-      color: "from-emerald-500 to-emerald-600"
-    },
-    {
-      icon: Building2,
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80",
-      title: "Business Term Loans",
-      description: "Fixed-rate business loans for growth initiatives.",
-      rate: "8.75%",
-      rateLabel: "Starting APR",
-      terms: "2-7 years",
-      features: ["Fixed monthly payments", "Predictable payment schedule", "Business expansion funding"],
-      learnLink: "/term-loans",
-      applyLink: "/term-loan-application",
-      color: "from-purple-500 to-purple-600"
-    },
-    {
-      icon: FileText,
-      image: accountingOffice,
-      title: "Factoring Financing",
-      description: "Convert invoices into immediate cash through invoice factoring.",
-      rate: "1-3%",
-      rateLabel: "Factor Rate",
-      terms: "30-90 days",
-      features: ["Convert invoices to cash", "No debt on balance sheet", "Customer credit protection"],
-      learnLink: "/factoring-based-financing",
-      applyLink: "/working-capital-application",
-      color: "from-orange-500 to-orange-600"
-    },
-    {
-      logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
-      title: "SBA Express Loans",
-      description: "Fast-track SBA financing with expedited approval process.",
-      rate: "Prime + 4.5%",
-      rateLabel: "Starting Rate",
-      terms: "Up to 7 years",
-      features: ["SBA guarantee protection", "Fast 36-hour approval", "Revolving line option"],
-      learnLink: "/sba-express-loans",
-      applyLink: "/sba-loan-application",
-      badge: "Fast",
-      color: "from-orange-600 to-orange-700"
-    },
-    {
-      icon: DollarSign,
-      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80",
-      title: "Debt Financing",
-      description: "Traditional debt financing solutions for business growth and expansion.",
-      rate: "5.5%",
-      rateLabel: "Starting APR",
-      terms: "1-10 years",
-      features: ["Bank-grade underwriting", "Secured by business assets", "Competitive market rates"],
-      learnLink: "/debt-financing",
-      applyLink: "/term-loan-application",
-      color: "from-slate-500 to-slate-600"
-    },
-    {
-      icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80",
-      title: "Equity Financing",
-      description: "Raise capital through equity investment without taking on debt.",
-      rate: "Equity Based",
-      rateLabel: "Investment",
-      terms: "Permanent",
-      features: ["Sell ownership stake", "No personal guarantees", "Strategic investor partnerships"],
-      learnLink: "/equity-financing",
-      applyLink: "/term-loan-application",
-      color: "from-green-500 to-green-600"
-    },
-    {
-      icon: Factory,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
-      title: "Mezzanine Financing",
-      description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
-      rate: "8-15%",
-      rateLabel: "Return Rate",
-      terms: "3-7 years",
-      features: ["Combine debt and equity", "Growth stage companies", "Acquisition financing"],
-      learnLink: "/mezzanine-financing",
-      applyLink: "/term-loan-application",
-      color: "from-indigo-500 to-indigo-600"
-    },
-    {
-      icon: Landmark,
-      image: "https://images.unsplash.com/photo-1556742400-b9b7c7d8b5c6?auto=format&fit=crop&q=80",
-      title: "Private Placement",
-      description: "Private capital placement for qualified businesses seeking growth funding.",
-      rate: "Market Rate",
-      rateLabel: "Negotiable",
-      features: ["Institutional investors", "Large capital raises", "Custom terms negotiation"],
-      learnLink: "/private-placement",
-      applyLink: "/term-loan-application",
-      color: "from-purple-600 to-purple-700"
-    }
-  ];
+  const products = [{
+    logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+    image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
+    title: "SBA 7(a) Loans",
+    description: "Versatile financing for working capital, equipment, and real estate purchases.",
+    rate: "Prime + 2.75%",
+    rateLabel: "Starting Rate",
+    features: ["Up to $5 million loan amount", "Long-term financing up to 25 years", "SBA government guarantee protection"],
+    learnLink: "/sba-7a-loans",
+    applyLink: "/sba-loan-application",
+    badge: "Popular",
+    color: "from-blue-600 to-blue-700"
+  }, {
+    logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+    image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
+    title: "SBA 504 Loans",
+    description: "Fixed-rate financing for real estate and major equipment purchases.",
+    rate: "Fixed Rate",
+    rateLabel: "Long-term",
+    features: ["Up to $5.5 million total project", "Only 10% down payment required", "Fixed interest rates available"],
+    learnLink: "/sba-504-loans",
+    applyLink: "/sba-504-application",
+    badge: null,
+    color: "from-green-600 to-green-700"
+  }, {
+    logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+    title: "SBA Express Loans",
+    description: "Fast-track SBA financing with expedited approval process.",
+    rate: "Prime + 4.5%",
+    rateLabel: "Starting Rate",
+    features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
+    learnLink: "/sba-express-loans",
+    applyLink: "/sba-loan-application",
+    badge: "Fast",
+    color: "from-orange-600 to-orange-700"
+  }, {
+    logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
+    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
+    title: "USDA B&I Loans",
+    description: "Rural business development financing backed by USDA guarantee.",
+    rate: "Prime + 2%",
+    rateLabel: "Starting Rate",
+    features: ["Up to $25 million loan amount", "Rural area business focus only", "USDA government guarantee backing"],
+    learnLink: "/usda-bi-loans",
+    applyLink: "/sba-loan-application",
+    badge: null,
+    color: "from-emerald-600 to-emerald-700"
+  }, {
+    logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
+    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
+    title: "USDA Rural Development",
+    description: "Rural community development and business growth financing programs.",
+    rate: "Prime + 1.5%",
+    rateLabel: "Starting Rate",
+    features: ["Rural area development focus", "Community economic development", "USDA government backing"],
+    learnLink: "/usda-rural-development",
+    applyLink: "/sba-loan-application",
+    badge: null,
+    color: "from-emerald-500 to-emerald-600"
+  }, {
+    icon: Building2,
+    image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
+    title: "Conventional Loans",
+    description: "Traditional commercial financing for established businesses with strong credit profiles.",
+    rate: "5.25%",
+    rateLabel: "Starting APR",
+    features: ["No government guarantee required", "Faster approval process timeline", "Flexible repayment terms available"],
+    learnLink: "/conventional-loans",
+    applyLink: "/conventional-loan-application",
+    badge: null,
+    color: "from-purple-600 to-purple-700"
+  }, {
+    icon: Building2,
+    image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
+    title: "Commercial Real Estate",
+    description: "Purchase, refinance, and develop commercial properties with flexible terms.",
+    rate: "5.5%",
+    rateLabel: "Starting APR",
+    features: ["Owner-occupied properties", "Investment real estate", "Commercial property development"],
+    learnLink: "/commercial-loans",
+    applyLink: "/commercial-real-estate-application",
+    badge: null,
+    color: "from-purple-500 to-purple-600"
+  }, {
+    icon: Landmark,
+    image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80",
+    title: "CMBS Loans",
+    description: "Commercial mortgage-backed securities for large commercial real estate transactions.",
+    rate: "4.75%",
+    rateLabel: "Starting Rate",
+    features: ["$2 million minimum loan amounts", "Non-recourse financing options available", "Fixed interest rates guaranteed"],
+    learnLink: "/cmbs-loans",
+    applyLink: "/conventional-loan-application",
+    badge: null,
+    color: "from-indigo-600 to-indigo-700"
+  }, {
+    icon: PiggyBank,
+    image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
+    title: "Portfolio Loans",
+    description: "Held-in-portfolio lending solutions with flexible underwriting standards.",
+    rate: "5.5%",
+    rateLabel: "Starting APR",
+    features: ["Flexible underwriting standards applied", "Quick decision making process", "Relationship-based banking approach"],
+    learnLink: "/portfolio-loans",
+    applyLink: "/conventional-loan-application",
+    badge: null,
+    color: "from-teal-600 to-teal-700"
+  }, {
+    icon: Hammer,
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
+    title: "Construction Loans",
+    description: "Financing for new construction and major renovation projects.",
+    rate: "Prime + 1.5%",
+    rateLabel: "Starting Rate",
+    features: ["Interest-only payments during construction", "Progress-based funding disbursement schedule", "Convert to permanent financing option"],
+    learnLink: "/construction-loans",
+    applyLink: "/conventional-loan-application",
+    badge: null,
+    color: "from-amber-600 to-amber-700"
+  }, {
+    icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
+    title: "Bridge Loans",
+    description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
+    rate: "8.5%",
+    rateLabel: "Starting APR",
+    features: ["Fast 7-day closing process", "Up to $10 million available", "Flexible short-term repayment options"],
+    learnLink: "/bridge-financing",
+    applyLink: "/bridge-loan-application",
+    badge: "Fast",
+    color: "from-red-600 to-red-700"
+  }, {
+    icon: Users,
+    image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
+    title: "Multifamily Loans",
+    description: "Financing for apartment buildings and multi-unit residential properties.",
+    rate: "4.5%",
+    rateLabel: "Starting Rate",
+    features: ["5+ unit properties qualified", "Non-recourse financing options available", "Long-term fixed rate stability"],
+    learnLink: "/multifamily-loans",
+    applyLink: "/conventional-loan-application",
+    badge: null,
+    color: "from-cyan-600 to-cyan-700"
+  }, {
+    icon: DollarSign,
+    image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
+    title: "Asset Loans",
+    description: "Collateral-based financing using business assets as security.",
+    rate: "6.75%",
+    rateLabel: "Starting APR",
+    features: ["Asset-backed security collateral required", "Flexible repayment terms available", "Fast approval process timeline"],
+    learnLink: "/asset-based-loans",
+    applyLink: "/conventional-loan-application",
+    badge: null,
+    color: "from-violet-600 to-violet-700"
+  }, {
+    icon: Car,
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80",
+    title: "Equipment Financing",
+    description: "Fund new or used equipment purchases with competitive terms.",
+    rate: "6.25%",
+    rateLabel: "Starting APR",
+    features: ["100% financing available option", "Fast approval process guaranteed", "Flexible payment schedules offered"],
+    learnLink: "/equipment-financing",
+    applyLink: "/equipment-loan-application",
+    badge: null,
+    color: "from-pink-600 to-pink-700"
+  }, {
+    icon: RotateCcw,
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80",
+    title: "Equipment Leasing",
+    description: "Lease business equipment with flexible terms and upgrade options.",
+    rate: "5.5%",
+    rateLabel: "Starting Rate",
+    features: ["100% financing with no down payment", "Preserve working capital and credit lines", "Easy equipment upgrades and replacements"],
+    learnLink: "/equipment-leasing",
+    applyLink: "/equipment-loan-application",
+    badge: null,
+    color: "from-pink-500 to-pink-600"
+  }, {
+    icon: Truck,
+    image: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?auto=format&fit=crop&q=80",
+    title: "Heavy Equipment",
+    description: "Specialized financing for construction and industrial heavy equipment.",
+    rate: "6.5%",
+    rateLabel: "Starting APR",
+    features: ["Construction and industrial equipment", "New and used equipment options", "Competitive rates and flexible terms"],
+    learnLink: "/heavy-equipment",
+    applyLink: "/equipment-loan-application",
+    badge: null,
+    color: "from-orange-500 to-orange-600"
+  }, {
+    icon: Heart,
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80",
+    title: "Medical Equipment",
+    description: "Healthcare equipment financing for medical practices and facilities.",
+    rate: "5.75%",
+    rateLabel: "Starting APR",
+    features: ["Medical and healthcare equipment", "Practice expansion financing", "Technology upgrade solutions"],
+    learnLink: "/medical-equipment",
+    applyLink: "/equipment-loan-application",
+    badge: null,
+    color: "from-blue-500 to-blue-600"
+  }];
+  const businessProducts = [{
+    icon: Receipt,
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80",
+    title: "Working Capital Loans",
+    description: "Bridge cash flow gaps and fund day-to-day business operations.",
+    rate: "1.20 factoring",
+    rateLabel: "Starting Rate",
+    terms: "3-18 months",
+    features: ["Bridge seasonal cash gaps", "Cover operational expenses", "Inventory and payroll funding"],
+    learnLink: "/working-capital",
+    applyLink: "/working-capital-application",
+    color: "from-blue-500 to-blue-600"
+  }, {
+    icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80",
+    title: "Business Line of Credit",
+    description: "Access to capital when you need it with revolving credit lines.",
+    rate: "Prime + 2%",
+    rateLabel: "Starting Rate",
+    terms: "12-60 months",
+    features: ["Access up to credit limit", "Only pay interest on draws", "Renewable credit facility"],
+    learnLink: "/business-line-of-credit",
+    applyLink: "/business-line-of-credit-application",
+    color: "from-emerald-500 to-emerald-600"
+  }, {
+    icon: Building2,
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80",
+    title: "Business Term Loans",
+    description: "Fixed-rate business loans for growth initiatives.",
+    rate: "8.75%",
+    rateLabel: "Starting APR",
+    terms: "2-7 years",
+    features: ["Fixed monthly payments", "Predictable payment schedule", "Business expansion funding"],
+    learnLink: "/term-loans",
+    applyLink: "/term-loan-application",
+    color: "from-purple-500 to-purple-600"
+  }, {
+    icon: FileText,
+    image: accountingOffice,
+    title: "Factoring Financing",
+    description: "Convert invoices into immediate cash through invoice factoring.",
+    rate: "1-3%",
+    rateLabel: "Factor Rate",
+    terms: "30-90 days",
+    features: ["Convert invoices to cash", "No debt on balance sheet", "Customer credit protection"],
+    learnLink: "/factoring-based-financing",
+    applyLink: "/working-capital-application",
+    color: "from-orange-500 to-orange-600"
+  }, {
+    logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+    title: "SBA Express Loans",
+    description: "Fast-track SBA financing with expedited approval process.",
+    rate: "Prime + 4.5%",
+    rateLabel: "Starting Rate",
+    terms: "Up to 7 years",
+    features: ["SBA guarantee protection", "Fast 36-hour approval", "Revolving line option"],
+    learnLink: "/sba-express-loans",
+    applyLink: "/sba-loan-application",
+    badge: "Fast",
+    color: "from-orange-600 to-orange-700"
+  }, {
+    icon: DollarSign,
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80",
+    title: "Debt Financing",
+    description: "Traditional debt financing solutions for business growth and expansion.",
+    rate: "5.5%",
+    rateLabel: "Starting APR",
+    terms: "1-10 years",
+    features: ["Bank-grade underwriting", "Secured by business assets", "Competitive market rates"],
+    learnLink: "/debt-financing",
+    applyLink: "/term-loan-application",
+    color: "from-slate-500 to-slate-600"
+  }, {
+    icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80",
+    title: "Equity Financing",
+    description: "Raise capital through equity investment without taking on debt.",
+    rate: "Equity Based",
+    rateLabel: "Investment",
+    terms: "Permanent",
+    features: ["Sell ownership stake", "No personal guarantees", "Strategic investor partnerships"],
+    learnLink: "/equity-financing",
+    applyLink: "/term-loan-application",
+    color: "from-green-500 to-green-600"
+  }, {
+    icon: Factory,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+    title: "Mezzanine Financing",
+    description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
+    rate: "8-15%",
+    rateLabel: "Return Rate",
+    terms: "3-7 years",
+    features: ["Combine debt and equity", "Growth stage companies", "Acquisition financing"],
+    learnLink: "/mezzanine-financing",
+    applyLink: "/term-loan-application",
+    color: "from-indigo-500 to-indigo-600"
+  }, {
+    icon: Landmark,
+    image: "https://images.unsplash.com/photo-1556742400-b9b7c7d8b5c6?auto=format&fit=crop&q=80",
+    title: "Private Placement",
+    description: "Private capital placement for qualified businesses seeking growth funding.",
+    rate: "Market Rate",
+    rateLabel: "Negotiable",
+    features: ["Institutional investors", "Large capital raises", "Custom terms negotiation"],
+    learnLink: "/private-placement",
+    applyLink: "/term-loan-application",
+    color: "from-purple-600 to-purple-700"
+  }];
 
   // Carousel hooks for SBA & Commercial Loans
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -398,25 +352,27 @@ const ProductsSection = () => {
     containScroll: 'trimSnaps',
     slidesToScroll: 1,
     breakpoints: {
-      '(max-width: 768px)': { slidesToScroll: 1 },
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
+      '(max-width: 768px)': {
+        slidesToScroll: 1
+      },
+      '(min-width: 768px)': {
+        slidesToScroll: 2
+      },
+      '(min-width: 1024px)': {
+        slidesToScroll: 3
+      }
     }
   });
-
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [activeProductIndex, setActiveProductIndex] = useState(0);
-
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setPrevBtnDisabled(!emblaApi.canScrollPrev());
     setNextBtnDisabled(!emblaApi.canScrollNext());
   }, [emblaApi]);
-
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
@@ -433,33 +389,33 @@ const ProductsSection = () => {
     containScroll: 'trimSnaps',
     slidesToScroll: 1,
     breakpoints: {
-      '(max-width: 768px)': { slidesToScroll: 1 },
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
+      '(max-width: 768px)': {
+        slidesToScroll: 1
+      },
+      '(min-width: 768px)': {
+        slidesToScroll: 2
+      },
+      '(min-width: 1024px)': {
+        slidesToScroll: 3
+      }
     }
   });
-
   const [businessPrevBtnDisabled, setBusinessPrevBtnDisabled] = useState(true);
   const [businessNextBtnDisabled, setBusinessNextBtnDisabled] = useState(true);
-
   const businessScrollPrev = useCallback(() => businessEmblaApi && businessEmblaApi.scrollPrev(), [businessEmblaApi]);
   const businessScrollNext = useCallback(() => businessEmblaApi && businessEmblaApi.scrollNext(), [businessEmblaApi]);
-
   const businessOnSelect = useCallback(() => {
     if (!businessEmblaApi) return;
     setBusinessPrevBtnDisabled(!businessEmblaApi.canScrollPrev());
     setBusinessNextBtnDisabled(!businessEmblaApi.canScrollNext());
   }, [businessEmblaApi]);
-
   useEffect(() => {
     if (!businessEmblaApi) return;
     businessOnSelect();
     businessEmblaApi.on('select', businessOnSelect);
     businessEmblaApi.on('reInit', businessOnSelect);
   }, [businessEmblaApi, businessOnSelect]);
-
-  return (
-    <section className="py-8 md:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
+  return <section className="py-8 md:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50/20 relative overflow-hidden">
       {/* Corporate Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(68,90,120,0.02)_50%,transparent_75%)] pointer-events-none"></div>
@@ -475,27 +431,41 @@ const ProductsSection = () => {
                 <h2 className="text-xl md:text-2xl font-bold mb-4">
                   Our Streamlined Loan Process
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-black">
                   We make commercial lending simple
                 </p>
               </div>
 
               <div className="relative mx-auto">
                 <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-                  {[
-                    { step: 1, title: "Select Your Loan Program", description: "Choose from our comprehensive range of loan products", image: step1SelectLoan },
-                    { step: 2, title: "Answer Questions", description: "Complete our simple application about your loan request", image: step2AnswerQuestions },
-                    { step: 3, title: "Get Pre-Approved", description: "Authorize a soft credit check for instant pre-approval", image: step3PreApproved },
-                    { step: 4, title: "Upload Financials", description: "Submit your documents to receive competitive term sheets", image: step4UploadFinancials },
-                    { step: 5, title: "Get Funded", description: "Sign your loan documents and receive your funding", image: step5GetFunded }
-                  ].map((item, index) => (
-                    <div key={index} className="relative flex items-stretch h-full">
+                  {[{
+                  step: 1,
+                  title: "Select Your Loan Program",
+                  description: "Choose from our comprehensive range of loan products",
+                  image: step1SelectLoan
+                }, {
+                  step: 2,
+                  title: "Answer Questions",
+                  description: "Complete our simple application about your loan request",
+                  image: step2AnswerQuestions
+                }, {
+                  step: 3,
+                  title: "Get Pre-Approved",
+                  description: "Authorize a soft credit check for instant pre-approval",
+                  image: step3PreApproved
+                }, {
+                  step: 4,
+                  title: "Upload Financials",
+                  description: "Submit your documents to receive competitive term sheets",
+                  image: step4UploadFinancials
+                }, {
+                  step: 5,
+                  title: "Get Funded",
+                  description: "Sign your loan documents and receive your funding",
+                  image: step5GetFunded
+                }].map((item, index) => <div key={index} className="relative flex items-stretch h-full">
                       <div className="relative h-52 lg:h-64 rounded-xl overflow-hidden shadow-[var(--shadow-card)] animate-fade-in hover-scale w-full">
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                        />
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                         <div className="absolute top-4 left-4 right-4">
                           <div className="text-2xl font-bold text-white mb-1">Step {item.step}</div>
@@ -507,13 +477,10 @@ const ProductsSection = () => {
                       </div>
                       
                       {/* Arrow - only show between steps, not after the last one */}
-                      {index < 4 && (
-                          <div className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 transform -translate-y-1/2 z-10">
+                      {index < 4 && <div className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 transform -translate-y-1/2 z-10">
                             <ArrowRight className="h-6 w-6 text-primary" />
-                          </div>
-                      )}
-                    </div>
-                  ))}
+                          </div>}
+                    </div>)}
                 </div>
               </div>
               
@@ -523,11 +490,7 @@ const ProductsSection = () => {
                 
                 {/* Get Started Button */}
                 <div className="mb-6">
-                  <Button 
-                    size="lg" 
-                    className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in"
-                    asChild
-                  >
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold animate-fade-in" asChild>
                     <a href="https://preview--hbf-application.lovable.app/auth">
                       <Lock className="h-4 w-4 mr-2" />
                       Get Started
@@ -535,7 +498,7 @@ const ProductsSection = () => {
                   </Button>
                 </div>
                 
-                <p className="text-lg text-muted-foreground">Professional lending process with modern technology</p>
+                <p className="text-lg text-black">Professional lending process with modern technology</p>
               </div>
             </div>
           </div>
@@ -563,12 +526,9 @@ const ProductsSection = () => {
           
           {/* Mobile Vertical Stack */}
           <div className="md:hidden space-y-4 mb-12 max-w-sm mx-auto">
-            {products.slice(0, 6).map((product, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+            {products.slice(0, 6).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                  {product.icon && (
-                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
-                  )}
+                  {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
                   <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
                   <p className="text-sm text-white leading-relaxed text-left">
                     {product.description}
@@ -581,12 +541,10 @@ const ProductsSection = () => {
                     <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                   </div>
                   <ul className="space-y-2 mb-4">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-xs flex items-center">
+                    {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                         {feature}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
@@ -601,18 +559,14 @@ const ProductsSection = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           {/* Desktop Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 max-w-7xl mx-auto">
-            {products.slice(0, 6).map((product, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+            {products.slice(0, 6).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                  {product.icon && (
-                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
-                  )}
+                  {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
                   <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
                   <p className="text-sm text-white leading-relaxed text-left">
                     {product.description}
@@ -625,12 +579,10 @@ const ProductsSection = () => {
                     <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                   </div>
                   <ul className="space-y-2 mb-4">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-xs flex items-center">
+                    {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                         {feature}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
@@ -645,8 +597,7 @@ const ProductsSection = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -661,12 +612,7 @@ const ProductsSection = () => {
 
         {/* Enhanced CTA Section - Moved between carousels */}
         <div className="my-12 relative overflow-hidden shadow-lg -mx-4 sm:-mx-6 lg:-mx-8">
-          <LazyImage 
-            src={financialAdvisorConsultation} 
-            alt="Professional financial advisor consultation with business owner"
-            className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
-            priority={false}
-          />
+          <LazyImage src={financialAdvisorConsultation} alt="Professional financial advisor consultation with business owner" className="absolute inset-0 w-full h-full object-cover object-[center_20%]" priority={false} />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
@@ -688,12 +634,9 @@ const ProductsSection = () => {
 
           {/* Mobile Vertical Stack */}
           <div className="md:hidden space-y-4 mb-12 max-w-sm mx-auto">
-            {businessProducts.slice(0, 4).map((product, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+            {businessProducts.slice(0, 4).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                  {product.icon && (
-                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
-                  )}
+                  {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
                   <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
                   <p className="text-sm text-white leading-relaxed text-left">
                     {product.description}
@@ -706,19 +649,15 @@ const ProductsSection = () => {
                     <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                   </div>
                   {/* Terms Display */}
-                  {product.terms && (
-                    <div className="rounded-lg px-3 py-2 mb-4">
+                  {product.terms && <div className="rounded-lg px-3 py-2 mb-4">
                       <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
                       <div className="text-xs text-black font-medium">{product.terms}</div>
-                    </div>
-                  )}
+                    </div>}
                   <ul className="space-y-2 mb-4">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-xs flex items-center">
+                    {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                         {feature}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
@@ -733,18 +672,14 @@ const ProductsSection = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           {/* Desktop Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-7xl mx-auto">
-            {businessProducts.slice(0, 4).map((product, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+            {businessProducts.slice(0, 4).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
-                  {product.icon && (
-                    <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />
-                  )}
+                  {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
                   <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
                   <p className="text-sm text-white leading-relaxed text-left">
                     {product.description}
@@ -757,19 +692,15 @@ const ProductsSection = () => {
                     <div className="text-xs text-black font-medium">{product.rateLabel}</div>
                   </div>
                   {/* Terms Display */}
-                  {product.terms && (
-                    <div className="rounded-lg px-3 py-2 mb-4">
+                  {product.terms && <div className="rounded-lg px-3 py-2 mb-4">
                       <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
                       <div className="text-xs text-black font-medium">{product.terms}</div>
-                    </div>
-                  )}
+                    </div>}
                   <ul className="space-y-2 mb-4">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-xs flex items-center">
+                    {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                         {feature}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
@@ -784,8 +715,7 @@ const ProductsSection = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
             
              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
@@ -795,14 +725,10 @@ const ProductsSection = () => {
                    <ArrowRight className="h-5 w-5 ml-2" />
                  </a>
                </Button>
-               <ConsultationPopup 
-                 trigger={
-                   <Button variant="outline" size="lg" className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105">
+               <ConsultationPopup trigger={<Button variant="outline" size="lg" className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105">
                      Schedule Consultation
                      <Phone className="h-5 w-5 ml-2" />
-                   </Button>
-                 }
-               />
+                   </Button>} />
              </div>
             
             <div className="text-center max-w-7xl mx-auto mt-6">
@@ -812,8 +738,6 @@ const ProductsSection = () => {
             </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProductsSection;
