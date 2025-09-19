@@ -48,18 +48,6 @@ const HeroSection = () => {
             </div>
           </header>
 
-          {/* Enhanced CTA Widget */}
-          <div className="flex justify-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 max-w-sm w-full">
-              <div className="text-center mb-4">
-                <div className="text-lg md:text-2xl font-bold text-white mb-1">Get Pre-Qualified</div>
-                <div className="text-blue-100 text-sm">Fast 2-minute application</div>
-              </div>
-              <Button size="lg" className="w-full bg-white text-primary font-semibold shadow-[var(--shadow-button)] hover:bg-gray-50" asChild>
-                <a href="https://app.halolending.com">Start Application</a>
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
