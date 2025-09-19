@@ -12,9 +12,9 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
   showPattern = true
 }) => {
   const heightClasses = {
-    sm: 'h-12',
-    md: 'h-20', 
-    lg: 'h-32'
+    sm: 'h-2',
+    md: 'h-3', 
+    lg: 'h-4'
   };
 
   const getVariantClasses = () => {
