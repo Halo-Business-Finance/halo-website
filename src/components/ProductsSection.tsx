@@ -485,7 +485,7 @@ const ProductsSection = () => {
               </div>
               
               {/* Text content below process steps */}
-              <div className="text-left mt-12">
+              <div className="text-center mt-12">
                 <h3 className="text-xl md:text-2xl font-semibold mb-6 text-primary">Fast, Simple, Secure</h3>
                 
                 {/* Get Started Button */}
