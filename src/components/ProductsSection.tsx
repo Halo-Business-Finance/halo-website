@@ -292,7 +292,7 @@ const ProductsSection = () => {
     {
       icon: Building2,
       image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
-      title: "Term Loans",
+      title: "Business Term Loans",
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
       rateLabel: "Starting APR",
