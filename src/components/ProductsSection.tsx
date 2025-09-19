@@ -36,6 +36,7 @@ const ProductsSection = () => {
     description: "Versatile financing for working capital, equipment, and real estate purchases.",
     rate: "Prime + 2.75%",
     rateLabel: "Starting Rate",
+    terms: "Up to 25 years",
     features: ["Up to $5 million loan amount", "Long-term financing up to 25 years", "SBA government guarantee protection"],
     learnLink: "/sba-7a-loans",
     applyLink: "/sba-loan-application",
@@ -48,6 +49,7 @@ const ProductsSection = () => {
     description: "Fixed-rate financing for real estate and major equipment purchases.",
     rate: "Fixed Rate",
     rateLabel: "Long-term",
+    terms: "10-20 years",
     features: ["Up to $5.5 million total project", "Only 10% down payment required", "Fixed interest rates available"],
     learnLink: "/sba-504-loans",
     applyLink: "/sba-504-application",
@@ -60,6 +62,7 @@ const ProductsSection = () => {
     description: "Fast-track SBA financing with expedited approval process.",
     rate: "Prime + 4.5%",
     rateLabel: "Starting Rate",
+    terms: "Up to 7 years",
     features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
     learnLink: "/sba-express-loans",
     applyLink: "/sba-loan-application",
@@ -72,6 +75,7 @@ const ProductsSection = () => {
     description: "Rural business development financing backed by USDA guarantee.",
     rate: "Prime + 2%",
     rateLabel: "Starting Rate",
+    terms: "Up to 30 years",
     features: ["Up to $25 million loan amount", "Rural area business focus only", "USDA government guarantee backing"],
     learnLink: "/usda-bi-loans",
     applyLink: "/sba-loan-application",
@@ -84,6 +88,7 @@ const ProductsSection = () => {
     description: "Rural community development and business growth financing programs.",
     rate: "Prime + 1.5%",
     rateLabel: "Starting Rate",
+    terms: "Up to 40 years",
     features: ["Rural area development focus", "Community economic development", "USDA government backing"],
     learnLink: "/usda-rural-development",
     applyLink: "/sba-loan-application",
@@ -96,6 +101,7 @@ const ProductsSection = () => {
     description: "Traditional commercial financing for established businesses with strong credit profiles.",
     rate: "5.25%",
     rateLabel: "Starting APR",
+    terms: "5-25 years",
     features: ["No government guarantee required", "Faster approval process timeline", "Flexible repayment terms available"],
     learnLink: "/conventional-loans",
     applyLink: "/conventional-loan-application",
@@ -108,6 +114,7 @@ const ProductsSection = () => {
     description: "Purchase, refinance, and develop commercial properties with flexible terms.",
     rate: "5.5%",
     rateLabel: "Starting APR",
+    terms: "5-30 years",
     features: ["Owner-occupied properties", "Investment real estate", "Commercial property development"],
     learnLink: "/commercial-loans",
     applyLink: "/commercial-real-estate-application",
@@ -120,6 +127,7 @@ const ProductsSection = () => {
     description: "Commercial mortgage-backed securities for large commercial real estate transactions.",
     rate: "4.75%",
     rateLabel: "Starting Rate",
+    terms: "5-10 years",
     features: ["$2 million minimum loan amounts", "Non-recourse financing options available", "Fixed interest rates guaranteed"],
     learnLink: "/cmbs-loans",
     applyLink: "/conventional-loan-application",
@@ -132,6 +140,7 @@ const ProductsSection = () => {
     description: "Held-in-portfolio lending solutions with flexible underwriting standards.",
     rate: "5.5%",
     rateLabel: "Starting APR",
+    terms: "1-15 years",
     features: ["Flexible underwriting standards applied", "Quick decision making process", "Relationship-based banking approach"],
     learnLink: "/portfolio-loans",
     applyLink: "/conventional-loan-application",
@@ -144,6 +153,7 @@ const ProductsSection = () => {
     description: "Financing for new construction and major renovation projects.",
     rate: "Prime + 1.5%",
     rateLabel: "Starting Rate",
+    terms: "6-18 months",
     features: ["Interest-only payments during construction", "Progress-based funding disbursement schedule", "Convert to permanent financing option"],
     learnLink: "/construction-loans",
     applyLink: "/conventional-loan-application",
@@ -156,6 +166,7 @@ const ProductsSection = () => {
     description: "Short-term financing to bridge cash flow gaps while securing permanent financing.",
     rate: "8.5%",
     rateLabel: "Starting APR",
+    terms: "6-24 months",
     features: ["Fast 7-day closing process", "Up to $10 million available", "Flexible short-term repayment options"],
     learnLink: "/bridge-financing",
     applyLink: "/bridge-loan-application",
@@ -168,6 +179,7 @@ const ProductsSection = () => {
     description: "Financing for apartment buildings and multi-unit residential properties.",
     rate: "4.5%",
     rateLabel: "Starting Rate",
+    terms: "5-30 years",
     features: ["5+ unit properties qualified", "Non-recourse financing options available", "Long-term fixed rate stability"],
     learnLink: "/multifamily-loans",
     applyLink: "/conventional-loan-application",
@@ -180,6 +192,7 @@ const ProductsSection = () => {
     description: "Collateral-based financing using business assets as security.",
     rate: "6.75%",
     rateLabel: "Starting APR",
+    terms: "1-7 years",
     features: ["Asset-backed security collateral required", "Flexible repayment terms available", "Fast approval process timeline"],
     learnLink: "/asset-based-loans",
     applyLink: "/conventional-loan-application",
@@ -192,6 +205,7 @@ const ProductsSection = () => {
     description: "Fund new or used equipment purchases with competitive terms.",
     rate: "6.25%",
     rateLabel: "Starting APR",
+    terms: "2-7 years",
     features: ["100% financing available option", "Fast approval process guaranteed", "Flexible payment schedules offered"],
     learnLink: "/equipment-financing",
     applyLink: "/equipment-loan-application",
@@ -204,6 +218,7 @@ const ProductsSection = () => {
     description: "Lease business equipment with flexible terms and upgrade options.",
     rate: "5.5%",
     rateLabel: "Starting Rate",
+    terms: "12-60 months",
     features: ["100% financing with no down payment", "Preserve working capital and credit lines", "Easy equipment upgrades and replacements"],
     learnLink: "/equipment-leasing",
     applyLink: "/equipment-loan-application",
@@ -216,6 +231,7 @@ const ProductsSection = () => {
     description: "Specialized financing for construction and industrial heavy equipment.",
     rate: "6.5%",
     rateLabel: "Starting APR",
+    terms: "3-7 years",
     features: ["Construction and industrial equipment", "New and used equipment options", "Competitive rates and flexible terms"],
     learnLink: "/heavy-equipment",
     applyLink: "/equipment-loan-application",
@@ -228,6 +244,7 @@ const ProductsSection = () => {
     description: "Healthcare equipment financing for medical practices and facilities.",
     rate: "5.75%",
     rateLabel: "Starting APR",
+    terms: "2-10 years",
     features: ["Medical and healthcare equipment", "Practice expansion financing", "Technology upgrade solutions"],
     learnLink: "/medical-equipment",
     applyLink: "/equipment-loan-application",
@@ -539,12 +556,17 @@ const ProductsSection = () => {
                           {product.description}
                         </p>
                       </div>
-                      <CardContent className="p-6">
-                        {/* Rate Display */}
-                        <div className="rounded-lg px-3 py-2 mb-4">
-                          <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
-                          <div className="text-xs text-black font-medium">{product.rateLabel}</div>
-                        </div>
+                        <CardContent className="p-6">
+                          {/* Rate Display */}
+                          <div className="rounded-lg px-3 py-2 mb-4">
+                            <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
+                            <div className="text-xs text-black font-medium">{product.rateLabel}</div>
+                          </div>
+                          {/* Terms Display */}
+                          {product.terms && <div className="rounded-lg px-3 py-2 mb-4">
+                              <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
+                              <div className="text-xs text-black font-medium">{product.terms}</div>
+                            </div>}
                         <ul className="space-y-2 mb-4">
                           {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
