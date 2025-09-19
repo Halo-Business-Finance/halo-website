@@ -624,7 +624,7 @@ const ProductsSection = () => {
           </div>
 
           {/* Professional Financial Services Carousel - Business Capital */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
             {businessProducts.slice(0, 4).map((product, index) => (
               <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
                 <div className="relative h-48 overflow-hidden">
