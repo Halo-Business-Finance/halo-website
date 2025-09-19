@@ -345,10 +345,10 @@ const ProductsSection = () => {
 
   // Carousel hooks for SBA & Commercial Loans
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
+    loop: true,
     align: 'start',
     skipSnaps: false,
-    dragFree: true,
+    dragFree: false,
     containScroll: 'trimSnaps',
     slidesToScroll: 1,
     breakpoints: {
@@ -356,10 +356,10 @@ const ProductsSection = () => {
         slidesToScroll: 1
       },
       '(min-width: 768px)': {
-        slidesToScroll: 2
+        slidesToScroll: 1
       },
       '(min-width: 1024px)': {
-        slidesToScroll: 3
+        slidesToScroll: 1
       }
     }
   });
@@ -525,9 +525,9 @@ const ProductsSection = () => {
           {/* Loan Cards Slider */}
           <div className="relative max-w-7xl mx-auto mb-12">
             <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-4">
-                {products.slice(0, 4).map((product, index) => (
-                  <div key={index} className="flex-[0_0_calc(25%-12px)] min-w-0">
+              <div className="flex">
+                {products.map((product, index) => (
+                  <div key={index} className="flex-[0_0_300px] min-w-0 mr-4">
                     <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full">
                       <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
                         {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
@@ -568,7 +568,7 @@ const ProductsSection = () => {
                 ))}
               </div>
             </div>
-            </div>
+          </div>
             
             {/* Navigation Controls - Under Carousel */}
             <div className="flex justify-center gap-4 mt-6">
