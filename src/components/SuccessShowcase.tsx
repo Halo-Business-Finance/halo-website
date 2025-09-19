@@ -11,7 +11,7 @@ const SuccessShowcase = () => {
           <div className="text-center mb-8">
             <p className="text-slate-700 text-lg font-medium mb-2">Join successful businesses nationwide</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-full md:max-w-4xl mx-auto px-2 md:px-0">
             <div className="relative h-28 rounded-xl overflow-hidden shadow-[var(--shadow-card)]">
               <img 
                 src={sbaLoanHandshake} 
