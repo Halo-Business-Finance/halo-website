@@ -47,7 +47,6 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
         <div className="w-full max-w-6xl mx-auto px-4">
           <div className="relative">
             {/* Main divider line */}
-            <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
             
             {/* Center accent */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
