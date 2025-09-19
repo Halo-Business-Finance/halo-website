@@ -670,7 +670,7 @@ const ProductsSection = () => {
            </div>
            
            <div className="text-left max-w-7xl mx-auto mt-6">
-             <p className="text-lg text-gray-900 max-w-2xl whitespace-nowrap">
+             <p className="text-lg text-gray-900 max-w-2xl whitespace-nowrap text-center mx-auto">
                Powerful business capital loans designed to help your business grow and succeed.
              </p>
            </div>
