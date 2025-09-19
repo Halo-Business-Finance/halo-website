@@ -619,7 +619,7 @@ const ProductsSection = () => {
               Business Capital Solutions
             </h3>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Powerful business capital tools designed to help your business grow and succeed.
+              Powerful business capital loans designed to help your business grow and succeed.
             </p>
           </div>
 
