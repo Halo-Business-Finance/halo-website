@@ -498,7 +498,7 @@ const ProductsSection = () => {
                   </Button>
                 </div>
                 
-                <p className="text-lg text-black">Commercial lending powered by modern technology</p>
+                <p className="text-black text-base">Commercial lending powered by modern technology</p>
               </div>
             </div>
           </div>
