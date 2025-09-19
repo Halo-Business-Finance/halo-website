@@ -468,19 +468,6 @@ const ProductsSection = () => {
         {/* Enhanced Corporate Header Section */}
         <div className="text-center mb-12">
           
-          {/* Commercial & Business Financing Solutions Header */}
-          <div className="mb-16">
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
-              <span className="text-financial-navy">
-                Commercial & Business
-              </span>
-              <br />
-              <span className="text-financial-navy">
-                Financing Marketplace
-              </span>
-            </h2>
-          </div>
-          
           {/* Our Streamlined Loan Process Section */}
           <div className="py-16 bg-muted/50 rounded-2xl">
             <div className="container mx-auto px-4">
