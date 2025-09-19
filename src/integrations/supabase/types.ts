@@ -1362,6 +1362,10 @@ export type Database = {
         }
         Returns: Json
       }
+      cleanup_expired_admin_sessions: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
       cleanup_expired_sessions: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -1810,6 +1814,14 @@ export type Database = {
         }
         Returns: boolean
       }
+      secure_session_validation: {
+        Args: {
+          p_admin_email: string
+          p_ip_address: unknown
+          p_session_token: string
+        }
+        Returns: boolean
+      }
       should_log_security_event: {
         Args:
           | {
@@ -1883,6 +1895,10 @@ export type Database = {
       }
       verify_active_session_with_mfa: {
         Args: { max_idle_minutes?: number; required_security_level?: string }
+        Returns: boolean
+      }
+      verify_admin_access_with_session_check: {
+        Args: Record<PropertyKey, never>
         Returns: boolean
       }
       verify_admin_session: {
