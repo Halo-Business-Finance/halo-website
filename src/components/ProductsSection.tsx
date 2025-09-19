@@ -656,8 +656,8 @@ const ProductsSection = () => {
                     </li>
                   </ul>
                   <Button asChild size="sm" className="w-full">
-                    <Link to={product.ctaLink}>
-                      {product.ctaText}
+                    <Link to={product.learnLink}>
+                      Learn More
                     </Link>
                   </Button>
                 </CardContent>
@@ -766,11 +766,9 @@ const ProductsSection = () => {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
         </div>
-
+      </div>
+      </div>
       </div>
     </section>
   );
