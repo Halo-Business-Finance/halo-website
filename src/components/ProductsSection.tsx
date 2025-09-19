@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock, Phone } from "lucide-react";
+import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock, Phone, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
@@ -267,7 +267,7 @@ const ProductsSection = () => {
 
   const businessProducts = [
     {
-      icon: Receipt,
+      icon: FileText,
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80",
       title: "Working Capital Loans",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
