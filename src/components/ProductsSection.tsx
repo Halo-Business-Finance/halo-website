@@ -589,7 +589,7 @@ const ProductsSection = () => {
           />
           <div className="relative bg-financial-navy text-white py-12 px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
               <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto leading-relaxed">
