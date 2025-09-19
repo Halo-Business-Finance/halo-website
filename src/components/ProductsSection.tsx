@@ -568,27 +568,6 @@ const ProductsSection = () => {
                 ))}
               </div>
             </div>
-            
-            {/* Navigation Controls */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg"
-              onClick={scrollPrev}
-              disabled={prevBtnDisabled}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg"
-              onClick={scrollNext}
-              disabled={nextBtnDisabled}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
           </div>
         </div>
 
