@@ -273,7 +273,7 @@ const ProductsSection = () => {
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
       rateLabel: "Starting Rate",
-      features: ["Flexible draw schedule", "Interest-only on used funds", "No collateral requirements"],
+      features: ["Bridge seasonal cash gaps", "Cover operational expenses", "Inventory and payroll funding"],
       learnLink: "/working-capital",
       applyLink: "/working-capital-application",
       color: "from-blue-500 to-blue-600"
@@ -285,7 +285,7 @@ const ProductsSection = () => {
       description: "Flexible access to capital when you need it with revolving credit lines.",
       rate: "Prime + 2%",
       rateLabel: "Starting Rate",
-      features: ["Draw funds as needed only", "Pay interest only on used funds", "Revolving credit facility"],
+      features: ["Access up to credit limit", "Only pay interest on draws", "Renewable credit facility"],
       learnLink: "/business-line-of-credit",
       applyLink: "/business-line-of-credit-application",
       color: "from-emerald-500 to-emerald-600"
@@ -321,7 +321,7 @@ const ProductsSection = () => {
       description: "Fast-track SBA financing with expedited approval process.",
       rate: "Prime + 4.5%",
       rateLabel: "Starting Rate",
-      features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
+      features: ["SBA guarantee protection", "Fast 36-hour approval", "Revolving line option"],
       learnLink: "/sba-express-loans",
       applyLink: "/sba-loan-application",
       badge: "Fast",
@@ -334,7 +334,7 @@ const ProductsSection = () => {
       description: "Traditional debt financing solutions for business growth and expansion.",
       rate: "5.5%",
       rateLabel: "Starting APR",
-      features: ["Traditional bank lending", "Secured and unsecured options", "Established business focus"],
+      features: ["Bank-grade underwriting", "Secured by business assets", "Competitive market rates"],
       learnLink: "/debt-financing",
       applyLink: "/term-loan-application",
       color: "from-slate-500 to-slate-600"
@@ -346,7 +346,7 @@ const ProductsSection = () => {
       description: "Raise capital through equity investment without taking on debt.",
       rate: "Equity Based",
       rateLabel: "Investment",
-      features: ["No monthly debt payments", "Shared business ownership", "Growth capital injection"],
+      features: ["Sell ownership stake", "No personal guarantees", "Strategic investor partnerships"],
       learnLink: "/equity-financing",
       applyLink: "/term-loan-application",
       color: "from-green-500 to-green-600"
@@ -358,7 +358,7 @@ const ProductsSection = () => {
       description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
       rate: "8-15%",
       rateLabel: "Return Rate",
-      features: ["Debt-equity hybrid funding", "Expansion capital focus", "High-growth businesses"],
+      features: ["Combine debt and equity", "Growth stage companies", "Acquisition financing"],
       learnLink: "/mezzanine-financing",
       applyLink: "/term-loan-application",
       color: "from-indigo-500 to-indigo-600"
@@ -370,7 +370,7 @@ const ProductsSection = () => {
       description: "Private capital placement for qualified businesses seeking growth funding.",
       rate: "Market Rate",
       rateLabel: "Negotiable",
-      features: ["Private investor access", "Customized deal structures", "Large funding amounts"],
+      features: ["Institutional investors", "Large capital raises", "Custom terms negotiation"],
       learnLink: "/private-placement",
       applyLink: "/term-loan-application",
       color: "from-purple-600 to-purple-700"
