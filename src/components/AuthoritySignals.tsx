@@ -210,7 +210,7 @@ const AuthoritySignals = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link to="/auth">Get Pre-Qualified</Link>
+                  <a href="https://app.halolending.com">Get Pre-Qualified</a>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link to="/company-overview">Learn About Us</Link>

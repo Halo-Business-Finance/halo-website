@@ -26,7 +26,7 @@ import {
 import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import ConsultationPopup from "@/components/ConsultationPopup";
-import VardaChatBot from "@/components/VardaChatBot";
+
 import loanConsultation from "@/assets/loan-consultation.jpg";
 import businessGrowth from "@/assets/business-growth.jpg";
 import sbaLogo from "@/assets/sba-logo.jpg";
@@ -720,7 +720,7 @@ const CompanyOverview = () => {
         </div>
       </section>
 
-      <VardaChatBot />
+      
       <Footer />
     </div>
   );

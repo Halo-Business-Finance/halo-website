@@ -19,7 +19,7 @@ const ResourcesPage = () => {
       icon: FileText,
       title: "Pre-qualification",
       description: "Get pre-qualified for financing in minutes with our streamlined application process.",
-      link: "https://preview--hbf-application.lovable.app/auth",
+      link: "https://app.halolending.com",
       cta: "Get Pre-Qualified"
     },
     {

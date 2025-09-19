@@ -478,7 +478,7 @@ const ProductsSection = () => {
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-0"
                 asChild
               >
-                <a href="https://preview--hbf-application.lovable.app/auth">
+                <a href="https://app.halolending.com">
                   <Lock className="h-4 w-4 mr-2" />
                   Get Started
                 </a>
@@ -797,7 +797,7 @@ const ProductsSection = () => {
             
              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                 <a href="https://preview--hbf-application.lovable.app/auth">
+                 <a href="https://app.halolending.com">
                    Get Pre-Qualified
                    <ArrowRight className="h-5 w-5 ml-2" />
                  </a>

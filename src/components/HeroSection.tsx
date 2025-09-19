@@ -56,7 +56,7 @@ const HeroSection = () => {
                 <div className="text-blue-100 text-sm">Fast 2-minute application</div>
               </div>
               <Button size="lg" className="w-full bg-white text-primary font-semibold shadow-[var(--shadow-button)] hover:bg-gray-50" asChild>
-                <Link to="/auth">Start Application</Link>
+                <a href="https://app.halolending.com">Start Application</a>
               </Button>
             </div>
           </div>

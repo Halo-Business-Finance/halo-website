@@ -32,7 +32,7 @@ const FeaturesSection = () => {
       icon: Clock,
       title: "Fast Approval Process",
       description: "Streamlined application process with dedicated loan officers providing quick decisions and personalized service.",
-      link: "/auth"
+      link: "https://app.halolending.com"
     },
     {
       icon: Building2,
@@ -118,7 +118,7 @@ const FeaturesSection = () => {
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary font-semibold border-2 border-primary shadow-lg hover:bg-gray-50">
-                  <Link to="/auth">Get Pre-Qualified</Link>
+                  <a href="https://app.halolending.com">Get Pre-Qualified</a>
                 </Button>
                 <ConsultationPopup
                   trigger={
