@@ -179,7 +179,7 @@ const ImageGallery = () => {
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Ready to Take Your Business to the Next Level?
             </h3>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Our team of financing experts is ready to help you explore your options and find the perfect loan solution for your business goals. Learn more about <Link to="/how-it-works" className="text-primary hover:underline font-medium">our streamlined application process</Link> or explore financing options recommended by the <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Small Business Administration</a>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
