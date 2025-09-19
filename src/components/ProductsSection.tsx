@@ -267,7 +267,7 @@ const ProductsSection = () => {
   const businessProducts = [
     {
       icon: CreditCard,
-      image: "https://images.unsplash.com/photo-1590755777752-62d83737776c?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80",
       title: "Working Capital Loans",
       description: "Bridge cash flow gaps and fund day-to-day business operations.",
       rate: "Prime + 1%",
@@ -279,7 +279,7 @@ const ProductsSection = () => {
     },
     {
       icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80",
       title: "Business Line of Credit",
       description: "Flexible access to capital when you need it with revolving credit lines.",
       rate: "Prime + 2%",
@@ -291,7 +291,7 @@ const ProductsSection = () => {
     },
     {
       icon: Building2,
-      image: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80",
       title: "Business Term Loans",
       description: "Fixed-rate business loans for major investments and growth initiatives.",
       rate: "5.75%",
@@ -303,7 +303,7 @@ const ProductsSection = () => {
     },
     {
       icon: Receipt,
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1554224154-26032fced8bd?auto=format&fit=crop&q=80",
       title: "Factoring Financing",
       description: "Convert outstanding invoices into immediate working capital through factoring.",
       rate: "1-3%",
@@ -328,7 +328,7 @@ const ProductsSection = () => {
     },
     {
       icon: DollarSign,
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80",
       title: "Debt Financing",
       description: "Traditional debt financing solutions for business growth and expansion.",
       rate: "5.5%",
@@ -340,7 +340,7 @@ const ProductsSection = () => {
     },
     {
       icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80",
       title: "Equity Financing",
       description: "Raise capital through equity investment without taking on debt.",
       rate: "Equity Based",
@@ -352,7 +352,7 @@ const ProductsSection = () => {
     },
     {
       icon: Factory,
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
       title: "Mezzanine Financing",
       description: "Hybrid debt-equity financing for expansion and acquisition opportunities.",
       rate: "8-15%",
@@ -364,7 +364,7 @@ const ProductsSection = () => {
     },
     {
       icon: Landmark,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1556742400-b9b7c7d8b5c6?auto=format&fit=crop&q=80",
       title: "Private Placement",
       description: "Private capital placement for qualified businesses seeking growth funding.",
       rate: "Market Rate",
