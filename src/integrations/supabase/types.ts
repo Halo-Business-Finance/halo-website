@@ -1837,6 +1837,14 @@ export type Database = {
         Args: { display_name?: string; user_email: string }
         Returns: Json
       }
+      validate_admin_session: {
+        Args: {
+          p_admin_email: string
+          p_ip_address?: unknown
+          p_session_token: string
+        }
+        Returns: boolean
+      }
       validate_csrf_token_enhanced: {
         Args: { max_age_minutes?: number; session_id: string; token: string }
         Returns: boolean
