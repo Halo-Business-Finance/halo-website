@@ -116,7 +116,7 @@ const ImageGallery = () => {
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Your Success is Our Mission
           </h2>
-          <p className="text-xl text-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
             From initial consultation to loan closing, we're committed to providing the support and financing your business needs to thrive.
           </p>
         </div>
