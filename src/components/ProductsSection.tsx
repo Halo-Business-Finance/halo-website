@@ -589,7 +589,7 @@ const ProductsSection = () => {
           <LazyImage 
             src={financialAdvisorConsultation} 
             alt="Professional financial advisor consultation with business owner"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
             priority={false}
           />
           <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
