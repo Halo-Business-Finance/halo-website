@@ -150,7 +150,7 @@ const ImageGallery = () => {
                     </div>
                     
                     <CardContent className="p-6 flex-1 flex flex-col">
-                      <p className="text-slate-600 leading-relaxed flex-grow">{item.description}</p>
+                      <p className="text-sm text-foreground leading-relaxed flex-grow">{item.description}</p>
                       
                       {/* Subtle accent line */}
                       <div className="w-12 h-1 bg-primary rounded-full mt-4 group-hover:w-full transition-all duration-300"></div>
