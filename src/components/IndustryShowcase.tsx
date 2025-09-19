@@ -88,7 +88,7 @@ const IndustryShowcase = () => {
     },
     {
       image: carwashBusinessFinancing,
-      title: "Car Wash",
+      title: "Car Wash Financing",
       description: "Financing solutions for car wash businesses, equipment, and facility development",
       loanTypes: ["Equipment financing", "Facility construction", "Working capital"],
       ctaText: "Car Wash Financing",
@@ -96,7 +96,7 @@ const IndustryShowcase = () => {
     },
     {
       image: gasStationFinancing,
-      title: "Gas Station",
+      title: "Gas Station Financing",
       description: "Financing for gas stations, fuel operations, and convenience store businesses",
       loanTypes: ["Property acquisition", "Equipment upgrades", "Working capital"],
       ctaText: "Gas Station Financing",
