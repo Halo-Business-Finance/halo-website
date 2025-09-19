@@ -110,9 +110,10 @@ const ImageGallery = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-16 bg-slate-50">
+    <>
       <div className="w-full h-px bg-gray-300"></div>
-      <div className="container mx-auto px-4 mt-8">
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4 mt-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Your Success is Our Mission
@@ -200,7 +201,8 @@ const ImageGallery = () => {
           </div>
         </div>
       </div>
-    </section>
+     </section>
+    </>
   );
 };
 
