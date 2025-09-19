@@ -425,7 +425,7 @@ const ProductsSection = () => {
         <div className="text-center mb-12">
           
           {/* Our Streamlined Loan Process Section */}
-          <div className="py-2 md:py-4 rounded-2xl">
+          <div className="py-1 md:py-2 rounded-2xl">
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-xl md:text-2xl font-bold mb-4">
