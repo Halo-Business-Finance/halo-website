@@ -662,18 +662,18 @@ const ProductsSection = () => {
                       <Link to={product.applyLink}>
                         Apply Now
                       </Link>
-                    </Button>
-          </div>
-          
-          <div className="text-left max-w-7xl mx-auto mt-6">
-            <p className="text-lg text-gray-900 max-w-2xl whitespace-nowrap">
-              Powerful business capital loans designed to help your business grow and succeed.
-            </p>
-          </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                     </Button>
+                   </div>
+                 </CardContent>
+               </Card>
+             ))}
+           </div>
+           
+           <div className="text-left max-w-7xl mx-auto mt-6">
+             <p className="text-lg text-gray-900 max-w-2xl whitespace-nowrap">
+               Powerful business capital loans designed to help your business grow and succeed.
+             </p>
+           </div>
         </div>
       </div>
     </section>
