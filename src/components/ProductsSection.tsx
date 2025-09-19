@@ -615,7 +615,7 @@ const ProductsSection = () => {
               <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-gradient-to-br from-slate-50 to-white flex flex-col items-center justify-center p-6">
                   {product.icon && (
-                    <product.icon className="h-12 w-12 text-primary mb-4" />
+                    <product.icon className="h-12 w-12 text-primary mb-4 flex-shrink-0" />
                   )}
                   <h3 className="text-lg font-semibold mb-2 text-center">{product.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed text-center">
