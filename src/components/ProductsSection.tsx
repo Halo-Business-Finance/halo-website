@@ -649,10 +649,6 @@ const ProductsSection = () => {
                   <ul className="space-y-2 mb-4">
                     <li className="text-xs flex items-center">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                      {product.rateLabel}
-                    </li>
-                    <li className="text-xs flex items-center">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                       Quick approval process
                     </li>
                     <li className="text-xs flex items-center">
