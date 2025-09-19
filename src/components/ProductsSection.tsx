@@ -584,7 +584,7 @@ const ProductsSection = () => {
             className="absolute inset-0 w-full h-full object-cover"
             priority={false}
           />
-          <div className="relative text-white py-20 px-6">
+          <div className="relative text-white pt-24 pb-20 px-6">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
                 Ready to Fuel Your Business Growth?
