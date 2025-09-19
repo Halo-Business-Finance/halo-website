@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { TrendingUp, Users, Shield, Clock, Award, Star, CheckCircle, Lock, ChevronLeft, ChevronRight } from "lucide-react";
 import sbaLoanHandshake from "@/assets/sba-loan-handshake.jpg";
 import businessFinancingMeeting from "@/assets/business-financing-meeting.jpg";
+import businessLoanSuccessStory from "@/assets/business-loan-success-story.jpg";
 import commercialPropertyInvestment from "@/assets/commercial-property-investment.jpg";
 import restaurantEquipmentFinancing from "@/assets/restaurant-equipment-financing.jpg";
 import healthcareBusinessFinancing from "@/assets/healthcare-business-financing.jpg";
@@ -245,8 +246,8 @@ const IndustryShowcase = () => {
               </div>
               <div className="relative h-48 rounded-lg overflow-hidden">
                 <img 
-                  src={businessFinancingMeeting} 
-                  alt="Business financing consultation meeting"
+                  src={businessLoanSuccessStory} 
+                  alt="Business loan success story"
                   className="w-full h-full object-cover"
                 />
               </div>
