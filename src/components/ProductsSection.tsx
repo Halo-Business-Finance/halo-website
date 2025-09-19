@@ -551,7 +551,7 @@ const ProductsSection = () => {
           
           <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
             <span className="text-financial-navy">
-              Comprehensive Business
+              Commercial & Business
             </span>
             <br />
             <span className="text-financial-navy">
@@ -559,7 +559,7 @@ const ProductsSection = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-foreground max-w-4xl mx-auto leading-relaxed">
-            Discover our comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
+            Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
           </p>
         </div>
 
