@@ -589,7 +589,7 @@ const ProductsSection = () => {
               <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
-              <p className="text-base text-white mb-6 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base text-white mb-6 max-w-4xl mx-auto leading-relaxed">
                 Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. Check out our <Link to="/resources" className="text-white underline hover:text-blue-100 font-medium">business financing resources</Link> or read <a href="https://www.score.org/resource/business-loan-guide" target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-blue-100 font-medium">SCORE's business loan guide</a> for additional insights.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
