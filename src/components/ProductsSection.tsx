@@ -526,7 +526,7 @@ const ProductsSection = () => {
           <div className="relative max-w-7xl mx-auto mb-12">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex gap-4">
-                {products.slice(0, 4).map((product, index) => <div key={index} className="flex-[0_0_calc(25%-12px)] min-w-0">
+                {products.map((product, index) => <div key={index} className="flex-[0_0_300px] min-w-0">
                     <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full">
                       <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
                         {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
