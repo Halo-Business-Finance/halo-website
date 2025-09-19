@@ -586,9 +586,6 @@ const ProductsSection = () => {
           />
           <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl text-white mb-4 underline decoration-2 text-center font-bold">
-                Business Capital Solutions
-              </h3>
               <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
@@ -598,7 +595,10 @@ const ProductsSection = () => {
 
         {/* Business Capital Section */}
         <div className="pt-4">
-          <div className="text-left mb-6 max-w-7xl mx-auto">
+          <div className="text-center mb-8 max-w-7xl mx-auto">
+            <h3 className="text-2xl md:text-3xl text-slate-900 mb-4 underline decoration-2 text-center font-bold">
+              Business Capital Solutions
+            </h3>
           </div>
 
           {/* Professional Financial Services Carousel - Business Capital */}
