@@ -124,7 +124,7 @@ const ImageGallery = () => {
         </div>
 
         {/* Elegant Carousel Section */}
-        <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/30 shadow-lg">
+        <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-2 md:p-6 border border-slate-200/30 shadow-lg">
 
           {/* Embla Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef}>
@@ -132,7 +132,7 @@ const ImageGallery = () => {
               {galleryItems.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-2"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-1 md:px-2"
                 >
                   <Card className="group overflow-hidden border-2 border-slate-300 hover:border-primary shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
                     <div className="relative h-56 overflow-hidden">
