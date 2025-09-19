@@ -97,7 +97,7 @@ const IndustryShowcase = () => {
         </div>
 
         {/* Success Stories Section */}
-        <div className="bg-white rounded-lg p-8 shadow-sm">
+        <div className="rounded-lg p-8 shadow-sm">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-4">Success Stories</h3>
