@@ -30,7 +30,7 @@ const Index = () => {
         <Header />
         <HeroSection />
         
-        <SectionDivider variant="corporate" height="md" />
+        <SectionDivider variant="corporate" height="sm" />
         
         <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
           <ProductsSection />
