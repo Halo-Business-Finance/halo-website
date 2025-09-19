@@ -510,7 +510,7 @@ const ProductsSection = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               SBA & Commercial Financing
             </h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-foreground max-w-3xl mx-auto">
               Comprehensive solutions for your business growth
             </p>
           </div>
