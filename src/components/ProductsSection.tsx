@@ -592,22 +592,6 @@ const ProductsSection = () => {
               <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
                 Ready to Fuel Your Business Growth?
               </h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-slate-900 font-semibold px-6 py-3 shadow-lg hover:bg-slate-50 hover:shadow-xl transition-all duration-300">
-                  <a href="https://preview--hbf-application.lovable.app/auth">
-                    Get Pre-Qualified
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </a>
-                </Button>
-                <ConsultationPopup 
-                  trigger={
-                    <Button size="lg" variant="ghost" className="border-2 border-white text-white px-6 py-3 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
-                      Schedule Consultation
-                      <ChevronRight className="h-4 w-4 ml-2" />
-                    </Button>
-                  }
-                />
-              </div>
             </div>
           </div>
         </div>
