@@ -22,7 +22,7 @@ const Index = () => {
       <ResourcePreloader />
       <SEO 
         title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
-        description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 2,500+ businesses nationwide."
+        description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 1,500+ businesses nationwide."
         keywords="SBA loans, commercial loans, business financing, bridge loans, equipment financing, working capital, conventional loans, business capital, commercial real estate loans, SBA 7a loans, SBA 504 loans, SBA express loans, business line of credit, term loans, factoring based financing"
         canonical="https://halobusinessfinance.com/"
       />

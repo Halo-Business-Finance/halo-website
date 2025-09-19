@@ -108,7 +108,7 @@ const LendersPage = () => {
       icon: TrendingUp,
       title: "Nationwide Reach",
       description: "Access borrowers from all 50 states through our comprehensive marketplace platform",
-      metrics: "2,500+ Cities"
+      metrics: "1,500+ Cities"
     },
     {
       icon: Users,

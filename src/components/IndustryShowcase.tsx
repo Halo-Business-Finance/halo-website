@@ -308,11 +308,11 @@ const IndustryShowcase = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success rounded-full" />
-                  <span className="text-sm font-medium">$2.5B+ in funding provided</span>
+                  <span className="text-sm font-medium">$1.5B+ in funding provided</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success rounded-full" />
-                  <span className="text-sm font-medium">2,500+ satisfied clients</span>
+                  <span className="text-sm font-medium">1,500+ satisfied clients</span>
                 </div>
               </div>
               <Button asChild className="mt-6">

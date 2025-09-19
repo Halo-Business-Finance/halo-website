@@ -225,7 +225,7 @@ const CompanyOverview = () => {
               <p className="text-sm text-muted-foreground">Lending Partners</p>
             </div>
             <div className="bg-muted/50 rounded-lg p-6">
-              <div className="text-3xl font-bold text-primary mb-2">2,500+</div>
+              <div className="text-3xl font-bold text-primary mb-2">1,500+</div>
               <p className="text-sm text-muted-foreground">Businesses Funded</p>
             </div>
             <div className="bg-muted/50 rounded-lg p-6">
@@ -530,7 +530,7 @@ const CompanyOverview = () => {
                 </div>
                 <h4 className="font-semibold mb-2">Proven Results</h4>
                 <p className="text-sm text-muted-foreground">
-                  Track record of successful funding for 2,500+ businesses
+                  Track record of successful funding for 1,500+ businesses
                 </p>
               </div>
             </div>

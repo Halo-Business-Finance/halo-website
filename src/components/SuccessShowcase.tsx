@@ -50,7 +50,7 @@ const SuccessShowcase = () => {
             </div>
             <div className="relative h-28 rounded-xl overflow-hidden bg-slate-100 backdrop-blur-sm flex items-center justify-center border border-slate-200">
               <div className="text-slate-700 text-center">
-                <div className="text-2xl font-bold">2500+</div>
+                <div className="text-2xl font-bold">1500+</div>
                 <div className="text-xs text-slate-500">Happy Clients</div>
                 <div className="flex justify-center mt-1">
                   {[...Array(5)].map((_, i) => (

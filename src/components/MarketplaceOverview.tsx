@@ -32,7 +32,7 @@ const MarketplaceOverview = () => {
     },
     {
       icon: DollarSign,
-      value: "$2.5B+",
+      value: "$1.5B+",
       label: "Loans Facilitated",
       description: "Total loan volume processed through our platform"
     },
@@ -122,7 +122,7 @@ const MarketplaceOverview = () => {
                 </div>
                 <div className="text-center p-4 bg-muted/50 rounded-lg">
                   <Handshake className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">2,500+</div>
+                  <div className="text-2xl font-bold">1,500+</div>
                   <div className="text-sm text-foreground">Cities Served</div>
                 </div>
               </div>

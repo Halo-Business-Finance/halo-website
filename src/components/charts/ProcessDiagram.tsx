@@ -50,7 +50,7 @@ const processSteps: ProcessStep[] = [
     icon: <DollarSign className="h-8 w-8" />,
     timeframe: '24-72 hrs',
     status: 'upcoming',
-    kpi: '$2.5B+',
+    kpi: '$1.5B+',
     kpiLabel: 'Deployed YTD'
   }
 ];
@@ -58,7 +58,7 @@ const processSteps: ProcessStep[] = [
 const executiveMetrics = [
   {
     icon: <TrendingUp className="h-6 w-6 text-financial-primary" />,
-    value: '$2.5B+',
+    value: '$1.5B+',
     label: 'Capital Deployed',
     trend: '+18% YoY',
     trendUp: true
