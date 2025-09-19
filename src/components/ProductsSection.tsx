@@ -638,6 +638,11 @@ const ProductsSection = () => {
                   </div>
                 </div>
                 <CardContent className="p-6">
+                  {/* Rate Display */}
+                  <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg px-3 py-2 border border-blue-100 mb-4">
+                    <div className="text-xl font-bold text-primary mb-1">{product.rate}</div>
+                    <div className="text-xs text-slate-600 font-medium">{product.rateLabel}</div>
+                  </div>
                   <p className="text-sm text-foreground mb-4 leading-relaxed">
                     {product.description}
                   </p>
