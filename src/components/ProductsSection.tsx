@@ -577,7 +577,7 @@ const ProductsSection = () => {
         </div>
 
         {/* Enhanced CTA Section - Moved between carousels */}
-        <div className="my-12 relative overflow-hidden rounded-2xl shadow-lg max-w-7xl mx-auto">
+        <div className="my-12 relative overflow-hidden rounded-2xl shadow-lg">
           <LazyImage 
             src={financialAdvisorConsultation} 
             alt="Professional financial advisor consultation with business owner"
