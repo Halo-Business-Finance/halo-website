@@ -618,7 +618,7 @@ const ProductsSection = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 underline decoration-2">
               Business Capital Solutions
             </h3>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto whitespace-nowrap">
+            <p className="text-lg text-gray-900 max-w-2xl whitespace-nowrap">
               Powerful business capital loans designed to help your business grow and succeed.
             </p>
           </div>
