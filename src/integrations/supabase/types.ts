@@ -1949,6 +1949,10 @@ export type Database = {
         Args: { data_type: string; data_value: string }
         Returns: string
       }
+      mask_sensitive_financial_data: {
+        Args: { data_type: string; data_value: string; user_role?: string }
+        Returns: string
+      }
       optimize_security_events: {
         Args: Record<PropertyKey, never>
         Returns: number
@@ -2138,6 +2142,10 @@ export type Database = {
       }
       verify_ultra_secure_admin_audit_access: {
         Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      verify_ultra_secure_application_access: {
+        Args: { target_application_id: string }
         Returns: boolean
       }
       verify_zero_trust_session: {
