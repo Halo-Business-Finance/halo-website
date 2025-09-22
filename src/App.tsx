@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import { SimpleErrorBoundary } from "@/components/SimpleErrorBoundary";
+import { Toaster } from "@/components/ui/toaster";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -174,6 +175,7 @@ const App: React.FC = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <Toaster />
       </BrowserRouter>
     </SimpleErrorBoundary>
   );
