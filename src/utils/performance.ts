@@ -1,10 +1,12 @@
 // Advanced Performance optimization utilities
+import newHeroBackground from "@/assets/new-hero-background.jpg";
+import heroBackground from "@/assets/hero-background.jpg";
 
 // Critical resource preloading with priority hints
 export const preloadCriticalResources = () => {
   const criticalImages = [
-    new URL('../assets/new-hero-background.jpg', import.meta.url).href,
-    new URL('../assets/hero-background.jpg', import.meta.url).href,
+    newHeroBackground,
+    heroBackground,
   ];
 
   criticalImages.forEach(src => {
