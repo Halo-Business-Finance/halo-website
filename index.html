@@ -33,10 +33,7 @@
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <meta name="theme-color" content="#2563eb" />
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/src/assets/hero-background.jpg" as="image" type="image/jpeg">
-    <link rel="preload" href="/src/index.css" as="style">
-    <link rel="modulepreload" href="/src/main.tsx">
+    <!-- Let Vite handle optimal preloads in production; removing manual preloads that can break on hashed builds -->
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Halo Business Finance | SBA Loans & Commercial Financing" />
@@ -172,6 +169,24 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function(){
+        try {
+          if (!sessionStorage.getItem('sw-cleaned') && 'serviceWorker' in navigator) {
+            Promise.resolve()
+              .then(() => navigator.serviceWorker.getRegistrations())
+              .then(regs => Promise.all(regs.map(r => r.unregister())))
+              .then(() => ('caches' in window ? caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))) : Promise.resolve()))
+              .then(() => {
+                sessionStorage.setItem('sw-cleaned', '1');
+                console.log('Old service workers unregistered. Reloading to fetch fresh assets...');
+                location.reload();
+              })
+              .catch(err => console.warn('SW cleanup failed:', err));
+          }
+        } catch (e) { console.warn('SW cleanup not applied:', e); }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

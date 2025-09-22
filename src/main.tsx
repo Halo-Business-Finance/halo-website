@@ -18,6 +18,19 @@ window.addEventListener('unhandledrejection', (e) => {
   console.error('Unhandled promise rejection:', e.reason);
 });
 
+// Proactively unregister any old service workers and clear stale caches to prevent white screens after updates
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    if (registrations.length) {
+      console.log('Unregistering existing service workers and clearing caches...');
+      registrations.forEach((reg) => reg.unregister());
+      if ('caches' in window) {
+        caches.keys().then((keys) => keys.forEach((key) => caches.delete(key)));
+      }
+    }
+  }).catch((err) => console.warn('Service Worker check failed:', err));
+}
+
 const queryClient = new QueryClient();
 
 console.log('Initializing React app...');
