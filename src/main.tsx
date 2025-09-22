@@ -5,6 +5,7 @@ import App from './App.tsx'
 import './index.css'
 import { preloadCriticalResources } from './utils/performance'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import CriticalResourceOptimizer from './components/optimization/CriticalResourceOptimizer'
 
 // Preload critical resources immediately
 console.log('Starting to preload critical resources...');
@@ -39,6 +40,7 @@ createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
+        <CriticalResourceOptimizer />
         <App />
       </QueryClientProvider>
     </HelmetProvider>
