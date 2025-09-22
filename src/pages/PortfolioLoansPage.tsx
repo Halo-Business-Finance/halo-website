@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { RefreshCw, DollarSign, TrendingDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const RefinanceLoansPage = () => {
+const PortfolioLoansPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -140,4 +140,4 @@ const RefinanceLoansPage = () => {
   );
 };
 
-export default RefinanceLoansPage;
+export default PortfolioLoansPage;
