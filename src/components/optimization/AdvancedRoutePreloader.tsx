@@ -95,6 +95,10 @@ const AdvancedRoutePreloader = () => {
   const setupHoverPreloading = useCallback(() => {
     const handleMouseEnter = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
+      
+      // Ensure target is an Element that supports closest()
+      if (!target || typeof target.closest !== 'function') return;
+      
       const link = target.closest('a[href]') as HTMLAnchorElement;
       
       if (link && link.href) {
