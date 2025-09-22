@@ -3,8 +3,8 @@
 // Critical resource preloading with priority hints
 export const preloadCriticalResources = () => {
   const criticalImages = [
-    '/src/assets/new-hero-background.jpg',
-    '/src/assets/hero-background.jpg',
+    new URL('../assets/new-hero-background.jpg', import.meta.url).href,
+    new URL('../assets/hero-background.jpg', import.meta.url).href,
   ];
 
   criticalImages.forEach(src => {
