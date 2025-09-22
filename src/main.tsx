@@ -7,6 +7,7 @@ import { preloadCriticalResources } from './utils/performance'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Preload critical resources immediately
+console.log('Starting to preload critical resources...');
 preloadCriticalResources();
 
 // Basic global error logging (to surface issues in preview)
@@ -18,6 +19,8 @@ window.addEventListener('unhandledrejection', (e) => {
 });
 
 const queryClient = new QueryClient();
+
+console.log('Initializing React app...');
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

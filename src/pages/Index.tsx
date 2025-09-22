@@ -16,6 +16,7 @@ const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
 const SuccessShowcase = lazy(() => import("@/components/SuccessShowcase"));
 
 const Index = () => {
+  console.log('Index page component mounting...');
   return (
     <>
       <CriticalCSS />

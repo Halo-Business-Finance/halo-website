@@ -103,6 +103,7 @@ const LoadingFallback = () => (
 );
 
 const App: React.FC = () => {
+  console.log('App component mounting...');
   return (
     <SimpleErrorBoundary>
       <BrowserRouter>
