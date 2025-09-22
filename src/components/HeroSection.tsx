@@ -5,8 +5,17 @@ import { Shield, Lock } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
 import heroBackground from "@/assets/new-hero-background.jpg";
 const HeroSection = () => {
+  console.log('HeroSection rendering, heroBackground:', heroBackground);
+  
   return <section className="relative min-h-[460px] md:min-h-[520px] flex items-center overflow-hidden" aria-label="Hero section">
-      <LazyImage src={heroBackground} alt="Business financing hero background" className="absolute inset-0 w-full h-full object-cover" priority={true} />
+      <LazyImage 
+        src={heroBackground} 
+        alt="Business financing hero background" 
+        className="absolute inset-0 w-full h-full object-cover" 
+        priority={true}
+        onLoad={() => console.log('Hero background image loaded successfully')}
+        onError={() => console.log('Hero background image failed to load')}
+      />
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
         <div className="w-full items-center">
