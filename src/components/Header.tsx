@@ -263,22 +263,25 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center lg:h-12 -px-1 py-4 sm:px-4">
-            {/* Mobile Menu Button - positioned further left */}
+          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+            {/* Mobile Menu Button */}
             <button 
-              className={`lg:hidden p-1 rounded-md hover:bg-gray-100 z-[80] mr-6 ${isOpen ? 'hidden' : 'flex items-center justify-center'}`}
+              className={`lg:hidden p-2 rounded-md hover:bg-gray-100 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`}
               onClick={handleMobileMenuToggle}
               aria-label="Toggle navigation"
             >
-              <Menu className="h-8 w-8 text-gray-600" />
+              <Menu className="h-6 w-6 text-gray-600" />
             </button>
             
-            {/* Logo - full width display */}
-            <Link to="/" className={`flex items-center flex-1 lg:flex-none transition-all duration-300 ${isOpen ? 'justify-center -ml-0' : '-ml-3'}`}>
-              <span className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 whitespace-nowrap leading-none">
+            {/* Logo - centered on mobile, left-aligned on desktop */}
+            <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start'}`}>
+              <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
+            
+            {/* Spacer for mobile to center logo when menu button is present */}
+            <div className="lg:hidden w-10"></div>
           </div>
         </div>
       </div>
