@@ -688,7 +688,7 @@ const ProductsSection = () => {
                     {product.description}
                   </p>
                 </div>
-                <CardContent className="p-6 bg-financial-navy">
+                <CardContent className="p-6 bg-financial-navy text-white">
                   {/* Rate Display */}
                   <div className="rounded-lg px-3 py-2 mb-4">
                     <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
