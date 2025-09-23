@@ -335,7 +335,7 @@ const Header = () => {
             
             {/* Get Started Button - positioned at the right */}
             <div className="hidden lg:block ml-auto">
-              <Button className="bg-primary hover:bg-primary/90 text-white text-base font-bold px-4 py-2 rounded-md flex items-center gap-1" asChild>
+              <Button className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-md flex items-center gap-1" asChild>
                 <Link to="/loan-calculator">
                   <Lock className="h-4 w-4" />
                   Get Started
