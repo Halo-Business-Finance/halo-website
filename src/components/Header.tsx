@@ -281,7 +281,7 @@ const Header = () => {
               
               <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-xs font-bold rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors px-[10px] py-[10px]">
                 <Shield className="h-2.5 w-2.5" />
-                CLIENT PORTAL
+                SIGN IN
               </a>
             </div>
           </div>
