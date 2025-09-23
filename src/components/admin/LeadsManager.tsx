@@ -24,6 +24,7 @@ import {
   DollarSign
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { secureStorage } from '@/utils/secureStorage';
 import { formatDistanceToNow } from 'date-fns';
 
 interface Lead {
@@ -81,7 +82,7 @@ const LeadsManager = () => {
 
   const loadLeads = async () => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const params = new URLSearchParams({
@@ -124,7 +125,7 @@ const LeadsManager = () => {
   const updateLead = async (leadId: string, updates: any) => {
     try {
       setIsUpdating(true);
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(

@@ -20,6 +20,7 @@ import {
   EyeOff
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { secureStorage } from '@/utils/secureStorage';
 import { formatDistanceToNow } from 'date-fns';
 
 interface CMSContent {
@@ -50,7 +51,7 @@ const CMSManager = () => {
 
   const loadContent = async () => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(
@@ -84,7 +85,7 @@ const CMSManager = () => {
   const saveContent = async (contentData: any) => {
     try {
       setIsSaving(true);
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(
@@ -126,7 +127,7 @@ const CMSManager = () => {
 
   const deleteContent = async (contentId: string) => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(

@@ -23,6 +23,7 @@ import {
   Link
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { secureStorage } from '@/utils/secureStorage';
 import { formatDistanceToNow } from 'date-fns';
 
 interface SEOSettings {
@@ -57,7 +58,7 @@ const SEOManager = () => {
 
   const loadSEOSettings = async () => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(
@@ -91,7 +92,7 @@ const SEOManager = () => {
   const saveSEOSettings = async (seoData: any) => {
     try {
       setIsSaving(true);
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(
@@ -133,7 +134,7 @@ const SEOManager = () => {
 
   const deleteSEOSettings = async (seoId: string) => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) return;
 
       const response = await fetch(
