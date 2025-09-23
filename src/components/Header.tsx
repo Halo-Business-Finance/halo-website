@@ -279,7 +279,7 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 py-1 rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors">
+              <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-xs font-bold px-4 rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors py-[5px]">
                 <Shield className="h-2.5 w-2.5" />
                 CLIENT PORTAL
               </a>
@@ -291,7 +291,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16 px-4 sm:px-[24px]">
             {/* Mobile Menu Button */}
             <button className={`lg:hidden p-2 rounded-md hover:bg-gray-100 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
               <Menu className="h-6 w-6 text-gray-600" />
