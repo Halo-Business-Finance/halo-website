@@ -279,9 +279,9 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-xs font-bold rounded-sm uppercase tracking-wide flex items-center gap-1 transition-colors px-[10px] py-[10px]">
-                <Shield className="h-2.5 w-2.5" />
-                SIGN IN
+              <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-md flex items-center gap-1 transition-colors px-4 py-2">
+                <Shield className="h-4 w-4" />
+                Sign In
               </a>
             </div>
           </div>
