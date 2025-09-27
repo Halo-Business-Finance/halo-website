@@ -27,6 +27,7 @@ Deno.serve(async (req) => {
     
     if (req.method === 'POST') {
       const { email, password }: LoginRequest = await req.json()
+      const normalizedEmail = email?.toLowerCase().trim()
       
       if (!email || !password) {
         return new Response(
@@ -42,7 +43,7 @@ Deno.serve(async (req) => {
       const { data: adminUser, error: userError } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('email', email)
+        .eq('email', normalizedEmail)
         .eq('is_active', true)
         .single()
 
@@ -76,14 +77,18 @@ Deno.serve(async (req) => {
       expiresAt.setHours(expiresAt.getHours() + 24) // 24 hour session
 
       // Create session
+      const xff = req.headers.get('x-forwarded-for')
+      const clientIp = xff ? xff.split(',')[0].trim() : (req.headers.get('x-real-ip') || req.headers.get('cf-connecting-ip') || null)
+      const userAgent = req.headers.get('user-agent') || null
+
       const { error: sessionError } = await supabase
         .from('admin_sessions')
         .insert({
           admin_user_id: adminUser.id,
           session_token: sessionToken,
           expires_at: expiresAt.toISOString(),
-          ip_address: req.headers.get('x-forwarded-for') || 'unknown',
-          user_agent: req.headers.get('user-agent') || 'unknown'
+          ip_address: clientIp,
+          user_agent: userAgent
         })
 
       if (sessionError) {
@@ -112,8 +117,8 @@ Deno.serve(async (req) => {
           message: `Admin user ${email} logged in successfully`,
           details: { admin_id: adminUser.id, ip: req.headers.get('x-forwarded-for') },
           admin_user_id: adminUser.id,
-          ip_address: req.headers.get('x-forwarded-for') || 'unknown',
-          user_agent: req.headers.get('user-agent') || 'unknown'
+           ip_address: clientIp,
+           user_agent: userAgent
         })
 
       const response: AuthResponse = {
