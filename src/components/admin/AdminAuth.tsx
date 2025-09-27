@@ -58,9 +58,7 @@ const AdminAuth = ({ onLogin }: AdminAuthProps) => {
       const response = await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-auth', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'X-Request-ID': crypto.randomUUID(),
-          'X-Client-Version': '2.0',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
           email: email.toLowerCase().trim(), 
