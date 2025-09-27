@@ -77,7 +77,7 @@ const MarketplaceOverview = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge className="mb-4" variant="secondary">Nationwide Loan Marketplace</Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Nationwide Loan Marketplace</h2>
           <h2 className="text-2xl md:text-5xl font-bold mb-6">
             The Nation's Leading Commercial Loan Marketplace
           </h2>

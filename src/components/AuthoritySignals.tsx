@@ -100,7 +100,6 @@ const AuthoritySignals = () => {
             {certifications.map((cert, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow text-center">
                 <CardHeader>
-                  <Badge className="mx-auto mb-2">{cert.badge}</Badge>
                   <CardTitle className="text-lg">{cert.title}</CardTitle>
                   <p className="text-sm text-primary">{cert.issuer}</p>
                 </CardHeader>
@@ -133,7 +132,6 @@ const AuthoritySignals = () => {
                   <div className="flex items-center justify-center mx-auto mb-4">
                     <Award className="h-8 w-8 text-primary" />
                   </div>
-                  <Badge variant="outline" className="mb-3">{award.year}</Badge>
                   <h4 className="text-lg font-semibold mb-2">{award.title}</h4>
                   <p className="text-sm text-primary mb-3">{award.issuer}</p>
                   <p className="text-sm text-muted-foreground">{award.description}</p>
@@ -158,7 +156,6 @@ const AuthoritySignals = () => {
                 </CardHeader>
                 <CardContent>
                   <h4 className="font-semibold mb-2">{feature.title}</h4>
-                  <Badge variant="secondary" className="mb-3 text-xs">{feature.type}</Badge>
                   <Button asChild variant="outline" size="sm" className="w-full">
                     <a 
                       href={feature.link}

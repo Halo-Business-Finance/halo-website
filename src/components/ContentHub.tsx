@@ -152,9 +152,6 @@ const ContentHub = () => {
               <Card key={index} className={`hover:shadow-lg transition-shadow ${guide.featured ? 'border-primary' : ''}`}>
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
-                    <Badge variant={guide.featured ? "default" : "secondary"}>
-                      {guide.category}
-                    </Badge>
                     <div className="flex items-center text-sm text-muted-foreground">
                       <Clock className="h-4 w-4 mr-1" />
                       {guide.readTime}
@@ -205,7 +202,6 @@ const ContentHub = () => {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
-                    <Badge variant="outline">{report.type}</Badge>
                     <span className="text-sm text-muted-foreground">{report.pages}</span>
                   </div>
                   <CardTitle className="text-lg">{report.title}</CardTitle>

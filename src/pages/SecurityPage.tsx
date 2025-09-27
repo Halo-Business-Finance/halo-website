@@ -117,16 +117,6 @@ const SecurityPage = () => {
             <p className="text-xl md:text-2xl mb-8 opacity-90">
               Your security is our top priority. Learn about our comprehensive measures to protect your data.
             </p>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <Badge className="bg-green-500 text-white px-4 py-2 text-lg">
-                <Shield className="h-5 w-5 mr-2" />
-                Security Grade: A+
-              </Badge>
-              <Badge className="bg-blue-500 text-white px-4 py-2 text-lg">
-                <Zap className="h-5 w-5 mr-2" />
-                99.9% Uptime
-              </Badge>
-            </div>
           </div>
         </div>
       </section>
@@ -168,9 +158,6 @@ const SecurityPage = () => {
                     {feature.icon}
                     <div>
                       <h3 className="font-semibold text-lg">{feature.title}</h3>
-                      <Badge variant="outline" className="text-green-600 border-green-600">
-                        {feature.status}
-                      </Badge>
                     </div>
                   </div>
                   <p className="text-muted-foreground">{feature.description}</p>
@@ -214,9 +201,6 @@ const SecurityPage = () => {
                     {standard.icon}
                     <div>
                       <CardTitle className="text-xl">{standard.name}</CardTitle>
-                      <Badge className="bg-green-100 text-green-800 mt-1">
-                        {standard.status}
-                      </Badge>
                     </div>
                   </div>
                 </CardHeader>

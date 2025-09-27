@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock, Phone, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/optimization/LazyImage";
@@ -40,7 +39,6 @@ const ProductsSection = () => {
     features: ["Up to $5 million loan amount", "Long-term financing up to 25 years", "SBA government guarantee protection"],
     learnLink: "/sba-7a-loans",
     applyLink: "/sba-loan-application",
-    badge: "Popular",
     color: "from-blue-600 to-blue-700"
   }, {
     logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
@@ -53,7 +51,6 @@ const ProductsSection = () => {
     features: ["Up to $5.5 million total project", "Only 10% down payment required", "Fixed interest rates available"],
     learnLink: "/sba-504-loans",
     applyLink: "/sba-504-application",
-    badge: null,
     color: "from-green-600 to-green-700"
   }, {
     logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
@@ -66,7 +63,6 @@ const ProductsSection = () => {
     features: ["Up to $500,000 loan amount", "36-hour approval timeline guaranteed", "Revolving credit line option available"],
     learnLink: "/sba-express-loans",
     applyLink: "/sba-loan-application",
-    badge: "Fast",
     color: "from-orange-600 to-orange-700"
   }, {
     logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
@@ -79,7 +75,6 @@ const ProductsSection = () => {
     features: ["Up to $25 million loan amount", "Rural area business focus only", "USDA government guarantee backing"],
     learnLink: "/usda-bi-loans",
     applyLink: "/sba-loan-application",
-    badge: null,
     color: "from-emerald-600 to-emerald-700"
   }, {
     logo: "/lovable-uploads/d5e250b6-8fb4-450c-bc02-d59e46b43e32.png",
@@ -92,7 +87,6 @@ const ProductsSection = () => {
     features: ["Rural area development focus", "Community economic development", "USDA government backing"],
     learnLink: "/usda-rural-development",
     applyLink: "/sba-loan-application",
-    badge: null,
     color: "from-emerald-500 to-emerald-600"
   }, {
     icon: Building2,
@@ -105,7 +99,6 @@ const ProductsSection = () => {
     features: ["No government guarantee required", "Faster approval process timeline", "Flexible repayment terms available"],
     learnLink: "/conventional-loans",
     applyLink: "/conventional-loan-application",
-    badge: null,
     color: "from-purple-600 to-purple-700"
   }, {
     icon: Building2,
@@ -118,7 +111,6 @@ const ProductsSection = () => {
     features: ["Owner-occupied properties", "Investment real estate", "Commercial property development"],
     learnLink: "/commercial-loans",
     applyLink: "/commercial-real-estate-application",
-    badge: null,
     color: "from-purple-500 to-purple-600"
   }, {
     icon: Landmark,
@@ -131,7 +123,6 @@ const ProductsSection = () => {
     features: ["$2 million minimum loan amounts", "Non-recourse financing options available", "Fixed interest rates guaranteed"],
     learnLink: "/cmbs-loans",
     applyLink: "/conventional-loan-application",
-    badge: null,
     color: "from-indigo-600 to-indigo-700"
   }, {
     icon: PiggyBank,
@@ -144,7 +135,6 @@ const ProductsSection = () => {
     features: ["Flexible underwriting standards applied", "Quick decision making process", "Relationship-based banking approach"],
     learnLink: "/portfolio-loans",
     applyLink: "/conventional-loan-application",
-    badge: null,
     color: "from-teal-600 to-teal-700"
   }, {
     icon: Hammer,
@@ -157,7 +147,6 @@ const ProductsSection = () => {
     features: ["Interest-only payments during construction", "Progress-based funding disbursement schedule", "Convert to permanent financing option"],
     learnLink: "/construction-loans",
     applyLink: "/conventional-loan-application",
-    badge: null,
     color: "from-amber-600 to-amber-700"
   }, {
     icon: TrendingUp,
@@ -170,7 +159,6 @@ const ProductsSection = () => {
     features: ["Fast 7-day closing process", "Up to $10 million available", "Flexible short-term repayment options"],
     learnLink: "/bridge-financing",
     applyLink: "/bridge-loan-application",
-    badge: "Fast",
     color: "from-red-600 to-red-700"
   }, {
     icon: Users,
@@ -183,7 +171,6 @@ const ProductsSection = () => {
     features: ["5+ unit properties qualified", "Non-recourse financing options available", "Long-term fixed rate stability"],
     learnLink: "/multifamily-loans",
     applyLink: "/conventional-loan-application",
-    badge: null,
     color: "from-cyan-600 to-cyan-700"
   }, {
     icon: DollarSign,
@@ -196,7 +183,6 @@ const ProductsSection = () => {
     features: ["Asset-backed security collateral required", "Flexible repayment terms available", "Fast approval process timeline"],
     learnLink: "/asset-based-loans",
     applyLink: "/conventional-loan-application",
-    badge: null,
     color: "from-violet-600 to-violet-700"
   }, {
     icon: Car,
@@ -209,7 +195,6 @@ const ProductsSection = () => {
     features: ["100% financing available option", "Fast approval process guaranteed", "Flexible payment schedules offered"],
     learnLink: "/equipment-financing",
     applyLink: "/equipment-loan-application",
-    badge: null,
     color: "from-pink-600 to-pink-700"
   }, {
     icon: RotateCcw,
@@ -222,7 +207,6 @@ const ProductsSection = () => {
     features: ["100% financing with no down payment", "Preserve working capital and credit lines", "Easy equipment upgrades and replacements"],
     learnLink: "/equipment-leasing",
     applyLink: "/equipment-loan-application",
-    badge: null,
     color: "from-pink-500 to-pink-600"
   }, {
     icon: Truck,
@@ -235,7 +219,6 @@ const ProductsSection = () => {
     features: ["Construction and industrial equipment", "New and used equipment options", "Competitive rates and flexible terms"],
     learnLink: "/heavy-equipment",
     applyLink: "/equipment-loan-application",
-    badge: null,
     color: "from-orange-500 to-orange-600"
   }, {
     icon: Heart,
@@ -248,7 +231,6 @@ const ProductsSection = () => {
     features: ["Medical and healthcare equipment", "Practice expansion financing", "Technology upgrade solutions"],
     learnLink: "/medical-equipment",
     applyLink: "/equipment-loan-application",
-    badge: null,
     color: "from-blue-500 to-blue-600"
   }];
   const businessProducts = [{
@@ -310,7 +292,6 @@ const ProductsSection = () => {
     features: ["SBA guarantee protection", "Fast 36-hour approval", "Revolving line option"],
     learnLink: "/sba-express-loans",
     applyLink: "/sba-loan-application",
-    badge: "Fast",
     color: "from-orange-600 to-orange-700"
   }, {
     icon: DollarSign,

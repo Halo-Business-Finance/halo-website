@@ -80,9 +80,6 @@ const PartnershipsSection = () => {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary" className="text-xs">
-                    {partnership.badge}
-                  </Badge>
                   {!partnership.internal && <ExternalLink className="h-4 w-4 text-muted-foreground" />}
                 </div>
                 <CardTitle className="text-lg">{partnership.name}</CardTitle>
@@ -138,9 +135,6 @@ const PartnershipsSection = () => {
                 <div className="border-t pt-4">
                   <p className="font-semibold text-foreground">{testimonial.author}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                  <Badge variant="outline" className="mt-2 text-xs">
-                    {testimonial.amount}
-                  </Badge>
                 </div>
               </CardContent>
             </Card>
