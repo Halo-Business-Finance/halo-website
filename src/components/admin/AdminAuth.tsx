@@ -54,12 +54,8 @@ const AdminAuth = ({ onLogin }: AdminAuthProps) => {
     setError(null);
 
     try {
-      // Hash the password for secure transmission
-      const passwordHash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password + email.toLowerCase().trim()));
-      const passwordHashHex = Array.from(new Uint8Array(passwordHash)).map(b => b.toString(16).padStart(2, '0')).join('');
-      
       // Add timestamp and security headers
-      const response = await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/secure-admin-auth', {
+      const response = await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-auth', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,9 +63,8 @@ const AdminAuth = ({ onLogin }: AdminAuthProps) => {
           'X-Client-Version': '2.0',
         },
         body: JSON.stringify({ 
-          action: 'login',
           email: email.toLowerCase().trim(), 
-          password_hash: passwordHashHex
+          password
         }),
       });
 
