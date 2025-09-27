@@ -47,9 +47,9 @@ const handler = async (req: Request): Promise<Response> => {
       .gte('created_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
 
     // Determine security status levels
-    const sessionSecurity = criticalAlerts > 5 ? 'critical' : activeThreats > 10 ? 'warning' : 'healthy';
-    const dataSecurity = totalEvents > 100 ? 'warning' : criticalAlerts > 2 ? 'critical' : 'healthy';
-    const systemSecurity = activeThreats > 15 ? 'critical' : totalEvents > 50 ? 'warning' : 'healthy';
+    const sessionSecurity = (criticalAlerts || 0) > 5 ? 'critical' : (activeThreats || 0) > 10 ? 'warning' : 'healthy';
+    const dataSecurity = (totalEvents || 0) > 100 ? 'warning' : (criticalAlerts || 0) > 2 ? 'critical' : 'healthy';
+    const systemSecurity = (activeThreats || 0) > 15 ? 'critical' : (totalEvents || 0) > 50 ? 'warning' : 'healthy';
 
     console.log(`Security metrics generated: ${totalEvents} events, ${criticalAlerts} critical, ${activeThreats} threats`);
 

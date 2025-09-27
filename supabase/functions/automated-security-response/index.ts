@@ -224,7 +224,7 @@ async function executeAutomatedResponse(
     console.error('Error executing automated response:', error);
     actions.push({
       type: 'error',
-      description: `Failed to execute automated response: ${error.message}`,
+      description: `Failed to execute automated response: ${(error as Error).message}`,
       executed: false,
       timestamp
     });

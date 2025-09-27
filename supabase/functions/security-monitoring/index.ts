@@ -259,7 +259,7 @@ async function performSecurityHealthCheck(supabase: any): Promise<any> {
     .select('severity')
     .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString());
 
-  const criticalEvents = recentEvents?.filter(e => e.severity === 'critical').length || 0;
+  const criticalEvents = recentEvents?.filter((e: any) => e.severity === 'critical').length || 0;
   healthChecks.push({
     check: 'Critical Events (24h)',
     status: criticalEvents === 0 ? 'healthy' : criticalEvents < 5 ? 'warning' : 'critical',
@@ -272,7 +272,7 @@ async function performSecurityHealthCheck(supabase: any): Promise<any> {
     .select('security_level')
     .eq('is_active', true);
 
-  const highRiskSessions = activeSessions?.filter(s => s.security_level === 'high_risk').length || 0;
+  const highRiskSessions = activeSessions?.filter((s: any) => s.security_level === 'high_risk').length || 0;
   healthChecks.push({
     check: 'Session Security',
     status: highRiskSessions === 0 ? 'healthy' : highRiskSessions < 3 ? 'warning' : 'critical',

@@ -90,9 +90,9 @@ Deno.serve(async (req) => {
 
       const statistics = {
         total: count || 0,
-        by_status: {},
-        by_form_type: {},
-        by_priority: {}
+        by_status: {} as Record<string, number>,
+        by_form_type: {} as Record<string, number>,
+        by_priority: {} as Record<string, number>
       }
 
       if (stats) {

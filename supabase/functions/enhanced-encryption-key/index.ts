@@ -197,7 +197,7 @@ serve(async (req) => {
         event_data: {
           key_purpose: keyPurpose,
           session_id: sessionId,
-          algorithm: algorithm
+          algorithm: 'AES-256-GCM'
         }
       }
     });

@@ -124,7 +124,7 @@ serve(async (req) => {
         JSON.stringify({
           success: true,
           message: 'Security event logged successfully',
-          event_id: insertResult?.[0]?.id
+          event_id: (insertResult as any)?.[0]?.id
         }),
         {
           headers: { 'Content-Type': 'application/json', ...corsHeaders }
@@ -151,7 +151,7 @@ serve(async (req) => {
       JSON.stringify({
         success: false,
         error: 'Security event processing failed',
-        message: error.message
+        message: (error as Error).message
       }),
       {
         status: 500,

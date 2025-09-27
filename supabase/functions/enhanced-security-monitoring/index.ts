@@ -172,7 +172,7 @@ async function detectThreats(
         continue;
       }
 
-      const matchingEvents = recentEvents?.filter(event => 
+      const matchingEvents = recentEvents?.filter((event: any) => 
         regex.test(event.event_type || '')
       ) || [];
 

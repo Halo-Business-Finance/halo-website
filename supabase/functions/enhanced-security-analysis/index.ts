@@ -88,7 +88,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({
         success: false,
-        error: error.message,
+        error: (error as Error).message,
         timestamp: new Date().toISOString()
       }),
       {
@@ -118,7 +118,7 @@ async function performBehavioralAnalysis(supabase: any, timeWindow: string, user
   // Analyze behavioral patterns
   const userBehaviors = new Map();
   
-  events?.forEach(event => {
+  events?.forEach((event: any) => {
     if (!event.user_id) return;
     
     if (!userBehaviors.has(event.user_id)) {
@@ -154,7 +154,7 @@ async function performBehavioralAnalysis(supabase: any, timeWindow: string, user
   });
 
   // Convert to analysis results
-  const behavioralFindings = [];
+  const behavioralFindings: any[] = [];
   userBehaviors.forEach((behavior, userId) => {
     if (behavior.risk_score > 30) {
       behavioralFindings.push({
@@ -196,7 +196,7 @@ async function performPatternAnalysis(supabase: any, timeWindow: string, severit
 
   // Analyze IP clustering
   const ipClusters = new Map();
-  recentEvents?.forEach(event => {
+  recentEvents?.forEach((event: any) => {
     if (!event.ip_address) return;
     
     if (!ipClusters.has(event.ip_address)) {
@@ -210,8 +210,8 @@ async function performPatternAnalysis(supabase: any, timeWindow: string, severit
     .map(([ip, events]) => ({
       ip_address: ip,
       event_count: events.length,
-      event_types: [...new Set(events.map(e => e.event_type))],
-      severity_levels: [...new Set(events.map(e => e.severity))],
+      event_types: [...new Set(events.map((e: any) => e.event_type))],
+      severity_levels: [...new Set(events.map((e: any) => e.severity))],
       risk_level: events.length > 50 ? 'critical' : 'high'
     }));
 
@@ -247,7 +247,7 @@ async function performThreatAnalysis(supabase: any, timeWindow: string) {
 
   const activeThreatIds = new Set();
 
-  criticalEvents?.forEach(event => {
+  criticalEvents?.forEach((event: any) => {
     activeThreatIds.add(event.user_id || event.ip_address);
     
     if (event.event_type.includes('session')) {

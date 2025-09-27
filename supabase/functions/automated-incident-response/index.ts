@@ -185,7 +185,7 @@ async function executeIncidentResponse(supabase: any, incident: IncidentRequest,
           action.status = 'completed';
         } catch (error) {
           action.status = 'failed';
-          action.result = { error: error.message };
+          action.result = { error: (error as Error).message };
         }
       }
     }

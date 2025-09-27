@@ -272,7 +272,7 @@ Deno.serve(async (req) => {
         }
 
         // Sanitize session data - never expose tokens or detailed fingerprints
-        responseData = sessions?.map(session => ({
+        responseData = sessions?.map((session: any) => ({
           ...session,
           // Remove any sensitive session data
           session_token: 'HIDDEN',
