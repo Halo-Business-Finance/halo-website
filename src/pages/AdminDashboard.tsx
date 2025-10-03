@@ -24,6 +24,7 @@ import CMSManager from '@/components/admin/CMSManager';
 import LeadsManager from '@/components/admin/LeadsManager';
 import SEOManager from '@/components/admin/SEOManager';
 import SecurityMonitor from '@/components/admin/SecurityMonitor';
+import { secureStorage } from '@/utils/secureStorage';
 
 interface AdminUser {
   id: string;
@@ -51,15 +52,14 @@ const AdminDashboard = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    const token = localStorage.getItem('admin_token');
-    const userData = localStorage.getItem('admin_user');
-    
-    if (token && userData) {
+    const session = secureStorage.getSession();
+    if (session) {
       try {
-        setUser(JSON.parse(userData));
-        loadDashboardStats(token);
+        setUser(session.user);
+        loadDashboardStats(session.token);
       } catch (error) {
-        console.error('Invalid user data:', error);
+        console.error('Invalid session:', error);
+        secureStorage.clearSession();
         localStorage.removeItem('admin_token');
         localStorage.removeItem('admin_user');
       }
@@ -119,8 +119,7 @@ const AdminDashboard = () => {
 
   const handleLogin = (userData: AdminUser, token: string) => {
     setUser(userData);
-    localStorage.setItem('admin_token', token);
-    localStorage.setItem('admin_user', JSON.stringify(userData));
+    // Session is already stored by AdminAuth via secureStorage
     loadDashboardStats(token);
     toast({
       title: "Welcome back!",
@@ -130,7 +129,7 @@ const AdminDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const token = localStorage.getItem('admin_token');
+      const token = secureStorage.getToken() || localStorage.getItem('admin_token');
       if (token) {
         await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-auth', {
           method: 'DELETE',
@@ -144,6 +143,7 @@ const AdminDashboard = () => {
       console.error('Logout error:', error);
     } finally {
       setUser(null);
+      secureStorage.clearSession();
       localStorage.removeItem('admin_token');
       localStorage.removeItem('admin_user');
       toast({
