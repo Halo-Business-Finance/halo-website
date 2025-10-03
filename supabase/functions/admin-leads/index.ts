@@ -29,20 +29,18 @@ Deno.serve(async (req) => {
         )
       }
 
-      // Parse IP address - x-forwarded-for can contain multiple IPs, take the first one
-      const forwardedFor = req.headers.get('x-forwarded-for');
-      let clientIp = 'unknown';
-      if (forwardedFor) {
-        // Take first IP from comma-separated list
-        clientIp = forwardedFor.split(',')[0].trim();
-      }
+      // Parse IP address - x-forwarded-for can contain multiple IPs, take the first one and validate
+      const forwardedFor = req.headers.get('x-forwarded-for') || ''
+      const firstIp = forwardedFor.split(',')[0]?.trim()
+      const ipCandidate = firstIp && firstIp !== '' ? firstIp : null
+      const ipValid = ipCandidate && /^[0-9a-fA-F:.]+$/.test(ipCandidate) ? ipCandidate : null
 
       const { data, error } = await supabase
         .from('lead_submissions')
         .insert({
           form_type,
           submitted_data,
-          ip_address: clientIp,
+          ip_address: ipValid,
           user_agent: req.headers.get('user-agent') || 'unknown',
           referrer: req.headers.get('referer'),
           utm_source: submitted_data.utm_source,
@@ -219,6 +217,10 @@ Deno.serve(async (req) => {
       }
 
       // Log audit trail
+      const auditForwardedFor = req.headers.get('x-forwarded-for') || ''
+      const auditFirstIp = auditForwardedFor.split(',')[0]?.trim()
+      const auditIp = auditFirstIp && /^[0-9a-fA-F:.]+$/.test(auditFirstIp) ? auditFirstIp : null
+
       await supabase
         .from('admin_audit_log')
         .insert({
@@ -227,7 +229,7 @@ Deno.serve(async (req) => {
           table_name: 'lead_submissions',
           record_id: leadId,
           new_values: updateData,
-          ip_address: req.headers.get('x-forwarded-for') || 'unknown',
+          ip_address: auditIp,
           user_agent: req.headers.get('user-agent') || 'unknown'
         })
 
