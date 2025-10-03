@@ -29,12 +29,20 @@ Deno.serve(async (req) => {
         )
       }
 
+      // Parse IP address - x-forwarded-for can contain multiple IPs, take the first one
+      const forwardedFor = req.headers.get('x-forwarded-for');
+      let clientIp = 'unknown';
+      if (forwardedFor) {
+        // Take first IP from comma-separated list
+        clientIp = forwardedFor.split(',')[0].trim();
+      }
+
       const { data, error } = await supabase
         .from('lead_submissions')
         .insert({
           form_type,
           submitted_data,
-          ip_address: req.headers.get('x-forwarded-for') || 'unknown',
+          ip_address: clientIp,
           user_agent: req.headers.get('user-agent') || 'unknown',
           referrer: req.headers.get('referer'),
           utm_source: submitted_data.utm_source,
