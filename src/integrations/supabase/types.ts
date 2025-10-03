@@ -1672,6 +1672,14 @@ export type Database = {
         Args: { p_user_id: string }
         Returns: number
       }
+      gen_random_bytes: {
+        Args: { n: number }
+        Returns: string
+      }
+      gen_random_uuid: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
       generate_compliance_summary: {
         Args: { report_period_days?: number }
         Returns: Json
