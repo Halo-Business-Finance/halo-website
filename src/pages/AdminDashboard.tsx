@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AdminAuth from '@/components/admin/AdminAuth';
-import CMSManager from '@/components/admin/CMSManager';
+import EnterpriseCMSManager from '@/components/admin/EnterpriseCMSManager';
 import LeadsManager from '@/components/admin/LeadsManager';
 import SEOManager from '@/components/admin/SEOManager';
 import SecurityMonitor from '@/components/admin/SecurityMonitor';
@@ -275,7 +275,7 @@ const AdminDashboard = () => {
           </TabsContent>
 
           <TabsContent value="cms">
-            <CMSManager />
+            <EnterpriseCMSManager />
           </TabsContent>
 
           <TabsContent value="seo">
