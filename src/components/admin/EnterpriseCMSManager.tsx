@@ -20,6 +20,8 @@ import { useToast } from '@/hooks/use-toast';
 import { secureStorage } from '@/utils/secureStorage';
 import PageEditor from './PageEditor';
 
+function slugToPath(slug: string) { return slug === 'home' ? '/' : `/${slug}`; }
+
 interface PageSummary {
   page_slug: string;
   total_sections: number;
@@ -297,14 +299,23 @@ const EnterpriseCMSManager = () => {
                       Updated {new Date(page.last_updated).toLocaleDateString()}
                     </div>
 
-                    <Button 
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" 
-                      variant="outline"
-                      onClick={() => handleEditPage(page.page_slug)}
-                    >
-                      <Edit className="h-4 w-4 mr-2" />
-                      Edit Page
-                    </Button>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Button 
+                        className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors" 
+                        variant="outline"
+                        onClick={() => window.open(`${slugToPath(page.page_slug)}?edit=1`, '_blank')}
+                      >
+                        Live Edit
+                      </Button>
+                      <Button 
+                        className="transition-colors" 
+                        variant="outline"
+                        onClick={() => handleEditPage(page.page_slug)}
+                      >
+                        <Edit className="h-4 w-4 mr-2" />
+                        Edit in CMS
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               ))}

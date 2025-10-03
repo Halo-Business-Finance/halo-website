@@ -16,7 +16,8 @@ import {
   AlertTriangle,
   CheckCircle,
   Clock,
-  TrendingUp
+  TrendingUp,
+  ExternalLink
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AdminAuth from '@/components/admin/AdminAuth';
