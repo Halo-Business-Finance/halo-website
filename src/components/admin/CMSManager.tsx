@@ -17,7 +17,8 @@ import {
   Save,
   Globe,
   Eye,
-  EyeOff
+  EyeOff,
+  Upload
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { secureStorage } from '@/utils/secureStorage';
@@ -39,6 +40,7 @@ const CMSManager = () => {
   const [content, setContent] = useState<CMSContent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [pageFilter, setPageFilter] = useState<string>('all');
   const [selectedContent, setSelectedContent] = useState<CMSContent | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
@@ -51,8 +53,15 @@ const CMSManager = () => {
 
   const loadContent = async () => {
     try {
-      const token = secureStorage.getToken();
-      if (!token) return;
+      const token = secureStorage.getToken() || localStorage.getItem('admin_token');
+      if (!token) {
+        toast({
+          title: "Authentication required",
+          description: "Please log in to access CMS",
+          variant: "destructive",
+        });
+        return;
+      }
 
       const response = await fetch(
         'https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-cms',
@@ -76,6 +85,55 @@ const CMSManager = () => {
         title: "Error",
         description: "Failed to load CMS content",
         variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleImportPages = async () => {
+    try {
+      setIsLoading(true);
+      const token = secureStorage.getToken() || localStorage.getItem('admin_token');
+      
+      if (!token) {
+        toast({
+          title: "Authentication required",
+          description: "Please log in to import pages",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const response = await fetch(
+        'https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-cms-import',
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to import pages');
+      }
+
+      const result = await response.json();
+      
+      toast({
+        title: "Import successful",
+        description: `Created ${result.created} entries, skipped ${result.skipped} existing entries across ${result.totalPages} pages`,
+      });
+
+      await loadContent();
+    } catch (error) {
+      console.error('Error importing pages:', error);
+      toast({
+        title: "Error",
+        description: "Failed to import pages",
+        variant: "destructive",
       });
     } finally {
       setIsLoading(false);
@@ -184,14 +242,17 @@ const CMSManager = () => {
   };
 
   const filteredContent = content.filter(item => {
-    if (!searchTerm) return true;
-    const searchLower = searchTerm.toLowerCase();
-    return (
-      item.page_slug.toLowerCase().includes(searchLower) ||
-      item.section_name.toLowerCase().includes(searchLower) ||
-      item.content_key.toLowerCase().includes(searchLower)
-    );
+    const matchesSearch = !searchTerm || 
+      item.page_slug.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.section_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.content_key.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesPage = pageFilter === 'all' || item.page_slug === pageFilter;
+    
+    return matchesSearch && matchesPage;
   });
+
+  const uniquePages = Array.from(new Set(content.map(c => c.page_slug))).sort();
 
   if (isLoading) {
     return (
@@ -217,16 +278,22 @@ const CMSManager = () => {
                 Manage website content, text, images, and structured data
               </CardDescription>
             </div>
-            <Button onClick={handleCreateNew}>
-              <Plus className="h-4 w-4 mr-2" />
-              Add Content
-            </Button>
+            <div className="flex gap-2">
+              <Button onClick={handleImportPages} variant="outline">
+                <Upload className="h-4 w-4 mr-2" />
+                Import Site Pages
+              </Button>
+              <Button onClick={handleCreateNew}>
+                <Plus className="h-4 w-4 mr-2" />
+                Add Content
+              </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>
-          {/* Search */}
-          <div className="mb-6">
-            <div className="relative">
+          {/* Search and Filter */}
+          <div className="mb-6 flex gap-4">
+            <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <Input
                 placeholder="Search content by page, section, or key..."
@@ -235,6 +302,17 @@ const CMSManager = () => {
                 className="pl-10"
               />
             </div>
+            <Select value={pageFilter} onValueChange={setPageFilter}>
+              <SelectTrigger className="w-[200px]">
+                <SelectValue placeholder="Filter by page" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Pages</SelectItem>
+                {uniquePages.map(page => (
+                  <SelectItem key={page} value={page}>{page}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {/* Content Table */}
