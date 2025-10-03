@@ -53,13 +53,14 @@ const CMSManager = () => {
 
   const loadContent = async () => {
     try {
-      const token = secureStorage.getToken() || localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       if (!token) {
         toast({
           title: "Authentication required",
-          description: "Please log in to access CMS",
+          description: "Please sign in to access CMS",
           variant: "destructive",
         });
+        setIsLoading(false);
         return;
       }
 
@@ -72,6 +73,19 @@ const CMSManager = () => {
           }
         }
       );
+
+      if (response.status === 401) {
+        // Clear any stale sessions/tokens and prompt re-auth
+        secureStorage.clearSession();
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('admin_user');
+        toast({
+          title: "Session expired",
+          description: "Please sign in again to continue.",
+          variant: "destructive",
+        });
+        return;
+      }
 
       if (response.ok) {
         const data = await response.json();
@@ -94,14 +108,15 @@ const CMSManager = () => {
   const handleImportPages = async () => {
     try {
       setIsLoading(true);
-      const token = secureStorage.getToken() || localStorage.getItem('admin_token');
+      const token = secureStorage.getToken();
       
       if (!token) {
         toast({
           title: "Authentication required",
-          description: "Please log in to import pages",
+          description: "Please sign in to import pages",
           variant: "destructive",
         });
+        setIsLoading(false);
         return;
       }
 
@@ -116,8 +131,22 @@ const CMSManager = () => {
         }
       );
 
+      if (response.status === 401) {
+        secureStorage.clearSession();
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('admin_user');
+        toast({
+          title: "Session expired",
+          description: "Please sign in again, then retry importing.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       if (!response.ok) {
-        throw new Error('Failed to import pages');
+        let serverMsg = '';
+        try { serverMsg = await response.text(); } catch {}
+        throw new Error(serverMsg || 'Failed to import pages');
       }
 
       const result = await response.json();
