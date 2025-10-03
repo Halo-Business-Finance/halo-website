@@ -41,7 +41,9 @@ export default function LiveEditOverlay() {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    const token = secureStorage.getToken();
+    // Check for token in URL params first (from Live Edit button), then secure storage
+    const urlToken = params.get('token');
+    const token = urlToken || secureStorage.getToken();
     if (!editMode || !token) return;
     (async () => {
       try {
@@ -76,7 +78,8 @@ export default function LiveEditOverlay() {
   }, [editMode, pageSlug, toast]);
 
   const handleSave = async () => {
-    const token = secureStorage.getToken();
+    const urlToken = params.get('token');
+    const token = urlToken || secureStorage.getToken();
     if (!token) return;
     try {
       setIsSaving(true);

@@ -303,8 +303,13 @@ const EnterpriseCMSManager = () => {
                       <Button 
                         className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors" 
                         variant="outline"
-                        onClick={() => window.open(`${slugToPath(page.page_slug)}?edit=1`, '_blank')}
+                        onClick={() => {
+                          const token = secureStorage.getToken();
+                          const url = `${slugToPath(page.page_slug)}?edit=1&token=${token}`;
+                          window.open(url, '_blank');
+                        }}
                       >
+                        <Eye className="h-4 w-4 mr-2" />
                         Live Edit
                       </Button>
                       <Button 
