@@ -27,12 +27,14 @@ Deno.serve(async (req) => {
 
     const token = authHeader.substring(7)
     
-    // Verify admin session using secure admin auth
-    const { data: adminData, error: adminError } = await supabase.functions.invoke('admin-auth', {
-      body: { action: 'profile', token }
-    })
+    // Verify admin session directly
+    const { data: session, error: sessionError } = await supabase
+      .from('admin_sessions')
+      .select('admin_user_id, expires_at')
+      .eq('session_token', token)
+      .single()
 
-    if (adminError || !adminData?.success) {
+    if (sessionError || !session) {
       return new Response(
         JSON.stringify({ success: false, error: 'Invalid or expired admin session' }),
         { 
@@ -42,7 +44,17 @@ Deno.serve(async (req) => {
       )
     }
 
-    const adminId = adminData.user.id
+    if (session.expires_at && new Date(session.expires_at as unknown as string) < new Date()) {
+      return new Response(
+        JSON.stringify({ success: false, error: 'Session expired' }),
+        { 
+          status: 401, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      )
+    }
+
+    const adminId = session.admin_user_id
 
     const url = new URL(req.url)
     const action = url.searchParams.get('action')

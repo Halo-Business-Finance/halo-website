@@ -66,30 +66,28 @@ Deno.serve(async (req) => {
 
     const token = authHeader.substring(7);
     
-    // Validate admin token via admin-auth
-    const authResponse = await fetch(`${SUPABASE_URL}/functions/v1/admin-auth`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ action: 'profile', token }),
-    });
+    // Validate admin token via direct session lookup
+    const { data: session, error: sessionError } = await supabase
+      .from('admin_sessions')
+      .select('admin_user_id, expires_at')
+      .eq('session_token', token)
+      .single();
 
-    if (!authResponse.ok) {
+    if (sessionError || !session) {
       return new Response(
         JSON.stringify({ error: 'Unauthorized - invalid admin token' }),
         { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    const authData = await authResponse.json();
-    if (!authData.success) {
+    if (session.expires_at && new Date(session.expires_at as unknown as string) < new Date()) {
       return new Response(
-        JSON.stringify({ error: 'Unauthorized - admin verification failed' }),
+        JSON.stringify({ error: 'Unauthorized - session expired' }),
         { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
+
+    const adminUserId = session.admin_user_id;
 
     console.log('Admin verified, starting CMS import...');
 
@@ -164,7 +162,7 @@ Deno.serve(async (req) => {
 
     // Log to audit trail
     await supabase.from('admin_audit_log').insert({
-      admin_user_id: authData.user.id,
+      admin_user_id: adminUserId,
       action: 'cms_import',
       table_name: 'cms_content',
       new_values: {
