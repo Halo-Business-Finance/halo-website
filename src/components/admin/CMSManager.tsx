@@ -252,63 +252,71 @@ const CMSManager = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredContent.map((item) => (
-                  <TableRow key={item.id}>
-                    <TableCell>
-                      <div className="flex items-center gap-1">
-                        <Globe className="h-4 w-4 text-gray-400" />
-                        <span className="font-medium">{item.page_slug}</span>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="outline">{item.section_name}</Badge>
-                    </TableCell>
-                    <TableCell>
-                      <span className="font-mono text-sm">{item.content_key}</span>
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant="secondary">{item.content_type}</Badge>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-1">
-                        {item.is_published ? (
-                          <>
-                            <Eye className="h-4 w-4 text-green-600" />
-                            <span className="text-green-600">Published</span>
-                          </>
-                        ) : (
-                          <>
-                            <EyeOff className="h-4 w-4 text-gray-400" />
-                            <span className="text-gray-400">Draft</span>
-                          </>
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="text-sm">
-                        {formatDistanceToNow(new Date(item.updated_at))} ago
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => handleEdit(item)}
-                        >
-                          <Edit className="h-4 w-4" />
-                        </Button>
-                        <Button
-                          variant="destructive"
-                          size="sm"
-                          onClick={() => deleteContent(item.id)}
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </div>
+                {filteredContent.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={7} className="text-center text-sm text-muted-foreground py-10">
+                      No CMS entries found. Click "Add Content" to create your first page section.
                     </TableCell>
                   </TableRow>
-                ))}
+                ) : (
+                  filteredContent.map((item) => (
+                    <TableRow key={item.id}>
+                      <TableCell>
+                        <div className="flex items-center gap-1">
+                          <Globe className="h-4 w-4 text-gray-400" />
+                          <span className="font-medium">{item.page_slug}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="outline">{item.section_name}</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <span className="font-mono text-sm">{item.content_key}</span>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary">{item.content_type}</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-1">
+                          {item.is_published ? (
+                            <>
+                              <Eye className="h-4 w-4 text-green-600" />
+                              <span className="text-green-600">Published</span>
+                            </>
+                          ) : (
+                            <>
+                              <EyeOff className="h-4 w-4 text-gray-400" />
+                              <span className="text-gray-400">Draft</span>
+                            </>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          {formatDistanceToNow(new Date(item.updated_at))} ago
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleEdit(item)}
+                          >
+                            <Edit className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            variant="destructive"
+                            size="sm"
+                            onClick={() => deleteContent(item.id)}
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           </div>

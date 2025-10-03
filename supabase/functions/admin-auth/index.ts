@@ -26,7 +26,85 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
     
     if (req.method === 'POST') {
-      const { email, password }: LoginRequest = await req.json()
+      const payload: Partial<LoginRequest & { action?: string; token?: string }> = await req.json()
+      
+      // Profile/session verification
+      if (payload.action === 'profile') {
+        const token = payload.token
+        if (!token) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Token required' }),
+            { 
+              status: 400, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        // Validate admin session
+        const { data: session, error: sessionError } = await supabase
+          .from('admin_sessions')
+          .select('admin_user_id, expires_at')
+          .eq('session_token', token)
+          .single()
+
+        if (sessionError || !session) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Invalid or expired session' }),
+            { 
+              status: 401, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        // Check expiration
+        if (session.expires_at && new Date(session.expires_at as unknown as string) < new Date()) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Session expired' }),
+            { 
+              status: 401, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        // Fetch admin user profile
+        const { data: adminUser, error: userError } = await supabase
+          .from('admin_users')
+          .select('id, email, full_name, role, is_active')
+          .eq('id', session.admin_user_id)
+          .single()
+
+        if (userError || !adminUser || !adminUser.is_active) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Admin not found or inactive' }),
+            { 
+              status: 401, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        return new Response(
+          JSON.stringify({ 
+            success: true, 
+            user: { 
+              id: adminUser.id, 
+              email: adminUser.email, 
+              full_name: adminUser.full_name, 
+              role: adminUser.role 
+            }
+          }),
+          { 
+            status: 200, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        )
+      }
+
+      // Login flow
+      const { email, password }: LoginRequest = payload as LoginRequest
       const normalizedEmail = email?.toLowerCase().trim()
       
       if (!email || !password) {
