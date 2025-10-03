@@ -12,8 +12,58 @@ Deno.serve(async (req) => {
 
   try {
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
+    const url = new URL(req.url)
     
-    // Verify admin authentication
+    // POST endpoint for public form submissions (no auth required)
+    if (req.method === 'POST') {
+      const body = await req.json()
+      const { form_type, submitted_data } = body
+
+      if (!form_type || !submitted_data) {
+        return new Response(
+          JSON.stringify({ success: false, error: 'Form type and data required' }),
+          { 
+            status: 400, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        )
+      }
+
+      const { data, error } = await supabase
+        .from('lead_submissions')
+        .insert({
+          form_type,
+          submitted_data,
+          ip_address: req.headers.get('x-forwarded-for') || 'unknown',
+          user_agent: req.headers.get('user-agent') || 'unknown',
+          referrer: req.headers.get('referer'),
+          utm_source: submitted_data.utm_source,
+          utm_medium: submitted_data.utm_medium,
+          utm_campaign: submitted_data.utm_campaign
+        })
+        .select()
+
+      if (error) {
+        console.error('Lead creation error:', error)
+        return new Response(
+          JSON.stringify({ success: false, error: 'Failed to create lead' }),
+          { 
+            status: 500, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        )
+      }
+
+      return new Response(
+        JSON.stringify({ success: true, data: data?.[0] }),
+        { 
+          status: 200, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      )
+    }
+    
+    // All other endpoints require admin authentication
     const authHeader = req.headers.get('Authorization')
     if (!authHeader?.startsWith('Bearer ')) {
       return new Response(
@@ -37,8 +87,6 @@ Deno.serve(async (req) => {
         }
       )
     }
-
-    const url = new URL(req.url)
 
     // GET - Fetch lead submissions
     if (req.method === 'GET') {
@@ -184,54 +232,6 @@ Deno.serve(async (req) => {
       )
     }
 
-    // POST - Create new lead submission (for form submissions)
-    if (req.method === 'POST') {
-      const body = await req.json()
-      const { form_type, submitted_data } = body
-
-      if (!form_type || !submitted_data) {
-        return new Response(
-          JSON.stringify({ success: false, error: 'Form type and data required' }),
-          { 
-            status: 400, 
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-          }
-        )
-      }
-
-      const { data, error } = await supabase
-        .from('lead_submissions')
-        .insert({
-          form_type,
-          submitted_data,
-          ip_address: req.headers.get('x-forwarded-for') || 'unknown',
-          user_agent: req.headers.get('user-agent') || 'unknown',
-          referrer: req.headers.get('referer'),
-          utm_source: submitted_data.utm_source,
-          utm_medium: submitted_data.utm_medium,
-          utm_campaign: submitted_data.utm_campaign
-        })
-        .select()
-
-      if (error) {
-        console.error('Lead creation error:', error)
-        return new Response(
-          JSON.stringify({ success: false, error: 'Failed to create lead' }),
-          { 
-            status: 500, 
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-          }
-        )
-      }
-
-      return new Response(
-        JSON.stringify({ success: true, data: data?.[0] }),
-        { 
-          status: 200, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-        }
-      )
-    }
 
     return new Response(
       JSON.stringify({ success: false, error: 'Method not allowed' }),
