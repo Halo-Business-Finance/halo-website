@@ -2,46 +2,34 @@ import { useEffect } from 'react';
 
 const ResourcePreloader = () => {
   useEffect(() => {
-    // Preload critical images and fonts
+    // Preload critical images with priority
     const criticalResources = [
-      '/src/assets/new-hero-background.jpg',
-      '/src/assets/business-meeting.jpg'
+      { href: '/src/assets/new-hero-background.jpg', as: 'image', fetchpriority: 'high' },
+      { href: '/src/assets/business-meeting.jpg', as: 'image', fetchpriority: 'low' }
     ];
 
-    // Preload images
-    criticalResources.forEach(src => {
+    criticalResources.forEach(resource => {
       const link = document.createElement('link');
       link.rel = 'preload';
-      link.as = 'image';
-      link.href = src;
+      link.as = resource.as;
+      link.href = resource.href;
+      if (resource.fetchpriority) link.setAttribute('fetchpriority', resource.fetchpriority);
       document.head.appendChild(link);
     });
 
-    // Add resource hints for external domains
-    const resourceHints = [
-      { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
-      { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' }
-    ];
-
-    resourceHints.forEach(hint => {
-      const link = document.createElement('link');
-      link.rel = hint.rel;
-      link.href = hint.href;
-      if (hint.crossOrigin) link.crossOrigin = hint.crossOrigin;
-      document.head.appendChild(link);
-    });
-
-    // Prefetch next likely pages
-    const prefetchPages = ['/loan-calculator', '/sba-loans', '/commercial-loans'];
-    prefetchPages.forEach(path => {
-      const link = document.createElement('link');
-      link.rel = 'prefetch';
-      link.href = path;
-      document.head.appendChild(link);
-    });
-
+    // Prefetch next likely pages during idle time
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const prefetchPages = ['/loan-calculator', '/sba-loans', '/commercial-loans'];
+        prefetchPages.forEach(path => {
+          const link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = path;
+          link.as = 'document';
+          document.head.appendChild(link);
+        });
+      });
+    }
   }, []);
 
   return null;
