@@ -188,15 +188,33 @@
     <script>
       (function(){
         try {
+          // Check if cleanup is needed before marking as done
           if (!sessionStorage.getItem('sw-cleaned') && 'serviceWorker' in navigator) {
+            sessionStorage.setItem('sw-cleaned', '1');
             Promise.resolve()
               .then(() => navigator.serviceWorker.getRegistrations())
-              .then(regs => Promise.all(regs.map(r => r.unregister())))
-              .then(() => ('caches' in window ? caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))) : Promise.resolve()))
-              .then(() => {
-                sessionStorage.setItem('sw-cleaned', '1');
-                console.log('Old service workers unregistered. Reloading to fetch fresh assets...');
-                location.reload();
+              .then(regs => {
+                if (regs.length > 0) {
+                  return Promise.all(regs.map(r => r.unregister())).then(() => true);
+                }
+                return false;
+              })
+              .then(hadSW => {
+                if ('caches' in window) {
+                  return caches.keys().then(keys => {
+                    if (keys.length > 0) {
+                      return Promise.all(keys.map(k => caches.delete(k))).then(() => hadSW || true);
+                    }
+                    return hadSW;
+                  });
+                }
+                return hadSW;
+              })
+              .then(needsReload => {
+                if (needsReload) {
+                  console.log('Old service workers unregistered. Reloading to fetch fresh assets...');
+                  location.reload();
+                }
               })
               .catch(err => console.warn('SW cleanup failed:', err));
           }
