@@ -20,7 +20,7 @@ export type Database = {
           admin_user_id: string
           created_at: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           new_values: Json | null
           old_values: Json | null
           record_id: string | null
@@ -32,7 +32,7 @@ export type Database = {
           admin_user_id: string
           created_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           new_values?: Json | null
           old_values?: Json | null
           record_id?: string | null
@@ -44,7 +44,7 @@ export type Database = {
           admin_user_id?: string
           created_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           new_values?: Json | null
           old_values?: Json | null
           record_id?: string | null
@@ -69,7 +69,7 @@ export type Database = {
           change_reason: string | null
           created_at: string | null
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           mfa_verified: boolean | null
           new_password_hash: string
           new_password_salt: string
@@ -85,7 +85,7 @@ export type Database = {
           change_reason?: string | null
           created_at?: string | null
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           mfa_verified?: boolean | null
           new_password_hash: string
           new_password_salt: string
@@ -101,7 +101,7 @@ export type Database = {
           change_reason?: string | null
           created_at?: string | null
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           mfa_verified?: boolean | null
           new_password_hash?: string
           new_password_salt?: string
@@ -118,7 +118,7 @@ export type Database = {
           created_at: string
           expires_at: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           session_token: string
           user_agent: string | null
         }
@@ -127,7 +127,7 @@ export type Database = {
           created_at?: string
           expires_at: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           session_token: string
           user_agent?: string | null
         }
@@ -136,7 +136,7 @@ export type Database = {
           created_at?: string
           expires_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           session_token?: string
           user_agent?: string | null
         }
@@ -472,7 +472,7 @@ export type Database = {
           action: string
           created_at: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           new_values: Json | null
           old_values: Json | null
           resource: string
@@ -484,7 +484,7 @@ export type Database = {
           action: string
           created_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           new_values?: Json | null
           old_values?: Json | null
           resource: string
@@ -496,7 +496,7 @@ export type Database = {
           action?: string
           created_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           new_values?: Json | null
           old_values?: Json | null
           resource?: string
@@ -751,7 +751,7 @@ export type Database = {
           encryption_version: string | null
           form_type: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           last_encryption_audit: string | null
           notes: string | null
           priority: string
@@ -774,7 +774,7 @@ export type Database = {
           encryption_version?: string | null
           form_type: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           last_encryption_audit?: string | null
           notes?: string | null
           priority?: string
@@ -797,7 +797,7 @@ export type Database = {
           encryption_version?: string | null
           form_type?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           last_encryption_audit?: string | null
           notes?: string | null
           priority?: string
@@ -896,7 +896,7 @@ export type Database = {
           access_time: string | null
           action: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           record_id: string | null
           risk_assessment: string | null
           table_name: string
@@ -906,7 +906,7 @@ export type Database = {
           access_time?: string | null
           action: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           record_id?: string | null
           risk_assessment?: string | null
           table_name: string
@@ -916,7 +916,7 @@ export type Database = {
           access_time?: string | null
           action?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           record_id?: string | null
           risk_assessment?: string | null
           table_name?: string
@@ -1001,7 +1001,7 @@ export type Database = {
           event_data: Json
           event_type: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           resolved_at: string | null
           resolved_by: string | null
           risk_score: number | null
@@ -1016,7 +1016,7 @@ export type Database = {
           event_data?: Json
           event_type: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           resolved_at?: string | null
           resolved_by?: string | null
           risk_score?: number | null
@@ -1031,7 +1031,7 @@ export type Database = {
           event_data?: Json
           event_type?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           resolved_at?: string | null
           resolved_by?: string | null
           risk_score?: number | null
@@ -1050,7 +1050,7 @@ export type Database = {
           details: Json | null
           event_type: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           message: string
           resolved: boolean
           resolved_at: string | null
@@ -1064,7 +1064,7 @@ export type Database = {
           details?: Json | null
           event_type: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           message: string
           resolved?: boolean
           resolved_at?: string | null
@@ -1078,7 +1078,7 @@ export type Database = {
           details?: Json | null
           event_type?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           message?: string
           resolved?: boolean
           resolved_at?: string | null
@@ -1394,7 +1394,7 @@ export type Database = {
           encrypted_at: string | null
           expires_at: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           is_active: boolean
           last_activity: string
           last_security_check: string | null
@@ -1411,7 +1411,7 @@ export type Database = {
           encrypted_at?: string | null
           expires_at: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           is_active?: boolean
           last_activity?: string
           last_security_check?: string | null
@@ -1428,7 +1428,7 @@ export type Database = {
           encrypted_at?: string | null
           expires_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           is_active?: boolean
           last_activity?: string
           last_security_check?: string | null
@@ -1460,7 +1460,7 @@ export type Database = {
         Returns: Json
       }
       analyze_security_events: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           affected_users: number
           event_count: number
@@ -1479,7 +1479,7 @@ export type Database = {
         Returns: boolean
       }
       calculate_compliance_score: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           compliant_controls: number
           in_progress_controls: number
@@ -1497,22 +1497,10 @@ export type Database = {
         }
         Returns: Json
       }
-      cleanup_expired_admin_sessions: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      cleanup_expired_sessions: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      cleanup_old_consultations: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      cleanup_security_events: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      cleanup_expired_admin_sessions: { Args: never; Returns: number }
+      cleanup_expired_sessions: { Args: never; Returns: number }
+      cleanup_old_consultations: { Args: never; Returns: number }
+      cleanup_security_events: { Args: never; Returns: number }
       create_audit_trail: {
         Args: {
           action_type: string
@@ -1542,10 +1530,7 @@ export type Database = {
         Args: { admin_password?: string; target_email: string }
         Returns: Json
       }
-      create_initial_admin: {
-        Args: { admin_email: string }
-        Returns: boolean
-      }
+      create_initial_admin: { Args: { admin_email: string }; Returns: boolean }
       create_secure_encryption_key: {
         Args: { p_algorithm?: string; p_key_identifier: string }
         Returns: string
@@ -1593,7 +1578,7 @@ export type Database = {
         Returns: Json
       }
       detect_potential_data_breaches: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           affected_tables: string[]
           incident_count: number
@@ -1603,7 +1588,7 @@ export type Database = {
         }[]
       }
       detect_security_anomalies: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           anomaly_type: string
           count: number
@@ -1620,14 +1605,8 @@ export type Database = {
         }
         Returns: Json
       }
-      detect_unauthorized_access_patterns: {
-        Args: Record<PropertyKey, never>
-        Returns: Json
-      }
-      emergency_cleanup_security_events: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      detect_unauthorized_access_patterns: { Args: never; Returns: Json }
+      emergency_cleanup_security_events: { Args: never; Returns: number }
       encrypt_field_data: {
         Args: {
           field_type: string
@@ -1637,18 +1616,9 @@ export type Database = {
         }
         Returns: Json
       }
-      encrypt_sensitive_data: {
-        Args: { data_text: string }
-        Returns: string
-      }
-      enforce_consultation_retention: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      enforce_data_retention: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      encrypt_sensitive_data: { Args: { data_text: string }; Returns: string }
+      enforce_consultation_retention: { Args: never; Returns: number }
+      enforce_data_retention: { Args: never; Returns: number }
       enhanced_rate_limit_check: {
         Args: {
           p_action: string
@@ -1668,24 +1638,15 @@ export type Database = {
         }
         Returns: boolean
       }
-      force_session_rotation: {
-        Args: { p_user_id: string }
-        Returns: number
-      }
-      gen_random_bytes: {
-        Args: { n: number }
-        Returns: string
-      }
-      gen_random_uuid: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
+      force_session_rotation: { Args: { p_user_id: string }; Returns: number }
+      gen_random_bytes: { Args: { n: number }; Returns: string }
+      gen_random_uuid: { Args: never; Returns: string }
       generate_compliance_summary: {
         Args: { report_period_days?: number }
         Returns: Json
       }
       generate_secure_session_token: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           hash: string
           salt: string
@@ -1693,7 +1654,7 @@ export type Database = {
         }[]
       }
       get_admin_profile_secure: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           created_at: string
           email: string
@@ -1707,7 +1668,7 @@ export type Database = {
         }[]
       }
       get_admin_user_profiles: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           created_at: string
           display_name: string
@@ -1748,12 +1709,9 @@ export type Database = {
           next_test_due: string
         }[]
       }
-      get_current_user_role: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
+      get_current_user_role: { Args: never; Returns: string }
       get_secure_admin_business_application_data: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           application_number: string
           application_type: string
@@ -1772,7 +1730,7 @@ export type Database = {
         }[]
       }
       get_secure_admin_consultation_data: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           company: string
           created_at: string
@@ -1813,23 +1771,37 @@ export type Database = {
           timeframe: string
         }[]
       }
-      get_secure_consultation_data_enhanced: {
-        Args:
-          | { consultation_id: string }
-          | { consultation_id?: string; user_filter?: string }
-        Returns: {
-          company: string
-          created_at: string
-          id: string
-          loan_amount_category: string
-          loan_program: string
-          masked_email: string
-          masked_name: string
-          masked_phone: string
-          status: string
-          timeframe: string
-        }[]
-      }
+      get_secure_consultation_data_enhanced:
+        | {
+            Args: { consultation_id: string }
+            Returns: {
+              company: string
+              created_at: string
+              id: string
+              loan_amount_category: string
+              loan_program: string
+              masked_email: string
+              masked_name: string
+              masked_phone: string
+              status: string
+              timeframe: string
+            }[]
+          }
+        | {
+            Args: { consultation_id?: string; user_filter?: string }
+            Returns: {
+              company: string
+              created_at: string
+              id: string
+              loan_amount_category: string
+              loan_program: string
+              masked_email: string
+              masked_name: string
+              masked_phone: string
+              status: string
+              timeframe: string
+            }[]
+          }
       get_secure_customer_data: {
         Args: { customer_id: string; data_type?: string }
         Returns: {
@@ -1854,10 +1826,7 @@ export type Database = {
           masked_config_value: string
         }[]
       }
-      get_security_config: {
-        Args: { config_key: string }
-        Returns: Json
-      }
+      get_security_config: { Args: { config_key: string }; Returns: Json }
       get_security_events_masked: {
         Args: { limit_count?: number; severity_filter?: string }
         Returns: {
@@ -1870,18 +1839,12 @@ export type Database = {
           source: string
         }[]
       }
-      get_user_active_sessions_count: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      get_user_active_sessions_count: { Args: never; Returns: number }
       get_user_role: {
         Args: { _user_id: string }
         Returns: Database["public"]["Enums"]["app_role"]
       }
-      get_user_role_cached: {
-        Args: { p_user_id: string }
-        Returns: string
-      }
+      get_user_role_cached: { Args: { p_user_id: string }; Returns: string }
       handle_security_incident: {
         Args: {
           affected_user_id: string
@@ -1910,10 +1873,7 @@ export type Database = {
         Args: { target_email: string }
         Returns: boolean
       }
-      intelligent_security_event_cleanup: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      intelligent_security_event_cleanup: { Args: never; Returns: number }
       intelligent_security_event_filter: {
         Args: {
           p_event_type: string
@@ -1937,10 +1897,9 @@ export type Database = {
         }
         Returns: string
       }
-      make_user_admin: {
-        Args: { target_email: string } | { target_user_id: string }
-        Returns: boolean
-      }
+      make_user_admin:
+        | { Args: { target_email: string }; Returns: boolean }
+        | { Args: { target_user_id: string }; Returns: boolean }
       mask_consultation_data: {
         Args: { data_record: Json; user_role: string }
         Returns: Json
@@ -1961,22 +1920,13 @@ export type Database = {
         Args: { data_type: string; data_value: string; user_role?: string }
         Returns: string
       }
-      optimize_security_events: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
-      optimize_security_events_v2: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      optimize_security_events: { Args: never; Returns: number }
+      optimize_security_events_v2: { Args: never; Returns: number }
       schedule_key_rotation: {
         Args: { p_key_identifier: string; p_rotation_date?: string }
         Returns: boolean
       }
-      schedule_security_maintenance: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
+      schedule_security_maintenance: { Args: never; Returns: undefined }
       secure_assign_user_role: {
         Args: {
           expiration_date?: string
@@ -2014,17 +1964,24 @@ export type Database = {
         }
         Returns: boolean
       }
-      should_log_security_event: {
-        Args:
-          | {
+      should_log_security_event:
+        | {
+            Args: {
               event_data?: Json
               event_type: string
               severity: string
               source_ip: unknown
             }
-          | { p_event_type: string; p_severity: string; p_source?: string }
-        Returns: boolean
-      }
+            Returns: boolean
+          }
+        | {
+            Args: {
+              p_event_type: string
+              p_severity: string
+              p_source?: string
+            }
+            Returns: boolean
+          }
       simple_admin_signup: {
         Args: { display_name?: string; user_email: string }
         Returns: Json
@@ -2046,7 +2003,7 @@ export type Database = {
         Returns: boolean
       }
       validate_encryption_compliance: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           compliance_status: string
           encryption_coverage_percent: number
@@ -2059,7 +2016,7 @@ export type Database = {
         Returns: boolean
       }
       validate_function_security: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           function_name: string
           recommendations: string[]
@@ -2094,26 +2051,17 @@ export type Database = {
         }
         Returns: Json
       }
-      verify_active_admin_business_session: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
-      verify_active_admin_session: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      verify_active_admin_business_session: { Args: never; Returns: boolean }
+      verify_active_admin_session: { Args: never; Returns: boolean }
       verify_active_business_application_session: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: boolean
       }
       verify_active_session_with_mfa: {
         Args: { max_idle_minutes?: number; required_security_level?: string }
         Returns: boolean
       }
-      verify_admin_access_with_session_check: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      verify_admin_access_with_session_check: { Args: never; Returns: boolean }
       verify_admin_password: {
         Args: {
           admin_email: string
@@ -2124,18 +2072,9 @@ export type Database = {
         }
         Returns: boolean
       }
-      verify_admin_self_access: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
-      verify_admin_session: {
-        Args: { token: string }
-        Returns: string
-      }
-      verify_encryption_key_access: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      verify_admin_self_access: { Args: never; Returns: boolean }
+      verify_admin_session: { Args: { token: string }; Returns: string }
+      verify_encryption_key_access: { Args: never; Returns: boolean }
       verify_service_role_request: {
         Args: { operation_type: string }
         Returns: boolean
@@ -2148,10 +2087,7 @@ export type Database = {
         }
         Returns: boolean
       }
-      verify_ultra_secure_admin_audit_access: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      verify_ultra_secure_admin_audit_access: { Args: never; Returns: boolean }
       verify_ultra_secure_application_access: {
         Args: { target_application_id: string }
         Returns: boolean
