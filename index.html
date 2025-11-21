@@ -188,9 +188,7 @@
     <script>
       (function(){
         try {
-          // Check if cleanup is needed before marking as done
           if (!sessionStorage.getItem('sw-cleaned') && 'serviceWorker' in navigator) {
-            sessionStorage.setItem('sw-cleaned', '1');
             Promise.resolve()
               .then(() => navigator.serviceWorker.getRegistrations())
               .then(regs => {
@@ -214,6 +212,9 @@
                 if (needsReload) {
                   console.log('Old service workers unregistered. Reloading to fetch fresh assets...');
                   location.reload();
+                } else {
+                  // No cleanup needed, mark as done for this session
+                  sessionStorage.setItem('sw-cleaned', '1');
                 }
               })
               .catch(err => console.warn('SW cleanup failed:', err));
