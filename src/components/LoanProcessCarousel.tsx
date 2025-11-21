@@ -64,7 +64,7 @@ const LoanProcessCarousel = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4" style={{ contain: 'layout style paint' }}>
           <Carousel
             opts={{
               align: "start",
