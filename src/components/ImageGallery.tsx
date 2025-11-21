@@ -105,7 +105,7 @@ const ImageGallery = () => {
         </div>
 
         {/* Elegant Carousel Section */}
-        <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-2 md:p-6 border border-slate-200/30 shadow-lg text-slate-950">
+        <div className="relative mb-12 backdrop-blur-sm rounded-2xl p-2 md:p-6 border border-slate-200/30 shadow-lg text-slate-950 bg-slate-950">
 
           {/* Embla Carousel Container */}
           <div className="overflow-hidden" ref={emblaRef} style={{

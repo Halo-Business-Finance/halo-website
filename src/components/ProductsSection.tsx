@@ -428,9 +428,9 @@ const ProductsSection = () => {
           
           {/* Our Streamlined Loan Process Section */}
           <div className="py-0 rounded-2xl">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 text-slate-50 bg-slate-50">
               <div className="text-center mb-4">
-                <h2 className="text-xl font-bold mb-4 md:text-2xl">
+                <h2 className="text-xl font-bold mb-4 md:text-2xl text-slate-950">
                   Our Streamlined Loan Process
                 </h2>
                 <p className="text-lg text-black">
