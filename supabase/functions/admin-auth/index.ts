@@ -135,11 +135,19 @@ Deno.serve(async (req) => {
         )
       }
 
-      // For demo purposes, we'll use a simple password check
-      // In production, you'd use bcrypt to hash and verify passwords
-      const isPasswordValid = password === 'admin123' // Replace with proper hashing
+      // Verify password using bcrypt
+      const bcrypt = await import('https://deno.land/x/bcrypt@v0.4.1/mod.ts')
+      const isPasswordValid = await bcrypt.compare(password, adminUser.password_hash)
 
       if (!isPasswordValid) {
+        // Increment failed login attempts
+        await supabase
+          .from('admin_users')
+          .update({ 
+            failed_login_attempts: (adminUser.failed_login_attempts || 0) + 1 
+          })
+          .eq('id', adminUser.id)
+
         return new Response(
           JSON.stringify({ success: false, error: 'Invalid credentials' }),
           { 
@@ -148,6 +156,12 @@ Deno.serve(async (req) => {
           }
         )
       }
+
+      // Reset failed login attempts on successful login
+      await supabase
+        .from('admin_users')
+        .update({ failed_login_attempts: 0 })
+        .eq('id', adminUser.id)
 
       // Generate session token
       const sessionToken = crypto.randomUUID()
