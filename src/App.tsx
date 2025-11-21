@@ -3,6 +3,9 @@ import React, { lazy, Suspense } from "react";
 import { SimpleErrorBoundary } from "@/components/SimpleErrorBoundary";
 import { Toaster } from "@/components/ui/toaster";
 import LiveEditOverlay from "@/components/admin/LiveEditOverlay";
+import { CookieConsent } from "@/components/CookieConsent";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { OrganizationSchema } from "@/components/OrganizationSchema";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -104,9 +107,11 @@ const LoadingFallback = () => (
 );
 
 const App: React.FC = () => {
-  console.log('App component mounting...');
   return (
     <SimpleErrorBoundary>
+      <GoogleAnalytics />
+      <CookieConsent />
+      <OrganizationSchema />
       <BrowserRouter>
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
