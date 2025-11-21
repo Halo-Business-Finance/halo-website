@@ -35,7 +35,7 @@ export const CSP_DIRECTIVES = {
     'https://*.lovable.app',
     'wss://zwqtewpycdbvjgkntejd.supabase.co'
   ],
-  'frame-ancestors': ["'none'"], // Prevent clickjacking
+  'frame-ancestors': ["'self'", 'https://*.lovable.app', 'https://*.lovableproject.com'], // Allow Lovable editor preview iframe while preventing untrusted framing
   'base-uri': ["'self'"],
   'form-action': ["'self'"],
   'upgrade-insecure-requests': [] // Upgrade HTTP to HTTPS
