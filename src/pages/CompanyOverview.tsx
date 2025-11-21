@@ -38,6 +38,7 @@ import innovationProfessionals from "@/assets/innovation-professionals.jpg";
 import expertiseProfessionals from "@/assets/expertise-professionals.jpg";
 import resultsProfessionals from "@/assets/results-professionals.jpg";
 import securityProfessionals from "@/assets/security-professionals.jpg";
+import officeWorkspace from "@/assets/office-workspace.jpg";
 import licensesProfessionals from "@/assets/licenses-professionals.jpg";
 import complianceProfessionals from "@/assets/compliance-professionals.jpg";
 import nmlsProfessionals from "@/assets/nmls-professionals.jpg";
@@ -61,7 +62,7 @@ const CompanyOverview = () => {
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1556155092-490a1ba16284" 
+          src={officeWorkspace}
           alt="Professional office workspace representing company overview"
           className="absolute inset-0 w-full h-full object-cover"
         />
