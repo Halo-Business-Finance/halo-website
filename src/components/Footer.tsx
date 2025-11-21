@@ -86,7 +86,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-1">
               <Link to="/" className="inline-block mb-4">
-                <img src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" alt="Halo Business Finance logo" className="h-32 md:h-40 w-auto filter brightness-0 invert" loading="lazy" decoding="async" />
+                <img src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" alt="Halo Business Finance logo" loading="lazy" decoding="async" className="h-32 md:h-40 w-auto filter brightness-0 invert object-cover" />
               </Link>
               <p className="text-white text-xs md:text-sm mb-4">
                 Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
