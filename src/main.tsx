@@ -26,19 +26,8 @@ if (import.meta.env.PROD) {
   });
 }
 
-// Proactively unregister any old service workers and clear stale caches to prevent white screens after updates
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    if (registrations.length) {
-      registrations.forEach((reg) => reg.unregister());
-      if ('caches' in window) {
-        caches.keys().then((keys) => keys.forEach((key) => caches.delete(key)));
-      }
-    }
-  }).catch(() => {
-    // Silent fail in production
-  });
-}
+// Service worker cleanup is now handled by inline script in index.html
+// This prevents continuous unregistration that breaks the site
 
 const queryClient = new QueryClient();
 
