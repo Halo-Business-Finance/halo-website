@@ -1,23 +1,26 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-interface ConsultationRequest {
-  encrypted_name: string;
-  encrypted_email: string;
-  encrypted_phone?: string;
-  company?: string;
-  loanProgram: string;
-  loanAmount: string;
-  timeframe: string;
-  message?: string;
-  user_id: string;
-  csrf_token?: string;
-}
+const ConsultationSchema = z.object({
+  encrypted_name: z.string().min(1).max(500),
+  encrypted_email: z.string().min(1).max(500),
+  encrypted_phone: z.string().max(500).optional(),
+  company: z.string().max(200).optional(),
+  loan_program: z.string().min(1).max(100),
+  loan_amount: z.string().min(1).max(50),
+  timeframe: z.string().min(1).max(50),
+  message: z.string().max(2000).optional(),
+  user_id: z.string().uuid(),
+  csrf_token: z.string().optional(),
+});
+
+interface ConsultationRequest extends z.infer<typeof ConsultationSchema> {}
 
 interface MicrosoftTokenResponse {
   access_token: string;
@@ -32,43 +35,47 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    // Enhanced input validation and sanitization
+    // Parse and validate input with zod schema
     const rawData = await req.json();
     
-    // Validate required fields for encrypted data
-    if (!rawData.encrypted_name || !rawData.encrypted_email || !rawData.loan_program) {
-      throw new Error('Missing required encrypted fields');
+    const validationResult = ConsultationSchema.safeParse(rawData);
+    
+    if (!validationResult.success) {
+      console.error('Validation error:', validationResult.error.format());
+      return new Response(
+        JSON.stringify({ 
+          success: false,
+          error: 'Invalid input data',
+          details: validationResult.error.issues.map(issue => ({
+            field: issue.path.join('.'),
+            message: issue.message
+          }))
+        }),
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        }
+      );
     }
     
-    // Validate user authentication
-    if (!rawData.user_id) {
-      throw new Error('User authentication required');
-    }
-    
-    // Validate CSRF token if provided
-    if (rawData.csrf_token && typeof rawData.csrf_token !== 'string') {
-      throw new Error('Invalid CSRF token format');
-    }
-    
-    // Sanitize inputs to prevent XSS
+    // Sanitize non-encrypted inputs to prevent XSS
     const sanitizeInput = (input: string): string => {
       return input.replace(/<script[^>]*>.*?<\/script>/gi, '')
                   .replace(/<[^>]*>/g, '')
-                  .trim()
-                  .substring(0, 500); // Limit input length
+                  .trim();
     };
     
     const consultationData: ConsultationRequest = {
-      encrypted_name: rawData.encrypted_name, // Keep encrypted
-      encrypted_email: rawData.encrypted_email, // Keep encrypted  
-      encrypted_phone: rawData.encrypted_phone || undefined, // Keep encrypted
-      company: rawData.company ? sanitizeInput(rawData.company) : undefined,
-      loanProgram: sanitizeInput(rawData.loan_program),
-      loanAmount: rawData.loan_amount ? sanitizeInput(rawData.loan_amount) : '',
-      timeframe: rawData.timeframe ? sanitizeInput(rawData.timeframe) : '',
-      message: rawData.message ? sanitizeInput(rawData.message) : undefined,
-      user_id: rawData.user_id,
-      csrf_token: rawData.csrf_token
+      encrypted_name: validationResult.data.encrypted_name,
+      encrypted_email: validationResult.data.encrypted_email,
+      encrypted_phone: validationResult.data.encrypted_phone,
+      company: validationResult.data.company ? sanitizeInput(validationResult.data.company) : undefined,
+      loan_program: sanitizeInput(validationResult.data.loan_program),
+      loan_amount: sanitizeInput(validationResult.data.loan_amount),
+      timeframe: sanitizeInput(validationResult.data.timeframe),
+      message: validationResult.data.message ? sanitizeInput(validationResult.data.message) : undefined,
+      user_id: validationResult.data.user_id,
+      csrf_token: validationResult.data.csrf_token
     };
     
     // Initialize Supabase client

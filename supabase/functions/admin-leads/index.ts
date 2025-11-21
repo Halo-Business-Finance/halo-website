@@ -1,5 +1,18 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { corsHeaders } from '../_shared/cors.ts'
+import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts'
+
+const LeadSubmissionSchema = z.object({
+  form_type: z.string().min(1).max(100),
+  submitted_data: z.record(z.unknown()),
+});
+
+const LeadUpdateSchema = z.object({
+  status: z.enum(['new', 'contacted', 'qualified', 'converted', 'rejected']).optional(),
+  priority: z.enum(['low', 'medium', 'high', 'urgent']).optional(),
+  assigned_to: z.string().uuid().optional(),
+  notes: z.string().max(5000).optional(),
+});
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!
 const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
@@ -17,17 +30,27 @@ Deno.serve(async (req) => {
     // POST endpoint for public form submissions (no auth required)
     if (req.method === 'POST') {
       const body = await req.json()
-      const { form_type, submitted_data } = body
-
-      if (!form_type || !submitted_data) {
+      
+      const validationResult = LeadSubmissionSchema.safeParse(body);
+      
+      if (!validationResult.success) {
         return new Response(
-          JSON.stringify({ success: false, error: 'Form type and data required' }),
+          JSON.stringify({ 
+            success: false, 
+            error: 'Invalid input data',
+            details: validationResult.error.issues.map(issue => ({
+              field: issue.path.join('.'),
+              message: issue.message
+            }))
+          }),
           { 
             status: 400, 
             headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
           }
         )
       }
+      
+      const { form_type, submitted_data } = validationResult.data;
 
       // Parse IP address - x-forwarded-for can contain multiple IPs, take the first one and validate
       const forwardedFor = req.headers.get('x-forwarded-for') || ''
@@ -191,13 +214,26 @@ Deno.serve(async (req) => {
         )
       }
 
-      const { status, priority, assigned_to, notes } = body
-      const updateData: any = {}
+      const validationResult = LeadUpdateSchema.safeParse(body);
+      
+      if (!validationResult.success) {
+        return new Response(
+          JSON.stringify({ 
+            success: false, 
+            error: 'Invalid update data',
+            details: validationResult.error.issues.map(issue => ({
+              field: issue.path.join('.'),
+              message: issue.message
+            }))
+          }),
+          { 
+            status: 400, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        )
+      }
 
-      if (status) updateData.status = status
-      if (priority) updateData.priority = priority
-      if (assigned_to) updateData.assigned_to = assigned_to
-      if (notes !== undefined) updateData.notes = notes
+      const updateData: any = validationResult.data;
 
       const { data, error } = await supabase
         .from('lead_submissions')
