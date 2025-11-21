@@ -18,8 +18,8 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
-        <div className="w-full items-center">
-          <header className="text-white space-y-6">
+        <div className="w-full items-center bg-transparent">
+          <header className="text-white space-y-6 bg-transparent">
             <div className="space-y-5">
               
               <h1 className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
