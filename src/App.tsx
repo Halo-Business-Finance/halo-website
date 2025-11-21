@@ -109,10 +109,10 @@ const LoadingFallback = () => (
 const App: React.FC = () => {
   return (
     <SimpleErrorBoundary>
-      <GoogleAnalytics />
       <CookieConsent />
       <OrganizationSchema />
       <BrowserRouter>
+        <GoogleAnalytics />
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
