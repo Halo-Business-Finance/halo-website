@@ -81,7 +81,7 @@ const Footer = () => {
   return <footer className="bg-financial-navy text-white">
       <div className="container mx-auto px-4 py-8">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-4 md:gap-6 lg:gap-8 mb-8 items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-4 md:gap-6 lg:gap-8 mb-8 items-start rounded-none">
           {/* Logo and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-1">
