@@ -112,7 +112,6 @@ const App: React.FC = () => {
     <SimpleErrorBoundary>
       <CookieConsent />
       <OrganizationSchema />
-      <PreLaunchChecklist />
       <BrowserRouter>
         <GoogleAnalytics />
         <Suspense fallback={<LoadingFallback />}>
