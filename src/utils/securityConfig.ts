@@ -16,6 +16,8 @@ export interface SecurityConfig {
     logSensitivity: 'minimal' | 'standard' | 'verbose';
     enableClientLogging: boolean;
     blockNoiseEvents: boolean;
+    samplingRate: number; // Keep 1 in N events (10 = keep 10% of logs)
+    enableLogAggregation: boolean;
   };
   rateLimit: {
     maxAttempts: number;
@@ -46,6 +48,8 @@ export const getSecurityConfig = (): SecurityConfig => {
     logSensitivity: 'minimal', // Always minimal to reduce event volume
     enableClientLogging: false, // Disabled to reduce noise
     blockNoiseEvents: true, // Block client_log and similar noise events
+    samplingRate: isProduction ? 10 : 5, // Keep 1 in 10 (prod) or 1 in 5 (dev) low-priority events
+    enableLogAggregation: true, // Group similar events to reduce database writes
   },
     rateLimit: {
       maxAttempts: isProduction ? 3 : 10,
