@@ -6,6 +6,7 @@ import LiveEditOverlay from "@/components/admin/LiveEditOverlay";
 import { CookieConsent } from "@/components/CookieConsent";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
+import { PreLaunchChecklist } from "@/components/PreLaunchChecklist";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -111,6 +112,7 @@ const App: React.FC = () => {
     <SimpleErrorBoundary>
       <CookieConsent />
       <OrganizationSchema />
+      <PreLaunchChecklist />
       <BrowserRouter>
         <GoogleAnalytics />
         <Suspense fallback={<LoadingFallback />}>
