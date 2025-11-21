@@ -50,7 +50,7 @@ const HowItWorksPage = () => {
           alt="Professional business consultant explaining fintech loan process to clients in modern office meeting room"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 text-white"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-left text-white">
             <h1 className="text-2xl md:text-3xl font-bold mb-6">How It Works</h1>
