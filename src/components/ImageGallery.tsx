@@ -127,7 +127,7 @@ const ImageGallery = () => {
         <div className="relative mb-12 bg-white/70 backdrop-blur-sm rounded-2xl p-2 md:p-6 border border-slate-200/30 shadow-lg">
 
           {/* Embla Carousel Container */}
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden" ref={emblaRef} style={{ contain: 'layout style paint' }}>
             <div className="flex">
               {galleryItems.map((item, index) => (
                 <div 
