@@ -25,7 +25,9 @@ const EnterpriseServiceWorker = () => {
         updateViaCache: 'none'
       });
 
-      console.log('✅ Enterprise Service Worker registered:', registration.scope);
+      if (import.meta.env.DEV) {
+        console.log('✅ Service Worker registered:', registration.scope);
+      }
 
       // Handle updates
       registration.addEventListener('updatefound', () => {
@@ -33,18 +35,10 @@ const EnterpriseServiceWorker = () => {
         if (newWorker) {
           newWorker.addEventListener('statechange', () => {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // New content available, notify user
-              console.log('🔄 New content available, page will refresh');
+              // New content available, reload page
               window.location.reload();
             }
           });
-        }
-      });
-
-      // Listen for messages from service worker
-      navigator.serviceWorker.addEventListener('message', (event) => {
-        if (event.data && event.data.type === 'CACHE_UPDATED') {
-          console.log('📦 Cache updated for:', event.data.url);
         }
       });
 
@@ -54,7 +48,9 @@ const EnterpriseServiceWorker = () => {
       }
 
     } catch (error) {
-      console.warn('❌ Service Worker registration failed:', error);
+      if (import.meta.env.DEV) {
+        console.warn('Service Worker registration failed:', error);
+      }
     }
   };
 

@@ -172,20 +172,23 @@ const CriticalResourceOptimizer = () => {
   };
 
   const monitorResourceLoading = () => {
+    // Only monitor in development
+    if (!import.meta.env.DEV) return;
+
     // Monitor resource loading performance
     const observer = new PerformanceObserver((list) => {
       list.getEntries().forEach((entry) => {
         if (entry.entryType === 'resource') {
           const resourceEntry = entry as PerformanceResourceTiming;
           
-          // Log slow resources
+          // Log slow resources in dev only
           if (resourceEntry.duration > 1000) {
-            console.warn(`🐌 Slow resource detected: ${resourceEntry.name} (${Math.round(resourceEntry.duration)}ms)`);
+            console.warn(`🐌 Slow resource: ${resourceEntry.name} (${Math.round(resourceEntry.duration)}ms)`);
           }
           
           // Track failed resources
           if (resourceEntry.transferSize === 0 && resourceEntry.encodedBodySize === 0) {
-            console.warn(`❌ Resource failed to load: ${resourceEntry.name}`);
+            console.warn(`❌ Resource failed: ${resourceEntry.name}`);
           }
         }
       });
@@ -193,17 +196,12 @@ const CriticalResourceOptimizer = () => {
 
     observer.observe({ entryTypes: ['resource'] });
 
-    // Monitor LCP and provide optimization hints
+    // Monitor LCP in dev
     new PerformanceObserver((list) => {
       list.getEntries().forEach((entry) => {
         const lcpEntry = entry as any;
-        if (lcpEntry.element) {
-          console.log(`🎯 LCP element:`, lcpEntry.element);
-          
-          // Suggest optimizations for LCP element
-          if (lcpEntry.element.tagName === 'IMG') {
-            console.log(`💡 LCP is an image. Consider: preloading, modern formats, or reducing size`);
-          }
+        if (lcpEntry.element && lcpEntry.element.tagName === 'IMG') {
+          console.log(`🎯 LCP is an image. Consider optimization`);
         }
       });
     }).observe({ entryTypes: ['largest-contentful-paint'] });
