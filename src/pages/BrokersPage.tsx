@@ -68,7 +68,7 @@ const BrokersPage = () => {
           alt="Industrial warehouse representing broker services"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 text-white"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
         <div className="container mx-auto px-4 relative z-10 mt-32 md:mt-48">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg md:text-xl text-black mb-8 max-w-2xl mx-auto">
