@@ -61,8 +61,8 @@ const AdminDashboard = () => {
       } catch (error) {
         console.error('Invalid session:', error);
         secureStorage.clearSession();
-        localStorage.removeItem('admin_token');
-        localStorage.removeItem('admin_user');
+        sessionStorage.removeItem('admin_token');
+        sessionStorage.removeItem('admin_user');
       }
     }
     setIsLoading(false);
@@ -130,7 +130,7 @@ const AdminDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const token = secureStorage.getToken() || localStorage.getItem('admin_token');
+      const token = secureStorage.getToken() || sessionStorage.getItem('admin_token');
       if (token) {
         await fetch('https://zwqtewpycdbvjgkntejd.supabase.co/functions/v1/admin-auth', {
           method: 'DELETE',
@@ -145,8 +145,8 @@ const AdminDashboard = () => {
     } finally {
       setUser(null);
       secureStorage.clearSession();
-      localStorage.removeItem('admin_token');
-      localStorage.removeItem('admin_user');
+      sessionStorage.removeItem('admin_token');
+      sessionStorage.removeItem('admin_user');
       toast({
         title: "Logged out",
         description: "You have been successfully logged out.",

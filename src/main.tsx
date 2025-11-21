@@ -6,6 +6,10 @@ import './index.css'
 import { preloadCriticalResources } from './utils/performance'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CriticalResourceOptimizer from './components/optimization/CriticalResourceOptimizer'
+import { applyCSPMeta } from './utils/cspConfig'
+
+// Apply Content Security Policy for XSS protection
+applyCSPMeta();
 
 // Preload critical resources immediately
 console.log('Starting to preload critical resources...');
