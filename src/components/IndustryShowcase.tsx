@@ -186,7 +186,7 @@ const IndustryShowcase = () => {
             <div className="flex transition-transform duration-1000 ease-in-out" style={{
             transform: `translateX(-${currentIndex * 25}%)`
           }}>
-              {industries.map((industry, index) => <div key={index} className="w-1/4 flex-shrink-0 px-3 rounded-none">
+              {industries.map((industry, index) => <div key={index} className="w-1/4 flex-shrink-0 px-3">
                   <Card className="overflow-hidden group hover:shadow-lg transition-all duration-300 h-full">
                     <div className="relative h-48 overflow-hidden">
                       <img src={industry.image} alt={industry.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />

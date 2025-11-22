@@ -1,19 +1,16 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const ValidationRequestSchema = z.object({
-  input: z.string().max(10000),
-  type: z.enum(['email', 'phone', 'name', 'text', 'number']),
-  context: z.string().max(200).optional(),
-});
-
-interface ValidationRequest extends z.infer<typeof ValidationRequestSchema> {}
+interface ValidationRequest {
+  input: string;
+  type: 'email' | 'phone' | 'name' | 'text' | 'number';
+  context?: string;
+}
 
 interface ValidationResponse {
   isValid: boolean;
@@ -34,23 +31,7 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
-    const rawData = await req.json();
-    const validationResult = ValidationRequestSchema.safeParse(rawData);
-    
-    if (!validationResult.success) {
-      return new Response(JSON.stringify({ 
-        isValid: false,
-        sanitizedInput: '',
-        violations: ['INVALID_REQUEST_FORMAT'],
-        riskScore: 100,
-        details: validationResult.error.issues
-      }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: 400,
-      });
-    }
-
-    const { input, type, context }: ValidationRequest = validationResult.data;
+    const { input, type, context }: ValidationRequest = await req.json()
 
     // Enhanced input validation
     const violations: string[] = []
