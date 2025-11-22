@@ -5,14 +5,10 @@ import App from './App.tsx'
 import './index.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CriticalResourceOptimizer from './components/optimization/CriticalResourceOptimizer'
-import { applyCSPMeta } from './utils/cspConfig'
 
 console.log('🚀 Main.tsx executing...');
 
-// Apply Content Security Policy for XSS protection
-applyCSPMeta();
-
-console.log('✅ CSP applied');
+// NOTE: CSP meta injection disabled to avoid conflicts across preview domains
 
 // Global error logging for production monitoring
 if (import.meta.env.PROD) {
