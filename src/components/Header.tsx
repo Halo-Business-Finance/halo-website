@@ -292,7 +292,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 px-4 sm:px-[24px]">
+          <div className="flex items-center justify-between h-14 px-4 sm:px-6">
             {/* Mobile Menu Button */}
             <button className={`lg:hidden p-2 rounded-md hover:bg-gray-100 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
               <Menu className="h-6 w-6 text-gray-600" />
@@ -300,7 +300,7 @@ const Header = () => {
             
             {/* Logo - centered on mobile, left-aligned on desktop */}
             <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start'}`}>
-              <span className="text-xl sm:text-2xl font-bold text-gray-900 whitespace-nowrap leading-none lg:text-xl">
+              <span className="text-lg sm:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
