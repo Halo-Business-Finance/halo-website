@@ -3,16 +3,16 @@ import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from "react-helmet-async"
 import App from './App.tsx'
 import './index.css'
-import { preloadCriticalResources } from './utils/performance'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CriticalResourceOptimizer from './components/optimization/CriticalResourceOptimizer'
 import { applyCSPMeta } from './utils/cspConfig'
 
+console.log('🚀 Main.tsx executing...');
+
 // Apply Content Security Policy for XSS protection
 applyCSPMeta();
 
-// Preload critical resources immediately
-preloadCriticalResources();
+console.log('✅ CSP applied');
 
 // Global error logging for production monitoring
 if (import.meta.env.PROD) {
@@ -31,13 +31,22 @@ if (import.meta.env.PROD) {
 
 const queryClient = new QueryClient();
 
-createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <CriticalResourceOptimizer />
-        <App />
-      </QueryClientProvider>
-    </HelmetProvider>
-  </React.StrictMode>
-)
+console.log('📦 Creating React root...');
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  console.error('❌ Root element not found!');
+} else {
+  console.log('✅ Root element found, mounting React app...');
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <CriticalResourceOptimizer />
+          <App />
+        </QueryClientProvider>
+      </HelmetProvider>
+    </React.StrictMode>
+  );
+  console.log('✅ React app mounted successfully!');
+}

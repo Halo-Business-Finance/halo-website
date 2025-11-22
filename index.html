@@ -184,6 +184,9 @@
   </head>
 
   <body>
+    <!-- Service Worker Cleanup - Run first to clear any cached content -->
+    <script src="/sw-cleanup.js"></script>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
