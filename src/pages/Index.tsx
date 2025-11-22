@@ -1,13 +1,7 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
 import React, { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SEO from "@/components/SEO";
-import CriticalCSS from "@/components/optimization/CriticalCSS";
-import ResourcePreloader from "@/components/optimization/ResourcePreloader";
-import AdvancedRoutePreloader from "@/components/optimization/AdvancedRoutePreloader";
-import EnterpriseServiceWorker from "@/components/optimization/EnterpriseServiceWorker";
 import SectionDivider from "@/components/ui/SectionDivider";
 
 // Lazy load below-the-fold components
@@ -18,13 +12,8 @@ const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
 const SuccessShowcase = lazy(() => import("@/components/SuccessShowcase"));
 
 const Index = () => {
-  console.log('Index page component mounting...');
   return (
     <>
-      <CriticalCSS />
-      <ResourcePreloader />
-      <AdvancedRoutePreloader />
-      <EnterpriseServiceWorker />
       <SEO
         title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
         description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 1,500+ businesses nationwide."
