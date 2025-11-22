@@ -34,10 +34,12 @@ const HeroSection = () => {
               {/* Apply Here Button */}
               <div className="pt-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
-                  <a href="https://app.halolending.com" className="flex items-center gap-2">
-                    <Lock className="h-4 w-4" />
-                    Apply Here
-                    <span className="text-xs opacity-90">Secure & Encrypted</span>
+                  <a href="https://app.halolending.com" className="flex flex-col items-center gap-1">
+                    <span className="text-lg">Apply Here</span>
+                    <span className="flex items-center gap-1 text-xs opacity-90">
+                      <Lock className="h-3 w-3" />
+                      Secure & Encrypted
+                    </span>
                   </a>
                 </Button>
               </div>
