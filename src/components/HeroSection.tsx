@@ -5,16 +5,9 @@ import { Shield, Lock } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
 import heroBackground from "@/assets/new-hero-background.jpg";
 const HeroSection = () => {
-  if (import.meta.env.DEV) console.log('HeroSection rendering, heroBackground:', heroBackground);
+  console.log('HeroSection rendering, heroBackground:', heroBackground);
   return <section className="relative min-h-[460px] md:min-h-[520px] flex items-center overflow-hidden" aria-label="Hero section">
-      <LazyImage 
-        src={heroBackground} 
-        alt="Business financing hero background" 
-        className="absolute inset-0 w-full h-full object-cover" 
-        priority={true} 
-        onLoad={() => import.meta.env.DEV && console.log('Hero background image loaded successfully')} 
-        onError={() => import.meta.env.DEV && console.log('Hero background image failed to load')} 
-      />
+      <LazyImage src={heroBackground} alt="Business financing hero background" className="absolute inset-0 w-full h-full object-cover" priority={true} onLoad={() => console.log('Hero background image loaded successfully')} onError={() => console.log('Hero background image failed to load')} />
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
         <div className="w-full items-center bg-transparent">
@@ -33,16 +26,8 @@ const HeroSection = () => {
               
               {/* Apply Here Button */}
               <div className="pt-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-4 py-1.5 shadow-lg hover:shadow-xl transition-all duration-300 h-auto" asChild>
-                  <a href="https://app.halolending.com" className="flex flex-col items-start gap-0">
-                    <span className="flex items-center gap-1.5 text-sm font-bold">
-                      <Lock className="h-3.5 w-3.5" />
-                      Apply Here
-                    </span>
-                    <span className="text-[9px] font-normal opacity-90 ml-5">
-                      Secure & Encrypted
-                    </span>
-                  </a>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
+                  <a href="https://app.halolending.com">Apply Here</a>
                 </Button>
               </div>
             </div>
@@ -52,6 +37,10 @@ const HeroSection = () => {
               <div className="flex items-center gap-2">
                 
                 
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Lock className="h-4 w-4 text-primary-glow" />
+                <span className="text-white">Secure & Encrypted</span>
               </div>
             </div>
           </header>

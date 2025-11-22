@@ -7,8 +7,7 @@ import SEO from "@/components/SEO";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
 import ResourcePreloader from "@/components/optimization/ResourcePreloader";
 import AdvancedRoutePreloader from "@/components/optimization/AdvancedRoutePreloader";
-// Temporarily disable enterprise service worker registration to avoid caching issues on production
-// import EnterpriseServiceWorker from "@/components/optimization/EnterpriseServiceWorker";
+import EnterpriseServiceWorker from "@/components/optimization/EnterpriseServiceWorker";
 import SectionDivider from "@/components/ui/SectionDivider";
 
 // Lazy load below-the-fold components
@@ -25,7 +24,7 @@ const Index = () => {
       <CriticalCSS />
       <ResourcePreloader />
       <AdvancedRoutePreloader />
-      {/* EnterpriseServiceWorker temporarily disabled to prevent aggressive caching issues on production */}
+      <EnterpriseServiceWorker />
       <SEO
         title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
         description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 1,500+ businesses nationwide."

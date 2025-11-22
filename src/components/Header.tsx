@@ -139,12 +139,12 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-12 px-6">
             {/* Left Side - Company and Resources Navigation */}
-            <nav className="flex items-center space-x-4">
+            <nav className="flex items-center space-x-6">
               {/* Company Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
                   Company
-                  <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
@@ -173,15 +173,15 @@ const Header = () => {
               </DropdownMenu>
 
               {/* Marketplace Benefits Button */}
-              <Link to="/marketplace-benefits" className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors">
+              <Link to="/marketplace-benefits" className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors">
                 Marketplace Benefits
               </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
                   Resources
-                  <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
@@ -206,9 +206,9 @@ const Header = () => {
               
               {/* Partners Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
+                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
                   Partners
-                  <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                   <div className="py-1">
@@ -233,10 +233,9 @@ const Header = () => {
             </nav>
 
             {/* Right Side - Search, Customer Support and Sign In */}
-            <div className="flex items-center space-x-4">
-              <button className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors">
-                <Search className="h-3 w-3" />
-                Search
+            <div className="flex items-center space-x-6">
+              <button className="text-gray-600 hover:text-primary">
+                <Search className="h-5 w-5" />
               </button>
               
               
@@ -292,7 +291,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-14 px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16 px-4 sm:px-[24px]">
             {/* Mobile Menu Button */}
             <button className={`lg:hidden p-2 rounded-md hover:bg-gray-100 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
               <Menu className="h-6 w-6 text-gray-600" />
@@ -300,7 +299,7 @@ const Header = () => {
             
             {/* Logo - centered on mobile, left-aligned on desktop */}
             <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start'}`}>
-              <span className="text-lg sm:text-xl font-bold text-gray-900 whitespace-nowrap leading-none">
+              <span className="text-xl sm:text-2xl font-bold text-gray-900 whitespace-nowrap leading-none lg:text-xl">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
@@ -316,11 +315,11 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-12 px-4 sm:px-6">
             {/* Secondary Navigation with Dropdowns */}
-            <nav className="hidden lg:flex items-center space-x-6 flex-1">
+            <nav className="hidden lg:flex items-center space-x-8 flex-1">
               {secondaryNavWithDropdowns.map(item => <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
+                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-primary transition-colors py-2 px-1 group">
                     {item.title}
-                    <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
                     <div className="py-1">

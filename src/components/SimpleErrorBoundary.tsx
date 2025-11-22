@@ -26,39 +26,27 @@ export class SimpleErrorBoundary extends React.Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-background p-4">
-          <div className="max-w-md w-full text-center space-y-4">
-            <div className="text-6xl mb-4">⚠️</div>
-            <h1 className="text-2xl font-bold text-foreground">Something Went Wrong</h1>
-            <p className="text-muted-foreground">
-              We apologize for the inconvenience. Please try refreshing the page.
-            </p>
-            <div className="flex gap-3 justify-center pt-4">
-              <button
-                onClick={() => window.location.reload()}
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-              >
-                Refresh Page
-              </button>
-              <a
-                href="/"
-                className="px-6 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors"
-              >
-                Go Home
-              </a>
-            </div>
-            {import.meta.env.DEV && this.state.error && (
-              <details className="mt-8 text-left">
-                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
-                  Error details (dev only)
-                </summary>
-                <pre className="mt-2 p-4 bg-muted rounded-md text-xs overflow-auto max-h-48">
-                  {this.state.error.message}
-                  {this.state.error.stack}
-                </pre>
-              </details>
-            )}
-          </div>
+        <div style={{
+          padding: '40px',
+          textAlign: 'center',
+          fontFamily: 'system-ui, sans-serif'
+        }}>
+          <h1>Something went wrong</h1>
+          <p>Please refresh the page</p>
+          {this.state.error && (
+            <details style={{ marginTop: '20px', textAlign: 'left' }}>
+              <summary>Error details</summary>
+              <pre style={{ 
+                background: '#f5f5f5', 
+                padding: '10px', 
+                margin: '10px 0',
+                fontSize: '12px',
+                whiteSpace: 'pre-wrap'
+              }}>
+                {this.state.error.message}
+              </pre>
+            </details>
+          )}
         </div>
       );
     }

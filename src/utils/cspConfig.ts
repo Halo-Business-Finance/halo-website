@@ -7,17 +7,14 @@ export const CSP_DIRECTIVES = {
   'default-src': ["'self'"],
   'script-src': [
     "'self'",
-    "'unsafe-inline'",
-    "'unsafe-eval'",
+    "'unsafe-inline'", // Required for Vite in development
+    "'unsafe-eval'", // Required for React DevTools
     'https://zwqtewpycdbvjgkntejd.supabase.co',
-    'https://*.lovable.app',
-    'https://*.lovableproject.com',
-    'blob:',
-    'data:'
+    'https://*.lovable.app'
   ],
   'style-src': [
     "'self'",
-    "'unsafe-inline'",
+    "'unsafe-inline'", // Required for styled components
     'https://fonts.googleapis.com'
   ],
   'img-src': [
@@ -25,8 +22,7 @@ export const CSP_DIRECTIVES = {
     'data:',
     'blob:',
     'https://*.supabase.co',
-    'https://*.lovable.app',
-    'https://*.lovableproject.com'
+    'https://*.lovable.app'
   ],
   'font-src': [
     "'self'",
@@ -37,14 +33,12 @@ export const CSP_DIRECTIVES = {
     "'self'",
     'https://zwqtewpycdbvjgkntejd.supabase.co',
     'https://*.lovable.app',
-    'https://*.lovableproject.com',
-    'wss://zwqtewpycdbvjgkntejd.supabase.co',
-    'blob:',
-    'data:'
+    'wss://zwqtewpycdbvjgkntejd.supabase.co'
   ],
-  'frame-ancestors': ["'self'", 'https://*.lovable.app', 'https://*.lovableproject.com'],
+  'frame-ancestors': ["'none'"], // Prevent clickjacking
   'base-uri': ["'self'"],
-  'form-action': ["'self'"]
+  'form-action': ["'self'"],
+  'upgrade-insecure-requests': [] // Upgrade HTTP to HTTPS
 };
 
 export function generateCSPHeader(): string {

@@ -235,35 +235,33 @@ export const measurePerformance = (name: string, fn: () => void | Promise<void>)
 };
 
 // Service Worker registration with update handling
-// Service Worker registration disabled to prevent caching conflicts
-// that cause blank pages when opening in new tabs
-/*
 export const registerServiceWorker = async () => {
-  if ('serviceWorker' in navigator && import.meta.env.PROD) {
+  if ('serviceWorker' in navigator) {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js', {
-        scope: '/',
-        updateViaCache: 'none'
+        scope: '/'
       });
-
+      
       registration.addEventListener('updatefound', () => {
         const newWorker = registration.installing;
         if (newWorker) {
           newWorker.addEventListener('statechange', () => {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              console.log('New content available, please refresh');
+              // New content available, refresh to update
+              if (confirm('New version available! Refresh to update?')) {
+                window.location.reload();
+              }
             }
           });
         }
       });
-
-      console.log('Service Worker registered successfully');
+      
+      return registration;
     } catch (error) {
-      console.warn('Service Worker registration failed:', error);
+      console.error('SW registration failed:', error);
     }
   }
 };
-*/
 
 // Memory optimization utilities
 export const cleanupResources = () => {

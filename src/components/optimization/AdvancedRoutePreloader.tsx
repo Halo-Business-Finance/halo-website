@@ -83,11 +83,11 @@ const AdvancedRoutePreloader = () => {
       const componentLoader = componentMap[path];
       if (componentLoader) {
         await componentLoader();
-        if (import.meta.env.DEV) console.log(`✅ Preloaded component for ${path}`);
+        console.log(`✅ Preloaded component for ${path}`);
       }
       
     } catch (error) {
-      if (import.meta.env.DEV) console.warn(`Failed to preload route ${path}:`, error);
+      console.warn(`Failed to preload route ${path}:`, error);
     }
   }, []);
 
