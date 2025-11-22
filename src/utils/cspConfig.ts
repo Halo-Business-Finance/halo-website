@@ -7,14 +7,17 @@ export const CSP_DIRECTIVES = {
   'default-src': ["'self'"],
   'script-src': [
     "'self'",
-    "'unsafe-inline'", // Required for Vite in development
-    "'unsafe-eval'", // Required for React DevTools
+    "'unsafe-inline'",
+    "'unsafe-eval'",
     'https://zwqtewpycdbvjgkntejd.supabase.co',
-    'https://*.lovable.app'
+    'https://*.lovable.app',
+    'https://*.lovableproject.com',
+    'blob:',
+    'data:'
   ],
   'style-src': [
     "'self'",
-    "'unsafe-inline'", // Required for styled components
+    "'unsafe-inline'",
     'https://fonts.googleapis.com'
   ],
   'img-src': [
@@ -22,7 +25,8 @@ export const CSP_DIRECTIVES = {
     'data:',
     'blob:',
     'https://*.supabase.co',
-    'https://*.lovable.app'
+    'https://*.lovable.app',
+    'https://*.lovableproject.com'
   ],
   'font-src': [
     "'self'",
@@ -33,12 +37,14 @@ export const CSP_DIRECTIVES = {
     "'self'",
     'https://zwqtewpycdbvjgkntejd.supabase.co',
     'https://*.lovable.app',
-    'wss://zwqtewpycdbvjgkntejd.supabase.co'
+    'https://*.lovableproject.com',
+    'wss://zwqtewpycdbvjgkntejd.supabase.co',
+    'blob:',
+    'data:'
   ],
-  'frame-ancestors': ["'self'", 'https://*.lovable.app', 'https://*.lovableproject.com'], // Allow Lovable editor preview iframe while preventing untrusted framing
+  'frame-ancestors': ["'self'", 'https://*.lovable.app', 'https://*.lovableproject.com'],
   'base-uri': ["'self'"],
-  'form-action': ["'self'"],
-  'upgrade-insecure-requests': [] // Upgrade HTTP to HTTPS
+  'form-action': ["'self'"]
 };
 
 export function generateCSPHeader(): string {
