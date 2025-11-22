@@ -35,9 +35,11 @@ const HeroSection = () => {
               <div className="pt-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-300 h-auto" asChild>
                   <a href="https://app.halolending.com" className="flex flex-col items-center gap-0">
-                    <span className="text-sm font-bold">Apply Here</span>
-                    <span className="flex items-center gap-1 text-[9px] font-normal opacity-90">
-                      <Lock className="h-2.5 w-2.5" />
+                    <span className="flex items-center gap-1.5 text-sm font-bold">
+                      <Lock className="h-3.5 w-3.5" />
+                      Apply Here
+                    </span>
+                    <span className="text-[9px] font-normal opacity-90">
                       Secure & Encrypted
                     </span>
                   </a>
