@@ -34,7 +34,11 @@ const HeroSection = () => {
               {/* Apply Here Button */}
               <div className="pt-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
-                  <a href="https://app.halolending.com">Apply Here</a>
+                  <a href="https://app.halolending.com" className="flex items-center gap-2">
+                    <Lock className="h-4 w-4" />
+                    Apply Here
+                    <span className="text-xs opacity-90">Secure & Encrypted</span>
+                  </a>
                 </Button>
               </div>
             </div>
@@ -44,10 +48,6 @@ const HeroSection = () => {
               <div className="flex items-center gap-2">
                 
                 
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Lock className="h-4 w-4 text-primary-glow" />
-                <span className="text-white">Secure & Encrypted</span>
               </div>
             </div>
           </header>
