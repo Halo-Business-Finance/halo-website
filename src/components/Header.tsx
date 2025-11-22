@@ -139,7 +139,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-12 px-6">
             {/* Left Side - Company and Resources Navigation */}
-            <nav className="flex items-center space-x-6">
+            <nav className="flex items-center space-x-4">
               {/* Company Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
@@ -233,7 +233,7 @@ const Header = () => {
             </nav>
 
             {/* Right Side - Search, Customer Support and Sign In */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               <button className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors">
                 <Search className="h-3 w-3" />
                 Search
@@ -316,7 +316,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center h-12 px-4 sm:px-6">
             {/* Secondary Navigation with Dropdowns */}
-            <nav className="hidden lg:flex items-center space-x-8 flex-1">
+            <nav className="hidden lg:flex items-center space-x-6 flex-1">
               {secondaryNavWithDropdowns.map(item => <DropdownMenu key={item.title}>
                   <DropdownMenuTrigger className="flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
                     {item.title}
