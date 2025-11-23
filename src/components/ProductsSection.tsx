@@ -549,7 +549,7 @@ const ProductsSection = () => {
                               <div className="text-xs font-medium text-slate-50">{product.terms}</div>
                             </div>}
                         <ul className="space-y-2 mb-4">
-                          {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
+                          {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center text-slate-50">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                               {feature}
                             </li>)}
