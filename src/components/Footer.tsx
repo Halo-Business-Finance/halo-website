@@ -2,70 +2,91 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import ConsultationPopup from "@/components/ConsultationPopup";
-import { 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Mail,
-  Phone,
-  MapPin
-} from "lucide-react";
-
+import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 const Footer = () => {
-  const loanPrograms = [
-    { name: "SBA 7a Loans", link: "/sba-7a-loans" },
-    { name: "SBA 504 Loans", link: "/sba-504-loans" },
-    { name: "Bridge Loans", link: "/bridge-financing" },
-    { name: "Conventional Loans", link: "/conventional-loans" },
-    { name: "USDA Loans", link: "/usda-bi-loans" },
-    { name: "Equipment Financing", link: "/equipment-financing" },
-    { name: "Working Capital", link: "/working-capital" },
-    { name: "Business Line of Credit", link: "/business-line-of-credit" }
-  ];
-
-  const partnerLinks = [
-    { name: "Become a Broker", link: "/brokers" },
-    { name: "Broker Resources", link: "/brokers" },
-    { name: "Become a Lender", link: "/lenders" },
-    { name: "Partnership Benefits", link: "/lenders" }
-  ];
-
-  const supportLinks = [
-    { name: "Customer Service", link: "/customer-service" },
-    { name: "Technical Support", link: "/technical-support" }
-  ];
-
-  const resourceLinks = [
-    { name: "Loan Calculator", link: "/loan-calculator" },
-    { name: "Industry Solutions", link: "/industry-solutions" },
-    { name: "SBA Resources", link: "/sba-loans" },
-    { name: "Market Insights", link: "/resources" }
-  ];
-
-  const companyLinks = [
-    { name: "Company Overview", link: "/company-overview" },
-    { name: "How It Works", link: "/how-it-works" },
-    { name: "Marketplace Benefits", link: "/marketplace-benefits" },
-    { name: "Contact Us", link: "/contact-us" },
-    { name: "Careers", link: "/careers" }
-  ];
-
-  return (
-    <footer className="bg-financial-navy text-white">
-      <div className="container mx-auto px-4 py-8">
+  const loanPrograms = [{
+    name: "SBA 7a Loans",
+    link: "/sba-7a-loans"
+  }, {
+    name: "SBA 504 Loans",
+    link: "/sba-504-loans"
+  }, {
+    name: "Bridge Loans",
+    link: "/bridge-financing"
+  }, {
+    name: "Conventional Loans",
+    link: "/conventional-loans"
+  }, {
+    name: "USDA Loans",
+    link: "/usda-bi-loans"
+  }, {
+    name: "Equipment Financing",
+    link: "/equipment-financing"
+  }, {
+    name: "Working Capital",
+    link: "/working-capital"
+  }, {
+    name: "Business Line of Credit",
+    link: "/business-line-of-credit"
+  }];
+  const partnerLinks = [{
+    name: "Become a Broker",
+    link: "/brokers"
+  }, {
+    name: "Broker Resources",
+    link: "/brokers"
+  }, {
+    name: "Become a Lender",
+    link: "/lenders"
+  }, {
+    name: "Partnership Benefits",
+    link: "/lenders"
+  }];
+  const supportLinks = [{
+    name: "Customer Service",
+    link: "/customer-service"
+  }, {
+    name: "Technical Support",
+    link: "/technical-support"
+  }];
+  const resourceLinks = [{
+    name: "Loan Calculator",
+    link: "/loan-calculator"
+  }, {
+    name: "Industry Solutions",
+    link: "/industry-solutions"
+  }, {
+    name: "SBA Resources",
+    link: "/sba-loans"
+  }, {
+    name: "Market Insights",
+    link: "/resources"
+  }];
+  const companyLinks = [{
+    name: "Company Overview",
+    link: "/company-overview"
+  }, {
+    name: "How It Works",
+    link: "/how-it-works"
+  }, {
+    name: "Marketplace Benefits",
+    link: "/marketplace-benefits"
+  }, {
+    name: "Contact Us",
+    link: "/contact-us"
+  }, {
+    name: "Careers",
+    link: "/careers"
+  }];
+  return <footer className="bg-financial-navy text-white">
+      <div className="container mx-auto px-0 py-[5px] pb-[10px] pt-0">
         {/* Main footer content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-4 md:gap-6 lg:gap-8 mb-8 items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-4 md:gap-6 lg:gap-8 mb-8 items-start py-[5px]">
           {/* Logo and newsletter */}
           <div className="lg:col-span-2">
             <div className="mb-1">
               <Link to="/" className="inline-block mb-4">
-                <img 
-                  src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" 
-                  alt="Halo Business Finance logo" 
-                  className="h-32 md:h-40 w-auto filter brightness-0 invert"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src="/lovable-uploads/a9a35279-bd49-44f5-a3fe-1a5c4b1d0a02.png" alt="Halo Business Finance logo" className="h-32 md:h-40 w-auto filter brightness-0 invert" loading="lazy" decoding="async" />
               </Link>
               <p className="text-white text-xs md:text-sm mb-4">
                 Nationwide commercial loan marketplace offering streamlined loan processes for SBA, commercial real estate, and equipment financing.
@@ -79,11 +100,7 @@ const Footer = () => {
                 Get the latest financial insights and market updates.
               </p>
               <div className="flex gap-2">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                />
+                <Input type="email" placeholder="Enter your email" className="bg-white/10 border-white/20 text-white placeholder:text-white/60" />
                 <Button size="sm" className="bg-primary">
                   Subscribe
                 </Button>
@@ -93,79 +110,65 @@ const Footer = () => {
 
           {/* Company links - MOVED TO FIRST */}
           <div className="mt-8 lg:mt-16">
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h4 className="mb-4 font-extrabold">Company</h4>
             <ul className="space-y-2">
-              {companyLinks.map((link) => (
-                <li key={link.name}>
+              {companyLinks.map(link => <li key={link.name}>
                   <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Loan Programs */}
           <div className="mt-8 lg:mt-16">
-            <h4 className="font-semibold mb-4">Loan Programs</h4>
+            <h4 className="mb-4 font-extrabold">Loan Programs</h4>
             <ul className="space-y-2">
-              {loanPrograms.map((link) => (
-                <li key={link.name}>
+              {loanPrograms.map(link => <li key={link.name}>
                   <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Partner Links */}
           <div className="mt-8 lg:mt-16">
-            <h4 className="font-semibold mb-4">Partner With Us</h4>
+            <h4 className="mb-4 font-extrabold">Partner With Us</h4>
             <ul className="space-y-2">
-              {partnerLinks.map((link) => (
-                <li key={link.name}>
+              {partnerLinks.map(link => <li key={link.name}>
                   <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Resources */}
           <div className="mt-8 lg:mt-16">
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h4 className="mb-4 font-extrabold">Resources</h4>
             <ul className="space-y-2">
-              {resourceLinks.map((link) => (
-                <li key={link.name}>
+              {resourceLinks.map(link => <li key={link.name}>
                   <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Support links */}
           <div className="mt-8 lg:mt-16">
-            <h4 className="font-semibold mb-4">Support</h4>
+            <h4 className="mb-4 font-extrabold">Support</h4>
             <ul className="space-y-2">
-              {supportLinks.map((link) => (
-                <li key={link.name}>
+              {supportLinks.map(link => <li key={link.name}>
                   <Link to={link.link} className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                     {link.name}
                   </Link>
-                </li>
-              ))}
+                </li>)}
               <li>
-                <ConsultationPopup 
-                  trigger={
-                    <button className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left bg-transparent border-none p-0 text-left cursor-pointer">
+                <ConsultationPopup trigger={<button className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left bg-transparent border-none p-0 text-left cursor-pointer">
                       Schedule Consultation
-                    </button>
-                  }
-                />
+                    </button>} />
               </li>
               <li>
                 <Link to="/security" className="text-sm text-white hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
@@ -183,22 +186,21 @@ const Footer = () => {
             {/* Better Business Bureau */}
             <div className="flex items-center gap-3">
               <a href="https://www.bbb.org/us/ca/irvine/profile/small-business-loans/halo-business-finance-corp-1126-1000144399/#sealclick" target="_blank" rel="nofollow">
-                <img 
-                  src="https://seal-central-northern-western-arizona.bbb.org/seals/blue-seal-96-50-bbb-1000144399.png" 
-                  style={{border: 0}} 
-                  alt="Halo Business Finance Corp BBB Business Review" 
-                  className="h-12 w-auto"
-                />
+                <img src="https://seal-central-northern-western-arizona.bbb.org/seals/blue-seal-96-50-bbb-1000144399.png" style={{
+                border: 0
+              }} alt="Halo Business Finance Corp BBB Business Review" className="h-12 w-auto" />
               </a>
               <div className="text-sm">
-                <div className="font-semibold">BBB Accredited</div>
-                <div className="text-white">Business Since 2019</div>
+                <div className="font-semibold">
+              </div>
+                <div className="text-white">
+              </div>
               </div>
             </div>
 
             {/* Social media */}
             <div className="flex items-center gap-4">
-              <span className="text-sm font-medium">Follow Us:</span>
+              <span className="text-sm font-extrabold">Follow Us:</span>
               <div className="flex gap-3">
                 <a href="https://www.facebook.com/HaloBusinessFinance" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80 transition-colors duration-200">
                   <Facebook className="h-6 w-6" />
@@ -248,8 +250,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
