@@ -537,16 +537,16 @@ const ProductsSection = () => {
                           {product.description}
                         </p>
                       </div>
-                        <CardContent className="p-6">
+                        <CardContent className="p-6 bg-blue-950">
                           {/* Rate Display */}
                           <div className="rounded-lg px-3 py-2 mb-4">
-                            <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
-                            <div className="text-xs text-black font-medium">{product.rateLabel}</div>
+                            <div className="text-xl font-bold mb-1 text-slate-50">{product.rate}</div>
+                            <div className="text-xs font-medium text-slate-50">{product.rateLabel}</div>
                           </div>
                           {/* Terms Display */}
                           {product.terms && <div className="rounded-lg px-3 py-2 mb-4">
-                              <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
-                              <div className="text-xs text-black font-medium">{product.terms}</div>
+                              <div className="text-sm font-semibold mb-1 text-slate-50">Loan Terms</div>
+                              <div className="text-xs font-medium text-slate-50">{product.terms}</div>
                             </div>}
                         <ul className="space-y-2 mb-4">
                           {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
@@ -672,13 +672,13 @@ const ProductsSection = () => {
                 <CardContent className="p-6 bg-financial-navy text-white">
                   {/* Rate Display */}
                   <div className="rounded-lg px-3 py-2 mb-4">
-                    <div className="text-xl font-bold text-black mb-1">{product.rate}</div>
-                    <div className="text-xs text-black font-medium">{product.rateLabel}</div>
+                    <div className="text-xl font-bold mb-1 text-slate-50">{product.rate}</div>
+                    <div className="text-xs font-medium text-slate-50">{product.rateLabel}</div>
                   </div>
                   {/* Terms Display */}
                   {product.terms && <div className="rounded-lg px-3 py-2 mb-4">
-                      <div className="text-sm font-semibold text-black mb-1">Loan Terms</div>
-                      <div className="text-xs text-black font-medium">{product.terms}</div>
+                      <div className="text-sm font-semibold mb-1 text-slate-50">Loan Terms</div>
+                      <div className="text-xs font-medium text-slate-50">{product.terms}</div>
                     </div>}
                   <ul className="space-y-2 mb-4">
                     {product.features.map((feature, featureIndex) => <li key={featureIndex} className="text-xs flex items-center">
