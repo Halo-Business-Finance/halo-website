@@ -133,156 +133,70 @@ const Header = () => {
       href: "/private-placement"
     }]
   }];
-  return <header className="relative bg-white z-30">
-      {/* Primary Navigation Bar - Hidden on mobile, only visible on desktop */}
-      <div className="hidden lg:block">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-12 px-6">
-            {/* Left Side - Company and Resources Navigation */}
-            <nav className="flex items-center space-x-6">
-              {/* Company Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
-                  Company
-                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
-                  <div className="py-1">
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/company-overview" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Company Overview
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/how-it-works" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        How it Works
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/marketplace-benefits" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Marketplace Benefits
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/careers" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Careers
-                      </Link>
-                    </DropdownMenuItem>
-                  </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
-
-              {/* Marketplace Benefits Button */}
-              <Link to="/marketplace-benefits" className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors">
-                Marketplace Benefits
+  return <header className="relative bg-white border-b border-gray-200 z-30">
+      {/* Primary Navigation Bar - Top tier like Chase */}
+      <div className="hidden lg:block border-b border-gray-200 bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-center justify-between h-10 px-8">
+            {/* Left Side - Main category tabs */}
+            <nav className="flex items-center gap-6">
+              <Link to="/" className="relative py-2 text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary after:opacity-0 hover:after:opacity-100 after:transition-opacity">
+                Personal
               </Link>
-              
-              {/* Resources Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
-                  Resources
-                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
-                  <div className="py-1">
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/loan-calculator" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Loan Calculator
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/industry-solutions" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Industry Solutions
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/sba-loans" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        SBA Resources
-                      </Link>
-                    </DropdownMenuItem>
-                  </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              
-              {/* Partners Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors group">
-                  Partners
-                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
-                  <div className="py-1">
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/brokers" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Brokers
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/lenders" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Lenders
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/referral-partners" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Referral Partners
-                      </Link>
-                    </DropdownMenuItem>
-                  </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <Link to="/" className="relative py-2 text-[13px] font-bold text-gray-900 transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary">
+                Business
+              </Link>
+              <Link to="/commercial-loans" className="relative py-2 text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary after:opacity-0 hover:after:opacity-100 after:transition-opacity">
+                Commercial
+              </Link>
             </nav>
 
-            {/* Right Side - Search, Customer Support and Sign In */}
-            <div className="flex items-center space-x-6">
-              <button className="text-gray-600 hover:text-primary">
-                <Search className="h-5 w-5" />
-              </button>
-              
-              
+            {/* Right Side - Utility links */}
+            <div className="flex items-center gap-6">
+              <ConsultationPopup trigger={
+                <button className="text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                  Schedule a meeting
+                </button>
+              } />
               
               {/* Customer Support Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="hidden md:flex items-center gap-1 text-xs text-gray-600 hover:text-primary transition-colors group">
-                  <Phone className="h-3 w-3" />
-                  Customer Support
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors group">
+                  Customer service
                   <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
-                  <div className="py-1">
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <a href="tel:+18007308461" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        <Phone className="h-4 w-4 mr-3" />
-                        Call (800) 730-8461
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/contact-us" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Contact Us
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/customer-service" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Customer Service
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                      <Link to="/technical-support" className="flex items-center text-gray-700 hover:text-primary font-medium">
-                        Technical Support
-                      </Link>
-                    </DropdownMenuItem>
-                    <ConsultationPopup trigger={<DropdownMenuItem className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1">
-                          <span className="flex items-center text-gray-700 hover:text-primary font-medium cursor-pointer">
-                            Schedule Consultation
-                          </span>
-                        </DropdownMenuItem>} />
-                  </div>
+                <DropdownMenuContent align="end" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <a href="tel:+18007308461" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                      <Phone className="h-4 w-4 mr-2" />
+                      Call (800) 730-8461
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/contact-us" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                      Contact Us
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/customer-service" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                      Customer Service
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/technical-support" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                      Technical Support
+                    </Link>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-md flex items-center gap-1 transition-colors px-4 py-2">
-                <Shield className="h-4 w-4" />
-                Sign In
-              </a>
+              <button className="text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                Español
+              </button>
+              
+              <button className="text-gray-600 hover:text-gray-900 transition-colors" aria-label="Search">
+                <Search className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
@@ -290,16 +204,16 @@ const Header = () => {
 
       {/* Logo Row - Second tier */}
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 px-4 sm:px-[24px]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-center justify-between h-20 px-4 sm:px-8">
             {/* Mobile Menu Button */}
             <button className={`lg:hidden p-2 rounded-md hover:bg-gray-100 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
               <Menu className="h-6 w-6 text-gray-600" />
             </button>
             
-            {/* Logo - centered on mobile, left-aligned on desktop */}
+            {/* Logo */}
             <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start'}`}>
-              <span className="text-xl sm:text-2xl font-bold text-gray-900 whitespace-nowrap leading-none lg:text-xl">
+              <span className="text-xl sm:text-2xl lg:text-[22px] font-bold text-gray-900 whitespace-nowrap leading-none tracking-tight">
                 HALO BUSINESS FINANCE
               </span>
             </Link>
@@ -310,39 +224,39 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Secondary Navigation Bar - Third tier */}
-      <div className="bg-white hidden lg:block">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center h-12 px-4 sm:px-6">
-            {/* Secondary Navigation with Dropdowns */}
-            <nav className="hidden lg:flex items-center space-x-8 flex-1">
-              {secondaryNavWithDropdowns.map(item => <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-700 hover:text-primary transition-colors py-2 px-1 group">
+      {/* Secondary Navigation Bar - Third tier with horizontal menu items */}
+      <div className="bg-white hidden lg:block border-b border-gray-200">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-center h-14 px-8">
+            {/* Horizontal Navigation - All items visible */}
+            <nav className="flex items-center gap-8 flex-1">
+              {secondaryNavWithDropdowns.map(item => (
+                <DropdownMenu key={item.title}>
+                  <DropdownMenuTrigger className="text-[14px] font-medium text-gray-700 hover:text-gray-900 transition-colors whitespace-nowrap">
                     {item.title}
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-lg p-2 min-w-[240px] mt-2 z-50">
-                    <div className="py-1">
-                      {item.items.map(subItem => <DropdownMenuItem key={subItem.title} className="rounded-md hover:bg-gray-50 transition-colors duration-200 p-2 mb-1" asChild>
-                          <Link to={subItem.href} className="flex items-center text-gray-700 hover:text-primary font-medium text-sm">
-                            {subItem.title}
-                          </Link>
-                        </DropdownMenuItem>)}
-                    </div>
+                  <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[220px] mt-1">
+                    {item.items.map(subItem => (
+                      <DropdownMenuItem key={subItem.title} className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                        <Link to={subItem.href} className="text-sm text-gray-700 hover:text-primary font-medium">
+                          {subItem.title}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
                   </DropdownMenuContent>
-                </DropdownMenu>)}
+                </DropdownMenu>
+              ))}
             </nav>
             
-            {/* Get Started Button - positioned at the right */}
-            <div className="hidden lg:block ml-auto">
-              <Button className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-md flex items-center gap-1" asChild>
+            {/* Get Started Button */}
+            <div className="ml-auto">
+              <Button className="bg-primary hover:bg-primary/90 text-white text-[13px] font-bold px-5 py-2 rounded-md flex items-center gap-2 shadow-sm transition-all hover:shadow-md" asChild>
                 <Link to="/loan-calculator">
                   <Lock className="h-4 w-4" />
                   Get Started
                 </Link>
               </Button>
             </div>
-
           </div>
         </div>
       </div>
