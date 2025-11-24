@@ -220,8 +220,8 @@ export function initializeSecurity(): void {
   });
 }
 
-// Auto-initialize security when module is loaded
-if (typeof window !== 'undefined') {
+// Auto-initialize security when module is loaded in development only
+if (typeof window !== 'undefined' && import.meta.env.DEV) {
   // Delay initialization to ensure DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeSecurity);
