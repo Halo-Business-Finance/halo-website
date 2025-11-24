@@ -110,7 +110,7 @@ export function generateCSPHeader(config: CSPConfig = defaultCSPConfig): string 
     `base-uri ${config.baseUri.join(' ')}`,
     `form-action ${config.formAction.join(' ')}`,
     // Additional security directives
-    `frame-ancestors 'none'`, // Prevent clickjacking
+    `frame-ancestors 'self' https://*.lovable.app`, // Allow embedding in Lovable editor while preventing unauthorized framing
     `upgrade-insecure-requests`, // Upgrade HTTP to HTTPS
     `block-all-mixed-content` // Block mixed HTTP/HTTPS content
   ];
@@ -143,8 +143,8 @@ export function applyCSPToDocument(config: CSPConfig = defaultCSPConfig): void {
 export const securityHeaders = {
   // Prevent XSS attacks
   'X-Content-Type-Options': 'nosniff',
-  // Prevent clickjacking
-  'X-Frame-Options': 'DENY',
+  // Allow same-origin framing so Lovable preview can embed the app
+  'X-Frame-Options': 'SAMEORIGIN',
   // Enable XSS protection
   'X-XSS-Protection': '1; mode=block',
   // Require HTTPS
