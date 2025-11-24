@@ -138,31 +138,104 @@ const Header = () => {
       <div className="hidden lg:block border-b border-gray-200 bg-white">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center justify-between h-10 px-8">
-            {/* Left Side - Main category tabs */}
+            {/* Left Side - Company, Resources, Partners */}
             <nav className="flex items-center gap-6">
-              <Link to="/" className="relative py-2 text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary after:opacity-0 hover:after:opacity-100 after:transition-opacity">
-                Personal
+              {/* Company Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors group">
+                  Company
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/company-overview" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Company Overview
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/how-it-works" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      How it Works
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/marketplace-benefits" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Marketplace Benefits
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/careers" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Careers
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Link to="/marketplace-benefits" className="text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                Marketplace Benefits
               </Link>
-              <Link to="/" className="relative py-2 text-[13px] font-bold text-gray-900 transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary">
-                Business
-              </Link>
-              <Link to="/commercial-loans" className="relative py-2 text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary after:opacity-0 hover:after:opacity-100 after:transition-opacity">
-                Commercial
-              </Link>
+              
+              {/* Resources Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors group">
+                  Resources
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/loan-calculator" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Loan Calculator
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/industry-solutions" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Industry Solutions
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/sba-loans" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      SBA Resources
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
+              {/* Partners Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors group">
+                  Partners
+                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/brokers" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Brokers
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/lenders" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Lenders
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                    <Link to="/referral-partners" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Referral Partners
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
 
-            {/* Right Side - Utility links */}
+            {/* Right Side - Search, Customer Support and Sign In */}
             <div className="flex items-center gap-6">
-              <ConsultationPopup trigger={
-                <button className="text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors">
-                  Schedule a meeting
-                </button>
-              } />
+              <button className="text-gray-600 hover:text-gray-900 transition-colors" aria-label="Search">
+                <Search className="h-4 w-4" />
+              </button>
               
               {/* Customer Support Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors group">
-                  Customer service
+                  <Phone className="h-3 w-3" />
+                  Customer Support
                   <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
@@ -173,30 +246,32 @@ const Header = () => {
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/contact-us" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                    <Link to="/contact-us" className="text-sm text-gray-700 hover:text-primary font-medium">
                       Contact Us
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/customer-service" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                    <Link to="/customer-service" className="text-sm text-gray-700 hover:text-primary font-medium">
                       Customer Service
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/technical-support" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
+                    <Link to="/technical-support" className="text-sm text-gray-700 hover:text-primary font-medium">
                       Technical Support
                     </Link>
                   </DropdownMenuItem>
+                  <ConsultationPopup trigger={<DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2">
+                        <span className="text-sm text-gray-700 hover:text-primary font-medium cursor-pointer">
+                          Schedule Consultation
+                        </span>
+                      </DropdownMenuItem>} />
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <button className="text-[13px] font-medium text-gray-700 hover:text-gray-900 transition-colors">
-                Español
-              </button>
-              
-              <button className="text-gray-600 hover:text-gray-900 transition-colors" aria-label="Search">
-                <Search className="h-4 w-4" />
-              </button>
+              <a href="https://app.halolending.com/login" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-white text-[13px] font-bold rounded-md flex items-center gap-1 transition-colors px-4 py-1.5">
+                <Shield className="h-4 w-4" />
+                Sign In
+              </a>
             </div>
           </div>
         </div>
