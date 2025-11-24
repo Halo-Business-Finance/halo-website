@@ -280,7 +280,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="bg-white">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between h-20 px-4 sm:px-8">
+          <div className="flex items-center justify-between h-14 px-4 sm:px-8">
             {/* Mobile Menu Button */}
             <button className={`lg:hidden p-2 rounded-md hover:bg-gray-100 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
               <Menu className="h-6 w-6 text-gray-600" />
