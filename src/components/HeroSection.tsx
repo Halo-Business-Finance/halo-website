@@ -1,52 +1,117 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Shield, Lock } from "lucide-react";
+import { Shield, Lock, ArrowRight, Calculator, Users, DollarSign, Clock, CheckCircle } from "lucide-react";
 import LazyImage from "@/components/optimization/LazyImage";
 import heroBackground from "@/assets/new-hero-background.jpg";
+import LoanProcessCarousel from "@/components/LoanProcessCarousel";
+
 const HeroSection = () => {
-  console.log('HeroSection rendering, heroBackground:', heroBackground);
-  return <section className="relative min-h-[460px] md:min-h-[520px] flex items-center overflow-hidden" aria-label="Hero section">
-      <LazyImage src={heroBackground} alt="Business financing hero background" className="absolute inset-0 w-full h-full object-cover" priority={true} onLoad={() => console.log('Hero background image loaded successfully')} onError={() => console.log('Hero background image failed to load')} />
-      <div className="absolute inset-0 bg-black/60"></div>
-      <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10 relative z-10">
-        <div className="w-full items-center bg-transparent">
-          <header className="text-white space-y-6 bg-transparent">
-            <div className="space-y-5">
-              
-              <h1 className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
-                <span className="block text-white text-xl md:text-3xl">Nationwide Commercial &</span>
-                <span className="block text-primary-glow text-xl md:text-3xl text-slate-50">Business Financing Marketplace</span>
+  const quickStats = [
+    { icon: DollarSign, value: '$2.5B+', label: 'Funded' },
+    { icon: Users, value: '15K+', label: 'Businesses' },
+    { icon: Clock, value: '24hrs', label: 'Pre-Approval' },
+  ];
+
+  return (
+    <>
+      <section className="relative min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden" aria-label="Hero section">
+        <LazyImage 
+          src={heroBackground} 
+          alt="Business financing hero background" 
+          className="absolute inset-0 w-full h-full object-cover" 
+          priority={true} 
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/40"></div>
+        
+        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+          <div className="max-w-3xl">
+            <header className="text-white space-y-6">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 animate-fade-in">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-sm text-white/90">Over $2.5 Billion Funded</span>
+              </div>
+
+              {/* Main Heading */}
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                <span className="block text-white">Nationwide Commercial &</span>
+                <span className="block bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                  Business Financing Marketplace
+                </span>
               </h1>
               
-              <p className="text-xs md:text-base text-white max-w-4xl leading-relaxed">
-                <span className="block text-lg">Our Loan Marketplace offers flexible <Link to="/sba-loans" className="text-white underline hover:text-white font-medium">SBA</Link> and <Link to="/conventional-loans" className="text-white underline hover:text-white font-medium">Commercial Financing</Link></span>
-                <span className="block text-lg">to help your business get approved for a loan without the hassle of looking for a bank or lender.</span>
+              <p className="text-base md:text-lg text-white/90 max-w-2xl leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                Our Loan Marketplace offers flexible{' '}
+                <Link to="/sba-loans" className="text-blue-300 hover:text-blue-200 underline underline-offset-2 font-medium transition-colors">SBA</Link>
+                {' '}and{' '}
+                <Link to="/conventional-loans" className="text-blue-300 hover:text-blue-200 underline underline-offset-2 font-medium transition-colors">Commercial Financing</Link>
+                {' '}to help your business get approved without the hassle of finding a bank or lender.
               </p>
               
-              {/* Apply Here Button */}
-              <div className="pt-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
-                  <a href="https://app.halolending.com">Apply Here</a>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                <Button 
+                  size="lg" 
+                  className="group bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  asChild
+                >
+                  <a href="https://app.halolending.com" className="flex items-center gap-2">
+                    Apply Now - Get Pre-Approved
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+                
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-6 transition-all duration-300"
+                  asChild
+                >
+                  <Link to="/loan-calculator" className="flex items-center gap-2">
+                    <Calculator className="h-5 w-5" />
+                    Calculate Your Rate
+                  </Link>
                 </Button>
               </div>
-            </div>
 
-            {/* Trust indicators */}
-            <div className="flex flex-wrap items-center gap-6 pt-4 py-0">
-              <div className="flex items-center gap-2">
-                
-                
+              {/* Trust indicators */}
+              <div className="flex flex-wrap items-center gap-6 pt-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <div className="flex items-center gap-2 text-sm">
+                  <Lock className="h-4 w-4 text-emerald-400" />
+                  <span className="text-white/90">Bank-Level Security</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-emerald-400" />
+                  <span className="text-white/90">No Impact to Credit Score</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Shield className="h-4 w-4 text-emerald-400" />
+                  <span className="text-white/90">SBA Preferred Lender</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Lock className="h-4 w-4 text-primary-glow" />
-                <span className="text-white">Secure & Encrypted</span>
-              </div>
-            </div>
-          </header>
 
+              {/* Quick Stats - Mobile Only */}
+              <div className="grid grid-cols-3 gap-4 pt-4 md:hidden animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                {quickStats.map((stat, index) => (
+                  <div key={index} className="text-center p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/10">
+                    <stat.icon className="h-5 w-5 mx-auto mb-1 text-blue-300" />
+                    <div className="text-lg font-bold text-white">{stat.value}</div>
+                    <div className="text-xs text-white/70">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </header>
+          </div>
         </div>
-      </div>
-    </section>;
+      </section>
+      
+      {/* Loan Process Section */}
+      <LoanProcessCarousel />
+    </>
+  );
 };
+
 export default HeroSection;
