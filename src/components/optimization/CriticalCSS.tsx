@@ -21,13 +21,11 @@ const CriticalCSS = () => {
         -webkit-font-smoothing: antialiased;
       }
       
-      /* Critical header styles */
-      header {
-        background: hsl(var(--background));
+      /* Critical header styles - scoped to main site header only */
+      .site-header {
         position: sticky;
         top: 0;
         z-index: 50;
-        border-bottom: 1px solid hsl(var(--foreground) / 0.1);
       }
       
       /* Critical hero section */
