@@ -133,9 +133,9 @@ const Header = () => {
       href: "/private-placement"
     }]
   }];
-  return <header className="relative z-30">
+  return <header className="relative z-50 w-full">
       {/* Primary Navigation Bar - Top tier */}
-      <div className="hidden lg:block bg-[hsl(220,100%,15%)] border-b border-white/10">
+      <div className="hidden lg:block border-b border-white/10" style={{ backgroundColor: '#0a1628' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center justify-between h-10 px-8">
             {/* Left Side - Company, Resources, Partners */}
@@ -146,7 +146,7 @@ const Header = () => {
                   Company
                   <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
+                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1 z-50">
                   <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
                     <Link to="/company-overview" className="text-sm text-gray-700 hover:text-primary font-medium">
                       Company Overview
@@ -233,12 +233,12 @@ const Header = () => {
               
               {/* Customer Support Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-medium text-slate-300 hover:text-white transition-colors group">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-medium text-white/80 hover:text-white transition-colors group">
                   <Phone className="h-3 w-3" />
                   Customer Support
                   <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
+                <DropdownMenuContent align="end" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1 z-50">
                   <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
                     <a href="tel:+18007308461" className="flex items-center text-sm text-gray-700 hover:text-primary font-medium">
                       <Phone className="h-4 w-4 mr-2" />
@@ -278,12 +278,12 @@ const Header = () => {
       </div>
 
       {/* Logo Row - Second tier */}
-      <div className="bg-slate-800 border-b border-slate-700/50">
+      <div className="border-b border-white/10" style={{ backgroundColor: '#0d1f35' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center justify-between h-14 px-4 sm:px-8">
             {/* Mobile Menu Button */}
-            <button className={`lg:hidden p-2 rounded-md hover:bg-slate-700 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
-              <Menu className="h-6 w-6 text-slate-300" />
+            <button className={`lg:hidden p-2 rounded-md hover:bg-white/10 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
+              <Menu className="h-6 w-6 text-white/80" />
             </button>
             
             {/* Logo */}
@@ -300,18 +300,18 @@ const Header = () => {
       </div>
 
       {/* Secondary Navigation Bar - Third tier with horizontal menu items */}
-      <div className="bg-slate-800/95 hidden lg:block border-b border-slate-700/30">
+      <div className="hidden lg:block border-b border-white/5" style={{ backgroundColor: '#112845' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center h-12 px-8">
             {/* Horizontal Navigation - All items visible */}
             <nav className="flex items-center gap-1 flex-1">
               {secondaryNavWithDropdowns.map(item => (
                 <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-slate-300 hover:text-white hover:bg-slate-700/50 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                  <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
                     {item.title}
-                    <ChevronDown className="h-3.5 w-3.5 text-slate-500 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-xl rounded-lg p-2 min-w-[240px] mt-1">
+                  <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-xl rounded-lg p-2 min-w-[240px] mt-1 z-50">
                     {item.items.map(subItem => (
                       <DropdownMenuItem key={subItem.title} className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
                         <Link to={subItem.href} className="text-sm text-gray-700 hover:text-primary font-medium">
