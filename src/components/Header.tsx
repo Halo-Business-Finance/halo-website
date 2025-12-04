@@ -300,19 +300,20 @@ const Header = () => {
       </div>
 
       {/* Secondary Navigation Bar - Third tier with horizontal menu items */}
-      <div className="bg-white hidden lg:block border-b border-gray-200">
+      <div className="bg-gradient-to-r from-slate-50 to-white hidden lg:block border-b border-gray-200 shadow-sm">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center h-14 px-8">
+          <div className="flex items-center h-12 px-8">
             {/* Horizontal Navigation - All items visible */}
-            <nav className="flex items-center gap-8 flex-1">
+            <nav className="flex items-center gap-1 flex-1">
               {secondaryNavWithDropdowns.map(item => (
                 <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="text-[14px] font-medium text-gray-700 hover:text-gray-900 transition-colors whitespace-nowrap">
+                  <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-gray-700 hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
                     {item.title}
+                    <ChevronDown className="h-3.5 w-3.5 text-gray-400 group-hover:text-primary transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[220px] mt-1">
+                  <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-xl rounded-lg p-2 min-w-[240px] mt-1">
                     {item.items.map(subItem => (
-                      <DropdownMenuItem key={subItem.title} className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
+                      <DropdownMenuItem key={subItem.title} className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
                         <Link to={subItem.href} className="text-sm text-gray-700 hover:text-primary font-medium">
                           {subItem.title}
                         </Link>
@@ -325,7 +326,7 @@ const Header = () => {
             
             {/* Get Started Button */}
             <div className="ml-auto">
-              <Button className="bg-primary hover:bg-primary/90 text-white text-[13px] font-bold px-5 py-2 rounded-md flex items-center gap-2 shadow-sm transition-all hover:shadow-md" asChild>
+              <Button className="bg-primary hover:bg-primary/90 text-white text-[13px] font-bold px-5 py-2 rounded-md flex items-center gap-2 shadow-md hover:shadow-lg transition-all" asChild>
                 <Link to="/loan-calculator">
                   <Lock className="h-4 w-4" />
                   Get Started
