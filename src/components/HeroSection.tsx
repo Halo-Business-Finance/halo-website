@@ -25,7 +25,7 @@ const HeroSection = () => {
         
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
           <div className="max-w-3xl">
-            <header className="text-white space-y-6">
+            <div className="text-white space-y-6">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 animate-fade-in">
                 <span className="relative flex h-2 w-2">
@@ -103,7 +103,7 @@ const HeroSection = () => {
                   </div>
                 ))}
               </div>
-            </header>
+            </div>
           </div>
         </div>
       </section>
