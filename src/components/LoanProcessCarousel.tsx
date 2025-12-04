@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import LazyImage from "@/components/optimization/LazyImage";
+import { CheckCircle, Clock, FileText, CreditCard, DollarSign, ArrowRight } from "lucide-react";
 import step1SelectLoan from "@/assets/step1-select-loan.jpg";
 import step2AnswerQuestions from "@/assets/step2-answer-questions.jpg";
 import step3PreApproved from "@/assets/step3-pre-approved.jpg";
@@ -9,6 +10,8 @@ import step4UploadFinancials from "@/assets/step4-upload-financials.jpg";
 import step5GetFunded from "@/assets/step5-get-funded.jpg";
 
 const LoanProcessCarousel = () => {
+  const [activeStep, setActiveStep] = useState(1);
+
   const steps = [
     {
       step: 1,
@@ -16,7 +19,9 @@ const LoanProcessCarousel = () => {
       description: "Choose from our comprehensive range of loan products",
       detail: "Browse SBA, conventional, and specialized financing options tailored to your business needs.",
       image: step1SelectLoan,
-      color: "from-blue-600 to-blue-700"
+      icon: FileText,
+      color: "bg-blue-500",
+      time: "2 min"
     },
     {
       step: 2,
@@ -24,7 +29,9 @@ const LoanProcessCarousel = () => {
       description: "Complete our simple application about your loan request",
       detail: "Our streamlined application takes just 10 minutes to complete with smart form technology.",
       image: step2AnswerQuestions,
-      color: "from-emerald-600 to-emerald-700"
+      icon: CreditCard,
+      color: "bg-emerald-500",
+      time: "10 min"
     },
     {
       step: 3,
@@ -32,7 +39,9 @@ const LoanProcessCarousel = () => {
       description: "Authorize a soft credit check for instant pre-approval",
       detail: "Receive conditional approval within 24 hours with no impact to your credit score.",
       image: step3PreApproved,
-      color: "from-purple-600 to-purple-700"
+      icon: CheckCircle,
+      color: "bg-purple-500",
+      time: "24 hrs"
     },
     {
       step: 4,
@@ -40,7 +49,9 @@ const LoanProcessCarousel = () => {
       description: "Submit your documents to receive competitive term sheets",
       detail: "Secure document upload with bank-level encryption and automated verification.",
       image: step4UploadFinancials,
-      color: "from-amber-600 to-amber-700"
+      icon: FileText,
+      color: "bg-amber-500",
+      time: "1-2 days"
     },
     {
       step: 5,
@@ -48,23 +59,112 @@ const LoanProcessCarousel = () => {
       description: "Sign your loan documents and receive your funding",
       detail: "Digital closing process with same-day funding for approved applications.",
       image: step5GetFunded,
-      color: "from-green-600 to-green-700"
+      icon: DollarSign,
+      color: "bg-green-500",
+      time: "Same day"
     }
   ];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-white">
+    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-6 tracking-tight">
+          <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+            Simple 5-Step Process
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
             Our Streamlined Loan Process
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            We make commercial lending simple with our proven 5-step process that gets you funded faster.
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            We make commercial lending simple. Get funded in as little as 5 business days.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4" style={{ contain: 'layout style paint' }}>
+        {/* Interactive Step Indicator */}
+        <div className="max-w-4xl mx-auto mb-12 hidden md:block">
+          <div className="relative">
+            {/* Progress Line */}
+            <div className="absolute top-6 left-0 right-0 h-1 bg-slate-200 rounded-full">
+              <div 
+                className="h-full bg-primary rounded-full transition-all duration-500"
+                style={{ width: `${((activeStep - 1) / 4) * 100}%` }}
+              />
+            </div>
+            
+            {/* Step Buttons */}
+            <div className="relative flex justify-between">
+              {steps.map((step) => (
+                <button
+                  key={step.step}
+                  onClick={() => setActiveStep(step.step)}
+                  className={`flex flex-col items-center group transition-all duration-300 ${
+                    activeStep === step.step ? 'scale-110' : ''
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300 ${
+                      step.step <= activeStep 
+                        ? step.color 
+                        : 'bg-slate-300'
+                    } ${activeStep === step.step ? 'ring-4 ring-primary/20' : ''}`}
+                  >
+                    {step.step < activeStep ? (
+                      <CheckCircle className="h-6 w-6" />
+                    ) : (
+                      step.step
+                    )}
+                  </div>
+                  <span className={`text-sm mt-2 font-medium transition-colors ${
+                    activeStep === step.step ? 'text-primary' : 'text-slate-500'
+                  }`}>
+                    {step.title.split(' ')[0]}
+                  </span>
+                  <span className="text-xs text-slate-400 flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {step.time}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Active Step Detail - Desktop */}
+        <div className="max-w-4xl mx-auto mb-12 hidden md:block">
+          {steps.filter(s => s.step === activeStep).map((step) => (
+            <Card key={step.step} className="overflow-hidden border-border/50 shadow-xl animate-fade-in">
+              <div className="grid md:grid-cols-2">
+                <div className="relative h-64 md:h-auto">
+                  <LazyImage
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className={`${step.color} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
+                      Step {step.step}
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-8 flex flex-col justify-center">
+                  <div className={`inline-flex w-12 h-12 ${step.color} rounded-lg items-center justify-center mb-4`}>
+                    <step.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                  <p className="text-lg text-slate-700 mb-2">{step.description}</p>
+                  <p className="text-slate-500 mb-6">{step.detail}</p>
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <Clock className="h-4 w-4" />
+                    <span>Estimated time: <strong className="text-slate-700">{step.time}</strong></span>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden" style={{ contain: 'layout style paint' }}>
           <Carousel
             opts={{
               align: "start",
@@ -74,40 +174,55 @@ const LoanProcessCarousel = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {steps.map((step, index) => (
-                <CarouselItem key={step.step} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 flex-shrink-0">
-                  <div className="w-full h-[500px] max-w-[400px] mx-auto">
-                    <Card className="group bg-white border border-blue-900 hover:border-blue-800 shadow-sm hover:shadow-md transition-all duration-200 w-full h-full flex flex-col">
-                      {/* Step Image */}
-                      <div className="relative h-64 w-full overflow-hidden rounded-t-lg flex-shrink-0">
-                        <LazyImage
-                          src={step.image}
-                          alt={`Step ${step.step}: ${step.title}`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
+            <CarouselContent className="-ml-2">
+              {steps.map((step) => (
+                <CarouselItem key={step.step} className="pl-2 basis-[85%]">
+                  <Card className="group bg-white border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <LazyImage
+                        src={step.image}
+                        alt={`Step ${step.step}: ${step.title}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className={`${step.color} text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg`}>
+                          Step {step.step}
+                        </span>
                       </div>
-                      
-                      <div className="p-2 flex-1 flex flex-col justify-center text-left">
-                        <div className="flex-1 flex flex-col justify-center">
-                          <div className="mb-0">
-                            <span className="text-xs font-semibold text-slate-900 bg-slate-100 px-2 py-1 rounded uppercase tracking-wider">Step {step.step}</span>
-                          </div>
-                          <h3 className="text-xl font-bold text-slate-900 mb-0 leading-tight tracking-tight text-left">{step.title}</h3>
-                          <div className="w-full h-px bg-blue-600 mb-0"></div>
-                          <p className="text-slate-700 leading-relaxed mb-2 min-h-[48px] font-medium text-left">{step.description}</p>
-                          <p className="text-sm text-slate-600 leading-relaxed min-h-[60px] font-normal text-left">{step.detail}</p>
-                         </div>
-                       </div>
-                     </Card>
-                   </div>
+                    </div>
+                    
+                    <CardContent className="p-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <step.icon className="h-5 w-5 text-primary" />
+                        <span className="text-xs text-slate-500 flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {step.time}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{step.description}</p>
+                    </CardContent>
+                  </Card>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <div className="flex justify-center gap-2 mt-4">
+              <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static translate-y-0" />
+            </div>
           </Carousel>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <a 
+            href="https://app.halolending.com"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            Start Your Application
+            <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>
