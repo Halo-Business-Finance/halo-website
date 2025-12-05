@@ -97,29 +97,37 @@ const LoanProcessCarousel = () => {
                 <button
                   key={step.step}
                   onClick={() => setActiveStep(step.step)}
-                  className={`flex flex-col items-center group transition-all duration-300 ${
-                    activeStep === step.step ? 'scale-110' : ''
+                  className={`flex flex-col items-center group transition-all duration-500 ${
+                    activeStep === step.step ? 'scale-110' : 'hover:scale-105'
                   }`}
                 >
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300 ${
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold transition-all duration-500 ${
                       step.step <= activeStep 
-                        ? step.color 
-                        : 'bg-slate-300'
-                    } ${activeStep === step.step ? 'ring-4 ring-primary/20' : ''}`}
+                        ? `${step.color} shadow-lg` 
+                        : 'bg-slate-200 text-slate-500'
+                    } ${activeStep === step.step ? 'ring-4 ring-primary/30 shadow-xl scale-110' : ''} 
+                    ${step.step <= activeStep ? 'hover:shadow-xl' : 'hover:bg-slate-300'}`}
+                    style={{
+                      boxShadow: step.step === activeStep 
+                        ? '0 8px 32px rgba(var(--primary), 0.3)' 
+                        : undefined
+                    }}
                   >
                     {step.step < activeStep ? (
                       <CheckCircle className="h-6 w-6" />
                     ) : (
-                      step.step
+                      <span className={step.step <= activeStep ? 'text-white' : 'text-slate-500'}>{step.step}</span>
                     )}
                   </div>
-                  <span className={`text-sm mt-2 font-medium transition-colors ${
-                    activeStep === step.step ? 'text-primary' : 'text-slate-500'
+                  <span className={`text-sm mt-3 font-semibold transition-all duration-300 ${
+                    activeStep === step.step ? 'text-primary' : 'text-slate-500 group-hover:text-slate-700'
                   }`}>
                     {step.title.split(' ')[0]}
                   </span>
-                  <span className="text-xs text-slate-400 flex items-center gap-1">
+                  <span className={`text-xs flex items-center gap-1 transition-colors ${
+                    activeStep === step.step ? 'text-primary/70' : 'text-slate-400'
+                  }`}>
                     <Clock className="h-3 w-3" />
                     {step.time}
                   </span>
@@ -132,30 +140,31 @@ const LoanProcessCarousel = () => {
         {/* Active Step Detail - Desktop */}
         <div className="max-w-4xl mx-auto mb-12 hidden md:block">
           {steps.filter(s => s.step === activeStep).map((step) => (
-            <Card key={step.step} className="overflow-hidden border-border/50 shadow-xl animate-fade-in">
+            <Card key={step.step} className="overflow-hidden border-border/30 shadow-2xl animate-fade-in glass-card">
               <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-auto">
+                <div className="relative h-64 md:h-auto overflow-hidden group">
                   <LazyImage
                     src={step.image}
                     alt={step.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className={`${step.color} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
+                    <span className={`${step.color} text-white px-4 py-1.5 rounded-xl text-sm font-semibold shadow-lg backdrop-blur-sm`}>
                       Step {step.step}
                     </span>
                   </div>
                 </div>
-                <CardContent className="p-8 flex flex-col justify-center">
-                  <div className={`inline-flex w-12 h-12 ${step.color} rounded-lg items-center justify-center mb-4`}>
-                    <step.icon className="h-6 w-6 text-white" />
+                <CardContent className="p-8 flex flex-col justify-center bg-gradient-to-br from-card to-card/80">
+                  <div className={`inline-flex w-14 h-14 ${step.color} rounded-2xl items-center justify-center mb-5 shadow-lg`}>
+                    <step.icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-lg text-slate-700 mb-2">{step.description}</p>
-                  <p className="text-slate-500 mb-6">{step.detail}</p>
-                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <h3 className="text-2xl font-bold text-foreground mb-3">{step.title}</h3>
+                  <p className="text-lg text-foreground/80 mb-2">{step.description}</p>
+                  <p className="text-muted-foreground mb-6">{step.detail}</p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 rounded-lg px-4 py-2 w-fit">
                     <Clock className="h-4 w-4" />
-                    <span>Estimated time: <strong className="text-slate-700">{step.time}</strong></span>
+                    <span>Estimated time: <strong className="text-foreground">{step.time}</strong></span>
                   </div>
                 </CardContent>
               </div>
@@ -218,7 +227,7 @@ const LoanProcessCarousel = () => {
         <div className="text-center mt-12">
           <a 
             href="https://app.halolending.com"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 glass-button text-white font-semibold px-10 py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-glow-pulse"
           >
             Start Your Application
             <ArrowRight className="h-5 w-5" />

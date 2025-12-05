@@ -3,6 +3,7 @@ import React, { lazy, Suspense } from "react";
 import { SimpleErrorBoundary } from "@/components/SimpleErrorBoundary";
 import { Toaster } from "@/components/ui/toaster";
 import LiveEditOverlay from "@/components/admin/LiveEditOverlay";
+import FloatingCTA from "@/components/FloatingCTA";
 
 // Preload critical pages (above the fold)
 import Index from "./pages/Index";
@@ -178,6 +179,7 @@ const App: React.FC = () => {
           </Routes>
         </Suspense>
         <LiveEditOverlay />
+        <FloatingCTA />
         <Toaster />
       </BrowserRouter>
     </SimpleErrorBoundary>
