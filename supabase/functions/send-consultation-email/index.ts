@@ -1,29 +1,52 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-interface ConsultationRequest {
-  encrypted_name: string;
-  encrypted_email: string;
-  encrypted_phone?: string;
-  company?: string;
-  loanProgram: string;
-  loanAmount: string;
-  timeframe: string;
-  message?: string;
-  user_id: string;
-  csrf_token?: string;
-}
+// Zod schema for consultation request validation
+const ConsultationRequestSchema = z.object({
+  encrypted_name: z.string().min(1, "Name is required").max(500, "Name too long"),
+  encrypted_email: z.string().min(1, "Email is required").max(500, "Email too long"),
+  encrypted_phone: z.string().max(500, "Phone too long").optional(),
+  company: z.string().max(200, "Company name too long").optional(),
+  loan_program: z.string().min(1, "Loan program is required").max(100, "Loan program too long"),
+  loan_amount: z.string().max(50, "Loan amount too long").optional().default(''),
+  timeframe: z.string().max(50, "Timeframe too long").optional().default(''),
+  message: z.string().max(2000, "Message too long").optional(),
+  user_id: z.string().uuid("Invalid user ID format"),
+  csrf_token: z.string().max(500).optional(),
+});
+
+type ConsultationRequest = z.infer<typeof ConsultationRequestSchema>;
 
 interface MicrosoftTokenResponse {
   access_token: string;
   token_type: string;
   expires_in: number;
 }
+
+// Sanitize inputs to prevent XSS
+const sanitizeInput = (input: string): string => {
+  return input
+    .replace(/<script[^>]*>.*?<\/script>/gi, '')
+    .replace(/<[^>]*>/g, '')
+    .trim()
+    .substring(0, 500);
+};
+
+// HTML escape for email content
+const escapeHtml = (unsafe: string): string => {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -32,43 +55,41 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    // Enhanced input validation and sanitization
+    // Parse and validate request body with zod schema
     const rawData = await req.json();
     
-    // Validate required fields for encrypted data
-    if (!rawData.encrypted_name || !rawData.encrypted_email || !rawData.loan_program) {
-      throw new Error('Missing required encrypted fields');
+    const validationResult = ConsultationRequestSchema.safeParse(rawData);
+    
+    if (!validationResult.success) {
+      const errors = validationResult.error.errors.map(e => `${e.path.join('.')}: ${e.message}`);
+      console.error('Validation errors:', errors);
+      return new Response(
+        JSON.stringify({ 
+          success: false,
+          error: 'Invalid request data',
+          details: errors
+        }),
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        }
+      );
     }
     
-    // Validate user authentication
-    if (!rawData.user_id) {
-      throw new Error('User authentication required');
-    }
+    const validatedData = validationResult.data;
     
-    // Validate CSRF token if provided
-    if (rawData.csrf_token && typeof rawData.csrf_token !== 'string') {
-      throw new Error('Invalid CSRF token format');
-    }
-    
-    // Sanitize inputs to prevent XSS
-    const sanitizeInput = (input: string): string => {
-      return input.replace(/<script[^>]*>.*?<\/script>/gi, '')
-                  .replace(/<[^>]*>/g, '')
-                  .trim()
-                  .substring(0, 500); // Limit input length
-    };
-    
-    const consultationData: ConsultationRequest = {
-      encrypted_name: rawData.encrypted_name, // Keep encrypted
-      encrypted_email: rawData.encrypted_email, // Keep encrypted  
-      encrypted_phone: rawData.encrypted_phone || undefined, // Keep encrypted
-      company: rawData.company ? sanitizeInput(rawData.company) : undefined,
-      loanProgram: sanitizeInput(rawData.loan_program),
-      loanAmount: rawData.loan_amount ? sanitizeInput(rawData.loan_amount) : '',
-      timeframe: rawData.timeframe ? sanitizeInput(rawData.timeframe) : '',
-      message: rawData.message ? sanitizeInput(rawData.message) : undefined,
-      user_id: rawData.user_id,
-      csrf_token: rawData.csrf_token
+    // Apply additional sanitization to non-encrypted fields
+    const consultationData = {
+      encrypted_name: validatedData.encrypted_name,
+      encrypted_email: validatedData.encrypted_email,
+      encrypted_phone: validatedData.encrypted_phone,
+      company: validatedData.company ? sanitizeInput(validatedData.company) : undefined,
+      loanProgram: sanitizeInput(validatedData.loan_program),
+      loanAmount: validatedData.loan_amount ? sanitizeInput(validatedData.loan_amount) : '',
+      timeframe: validatedData.timeframe ? sanitizeInput(validatedData.timeframe) : '',
+      message: validatedData.message ? sanitizeInput(validatedData.message) : undefined,
+      user_id: validatedData.user_id,
+      csrf_token: validatedData.csrf_token
     };
     
     // Initialize Supabase client
@@ -133,15 +154,6 @@ const handler = async (req: Request): Promise<Response> => {
     const tokenData: MicrosoftTokenResponse = await tokenResponse.json();
 
     // Prepare email content with HTML escaping for security
-    const escapeHtml = (unsafe: string): string => {
-      return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    };
-    
     const subject = `New Encrypted Consultation Request - ID: ${consultation.id}`;
     const emailBody = `
       <h2>New Consultation Request (Encrypted Data)</h2>
