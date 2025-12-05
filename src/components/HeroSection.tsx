@@ -55,7 +55,7 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
                 <Button 
                   size="lg" 
-                  className="group bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="group glass-button text-white font-semibold px-8 py-6 rounded-xl hover:scale-105 transition-all duration-300 animate-glow-pulse"
                   asChild
                 >
                   <a href="https://app.halolending.com" className="flex items-center gap-2">
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-6 transition-all duration-300"
+                  className="glass-outline text-white font-semibold px-8 py-6 rounded-xl transition-all duration-300 hover:scale-105"
                   asChild
                 >
                   <Link to="/loan-calculator" className="flex items-center gap-2">
