@@ -5,6 +5,10 @@ import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!
 const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
+const RATE_LIMIT_MAX_REQUESTS = 5; // 5 requests per minute per IP
+
 // Zod schemas for request validation
 const LeadSubmissionSchema = z.object({
   form_type: z.string().min(1, "Form type is required").max(50, "Form type too long"),
@@ -42,6 +46,75 @@ const extractValidIp = (req: Request): string | null => {
   return firstIp && firstIp !== '' && isValidIp(firstIp) ? firstIp : null;
 };
 
+// CSRF token validation helper
+async function validateCSRFToken(supabase: ReturnType<typeof createClient>, token: string): Promise<{ isValid: boolean; reason?: string }> {
+  if (!token) {
+    return { isValid: false, reason: 'Token is required' };
+  }
+
+  const { data: tokenData, error: fetchError } = await supabase
+    .from('security_configs')
+    .select('*')
+    .eq('config_key', `csrf_token_${token}`)
+    .eq('is_active', true)
+    .single();
+
+  if (fetchError || !tokenData) {
+    return { isValid: false, reason: 'Invalid token' };
+  }
+
+  const tokenConfig = tokenData.config_value as { expires: number; sessionId?: string };
+  const currentTime = Date.now();
+
+  // Check if token has expired
+  if (currentTime > tokenConfig.expires) {
+    await supabase
+      .from('security_configs')
+      .update({ is_active: false })
+      .eq('id', tokenData.id);
+    return { isValid: false, reason: 'Token expired' };
+  }
+
+  // Mark token as used (one-time use)
+  await supabase
+    .from('security_configs')
+    .update({ 
+      is_active: false,
+      config_value: {
+        ...tokenConfig,
+        used_at: currentTime
+      }
+    })
+    .eq('id', tokenData.id);
+
+  return { isValid: true };
+}
+
+// Rate limiting helper
+async function checkRateLimit(supabase: ReturnType<typeof createClient>, ip: string): Promise<{ allowed: boolean; remaining: number }> {
+  const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW_MS).toISOString();
+  
+  // Count recent requests from this IP
+  const { count, error } = await supabase
+    .from('security_events')
+    .select('*', { count: 'exact', head: true })
+    .eq('event_type', 'lead_submission_attempt')
+    .eq('ip_address', ip)
+    .gte('created_at', windowStart);
+
+  if (error) {
+    console.error('Rate limit check error:', error);
+    // Allow on error to not block legitimate requests
+    return { allowed: true, remaining: RATE_LIMIT_MAX_REQUESTS };
+  }
+
+  const currentCount = count || 0;
+  const allowed = currentCount < RATE_LIMIT_MAX_REQUESTS;
+  const remaining = Math.max(0, RATE_LIMIT_MAX_REQUESTS - currentCount - 1);
+
+  return { allowed, remaining };
+}
+
 Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -52,8 +125,85 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
     const url = new URL(req.url)
     
-    // POST endpoint for public form submissions (no auth required)
+    // POST endpoint for public form submissions (requires CSRF token)
     if (req.method === 'POST') {
+      const ipValid = extractValidIp(req);
+      
+      // Rate limiting check
+      if (ipValid) {
+        const rateLimit = await checkRateLimit(supabase, ipValid);
+        
+        if (!rateLimit.allowed) {
+          console.warn(`Rate limit exceeded for IP: ${ipValid}`);
+          
+          // Log rate limit exceeded event
+          await supabase.from('security_events').insert({
+            event_type: 'lead_submission_rate_limited',
+            severity: 'medium',
+            ip_address: ipValid,
+            user_agent: req.headers.get('user-agent') || 'unknown',
+            event_data: { reason: 'rate_limit_exceeded' }
+          });
+          
+          return new Response(
+            JSON.stringify({ success: false, error: 'Too many requests. Please try again later.' }),
+            { 
+              status: 429, 
+              headers: { 
+                ...corsHeaders, 
+                'Content-Type': 'application/json',
+                'Retry-After': '60'
+              } 
+            }
+          );
+        }
+      }
+      
+      // CSRF token validation
+      const csrfToken = req.headers.get('x-csrf-token');
+      
+      if (!csrfToken) {
+        console.warn('Lead submission attempt without CSRF token');
+        return new Response(
+          JSON.stringify({ success: false, error: 'CSRF token required' }),
+          { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+      
+      const csrfValidation = await validateCSRFToken(supabase, csrfToken);
+      
+      if (!csrfValidation.isValid) {
+        console.warn(`CSRF validation failed: ${csrfValidation.reason}`);
+        
+        // Log failed CSRF validation
+        await supabase.from('security_events').insert({
+          event_type: 'csrf_validation_failed',
+          severity: 'high',
+          ip_address: ipValid,
+          user_agent: req.headers.get('user-agent') || 'unknown',
+          event_data: { 
+            reason: csrfValidation.reason,
+            endpoint: 'admin-leads'
+          }
+        });
+        
+        return new Response(
+          JSON.stringify({ success: false, error: 'Invalid or expired CSRF token' }),
+          { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+      
+      // Log the submission attempt for rate limiting tracking
+      if (ipValid) {
+        await supabase.from('security_events').insert({
+          event_type: 'lead_submission_attempt',
+          severity: 'info',
+          ip_address: ipValid,
+          user_agent: req.headers.get('user-agent') || 'unknown',
+          event_data: { csrf_validated: true }
+        });
+      }
+      
       const body = await req.json();
       
       // Validate request body with zod schema
@@ -69,7 +219,6 @@ Deno.serve(async (req) => {
       }
       
       const validatedData = validationResult.data;
-      const ipValid = extractValidIp(req);
 
       const { data, error } = await supabase
         .from('lead_submissions')
