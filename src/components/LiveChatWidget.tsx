@@ -43,7 +43,7 @@ const LiveChatWidget = () => {
         className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${
           isOpen 
             ? 'bg-destructive text-destructive-foreground rotate-90' 
-            : 'bg-primary text-primary-foreground animate-pulse hover:animate-none'
+            : 'bg-primary text-primary-foreground'
         }`}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
