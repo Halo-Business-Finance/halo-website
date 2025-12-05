@@ -186,41 +186,8 @@
   <body>
     <div id="root"></div>
     <script>
-      (function(){
-        try {
-          if (!sessionStorage.getItem('sw-cleaned') && 'serviceWorker' in navigator) {
-            Promise.resolve()
-              .then(() => navigator.serviceWorker.getRegistrations())
-              .then(regs => {
-                if (regs.length > 0) {
-                  return Promise.all(regs.map(r => r.unregister())).then(() => true);
-                }
-                return false;
-              })
-              .then(hadSW => {
-                if ('caches' in window) {
-                  return caches.keys().then(keys => {
-                    if (keys.length > 0) {
-                      return Promise.all(keys.map(k => caches.delete(k))).then(() => hadSW || true);
-                    }
-                    return hadSW;
-                  });
-                }
-                return hadSW;
-              })
-              .then(needsReload => {
-                if (needsReload) {
-                  console.log('Old service workers unregistered. Reloading to fetch fresh assets...');
-                  location.reload();
-                } else {
-                  // No cleanup needed, mark as done for this session
-                  sessionStorage.setItem('sw-cleaned', '1');
-                }
-              })
-              .catch(err => console.warn('SW cleanup failed:', err));
-          }
-        } catch (e) { console.warn('SW cleanup not applied:', e); }
-      })();
+      // Mark page as loaded - no more service worker cleanup needed
+      // The enterprise service worker is disabled to prevent loading issues
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
