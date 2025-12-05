@@ -1964,6 +1964,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      secure_verify_admin_password: {
+        Args: { p_admin_email: string; p_password_hash: string }
+        Returns: {
+          admin_id: string
+          failed_attempts: number
+          is_locked: boolean
+          is_valid: boolean
+        }[]
+      }
       should_log_security_event:
         | {
             Args: {
