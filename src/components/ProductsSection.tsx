@@ -575,11 +575,11 @@ const ProductsSection = () => {
             
             {/* Navigation Controls - Under Carousel */}
             <div className="flex justify-center gap-4 mt-6">
-              <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white shadow-lg" onClick={scrollPrev} disabled={prevBtnDisabled}>
+              <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white shadow-lg" onClick={scrollPrev} disabled={prevBtnDisabled} aria-label="Previous loan products">
                 <ChevronLeft className="h-4 w-4" />
               </Button>
               
-              <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white shadow-lg" onClick={scrollNext} disabled={nextBtnDisabled}>
+              <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white shadow-lg" onClick={scrollNext} disabled={nextBtnDisabled} aria-label="Next loan products">
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
