@@ -557,12 +557,12 @@ const ProductsSection = () => {
                         <div className="flex flex-col gap-2">
                           <Button asChild size="sm" className="w-full">
                             <Link to={product.learnLink}>
-                              Learn More
+                              Learn More<span className="sr-only"> about {product.title}</span>
                             </Link>
                           </Button>
                           <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
                             <Link to={product.applyLink}>
-                              Apply Now
+                              Apply Now<span className="sr-only"> for {product.title}</span>
                             </Link>
                           </Button>
                         </div>
@@ -646,12 +646,12 @@ const ProductsSection = () => {
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
                       <Link to={product.learnLink}>
-                        Learn More
+                        Learn More<span className="sr-only"> about {product.title}</span>
                       </Link>
                     </Button>
                     <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
                       <Link to={product.applyLink}>
-                        Apply Now
+                        Apply Now<span className="sr-only"> for {product.title}</span>
                       </Link>
                     </Button>
                   </div>
@@ -689,12 +689,12 @@ const ProductsSection = () => {
                   <div className="flex flex-col gap-2">
                     <Button asChild size="sm" className="w-full">
                       <Link to={product.learnLink}>
-                        Learn More
+                        Learn More<span className="sr-only"> about {product.title}</span>
                       </Link>
                     </Button>
                     <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
                       <Link to={product.applyLink}>
-                        Apply Now
+                        Apply Now<span className="sr-only"> for {product.title}</span>
                       </Link>
                     </Button>
                   </div>
