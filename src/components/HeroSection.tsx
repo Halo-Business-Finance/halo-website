@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Lock, ArrowRight, Calculator, Users, DollarSign, Clock, CheckCircle } from "lucide-react";
-import LazyImage from "@/components/optimization/LazyImage";
 import heroBackground from "@/assets/new-hero-background.jpg";
 import LoanProcessCarousel from "@/components/LoanProcessCarousel";
 
@@ -15,11 +14,13 @@ const HeroSection = () => {
   return (
     <>
       <section className="relative min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden" aria-label="Hero section">
-        <LazyImage 
+        <img 
           src={heroBackground} 
           alt="Business financing hero background" 
-          className="absolute inset-0 w-full h-full object-cover" 
-          priority={true} 
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/40"></div>
         
