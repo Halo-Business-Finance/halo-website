@@ -18,7 +18,6 @@ const HeroSection = () => {
           src={heroBackground} 
           alt="Business financing hero background" 
           className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
           loading="eager"
           decoding="async"
         />
