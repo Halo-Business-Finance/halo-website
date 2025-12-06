@@ -59,6 +59,13 @@ export type Database = {
             referencedRelation: "admin_users"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "admin_audit_log_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
+            referencedColumns: ["id"]
+          },
         ]
       }
       admin_password_changes: {
@@ -119,7 +126,6 @@ export type Database = {
           expires_at: string
           id: string
           ip_address: unknown
-          session_token: string
           session_token_hash: string | null
           token_salt: string | null
           user_agent: string | null
@@ -130,7 +136,6 @@ export type Database = {
           expires_at: string
           id?: string
           ip_address?: unknown
-          session_token: string
           session_token_hash?: string | null
           token_salt?: string | null
           user_agent?: string | null
@@ -141,7 +146,6 @@ export type Database = {
           expires_at?: string
           id?: string
           ip_address?: unknown
-          session_token?: string
           session_token_hash?: string | null
           token_salt?: string | null
           user_agent?: string | null
@@ -152,6 +156,13 @@ export type Database = {
             columns: ["admin_user_id"]
             isOneToOne: false
             referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "admin_sessions_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
             referencedColumns: ["id"]
           },
         ]
@@ -557,6 +568,13 @@ export type Database = {
             referencedRelation: "admin_users"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "cms_content_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
+            referencedColumns: ["id"]
+          },
         ]
       }
       compliance_metrics: {
@@ -823,6 +841,13 @@ export type Database = {
             columns: ["assigned_to"]
             isOneToOne: false
             referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lead_submissions_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
             referencedColumns: ["id"]
           },
           {
@@ -1101,10 +1126,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "security_logs_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "security_logs_resolved_by_fkey"
             columns: ["resolved_by"]
             isOneToOne: false
             referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "security_logs_resolved_by_fkey"
+            columns: ["resolved_by"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
             referencedColumns: ["id"]
           },
         ]
@@ -1167,6 +1206,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seo_settings_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "admin_users_secure"
             referencedColumns: ["id"]
           },
         ]
@@ -1448,7 +1494,60 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      admin_users_secure: {
+        Row: {
+          account_locked_until: string | null
+          created_at: string | null
+          email: string | null
+          failed_login_attempts: number | null
+          full_name: string | null
+          id: string | null
+          is_active: boolean | null
+          last_login_at: string | null
+          mfa_enabled: boolean | null
+          mfa_status: string | null
+          password_hash_masked: string | null
+          password_salt_masked: string | null
+          role: string | null
+          security_clearance_level: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          account_locked_until?: string | null
+          created_at?: string | null
+          email?: string | null
+          failed_login_attempts?: number | null
+          full_name?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          last_login_at?: string | null
+          mfa_enabled?: boolean | null
+          mfa_status?: never
+          password_hash_masked?: never
+          password_salt_masked?: never
+          role?: string | null
+          security_clearance_level?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          account_locked_until?: string | null
+          created_at?: string | null
+          email?: string | null
+          failed_login_attempts?: number | null
+          full_name?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          last_login_at?: string | null
+          mfa_enabled?: boolean | null
+          mfa_status?: never
+          password_hash_masked?: never
+          password_salt_masked?: never
+          role?: string | null
+          security_clearance_level?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       advanced_rate_limit_check: {
@@ -1502,6 +1601,17 @@ export type Database = {
           p_window_minutes?: number
         }
         Returns: Json
+      }
+      check_encryption_key_health: {
+        Args: never
+        Returns: {
+          days_until_expiry: number
+          key_id: string
+          key_identifier: string
+          last_used_at: string
+          needs_rotation: boolean
+          status: string
+        }[]
       }
       cleanup_expired_admin_sessions: { Args: never; Returns: number }
       cleanup_expired_sessions: { Args: never; Returns: number }
@@ -1928,6 +2038,7 @@ export type Database = {
       }
       optimize_security_events: { Args: never; Returns: number }
       optimize_security_events_v2: { Args: never; Returns: number }
+      rotate_encryption_keys: { Args: never; Returns: Json }
       schedule_key_rotation: {
         Args: { p_key_identifier: string; p_rotation_date?: string }
         Returns: boolean
@@ -2077,6 +2188,10 @@ export type Database = {
         Returns: boolean
       }
       verify_admin_access_with_session_check: { Args: never; Returns: boolean }
+      verify_admin_credentials_secure: {
+        Args: { p_email: string; p_password_hash: string }
+        Returns: Json
+      }
       verify_admin_password: {
         Args: {
           admin_email: string
