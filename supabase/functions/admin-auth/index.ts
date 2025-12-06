@@ -16,6 +16,31 @@ interface AuthResponse {
   error?: string
 }
 
+// Geo-blocking check helper
+async function checkGeoBlock(ip: string, email?: string): Promise<{ allowed: boolean; reason?: string; risk_score: number }> {
+  try {
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const response = await fetch(`${supabaseUrl}/functions/v1/geo-block-check`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')}`
+      },
+      body: JSON.stringify({ ip_address: ip, admin_email: email, action: 'login' })
+    });
+    
+    if (!response.ok) {
+      console.warn('[Admin Auth] Geo-block check failed, allowing access');
+      return { allowed: true, risk_score: 0 };
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('[Admin Auth] Geo-block check error:', error);
+    return { allowed: true, risk_score: 0 }; // Fail open for availability
+  }
+}
+
 Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -24,6 +49,10 @@ Deno.serve(async (req) => {
 
   try {
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
+    
+    // Get client IP early for geo-blocking
+    const xff = req.headers.get('x-forwarded-for')
+    const clientIp = xff ? xff.split(',')[0].trim() : (req.headers.get('x-real-ip') || req.headers.get('cf-connecting-ip') || '127.0.0.1')
     
     if (req.method === 'POST') {
       const payload: Partial<LoginRequest & { action?: string; token?: string }> = await req.json()
@@ -117,6 +146,56 @@ Deno.serve(async (req) => {
         )
       }
 
+      // Geo-blocking check before processing login
+      const geoCheck = await checkGeoBlock(clientIp, normalizedEmail);
+      
+      if (!geoCheck.allowed) {
+        console.warn(`[Admin Auth] Geo-blocked login attempt from ${clientIp}: ${geoCheck.reason}`);
+        
+        // Log blocked attempt
+        await supabase.from('security_logs').insert({
+          event_type: 'admin_login_geo_blocked',
+          severity: 'critical',
+          message: `Admin login blocked from suspicious location: ${geoCheck.reason}`,
+          details: { 
+            email: normalizedEmail, 
+            ip: clientIp, 
+            risk_score: geoCheck.risk_score,
+            reason: geoCheck.reason 
+          },
+          ip_address: clientIp,
+          user_agent: req.headers.get('user-agent') || 'unknown'
+        });
+
+        return new Response(
+          JSON.stringify({ 
+            success: false, 
+            error: 'Access denied from your location. Contact administrator if this is unexpected.',
+            geo_blocked: true
+          }),
+          { 
+            status: 403, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        )
+      }
+
+      // Log if medium risk but allowed
+      if (geoCheck.risk_score >= 40) {
+        await supabase.from('security_logs').insert({
+          event_type: 'admin_login_unusual_location',
+          severity: 'warning',
+          message: `Admin login from unusual location allowed with monitoring`,
+          details: { 
+            email: normalizedEmail, 
+            ip: clientIp, 
+            risk_score: geoCheck.risk_score 
+          },
+          ip_address: clientIp,
+          user_agent: req.headers.get('user-agent') || 'unknown'
+        });
+      }
+
       // Verify admin user credentials
       const { data: adminUser, error: userError } = await supabase
         .from('admin_users')
@@ -163,21 +242,27 @@ Deno.serve(async (req) => {
         .update({ failed_login_attempts: 0 })
         .eq('id', adminUser.id)
 
-      // Generate session token
+      // Generate session token with hash
       const sessionToken = crypto.randomUUID()
+      const tokenSalt = crypto.randomUUID()
+      const encoder = new TextEncoder()
+      const tokenData = encoder.encode(sessionToken + tokenSalt)
+      const hashBuffer = await crypto.subtle.digest('SHA-256', tokenData)
+      const hashArray = Array.from(new Uint8Array(hashBuffer))
+      const sessionTokenHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
+      
       const expiresAt = new Date()
       expiresAt.setHours(expiresAt.getHours() + 24) // 24 hour session
 
-      // Create session
-      const xff = req.headers.get('x-forwarded-for')
-      const clientIp = xff ? xff.split(',')[0].trim() : (req.headers.get('x-real-ip') || req.headers.get('cf-connecting-ip') || null)
+      // Create session with hashed token
       const userAgent = req.headers.get('user-agent') || null
 
       const { error: sessionError } = await supabase
         .from('admin_sessions')
         .insert({
           admin_user_id: adminUser.id,
-          session_token: sessionToken,
+          session_token_hash: sessionTokenHash,
+          token_salt: tokenSalt,
           expires_at: expiresAt.toISOString(),
           ip_address: clientIp,
           user_agent: userAgent
