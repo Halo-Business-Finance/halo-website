@@ -63,6 +63,13 @@ const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminSetup = lazy(() => import("./pages/AdminSetup"));
 const AuthPage = lazy(() => import("./pages/AuthPage"));
 
+// Debt and Equity pages
+const DebtAndEquityPage = lazy(() => import("./pages/DebtAndEquityPage"));
+const DebtFinancingPage = lazy(() => import("./pages/DebtFinancingPage"));
+const EquityFinancingPage = lazy(() => import("./pages/EquityFinancingPage"));
+const MezzanineFinancingPage = lazy(() => import("./pages/MezzanineFinancingPage"));
+const PrivatePlacementPage = lazy(() => import("./pages/PrivatePlacementPage"));
+
 // Lazy load application forms
 const SBALoanApplication = lazy(() => import("./pages/SBALoanApplication"));
 const SBA504LoanApplication = lazy(() => import("./pages/SBA504LoanApplication"));
@@ -168,6 +175,12 @@ const App: React.FC = () => {
             <Route path="/technical-support" element={<TechnicalSupportPage />} />
             <Route path="/multifamily-loans" element={<MultifamilyLoansPage />} />
             <Route path="/asset-based-loans" element={<AssetBasedLoansPage />} />
+            
+            <Route path="/debt-and-equity" element={<DebtAndEquityPage />} />
+            <Route path="/debt-financing" element={<DebtFinancingPage />} />
+            <Route path="/equity-financing" element={<EquityFinancingPage />} />
+            <Route path="/mezzanine-financing" element={<MezzanineFinancingPage />} />
+            <Route path="/private-placement" element={<PrivatePlacementPage />} />
             
             
             <Route path="/admin" element={<AdminDashboard />} />
