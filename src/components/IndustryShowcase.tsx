@@ -217,10 +217,19 @@ const IndustryShowcase = () => {
           </div>
 
           {/* Desktop Indicators */}
-          <div className="flex justify-center space-x-2 mt-6" role="tablist" aria-label="Industry navigation">
+          <div className="flex justify-center gap-4 mt-6" role="tablist" aria-label="Industry navigation">
             {Array.from({
-            length: Math.max(1, industries.length - 3)
-          }).map((_, index) => <button key={index} onClick={() => setCurrentIndex(index)} className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentIndex ? 'bg-primary scale-110' : 'bg-gray-300 hover:bg-gray-400'}`} aria-label={`View industry group ${index + 1}`} />)}
+              length: Math.max(1, industries.length - 3)
+            }).map((_, index) => (
+              <button 
+                key={index} 
+                onClick={() => setCurrentIndex(index)} 
+                className="w-6 h-6 flex items-center justify-center"
+                aria-label={`View industry group ${index + 1}`}
+              >
+                <span className={`w-3 h-3 rounded-full transition-all duration-200 block ${index === currentIndex ? 'bg-primary scale-110' : 'bg-gray-300 hover:bg-gray-400'}`} />
+              </button>
+            ))}
           </div>
         </div>
 
