@@ -120,6 +120,8 @@ export type Database = {
           id: string
           ip_address: unknown
           session_token: string
+          session_token_hash: string | null
+          token_salt: string | null
           user_agent: string | null
         }
         Insert: {
@@ -129,6 +131,8 @@ export type Database = {
           id?: string
           ip_address?: unknown
           session_token: string
+          session_token_hash?: string | null
+          token_salt?: string | null
           user_agent?: string | null
         }
         Update: {
@@ -138,6 +142,8 @@ export type Database = {
           id?: string
           ip_address?: unknown
           session_token?: string
+          session_token_hash?: string | null
+          token_salt?: string | null
           user_agent?: string | null
         }
         Relationships: [
