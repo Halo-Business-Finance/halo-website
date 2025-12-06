@@ -128,3 +128,6 @@ verify_jwt = false
 
 [functions.admin-cms-import]
 verify_jwt = false
+
+[functions.rotate-encryption-keys]
+verify_jwt = false  # Called by pg_cron with service role
