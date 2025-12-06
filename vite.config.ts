@@ -22,8 +22,26 @@ export default defineConfig(({ mode }) => ({
     minify: 'esbuild',
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+        manualChunks: (id) => {
+          // Core React libraries
+          if (id.includes('node_modules/react-dom')) return 'vendor-react';
+          if (id.includes('node_modules/react-router-dom')) return 'vendor-react';
+          if (id.includes('node_modules/react/')) return 'vendor-react';
+          
+          // Radix UI components - separate chunk
+          if (id.includes('@radix-ui')) return 'vendor-radix';
+          
+          // Charts library - separate chunk (large)
+          if (id.includes('recharts') || id.includes('d3-')) return 'vendor-charts';
+          
+          // Form libraries
+          if (id.includes('react-hook-form') || id.includes('@hookform')) return 'vendor-forms';
+          
+          // Animation/carousel
+          if (id.includes('embla-carousel') || id.includes('framer-motion')) return 'vendor-animation';
+          
+          // Supabase
+          if (id.includes('@supabase')) return 'vendor-supabase';
         },
       },
     },
