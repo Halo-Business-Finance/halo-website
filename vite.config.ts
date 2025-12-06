@@ -33,19 +33,14 @@ export default defineConfig(({ mode }) => ({
             return 'ui';
           }
           
-          // Charts - only load when needed (lazy loaded)
-          if (id.includes('node_modules/recharts')) {
+          // Charts and chart components together to avoid forwardRef issues
+          if (id.includes('node_modules/recharts') || id.includes('src/components/charts/')) {
             return 'charts';
           }
           
           // Forms - only on specific pages
           if (id.includes('react-hook-form') || id.includes('@hookform/resolvers') || id.includes('zod')) {
             return 'forms';
-          }
-          
-          // Split out large chart components
-          if (id.includes('src/components/charts/')) {
-            return 'chart-components';
           }
           
           // Split out optimization utilities
@@ -72,6 +67,7 @@ export default defineConfig(({ mode }) => ({
       "@tanstack/react-query",
       "react/jsx-runtime",
       "react/jsx-dev-runtime",
+      "recharts",
     ],
   },
   optimizeDeps: {
