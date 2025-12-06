@@ -15,41 +15,6 @@ export default defineConfig(({ mode }) => ({
     componentTagger(),
   ].filter(Boolean),
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          // Core dependencies - always needed
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-            return 'vendor';
-          }
-          
-          // Router - needed on most pages
-          if (id.includes('node_modules/react-router-dom')) {
-            return 'router';
-          }
-          
-          // UI components - used across the app
-          if (id.includes('@radix-ui')) {
-            return 'ui';
-          }
-          
-          // Charts and chart components together to avoid forwardRef issues
-          if (id.includes('node_modules/recharts') || id.includes('src/components/charts/')) {
-            return 'charts';
-          }
-          
-          // Forms - only on specific pages
-          if (id.includes('react-hook-form') || id.includes('@hookform/resolvers') || id.includes('zod')) {
-            return 'forms';
-          }
-          
-          // Split out optimization utilities
-          if (id.includes('src/components/optimization/')) {
-            return 'optimization';
-          }
-        },
-      },
-    },
     chunkSizeWarningLimit: 1000,
     target: 'es2020',
   },
