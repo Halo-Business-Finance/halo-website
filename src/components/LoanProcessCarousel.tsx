@@ -17,7 +17,7 @@ const LoanProcessCarousel = () => {
     detail: "Browse SBA, conventional, and specialized financing options tailored to your business needs.",
     image: step1SelectLoan,
     icon: FileText,
-    color: "bg-blue-500",
+    color: "bg-blue-600",
     time: "2 min"
   }, {
     step: 2,
