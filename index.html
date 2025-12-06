@@ -186,8 +186,23 @@
   <body>
     <div id="root"></div>
     <script>
-      // Mark page as loaded - no more service worker cleanup needed
-      // The enterprise service worker is disabled to prevent loading issues
+      // One-time aggressive service worker cleanup
+      (function() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            registrations.forEach(function(registration) {
+              registration.unregister();
+            });
+          });
+        }
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            names.forEach(function(name) {
+              caches.delete(name);
+            });
+          });
+        }
+      })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
