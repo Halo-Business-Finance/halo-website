@@ -131,3 +131,6 @@ verify_jwt = false
 
 [functions.rotate-encryption-keys]
 verify_jwt = false  # Called by pg_cron with service role
+
+[functions.geo-block-check]
+verify_jwt = false  # Called internally by admin-auth
