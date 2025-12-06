@@ -135,10 +135,10 @@ const ImageGallery = () => {
           </div>
 
           {/* Carousel Indicators */}
-          <div className="flex justify-center mt-6 gap-2">
+          <div className="flex justify-center mt-6 gap-2" role="tablist" aria-label="Gallery navigation">
             {Array.from({
               length: Math.ceil(galleryItems.length / 3)
-            }).map((_, index) => <button key={index} className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200 data-[active=true]:bg-primary" onClick={() => emblaApi?.scrollTo(index * 3)} />)}
+            }).map((_, index) => <button key={index} className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200 data-[active=true]:bg-primary" onClick={() => emblaApi?.scrollTo(index * 3)} aria-label={`Go to slide group ${index + 1}`} />)}
           </div>
         </div>
 
