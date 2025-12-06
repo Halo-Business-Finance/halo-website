@@ -26,37 +26,39 @@ const Index = () => {
       />
       <div className="min-h-screen bg-background">
         <Header />
-        <HeroSection />
-        
-        {/* Trust Signals Section */}
-        <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-          <TrustSignals />
-        </Suspense>
-        
-        <SectionDivider variant="corporate" height="sm" />
-        
-        <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
-          <ProductsSection />
-        </Suspense>
-        
-        {/* Loan Quiz Section */}
-        <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-          <LoanQuiz />
-        </Suspense>
-        
-        <SectionDivider variant="gradient" height="sm" />
-        
-        <Suspense fallback={<div className="h-40 bg-muted animate-pulse rounded-md mx-4" />}>
-          <ImageGallery />
-        </Suspense>
-        
-        <SectionDivider variant="corporate" height="md" />
-        
-        <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-          <IndustryShowcase />
-        </Suspense>
-        
-        <SectionDivider variant="minimal" height="sm" />
+        <main id="main-content">
+          <HeroSection />
+          
+          {/* Trust Signals Section */}
+          <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
+            <TrustSignals />
+          </Suspense>
+          
+          <SectionDivider variant="corporate" height="sm" />
+          
+          <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
+            <ProductsSection />
+          </Suspense>
+          
+          {/* Loan Quiz Section */}
+          <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
+            <LoanQuiz />
+          </Suspense>
+          
+          <SectionDivider variant="gradient" height="sm" />
+          
+          <Suspense fallback={<div className="h-40 bg-muted animate-pulse rounded-md mx-4" />}>
+            <ImageGallery />
+          </Suspense>
+          
+          <SectionDivider variant="corporate" height="md" />
+          
+          <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
+            <IndustryShowcase />
+          </Suspense>
+          
+          <SectionDivider variant="minimal" height="sm" />
+        </main>
         
         <Suspense fallback={<div className="h-20 bg-muted animate-pulse rounded-md mx-4" />}>
           <Footer />
