@@ -3,11 +3,14 @@ import type { Config } from "tailwindcss";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./index.html",
+		"./src/**/*.{js,ts,jsx,tsx}",
 	],
+	// Disable unused core plugins to reduce CSS output
+	corePlugins: {
+		preflight: true,
+		container: true,
+	},
 	prefix: "",
 	theme: {
     	container: {

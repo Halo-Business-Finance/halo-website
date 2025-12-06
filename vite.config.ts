@@ -17,6 +17,19 @@ export default defineConfig(({ mode }) => ({
   build: {
     chunkSizeWarningLimit: 1000,
     target: 'es2020',
+    cssMinify: 'lightningcss',
+    cssCodeSplit: true,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+  },
+  css: {
+    devSourcemap: mode === 'development',
   },
   resolve: {
     alias: {
