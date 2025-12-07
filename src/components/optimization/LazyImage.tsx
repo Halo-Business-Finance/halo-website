@@ -107,7 +107,6 @@ const LazyImage: React.FC<LazyImageProps> = ({
       height={height}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
-      fetchPriority={priority ? 'high' : 'auto'}
       onLoad={handleImageLoad}
       className={`transition-all duration-300 ${className}`}
       style={imageStyle}
