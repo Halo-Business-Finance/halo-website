@@ -59,7 +59,7 @@ const LoanProcessCarousel = () => {
   return <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+          <span className="inline-block px-3 py-1 font-medium rounded-full mb-4 bg-white text-black text-base">
             Simple 5-Step Process
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight md:text-2xl">
