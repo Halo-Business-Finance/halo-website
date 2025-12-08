@@ -12,7 +12,6 @@ const TrustSignals = lazy(() => import("@/components/TrustSignals"));
 const LoanQuiz = lazy(() => import("@/components/LoanQuiz"));
 const ImageGallery = lazy(() => import("@/components/ImageGallery"));
 const Footer = lazy(() => import("@/components/Footer"));
-const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
 const SuccessShowcase = lazy(() => import("@/components/SuccessShowcase"));
 
 const Index = () => {
@@ -49,12 +48,6 @@ const Index = () => {
           
           <Suspense fallback={<div className="h-40 bg-muted animate-pulse rounded-md mx-4" />}>
             <ImageGallery />
-          </Suspense>
-          
-          <SectionDivider variant="corporate" height="md" />
-          
-          <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-            <IndustryShowcase />
           </Suspense>
           
           <SectionDivider variant="minimal" height="sm" />
