@@ -184,7 +184,7 @@ const LoanQuiz = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {industries.map(industry => <button key={industry.id} onClick={() => setSelectedIndustry(industry.id)} className={`p-4 rounded-lg border-2 transition-all duration-200 flex flex-col items-center gap-2 hover:shadow-md ${selectedIndustry === industry.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
                       <industry.icon className={`h-8 w-8 ${selectedIndustry === industry.id ? 'text-primary' : 'text-muted-foreground'}`} />
-                      <span className="font-medium text-foreground">{industry.label}</span>
+                      <span className="font-medium text-black">{industry.label}</span>
                     </button>)}
                 </div>
                 <div className="mt-6 flex justify-end">
