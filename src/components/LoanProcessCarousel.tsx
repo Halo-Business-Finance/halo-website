@@ -173,7 +173,7 @@ const LoanProcessCarousel = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <a href="https://app.halolending.com" className="inline-flex items-center gap-2 glass-button text-white font-semibold px-10 py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-glow-pulse">
+          <a href="https://app.halolending.com" className="inline-flex items-center gap-2 glass-button text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-glow-pulse px-[10px] py-[10px]">
             Start Your Application
             <ArrowRight className="h-5 w-5" />
           </a>
