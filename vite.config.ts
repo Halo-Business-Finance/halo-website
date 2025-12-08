@@ -74,6 +74,5 @@ export default defineConfig(({ mode }) => ({
       "react-helmet-async",
       "@tanstack/react-query",
     ],
-    force: true,
   },
 }));
