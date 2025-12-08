@@ -188,7 +188,7 @@ const LoanQuiz = () => {
                     </button>)}
                 </div>
                 <div className="mt-6 flex justify-end">
-                  <Button onClick={handleNext} disabled={!selectedIndustry}>
+                  <Button onClick={handleNext} disabled={!selectedIndustry} className="bg-blue-950 hover:bg-blue-800 text-white">
                     Next <ChevronRight className="h-4 w-4 ml-2" />
                   </Button>
                 </div>
