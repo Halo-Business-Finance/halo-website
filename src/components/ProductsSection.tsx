@@ -601,7 +601,7 @@ const ProductsSection = () => {
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight mt-6">
+              <h3 className="text-xl font-bold mb-4 leading-tight mt-6 md:text-3xl">
                 Ready to Fuel Your Business Growth?
               </h3>
             </div>
@@ -611,7 +611,7 @@ const ProductsSection = () => {
         {/* Business Capital Section */}
         <div className="pt-4">
           <div className="text-center mb-8 max-w-7xl mx-auto">
-            <h3 className="text-2xl text-slate-900 mb-4 text-center font-bold md:text-3xl">
+            <h3 className="text-2xl text-slate-900 mb-4 text-center font-bold md:text-2xl">
               Working Capital Solutions
             </h3>
           </div>
