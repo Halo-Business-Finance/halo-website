@@ -163,7 +163,7 @@ const LoanQuiz = () => {
       <div className="container mx-auto px-4 bg-white">
         {/* Industry Showcase */}
         <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4 mb-8" />}>
-          <IndustryShowcase className="bg-white rounded-none" />
+          <IndustryShowcase />
         </Suspense>
 
         <div className="max-w-3xl mx-auto">
@@ -174,7 +174,7 @@ const LoanQuiz = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-justify">
                     Find Your Perfect Loan
                   </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto text-left">
+                  <p className="text-muted-foreground max-w-2xl text-left">
                     Answer a few quick questions to get personalized commercial loan recommendations tailored to your business industry.
                   </p>
                 </div>
