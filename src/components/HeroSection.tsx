@@ -38,8 +38,8 @@ const HeroSection = () => {
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight animate-fade-in" style={{
               animationDelay: '0.1s'
             }}>
-                <span className="block text-white">Nationwide Commercial &</span>
-                <span className="block bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                <span className="block text-white text-3xl">Nationwide Commercial &</span>
+                <span className="block bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent text-3xl">
                   Business Financing Marketplace
                 </span>
               </h1>
