@@ -205,7 +205,7 @@ const Header = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center h-12 px-8">
             {/* Horizontal Navigation - All items visible */}
-            <nav className="flex items-center gap-1 flex-1">
+            <nav className="flex items-center gap-2 flex-1">
               {/* Company Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-[14px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
