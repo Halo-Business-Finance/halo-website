@@ -5,6 +5,7 @@ import App from './App.tsx'
 import './index.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+// Create query client with minimal config
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -14,52 +15,37 @@ const queryClient = new QueryClient({
   },
 });
 
-// Simple error boundary for catching render errors
-class ErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  { hasError: boolean; error?: Error }
-> {
-  constructor(props: { children: React.ReactNode }) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('App Error:', error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{ padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
-          <h1>Something went wrong</h1>
-          <p>Please refresh the page or try again later.</p>
-          <button onClick={() => window.location.reload()}>Refresh Page</button>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
-
+// Get root element
 const rootElement = document.getElementById("root");
 
+// Initialize app
 if (rootElement) {
-  createRoot(rootElement).render(
-    <React.StrictMode>
-      <ErrorBoundary>
+  try {
+    // Clear the loading fallback
+    rootElement.innerHTML = '';
+    
+    createRoot(rootElement).render(
+      <React.StrictMode>
         <HelmetProvider>
           <QueryClientProvider client={queryClient}>
             <App />
           </QueryClientProvider>
         </HelmetProvider>
-      </ErrorBoundary>
-    </React.StrictMode>
-  );
+      </React.StrictMode>
+    );
+  } catch (error) {
+    // Show error to user if React fails to mount
+    console.error('Failed to mount React app:', error);
+    rootElement.innerHTML = `
+      <div style="padding: 40px; text-align: center; font-family: -apple-system, sans-serif;">
+        <h1 style="color: #1e40af; margin-bottom: 16px;">Halo Business Finance</h1>
+        <p style="color: #666; margin-bottom: 24px;">We're experiencing technical difficulties. Please try refreshing the page.</p>
+        <button onclick="window.location.reload()" style="background: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+          Refresh Page
+        </button>
+      </div>
+    `;
+  }
 } else {
   console.error('Root element not found');
 }

@@ -5,12 +5,47 @@ import type { Database } from './types';
 const SUPABASE_URL = "https://zwqtewpycdbvjgkntejd.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3cXRld3B5Y2Ridmpna250ZWpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1MjIxNjgsImV4cCI6MjA2OTA5ODE2OH0.vb1LXUj3SVKEMMU5f6vV98381h-2wmsDOyMa6wqqWMs";
 
+// Safe storage helper for Safari compatibility
+const getStorage = () => {
+  try {
+    // Test if sessionStorage is available
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      const testKey = '__supabase_test__';
+      window.sessionStorage.setItem(testKey, testKey);
+      window.sessionStorage.removeItem(testKey);
+      return window.sessionStorage;
+    }
+  } catch (e) {
+    // sessionStorage not available (Safari private mode, etc)
+  }
+  
+  try {
+    // Fallback to localStorage
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const testKey = '__supabase_test__';
+      window.localStorage.setItem(testKey, testKey);
+      window.localStorage.removeItem(testKey);
+      return window.localStorage;
+    }
+  } catch (e) {
+    // localStorage not available
+  }
+  
+  // Final fallback: in-memory storage
+  const memoryStorage: { [key: string]: string } = {};
+  return {
+    getItem: (key: string) => memoryStorage[key] || null,
+    setItem: (key: string, value: string) => { memoryStorage[key] = value; },
+    removeItem: (key: string) => { delete memoryStorage[key]; },
+  };
+};
+
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
-    storage: sessionStorage, // Use sessionStorage instead of localStorage for better security
+    storage: getStorage(),
     persistSession: true,
     autoRefreshToken: true,
   }
