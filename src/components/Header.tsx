@@ -124,35 +124,6 @@ const Header = () => {
           <div className="flex items-center justify-between h-10 px-8">
             {/* Left Side - Company, Resources, Partners */}
             <nav className="flex items-center gap-6">
-              {/* Company Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center text-[13px] font-medium text-white/80 hover:text-white transition-colors group">
-                  Company
-                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1 z-50">
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/company-overview" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      Company Overview
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/how-it-works" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      How it Works
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/marketplace-benefits" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      Marketplace Benefits
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/careers" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      Careers
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
@@ -261,6 +232,36 @@ const Header = () => {
           <div className="flex items-center h-12 px-8">
             {/* Horizontal Navigation - All items visible */}
             <nav className="flex items-center gap-1 flex-1">
+              {/* Company Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                  Company
+                  <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-xl rounded-lg p-2 min-w-[240px] mt-1 z-50">
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/company-overview" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Company Overview
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/how-it-works" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      How it Works
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/marketplace-benefits" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Marketplace Benefits
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/careers" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Careers
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
               {secondaryNavWithDropdowns.map(item => (
                 <DropdownMenu key={item.title}>
                   <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
