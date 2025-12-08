@@ -159,7 +159,7 @@ const LoanQuiz = () => {
     setSelectedIndustry(null);
     setSelectedAmount(null);
   };
-  return <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
+  return <section className="pt-16 pb-8 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4 bg-white">
         {/* Industry Showcase */}
         <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4 mb-8" />}>
