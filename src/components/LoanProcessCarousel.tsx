@@ -119,7 +119,7 @@ const LoanProcessCarousel = () => {
                   <h3 className="text-2xl font-bold text-foreground mb-3">{step.title}</h3>
                   <p className="text-lg text-foreground/80 mb-2">{step.description}</p>
                   <p className="text-muted-foreground mb-6">{step.detail}</p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground rounded-lg px-4 py-2 w-fit bg-white">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground rounded-lg px-4 py-2 w-fit bg-inherit">
                     <Clock className="h-4 w-4" />
                     <span>Estimated time: <strong className="text-foreground">{step.time}</strong></span>
                   </div>
