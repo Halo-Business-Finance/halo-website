@@ -181,7 +181,7 @@ const Header = () => {
       {/* Logo Row - Second tier */}
       <div className="border-b border-white/10" style={{ backgroundColor: '#0d1f35' }}>
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between h-14 px-4 sm:px-8">
+          <div className="flex items-center justify-between h-9 px-4 sm:px-8">
             {/* Mobile Menu Button */}
             <button className={`lg:hidden p-2 rounded-md hover:bg-white/10 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
               <Menu className="h-6 w-6 text-white/80" />
