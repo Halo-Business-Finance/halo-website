@@ -128,7 +128,7 @@ const Header = () => {
             </button>
             
             {/* Logo */}
-            <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start'}`}>
+            <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start lg:ml-4'}`}>
               <span className="text-xl sm:text-2xl lg:text-[22px] font-bold text-white whitespace-nowrap leading-none tracking-tight">
                 HALO BUSINESS FINANCE
               </span>
