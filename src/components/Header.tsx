@@ -118,16 +118,27 @@ const Header = () => {
     }]
   }];
   return <header className="relative z-50 w-full">
-      {/* Primary Navigation Bar - Top tier */}
-      <div className="hidden lg:block" style={{ backgroundColor: '#0a1628' }}>
+      {/* Combined Logo and Utility Bar */}
+      <div className="border-b border-white/10" style={{ backgroundColor: '#0a1628' }}>
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between h-10 px-8">
-            {/* Left Side - Company, Resources, Partners */}
-            <nav className="flex items-center gap-6">
-            </nav>
+          <div className="flex items-center justify-between h-12 px-4 sm:px-8">
+            {/* Mobile Menu Button */}
+            <button className={`lg:hidden p-2 rounded-md hover:bg-white/10 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
+              <Menu className="h-6 w-6 text-white/80" />
+            </button>
+            
+            {/* Logo */}
+            <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start'}`}>
+              <span className="text-xl sm:text-2xl lg:text-[22px] font-bold text-white whitespace-nowrap leading-none tracking-tight">
+                HALO BUSINESS FINANCE
+              </span>
+            </Link>
+            
+            {/* Spacer for mobile to center logo when menu button is present */}
+            <div className="lg:hidden w-10"></div>
 
-            {/* Right Side - Search, Customer Support and Sign In */}
-            <div className="flex items-center gap-6">
+            {/* Right Side - Search, Customer Support and Sign In (Desktop only) */}
+            <div className="hidden lg:flex items-center gap-6">
               <button className="text-white/60 hover:text-white transition-colors" aria-label="Search">
                 <Search className="h-4 w-4" />
               </button>
@@ -174,28 +185,6 @@ const Header = () => {
                 Sign In
               </a>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Logo Row - Second tier */}
-      <div className="border-b border-white/10" style={{ backgroundColor: '#0a1628' }}>
-        <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between h-9 px-4 sm:px-8 -mt-1">
-            {/* Mobile Menu Button */}
-            <button className={`lg:hidden p-2 rounded-md hover:bg-white/10 z-[80] ${isOpen ? 'hidden' : 'flex items-center justify-center'}`} onClick={handleMobileMenuToggle} aria-label="Toggle navigation">
-              <Menu className="h-6 w-6 text-white/80" />
-            </button>
-            
-            {/* Logo */}
-            <Link to="/" className={`flex items-center transition-all duration-300 ${isOpen ? 'justify-center flex-1' : 'lg:flex-none flex-1 lg:flex-initial justify-center lg:justify-start lg:ml-4'}`}>
-              <span className="text-xl sm:text-2xl lg:text-[22px] font-bold text-white whitespace-nowrap leading-none tracking-tight">
-                HALO BUSINESS FINANCE
-              </span>
-            </Link>
-            
-            {/* Spacer for mobile to center logo when menu button is present */}
-            <div className="lg:hidden w-10"></div>
           </div>
         </div>
       </div>
