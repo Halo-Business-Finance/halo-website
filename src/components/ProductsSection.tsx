@@ -586,7 +586,13 @@ const ProductsSection = () => {
           </div>
 
         {/* Section Divider */}
-        
+        <div className="flex items-center justify-center my-20 text-black border border-solid">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          <div className="px-8">
+            
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+        </div>
 
         {/* Enhanced CTA Section - Moved between carousels */}
         <div className="my-12 relative overflow-hidden shadow-lg -mx-4 sm:-mx-6 lg:-mx-8">
