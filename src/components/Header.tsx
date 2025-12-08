@@ -208,7 +208,7 @@ const Header = () => {
             <nav className="flex items-center gap-1 flex-1">
               {/* Company Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[14px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
                   Company
                   <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
@@ -238,7 +238,7 @@ const Header = () => {
               
               {secondaryNavWithDropdowns.map(item => (
                 <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                  <DropdownMenuTrigger className="flex items-center gap-1 text-[14px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
                     {item.title}
                     <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </DropdownMenuTrigger>
@@ -256,7 +256,7 @@ const Header = () => {
               
               {/* Partners Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[14px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
                   Partners
                   <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
@@ -281,7 +281,7 @@ const Header = () => {
               
               {/* Resources Dropdown */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[14px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
                   Resources
                   <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </DropdownMenuTrigger>
@@ -307,7 +307,7 @@ const Header = () => {
             
             {/* Get Started Button */}
             <div className="ml-auto">
-              <Button className="bg-primary hover:bg-primary/90 text-white text-[13px] font-bold px-5 py-2 rounded-md flex items-center gap-2 shadow-md hover:shadow-lg transition-all" asChild>
+              <Button className="bg-primary hover:bg-primary/90 text-white text-[14px] font-bold px-5 py-2 rounded-md flex items-center gap-2 shadow-md hover:shadow-lg transition-all" asChild>
                 <Link to="/loan-calculator">
                   <Lock className="h-4 w-4" />
                   Get Started
