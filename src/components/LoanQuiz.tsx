@@ -162,27 +162,23 @@ const LoanQuiz = () => {
   };
   return <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Find Your Perfect Loan
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Answer a few quick questions to get personalized commercial loan recommendations tailored to your business industry.
-          </p>
-        </div>
-
         {/* Industry Showcase */}
         <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4 mb-8" />}>
           <IndustryShowcase />
         </Suspense>
 
-        {/* Progress Indicator */}
-        
-
         <div className="max-w-3xl mx-auto">
           {/* Step 1: Industry Selection */}
           {step === 1 && <Card className="border-border/50">
               <CardHeader>
+                <div className="text-center mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    Find Your Perfect Loan
+                  </h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Answer a few quick questions to get personalized commercial loan recommendations tailored to your business industry.
+                  </p>
+                </div>
                 <CardTitle className="text-xl">What industry is your business in?</CardTitle>
               </CardHeader>
               <CardContent>
