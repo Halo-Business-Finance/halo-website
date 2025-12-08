@@ -85,7 +85,7 @@ const LoanProcessCarousel = () => {
                     ${step.step <= activeStep ? 'hover:shadow-xl' : 'hover:bg-slate-300'}`} style={{
                 boxShadow: step.step === activeStep ? '0 8px 32px rgba(var(--primary), 0.3)' : undefined
               }}>
-                    {step.step < activeStep ? <CheckCircle className="h-6 w-6" /> : <span className={step.step <= activeStep ? 'text-white' : 'text-slate-500'}>{step.step}</span>}
+                    {step.step < activeStep ? <CheckCircle className="h-6 w-6 text-black" /> : <span className={step.step <= activeStep ? 'text-white' : 'text-slate-500'}>{step.step}</span>}
                   </div>
                   <span className={`text-sm mt-3 font-semibold transition-all duration-300 ${activeStep === step.step ? 'text-primary' : 'text-slate-500 group-hover:text-slate-700'}`}>
                     {step.title.split(' ')[0]}
@@ -103,25 +103,25 @@ const LoanProcessCarousel = () => {
         <div className="max-w-4xl mx-auto mb-12 hidden md:block">
           {steps.filter(s => s.step === activeStep).map(step => <Card key={step.step} className="overflow-hidden border-border/30 shadow-2xl animate-fade-in glass-card">
               <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-auto overflow-hidden group">
-                  <LazyImage src={step.image} alt={step.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="relative h-64 md:h-auto overflow-hidden group bg-black">
+                  <LazyImage src={step.image} alt={step.title} className="w-full h-full transition-transform duration-700 group-hover:scale-105 object-fill" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent bg-transparent my-100 px-0 py-0" />
                   <div className="absolute top-4 left-4">
                     <span className={`${step.color} text-white px-4 py-1.5 rounded-xl text-sm font-semibold shadow-lg backdrop-blur-sm`}>
                       Step {step.step}
                     </span>
                   </div>
                 </div>
-                <CardContent className="p-8 flex flex-col justify-center bg-gradient-to-br from-card to-card/80">
+                <CardContent className="p-8 flex flex-col justify-center bg-black-to-br from-card to-card/80 border-black bg-black px-[30px] py-[30px]">
                   <div className={`inline-flex w-14 h-14 ${step.color} rounded-2xl items-center justify-center mb-5 shadow-lg`}>
                     <step.icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">{step.title}</h3>
-                  <p className="text-lg text-foreground/80 mb-2">{step.description}</p>
-                  <p className="text-muted-foreground mb-6">{step.detail}</p>
+                  <h3 className="font-bold text-foreground mb-3 text-xl">{step.title}</h3>
+                  <p className="mb-2 text-base text-black">{step.description}</p>
+                  <p className="text-muted-foreground mb-6 text-base">{step.detail}</p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground rounded-lg px-4 py-2 w-fit bg-inherit">
                     <Clock className="h-4 w-4" />
-                    <span>Estimated time: <strong className="text-foreground">{step.time}</strong></span>
+                    <span className="text-white">Estimated time: <strong className="text-foreground">{step.time}</strong></span>
                   </div>
                 </CardContent>
               </div>
