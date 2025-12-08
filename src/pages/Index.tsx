@@ -12,16 +12,9 @@ const TrustSignals = lazy(() => import("@/components/TrustSignals"));
 const LoanQuiz = lazy(() => import("@/components/LoanQuiz"));
 const ImageGallery = lazy(() => import("@/components/ImageGallery"));
 const Footer = lazy(() => import("@/components/Footer"));
-
 const Index = () => {
-  return (
-    <>
-      <SEO
-        title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans"
-        description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 15,000+ businesses nationwide."
-        keywords="SBA loans, commercial loans, business financing, bridge loans, equipment financing, working capital, conventional loans, business capital, commercial real estate loans, SBA 7a loans, SBA 504 loans, SBA express loans, business line of credit, term loans, factoring based financing"
-        canonical="https://halobusinessfinance.com/"
-      />
+  return <>
+      <SEO title="Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans" description="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 15,000+ businesses nationwide." keywords="SBA loans, commercial loans, business financing, bridge loans, equipment financing, working capital, conventional loans, business capital, commercial real estate loans, SBA 7a loans, SBA 504 loans, SBA express loans, business line of credit, term loans, factoring based financing" canonical="https://halobusinessfinance.com/" />
       <div className="min-h-screen bg-background">
         <Header />
         <main id="main-content">
@@ -40,7 +33,7 @@ const Index = () => {
           
           {/* Loan Quiz Section */}
           <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-            <LoanQuiz />
+            <LoanQuiz className="bg-white" />
           </Suspense>
           
           <SectionDivider variant="gradient" height="sm" />
@@ -60,8 +53,6 @@ const Index = () => {
         <LiveChatWidget />
         <StickyMobileCTA />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Index;

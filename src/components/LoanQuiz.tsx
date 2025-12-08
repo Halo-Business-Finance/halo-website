@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Building2, Truck, Stethoscope, ShoppingBag, Utensils, Factory, ChevronRight, DollarSign, Clock, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
 interface LoanType {
   id: string;
@@ -161,15 +160,15 @@ const LoanQuiz = () => {
     setSelectedAmount(null);
   };
   return <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 bg-secondary">
         {/* Industry Showcase */}
         <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4 mb-8" />}>
-          <IndustryShowcase />
+          <IndustryShowcase className="bg-white" />
         </Suspense>
 
         <div className="max-w-3xl mx-auto">
           {/* Step 1: Industry Selection */}
-          {step === 1 && <Card className="border-border/50">
+          {step === 1 && <Card className="border-border/50 bg-white">
               <CardHeader>
                 <div className="text-center mb-4">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
