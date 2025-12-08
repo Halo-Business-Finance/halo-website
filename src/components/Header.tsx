@@ -153,10 +153,6 @@ const Header = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
-              <Link to="/marketplace-benefits" className="text-[13px] font-medium text-white/80 hover:text-white transition-colors">
-                Marketplace Benefits
-              </Link>
               
               {/* Resources Dropdown */}
               <DropdownMenu>
