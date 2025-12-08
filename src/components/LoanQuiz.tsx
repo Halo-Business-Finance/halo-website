@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Building2, Truck, Stethoscope, ShoppingBag, Utensils, Factory, ChevronRight, DollarSign, Clock, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
 interface LoanType {
   id: string;
   title: string;
@@ -168,6 +170,11 @@ const LoanQuiz = () => {
             Answer a few quick questions to get personalized commercial loan recommendations tailored to your business industry.
           </p>
         </div>
+
+        {/* Industry Showcase */}
+        <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4 mb-8" />}>
+          <IndustryShowcase />
+        </Suspense>
 
         {/* Progress Indicator */}
         
