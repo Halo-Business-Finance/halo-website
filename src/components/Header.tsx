@@ -183,30 +183,6 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              {/* Partners Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center text-[13px] font-medium text-white/80 hover:text-white transition-colors group">
-                  Partners
-                  <ChevronDown className="ml-1 h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-lg rounded-md p-1 min-w-[200px] mt-1">
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/brokers" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      Brokers
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/lenders" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      Lenders
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-sm hover:bg-gray-50 transition-colors p-2" asChild>
-                    <Link to="/referral-partners" className="text-sm text-gray-700 hover:text-primary font-medium">
-                      Referral Partners
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
             </nav>
 
             {/* Right Side - Search, Customer Support and Sign In */}
@@ -306,6 +282,31 @@ const Header = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ))}
+              
+              {/* Partners Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-semibold text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md transition-all whitespace-nowrap group">
+                  Partners
+                  <ChevronDown className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-white border border-gray-200 shadow-xl rounded-lg p-2 min-w-[240px] mt-1 z-50">
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/brokers" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Brokers
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/lenders" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Lenders
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-md hover:bg-primary/5 transition-colors p-2.5 cursor-pointer" asChild>
+                    <Link to="/referral-partners" className="text-sm text-gray-700 hover:text-primary font-medium">
+                      Referral Partners
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
             
             {/* Get Started Button */}
