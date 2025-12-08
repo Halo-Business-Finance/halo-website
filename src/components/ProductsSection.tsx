@@ -430,10 +430,10 @@ const ProductsSection = () => {
           <div className="py-0 rounded-2xl">
             <div className="container mx-auto px-4">
               <div className="text-center mb-4">
-                <h2 className="text-xl font-bold mb-4 md:text-2xl">
+                <h2 className="text-xl font-bold mb-4 md:text-3xl">
                   Our Streamlined Loan Process
                 </h2>
-                <p className="text-lg text-black">
+                <p className="text-black text-xl">
                   We make commercial lending simple
                 </p>
               </div>
@@ -506,7 +506,7 @@ const ProductsSection = () => {
           </div>
           
           {/* Corporate Section Divider */}
-          <div className="flex items-center justify-center my-20">
+          <div className="flex items-center justify-center border text-black bg-black my-[70px]">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
             <div className="px-8">
               
@@ -518,9 +518,9 @@ const ProductsSection = () => {
         {/* SBA & Commercial Financing */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold mb-4 md:text-2xl">SBA, USDA, Bridge & Conventional Loans</h3>
-            <p className="text-sm max-w-4xl mx-auto leading-relaxed text-black md:text-base">
-              Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options designed to fuel your business growth.
+            <h3 className="text-2xl font-bold mb-4 md:text-3xl">SBA, USDA, Bridge & Conventional Loans</h3>
+            <p className="text-sm max-w-4xl mx-auto leading-relaxed text-black md:text-lg">
+              Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="hover:underline font-semibold text-black">SBA-backed</a> and conventional financing options designed to fuel your business growth.
             </p>
           </div>
           
