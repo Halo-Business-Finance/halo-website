@@ -4,34 +4,44 @@ import heroBackground from "@/assets/hero-background.jpg";
 
 // Critical resource preloading with priority hints
 export const preloadCriticalResources = () => {
-  const criticalImages = [
-    newHeroBackground,
-    heroBackground,
-  ];
+  try {
+    const criticalImages = [
+      newHeroBackground,
+      heroBackground,
+    ];
 
-  criticalImages.forEach(src => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = src;
-    link.fetchPriority = 'high';
-    document.head.appendChild(link);
-  });
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      // fetchPriority not supported in Safari - use setAttribute for safety
+      if ('fetchPriority' in link) {
+        (link as any).fetchPriority = 'high';
+      }
+      document.head.appendChild(link);
+    });
 
-  // Preload critical fonts with optimal loading
-  const fonts = [
-    'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2',
-  ];
+    // Preload critical fonts with optimal loading
+    const fonts = [
+      'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2',
+    ];
 
-  fonts.forEach(href => {
-    const fontLink = document.createElement('link');
-    fontLink.rel = 'preload';
-    fontLink.as = 'font';
-    fontLink.href = href;
-    fontLink.crossOrigin = 'anonymous';
-    fontLink.fetchPriority = 'high';
-    document.head.appendChild(fontLink);
-  });
+    fonts.forEach(href => {
+      const fontLink = document.createElement('link');
+      fontLink.rel = 'preload';
+      fontLink.as = 'font';
+      fontLink.href = href;
+      fontLink.crossOrigin = 'anonymous';
+      // fetchPriority not supported in Safari
+      if ('fetchPriority' in fontLink) {
+        (fontLink as any).fetchPriority = 'high';
+      }
+      document.head.appendChild(fontLink);
+    });
+  } catch (error) {
+    console.warn('Failed to preload resources:', error);
+  }
 
   // Preload critical CSS
   const style = document.createElement('style');
@@ -73,10 +83,24 @@ export const loadScript = (src: string, retries = 2): Promise<void> => {
 export const createLazyLoadObserver = (
   callback: IntersectionObserverCallback,
   options?: IntersectionObserverInit
-) => {
+): IntersectionObserver => {
+  // Check if IntersectionObserver is supported
+  if (typeof IntersectionObserver === 'undefined') {
+    // Return a mock observer for unsupported browsers
+    return {
+      observe: () => {},
+      unobserve: () => {},
+      disconnect: () => {},
+      root: null,
+      rootMargin: '',
+      thresholds: [],
+      takeRecords: () => [],
+    } as unknown as IntersectionObserver;
+  }
+  
   const defaultOptions = {
     threshold: [0, 0.1, 0.5],
-    rootMargin: '100px 0px 100px 0px', // Increased for better preloading
+    rootMargin: '100px 0px 100px 0px',
     ...options
   };
   
