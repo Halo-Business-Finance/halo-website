@@ -33,7 +33,7 @@ const Index = () => {
           
           {/* Loan Quiz Section */}
           <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-            <LoanQuiz />
+            <LoanQuiz className="bg-white" />
           </Suspense>
           
           <SectionDivider variant="gradient" height="sm" />

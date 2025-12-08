@@ -196,7 +196,7 @@ const IndustryShowcase = () => {
                       </div>
                     </div>
                     <CardContent className="p-6">
-                      <p className="text-xs text-foreground mb-4 leading-relaxed">
+                      <p className="text-foreground mb-4 leading-relaxed text-sm font-sans">
                         {industry.description}
                       </p>
                       <ul className="space-y-2 mb-4">
