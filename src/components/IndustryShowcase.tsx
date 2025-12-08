@@ -195,7 +195,7 @@ const IndustryShowcase = () => {
                         <h3 className="text-lg font-semibold mb-1">{industry.title}</h3>
                       </div>
                     </div>
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 bg-white">
                       <p className="text-foreground mb-4 leading-relaxed text-sm font-sans">
                         {industry.description}
                       </p>
