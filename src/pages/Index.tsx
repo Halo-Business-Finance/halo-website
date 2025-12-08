@@ -22,7 +22,7 @@ const Index = () => {
           
           {/* Trust Signals Section */}
           <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4" />}>
-            <TrustSignals />
+            
           </Suspense>
           
           <SectionDivider variant="corporate" height="sm" />

@@ -432,13 +432,7 @@ const ProductsSection = () => {
           </div>
           
           {/* Corporate Section Divider */}
-          <div className="flex items-center justify-center border text-black bg-black my-[70px]">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-            <div className="px-8">
-              
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-          </div>
+          
         </div>
 
         {/* SBA & Commercial Financing */}
