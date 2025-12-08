@@ -96,10 +96,10 @@ const ImageGallery = () => {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4 mt-8">
         <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">
+          <h2 className="font-bold text-foreground mb-4 text-3xl">
             Your Success is Our Mission
           </h2>
-          <p className="text-base text-foreground max-w-2xl mx-auto">
+          <p className="text-foreground max-w-2xl mx-auto text-lg">
             From initial consultation to loan closing, we're committed to providing the support and financing your business needs to thrive.
           </p>
         </div>
@@ -138,23 +138,16 @@ const ImageGallery = () => {
           <div className="flex justify-center mt-6 gap-4" role="tablist" aria-label="Gallery navigation">
             {Array.from({
               length: Math.ceil(galleryItems.length / 3)
-            }).map((_, index) => (
-              <button 
-                key={index} 
-                className="w-6 h-6 flex items-center justify-center" 
-                onClick={() => emblaApi?.scrollTo(index * 3)} 
-                aria-label={`Go to slide group ${index + 1}`}
-              >
+            }).map((_, index) => <button key={index} className="w-6 h-6 flex items-center justify-center" onClick={() => emblaApi?.scrollTo(index * 3)} aria-label={`Go to slide group ${index + 1}`}>
                 <span className="w-2 h-2 rounded-full bg-slate-300 hover:bg-primary transition-colors duration-200 data-[active=true]:bg-primary block" />
-              </button>
-            ))}
+              </button>)}
           </div>
         </div>
 
         {/* Enhanced Call to Action */}
         <div className="text-center">
           <div className="rounded-2xl p-8 max-w-5xl mx-auto">
-            <h3 className="text-xl font-bold text-foreground mb-4">
+            <h3 className="font-bold text-foreground mb-4 text-2xl">
               Ready to Take Your Business to the Next Level?
             </h3>
             <p className="text-base text-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
