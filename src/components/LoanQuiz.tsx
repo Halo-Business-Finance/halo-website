@@ -163,7 +163,7 @@ const LoanQuiz = () => {
       <div className="container mx-auto px-4 bg-white">
         {/* Industry Showcase */}
         <Suspense fallback={<div className="h-60 bg-muted animate-pulse rounded-md mx-4 mb-8" />}>
-          <IndustryShowcase className="bg-white" />
+          <IndustryShowcase />
         </Suspense>
 
         <div className="max-w-3xl mx-auto">
