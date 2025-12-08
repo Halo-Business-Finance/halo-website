@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<!-- Build: 2025-12-08 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Halo Business Finance | SBA Loans, Commercial Financing & Bridge Loans</title>
     <meta name="description" content="Get SBA loans, conventional commercial financing, bridge loans, and equipment financing. Fast approval, competitive rates. Trusted by 15,000+ businesses nationwide." />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <meta name="theme-color" content="#2563eb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Critical fallback styles for Safari */
+      #root { min-height: 100vh; }
+      .loading-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading-fallback">Loading...</div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script nomodule>
+      document.getElementById('root').innerHTML = '<div style="padding:20px;text-align:center"><h1>Please update your browser</h1><p>This site requires a modern browser with JavaScript module support.</p></div>';
+    </script>
   </body>
 </html>
