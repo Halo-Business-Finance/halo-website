@@ -107,7 +107,20 @@ const ConsultationPopup = ({ trigger }: ConsultationPopupProps) => {
       const { data: { session } } = await supabase.auth.getSession();
       
       // Generate a temporary user ID for anonymous submissions
-      const userId = session?.user?.id || crypto.randomUUID();
+      // Use crypto.randomUUID if available, otherwise generate a simple UUID
+      let userId = session?.user?.id;
+      if (!userId) {
+        if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+          userId = crypto.randomUUID();
+        } else {
+          // Fallback UUID generation for older browsers
+          userId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            const r = Math.random() * 16 | 0;
+            const v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+          });
+        }
+      }
 
       // Encrypt PII before sending to server
       const encryptedData = {
