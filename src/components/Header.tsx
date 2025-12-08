@@ -179,7 +179,7 @@ const Header = () => {
       </div>
 
       {/* Logo Row - Second tier */}
-      <div className="border-b border-white/10" style={{ backgroundColor: '#0d1f35' }}>
+      <div className="border-b border-white/10" style={{ backgroundColor: '#0a1628' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center justify-between h-9 px-4 sm:px-8">
             {/* Mobile Menu Button */}
