@@ -120,7 +120,7 @@ const IndustryShowcase = () => {
   return <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-4 md:text-2xl">
+          <h2 className="text-2xl font-bold mb-4 md:text-3xl">
             Industry-Specific Financing Solutions
           </h2>
           <p className="text-base text-foreground max-w-3xl mx-auto">
@@ -217,20 +217,7 @@ const IndustryShowcase = () => {
           </div>
 
           {/* Desktop Indicators */}
-          <div className="flex justify-center gap-4 mt-6" role="tablist" aria-label="Industry navigation">
-            {Array.from({
-              length: Math.max(1, industries.length - 3)
-            }).map((_, index) => (
-              <button 
-                key={index} 
-                onClick={() => setCurrentIndex(index)} 
-                className="w-6 h-6 flex items-center justify-center"
-                aria-label={`View industry group ${index + 1}`}
-              >
-                <span className={`w-3 h-3 rounded-full transition-all duration-200 block ${index === currentIndex ? 'bg-primary scale-110' : 'bg-gray-300 hover:bg-gray-400'}`} />
-              </button>
-            ))}
-          </div>
+          
         </div>
       </div>
     </section>;

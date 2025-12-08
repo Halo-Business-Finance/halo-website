@@ -170,11 +170,11 @@ const LoanQuiz = () => {
           {/* Step 1: Industry Selection */}
           {step === 1 && <Card className="border-border/50 bg-white">
               <CardHeader>
-                <div className="text-center mb-4">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                <div className="">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-justify">
                     Find Your Perfect Loan
                   </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                  <p className="text-muted-foreground max-w-2xl mx-auto text-left">
                     Answer a few quick questions to get personalized commercial loan recommendations tailored to your business industry.
                   </p>
                 </div>
