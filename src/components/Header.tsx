@@ -116,22 +116,6 @@ const Header = () => {
       title: "Factoring-Based Financing",
       href: "/factoring-based-financing"
     }]
-  }, {
-    title: "Debt and Equity",
-    href: "/debt-and-equity",
-    items: [{
-      title: "Debt Financing",
-      href: "/debt-financing"
-    }, {
-      title: "Equity Financing",
-      href: "/equity-financing"
-    }, {
-      title: "Mezzanine Financing",
-      href: "/mezzanine-financing"
-    }, {
-      title: "Private Placement",
-      href: "/private-placement"
-    }]
   }];
   return <header className="relative z-50 w-full">
       {/* Primary Navigation Bar - Top tier */}
