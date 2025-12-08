@@ -232,46 +232,6 @@ const IndustryShowcase = () => {
             ))}
           </div>
         </div>
-
-        {/* Success Stories Section */}
-        <div className="rounded-lg p-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Success Stories</h3>
-            <p className="text-foreground mb-6">
-              Join hundreds of successful businesses who trust Halo Business Finance for their growth capital. From small startups to established enterprises, we've helped businesses achieve their goals. Check out our business financing resources or read additional insights from industry experts.
-            </p>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-success rounded-full" />
-                  <span className="text-sm font-medium">95% loan approval rate</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-success rounded-full" />
-                  <span className="text-sm font-medium">$1.5B+ in funding provided</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-success rounded-full" />
-                  <span className="text-sm font-medium">1,500+ satisfied clients</span>
-                </div>
-              </div>
-              <Button asChild className="mt-6">
-                <Link to="/pre-qualification">
-                  <Lock className="h-4 w-4 mr-2" />
-                  Get Started Today
-                </Link>
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-56 rounded-lg overflow-hidden">
-                <img src={sbaLoanHandshake} alt="SBA loan approval handshake" className="w-full h-full object-cover" />
-              </div>
-              <div className="relative h-48 rounded-lg overflow-hidden">
-                <img src={businessLoanSuccessStory} alt="Business loan success story" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>;
 };
