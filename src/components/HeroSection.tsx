@@ -48,9 +48,9 @@ const HeroSection = () => {
               animationDelay: '0.2s'
             }}>
                 Our Loan Marketplace offers flexible{' '}
-                <Link to="/sba-loans" className="text-blue-300 hover:text-blue-200 underline underline-offset-2 font-medium transition-colors">SBA</Link>
+                <Link to="/sba-loans" className="underline underline-offset-2 font-medium transition-colors text-white">SBA</Link>
                 {' '}and{' '}
-                <Link to="/conventional-loans" className="text-blue-300 hover:text-blue-200 underline underline-offset-2 font-medium transition-colors">Commercial Financing</Link>
+                <Link to="/conventional-loans" className="underline underline-offset-2 font-medium transition-colors text-white">Commercial Financing</Link>
                 {' '}to help your business get approved without the hassle of finding a bank or lender.
               </p>
               
