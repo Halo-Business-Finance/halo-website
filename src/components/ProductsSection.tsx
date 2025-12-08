@@ -611,7 +611,7 @@ const ProductsSection = () => {
         {/* Business Capital Section */}
         <div className="pt-4">
           <div className="text-center mb-8 max-w-7xl mx-auto">
-            <h3 className="text-2xl text-slate-900 mb-4 text-center font-bold md:text-2xl">
+            <h3 className="text-2xl text-slate-900 mb-4 text-center font-bold md:text-3xl">
               Working Capital Solutions
             </h3>
           </div>

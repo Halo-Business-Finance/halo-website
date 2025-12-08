@@ -123,7 +123,7 @@ const IndustryShowcase = () => {
           <h2 className="text-2xl font-bold mb-4 md:text-3xl">
             Industry-Specific Financing Solutions
           </h2>
-          <p className="text-base text-foreground max-w-3xl mx-auto">
+          <p className="text-foreground max-w-3xl mx-auto text-lg">
             We understand that every industry has unique financing needs. Our specialized loan programs are designed to support businesses across diverse sectors.
           </p>
         </div>

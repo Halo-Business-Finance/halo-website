@@ -174,7 +174,7 @@ const LoanQuiz = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-justify">
                     Find Your Perfect Loan
                   </h2>
-                  <p className="text-muted-foreground max-w-2xl text-left">
+                  <p className="text-muted-foreground max-w-2xl text-left text-lg">
                     Answer a few quick questions to get personalized commercial loan recommendations tailored to your business industry.
                   </p>
                 </div>
