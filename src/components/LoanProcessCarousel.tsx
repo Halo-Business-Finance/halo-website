@@ -103,7 +103,7 @@ const LoanProcessCarousel = () => {
         <div className="max-w-4xl mx-auto mb-12 hidden md:block">
           {steps.filter(s => s.step === activeStep).map(step => <Card key={step.step} className="overflow-hidden border-border/30 shadow-2xl animate-fade-in glass-card">
               <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-auto overflow-hidden group bg-black">
+                <div className="relative h-80 md:h-auto overflow-hidden group bg-black">
                   <LazyImage src={step.image} alt={step.title} className="w-full h-full transition-transform duration-700 group-hover:scale-105 object-fill" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent bg-transparent my-100 px-0 py-0" />
                   <div className="absolute top-4 left-4">
