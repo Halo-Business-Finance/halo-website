@@ -129,9 +129,7 @@ const LoanProcessCarousel = () => {
         </div>
 
         {/* Mobile Carousel */}
-        <div className="md:hidden" style={{
-        contain: 'layout style paint'
-      }}>
+        <div className="md:hidden">
           <Carousel opts={{
           align: "start",
           loop: true,
