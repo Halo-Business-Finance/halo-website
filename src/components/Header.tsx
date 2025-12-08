@@ -119,7 +119,7 @@ const Header = () => {
   }];
   return <header className="relative z-50 w-full">
       {/* Primary Navigation Bar - Top tier */}
-      <div className="hidden lg:block border-b border-white/10" style={{ backgroundColor: '#0a1628' }}>
+      <div className="hidden lg:block" style={{ backgroundColor: '#0a1628' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center justify-between h-10 px-8">
             {/* Left Side - Company, Resources, Partners */}
