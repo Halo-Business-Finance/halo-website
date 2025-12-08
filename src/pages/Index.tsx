@@ -12,7 +12,6 @@ const TrustSignals = lazy(() => import("@/components/TrustSignals"));
 const LoanQuiz = lazy(() => import("@/components/LoanQuiz"));
 const ImageGallery = lazy(() => import("@/components/ImageGallery"));
 const Footer = lazy(() => import("@/components/Footer"));
-const SuccessShowcase = lazy(() => import("@/components/SuccessShowcase"));
 
 const Index = () => {
   return (
