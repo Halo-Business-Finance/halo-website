@@ -116,11 +116,11 @@ const LoanProcessCarousel = () => {
                   <div className={`inline-flex w-14 h-14 ${step.color} rounded-2xl items-center justify-center mb-5 shadow-lg`}>
                     <step.icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-3 text-xl">{step.title}</h3>
-                  <p className="mb-2 text-base text-black">{step.description}</p>
-                  <p className="text-muted-foreground mb-6 text-base">{step.detail}</p>
+                  <h3 className="font-bold mb-3 text-xl text-white">{step.title}</h3>
+                  <p className="mb-2 text-base text-white">{step.description}</p>
+                  <p className="mb-6 text-base text-white">{step.detail}</p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground rounded-lg px-4 py-2 w-fit bg-inherit">
-                    <Clock className="h-4 w-4" />
+                    <Clock className="h-4 w-4 text-white" />
                     <span className="text-white">Estimated time: <strong className="text-foreground">{step.time}</strong></span>
                   </div>
                 </CardContent>
