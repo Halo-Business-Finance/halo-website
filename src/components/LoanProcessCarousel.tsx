@@ -65,7 +65,7 @@ const LoanProcessCarousel = () => {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight md:text-2xl">
             Our Streamlined Loan Process
           </h2>
-          <p className="max-w-2xl mx-auto leading-relaxed text-center text-base text-primary">We make commercial lending simple. Get funded in as little as 5 business days.</p>
+          <p className="max-w-2xl mx-auto leading-relaxed text-center text-base text-black ">We make commercial lending simple. Get funded in as little as 5 business days.</p>
         </div>
 
         {/* Interactive Step Indicator */}
