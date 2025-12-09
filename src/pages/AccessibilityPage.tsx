@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Eye, Ear, MousePointer, Keyboard } from "lucide-react";
@@ -8,8 +9,15 @@ import inclusiveWorkplace from "@/assets/inclusive-workplace.jpg";
 
 const AccessibilityPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Accessibility Statement | WCAG 2.1 AA Compliant | Halo Business Finance"
+        description="Halo Business Finance is committed to providing an accessible website for all users. Learn about our WCAG 2.1 AA compliance and accessibility features."
+        keywords="accessibility, WCAG compliance, screen reader support, keyboard navigation, inclusive design, accessible business loans, ADA compliance"
+        canonical="https://halobusinessfinance.com/accessibility"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -237,8 +245,9 @@ const AccessibilityPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

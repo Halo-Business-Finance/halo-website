@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const EquipmentLeasingPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Equipment Leasing | Lower Payments & Upgrade Options | Halo Business Finance"
+        description="Lease business equipment with lower monthly payments, no large down payment, and flexible end-of-term options. $10K to $5M with 12-84 month terms."
+        keywords="equipment leasing, business equipment lease, technology leasing, office equipment lease, medical equipment lease, IT leasing, equipment rental"
+        canonical="https://halobusinessfinance.com/equipment-leasing"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -156,8 +164,9 @@ const EquipmentLeasingPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

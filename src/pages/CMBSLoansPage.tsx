@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -35,8 +36,15 @@ const CMBSLoansPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="CMBS Loans | Commercial Mortgage-Backed Securities | Halo Business Finance"
+        description="CMBS loans from $2M to $200M+ with non-recourse structures, fixed rates, and up to 80% LTV. Finance office, retail, multifamily, and industrial properties."
+        keywords="CMBS loans, commercial mortgage backed securities, non-recourse loans, commercial real estate loans, fixed rate commercial loans, CMBS financing"
+        canonical="https://halobusinessfinance.com/cmbs-loans"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
@@ -422,7 +430,8 @@ const CMBSLoansPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

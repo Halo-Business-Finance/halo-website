@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -57,8 +58,15 @@ const BusinessCapitalPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Business Capital Solutions | Working Capital & Term Loans | Halo Business Finance"
+        description="Access flexible business capital solutions including working capital loans up to $2M, business lines of credit, term loans, and factoring-based financing."
+        keywords="business capital, working capital loans, business line of credit, term loans, factoring financing, business funding, cash flow financing, small business capital"
+        canonical="https://halobusinessfinance.com/business-capital"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
@@ -378,8 +386,9 @@ const BusinessCapitalPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

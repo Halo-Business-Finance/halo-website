@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const PortfolioLoansPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Commercial Refinance Loans | Lower Your Payments | Halo Business Finance"
+        description="Refinance your commercial property to lower payments, access equity, or improve terms. Competitive rates for commercial real estate refinancing."
+        keywords="commercial refinance, property refinancing, lower payments, commercial mortgage refinance, cash-out refinance, commercial real estate refinancing"
+        canonical="https://halobusinessfinance.com/portfolio-loans"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
         <div className="container mx-auto px-4">
@@ -136,7 +144,8 @@ const PortfolioLoansPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

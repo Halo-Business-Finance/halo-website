@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,8 +8,15 @@ import { TrendingUp, DollarSign, Clock, CheckCircle } from "lucide-react";
 
 const TermLoansPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Business Term Loans | Fixed Rate Financing Up to $10M | Halo Business Finance"
+        description="Predictable financing with fixed monthly payments up to $10M. 1-10 year terms for business expansion, equipment, and major investments. Starting at 5.75%."
+        keywords="business term loans, fixed rate loans, business expansion loans, commercial term financing, fixed monthly payments, business investment loans"
+        canonical="https://halobusinessfinance.com/term-loans"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative bg-gradient-to-r from-financial-navy to-primary py-20">
         <div className="container mx-auto px-4">
@@ -491,7 +499,8 @@ const TermLoansPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
