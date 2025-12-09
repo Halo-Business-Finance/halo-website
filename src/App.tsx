@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 // App entry point
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -165,7 +165,7 @@ const App: React.FC = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
-      <Toaster />
+      <Toaster richColors position="top-right" />
     </BrowserRouter>
   );
 };
