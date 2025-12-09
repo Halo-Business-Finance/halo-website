@@ -19,7 +19,7 @@ const HeroSection = () => {
   }];
   return <>
       <section className="relative min-h-[520px] md:min-h-[580px] flex items-center overflow-hidden" aria-label="Hero section">
-        <img src={heroBackground} alt="Business financing hero background" className="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async" />
+        <img src={heroBackground} alt="Business financing hero background" loading="eager" decoding="async" className="absolute inset-0 w-full h-full object-cover opacity-100 shadow-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/40"></div>
         
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
