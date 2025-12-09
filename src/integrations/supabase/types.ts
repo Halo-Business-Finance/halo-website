@@ -56,6 +56,13 @@ export type Database = {
             foreignKeyName: "admin_audit_log_admin_user_id_fkey"
             columns: ["admin_user_id"]
             isOneToOne: false
+            referencedRelation: "admin_profile_secure"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "admin_audit_log_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
             referencedRelation: "admin_users"
             referencedColumns: ["id"]
           },
@@ -151,6 +158,13 @@ export type Database = {
           user_agent?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "admin_sessions_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
+            referencedRelation: "admin_profile_secure"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "admin_sessions_admin_user_id_fkey"
             columns: ["admin_user_id"]
@@ -565,6 +579,13 @@ export type Database = {
             foreignKeyName: "cms_content_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
+            referencedRelation: "admin_profile_secure"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cms_content_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
             referencedRelation: "admin_users"
             referencedColumns: ["id"]
           },
@@ -836,6 +857,13 @@ export type Database = {
           utm_source?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "lead_submissions_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "admin_profile_secure"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "lead_submissions_assigned_to_fkey"
             columns: ["assigned_to"]
@@ -1122,6 +1150,13 @@ export type Database = {
             foreignKeyName: "security_logs_admin_user_id_fkey"
             columns: ["admin_user_id"]
             isOneToOne: false
+            referencedRelation: "admin_profile_secure"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "security_logs_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
             referencedRelation: "admin_users"
             referencedColumns: ["id"]
           },
@@ -1130,6 +1165,13 @@ export type Database = {
             columns: ["admin_user_id"]
             isOneToOne: false
             referencedRelation: "admin_users_secure"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "security_logs_resolved_by_fkey"
+            columns: ["resolved_by"]
+            isOneToOne: false
+            referencedRelation: "admin_profile_secure"
             referencedColumns: ["id"]
           },
           {
@@ -1201,6 +1243,13 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "seo_settings_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "admin_profile_secure"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "seo_settings_updated_by_fkey"
             columns: ["updated_by"]
@@ -1494,6 +1543,54 @@ export type Database = {
       }
     }
     Views: {
+      admin_profile_secure: {
+        Row: {
+          account_locked_until: string | null
+          created_at: string | null
+          email: string | null
+          failed_login_attempts: number | null
+          full_name: string | null
+          id: string | null
+          is_active: boolean | null
+          last_login_at: string | null
+          mfa_enabled: boolean | null
+          password_last_changed: string | null
+          role: string | null
+          security_clearance_level: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          account_locked_until?: string | null
+          created_at?: string | null
+          email?: string | null
+          failed_login_attempts?: number | null
+          full_name?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          last_login_at?: string | null
+          mfa_enabled?: boolean | null
+          password_last_changed?: string | null
+          role?: string | null
+          security_clearance_level?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          account_locked_until?: string | null
+          created_at?: string | null
+          email?: string | null
+          failed_login_attempts?: number | null
+          full_name?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          last_login_at?: string | null
+          mfa_enabled?: boolean | null
+          password_last_changed?: string | null
+          role?: string | null
+          security_clearance_level?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       admin_users_secure: {
         Row: {
           account_locked_until: string | null
@@ -1767,6 +1864,24 @@ export type Database = {
           hash: string
           salt: string
           token: string
+        }[]
+      }
+      get_admin_profile_by_email: {
+        Args: { admin_email: string }
+        Returns: {
+          account_locked_until: string
+          created_at: string
+          email: string
+          failed_login_attempts: number
+          full_name: string
+          id: string
+          is_active: boolean
+          last_login_at: string
+          mfa_enabled: boolean
+          password_last_changed: string
+          role: string
+          security_clearance_level: string
+          updated_at: string
         }[]
       }
       get_admin_profile_secure: {
