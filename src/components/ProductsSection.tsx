@@ -442,26 +442,18 @@ const ProductsSection = () => {
             <div className="flex flex-col md:flex-row rounded-xl overflow-hidden shadow-xl">
               {/* Left side - Image */}
               <div className="md:w-1/2">
-                <img 
-                  src={loanTypesHeader} 
-                  alt="SBA, USDA, Bridge and Conventional Loans visual representation" 
-                  className="w-full h-full object-cover min-h-[300px]"
-                />
+                <img src={loanTypesHeader} alt="SBA, USDA, Bridge and Conventional Loans visual representation" className="w-full h-full object-cover min-h-[300px]" />
               </div>
               {/* Right side - Text content */}
               <div className="md:w-1/2 bg-slate-900 p-8 md:p-12 flex flex-col justify-center">
-                <div className="bg-primary/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                  <FileText className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-transparent">
+                  <FileText className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                <h3 className="text-2xl font-bold mb-4 text-white md:text-2xl">
                   SBA, USDA, Bridge & Conventional Loans
                 </h3>
-                <p className="text-slate-300 leading-relaxed mb-2">
-                  Discover our commercial & comprehensive range of loan products.
-                </p>
-                <p className="text-slate-300 leading-relaxed">
-                  Browse <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options tailored to fuel your business growth.
-                </p>
+                <p className="text-slate-300 leading-relaxed mb-2">Discover our commercial & comprehensive range of loan products. Browse our SBA, Bridge and Conventional financing options tailored to fuel your business growth.</p>
+                
               </div>
             </div>
           </div>
