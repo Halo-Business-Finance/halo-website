@@ -443,7 +443,7 @@ const ProductsSection = () => {
               <img 
                 src={loanTypesHeader} 
                 alt="SBA, USDA, Bridge and Conventional Loans visual representation" 
-                className="w-full max-w-3xl h-auto rounded-lg shadow-md object-cover"
+                className="w-full max-w-6xl h-auto rounded-lg shadow-md object-cover"
               />
             </div>
             <h3 className="text-2xl font-bold mb-4 md:text-3xl">SBA, USDA, Bridge & Conventional Loans</h3>
