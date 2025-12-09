@@ -121,7 +121,7 @@ const IndustryShowcase = ({ className }: IndustryShowcaseProps) => {
   const getCurrentCards = () => {
     return industries.slice(currentIndex, currentIndex + 4);
   };
-  return <section className="py-16 bg-background">
+  return <section className="py-16 bg-[hsl(0_0%_100%)]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl font-bold mb-4 md:text-3xl">
