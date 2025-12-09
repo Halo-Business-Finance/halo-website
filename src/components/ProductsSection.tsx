@@ -27,6 +27,7 @@ import loanApprovalCelebration from "@/assets/loan-approval-celebration.jpg";
 import loanOfficersWorking from "@/assets/loan-officers-working.jpg";
 import successfulLoanHandshake from "@/assets/successful-loan-handshake.jpg";
 import accountingOffice from "@/assets/accounting-office.jpg";
+import loanTypesHeader from "@/assets/loan-types-header.jpg";
 const ProductsSection = () => {
   const products = [{
     logo: "/lovable-uploads/ace45563-970c-4960-91fe-f803a90fd0a3.png",
@@ -438,6 +439,13 @@ const ProductsSection = () => {
         {/* SBA & Commercial Financing */}
         <div className="mb-20">
           <div className="text-center mb-12">
+            <div className="flex justify-center mb-6">
+              <img 
+                src={loanTypesHeader} 
+                alt="SBA, USDA, Bridge and Conventional Loans visual representation" 
+                className="w-full max-w-3xl h-auto rounded-lg shadow-md object-cover"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-4 md:text-3xl">SBA, USDA, Bridge & Conventional Loans</h3>
             <p className="text-sm max-w-4xl mx-auto leading-relaxed text-black md:text-lg">
               Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="hover:underline font-semibold text-black">SBA-backed</a> and conventional financing options designed to fuel your business growth.
