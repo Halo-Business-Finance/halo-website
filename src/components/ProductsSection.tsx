@@ -541,9 +541,7 @@ const ProductsSection = () => {
               <div className="mb-4">
                 
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 md:text-2xl">
-                Ready to Fuel Your Business Growth? Working Capital Solutions
-              </h3>
+              <h3 className="text-2xl font-bold text-white mb-4 md:text-2xl">Ready to Fuel Your Business Growth?  Working Capital Solutions</h3>
               <p className="text-white/80 text-base leading-relaxed md:text-base">Discover our comprehensive range of working capital products. Browse our wokring capital loans, factoring, lines of credit, and term loan options tailored to fuel your business growth.</p>
             </div>
           </div>
