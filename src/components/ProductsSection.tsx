@@ -533,12 +533,7 @@ const ProductsSection = () => {
           <div className="grid md:grid-cols-2">
             {/* Left - Image */}
             <div className="relative h-64 md:h-auto md:min-h-[320px]">
-              <LazyImage 
-                src={financialAdvisorConsultation} 
-                alt="Professional financial advisor consultation with business owner" 
-                className="absolute inset-0 w-full h-full object-cover object-[center_20%]" 
-                priority={false} 
-              />
+              <LazyImage src={financialAdvisorConsultation} alt="Professional financial advisor consultation with business owner" className="absolute inset-0 w-full h-full object-cover object-[center_20%]" priority={false} />
             </div>
             
             {/* Right - Content */}
@@ -546,12 +541,10 @@ const ProductsSection = () => {
               <div className="mb-4">
                 <DollarSign className="h-10 w-10 text-white/80" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-white mb-4 md:text-2xl">
                 Ready to Fuel Your Business Growth? Working Capital Solutions
               </h3>
-              <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                Discover our comprehensive range of working capital products. Browse our factoring, lines of credit, and term loan options tailored to fuel your business growth.
-              </p>
+              <p className="text-white/80 text-base leading-relaxed md:text-base">Discover our comprehensive range of working capital products. Browse our wokring capital loans, factoring, lines of credit, and term loan options tailored to fuel your business growth.</p>
             </div>
           </div>
         </div>
