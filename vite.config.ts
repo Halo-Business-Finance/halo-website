@@ -31,9 +31,6 @@ export default defineConfig(({ mode }) => ({
           // Radix UI components - separate chunk
           if (id.includes('@radix-ui')) return 'vendor-radix';
           
-          // Charts library - separate chunk (large)
-          if (id.includes('recharts') || id.includes('d3-')) return 'vendor-charts';
-          
           // Form libraries
           if (id.includes('react-hook-form') || id.includes('@hookform')) return 'vendor-forms';
           
@@ -42,6 +39,8 @@ export default defineConfig(({ mode }) => ({
           
           // Supabase
           if (id.includes('@supabase')) return 'vendor-supabase';
+          
+          // Let recharts and d3 be handled automatically to avoid circular deps
         },
       },
     },
