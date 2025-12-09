@@ -25,82 +25,97 @@ interface LoanType {
   amount: string;
   timeline: string;
 }
-const FinancingSolutions = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
-  const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
-  const [step, setStep] = useState(1);
-  const industries = [{
+
+const industries = [
+  {
     image: doctorsOfficeConsultation,
     title: "Healthcare & Medical",
     description: "Specialized financing for medical practices, dental offices, and healthcare facilities",
     loanTypes: ["Equipment financing", "Practice expansion", "Working capital"],
     ctaText: "Healthcare Loans",
     ctaLink: "/medical-equipment"
-  }, {
+  },
+  {
     image: restaurantEquipmentFinancing,
     title: "Restaurant & Food Service",
     description: "Complete financing solutions for restaurants, cafes, and food service businesses",
     loanTypes: ["Kitchen equipment", "Restaurant acquisition", "Renovation loans"],
     ctaText: "Restaurant Financing",
     ctaLink: "/equipment-financing"
-  }, {
+  },
+  {
     image: constructionLoanSuccess,
     title: "Construction Financing",
     description: "Commercial construction loans and development financing for builders and contractors",
     loanTypes: ["Construction loans", "Equipment financing", "Working capital"],
     ctaText: "Construction Loans",
     ctaLink: "/construction-loans"
-  }, {
+  },
+  {
     image: apartmentBuildingFinancing,
     title: "Multi-Family Financing",
     description: "Commercial real estate loans for property acquisition and investment projects",
     loanTypes: ["Property acquisition", "Refinancing", "Portfolio loans"],
     ctaText: "Real Estate Loans",
     ctaLink: "/sba-504-loans"
-  }, {
+  },
+  {
     image: oilEnergyIndustry,
     title: "Oil & Energy Industry",
     description: "Specialized financing for oil, gas, and renewable energy projects and operations",
     loanTypes: ["Equipment financing", "Project development", "Working capital"],
     ctaText: "Energy Financing",
     ctaLink: "/equipment-financing"
-  }, {
+  },
+  {
     image: transportationLogisticsIndustry,
     title: "Transportation & Logistics",
     description: "Financing solutions for trucking companies, freight operations, and logistics businesses",
     loanTypes: ["Fleet financing", "Equipment loans", "Working capital"],
     ctaText: "Transportation Loans",
     ctaLink: "/equipment-financing"
-  }, {
+  },
+  {
     image: retailBusinessFinancing,
     title: "Retail & E-commerce",
     description: "Business financing for retail stores, online businesses, and e-commerce operations",
     loanTypes: ["Inventory financing", "Store expansion", "Working capital"],
     ctaText: "Retail Financing",
     ctaLink: "/working-capital"
-  }, {
+  },
+  {
     image: hotelMotelFinancing,
     title: "Hotel & Motel Industry",
     description: "Hospitality financing for hotels, motels, and accommodation businesses",
     loanTypes: ["Property acquisition", "Renovation loans", "Construction loans"],
     ctaText: "Hospitality Financing",
     ctaLink: "/sba-504-loans"
-  }, {
+  },
+  {
     image: carwashBusinessFinancing,
     title: "Car Wash Financing",
     description: "Financing solutions for car wash businesses, equipment, and facility development",
     loanTypes: ["Equipment financing", "Facility construction", "Working capital"],
     ctaText: "Car Wash Financing",
     ctaLink: "/equipment-financing"
-  }, {
+  },
+  {
     image: gasStationFinancing,
     title: "Gas Station Financing",
     description: "Financing for gas stations, fuel operations, and convenience store businesses",
     loanTypes: ["Property acquisition", "Construction loans", "Working capital"],
     ctaText: "Gas Station Financing",
     ctaLink: "/commercial-loans"
-  }];
+  }
+];
+
+const FinancingSolutions = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
+  const [step, setStep] = useState(1);
+
+
   const quizIndustries = [{
     id: 'real-estate',
     label: 'Real Estate',
@@ -222,14 +237,12 @@ const FinancingSolutions = () => {
     }]
   };
   useEffect(() => {
+    const maxIndex = Math.max(0, industries.length - 4);
     const timer = setInterval(() => {
-      setCurrentIndex(prevIndex => {
-        const maxIndex = Math.max(0, industries.length - 4);
-        return prevIndex >= maxIndex ? 0 : prevIndex + 1;
-      });
+      setCurrentIndex(prevIndex => prevIndex >= maxIndex ? 0 : prevIndex + 1);
     }, 6000);
     return () => clearInterval(timer);
-  }, [industries.length]);
+  }, []);
   const nextSlide = () => {
     const maxIndex = typeof window !== 'undefined' && window.innerWidth < 768 ? industries.length - 1 : Math.max(0, industries.length - 4);
     setCurrentIndex(currentIndex >= maxIndex ? 0 : currentIndex + 1);
