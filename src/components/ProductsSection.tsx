@@ -528,27 +528,36 @@ const ProductsSection = () => {
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
         </div>
 
-        {/* Enhanced CTA Section - Moved between carousels */}
-        <div className="relative overflow-hidden shadow-lg -mx-4 sm:-mx-6 my-[100px] lg:mx-0">
-          <LazyImage src={financialAdvisorConsultation} alt="Professional financial advisor consultation with business owner" className="absolute inset-0 w-full h-full object-cover object-[center_20%]" priority={false} />
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40"></div>
-          <div className="relative text-white pt-64 pb-28 px-6 max-w-4xl mx-auto">
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-xl font-bold mb-4 leading-tight mt-6 md:text-3xl">
-                Ready to Fuel Your Business Growth?
+        {/* Working Capital Header Widget - Two Column Layout */}
+        <div className="max-w-7xl mx-auto my-[100px] rounded-xl overflow-hidden shadow-lg">
+          <div className="grid md:grid-cols-2">
+            {/* Left - Image */}
+            <div className="relative h-64 md:h-auto md:min-h-[320px]">
+              <LazyImage 
+                src={financialAdvisorConsultation} 
+                alt="Professional financial advisor consultation with business owner" 
+                className="absolute inset-0 w-full h-full object-cover object-[center_20%]" 
+                priority={false} 
+              />
+            </div>
+            
+            {/* Right - Content */}
+            <div className="bg-financial-navy p-8 md:p-12 flex flex-col justify-center">
+              <div className="mb-4">
+                <DollarSign className="h-10 w-10 text-white/80" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Ready to Fuel Your Business Growth? Working Capital Solutions
               </h3>
+              <p className="text-white/80 text-base md:text-lg leading-relaxed">
+                Discover our comprehensive range of working capital products. Browse our factoring, lines of credit, and term loan options tailored to fuel your business growth.
+              </p>
             </div>
           </div>
         </div>
 
         {/* Business Capital Section */}
         <div className="pt-4">
-          <div className="text-center mb-8 max-w-7xl mx-auto">
-            <h3 className="text-2xl text-slate-900 mb-4 text-center font-bold md:text-2xl">
-              Working Capital Solutions
-            </h3>
-          </div>
 
           {/* Mobile Vertical Stack */}
           <div className="md:hidden space-y-4 mb-12 max-w-sm mx-auto">
