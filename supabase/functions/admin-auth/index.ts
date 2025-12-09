@@ -244,15 +244,15 @@ Deno.serve(async (req) => {
         });
       }
 
-      // Verify admin user credentials
-      const { data: adminUser, error: userError } = await supabase
+      // Verify admin user credentials - only fetch fields needed for authentication
+      const { data: adminCredentials, error: credError } = await supabase
         .from('admin_users')
-        .select('*')
+        .select('id, email, password_hash, failed_login_attempts, is_active')
         .eq('email', normalizedEmail)
         .eq('is_active', true)
         .single()
 
-      if (userError || !adminUser) {
+      if (credError || !adminCredentials) {
         return new Response(
           JSON.stringify({ success: false, error: 'Invalid credentials' }),
           { 
@@ -264,16 +264,16 @@ Deno.serve(async (req) => {
 
       // Verify password using bcrypt
       const bcrypt = await import('https://deno.land/x/bcrypt@v0.4.1/mod.ts')
-      const isPasswordValid = await bcrypt.compare(password, adminUser.password_hash)
+      const isPasswordValid = await bcrypt.compare(password, adminCredentials.password_hash)
 
       if (!isPasswordValid) {
         // Increment failed login attempts
         await supabase
           .from('admin_users')
           .update({ 
-            failed_login_attempts: (adminUser.failed_login_attempts || 0) + 1 
+            failed_login_attempts: (adminCredentials.failed_login_attempts || 0) + 1 
           })
-          .eq('id', adminUser.id)
+          .eq('id', adminCredentials.id)
 
         return new Response(
           JSON.stringify({ success: false, error: 'Invalid credentials' }),
@@ -288,7 +288,7 @@ Deno.serve(async (req) => {
       await supabase
         .from('admin_users')
         .update({ failed_login_attempts: 0 })
-        .eq('id', adminUser.id)
+        .eq('id', adminCredentials.id)
 
       // Generate session token with hash
       const sessionToken = crypto.randomUUID()
@@ -308,7 +308,7 @@ Deno.serve(async (req) => {
       const { error: sessionError } = await supabase
         .from('admin_sessions')
         .insert({
-          admin_user_id: adminUser.id,
+          admin_user_id: adminCredentials.id,
           session_token_hash: sessionTokenHash,
           token_salt: tokenSalt,
           expires_at: expiresAt.toISOString(),
@@ -331,7 +331,29 @@ Deno.serve(async (req) => {
       await supabase
         .from('admin_users')
         .update({ last_login_at: new Date().toISOString() })
-        .eq('id', adminUser.id)
+        .eq('id', adminCredentials.id)
+
+      // Fetch admin profile using secure RPC function for response (excludes sensitive fields)
+      const { data: adminProfiles, error: profileError } = await supabase
+        .rpc('get_admin_profile_by_email', { admin_email: normalizedEmail })
+
+      if (profileError || !adminProfiles || adminProfiles.length === 0) {
+        console.error('[Admin Auth] Secure profile fetch failed after login:', profileError)
+        // Fallback to minimal data if secure function fails
+        return new Response(
+          JSON.stringify({ 
+            success: true, 
+            token: sessionToken,
+            user: { id: adminCredentials.id, email: adminCredentials.email }
+          }),
+          { 
+            status: 200, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+          }
+        )
+      }
+
+      const adminProfile = adminProfiles[0]
 
       // Log security event
       await supabase
@@ -340,20 +362,24 @@ Deno.serve(async (req) => {
           event_type: 'admin_login',
           severity: 'info',
           message: `Admin user ${email} logged in successfully`,
-          details: { admin_id: adminUser.id, ip: req.headers.get('x-forwarded-for') },
-          admin_user_id: adminUser.id,
-           ip_address: clientIp,
-           user_agent: userAgent
+          details: { admin_id: adminCredentials.id, ip: req.headers.get('x-forwarded-for') },
+          admin_user_id: adminCredentials.id,
+          ip_address: clientIp,
+          user_agent: userAgent
         })
+
+      console.log('[Admin Auth] Login successful, profile retrieved via secure function for:', adminProfile.email)
 
       const response: AuthResponse = {
         success: true,
         token: sessionToken,
         user: {
-          id: adminUser.id,
-          email: adminUser.email,
-          full_name: adminUser.full_name,
-          role: adminUser.role
+          id: adminProfile.id,
+          email: adminProfile.email,
+          full_name: adminProfile.full_name,
+          role: adminProfile.role,
+          security_clearance_level: adminProfile.security_clearance_level,
+          mfa_enabled: adminProfile.mfa_enabled
         }
       }
 
