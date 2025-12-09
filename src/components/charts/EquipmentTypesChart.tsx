@@ -57,3 +57,5 @@ export const EquipmentTypesChart = () => {
     </Card>
   );
 };
+
+export default EquipmentTypesChart;

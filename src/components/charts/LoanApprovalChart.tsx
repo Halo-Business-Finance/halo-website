@@ -58,3 +58,5 @@ export const LoanApprovalChart = () => {
     </Card>
   );
 };
+
+export default LoanApprovalChart;

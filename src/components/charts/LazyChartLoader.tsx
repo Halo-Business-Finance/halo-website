@@ -1,22 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
-// Lazy load chart components with named imports
-const LoanApprovalChart = lazy(() => 
-  import('./LoanApprovalChart').then(module => ({ default: module.LoanApprovalChart }))
-);
-const EquipmentTypesChart = lazy(() => 
-  import('./EquipmentTypesChart').then(module => ({ default: module.EquipmentTypesChart }))
-);
-const IndustryStatsChart = lazy(() => 
-  import('./IndustryStatsChart').then(module => ({ default: module.IndustryStatsChart }))
-);
-const ProcessDiagram = lazy(() => 
-  import('./ProcessDiagram').then(module => ({ default: module.ProcessDiagram }))
-);
-const LendingStatsSection = lazy(() => 
-  import('./LendingStatsSection').then(module => ({ default: module.LendingStatsSection }))
-);
+// Lazy load chart components with default exports
+const LoanApprovalChart = lazy(() => import('./LoanApprovalChart'));
+const EquipmentTypesChart = lazy(() => import('./EquipmentTypesChart'));
+const IndustryStatsChart = lazy(() => import('./IndustryStatsChart'));
+const ProcessDiagram = lazy(() => import('./ProcessDiagram'));
+const LendingStatsSection = lazy(() => import('./LendingStatsSection'));
 
 interface ChartLoaderProps {
   type: 'loan-approval' | 'equipment-types' | 'industry-stats' | 'process-diagram' | 'lending-stats';

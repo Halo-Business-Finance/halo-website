@@ -76,3 +76,5 @@ export const LendingStatsSection = () => {
     </section>
   );
 };
+
+export default LendingStatsSection;
