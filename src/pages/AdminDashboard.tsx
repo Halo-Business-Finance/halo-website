@@ -19,7 +19,7 @@ import {
   TrendingUp,
   ExternalLink
 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import AdminAuth from '@/components/admin/AdminAuth';
 import EnterpriseCMSManager from '@/components/admin/EnterpriseCMSManager';
 import LeadsManager from '@/components/admin/LeadsManager';
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
     cmsPages: 0,
     securityAlerts: 0
   });
-  const { toast } = useToast();
+  
 
   useEffect(() => {
     const session = secureStorage.getSession();
@@ -122,10 +122,7 @@ const AdminDashboard = () => {
     setUser(userData);
     // Session is already stored by AdminAuth via secureStorage
     loadDashboardStats(token);
-    toast({
-      title: "Welcome back!",
-      description: `Logged in as ${userData.full_name}`,
-    });
+    toast.success(`Welcome back, ${userData.full_name}!`);
   };
 
   const handleLogout = async () => {
@@ -147,10 +144,7 @@ const AdminDashboard = () => {
       secureStorage.clearSession();
       sessionStorage.removeItem('admin_token');
       sessionStorage.removeItem('admin_user');
-      toast({
-        title: "Logged out",
-        description: "You have been successfully logged out.",
-      });
+      toast.success("You have been successfully logged out.");
     }
   };
 
