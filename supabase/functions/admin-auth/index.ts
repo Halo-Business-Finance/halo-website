@@ -98,14 +98,46 @@ Deno.serve(async (req) => {
           )
         }
 
-        // Fetch admin user profile
-        const { data: adminUser, error: userError } = await supabase
-          .from('admin_users')
-          .select('id, email, full_name, role, is_active')
-          .eq('id', session.admin_user_id)
+        // Get admin email from session to use secure profile function
+        const { data: sessionAdmin, error: sessionAdminError } = await supabase
+          .from('admin_sessions')
+          .select('admin_user_id')
+          .eq('session_token', token)
           .single()
 
-        if (userError || !adminUser || !adminUser.is_active) {
+        if (sessionAdminError || !sessionAdmin) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Session lookup failed' }),
+            { 
+              status: 401, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        // Get admin email from admin_users to use with secure function
+        const { data: adminEmail, error: emailError } = await supabase
+          .from('admin_users')
+          .select('email')
+          .eq('id', sessionAdmin.admin_user_id)
+          .single()
+
+        if (emailError || !adminEmail) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Admin lookup failed' }),
+            { 
+              status: 401, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        // Fetch admin user profile using secure RPC function (excludes sensitive fields)
+        const { data: adminProfiles, error: profileError } = await supabase
+          .rpc('get_admin_profile_by_email', { admin_email: adminEmail.email })
+
+        if (profileError || !adminProfiles || adminProfiles.length === 0) {
+          console.error('[Admin Auth] Profile fetch error:', profileError)
           return new Response(
             JSON.stringify({ success: false, error: 'Admin not found or inactive' }),
             { 
@@ -115,6 +147,20 @@ Deno.serve(async (req) => {
           )
         }
 
+        const adminUser = adminProfiles[0]
+        
+        if (!adminUser.is_active) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Admin account is inactive' }),
+            { 
+              status: 401, 
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+            }
+          )
+        }
+
+        console.log('[Admin Auth] Profile retrieved via secure function for:', adminUser.email)
+
         return new Response(
           JSON.stringify({ 
             success: true, 
@@ -122,7 +168,9 @@ Deno.serve(async (req) => {
               id: adminUser.id, 
               email: adminUser.email, 
               full_name: adminUser.full_name, 
-              role: adminUser.role 
+              role: adminUser.role,
+              security_clearance_level: adminUser.security_clearance_level,
+              mfa_enabled: adminUser.mfa_enabled
             }
           }),
           { 
