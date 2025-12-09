@@ -1,13 +1,21 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import privacyPolicyHeader from "@/assets/privacy-policy-header.jpg";
 import dataProtectionTeam from "@/assets/data-protection-team.jpg";
 
 const PrivacyPolicyPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Privacy Policy | Data Protection | Halo Business Finance"
+        description="Learn how Halo Business Finance collects, uses, and protects your personal information. Our commitment to your privacy and data security."
+        keywords="privacy policy, data protection, personal information, data security, CCPA, financial privacy, information security"
+        canonical="https://halobusinessfinance.com/privacy-policy"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -193,7 +201,8 @@ const PrivacyPolicyPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

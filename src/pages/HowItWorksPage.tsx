@@ -41,8 +41,15 @@ import loanProcessExplanation from "@/assets/loan-process-explanation.jpg";
 
 const HowItWorksPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="How It Works | 5-Step Loan Process | Halo Business Finance"
+        description="Get funded in 5 simple steps: select your loan, answer questions, get pre-approved, upload financials, and receive funding. Fast, simple, and secure."
+        keywords="how it works, loan process, business loan application, get funded, pre-approval process, commercial loan steps, SBA loan process"
+        canonical="https://halobusinessfinance.com/how-it-works"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -435,7 +442,8 @@ const HowItWorksPage = () => {
       <SuccessShowcase />
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

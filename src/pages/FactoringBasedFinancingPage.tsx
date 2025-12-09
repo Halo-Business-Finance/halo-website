@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const FactoringBasedFinancingPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Factoring-Based Financing | Revenue-Based Payments | Halo Business Finance"
+        description="Flexible financing with payments based on your revenue. 2-10% revenue share, $25K to $2M funding. Perfect for seasonal and growing businesses."
+        keywords="factoring financing, revenue based financing, flexible payments, invoice factoring, accounts receivable financing, alternative financing, seasonal business loans"
+        canonical="https://halobusinessfinance.com/factoring-based-financing"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
@@ -174,8 +182,9 @@ const FactoringBasedFinancingPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

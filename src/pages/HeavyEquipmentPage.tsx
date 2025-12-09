@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const HeavyEquipmentPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Heavy Equipment Financing | $50K-$10M | Halo Business Finance"
+        description="Finance heavy machinery and construction equipment from $50K to $10M. Excavators, bulldozers, cranes, trucks, and agricultural equipment. New and used."
+        keywords="heavy equipment financing, construction equipment loans, machinery financing, excavator financing, bulldozer loans, crane financing, agricultural equipment loans"
+        canonical="https://halobusinessfinance.com/heavy-equipment"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -163,8 +171,9 @@ const HeavyEquipmentPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

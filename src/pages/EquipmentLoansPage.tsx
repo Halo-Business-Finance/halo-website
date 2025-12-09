@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const EquipmentLoansPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Equipment Loans | 100% Financing $25K-$5M | Halo Business Finance"
+        description="Finance new or used business equipment with up to 100% financing. $25K to $5M for construction, healthcare, manufacturing, and transportation equipment."
+        keywords="equipment loans, equipment financing, machinery financing, business equipment loans, 100% equipment financing, construction equipment loans, medical equipment financing"
+        canonical="https://halobusinessfinance.com/equipment-loans"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -530,7 +538,8 @@ const EquipmentLoansPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

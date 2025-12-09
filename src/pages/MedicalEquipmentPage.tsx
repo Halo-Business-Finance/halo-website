@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const MedicalEquipmentPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Medical Equipment Financing | Healthcare Loans | Halo Business Finance"
+        description="Finance medical equipment including MRI, CT scanners, dental equipment, and laboratory devices. Competitive rates for healthcare providers and medical practices."
+        keywords="medical equipment financing, healthcare loans, MRI financing, dental equipment loans, laboratory equipment financing, medical practice loans"
+        canonical="https://halobusinessfinance.com/medical-equipment"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -153,7 +161,8 @@ const MedicalEquipmentPage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

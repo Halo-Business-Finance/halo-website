@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -113,8 +114,15 @@ const CareersPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Careers at Halo Business Finance | Join Our Growing Team"
+        description="Build your career with Halo Business Finance. Explore open positions in sales, technology, and operations. Competitive benefits, career development, and innovation culture."
+        keywords="careers, jobs, fintech jobs, loan officer jobs, business development careers, finance careers, commercial lending jobs, Halo Business Finance careers"
+        canonical="https://halobusinessfinance.com/careers"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
@@ -343,8 +351,9 @@ const CareersPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

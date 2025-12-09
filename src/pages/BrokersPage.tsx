@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -58,8 +59,15 @@ const BrokersPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Broker Partnership Program | Earn Up to 3% Commission | Halo Business Finance"
+        description="Join our broker network and access 50+ lenders, competitive commissions up to 3%, dedicated support, and marketing resources. Apply to become a partner today."
+        keywords="broker partnership, commercial loan broker, loan broker program, broker commissions, SBA loan broker, commercial financing broker, referral partner program"
+        canonical="https://halobusinessfinance.com/brokers"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
@@ -223,8 +231,9 @@ const BrokersPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

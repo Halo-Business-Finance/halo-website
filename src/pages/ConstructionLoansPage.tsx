@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Link } from "react-router-dom";
 
 const ConstructionLoansPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Construction Loans | Commercial Development Financing $500K-$50M | Halo Business Finance"
+        description="Fund commercial construction projects from $500K to $50M. Draw-basis financing for new construction, renovations, and development. 12-36 month terms available."
+        keywords="construction loans, commercial construction financing, development loans, ground-up construction, renovation loans, construction draw loans, commercial development"
+        canonical="https://halobusinessfinance.com/construction-loans"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
@@ -135,8 +143,9 @@ const ConstructionLoansPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

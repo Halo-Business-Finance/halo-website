@@ -56,8 +56,15 @@ import fintechLoanMarketplace from "@/assets/fintech-loan-marketplace.jpg";
 
 const CompanyOverview = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="About Us | Company Overview | Halo Business Finance"
+        description="Learn about Halo Business Finance - your nationwide SBA and commercial loan marketplace. 150+ lending partners, 1,500+ businesses funded, 95% approval rate."
+        keywords="about Halo Business Finance, commercial loan marketplace, SBA lender, business financing company, commercial lending company"
+        canonical="https://halobusinessfinance.com/company-overview"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
@@ -723,7 +730,8 @@ const CompanyOverview = () => {
 
       
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

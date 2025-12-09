@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,15 @@ import { Zap, DollarSign, Clock } from "lucide-react";
 
 const BridgeFinancingPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Bridge Financing | Fast Short-Term Loans $100K-$10M | Halo Business Finance"
+        description="Get bridge financing in 5-10 days. $100K to $10M for quick acquisitions, property improvements, and time-sensitive deals. Competitive rates starting at 9%."
+        keywords="bridge financing, bridge loans, short-term financing, quick capital, real estate bridge loans, commercial bridge financing, fast business loans, gap financing"
+        canonical="https://halobusinessfinance.com/bridge-financing"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
@@ -131,8 +139,9 @@ const BridgeFinancingPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

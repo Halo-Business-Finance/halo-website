@@ -1,13 +1,21 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import termsOfServiceHeader from "@/assets/terms-of-service-header.jpg";
 import legalConsultation from "@/assets/legal-consultation.jpg";
 
 const TermsOfServicePage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Terms of Service | Legal Agreement | Halo Business Finance"
+        description="Read our terms of service governing your use of Halo Business Finance website and services. Important legal terms and conditions for borrowers."
+        keywords="terms of service, legal terms, user agreement, terms and conditions, website terms, service agreement"
+        canonical="https://halobusinessfinance.com/terms-of-service"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20 overflow-hidden">
         <img 
@@ -226,7 +234,8 @@ const TermsOfServicePage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

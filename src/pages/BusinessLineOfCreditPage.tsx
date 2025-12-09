@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,8 +10,15 @@ import businessGrowth from "@/assets/business-growth.jpg";
 
 const BusinessLineOfCreditPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
+      <SEO 
+        title="Business Line of Credit | Up to $500K Revolving Credit | Halo Business Finance"
+        description="Get a revolving business line of credit up to $500K. Draw funds as needed, pay interest only on what you use. Starting at Prime + 2% with flexible terms."
+        keywords="business line of credit, revolving credit, flexible financing, business credit line, working capital line, credit facility, business funding"
+        canonical="https://halobusinessfinance.com/business-line-of-credit"
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
       
       <section className="relative py-20">
         <div className="container mx-auto px-4">
@@ -139,8 +147,9 @@ const BusinessLineOfCreditPage = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 
