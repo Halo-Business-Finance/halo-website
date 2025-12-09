@@ -463,8 +463,8 @@ const ProductsSection = () => {
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex gap-4">
                 {products.map((product, index) => <div key={index} className="flex-[0_0_300px] min-w-0">
-                    <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full">
-                      <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6 px-[20px] py-[20px]">
+                    <Card className="overflow-hidden group transition-shadow h-full shadow-md my-0 py-0">
+                      <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6 py-[20px] px-[2px]">
                         {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
                         <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
                         <p className="text-sm text-white leading-relaxed text-center">
@@ -598,7 +598,7 @@ const ProductsSection = () => {
           {/* Desktop Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-7xl mx-auto">
             {businessProducts.slice(0, 4).map((product, index) => <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6">
+                <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex flex-col items-center justify-center p-6 border-white bg-white">
                   {product.icon && <product.icon className="h-8 w-8 text-white mb-4 flex-shrink-0" />}
                   <h3 className="text-lg font-semibold mb-2 text-center text-white">{product.title}</h3>
                   <p className="text-sm text-white leading-relaxed text-left">
