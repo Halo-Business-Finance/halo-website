@@ -5,6 +5,16 @@ import App from './App.tsx'
 import './index.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+// Unregister any existing service workers to prevent caching issues
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(registration => {
+      registration.unregister();
+      console.log('Service worker unregistered');
+    });
+  });
+}
+
 // Create query client
 const queryClient = new QueryClient({
   defaultOptions: {
