@@ -539,7 +539,7 @@ const ProductsSection = () => {
             {/* Right - Content */}
             <div className="bg-financial-navy p-8 md:p-12 flex flex-col justify-center">
               <div className="mb-4">
-                <DollarSign className="h-10 w-10 text-white/80" />
+                
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 md:text-2xl">
                 Ready to Fuel Your Business Growth? Working Capital Solutions
