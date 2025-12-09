@@ -18,7 +18,11 @@ import retailBusinessFinancing from "@/assets/retail-business-financing.jpg";
 import hotelMotelFinancing from "@/assets/hotel-motel-financing.jpg";
 import carwashBusinessFinancing from "@/assets/carwash-business-financing.jpg";
 import gasStationFinancing from "@/assets/gas-station-financing.jpg";
-const IndustryShowcase = () => {
+interface IndustryShowcaseProps {
+  className?: string;
+}
+
+const IndustryShowcase = ({ className }: IndustryShowcaseProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const industries = [{
     image: doctorsOfficeConsultation,

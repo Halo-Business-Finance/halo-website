@@ -14,7 +14,11 @@ interface LoanType {
   amount: string;
   timeline: string;
 }
-const LoanQuiz = () => {
+interface LoanQuizProps {
+  className?: string;
+}
+
+const LoanQuiz = ({ className }: LoanQuizProps) => {
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
   const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
   const [step, setStep] = useState(1);
