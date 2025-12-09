@@ -58,17 +58,46 @@ const LoanProcessCarousel = () => {
   }];
   return <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8">
           <span className="inline-block px-3 py-1 font-medium rounded-full mb-4 bg-white text-black text-base">
             Simple 5-Step Process
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 tracking-tight md:text-2xl">
             Our Streamlined Loan Process
           </h2>
-          <p className="max-w-2xl mx-auto leading-relaxed text-center text-base text-black ">We make commercial lending simple. Get funded in as little as 5 business days.</p>
+          <p className="max-w-2xl mx-auto leading-relaxed text-center text-base text-black mb-8">We make commercial lending simple. Get funded in as little as 5 business days.</p>
         </div>
 
-        {/* Interactive Step Indicator */}
+        {/* Active Step Detail - Desktop (Now directly under the text) */}
+        <div className="max-w-4xl mx-auto mb-10 hidden md:block">
+          {steps.filter(s => s.step === activeStep).map(step => <Card key={step.step} className="overflow-hidden border-border/30 shadow-2xl animate-fade-in glass-card">
+              <div className="grid md:grid-cols-2">
+                <div className="relative h-80 md:h-auto overflow-hidden group bg-black">
+                  <LazyImage src={step.image} alt={step.title} className="w-full h-full transition-transform duration-700 group-hover:scale-105 object-fill" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent bg-transparent my-100 px-0 py-0" />
+                  <div className="absolute top-4 left-4">
+                    <span className={`${step.color} text-white px-4 py-1.5 rounded-xl text-sm font-semibold shadow-lg backdrop-blur-sm`}>
+                      Step {step.step}
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-8 flex flex-col justify-center bg-black-to-br from-card to-card/80 border-black bg-black px-[30px] py-[30px]">
+                  <div className={`inline-flex w-14 h-14 ${step.color} rounded-2xl items-center justify-center mb-5 shadow-lg`}>
+                    <step.icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className="font-bold mb-3 text-xl text-white">{step.title}</h3>
+                  <p className="mb-2 text-base text-white">{step.description}</p>
+                  <p className="mb-6 text-base text-white">{step.detail}</p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground rounded-lg px-4 py-2 w-fit bg-inherit">
+                    <Clock className="h-4 w-4 text-white" />
+                    <span className="text-white">Estimated time: <strong className="text-foreground">{step.time}</strong></span>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>)}
+        </div>
+
+        {/* Interactive Step Indicator - Now below the widget */}
         <div className="max-w-4xl mx-auto mb-12 hidden md:block">
           <div className="relative">
             {/* Progress Line */}
@@ -99,34 +128,6 @@ const LoanProcessCarousel = () => {
           </div>
         </div>
 
-        {/* Active Step Detail - Desktop */}
-        <div className="max-w-4xl mx-auto mb-12 hidden md:block">
-          {steps.filter(s => s.step === activeStep).map(step => <Card key={step.step} className="overflow-hidden border-border/30 shadow-2xl animate-fade-in glass-card">
-              <div className="grid md:grid-cols-2">
-                <div className="relative h-80 md:h-auto overflow-hidden group bg-black">
-                  <LazyImage src={step.image} alt={step.title} className="w-full h-full transition-transform duration-700 group-hover:scale-105 object-fill" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent bg-transparent my-100 px-0 py-0" />
-                  <div className="absolute top-4 left-4">
-                    <span className={`${step.color} text-white px-4 py-1.5 rounded-xl text-sm font-semibold shadow-lg backdrop-blur-sm`}>
-                      Step {step.step}
-                    </span>
-                  </div>
-                </div>
-                <CardContent className="p-8 flex flex-col justify-center bg-black-to-br from-card to-card/80 border-black bg-black px-[30px] py-[30px]">
-                  <div className={`inline-flex w-14 h-14 ${step.color} rounded-2xl items-center justify-center mb-5 shadow-lg`}>
-                    <step.icon className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="font-bold mb-3 text-xl text-white">{step.title}</h3>
-                  <p className="mb-2 text-base text-white">{step.description}</p>
-                  <p className="mb-6 text-base text-white">{step.detail}</p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground rounded-lg px-4 py-2 w-fit bg-inherit">
-                    <Clock className="h-4 w-4 text-white" />
-                    <span className="text-white">Estimated time: <strong className="text-foreground">{step.time}</strong></span>
-                  </div>
-                </CardContent>
-              </div>
-            </Card>)}
-        </div>
 
         {/* Mobile Carousel */}
         <div className="md:hidden">
