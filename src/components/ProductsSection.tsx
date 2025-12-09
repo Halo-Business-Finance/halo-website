@@ -438,18 +438,32 @@ const ProductsSection = () => {
 
         {/* SBA & Commercial Financing */}
         <div className="mb-20">
-          <div className="text-center mb-12">
-            <div className="flex justify-center mb-6">
-              <img 
-                src={loanTypesHeader} 
-                alt="SBA, USDA, Bridge and Conventional Loans visual representation" 
-                className="w-full max-w-6xl h-auto rounded-lg shadow-md object-cover"
-              />
+          <div className="mb-12 max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row rounded-xl overflow-hidden shadow-xl">
+              {/* Left side - Image */}
+              <div className="md:w-1/2">
+                <img 
+                  src={loanTypesHeader} 
+                  alt="SBA, USDA, Bridge and Conventional Loans visual representation" 
+                  className="w-full h-full object-cover min-h-[300px]"
+                />
+              </div>
+              {/* Right side - Text content */}
+              <div className="md:w-1/2 bg-slate-900 p-8 md:p-12 flex flex-col justify-center">
+                <div className="bg-primary/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                  <FileText className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                  SBA, USDA, Bridge & Conventional Loans
+                </h3>
+                <p className="text-slate-300 leading-relaxed mb-2">
+                  Discover our commercial & comprehensive range of loan products.
+                </p>
+                <p className="text-slate-300 leading-relaxed">
+                  Browse <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">SBA-backed</a> and conventional financing options tailored to fuel your business growth.
+                </p>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold mb-4 md:text-3xl">SBA, USDA, Bridge & Conventional Loans</h3>
-            <p className="text-sm max-w-4xl mx-auto leading-relaxed text-black md:text-lg">
-              Discover our commercial & comprehensive range of <a href="https://www.sba.gov/funding-programs/loans" target="_blank" rel="noopener noreferrer" className="hover:underline font-semibold text-black">SBA-backed</a> and conventional financing options designed to fuel your business growth.
-            </p>
           </div>
           
           {/* Loan Cards Slider */}
