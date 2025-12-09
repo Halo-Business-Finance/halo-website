@@ -192,7 +192,7 @@ const Header = () => {
       {/* Secondary Navigation Bar - Third tier with horizontal menu items */}
       <div className="hidden lg:block border-b border-white/5" style={{ backgroundColor: '#112845' }}>
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center h-12 px-8">
+          <div className="flex items-center h-10 px-8">
             {/* Horizontal Navigation - All items visible */}
             <nav className="flex items-center gap-2 flex-1">
               {/* Company Dropdown */}
