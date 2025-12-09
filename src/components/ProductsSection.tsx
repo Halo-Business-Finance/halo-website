@@ -438,7 +438,7 @@ const ProductsSection = () => {
 
         {/* SBA & Commercial Financing */}
         <div className="mb-20">
-          <div className="mb-12 max-w-6xl mx-auto">
+          <div className="mb-12 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row rounded-xl overflow-hidden shadow-xl">
               {/* Left side - Image */}
               <div className="md:w-1/2">
