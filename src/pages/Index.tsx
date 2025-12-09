@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SEO from "@/components/SEO";
@@ -6,8 +6,7 @@ import SectionDivider from "@/components/ui/SectionDivider";
 import LiveChatWidget from "@/components/LiveChatWidget";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ProductsSection from "@/components/ProductsSection";
-import TrustSignals from "@/components/TrustSignals";
-import LoanQuiz from "@/components/LoanQuiz";
+import FinancingSolutions from "@/components/FinancingSolutions";
 import ImageGallery from "@/components/ImageGallery";
 import Footer from "@/components/Footer";
 const Index = () => {
@@ -19,8 +18,7 @@ const Index = () => {
           <HeroSection />
           <SectionDivider variant="corporate" height="sm" />
           <ProductsSection />
-          <LoanQuiz className="bg-white" />
-          <SectionDivider variant="gradient" height="sm" />
+          <FinancingSolutions />
           <ImageGallery />
           <SectionDivider variant="minimal" height="sm" />
         </main>
