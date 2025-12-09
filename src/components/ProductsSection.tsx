@@ -452,7 +452,7 @@ const ProductsSection = () => {
                 <h3 className="text-2xl font-bold mb-4 text-white md:text-2xl">
                   SBA, USDA, Bridge & Conventional Loans
                 </h3>
-                <p className="text-slate-300 leading-relaxed mb-2">Discover our commercial & comprehensive range of loan products. Browse our SBA, Bridge and Conventional financing options tailored to fuel your business growth.</p>
+                <p className="leading-relaxed mb-2 text-white">Discover our commercial & comprehensive range of loan products. Browse our SBA, Bridge and Conventional financing options tailored to fuel your business growth.</p>
                 
               </div>
             </div>
