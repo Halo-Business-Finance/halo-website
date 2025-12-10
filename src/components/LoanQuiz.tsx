@@ -1,8 +1,9 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Building2, Truck, Stethoscope, ShoppingBag, Utensils, Factory, ChevronRight, DollarSign, Clock, CheckCircle2 } from 'lucide-react';
+import { Building2, Truck, Stethoscope, ShoppingBag, Utensils, Factory, ChevronRight, DollarSign, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getPortalApplyUrl } from '@/config/portal';
 const IndustryShowcase = lazy(() => import("@/components/IndustryShowcase"));
 interface LoanType {
   id: string;
@@ -256,9 +257,20 @@ const LoanQuiz = ({ className }: LoanQuizProps) => {
                         <span>Timeline: <strong className="text-foreground">{loan.timeline}</strong></span>
                       </div>
 
-                      <Button asChild className="w-full">
-                        <Link to={loan.link}>Learn More</Link>
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button asChild className="flex-1">
+                          <Link to={loan.link}>Learn More</Link>
+                        </Button>
+                        <Button asChild variant="default" className="flex-1 bg-primary">
+                          <a href={getPortalApplyUrl({
+                            loanType: loan.id,
+                            loanAmount: selectedAmount === 'small' ? '100000' : selectedAmount === 'medium' ? '350000' : selectedAmount === 'large' ? '1000000' : '5000000',
+                            customParams: { industry: selectedIndustry || '' }
+                          })}>
+                            Apply Now <ArrowRight className="h-4 w-4 ml-1" />
+                          </a>
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>)}
               </div>
