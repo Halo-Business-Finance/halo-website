@@ -262,9 +262,9 @@ Deno.serve(async (req) => {
         )
       }
 
-      // Verify password using bcrypt
+      // Verify password using bcrypt (use compareSync to avoid Worker issues in edge functions)
       const bcrypt = await import('https://deno.land/x/bcrypt@v0.4.1/mod.ts')
-      const isPasswordValid = await bcrypt.compare(password, adminCredentials.password_hash)
+      const isPasswordValid = bcrypt.compareSync(password, adminCredentials.password_hash)
 
       if (!isPasswordValid) {
         // Increment failed login attempts
