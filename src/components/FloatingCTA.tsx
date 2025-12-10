@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getPortalApplyUrl } from '@/config/portal';
 
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -63,7 +64,7 @@ const FloatingCTA = () => {
             asChild
             className="glass-button text-white font-semibold px-6 py-2.5 rounded-xl hover:scale-105 transition-all duration-300 animate-glow-pulse whitespace-nowrap"
           >
-            <a href="https://app.halolending.com" className="flex items-center gap-2">
+            <a href={getPortalApplyUrl()} className="flex items-center gap-2">
               Apply Now
               <ArrowRight className="h-4 w-4" />
             </a>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, X } from 'lucide-react';
+import { getPortalApplyUrl } from '@/config/portal';
 
 const StickyMobileCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +43,7 @@ const StickyMobileCTA = () => {
             className="flex-shrink-0 bg-white text-primary hover:bg-white/90 font-semibold"
             asChild
           >
-            <a href="https://app.halolending.com" className="flex items-center gap-1">
+            <a href={getPortalApplyUrl()} className="flex items-center gap-1">
               Apply Now
               <ArrowRight className="h-4 w-4" />
             </a>
