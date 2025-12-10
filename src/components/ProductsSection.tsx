@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Shield, Clock, Award, CheckCircle, ArrowRight, Building, CreditCard, Truck, Factory, Lock, Phone, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
+import { getPortalApplyUrl } from '@/config/portal';
 import LazyImage from "@/components/optimization/LazyImage";
 import ConsultationPopup from "@/components/ConsultationPopup";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -495,9 +496,9 @@ const ProductsSection = () => {
                             </Link>
                           </Button>
                           <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
-                            <Link to={product.applyLink}>
+                            <a href={getPortalApplyUrl(product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}>
                               Apply Now<span className="sr-only"> for {product.title}</span>
-                            </Link>
+                            </a>
                           </Button>
                         </div>
                       </CardContent>
@@ -584,9 +585,9 @@ const ProductsSection = () => {
                       </Link>
                     </Button>
                     <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
-                      <Link to={product.applyLink}>
+                      <a href={getPortalApplyUrl(product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}>
                         Apply Now<span className="sr-only"> for {product.title}</span>
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -627,9 +628,9 @@ const ProductsSection = () => {
                       </Link>
                     </Button>
                     <Button asChild size="sm" className="w-full bg-primary text-white hover:bg-primary/90">
-                      <Link to={product.applyLink}>
+                      <a href={getPortalApplyUrl(product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}>
                         Apply Now<span className="sr-only"> for {product.title}</span>
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -638,7 +639,7 @@ const ProductsSection = () => {
             
              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                 <a href="https://app.halolending.com">
+                 <a href={getPortalApplyUrl()}>
                    Get Pre-Qualified
                    <ArrowRight className="h-5 w-5 ml-2" />
                  </a>

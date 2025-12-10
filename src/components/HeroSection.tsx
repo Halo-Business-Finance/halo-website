@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Shield, Lock, ArrowRight, Calculator, Users, DollarSign, Clock, CheckCircle } from "lucide-react";
 import heroBackground from "@/assets/new-hero-background.jpg";
 import LoanProcessCarousel from "@/components/LoanProcessCarousel";
+import { getPortalApplyUrl } from '@/config/portal';
 const HeroSection = () => {
   const quickStats = [{
     icon: DollarSign,
@@ -59,7 +60,7 @@ const HeroSection = () => {
               animationDelay: '0.3s'
             }}>
                 <Button size="lg" className="group glass-button text-white font-semibold px-8 py-6 rounded-xl hover:scale-105 transition-all duration-300 animate-glow-pulse" asChild>
-                  <a href="https://app.halolending.com" className="flex items-center gap-2">
+                  <a href={getPortalApplyUrl()} className="flex items-center gap-2">
                     Apply Now - Get Pre-Approved
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </a>

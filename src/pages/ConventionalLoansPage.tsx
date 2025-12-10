@@ -4,8 +4,8 @@ import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import { Building, DollarSign, Shield } from "lucide-react";
+import { getPortalApplyUrl, LOAN_TYPES } from '@/config/portal';
 
 const ConventionalLoansPage = () => {
   return (
@@ -28,8 +28,8 @@ const ConventionalLoansPage = () => {
               Traditional commercial real estate financing with competitive rates and flexible terms. Perfect for established businesses looking to purchase or refinance properties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
-               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><Link to="/auth?loan=conventional">Apply Now</Link></Button>
-               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><Link to="/auth?loan=conventional">Get Quote</Link></Button>
+               <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href={getPortalApplyUrl(LOAN_TYPES.CONVENTIONAL)}>Apply Now</a></Button>
+               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild><a href={getPortalApplyUrl(LOAN_TYPES.CONVENTIONAL)}>Get Quote</a></Button>
             </div>
           </div>
         </div>
