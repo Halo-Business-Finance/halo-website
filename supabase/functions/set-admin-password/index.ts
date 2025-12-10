@@ -14,7 +14,8 @@ Deno.serve(async (req) => {
     const { email, password, setupKey } = await req.json()
     
     // Security: Require a setup key to prevent unauthorized access
-    if (setupKey !== 'HALO_ADMIN_SETUP_2025') {
+    const validSetupKey = Deno.env.get('ADMIN_SETUP_KEY')
+    if (!validSetupKey || setupKey !== validSetupKey) {
       console.warn('[Set Admin Password] Invalid setup key attempt')
       return new Response(
         JSON.stringify({ success: false, error: 'Unauthorized' }),
