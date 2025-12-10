@@ -130,7 +130,7 @@ const ContactUsPage = () => {
                     </div>
                     <div className="text-center">
                       <a 
-                        href="https://app.halolending.com/apply" 
+                        href="https://preview--hbf-application.lovable.app/auth" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-secondary text-secondary-foreground px-6 py-2 rounded-md hover:bg-secondary/90 transition-colors"

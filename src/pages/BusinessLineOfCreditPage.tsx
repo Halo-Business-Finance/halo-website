@@ -4,9 +4,9 @@ import SEO from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import { CheckCircle, CreditCard, Repeat, DollarSign } from "lucide-react";
 import businessGrowth from "@/assets/business-growth.jpg";
+import { getPortalApplyUrl, LOAN_TYPES } from '@/config/portal';
 
 const BusinessLineOfCreditPage = () => {
   return (
@@ -32,7 +32,7 @@ const BusinessLineOfCreditPage = () => {
                 Revolving credit facility that provides flexible access to capital when you need it most.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><Link to="/auth?loan=line-of-credit">Apply for Line of Credit</Link></Button>
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100" asChild><a href={getPortalApplyUrl(LOAN_TYPES.LINE_OF_CREDIT)}>Apply for Line of Credit</a></Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">Learn More</Button>
               </div>
             </div>
