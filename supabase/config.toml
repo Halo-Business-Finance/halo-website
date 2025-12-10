@@ -134,3 +134,6 @@ verify_jwt = false  # Called by pg_cron with service role
 
 [functions.geo-block-check]
 verify_jwt = false  # Called internally by admin-auth
+
+[functions.set-admin-password]
+verify_jwt = false  # One-time setup only, protected by setup key
