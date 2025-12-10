@@ -26,13 +26,11 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "react": path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
-    dedupe: ["react", "react-dom"],
+    dedupe: ["react", "react-dom", "react-helmet-async", "react-router-dom"],
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "react-helmet-async", "react-router-dom"],
-    force: true,
+    include: ["react", "react-dom", "react-helmet-async", "react-router-dom", "embla-carousel-react"],
+    exclude: [],
   },
 }));
