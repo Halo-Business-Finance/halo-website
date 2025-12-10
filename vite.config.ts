@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => ({
     dedupe: ["react", "react-dom"],
   },
   optimizeDeps: {
-    include: ["react", "react-dom"],
+    include: ["react", "react-dom", "react-helmet-async", "react-router-dom"],
     force: true,
   },
 }));
