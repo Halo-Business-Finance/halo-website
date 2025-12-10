@@ -208,16 +208,6 @@ const AdminAuth = ({ onLogin }: AdminAuthProps) => {
             </Button>
           </form>
 
-          <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-            <h4 className="text-sm font-medium text-amber-900 mb-2">Test Credentials:</h4>
-            <p className="text-xs text-amber-700 mb-1">
-              Email: admin@halobusinessfinance.com
-            </p>
-            <p className="text-xs text-amber-700">
-              Password: admin123
-            </p>
-          </div>
-
           <div className="mt-4 text-center">
             <p className="text-xs text-gray-500">
               Secure admin access protected by enterprise-grade security
