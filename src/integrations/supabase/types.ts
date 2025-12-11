@@ -545,6 +545,7 @@ export type Database = {
           created_at: string
           id: string
           is_published: boolean
+          is_sensitive: boolean | null
           page_slug: string
           section_name: string
           updated_at: string
@@ -557,6 +558,7 @@ export type Database = {
           created_at?: string
           id?: string
           is_published?: boolean
+          is_sensitive?: boolean | null
           page_slug: string
           section_name: string
           updated_at?: string
@@ -569,6 +571,7 @@ export type Database = {
           created_at?: string
           id?: string
           is_published?: boolean
+          is_sensitive?: boolean | null
           page_slug?: string
           section_name?: string
           updated_at?: string
