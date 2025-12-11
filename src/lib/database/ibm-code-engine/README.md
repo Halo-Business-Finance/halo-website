@@ -1,6 +1,18 @@
 # IBM Code Engine Backend Deployment
 
-This directory contains the backend API code for IBM Code Engine that connects to IBM Cloud PostgreSQL.
+This directory contains the complete backend API for HBF Capital to deploy on IBM Code Engine.
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `schema.sql` | PostgreSQL schema matching Supabase structure - **RUN THIS FIRST** |
+| `api-server.ts` | Core API logic (data handlers, auth, SQL builder) |
+| `server-entry.ts` | Express server entry point |
+| `package.json` | Node.js dependencies |
+| `tsconfig.json` | TypeScript configuration |
+| `Dockerfile` | Container build configuration |
+| `DEPLOYMENT.md` | Step-by-step deployment guide |
 
 ## Architecture
 
@@ -19,34 +31,26 @@ This directory contains the backend API code for IBM Code Engine that connects t
                          └──────────────────┘
 ```
 
-## Deployment Steps
+## Quick Start
 
-### 1. Create a new Node.js project for Code Engine
+### 1. Set Up PostgreSQL Schema
+
+Connect to your IBM Cloud Databases for PostgreSQL and run `schema.sql`:
 
 ```bash
-mkdir hbf-api-backend
-cd hbf-api-backend
-npm init -y
-npm install express pg cors helmet
-npm install -D typescript @types/node @types/express @types/pg @types/cors
+# Download the SSL certificate from IBM Cloud and save as cert.pem
+psql "postgres://USER:PASSWORD@HOST:PORT/ibmclouddb?sslmode=verify-full&sslrootcert=cert.pem" -f schema.sql
 ```
 
-### 2. Copy the server files
+### 2. Deploy to Code Engine
 
-Copy these files to your Code Engine project:
-- `api-server.ts` → `src/api-server.ts`
-- `server-entry.ts` → `src/index.ts`
+Copy all files to a new directory and follow `DEPLOYMENT.md` for detailed steps:
 
-### 3. Create package.json scripts
-
-```json
-{
-  "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts"
-  }
-}
+```bash
+mkdir hbf-api && cd hbf-api
+# Copy: api-server.ts, server-entry.ts, package.json, tsconfig.json, Dockerfile
+npm install
+npm run build
 ```
 
 ### 4. Create tsconfig.json

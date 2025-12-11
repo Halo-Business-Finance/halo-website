@@ -1,0 +1,32 @@
+{
+  "name": "hbf-capital-api",
+  "version": "1.0.0",
+  "description": "HBF Capital API Server for IBM Code Engine",
+  "type": "module",
+  "main": "dist/server-entry.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server-entry.js",
+    "dev": "ts-node --esm server-entry.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.10.0",
+    "@types/pg": "^8.10.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
