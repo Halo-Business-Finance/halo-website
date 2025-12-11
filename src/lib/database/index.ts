@@ -11,18 +11,24 @@ export { IBMDatabaseClient } from './ibm-adapter';
 // Change this when ready to switch to IBM
 const CURRENT_PROVIDER: 'supabase' | 'ibm' = 'supabase';
 
-// IBM Configuration (fill in when provisioned)
+// IBM Configuration
+// Update IBM_CODE_ENGINE_URL after deploying your backend to Code Engine
+const IBM_CODE_ENGINE_URL = import.meta.env.VITE_IBM_CODE_ENGINE_URL || '';
+
 const IBM_CONFIG = {
-  apiEndpoint: '', // Your IBM Code Engine API URL, e.g., 'https://your-app.us-south.codeengine.appdomain.cloud'
+  // Your IBM Code Engine API URL - update this after deployment
+  // Example: 'https://hbf-api.us-south.codeengine.appdomain.cloud'
+  apiEndpoint: IBM_CODE_ENGINE_URL,
   appId: {
-    clientId: '',    // From IBM App ID service credentials
-    tenantId: '',    // From IBM App ID service credentials
-    region: 'us-south', // Your IBM Cloud region
+    clientId: 'c6f6bb37-307f-4470-a1a3-171c80003e91',
+    tenantId: '5c040bb9-a961-4395-aaba-2b2f1bd0bc8e',
+    region: 'us-south',
   },
   storage: {
-    endpoint: '',           // e.g., 'https://s3.us-south.cloud-object-storage.appdomain.cloud'
-    apiKey: '',             // IBM Cloud API key
-    serviceInstanceId: '',  // IBM COS service instance ID
+    // IBM Cloud Object Storage (provision if needed)
+    endpoint: 'https://s3.us-south.cloud-object-storage.appdomain.cloud',
+    apiKey: '', // Add when COS is provisioned
+    serviceInstanceId: '',
   },
 };
 
