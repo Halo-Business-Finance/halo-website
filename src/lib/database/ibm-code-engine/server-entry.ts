@@ -28,7 +28,7 @@ import 'dotenv/config';
  * - IBM_APPID_SECRET=(your App ID secret)
  * - IBM_APPID_TENANT_ID=5c040bb9-a961-4395-aaba-2b2f1bd0bc8e
  * - IBM_APPID_OAUTH_URL=https://us-south.appid.cloud.ibm.com/oauth/v4/5c040bb9-a961-4395-aaba-2b2f1bd0bc8e
- * - ALLOWED_ORIGINS=https://hbfcapital.com,https://www.hbfcapital.com
+ * - ALLOWED_ORIGINS=https://halobusinessfinance.com,https://www.halobusinessfinance.com
  * - PORT=8080
  */
 
@@ -92,7 +92,7 @@ app.use(helmet({
       scriptSrc: ["'self'"],
       styleSrc: ["'self'", "'unsafe-inline'"],
       imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'", "https://*.hbfcapital.com"],
+      connectSrc: ["'self'", "https://*.halobusinessfinance.com"],
     },
   },
   crossOriginResourcePolicy: { policy: 'cross-origin' },
@@ -180,7 +180,7 @@ app.get('/health', async (req: Request, res: Response) => {
 // API info endpoint
 app.get('/api', (req: Request, res: Response) => {
   res.json({
-    name: 'HBF API',
+    name: 'Halo API',
     version: '1.0.0',
     endpoints: {
       health: 'GET /health',
@@ -262,7 +262,7 @@ process.on('SIGINT', async () => {
 // Start server
 app.listen(PORT, () => {
   console.log('');
-  console.log('🚀 HBF API Server');
+  console.log('🚀 Halo API Server');
   console.log('========================');
   console.log(`   Port: ${PORT}`);
   console.log(`   PostgreSQL: ${process.env.IBM_POSTGRES_VPE_HOST ? 'VPE (Private)' : process.env.IBM_POSTGRES_HOST || 'Not configured'}`);
