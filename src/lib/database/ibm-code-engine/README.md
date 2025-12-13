@@ -1,6 +1,6 @@
 # IBM Code Engine Backend Deployment
 
-This directory contains the complete backend API for HBF Capital to deploy on IBM Code Engine.
+This directory contains the complete backend API for HBF to deploy on IBM Code Engine.
 
 ## Files
 

@@ -1,5 +1,5 @@
 {
-  "name": "hbf-capital-api",
+  "name": "hbf-api",
   "version": "1.0.0",
   "description": "HBF Capital API Server for IBM Code Engine",
   "type": "module",
