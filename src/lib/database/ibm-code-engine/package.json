@@ -1,7 +1,7 @@
 {
-  "name": "hbf-api",
+  "name": "halo-api",
   "version": "1.0.0",
-  "description": "HBF Capital API Server for IBM Code Engine",
+  "description": "Halo Business Finance API Server for IBM Code Engine",
   "type": "module",
   "main": "dist/server-entry.js",
   "scripts": {

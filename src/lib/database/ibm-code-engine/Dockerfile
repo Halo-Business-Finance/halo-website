@@ -1,4 +1,4 @@
-# IBM Code Engine Dockerfile for HBF Capital API
+# IBM Code Engine Dockerfile for Halo Business Finance API
 FROM node:20-alpine
 
 # Set working directory

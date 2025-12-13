@@ -1,6 +1,6 @@
 # IBM Code Engine Backend Deployment
 
-This directory contains the complete backend API for HBF to deploy on IBM Code Engine.
+This directory contains the complete backend API for Halo Business Finance to deploy on IBM Code Engine.
 
 ## Files
 
@@ -47,7 +47,7 @@ psql "postgres://USER:PASSWORD@HOST:PORT/ibmclouddb?sslmode=verify-full&sslrootc
 Copy all files to a new directory and follow `DEPLOYMENT.md` for detailed steps:
 
 ```bash
-mkdir hbf-api && cd hbf-api
+mkdir halo-api && cd halo-api
 # Copy: api-server.ts, server-entry.ts, package.json, tsconfig.json, Dockerfile
 npm install
 npm run build
@@ -100,15 +100,15 @@ ibmcloud login
 ibmcloud target -g Default
 
 # Create Code Engine project (if not exists)
-ibmcloud ce project create --name hbf-website-api
+ibmcloud ce project create --name halo-website-api
 
 # Select the project
-ibmcloud ce project select --name hbf-website-api
+ibmcloud ce project select --name halo-website-api
 
 # Build and deploy
 npm run build
-ibmcloud ce app create --name hbf-api \
-  --image icr.io/your-namespace/hbf-api:latest \
+ibmcloud ce app create --name halo-api \
+  --image icr.io/your-namespace/halo-api:latest \
   --port 8080 \
   --min-scale 1 \
   --max-scale 10
@@ -117,7 +117,7 @@ ibmcloud ce app create --name hbf-api \
 ### 7. Set Environment Variables
 
 ```bash
-ibmcloud ce app update --name hbf-api \
+ibmcloud ce app update --name halo-api \
   --env IBM_POSTGRES_HOST=f98291ee-16da-4c32-9fac-2136f5c9d209.c5km1ted03t0e8geevf0.databases.appdomain.cloud \
   --env IBM_POSTGRES_PORT=30639 \
   --env IBM_POSTGRES_DATABASE=ibmclouddb \
@@ -142,7 +142,7 @@ Setting up VPE allows private network communication between Code Engine and Post
 1. Go to IBM Cloud Console → VPC Infrastructure → VPCs
 2. Click "Create"
 3. Configure:
-   - Name: `hbf-vpc`
+   - Name: `halo-vpc`
    - Region: `us-south` (same as your PostgreSQL)
    - Resource group: Your resource group
 4. Create default address prefixes and subnets
@@ -152,8 +152,8 @@ Setting up VPE allows private network communication between Code Engine and Post
 1. Go to VPC Infrastructure → Virtual private endpoint gateways
 2. Click "Create"
 3. Configure:
-   - Name: `hbf-postgres-vpe`
-   - VPC: `hbf-vpc`
+   - Name: `halo-postgres-vpe`
+   - VPC: `halo-vpc`
    - Resource group: Your resource group
 
 ### Step 3: Add Endpoint Target
@@ -176,12 +176,12 @@ f98291ee-16da-4c32-9fac-2136f5c9d209.private.databases.appdomain.cloud
 1. Go to your Code Engine project
 2. Navigate to "Domain mappings" or networking settings
 3. Enable VPC connectivity
-4. Select `hbf-vpc`
+4. Select `halo-vpc`
 
 ### Step 6: Update Environment Variable
 
 ```bash
-ibmcloud ce app update --name hbf-api \
+ibmcloud ce app update --name halo-api \
   --env IBM_POSTGRES_VPE_HOST=f98291ee-16da-4c32-9fac-2136f5c9d209.private.databases.appdomain.cloud
 ```
 
