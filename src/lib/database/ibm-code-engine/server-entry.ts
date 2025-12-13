@@ -41,7 +41,7 @@ import {
   handleDataRequest,
   handleRpcRequest,
   ApiRequest,
-} from './api-server';
+} from './api-server.js';
 
 // Extend Express Request type
 declare global {
