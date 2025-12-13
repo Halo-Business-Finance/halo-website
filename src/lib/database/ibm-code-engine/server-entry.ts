@@ -178,7 +178,7 @@ app.get('/health', async (req: Request, res: Response) => {
 // API info endpoint
 app.get('/api', (req: Request, res: Response) => {
   res.json({
-    name: 'HBF Capital API',
+    name: 'HBF API',
     version: '1.0.0',
     endpoints: {
       health: 'GET /health',
@@ -260,7 +260,7 @@ process.on('SIGINT', async () => {
 // Start server
 app.listen(PORT, () => {
   console.log('');
-  console.log('🚀 HBF Capital API Server');
+  console.log('🚀 HBF API Server');
   console.log('========================');
   console.log(`   Port: ${PORT}`);
   console.log(`   PostgreSQL: ${process.env.IBM_POSTGRES_VPE_HOST ? 'VPE (Private)' : process.env.IBM_POSTGRES_HOST || 'Not configured'}`);
