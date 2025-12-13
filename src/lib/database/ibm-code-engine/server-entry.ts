@@ -1,4 +1,6 @@
 // @ts-nocheck
+import 'dotenv/config';
+
 /**
  * IBM Code Engine Server Entry Point
  * 
