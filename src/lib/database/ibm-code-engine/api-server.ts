@@ -88,10 +88,16 @@ export function getPostgresConfig(): PoolConfig {
   };
 
   // SSL configuration for IBM Cloud
+  // Check for SSL_CERT first (full verification), then fall back to SSL flag (no cert verification)
   if (process.env.IBM_POSTGRES_SSL_CERT) {
     config.ssl = {
       rejectUnauthorized: true,
       ca: Buffer.from(process.env.IBM_POSTGRES_SSL_CERT, 'base64').toString('utf-8'),
+    };
+  } else if (process.env.IBM_POSTGRES_SSL === 'true') {
+    // VPE connections - SSL enabled but skip cert verification since we're on private network
+    config.ssl = {
+      rejectUnauthorized: false,
     };
   }
 
