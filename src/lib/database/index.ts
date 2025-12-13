@@ -11,9 +11,8 @@ export { IBMDatabaseClient } from './ibm-adapter';
 // Change this when ready to switch to IBM
 const CURRENT_PROVIDER: 'supabase' | 'ibm' = 'supabase';
 
-// IBM Configuration
-// Update IBM_CODE_ENGINE_URL after deploying your backend to Code Engine
-const IBM_CODE_ENGINE_URL = import.meta.env.VITE_IBM_CODE_ENGINE_URL || '';
+// IBM Configuration - Code Engine API URL
+const IBM_CODE_ENGINE_URL = 'https://halo-api.23oqh4gja5d5.us-south.codeengine.appdomain.cloud';
 
 const IBM_CONFIG = {
   // Your IBM Code Engine API URL - update this after deployment
