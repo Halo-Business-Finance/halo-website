@@ -2,7 +2,7 @@
 /**
  * IBM Code Engine API Server
  * 
- * Complete API server for HBF Capital - Deploy to IBM Code Engine
+ * Complete API server for HBF - Deploy to IBM Code Engine
  * 
  * DEPLOYMENT INSTRUCTIONS:
  * 1. Create a new directory for your Code Engine project
